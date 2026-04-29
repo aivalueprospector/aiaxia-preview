@@ -1,15 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="aiaxia">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <title>AiAxia onboarding preview</title>
+    <script src="preview-theme.js"></script>
     <link rel="stylesheet" href="../css/app.css">
     <style>
         body { padding: 80px 32px; max-width: 720px; margin: 0 auto; }
         h1 { font-family: var(--font-serif); font-weight: 400; font-size: 2rem; margin: 0 0 24px; }
-        ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px; }
-        li a {
+        ul.screen-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px; }
+        ul.screen-list li a {
             display: block;
             padding: 16px 20px;
             border: 1px solid var(--color-margin);
@@ -19,11 +20,50 @@
             font-weight: 500;
             transition: background 180ms ease, border-color 180ms ease;
         }
-        li a:hover {
+        ul.screen-list li a:hover {
             background: var(--color-parchment);
             border-color: var(--color-ink-soft);
         }
         p.t-helper { margin-bottom: 32px; }
+
+        .theme-picker {
+            margin: 0 0 40px;
+            padding: 20px 24px;
+            border: 1px solid var(--color-margin);
+            border-radius: var(--radius-lg);
+            background: var(--color-field-cream);
+        }
+        .theme-picker-label {
+            font-size: var(--size-label);
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            color: var(--color-ink-soft);
+            margin: 0 0 12px;
+        }
+        .theme-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .theme-option {
+            font-family: inherit;
+            font-size: var(--size-body);
+            font-weight: 500;
+            padding: 10px 18px;
+            border: 1px solid var(--color-margin);
+            border-radius: var(--radius-md);
+            background: var(--color-parchment);
+            color: var(--color-ink-soft);
+            cursor: pointer;
+            transition: border-color 180ms ease, color 180ms ease, background 180ms ease;
+        }
+        .theme-option:hover { border-color: var(--color-ink-soft); color: var(--color-ink); }
+        .theme-option[aria-pressed="true"] {
+            background: var(--color-accent);
+            color: var(--color-parchment);
+            border-color: var(--color-accent);
+        }
+        .theme-note { margin: 12px 0 0; font-size: var(--size-tiny); color: var(--color-whisper); }
     </style>
 </head>
 <body>
@@ -31,12 +71,66 @@
     <p class="t-helper">
         Static HTML mirror of the live Blade flow, with sample data baked in. Use with /impeccable live for visual iteration.
     </p>
-    <ul>
+
+    <section class="theme-picker" aria-labelledby="theme-picker-label">
+        <p class="theme-picker-label" id="theme-picker-label">Preview as tenant</p>
+        <div class="theme-options" id="theme-options"></div>
+        <p class="theme-note">
+            Runtime theme swap by host (production resolver in <code>App\Http\Middleware\ResolveTenant</code>).
+            EduAsiste / ProAsiste palettes are placeholders pending real brand spec.
+        </p>
+    </section>
+
+    <ul class="screen-list">
         <li><a href="welcome.html">1. Welcome</a></li>
         <li><a href="company.html">2. Company</a></li>
         <li><a href="intent.html">3. Intent</a></li>
         <li><a href="upload.html">4. Upload</a></li>
         <li><a href="complete.html">5. Complete</a></li>
     </ul>
+
+    <script>
+    (function () {
+        var THEMES = [
+            { slug: 'aiaxia',    label: 'AiAxia' },
+            { slug: 'eduasiste', label: 'EduAsiste' },
+            { slug: 'proasiste', label: 'ProAsiste' }
+        ];
+        var current = (function () {
+            var p = new URLSearchParams(window.location.search).get('theme');
+            if (p) return p;
+            try { return localStorage.getItem('aiaxiaTheme') || 'aiaxia'; }
+            catch (e) { return 'aiaxia'; }
+        })();
+        var box = document.getElementById('theme-options');
+        THEMES.forEach(function (t) {
+            var b = document.createElement('button');
+            b.type = 'button';
+            b.className = 'theme-option';
+            b.dataset.theme = t.slug;
+            b.textContent = t.label;
+            if (t.slug === current) b.setAttribute('aria-pressed', 'true');
+            b.addEventListener('click', function () {
+                document.documentElement.dataset.theme = t.slug;
+                try { localStorage.setItem('aiaxiaTheme', t.slug); } catch (e) {}
+                document.querySelectorAll('.theme-option').forEach(function (x) {
+                    x.removeAttribute('aria-pressed');
+                });
+                b.setAttribute('aria-pressed', 'true');
+                document.querySelectorAll('.screen-list a[href]').forEach(function (a) {
+                    var u = new URL(a.getAttribute('href'), window.location.href);
+                    u.searchParams.set('theme', t.slug);
+                    a.href = u.pathname.split('/').pop() + u.search;
+                });
+            });
+            box.appendChild(b);
+        });
+        document.querySelectorAll('.screen-list a[href]').forEach(function (a) {
+            var u = new URL(a.getAttribute('href'), window.location.href);
+            if (!u.searchParams.has('theme')) u.searchParams.set('theme', current);
+            a.href = u.pathname.split('/').pop() + u.search;
+        });
+    })();
+    </script>
 </body>
 </html>

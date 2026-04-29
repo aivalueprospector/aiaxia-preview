@@ -1,27 +1,18 @@
 /* ============================================================
    AiAxia design system, v1
    Tokens + base typography + onboarding surface styles.
+
+   Theming: brand tokens (color + font) live in :root[data-theme="<slug>"]
+   blocks below. Structural tokens (size, space, radius, motion) stay in
+   :root and are shared by every tenant. The tenant slug is set on <html>
+   by the ResolveTenant middleware (server) or the theme switcher script
+   (static preview).
    ============================================================ */
 
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,500;1,8..60,400&display=swap");
 
+/* Structural tokens — shared by all tenants */
 :root {
-  --color-accent: oklch(58% 0.10 130);
-  --color-accent-deep: oklch(45% 0.12 130);
-  --color-accent-soft: oklch(92% 0.05 130);
-  --color-ink: oklch(22% 0.01 130);
-  --color-ink-soft: oklch(35% 0.008 130);
-  --color-whisper: oklch(55% 0.005 130);
-  --color-parchment: oklch(98% 0.005 95);
-  --color-field-cream: oklch(96% 0.008 95);
-  --color-margin: oklch(88% 0.01 130);
-  --color-margin-soft: oklch(93% 0.008 130);
-  --color-danger: oklch(48% 0.16 25);
-  --color-danger-soft: oklch(94% 0.04 25);
-
-  --font-serif: "Source Serif 4", Georgia, "Times New Roman", serif;
-  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
-
   --size-display: clamp(2.25rem, 4.4vw, 3.25rem);
   --size-headline: clamp(1.625rem, 2.8vw, 2.125rem);
   --size-title: 1.25rem;
@@ -49,9 +40,72 @@
   --space-9: 80px;
   --space-10: 96px;
 
-  --shadow-modal: 0 12px 40px -12px oklch(20% 0.02 130 / 0.18);
   --transition-quart: 250ms cubic-bezier(0.5, 1, 0.89, 1);
   --transition-soft: 180ms cubic-bezier(0.5, 1, 0.89, 1);
+
+  --color-danger: oklch(48% 0.16 25);
+  --color-danger-soft: oklch(94% 0.04 25);
+}
+
+/* Default theme = AiAxia. Applied when no [data-theme] is set so the page
+   never flashes unstyled if middleware fails. */
+:root,
+:root[data-theme="aiaxia"] {
+  --color-accent: oklch(58% 0.10 130);
+  --color-accent-deep: oklch(45% 0.12 130);
+  --color-accent-soft: oklch(92% 0.05 130);
+  --color-ink: oklch(22% 0.01 130);
+  --color-ink-soft: oklch(35% 0.008 130);
+  --color-whisper: oklch(55% 0.005 130);
+  --color-parchment: oklch(98% 0.005 95);
+  --color-field-cream: oklch(96% 0.008 95);
+  --color-margin: oklch(88% 0.01 130);
+  --color-margin-soft: oklch(93% 0.008 130);
+
+  --font-serif: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+
+  --shadow-modal: 0 12px 40px -12px oklch(20% 0.02 130 / 0.18);
+}
+
+/* EduAsiste — warm, educational. Placeholder palette; replace once brand
+   spec lands. Uses system font stacks for now (no extra font payload). */
+:root[data-theme="eduasiste"] {
+  --color-accent: oklch(62% 0.14 50);
+  --color-accent-deep: oklch(50% 0.16 50);
+  --color-accent-soft: oklch(94% 0.05 60);
+  --color-ink: oklch(22% 0.01 250);
+  --color-ink-soft: oklch(36% 0.008 250);
+  --color-whisper: oklch(56% 0.005 250);
+  --color-parchment: oklch(98% 0.006 80);
+  --color-field-cream: oklch(96% 0.012 70);
+  --color-margin: oklch(88% 0.012 250);
+  --color-margin-soft: oklch(93% 0.008 250);
+
+  --font-serif: Georgia, "Times New Roman", serif;
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, Roboto, sans-serif;
+
+  --shadow-modal: 0 12px 40px -12px oklch(22% 0.02 250 / 0.20);
+}
+
+/* ProAsiste — professional, calmer blue. Placeholder palette; replace once
+   brand spec lands. */
+:root[data-theme="proasiste"] {
+  --color-accent: oklch(52% 0.12 230);
+  --color-accent-deep: oklch(40% 0.14 230);
+  --color-accent-soft: oklch(94% 0.04 230);
+  --color-ink: oklch(20% 0.01 250);
+  --color-ink-soft: oklch(34% 0.008 250);
+  --color-whisper: oklch(54% 0.005 250);
+  --color-parchment: oklch(99% 0.003 250);
+  --color-field-cream: oklch(97% 0.005 250);
+  --color-margin: oklch(90% 0.008 250);
+  --color-margin-soft: oklch(94% 0.005 250);
+
+  --font-serif: "Times New Roman", Georgia, serif;
+  --font-sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+  --shadow-modal: 0 12px 40px -12px oklch(20% 0.02 250 / 0.18);
 }
 
 /* Reset */
@@ -173,6 +227,46 @@ img {
   letter-spacing: 0;
   color: var(--color-ink);
   font-style: italic;
+}
+
+.ob-logo {
+  height: 28px;
+  width: auto;
+  display: block;
+}
+
+/* Static-preview theme switcher (not used in production Laravel) */
+.ob-theme-switcher {
+  display: inline-flex;
+  gap: 4px;
+  padding: 4px;
+  border: 1px solid var(--color-margin);
+  border-radius: 999px;
+  background: var(--color-field-cream);
+}
+
+.ob-theme-switcher button {
+  font-family: inherit;
+  font-size: var(--size-tiny);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  padding: 4px 12px;
+  border: none;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--color-whisper);
+  cursor: pointer;
+  transition: background var(--transition-soft), color var(--transition-soft);
+}
+
+.ob-theme-switcher button:hover {
+  color: var(--color-ink);
+}
+
+.ob-theme-switcher button[aria-pressed="true"] {
+  background: var(--color-parchment);
+  color: var(--color-ink);
+  box-shadow: 0 1px 2px oklch(20% 0 0 / 0.06);
 }
 
 .ob-progress {
