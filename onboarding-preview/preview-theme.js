@@ -7,7 +7,7 @@
   var THEMES = {
     aiaxia:    { wordmark: 'AiAxia',    style: 'italic', weight: 500, title: 'AiAxia',    logo: null },
     eduasiste: { wordmark: 'EduAsiste', style: 'normal', weight: 700, title: 'EduAsiste', logo: 'https://eduasiste.org/chat/v3/avatar_eduardo_owl.png' },
-    proasiste: { wordmark: 'ProAsiste', style: 'normal', weight: 500, title: 'ProAsiste', logo: 'https://ctwin.ai/chat/v3/favicon.svg' }
+    proasiste: { wordmark: 'ProAsiste', style: 'normal', weight: 500, title: 'ProAsiste', logo: null }
   };
   var STORAGE_KEY = 'aiaxiaTheme';
 

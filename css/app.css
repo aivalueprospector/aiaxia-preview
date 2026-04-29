@@ -123,27 +123,25 @@
   border-radius: 14px;
 }
 
-/* ProAsiste — extracted from the TwinCloud chat shell (ctwin.ai, April
-   2026). Source palette: --accent #aa3bff, --text #6b6375, --text-h
-   #08060d, --bg #fff, --border #e5e4e7, accent-bg rgba(170,59,255,0.1).
-   Favicon decorative deep purple #7e14ff is mapped to accent-deep.
-   Typography: system-ui only; H1 weight 500 with -0.03em tracking. */
+/* ProAsiste — warm brown identity. Type/structure derived from the
+   TwinCloud chat shell (ctwin.ai); palette overridden to a leather-and-
+   parchment register: caramel accent, espresso depth, tan neutrals. */
 :root[data-theme="proasiste"] {
-  --color-accent: oklch(58% 0.27 303);          /* #aa3bff */
-  --color-accent-deep: oklch(46% 0.30 295);     /* #7e14ff */
-  --color-accent-soft: oklch(94% 0.05 305);     /* rgba accent over white */
-  --color-ink: oklch(13% 0.013 290);            /* #08060d */
-  --color-ink-soft: oklch(48% 0.018 305);       /* #6b6375 */
-  --color-whisper: oklch(62% 0.013 305);
-  --color-parchment: oklch(99% 0.002 305);      /* near-white tinted */
-  --color-field-cream: oklch(98% 0.005 305);
-  --color-margin: oklch(91% 0.006 295);         /* #e5e4e7 */
-  --color-margin-soft: oklch(94% 0.004 295);
+  --color-accent: oklch(52% 0.11 55);           /* warm caramel */
+  --color-accent-deep: oklch(30% 0.06 50);      /* espresso */
+  --color-accent-soft: oklch(94% 0.04 75);      /* pale tan */
+  --color-ink: oklch(22% 0.025 55);             /* dark coffee */
+  --color-ink-soft: oklch(46% 0.025 55);        /* medium brown */
+  --color-whisper: oklch(60% 0.015 60);
+  --color-parchment: oklch(98% 0.008 80);       /* cream paper */
+  --color-field-cream: oklch(96% 0.014 75);     /* warmer cream */
+  --color-margin: oklch(89% 0.015 60);
+  --color-margin-soft: oklch(94% 0.010 60);
 
   --font-serif: system-ui, "Segoe UI", Roboto, sans-serif;
   --font-sans: system-ui, "Segoe UI", Roboto, sans-serif;
 
-  --shadow-modal: 0 10px 15px -3px oklch(13% 0.01 290 / 0.10), 0 4px 6px -2px oklch(13% 0.01 290 / 0.05);
+  --shadow-modal: 0 10px 15px -3px oklch(22% 0.02 55 / 0.10), 0 4px 6px -2px oklch(22% 0.02 55 / 0.05);
 }
 
 /* ProAsiste: H1 weight 500 + tight tracking, source headings are
