@@ -9,6 +9,18 @@
     eduasiste: { wordmark: 'EduAsiste', style: 'normal', weight: 700, title: 'EduAsiste', logo: 'https://eduasiste.org/chat/v3/avatar_eduardo_owl.png' },
     proasiste: { wordmark: 'ProAsiste', style: 'normal', weight: 500, title: 'ProAsiste', logo: null }
   };
+
+  // Per-tenant copy overrides. Mirrors config/tenants.php "copy" arrays.
+  // Keys must match data-tenant-copy attributes in the HTML.
+  var COPY = {
+    aiaxia:    {},
+    eduasiste: {
+      'company.name_label': 'School name',
+      'upload.subhead':     'Course materials, lesson plans, prior assessments, sample student work. PDF, DOCX, TXT, images. Up to 10 files.'
+    },
+    proasiste: {}
+  };
+
   var STORAGE_KEY = 'aiaxiaTheme';
 
   function readTheme() {
@@ -58,6 +70,17 @@
 
     // Title
     document.title = t.title;
+
+    // Per-tenant copy swaps (data-tenant-copy="key.subkey")
+    var overrides = COPY[theme] || {};
+    document.querySelectorAll('[data-tenant-copy]').forEach(function (el) {
+      var key = el.dataset.tenantCopy;
+      if (!('tenantCopyDefault' in el.dataset)) {
+        el.dataset.tenantCopyDefault = el.textContent.trim();
+      }
+      var override = overrides[key];
+      el.textContent = (override != null) ? override : el.dataset.tenantCopyDefault;
+    });
 
     // Propagate ?theme= to in-page links
     document.querySelectorAll('a[href]').forEach(function (a) {
