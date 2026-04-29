@@ -9,7 +9,7 @@
    (static preview).
    ============================================================ */
 
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,500;1,8..60,400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,500;1,8..60,400&display=swap");
 
 /* Structural tokens — shared by all tenants */
 :root {
@@ -68,24 +68,59 @@
   --shadow-modal: 0 12px 40px -12px oklch(20% 0.02 130 / 0.18);
 }
 
-/* EduAsiste — warm, educational. Placeholder palette; replace once brand
-   spec lands. Uses system font stacks for now (no extra font payload). */
+/* EduAsiste — extracted from https://eduasiste.org/ (April 2026).
+   Source palette: --accent #0077B6, --accent-dark #03045E, --accent-light
+   #DBEBFF, page #f8fafc, card #ffffff, text #1e293b, muted #475569, border
+   #e2e8f0. Inter-only typography (weights 400-800); no serif lane. */
 :root[data-theme="eduasiste"] {
-  --color-accent: oklch(62% 0.14 50);
-  --color-accent-deep: oklch(50% 0.16 50);
-  --color-accent-soft: oklch(94% 0.05 60);
-  --color-ink: oklch(22% 0.01 250);
-  --color-ink-soft: oklch(36% 0.008 250);
-  --color-whisper: oklch(56% 0.005 250);
-  --color-parchment: oklch(98% 0.006 80);
-  --color-field-cream: oklch(96% 0.012 70);
-  --color-margin: oklch(88% 0.012 250);
-  --color-margin-soft: oklch(93% 0.008 250);
+  --color-accent: oklch(53% 0.135 235);        /* #0077B6 */
+  --color-accent-deep: oklch(20% 0.16 275);    /* #03045E */
+  --color-accent-soft: oklch(94% 0.034 245);   /* #DBEBFF */
+  --color-ink: oklch(28% 0.04 257);            /* #1e293b */
+  --color-ink-soft: oklch(46% 0.04 257);       /* #475569 */
+  --color-whisper: oklch(58% 0.025 257);
+  --color-parchment: oklch(98.4% 0.003 247);   /* #f8fafc */
+  --color-field-cream: oklch(99.5% 0.002 247); /* near-white card surface */
+  --color-margin: oklch(91% 0.013 248);        /* #e2e8f0 */
+  --color-margin-soft: oklch(95% 0.008 248);
 
-  --font-serif: Georgia, "Times New Roman", serif;
-  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, Roboto, sans-serif;
+  --font-serif: "Inter", -apple-system, system-ui, sans-serif;
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
 
-  --shadow-modal: 0 12px 40px -12px oklch(22% 0.02 250 / 0.20);
+  --shadow-modal: 0 12px 40px -12px oklch(28% 0.04 257 / 0.18);
+}
+
+/* EduAsiste: heavier display weight, tighter letter-spacing — eduasiste.org
+   carries weight 800 with -0.03em on hero h1; we mirror it on .ob-leadin
+   without changing structure. */
+:root[data-theme="eduasiste"] .ob-leadin,
+:root[data-theme="eduasiste"] .t-display {
+  font-family: var(--font-sans);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--color-accent-deep);
+}
+
+:root[data-theme="eduasiste"] .ob-headline,
+:root[data-theme="eduasiste"] .t-headline {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  color: var(--color-accent-deep);
+}
+
+:root[data-theme="eduasiste"] .ob-btn--primary {
+  border-radius: 10px;
+  font-weight: 700;
+}
+
+:root[data-theme="eduasiste"] .ob-input,
+:root[data-theme="eduasiste"] .ob-textarea {
+  border-radius: 8px;
+}
+
+:root[data-theme="eduasiste"] .ob-drop,
+:root[data-theme="eduasiste"] .ob-complete-summary {
+  border-radius: 14px;
 }
 
 /* ProAsiste — professional, calmer blue. Placeholder palette; replace once
@@ -229,10 +264,20 @@ img {
   font-style: italic;
 }
 
+.ob-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
 .ob-logo {
-  height: 28px;
+  height: 32px;
   width: auto;
   display: block;
+}
+
+.ob-logo[hidden] {
+  display: none;
 }
 
 /* Static-preview theme switcher (not used in production Laravel) */

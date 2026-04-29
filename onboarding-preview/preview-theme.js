@@ -1,13 +1,13 @@
 /* Static-preview theme bootstrap. Reads ?theme= or localStorage, applies
-   data-theme on <html>, swaps wordmark/title, propagates ?theme to in-page
-   links, mounts a small theme switcher into the topbar. Production Laravel
-   does this server-side via App\Http\Middleware\ResolveTenant — this file
-   only exists for the public static-HTML preview. */
+   data-theme on <html>, swaps wordmark/logo/title, propagates ?theme= to
+   in-page links, mounts a small theme switcher into the topbar. Production
+   Laravel does this server-side via App\Http\Middleware\ResolveTenant —
+   this file only exists for the public static-HTML preview. */
 (function () {
   var THEMES = {
-    aiaxia:    { wordmark: 'AiAxia',    style: 'italic', title: 'AiAxia' },
-    eduasiste: { wordmark: 'EduAsiste', style: 'normal', title: 'EduAsiste' },
-    proasiste: { wordmark: 'ProAsiste', style: 'normal', title: 'ProAsiste' }
+    aiaxia:    { wordmark: 'AiAxia',    style: 'italic', weight: 500, title: 'AiAxia',    logo: null },
+    eduasiste: { wordmark: 'EduAsiste', style: 'normal', weight: 700, title: 'EduAsiste', logo: 'https://eduasiste.org/chat/v3/avatar_eduardo_owl.png' },
+    proasiste: { wordmark: 'ProAsiste', style: 'normal', weight: 600, title: 'ProAsiste', logo: null }
   };
   var STORAGE_KEY = 'aiaxiaTheme';
 
@@ -40,6 +40,20 @@
     if (wm) {
       wm.textContent = t.wordmark;
       wm.style.fontStyle = t.style;
+      wm.style.fontWeight = t.weight;
+    }
+
+    // Logo
+    var logo = document.querySelector('.ob-logo');
+    if (logo) {
+      if (t.logo) {
+        logo.src = t.logo;
+        logo.alt = '';
+        logo.hidden = false;
+      } else {
+        logo.removeAttribute('src');
+        logo.hidden = true;
+      }
     }
 
     // Title
@@ -52,7 +66,6 @@
         if (u.origin !== window.location.origin) return;
         if (u.searchParams.has('theme')) return;
         u.searchParams.set('theme', theme);
-        // Rewrite as relative path + query when same-origin to keep links portable
         a.href = u.pathname + u.search + u.hash;
       } catch (e) {}
     });
@@ -80,7 +93,6 @@
       wrap.appendChild(btn);
     });
 
-    // Insert before the progress span so layout becomes wordmark | switcher | progress
     var progress = bar.querySelector('.ob-progress');
     if (progress) bar.insertBefore(wrap, progress);
     else bar.appendChild(wrap);
