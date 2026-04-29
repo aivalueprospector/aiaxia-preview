@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>AiAxia</title>
+    <link rel="stylesheet" href="../css/app.css">
+</head>
+<body>
+<div class="ob-shell">
+    <header class="ob-topbar">
+        <span class="ob-wordmark">AiAxia</span>
+        <span class="ob-progress" aria-label="Step 3 of 3">3 / 3</span>
+    </header>
+
+    <main class="ob-stage">
+        <section class="ob-content" aria-labelledby="upload-headline" id="ob-upload">
+            <h1 class="ob-leadin" id="upload-headline">
+                Anything you'd like the twin to read?
+            </h1>
+
+            <p class="ob-subhead">
+                Business plans, customer research, prior strategy work. PDF, DOCX, TXT, images. Up to 10 files.
+            </p>
+
+            <div class="ob-drop" id="ob-drop">
+                <span class="ob-drop-prompt">Drop files here</span>
+                <span class="ob-drop-or">or</span>
+                <span class="ob-drop-browse" id="ob-drop-browse">Browse</span>
+                <input type="file" id="ob-file-input" multiple accept=".pdf,.doc,.docx,.txt,.md,.png,.jpg,.jpeg,.webp" aria-label="Add files">
+            </div>
+
+            <ul class="ob-files" id="ob-files" aria-live="polite">
+                <li class="ob-file" data-id="1">
+                    <span class="ob-file-meta">
+                        <span class="ob-file-name">Acme-business-plan.pdf</span>
+                        <span class="ob-file-size">124 KB</span>
+                    </span>
+                    <button type="button" class="ob-file-remove" data-action="remove">Remove</button>
+                </li>
+                <li class="ob-file" data-id="2">
+                    <span class="ob-file-meta">
+                        <span class="ob-file-name">Q3-customer-survey.pdf</span>
+                        <span class="ob-file-size">89 KB</span>
+                    </span>
+                    <button type="button" class="ob-file-remove" data-action="remove">Remove</button>
+                </li>
+                <li class="ob-file" data-id="3">
+                    <span class="ob-file-meta">
+                        <span class="ob-file-name">positioning-2025.docx</span>
+                        <span class="ob-file-size">42 KB</span>
+                    </span>
+                    <button type="button" class="ob-file-remove" data-action="remove">Remove</button>
+                </li>
+            </ul>
+
+            <form action="complete.html" method="get" class="ob-actions" style="margin-top: var(--space-7);">
+                <button type="submit" class="ob-btn ob-btn--primary">
+                    Continue
+                    <span class="ob-btn-arrow" aria-hidden="true">&rarr;</span>
+                </button>
+            </form>
+
+            <div class="ob-skip-row">
+                <button type="button" class="ob-skip-link" id="ob-skip-toggle" aria-expanded="false" aria-controls="ob-skip-popover">
+                    Skip for now
+                </button>
+
+                <form action="complete.html" method="get" class="ob-popover" id="ob-skip-popover" data-open="false" role="dialog" aria-label="Skip reason">
+                    <p class="ob-popover-title">What's the reason?</p>
+                    <div class="ob-popover-options">
+                        <label class="ob-popover-option">
+                            <input type="radio" name="reason" value="no_docs_yet" required>
+                            <span>No documents yet.</span>
+                        </label>
+                        <label class="ob-popover-option">
+                            <input type="radio" name="reason" value="add_later" required>
+                            <span>I'll add them later.</span>
+                        </label>
+                        <label class="ob-popover-option">
+                            <input type="radio" name="reason" value="prefer_not" required>
+                            <span>Prefer not to.</span>
+                        </label>
+                    </div>
+                    <div class="ob-popover-actions">
+                        <button type="button" data-action="cancel-skip">Cancel</button>
+                        <button type="submit">Skip</button>
+                    </div>
+                </form>
+            </div>
+
+            <a class="ob-back" href="intent.html">Back</a>
+        </section>
+    </main>
+</div>
+
+<script>
+(function () {
+    const drop = document.getElementById('ob-drop');
+    const fileInput = document.getElementById('ob-file-input');
+    const list = document.getElementById('ob-files');
+    const browse = document.getElementById('ob-drop-browse');
+    const skipToggle = document.getElementById('ob-skip-toggle');
+    const skipPopover = document.getElementById('ob-skip-popover');
+    const cancelSkip = skipPopover ? skipPopover.querySelector('[data-action="cancel-skip"]') : null;
+
+    function formatSize(bytes) {
+        if (bytes < 1024) return bytes + ' B';
+        if (bytes < 1024 * 1024) return Math.round(bytes / 1024) + ' KB';
+        return (bytes / (1024 * 1024)).toFixed(1) + ' MB';
+    }
+
+    function appendLocal(file) {
+        const li = document.createElement('li');
+        li.className = 'ob-file';
+
+        const meta = document.createElement('span');
+        meta.className = 'ob-file-meta';
+
+        const name = document.createElement('span');
+        name.className = 'ob-file-name';
+        name.textContent = file.name;
+
+        const size = document.createElement('span');
+        size.className = 'ob-file-size';
+        size.textContent = formatSize(file.size);
+
+        meta.appendChild(name);
+        meta.appendChild(size);
+
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'ob-file-remove';
+        btn.dataset.action = 'remove';
+        btn.textContent = 'Remove';
+
+        li.appendChild(meta);
+        li.appendChild(btn);
+        list.appendChild(li);
+    }
+
+    if (browse) {
+        browse.addEventListener('click', function (e) {
+            e.preventDefault();
+            fileInput.click();
+        });
+    }
+
+    if (fileInput) {
+        fileInput.addEventListener('change', function (e) {
+            Array.from(e.target.files || []).forEach(appendLocal);
+            e.target.value = '';
+        });
+    }
+
+    if (drop) {
+        ['dragenter', 'dragover'].forEach(function (ev) {
+            drop.addEventListener(ev, function (e) {
+                e.preventDefault();
+                e.stopPropagation();
+                drop.classList.add('ob-drop--dragging');
+            });
+        });
+
+        ['dragleave', 'drop'].forEach(function (ev) {
+            drop.addEventListener(ev, function (e) {
+                e.preventDefault();
+                e.stopPropagation();
+                drop.classList.remove('ob-drop--dragging');
+            });
+        });
+
+        drop.addEventListener('drop', function (e) {
+            if (e.dataTransfer && e.dataTransfer.files) {
+                Array.from(e.dataTransfer.files).forEach(appendLocal);
+            }
+        });
+    }
+
+    if (list) {
+        list.addEventListener('click', function (e) {
+            const btn = e.target.closest('[data-action="remove"]');
+            if (!btn) return;
+            const li = btn.closest('.ob-file');
+            if (li) li.remove();
+        });
+    }
+
+    function setSkipOpen(open) {
+        if (!skipPopover) return;
+        skipPopover.dataset.open = open ? 'true' : 'false';
+        skipToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+        if (open) {
+            const first = skipPopover.querySelector('input[type="radio"]');
+            if (first) first.focus();
+        }
+    }
+
+    if (skipToggle) {
+        skipToggle.addEventListener('click', function () {
+            const isOpen = skipPopover.dataset.open === 'true';
+            setSkipOpen(!isOpen);
+        });
+    }
+
+    if (cancelSkip) {
+        cancelSkip.addEventListener('click', function () {
+            setSkipOpen(false);
+            skipToggle.focus();
+        });
+    }
+
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && skipPopover && skipPopover.dataset.open === 'true') {
+            setSkipOpen(false);
+            skipToggle.focus();
+        }
+    });
+
+    document.addEventListener('click', function (e) {
+        if (!skipPopover) return;
+        if (skipPopover.dataset.open !== 'true') return;
+        if (skipPopover.contains(e.target) || skipToggle.contains(e.target)) return;
+        setSkipOpen(false);
+    });
+})();
+</script>
+</body>
+</html>

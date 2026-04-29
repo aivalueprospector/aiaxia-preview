@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>AiAxia</title>
+    <link rel="stylesheet" href="../css/app.css">
+</head>
+<body>
+<div class="ob-shell">
+    <header class="ob-topbar">
+        <span class="ob-wordmark">AiAxia</span>
+        <span class="ob-progress" aria-label="Step 2 of 3">2 / 3</span>
+    </header>
+
+    <main class="ob-stage">
+        <section class="ob-content" aria-labelledby="intent-headline">
+            <h1 class="ob-leadin" id="intent-headline">
+                Who is this for, and what are you trying to figure out?
+            </h1>
+
+            <form action="upload.html" method="get" novalidate>
+                <fieldset class="ob-fields">
+                    <div class="ob-field">
+                        <label for="ob-intent-audience" class="ob-field-label">Who you serve</label>
+                        <input id="ob-intent-audience" name="audience" type="text" required maxlength="255" class="ob-input" value="Independent primary-care clinics in the US.">
+                    </div>
+
+                    <div class="ob-field">
+                        <label for="ob-intent-unknown" class="ob-field-label">What you're trying to figure out</label>
+                        <textarea id="ob-intent-unknown" name="biggest_unknown" required maxlength="1500" rows="4" class="ob-textarea">Whether clinics will pay enough per seat to keep us above CAC, and whether the front-desk staff can adopt the tool without dedicated training.</textarea>
+                        <span class="ob-field-helper">The twin will use this to focus its questions.</span>
+                    </div>
+                </fieldset>
+
+                <div class="ob-actions" style="margin-top: var(--space-7);">
+                    <button type="submit" class="ob-btn ob-btn--primary">
+                        Continue
+                        <span class="ob-btn-arrow" aria-hidden="true">&rarr;</span>
+                    </button>
+                </div>
+
+                <a class="ob-back" href="company.html">Back</a>
+            </form>
+        </section>
+    </main>
+</div>
+</body>
+</html>

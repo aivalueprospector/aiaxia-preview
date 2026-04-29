@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>AiAxia</title>
+    <link rel="stylesheet" href="../css/app.css">
+</head>
+<body>
+<div class="ob-shell">
+    <header class="ob-topbar">
+        <span class="ob-wordmark">AiAxia</span>
+        <span class="ob-progress" aria-label="Step 1 of 3">1 / 3</span>
+    </header>
+
+    <main class="ob-stage">
+        <section class="ob-content" aria-labelledby="company-headline">
+            <h1 class="ob-leadin" id="company-headline">Tell us about your company.</h1>
+
+            <form action="intent.html" method="get" novalidate>
+                <fieldset class="ob-fields">
+                    <div class="ob-field">
+                        <label for="ob-company-name" class="ob-field-label">Company name</label>
+                        <input id="ob-company-name" name="name" type="text" required maxlength="160" class="ob-input" value="Acme Health" autocomplete="organization">
+                    </div>
+
+                    <div class="ob-field">
+                        <label for="ob-company-website" class="ob-field-label">Website (optional)</label>
+                        <input id="ob-company-website" name="website" type="text" maxlength="255" class="ob-input" value="acmehealth.com" autocomplete="url" inputmode="url">
+                        <span class="ob-field-helper">We'll fetch this so the twin can read about you.</span>
+                    </div>
+
+                    <div class="ob-field">
+                        <label for="ob-company-description" class="ob-field-label">In one sentence, what does it do?</label>
+                        <textarea id="ob-company-description" name="description" required maxlength="600" rows="3" class="ob-textarea">A digital onboarding service for new patients at independent primary-care clinics.</textarea>
+                    </div>
+                </fieldset>
+
+                <div class="ob-actions" style="margin-top: var(--space-7);">
+                    <button type="submit" class="ob-btn ob-btn--primary">
+                        Continue
+                        <span class="ob-btn-arrow" aria-hidden="true">&rarr;</span>
+                    </button>
+                </div>
+
+                <a class="ob-back" href="welcome.html">Back</a>
+            </form>
+        </section>
+    </main>
+</div>
+</body>
+</html>
