@@ -123,24 +123,60 @@
   border-radius: 14px;
 }
 
-/* ProAsiste — professional, calmer blue. Placeholder palette; replace once
-   brand spec lands. */
+/* ProAsiste — extracted from the TwinCloud chat shell (ctwin.ai, April
+   2026). Source palette: --accent #aa3bff, --text #6b6375, --text-h
+   #08060d, --bg #fff, --border #e5e4e7, accent-bg rgba(170,59,255,0.1).
+   Favicon decorative deep purple #7e14ff is mapped to accent-deep.
+   Typography: system-ui only; H1 weight 500 with -0.03em tracking. */
 :root[data-theme="proasiste"] {
-  --color-accent: oklch(52% 0.12 230);
-  --color-accent-deep: oklch(40% 0.14 230);
-  --color-accent-soft: oklch(94% 0.04 230);
-  --color-ink: oklch(20% 0.01 250);
-  --color-ink-soft: oklch(34% 0.008 250);
-  --color-whisper: oklch(54% 0.005 250);
-  --color-parchment: oklch(99% 0.003 250);
-  --color-field-cream: oklch(97% 0.005 250);
-  --color-margin: oklch(90% 0.008 250);
-  --color-margin-soft: oklch(94% 0.005 250);
+  --color-accent: oklch(58% 0.27 303);          /* #aa3bff */
+  --color-accent-deep: oklch(46% 0.30 295);     /* #7e14ff */
+  --color-accent-soft: oklch(94% 0.05 305);     /* rgba accent over white */
+  --color-ink: oklch(13% 0.013 290);            /* #08060d */
+  --color-ink-soft: oklch(48% 0.018 305);       /* #6b6375 */
+  --color-whisper: oklch(62% 0.013 305);
+  --color-parchment: oklch(99% 0.002 305);      /* near-white tinted */
+  --color-field-cream: oklch(98% 0.005 305);
+  --color-margin: oklch(91% 0.006 295);         /* #e5e4e7 */
+  --color-margin-soft: oklch(94% 0.004 295);
 
-  --font-serif: "Times New Roman", Georgia, serif;
-  --font-sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-serif: system-ui, "Segoe UI", Roboto, sans-serif;
+  --font-sans: system-ui, "Segoe UI", Roboto, sans-serif;
 
-  --shadow-modal: 0 12px 40px -12px oklch(20% 0.02 250 / 0.18);
+  --shadow-modal: 0 10px 15px -3px oklch(13% 0.01 290 / 0.10), 0 4px 6px -2px oklch(13% 0.01 290 / 0.05);
+}
+
+/* ProAsiste: H1 weight 500 + tight tracking, source headings are
+   system-ui weight 500 with letter-spacing ratio -1.68/56 ≈ -0.03em. */
+:root[data-theme="proasiste"] .ob-leadin,
+:root[data-theme="proasiste"] .t-display {
+  font-family: var(--font-sans);
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  color: var(--color-ink);
+}
+
+:root[data-theme="proasiste"] .ob-headline,
+:root[data-theme="proasiste"] .t-headline {
+  font-family: var(--font-sans);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: var(--color-ink);
+}
+
+:root[data-theme="proasiste"] .ob-btn--primary {
+  border-radius: 8px;
+  font-weight: 600;
+}
+
+:root[data-theme="proasiste"] .ob-input,
+:root[data-theme="proasiste"] .ob-textarea {
+  border-radius: 6px;
+}
+
+:root[data-theme="proasiste"] .ob-drop,
+:root[data-theme="proasiste"] .ob-complete-summary {
+  border-radius: 8px;
 }
 
 /* Reset */
