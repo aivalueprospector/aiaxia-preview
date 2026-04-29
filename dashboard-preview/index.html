@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-    <title>AiAxia onboarding preview</title>
+    <title>AiAxia dashboard preview</title>
     <script src="preview-theme.js"></script>
     <link rel="stylesheet" href="../css/app.css">
     <style>
@@ -25,72 +25,39 @@
             border-color: var(--color-ink-soft);
         }
         p.t-helper { margin-bottom: 32px; }
-
-        .theme-picker {
-            margin: 0 0 40px;
-            padding: 20px 24px;
-            border: 1px solid var(--color-margin);
-            border-radius: var(--radius-lg);
-            background: var(--color-field-cream);
-        }
-        .theme-picker-label {
-            font-size: var(--size-label);
-            font-weight: 500;
-            letter-spacing: 0.02em;
-            color: var(--color-ink-soft);
-            margin: 0 0 12px;
-        }
-        .theme-options {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-        }
-        .theme-option {
-            font-family: inherit;
-            font-size: var(--size-body);
-            font-weight: 500;
-            padding: 10px 18px;
-            border: 1px solid var(--color-margin);
-            border-radius: var(--radius-md);
-            background: var(--color-parchment);
-            color: var(--color-ink-soft);
-            cursor: pointer;
-            transition: border-color 180ms ease, color 180ms ease, background 180ms ease;
-        }
+        .theme-picker { margin: 0 0 40px; padding: 20px 24px; border: 1px solid var(--color-margin); border-radius: var(--radius-lg); background: var(--color-field-cream); }
+        .theme-picker-label { font-size: var(--size-label); font-weight: 500; letter-spacing: 0.02em; color: var(--color-ink-soft); margin: 0 0 12px; }
+        .theme-options { display: flex; flex-wrap: wrap; gap: 8px; }
+        .theme-option { font-family: inherit; font-size: var(--size-body); font-weight: 500; padding: 10px 18px; border: 1px solid var(--color-margin); border-radius: var(--radius-md); background: var(--color-parchment); color: var(--color-ink-soft); cursor: pointer; transition: border-color 180ms ease, color 180ms ease, background 180ms ease; }
         .theme-option:hover { border-color: var(--color-ink-soft); color: var(--color-ink); }
-        .theme-option[aria-pressed="true"] {
-            background: var(--color-accent);
-            color: var(--color-parchment);
-            border-color: var(--color-accent);
-        }
+        .theme-option[aria-pressed="true"] { background: var(--color-accent); color: var(--color-parchment); border-color: var(--color-accent); }
         .theme-note { margin: 12px 0 0; font-size: var(--size-tiny); color: var(--color-whisper); }
+        .nav-cross { margin-top: 32px; font-size: var(--size-label); color: var(--color-whisper); }
+        .nav-cross a { color: var(--color-accent-deep); border-bottom: 1px solid var(--color-margin); }
     </style>
 </head>
 <body>
-    <h1>AiAxia onboarding preview</h1>
+    <h1>AiAxia dashboard preview</h1>
     <p class="t-helper">
-        Static HTML mirror of the live Blade flow, with sample data baked in. Use with /impeccable live for visual iteration.
+        Static HTML mocks of the post-onboarding workspace. Sample data baked in. Stages marked complete / current / locked to show progression. Not yet wired to controllers.
     </p>
 
     <section class="theme-picker" aria-labelledby="theme-picker-label">
         <p class="theme-picker-label" id="theme-picker-label">Preview as tenant</p>
         <div class="theme-options" id="theme-options"></div>
-        <p class="theme-note">
-            Runtime theme swap by host (production resolver in <code>App\Http\Middleware\ResolveTenant</code>).
-            EduAsiste / ProAsiste palettes are placeholders pending real brand spec.
-        </p>
+        <p class="theme-note">Same theme system as onboarding-preview. Pick a tenant; selection persists across screens.</p>
     </section>
 
     <ul class="screen-list">
-        <li><a href="welcome.html">1. Welcome</a></li>
-        <li><a href="company.html">2. Company</a></li>
-        <li><a href="intent.html">3. Intent</a></li>
-        <li><a href="upload.html">4. Upload</a></li>
-        <li><a href="complete.html">5. Complete</a></li>
+        <li><a href="dashboard.html">Dashboard home</a></li>
+        <li><a href="imagine.html">Stage 1 — Imagine</a></li>
+        <li><a href="map.html">Stage 2 — Map</a></li>
+        <li><a href="connect.html">Stage 3 — Connect</a></li>
+        <li><a href="deliver.html">Stage 4 — Deliver</a></li>
     </ul>
 
-    <p style="margin-top: 32px; font-size: var(--size-label); color: var(--color-whisper);">
-        Dashboard preview: <a href="../dashboard-preview/index.html" style="color: var(--color-accent-deep); border-bottom: 1px solid var(--color-margin);">../dashboard-preview/</a>
+    <p class="nav-cross">
+        Onboarding flow: <a href="../onboarding-preview/index.html">../onboarding-preview/</a>
     </p>
 
     <script>
@@ -117,9 +84,7 @@
             b.addEventListener('click', function () {
                 document.documentElement.dataset.theme = t.slug;
                 try { localStorage.setItem('aiaxiaTheme', t.slug); } catch (e) {}
-                document.querySelectorAll('.theme-option').forEach(function (x) {
-                    x.removeAttribute('aria-pressed');
-                });
+                document.querySelectorAll('.theme-option').forEach(function (x) { x.removeAttribute('aria-pressed'); });
                 b.setAttribute('aria-pressed', 'true');
                 document.querySelectorAll('.screen-list a[href]').forEach(function (a) {
                     var u = new URL(a.getAttribute('href'), window.location.href);

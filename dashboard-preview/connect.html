@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="aiaxia">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>AiAxia · Connect</title>
+    <script src="preview-theme.js"></script>
+    <link rel="stylesheet" href="../css/app.css">
+</head>
+<body>
+<div class="dash-shell">
+    <header class="ob-topbar">
+        <span class="ob-brand">
+            <img class="ob-logo" alt="" hidden>
+            <span class="ob-wordmark">AiAxia</span>
+        </span>
+        <span class="ob-progress" aria-hidden="true"></span>
+    </header>
+
+    <main class="dash-main">
+        <a class="dash-crumb" href="dashboard.html">Dashboard</a>
+
+        <section class="dash-stage-header">
+            <span class="dash-stage-header__eyebrow">Stage 3 of 4 · locked</span>
+            <h1>Connect.</h1>
+            <p class="dash-stage-header__lede">Customer interviews and twin-led discovery sessions. Each conversation feeds back into Map and primes the Deliver artifacts.</p>
+        </section>
+
+        <div class="dash-grid">
+            <div style="display: flex; flex-direction: column; gap: var(--space-7);">
+                <section class="dash-section" aria-labelledby="sessions">
+                    <h2 id="sessions">Discovery sessions</h2>
+                    <p class="dash-section-meta">Locked preview · sample of what this looks like once Map is complete.</p>
+                    <ul class="dash-list" style="opacity: 0.55;">
+                        <li class="dash-list-item">
+                            <span class="dash-list-item__index">1</span>
+                            <span class="dash-list-item__body">
+                                <span class="dash-list-item__title">Front-desk lead at Riverside Family Medicine</span>
+                                <span class="dash-list-item__meta">Twin transcript · 38 minutes · 3 takeaways pinned</span>
+                            </span>
+                            <button class="dash-list-item__action" disabled>Open</button>
+                        </li>
+                        <li class="dash-list-item">
+                            <span class="dash-list-item__index">2</span>
+                            <span class="dash-list-item__body">
+                                <span class="dash-list-item__title">Office manager at Bayside Pediatrics</span>
+                                <span class="dash-list-item__meta">Twin transcript · 24 minutes · 2 takeaways pinned</span>
+                            </span>
+                            <button class="dash-list-item__action" disabled>Open</button>
+                        </li>
+                        <li class="dash-list-item">
+                            <span class="dash-list-item__index">+</span>
+                            <span class="dash-list-item__body">
+                                <span class="dash-list-item__title">Schedule a new session</span>
+                                <span class="dash-list-item__meta">Twin generates an interview brief based on your captured pain points + segments.</span>
+                            </span>
+                            <button class="dash-list-item__action" disabled>Schedule</button>
+                        </li>
+                    </ul>
+                </section>
+
+                <section class="dash-section" aria-labelledby="why-locked">
+                    <h2 id="why-locked">Why this is locked</h2>
+                    <p class="dash-section-meta">Connect needs a complete Map to give the twin a focused interview brief.</p>
+                    <ul class="dash-list">
+                        <li class="dash-list-item">
+                            <span class="dash-list-item__index">·</span>
+                            <span class="dash-list-item__body">
+                                <span class="dash-list-item__title">Finish Map: Adoption + Renewal goals + needs.</span>
+                                <span class="dash-list-item__meta">Currently 2 of 4 lifecycle stages captured.</span>
+                            </span>
+                            <a class="dash-list-item__action" href="map.html">Open Map</a>
+                        </li>
+                    </ul>
+                </section>
+            </div>
+
+            <aside class="dash-twin" aria-labelledby="twin-heading">
+                <h3 id="twin-heading">What the twin will do here</h3>
+                <div class="dash-transcript">
+                    <span class="dash-transcript-meta">Preview · sample brief</span>
+                    Once Map is complete, the twin generates a tailored interview script for each segment + lifecycle stage and runs the conversation through ctwin.ai. Transcripts feed back into Map for refinement.
+                </div>
+                <div class="dash-transcript">
+                    <span class="dash-transcript-meta">Sample question</span>
+                    "Tell me about the last time a new front-desk hire used the system without help. What worked, what didn't?"
+                </div>
+            </aside>
+        </div>
+    </main>
+</div>
+</body>
+</html>

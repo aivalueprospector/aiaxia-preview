@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="aiaxia">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>AiAxia · Map</title>
+    <script src="preview-theme.js"></script>
+    <link rel="stylesheet" href="../css/app.css">
+</head>
+<body>
+<div class="dash-shell">
+    <header class="ob-topbar">
+        <span class="ob-brand">
+            <img class="ob-logo" alt="" hidden>
+            <span class="ob-wordmark">AiAxia</span>
+        </span>
+        <span class="ob-progress" aria-hidden="true"></span>
+    </header>
+
+    <main class="dash-main">
+        <a class="dash-crumb" href="dashboard.html">Dashboard</a>
+
+        <section class="dash-stage-header">
+            <span class="dash-stage-header__eyebrow">Stage 2 of 4 · in progress</span>
+            <h1>Map.</h1>
+            <p class="dash-stage-header__lede">Customer segments and lifecycle. Walk each segment from awareness through renewal, and write the goal + need at every stage.</p>
+        </section>
+
+        <div class="dash-grid">
+            <div style="display: flex; flex-direction: column; gap: var(--space-7);">
+                <section class="dash-section" aria-labelledby="segments">
+                    <h2 id="segments">Segments</h2>
+                    <p class="dash-section-meta">1 drafted · 1 suggested</p>
+                    <ul class="dash-list">
+                        <li class="dash-list-item">
+                            <span class="dash-list-item__index">1</span>
+                            <span class="dash-list-item__body">
+                                <span class="dash-list-item__title">Independent primary-care clinics in the US.</span>
+                                <span class="dash-list-item__meta">Lifecycle drafted · 4 stages · 2 stage-goals captured</span>
+                            </span>
+                            <button class="dash-list-item__action">Open</button>
+                        </li>
+                        <li class="dash-list-item" style="opacity: 0.6;">
+                            <span class="dash-list-item__index">2</span>
+                            <span class="dash-list-item__body">
+                                <span class="dash-list-item__title">Urgent care clinics with same staff pattern.</span>
+                                <span class="dash-list-item__meta">Suggested by twin · not yet started</span>
+                            </span>
+                            <button class="dash-list-item__action">Start</button>
+                        </li>
+                    </ul>
+                    <div class="dash-add">
+                        <input type="text" placeholder="Name another segment…">
+                        <button type="button">Add</button>
+                    </div>
+                </section>
+
+                <section class="dash-section" aria-labelledby="lifecycle">
+                    <h2 id="lifecycle">Lifecycle for "Independent primary-care clinics"</h2>
+                    <p class="dash-section-meta">4 stages · 2 with goals + needs · 2 awaiting</p>
+                    <ul class="dash-list">
+                        <li class="dash-list-item">
+                            <span class="dash-list-item__index">A</span>
+                            <span class="dash-list-item__body">
+                                <span class="dash-list-item__title">Awareness</span>
+                                <span class="dash-list-item__meta"><strong>Goal:</strong> Clinic owner hears about us via referral or trade conf. <strong>Need:</strong> A 90-second pitch that names the front-desk pain.</span>
+                            </span>
+                            <button class="dash-list-item__action">Edit</button>
+                        </li>
+                        <li class="dash-list-item">
+                            <span class="dash-list-item__index">T</span>
+                            <span class="dash-list-item__body">
+                                <span class="dash-list-item__title">Trial</span>
+                                <span class="dash-list-item__meta"><strong>Goal:</strong> One staff member runs five live patient onboardings without help. <strong>Need:</strong> Default templates for top-3 visit types.</span>
+                            </span>
+                            <button class="dash-list-item__action">Edit</button>
+                        </li>
+                        <li class="dash-list-item" style="opacity: 0.6;">
+                            <span class="dash-list-item__index">D</span>
+                            <span class="dash-list-item__body">
+                                <span class="dash-list-item__title">Adoption</span>
+                                <span class="dash-list-item__meta">Goal + need not yet captured.</span>
+                            </span>
+                            <button class="dash-list-item__action">Add</button>
+                        </li>
+                        <li class="dash-list-item" style="opacity: 0.6;">
+                            <span class="dash-list-item__index">R</span>
+                            <span class="dash-list-item__body">
+                                <span class="dash-list-item__title">Renewal</span>
+                                <span class="dash-list-item__meta">Goal + need not yet captured.</span>
+                            </span>
+                            <button class="dash-list-item__action">Add</button>
+                        </li>
+                    </ul>
+                </section>
+
+                <div class="ob-actions" style="margin-top: var(--space-5);">
+                    <a href="connect.html" class="ob-btn ob-btn--primary" aria-disabled="true" style="opacity: 0.5; cursor: not-allowed;">Continue to Connect <span class="ob-btn-arrow" aria-hidden="true">&rarr;</span></a>
+                    <span style="font-size: var(--size-label); color: var(--color-whisper);">Connect unlocks once Adoption + Renewal are captured.</span>
+                </div>
+            </div>
+
+            <aside class="dash-twin" aria-labelledby="twin-heading">
+                <h3 id="twin-heading">Twin chat companion</h3>
+                <div class="dash-twin-thread">
+                    <div class="dash-twin-msg dash-twin-msg--twin">
+                        <span class="dash-twin-msg__role">Twin</span>
+                        For Adoption: who's the success metric on, the clinic owner or the front desk? Different answers point to very different needs.
+                    </div>
+                    <div class="dash-twin-msg dash-twin-msg--user">
+                        <span class="dash-twin-msg__role">You</span>
+                        Front desk, but the owner sees the bill.
+                    </div>
+                    <div class="dash-twin-msg dash-twin-msg--twin">
+                        <span class="dash-twin-msg__role">Twin</span>
+                        Two-stakeholder dynamic, common in clinic SaaS. Want me to draft an Adoption goal sentence covering both?
+                    </div>
+                </div>
+                <a class="dash-twin-cta" href="#">Continue chat &rarr;</a>
+            </aside>
+        </div>
+    </main>
+</div>
+</body>
+</html>
