@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="eduasiste">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>EduAsiste</title>
+    <script>try { localStorage.setItem('aiaxiaTheme', 'eduasiste'); } catch (e) {}</script>
+    <script src="preview-theme.js"></script>
+    <link rel="stylesheet" href="../css/app.css">
+</head>
+<body>
+<div class="ob-shell">
+    <header class="ob-topbar">
+        <span class="ob-brand">
+            <img class="ob-logo" alt="" hidden>
+            <span class="ob-wordmark">EduAsiste</span>
+        </span>
+        <span class="ob-progress" aria-label="Step 1 of 4">1 / 4</span>
+    </header>
+
+    <main class="ob-stage">
+        <section class="ob-content" aria-labelledby="school-headline">
+            <h1 class="ob-leadin" id="school-headline">Tell us about your school.</h1>
+
+            <form action="teachers.html" method="get" novalidate>
+                <fieldset class="ob-fields">
+                    <div class="ob-field">
+                        <label for="ob-user-name" class="ob-field-label">Your name</label>
+                        <input id="ob-user-name" name="full_name" type="text" required maxlength="160" class="ob-input" value="Mara Halverson" autocomplete="name">
+                    </div>
+
+                    <div class="ob-field">
+                        <label for="ob-user-email" class="ob-field-label">Your email</label>
+                        <input id="ob-user-email" name="email" type="email" required maxlength="191" class="ob-input" value="m.halverson@lincolnhigh.edu" autocomplete="email">
+                    </div>
+
+                    <div class="ob-field">
+                        <label for="ob-school-name" class="ob-field-label">Educational institution name</label>
+                        <input id="ob-school-name" name="school_name" type="text" required maxlength="160" class="ob-input" value="Lincoln High School" autocomplete="organization">
+                        <span class="ob-field-helper">As you'd like it shown across the dashboard.</span>
+                    </div>
+
+                    <div class="ob-field">
+                        <span class="ob-field-label">School logo (optional)</span>
+                        <div class="ob-logo-upload">
+                            <span class="ob-logo-upload__preview"><span class="ob-logo-upload__preview-empty">L</span></span>
+                            <div class="ob-logo-upload__controls">
+                                <input type="file" name="school_logo" accept="image/png,image/jpeg,image/svg+xml,image/webp">
+                                <span class="ob-field-helper">PNG, JPG, SVG, or WebP. Up to 2 MB. Aspect ratio is preserved.</span>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <div class="ob-actions" style="margin-top: var(--space-7);">
+                    <button type="submit" class="ob-btn ob-btn--primary">
+                        Continue
+                        <span class="ob-btn-arrow" aria-hidden="true">&rarr;</span>
+                    </button>
+                </div>
+
+                <a class="ob-back" href="welcome.html">Back</a>
+            </form>
+        </section>
+    </main>
+</div>
+</body>
+</html>

@@ -2166,3 +2166,164 @@ img {
     display: none;
   }
 }
+
+/* ============================================================
+   Onboarding repeater — repeating row pattern for teachers /
+   courses / students. Used by the EduAsiste onboarding flow.
+   ============================================================ */
+
+.ob-repeater {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.ob-row {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  background: var(--color-field-cream);
+  border: 1px solid var(--color-margin);
+  border-radius: var(--radius-md);
+}
+
+@media (min-width: 600px) {
+  .ob-row--two { grid-template-columns: 1fr 1fr; }
+  .ob-row--three { grid-template-columns: 1fr 1fr 1fr; }
+  .ob-row--four { grid-template-columns: 1fr 1fr 1fr 1fr; }
+}
+
+.ob-row__head {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  font-size: var(--size-label);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-whisper);
+}
+
+.ob-row__remove {
+  background: transparent;
+  border: 1px solid transparent;
+  color: var(--color-whisper);
+  font-size: var(--size-label);
+  padding: 4px 10px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: background var(--transition-soft), color var(--transition-soft), border-color var(--transition-soft);
+}
+
+.ob-row__remove:hover {
+  background: var(--color-danger-soft);
+  border-color: var(--color-danger);
+  color: var(--color-danger);
+}
+
+.ob-row__full {
+  grid-column: 1 / -1;
+}
+
+.ob-repeater__add {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 10px 16px;
+  font-family: inherit;
+  font-size: var(--size-body);
+  font-weight: 500;
+  background: transparent;
+  color: var(--color-accent-deep);
+  border: 1px dashed var(--color-margin);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: background var(--transition-soft), border-color var(--transition-soft);
+}
+
+.ob-repeater__add:hover {
+  background: var(--color-accent-soft);
+  border-color: var(--color-accent);
+}
+
+.ob-repeater__empty {
+  font-size: var(--size-label);
+  color: var(--color-whisper);
+}
+
+/* Multi-checkbox group inside a row (e.g. courses for a student) */
+.ob-checkgroup {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: var(--space-3);
+  background: var(--color-parchment);
+  border: 1px solid var(--color-margin);
+  border-radius: var(--radius-sm);
+  max-height: 220px;
+  overflow-y: auto;
+}
+
+.ob-checkgroup__item {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--size-body);
+}
+
+.ob-checkgroup__item-meta {
+  color: var(--color-whisper);
+  font-size: var(--size-label);
+}
+
+.ob-checkgroup__empty {
+  font-size: var(--size-label);
+  color: var(--color-whisper);
+  font-style: italic;
+}
+
+/* Logo upload preview pair (school logo on Step 1) */
+.ob-logo-upload {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.ob-logo-upload__preview {
+  width: 75px;
+  height: 75px;
+  flex: 0 0 75px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-2);
+  background: var(--color-field-cream);
+  border: 1px solid var(--color-margin);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.ob-logo-upload__preview img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+.ob-logo-upload__preview-empty {
+  font-size: var(--size-tiny);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-whisper);
+}
+
+.ob-logo-upload__controls {
+  flex: 1 1 auto;
+}

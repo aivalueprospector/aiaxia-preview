@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="eduasiste">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>EduAsiste · Teachers</title>
+    <script>try { localStorage.setItem('aiaxiaTheme', 'eduasiste'); } catch (e) {}</script>
+    <script src="preview-theme.js"></script>
+    <link rel="stylesheet" href="../css/app.css">
+</head>
+<body>
+<div class="ob-shell">
+    <header class="ob-topbar">
+        <span class="ob-brand">
+            <img class="ob-logo" alt="" hidden>
+            <span class="ob-wordmark">EduAsiste</span>
+        </span>
+        <span class="ob-progress" aria-label="Step 2 of 4">2 / 4</span>
+    </header>
+
+    <main class="ob-stage">
+        <section class="ob-content" aria-labelledby="teachers-headline">
+            <h1 class="ob-leadin" id="teachers-headline">Add your teachers.</h1>
+            <p class="ob-subhead">At least one teacher to continue. You can add more later from the dashboard.</p>
+
+            <form action="courses.html" method="get" novalidate>
+                <div class="ob-repeater" data-repeater-list="teachers">
+                    <div class="ob-row ob-row--three">
+                        <div class="ob-row__head">
+                            <span>Teacher <span data-repeater-index>1</span></span>
+                            <button type="button" class="ob-row__remove" data-repeater-remove>Remove</button>
+                        </div>
+                        <div class="ob-field">
+                            <label class="ob-field-label">First name</label>
+                            <input class="ob-input" type="text" name="teachers[][first_name]" value="Roberto" required>
+                        </div>
+                        <div class="ob-field">
+                            <label class="ob-field-label">Last name</label>
+                            <input class="ob-input" type="text" name="teachers[][last_name]" value="Salas" required>
+                        </div>
+                        <div class="ob-field">
+                            <label class="ob-field-label">Email (optional)</label>
+                            <input class="ob-input" type="email" name="teachers[][email]" value="r.salas@lincolnhigh.edu">
+                        </div>
+                    </div>
+
+                    <div class="ob-row ob-row--three">
+                        <div class="ob-row__head">
+                            <span>Teacher <span data-repeater-index>2</span></span>
+                            <button type="button" class="ob-row__remove" data-repeater-remove>Remove</button>
+                        </div>
+                        <div class="ob-field">
+                            <label class="ob-field-label">First name</label>
+                            <input class="ob-input" type="text" name="teachers[][first_name]" value="Aliyah" required>
+                        </div>
+                        <div class="ob-field">
+                            <label class="ob-field-label">Last name</label>
+                            <input class="ob-input" type="text" name="teachers[][last_name]" value="Brooks" required>
+                        </div>
+                        <div class="ob-field">
+                            <label class="ob-field-label">Email (optional)</label>
+                            <input class="ob-input" type="email" name="teachers[][email]" value="a.brooks@lincolnhigh.edu">
+                        </div>
+                    </div>
+                </div>
+
+                <template data-repeater-template="teachers">
+                    <div class="ob-row ob-row--three">
+                        <div class="ob-row__head">
+                            <span>Teacher <span data-repeater-index>3</span></span>
+                            <button type="button" class="ob-row__remove" data-repeater-remove>Remove</button>
+                        </div>
+                        <div class="ob-field">
+                            <label class="ob-field-label">First name</label>
+                            <input class="ob-input" type="text" name="teachers[][first_name]" required>
+                        </div>
+                        <div class="ob-field">
+                            <label class="ob-field-label">Last name</label>
+                            <input class="ob-input" type="text" name="teachers[][last_name]" required>
+                        </div>
+                        <div class="ob-field">
+                            <label class="ob-field-label">Email (optional)</label>
+                            <input class="ob-input" type="email" name="teachers[][email]">
+                        </div>
+                    </div>
+                </template>
+
+                <button type="button" class="ob-repeater__add" data-repeater-add="teachers" style="margin-top: var(--space-4);">
+                    <span aria-hidden="true">+</span> Add another teacher
+                </button>
+
+                <div class="ob-actions" style="margin-top: var(--space-7);">
+                    <button type="submit" class="ob-btn ob-btn--primary">
+                        Continue
+                        <span class="ob-btn-arrow" aria-hidden="true">&rarr;</span>
+                    </button>
+                </div>
+
+                <a class="ob-back" href="school.html">Back</a>
+            </form>
+        </section>
+    </main>
+</div>
+<script src="onboarding-repeater.js"></script>
+</body>
+</html>

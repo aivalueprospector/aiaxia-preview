@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="eduasiste">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>EduAsiste · Students</title>
+    <script>try { localStorage.setItem('aiaxiaTheme', 'eduasiste'); } catch (e) {}</script>
+    <script src="preview-theme.js"></script>
+    <link rel="stylesheet" href="../css/app.css">
+</head>
+<body>
+<div class="ob-shell">
+    <header class="ob-topbar">
+        <span class="ob-brand">
+            <img class="ob-logo" alt="" hidden>
+            <span class="ob-wordmark">EduAsiste</span>
+        </span>
+        <span class="ob-progress" aria-label="Step 4 of 4">4 / 4</span>
+    </header>
+
+    <main class="ob-stage">
+        <section class="ob-content" aria-labelledby="students-headline">
+            <h1 class="ob-leadin" id="students-headline">Add your students.</h1>
+            <p class="ob-subhead">At least one student. Each needs a first and last name and at least one course assignment.</p>
+
+            <form action="complete.html" method="get" novalidate>
+                <div class="ob-repeater" data-repeater-list="students">
+                    <div class="ob-row ob-row--two">
+                        <div class="ob-row__head">
+                            <span>Student <span data-repeater-index>1</span></span>
+                            <button type="button" class="ob-row__remove" data-repeater-remove>Remove</button>
+                        </div>
+                        <div class="ob-field">
+                            <label class="ob-field-label">First name</label>
+                            <input class="ob-input" type="text" name="students[][first_name]" value="Sofia" required>
+                        </div>
+                        <div class="ob-field">
+                            <label class="ob-field-label">Last name</label>
+                            <input class="ob-input" type="text" name="students[][last_name]" value="Alvarez" required>
+                        </div>
+                        <div class="ob-field ob-row__full">
+                            <label class="ob-field-label">Courses</label>
+                            <div class="ob-checkgroup">
+                                <label class="ob-checkgroup__item"><input type="checkbox" name="students[][courses][]" value="0" checked> Biology 101 <span class="ob-checkgroup__item-meta">· Biology · Grade 10</span></label>
+                                <label class="ob-checkgroup__item"><input type="checkbox" name="students[][courses][]" value="1" checked> Algebra II <span class="ob-checkgroup__item-meta">· Math · Grade 10</span></label>
+                            </div>
+                            <span class="ob-field-helper">Pick one or more.</span>
+                        </div>
+                    </div>
+
+                    <div class="ob-row ob-row--two">
+                        <div class="ob-row__head">
+                            <span>Student <span data-repeater-index>2</span></span>
+                            <button type="button" class="ob-row__remove" data-repeater-remove>Remove</button>
+                        </div>
+                        <div class="ob-field">
+                            <label class="ob-field-label">First name</label>
+                            <input class="ob-input" type="text" name="students[][first_name]" value="Liam" required>
+                        </div>
+                        <div class="ob-field">
+                            <label class="ob-field-label">Last name</label>
+                            <input class="ob-input" type="text" name="students[][last_name]" value="O'Brien" required>
+                        </div>
+                        <div class="ob-field ob-row__full">
+                            <label class="ob-field-label">Courses</label>
+                            <div class="ob-checkgroup">
+                                <label class="ob-checkgroup__item"><input type="checkbox" name="students[][courses][]" value="0" checked> Biology 101 <span class="ob-checkgroup__item-meta">· Biology · Grade 10</span></label>
+                                <label class="ob-checkgroup__item"><input type="checkbox" name="students[][courses][]" value="1"> Algebra II <span class="ob-checkgroup__item-meta">· Math · Grade 10</span></label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <template data-repeater-template="students">
+                    <div class="ob-row ob-row--two">
+                        <div class="ob-row__head">
+                            <span>Student <span data-repeater-index>3</span></span>
+                            <button type="button" class="ob-row__remove" data-repeater-remove>Remove</button>
+                        </div>
+                        <div class="ob-field">
+                            <label class="ob-field-label">First name</label>
+                            <input class="ob-input" type="text" name="students[][first_name]" required>
+                        </div>
+                        <div class="ob-field">
+                            <label class="ob-field-label">Last name</label>
+                            <input class="ob-input" type="text" name="students[][last_name]" required>
+                        </div>
+                        <div class="ob-field ob-row__full">
+                            <label class="ob-field-label">Courses</label>
+                            <div class="ob-checkgroup">
+                                <label class="ob-checkgroup__item"><input type="checkbox" name="students[][courses][]" value="0"> Biology 101 <span class="ob-checkgroup__item-meta">· Biology · Grade 10</span></label>
+                                <label class="ob-checkgroup__item"><input type="checkbox" name="students[][courses][]" value="1"> Algebra II <span class="ob-checkgroup__item-meta">· Math · Grade 10</span></label>
+                            </div>
+                            <span class="ob-field-helper">Pick one or more.</span>
+                        </div>
+                    </div>
+                </template>
+
+                <button type="button" class="ob-repeater__add" data-repeater-add="students" style="margin-top: var(--space-4);">
+                    <span aria-hidden="true">+</span> Add another student
+                </button>
+
+                <div class="ob-actions" style="margin-top: var(--space-7);">
+                    <button type="submit" class="ob-btn ob-btn--primary">
+                        Continue
+                        <span class="ob-btn-arrow" aria-hidden="true">&rarr;</span>
+                    </button>
+                </div>
+
+                <a class="ob-back" href="courses.html">Back</a>
+            </form>
+        </section>
+    </main>
+</div>
+<script src="onboarding-repeater.js"></script>
+</body>
+</html>

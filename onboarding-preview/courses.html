@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="eduasiste">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>EduAsiste · Courses</title>
+    <script>try { localStorage.setItem('aiaxiaTheme', 'eduasiste'); } catch (e) {}</script>
+    <script src="preview-theme.js"></script>
+    <link rel="stylesheet" href="../css/app.css">
+</head>
+<body>
+<div class="ob-shell">
+    <header class="ob-topbar">
+        <span class="ob-brand">
+            <img class="ob-logo" alt="" hidden>
+            <span class="ob-wordmark">EduAsiste</span>
+        </span>
+        <span class="ob-progress" aria-label="Step 3 of 4">3 / 4</span>
+    </header>
+
+    <main class="ob-stage">
+        <section class="ob-content" aria-labelledby="courses-headline">
+            <h1 class="ob-leadin" id="courses-headline">Create your courses.</h1>
+            <p class="ob-subhead">At least one course to continue. Each needs a name, subject, grade, and an assigned teacher.</p>
+
+            <form action="students.html" method="get" novalidate>
+                <div class="ob-repeater" data-repeater-list="courses">
+                    <div class="ob-row ob-row--four">
+                        <div class="ob-row__head">
+                            <span>Course <span data-repeater-index>1</span></span>
+                            <button type="button" class="ob-row__remove" data-repeater-remove>Remove</button>
+                        </div>
+                        <div class="ob-field">
+                            <label class="ob-field-label">Course name</label>
+                            <input class="ob-input" type="text" name="courses[][class_name]" value="Biology 101" required>
+                        </div>
+                        <div class="ob-field">
+                            <label class="ob-field-label">Subject</label>
+                            <input class="ob-input" type="text" name="courses[][subject]" value="Biology" required>
+                        </div>
+                        <div class="ob-field">
+                            <label class="ob-field-label">Grade</label>
+                            <input class="ob-input" type="text" name="courses[][grade]" value="10" required>
+                        </div>
+                        <div class="ob-field">
+                            <label class="ob-field-label">Teacher</label>
+                            <select class="ob-input" name="courses[][teacher_id]" required>
+                                <option value="" disabled>Pick a teacher</option>
+                                <option value="0" selected>Roberto Salas</option>
+                                <option value="1">Aliyah Brooks</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="ob-row ob-row--four">
+                        <div class="ob-row__head">
+                            <span>Course <span data-repeater-index>2</span></span>
+                            <button type="button" class="ob-row__remove" data-repeater-remove>Remove</button>
+                        </div>
+                        <div class="ob-field">
+                            <label class="ob-field-label">Course name</label>
+                            <input class="ob-input" type="text" name="courses[][class_name]" value="Algebra II" required>
+                        </div>
+                        <div class="ob-field">
+                            <label class="ob-field-label">Subject</label>
+                            <input class="ob-input" type="text" name="courses[][subject]" value="Math" required>
+                        </div>
+                        <div class="ob-field">
+                            <label class="ob-field-label">Grade</label>
+                            <input class="ob-input" type="text" name="courses[][grade]" value="10" required>
+                        </div>
+                        <div class="ob-field">
+                            <label class="ob-field-label">Teacher</label>
+                            <select class="ob-input" name="courses[][teacher_id]" required>
+                                <option value="" disabled>Pick a teacher</option>
+                                <option value="0" selected>Roberto Salas</option>
+                                <option value="1">Aliyah Brooks</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <template data-repeater-template="courses">
+                    <div class="ob-row ob-row--four">
+                        <div class="ob-row__head">
+                            <span>Course <span data-repeater-index>3</span></span>
+                            <button type="button" class="ob-row__remove" data-repeater-remove>Remove</button>
+                        </div>
+                        <div class="ob-field">
+                            <label class="ob-field-label">Course name</label>
+                            <input class="ob-input" type="text" name="courses[][class_name]" required>
+                        </div>
+                        <div class="ob-field">
+                            <label class="ob-field-label">Subject</label>
+                            <input class="ob-input" type="text" name="courses[][subject]" required>
+                        </div>
+                        <div class="ob-field">
+                            <label class="ob-field-label">Grade</label>
+                            <input class="ob-input" type="text" name="courses[][grade]" required>
+                        </div>
+                        <div class="ob-field">
+                            <label class="ob-field-label">Teacher</label>
+                            <select class="ob-input" name="courses[][teacher_id]" required>
+                                <option value="" disabled selected>Pick a teacher</option>
+                                <option value="0">Roberto Salas</option>
+                                <option value="1">Aliyah Brooks</option>
+                            </select>
+                        </div>
+                    </div>
+                </template>
+
+                <button type="button" class="ob-repeater__add" data-repeater-add="courses" style="margin-top: var(--space-4);">
+                    <span aria-hidden="true">+</span> Add another course
+                </button>
+
+                <div class="ob-actions" style="margin-top: var(--space-7);">
+                    <button type="submit" class="ob-btn ob-btn--primary">
+                        Continue
+                        <span class="ob-btn-arrow" aria-hidden="true">&rarr;</span>
+                    </button>
+                </div>
+
+                <a class="ob-back" href="teachers.html">Back</a>
+            </form>
+        </section>
+    </main>
+</div>
+<script src="onboarding-repeater.js"></script>
+</body>
+</html>
