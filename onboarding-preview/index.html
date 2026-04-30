@@ -1,152 +1,68 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="aiaxia">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-    <title>AiAxia onboarding preview</title>
-    <script src="preview-theme.js"></script>
+    <title>AiAxia onboarding previews</title>
     <link rel="stylesheet" href="../css/app.css">
     <style>
-        body { padding: 80px 32px; max-width: 720px; margin: 0 auto; }
-        h1 { font-family: var(--font-serif); font-weight: 400; font-size: 2rem; margin: 0 0 24px; }
-        ul.screen-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px; }
-        ul.screen-list li a {
+        body { padding: 80px 32px; max-width: 720px; margin: 0 auto; font-family: var(--font-sans); }
+        h1 { font-family: var(--font-serif); font-weight: 400; font-size: 2rem; margin: 0 0 12px; }
+        p.t-helper { margin-bottom: 32px; color: var(--color-whisper); font-size: var(--size-label); }
+
+        .flow-grid { display: grid; gap: 16px; }
+        @media (min-width: 600px) { .flow-grid { grid-template-columns: 1fr 1fr; } }
+
+        .flow-card {
             display: block;
-            padding: 16px 20px;
+            padding: 24px;
             border: 1px solid var(--color-margin);
             border-radius: var(--radius-md);
             background: var(--color-field-cream);
             color: var(--color-ink);
-            font-weight: 500;
             transition: background 180ms ease, border-color 180ms ease;
         }
-        ul.screen-list li a:hover {
-            background: var(--color-parchment);
-            border-color: var(--color-ink-soft);
-        }
-        p.t-helper { margin-bottom: 32px; }
-
-        .theme-picker {
-            margin: 0 0 40px;
-            padding: 20px 24px;
-            border: 1px solid var(--color-margin);
-            border-radius: var(--radius-lg);
-            background: var(--color-field-cream);
-        }
-        .theme-picker-label {
-            font-size: var(--size-label);
+        .flow-card:hover { background: var(--color-parchment); border-color: var(--color-ink-soft); }
+        .flow-card__title {
+            font-family: var(--font-serif);
             font-weight: 500;
-            letter-spacing: 0.02em;
-            color: var(--color-ink-soft);
+            font-size: 1.25rem;
+            margin: 0 0 8px;
+        }
+        .flow-card__meta {
+            font-size: var(--size-label);
+            color: var(--color-whisper);
             margin: 0 0 12px;
         }
-        .theme-options {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-        }
-        .theme-option {
-            font-family: inherit;
-            font-size: var(--size-body);
-            font-weight: 500;
-            padding: 10px 18px;
-            border: 1px solid var(--color-margin);
-            border-radius: var(--radius-md);
-            background: var(--color-parchment);
+        .flow-card__steps {
+            font-size: var(--size-label);
             color: var(--color-ink-soft);
-            cursor: pointer;
-            transition: border-color 180ms ease, color 180ms ease, background 180ms ease;
+            margin: 0;
         }
-        .theme-option:hover { border-color: var(--color-ink-soft); color: var(--color-ink); }
-        .theme-option[aria-pressed="true"] {
-            background: var(--color-accent);
-            color: var(--color-parchment);
-            border-color: var(--color-accent);
-        }
-        .theme-note { margin: 12px 0 0; font-size: var(--size-tiny); color: var(--color-whisper); }
+
+        .nav-cross { margin-top: 32px; font-size: var(--size-label); color: var(--color-whisper); }
+        .nav-cross a { color: var(--color-accent-deep); border-bottom: 1px solid var(--color-margin); }
     </style>
 </head>
 <body>
-    <h1>AiAxia onboarding preview</h1>
-    <p class="t-helper">
-        Static HTML mirror of the live Blade flow, with sample data baked in. Use with /impeccable live for visual iteration.
+    <h1>Onboarding previews</h1>
+    <p class="t-helper">Tenant-specific flows. Each is self-contained — no theme switcher, no shared copy.</p>
+
+    <div class="flow-grid">
+        <a class="flow-card" href="proasiste/index.html">
+            <div class="flow-card__title">ProAsiste · business</div>
+            <div class="flow-card__meta">3 inputs + optional documents. Brown leather + parchment palette.</div>
+            <p class="flow-card__steps">Welcome → Company → Intent → Documents → Complete</p>
+        </a>
+        <a class="flow-card" href="eduasiste/index.html">
+            <div class="flow-card__title">EduAsiste · school</div>
+            <div class="flow-card__meta">5 numbered steps for school admins. School blue + Inter typography.</div>
+            <p class="flow-card__steps">Welcome → School → Teachers → Courses → Students → Documents → Complete</p>
+        </a>
+    </div>
+
+    <p class="nav-cross">
+        Dashboard preview: <a href="../dashboard-preview/index.html">../dashboard-preview/</a>
     </p>
-
-    <section class="theme-picker" aria-labelledby="theme-picker-label">
-        <p class="theme-picker-label" id="theme-picker-label">Preview as tenant</p>
-        <div class="theme-options" id="theme-options"></div>
-        <p class="theme-note">
-            Runtime theme swap by host (production resolver in <code>App\Http\Middleware\ResolveTenant</code>).
-            EduAsiste / ProAsiste palettes are placeholders pending real brand spec.
-        </p>
-    </section>
-
-    <h2 style="font-family: var(--font-serif); font-weight: 400; font-size: 1.25rem; margin: 0 0 12px;">ProAsiste / AiAxia flow</h2>
-    <ul class="screen-list" style="margin-bottom: 32px;">
-        <li><a href="welcome.html">1. Welcome</a></li>
-        <li><a href="company.html">2. Company</a></li>
-        <li><a href="intent.html">3. Intent</a></li>
-        <li><a href="upload.html">4. Upload</a></li>
-        <li><a href="complete.html">5. Complete</a></li>
-    </ul>
-
-    <h2 style="font-family: var(--font-serif); font-weight: 400; font-size: 1.25rem; margin: 0 0 12px;">EduAsiste flow (school tier)</h2>
-    <ul class="screen-list">
-        <li><a href="welcome.html?theme=eduasiste">1. Welcome</a></li>
-        <li><a href="school.html?theme=eduasiste">2. School (name, email, logo, institution)</a></li>
-        <li><a href="teachers.html?theme=eduasiste">3. Teachers (roster, ≥1 required)</a></li>
-        <li><a href="courses.html?theme=eduasiste">4. Courses (≥1 required, with assigned teacher)</a></li>
-        <li><a href="students.html?theme=eduasiste">5. Students (≥1 required, with assigned courses)</a></li>
-        <li><a href="upload-school.html?theme=eduasiste">6. Documents (optional)</a></li>
-        <li><a href="complete.html?theme=eduasiste">7. Complete</a></li>
-    </ul>
-
-    <p style="margin-top: 32px; font-size: var(--size-label); color: var(--color-whisper);">
-        Dashboard preview: <a href="../dashboard-preview/index.html" style="color: var(--color-accent-deep); border-bottom: 1px solid var(--color-margin);">../dashboard-preview/</a>
-    </p>
-
-    <script>
-    (function () {
-        var THEMES = [
-            { slug: 'aiaxia',    label: 'AiAxia' },
-            { slug: 'eduasiste', label: 'EduAsiste' },
-            { slug: 'proasiste', label: 'ProAsiste' }
-        ];
-        var current = (function () {
-            var p = new URLSearchParams(window.location.search).get('theme');
-            if (p) return p;
-            try { return localStorage.getItem('aiaxiaTheme') || 'aiaxia'; }
-            catch (e) { return 'aiaxia'; }
-        })();
-        var box = document.getElementById('theme-options');
-        THEMES.forEach(function (t) {
-            var b = document.createElement('button');
-            b.type = 'button';
-            b.className = 'theme-option';
-            b.dataset.theme = t.slug;
-            b.textContent = t.label;
-            if (t.slug === current) b.setAttribute('aria-pressed', 'true');
-            b.addEventListener('click', function () {
-                document.documentElement.dataset.theme = t.slug;
-                try { localStorage.setItem('aiaxiaTheme', t.slug); } catch (e) {}
-                document.querySelectorAll('.theme-option').forEach(function (x) {
-                    x.removeAttribute('aria-pressed');
-                });
-                b.setAttribute('aria-pressed', 'true');
-                document.querySelectorAll('.screen-list a[href]').forEach(function (a) {
-                    var u = new URL(a.getAttribute('href'), window.location.href);
-                    u.searchParams.set('theme', t.slug);
-                    a.href = u.pathname.split('/').pop() + u.search;
-                });
-            });
-            box.appendChild(b);
-        });
-        document.querySelectorAll('.screen-list a[href]').forEach(function (a) {
-            var u = new URL(a.getAttribute('href'), window.location.href);
-            if (!u.searchParams.has('theme')) u.searchParams.set('theme', current);
-            a.href = u.pathname.split('/').pop() + u.search;
-        });
-    })();
-    </script>
 </body>
 </html>

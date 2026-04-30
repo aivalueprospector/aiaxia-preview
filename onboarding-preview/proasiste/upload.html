@@ -1,18 +1,16 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="aiaxia">
+<html lang="en" data-theme="proasiste">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-    <title>AiAxia</title>
-    <script src="preview-theme.js"></script>
-    <link rel="stylesheet" href="../css/app.css">
+    <title>ProAsiste</title>
+    <link rel="stylesheet" href="../../css/app.css">
 </head>
 <body>
 <div class="ob-shell">
     <header class="ob-topbar">
         <span class="ob-brand">
-            <img class="ob-logo" alt="" hidden>
-            <span class="ob-wordmark">AiAxia</span>
+            <span class="ob-wordmark" style="font-style: normal; font-weight: 500;">ProAsiste</span>
         </span>
         <span class="ob-progress" aria-label="Step 3 of 3">3 / 3</span>
     </header>
@@ -23,7 +21,7 @@
                 Anything you'd like the twin to read?
             </h1>
 
-            <p class="ob-subhead" data-tenant-copy="upload.subhead">
+            <p class="ob-subhead">
                 Business plans, customer research, prior strategy work. PDF, DOCX, TXT, images. Up to 10 files.
             </p>
 
@@ -108,125 +106,30 @@
     const skipPopover = document.getElementById('ob-skip-popover');
     const cancelSkip = skipPopover ? skipPopover.querySelector('[data-action="cancel-skip"]') : null;
 
-    function formatSize(bytes) {
-        if (bytes < 1024) return bytes + ' B';
-        if (bytes < 1024 * 1024) return Math.round(bytes / 1024) + ' KB';
-        return (bytes / (1024 * 1024)).toFixed(1) + ' MB';
-    }
-
+    function fmt(b) { if (b < 1024) return b+' B'; if (b < 1048576) return Math.round(b/1024)+' KB'; return (b/1048576).toFixed(1)+' MB'; }
     function appendLocal(file) {
-        const li = document.createElement('li');
-        li.className = 'ob-file';
-
-        const meta = document.createElement('span');
-        meta.className = 'ob-file-meta';
-
-        const name = document.createElement('span');
-        name.className = 'ob-file-name';
-        name.textContent = file.name;
-
-        const size = document.createElement('span');
-        size.className = 'ob-file-size';
-        size.textContent = formatSize(file.size);
-
-        meta.appendChild(name);
-        meta.appendChild(size);
-
-        const btn = document.createElement('button');
-        btn.type = 'button';
-        btn.className = 'ob-file-remove';
-        btn.dataset.action = 'remove';
-        btn.textContent = 'Remove';
-
-        li.appendChild(meta);
-        li.appendChild(btn);
-        list.appendChild(li);
+        const li = document.createElement('li'); li.className = 'ob-file';
+        const meta = document.createElement('span'); meta.className = 'ob-file-meta';
+        const name = document.createElement('span'); name.className = 'ob-file-name'; name.textContent = file.name;
+        const size = document.createElement('span'); size.className = 'ob-file-size'; size.textContent = fmt(file.size);
+        meta.appendChild(name); meta.appendChild(size);
+        const btn = document.createElement('button'); btn.type = 'button'; btn.className = 'ob-file-remove'; btn.dataset.action = 'remove'; btn.textContent = 'Remove';
+        li.appendChild(meta); li.appendChild(btn); list.appendChild(li);
     }
-
-    if (browse) {
-        browse.addEventListener('click', function (e) {
-            e.preventDefault();
-            fileInput.click();
-        });
-    }
-
-    if (fileInput) {
-        fileInput.addEventListener('change', function (e) {
-            Array.from(e.target.files || []).forEach(appendLocal);
-            e.target.value = '';
-        });
-    }
-
+    if (browse) browse.addEventListener('click', e => { e.preventDefault(); fileInput.click(); });
+    if (fileInput) fileInput.addEventListener('change', e => { Array.from(e.target.files || []).forEach(appendLocal); e.target.value = ''; });
     if (drop) {
-        ['dragenter', 'dragover'].forEach(function (ev) {
-            drop.addEventListener(ev, function (e) {
-                e.preventDefault();
-                e.stopPropagation();
-                drop.classList.add('ob-drop--dragging');
-            });
-        });
-
-        ['dragleave', 'drop'].forEach(function (ev) {
-            drop.addEventListener(ev, function (e) {
-                e.preventDefault();
-                e.stopPropagation();
-                drop.classList.remove('ob-drop--dragging');
-            });
-        });
-
-        drop.addEventListener('drop', function (e) {
-            if (e.dataTransfer && e.dataTransfer.files) {
-                Array.from(e.dataTransfer.files).forEach(appendLocal);
-            }
-        });
+        ['dragenter','dragover'].forEach(ev => drop.addEventListener(ev, e => { e.preventDefault(); e.stopPropagation(); drop.classList.add('ob-drop--dragging'); }));
+        ['dragleave','drop'].forEach(ev => drop.addEventListener(ev, e => { e.preventDefault(); e.stopPropagation(); drop.classList.remove('ob-drop--dragging'); }));
+        drop.addEventListener('drop', e => { if (e.dataTransfer && e.dataTransfer.files) Array.from(e.dataTransfer.files).forEach(appendLocal); });
     }
+    if (list) list.addEventListener('click', e => { const b = e.target.closest('[data-action="remove"]'); if (!b) return; const li = b.closest('.ob-file'); if (li) li.remove(); });
 
-    if (list) {
-        list.addEventListener('click', function (e) {
-            const btn = e.target.closest('[data-action="remove"]');
-            if (!btn) return;
-            const li = btn.closest('.ob-file');
-            if (li) li.remove();
-        });
-    }
-
-    function setSkipOpen(open) {
-        if (!skipPopover) return;
-        skipPopover.dataset.open = open ? 'true' : 'false';
-        skipToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-        if (open) {
-            const first = skipPopover.querySelector('input[type="radio"]');
-            if (first) first.focus();
-        }
-    }
-
-    if (skipToggle) {
-        skipToggle.addEventListener('click', function () {
-            const isOpen = skipPopover.dataset.open === 'true';
-            setSkipOpen(!isOpen);
-        });
-    }
-
-    if (cancelSkip) {
-        cancelSkip.addEventListener('click', function () {
-            setSkipOpen(false);
-            skipToggle.focus();
-        });
-    }
-
-    document.addEventListener('keydown', function (e) {
-        if (e.key === 'Escape' && skipPopover && skipPopover.dataset.open === 'true') {
-            setSkipOpen(false);
-            skipToggle.focus();
-        }
-    });
-
-    document.addEventListener('click', function (e) {
-        if (!skipPopover) return;
-        if (skipPopover.dataset.open !== 'true') return;
-        if (skipPopover.contains(e.target) || skipToggle.contains(e.target)) return;
-        setSkipOpen(false);
-    });
+    function setSkip(open) { if (!skipPopover) return; skipPopover.dataset.open = open ? 'true':'false'; skipToggle.setAttribute('aria-expanded', open?'true':'false'); if (open) { const f = skipPopover.querySelector('input[type="radio"]'); if (f) f.focus(); } }
+    if (skipToggle) skipToggle.addEventListener('click', () => setSkip(skipPopover.dataset.open !== 'true'));
+    if (cancelSkip) cancelSkip.addEventListener('click', () => { setSkip(false); skipToggle.focus(); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape' && skipPopover && skipPopover.dataset.open === 'true') { setSkip(false); skipToggle.focus(); } });
+    document.addEventListener('click', e => { if (!skipPopover || skipPopover.dataset.open !== 'true') return; if (skipPopover.contains(e.target) || skipToggle.contains(e.target)) return; setSkip(false); });
 })();
 </script>
 </body>

@@ -4,18 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <title>EduAsiste</title>
-    <script>try { localStorage.setItem('aiaxiaTheme', 'eduasiste'); } catch (e) {}</script>
-    <script src="preview-theme.js"></script>
-    <link rel="stylesheet" href="../css/app.css">
+    <link rel="stylesheet" href="../../css/app.css">
 </head>
 <body>
 <div class="ob-shell">
     <header class="ob-topbar">
         <span class="ob-brand">
-            <img class="ob-logo" alt="" hidden>
-            <span class="ob-wordmark">EduAsiste</span>
+            <img class="ob-logo" src="https://eduasiste.org/chat/v3/avatar_eduardo_owl.png" alt="">
+            <span class="ob-wordmark" style="font-style: normal; font-weight: 700;">EduAsiste</span>
         </span>
-        <span class="ob-progress" aria-label="Step 1 of 4">1 / 4</span>
+        <span class="ob-progress" aria-label="Step 1 of 5">1 / 5</span>
     </header>
 
     <main class="ob-stage">
@@ -26,17 +24,17 @@
                 <fieldset class="ob-fields">
                     <div class="ob-field">
                         <label for="ob-user-name" class="ob-field-label">Your name</label>
-                        <input id="ob-user-name" name="full_name" type="text" required maxlength="160" class="ob-input" value="Mara Halverson" autocomplete="name">
+                        <input id="ob-user-name" name="full_name" type="text" autocomplete="name" autofocus required maxlength="160" class="ob-input" value="Mara Halverson">
                     </div>
 
                     <div class="ob-field">
                         <label for="ob-user-email" class="ob-field-label">Your email</label>
-                        <input id="ob-user-email" name="email" type="email" required maxlength="191" class="ob-input" value="m.halverson@lincolnhigh.edu" autocomplete="email">
+                        <input id="ob-user-email" name="email" type="email" autocomplete="email" required maxlength="191" class="ob-input" value="m.halverson@lincolnhigh.edu">
                     </div>
 
                     <div class="ob-field">
                         <label for="ob-school-name" class="ob-field-label">Educational institution name</label>
-                        <input id="ob-school-name" name="school_name" type="text" required maxlength="160" class="ob-input" value="Lincoln High School" autocomplete="organization">
+                        <input id="ob-school-name" name="school_name" type="text" autocomplete="organization" required maxlength="160" class="ob-input" value="Lincoln High School">
                         <span class="ob-field-helper">As you'd like it shown across the dashboard.</span>
                     </div>
 
