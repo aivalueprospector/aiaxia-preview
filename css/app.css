@@ -2327,3 +2327,237 @@ img {
 .ob-logo-upload__controls {
   flex: 1 1 auto;
 }
+
+/* ============================================================
+   Inline add-row + table pattern (teachers / courses / students)
+   ============================================================ */
+
+.ob-add-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-3);
+  align-items: end;
+  padding: var(--space-4);
+  background: var(--color-field-cream);
+  border: 1px solid var(--color-margin);
+  border-radius: var(--radius-md);
+}
+
+@media (min-width: 700px) {
+  .ob-add-row--two   { grid-template-columns: 1fr 1fr auto; }
+  .ob-add-row--three { grid-template-columns: 1fr 1fr 1fr auto; }
+  .ob-add-row--four  { grid-template-columns: 1fr 1fr 1fr 1fr auto; }
+  .ob-add-row--five  { grid-template-columns: 1fr 1fr 1fr 1fr 1fr auto; }
+}
+
+.ob-add-row .ob-field-label {
+  margin-bottom: 4px;
+}
+
+.ob-add-row__cta {
+  align-self: end;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 14px 20px;
+  font-family: inherit;
+  font-size: var(--size-body);
+  font-weight: 500;
+  color: var(--color-parchment);
+  background: var(--color-accent);
+  border: 1px solid var(--color-accent);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background var(--transition-soft);
+}
+
+.ob-add-row__cta:hover {
+  background: var(--color-accent-deep);
+}
+
+.ob-add-row__cta:disabled,
+.ob-add-row__cta[aria-disabled="true"] {
+  background: var(--color-margin);
+  border-color: var(--color-margin);
+  color: var(--color-whisper);
+  cursor: not-allowed;
+}
+
+.ob-add-row__error {
+  grid-column: 1 / -1;
+  font-size: var(--size-label);
+  color: var(--color-danger);
+  margin: 0;
+}
+
+.ob-list-table {
+  margin-top: var(--space-5);
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--color-margin);
+  border-radius: var(--radius-md);
+  background: var(--color-parchment);
+  overflow: hidden;
+}
+
+.ob-list-table__header,
+.ob-list-table__row {
+  display: grid;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+}
+
+.ob-list-table__header {
+  background: var(--color-field-cream);
+  font-size: var(--size-tiny);
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-whisper);
+  border-bottom: 1px solid var(--color-margin);
+}
+
+.ob-list-table__row {
+  border-bottom: 1px solid var(--color-margin-soft);
+  font-size: var(--size-body);
+  color: var(--color-ink);
+}
+
+.ob-list-table__row:last-child {
+  border-bottom: none;
+}
+
+.ob-list-table__cell--strong {
+  font-weight: 500;
+}
+
+.ob-list-table__cell--meta {
+  color: var(--color-whisper);
+  font-size: var(--size-label);
+}
+
+.ob-list-table__row-actions {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--space-2);
+}
+
+.ob-list-table__remove {
+  background: transparent;
+  border: 1px solid transparent;
+  color: var(--color-whisper);
+  padding: 4px 10px;
+  font-size: var(--size-label);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: background var(--transition-soft), color var(--transition-soft), border-color var(--transition-soft);
+}
+
+.ob-list-table__remove:hover {
+  background: var(--color-danger-soft);
+  border-color: var(--color-danger);
+  color: var(--color-danger);
+}
+
+.ob-list-table__empty {
+  padding: var(--space-7) var(--space-4);
+  text-align: center;
+  color: var(--color-whisper);
+  font-size: var(--size-label);
+}
+
+.ob-list-table__pills {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.ob-list-table__pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 10px;
+  font-size: var(--size-tiny);
+  font-weight: 500;
+  background: var(--color-accent-soft);
+  color: var(--color-accent-deep);
+  border-radius: 999px;
+}
+
+/* Column templates per page */
+.ob-list-table--teachers .ob-list-table__header,
+.ob-list-table--teachers .ob-list-table__row {
+  grid-template-columns: 1.6fr 1.8fr 0.6fr;
+}
+
+.ob-list-table--courses .ob-list-table__header,
+.ob-list-table--courses .ob-list-table__row {
+  grid-template-columns: 1.4fr 1fr 0.6fr 1.2fr 0.6fr;
+}
+
+.ob-list-table--students .ob-list-table__header,
+.ob-list-table--students .ob-list-table__row {
+  grid-template-columns: 1.4fr 2fr 0.6fr;
+}
+
+/* Course multi-pick chip group inside students add-row */
+.ob-coursepick {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.ob-coursepick__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 8px;
+  border: 1px solid var(--color-margin);
+  border-radius: var(--radius-sm);
+  background: var(--color-parchment);
+  min-height: 44px;
+}
+
+.ob-coursepick__chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  font-size: var(--size-label);
+  background: var(--color-field-cream);
+  border: 1px solid var(--color-margin);
+  border-radius: 999px;
+  cursor: pointer;
+  user-select: none;
+  transition: background var(--transition-soft), border-color var(--transition-soft), color var(--transition-soft);
+}
+
+.ob-coursepick__chip[aria-pressed="true"] {
+  background: var(--color-accent-soft);
+  border-color: var(--color-accent);
+  color: var(--color-accent-deep);
+}
+
+.ob-coursepick__chip:hover {
+  border-color: var(--color-ink-soft);
+}
+
+.ob-coursepick__empty {
+  font-size: var(--size-label);
+  color: var(--color-whisper);
+  padding: 8px;
+}
+
+@media (max-width: 700px) {
+  .ob-list-table--teachers .ob-list-table__header,
+  .ob-list-table--teachers .ob-list-table__row,
+  .ob-list-table--courses .ob-list-table__header,
+  .ob-list-table--courses .ob-list-table__row,
+  .ob-list-table--students .ob-list-table__header,
+  .ob-list-table--students .ob-list-table__row {
+    grid-template-columns: 1fr;
+  }
+  .ob-list-table__header { display: none; }
+}

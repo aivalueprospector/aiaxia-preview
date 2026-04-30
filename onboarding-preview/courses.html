@@ -15,106 +15,55 @@
             <img class="ob-logo" alt="" hidden>
             <span class="ob-wordmark">EduAsiste</span>
         </span>
-        <span class="ob-progress" aria-label="Step 3 of 4">3 / 4</span>
+        <span class="ob-progress" aria-label="Step 3 of 5">3 / 5</span>
     </header>
 
     <main class="ob-stage">
         <section class="ob-content" aria-labelledby="courses-headline">
             <h1 class="ob-leadin" id="courses-headline">Create your courses.</h1>
-            <p class="ob-subhead">At least one course to continue. Each needs a name, subject, grade, and an assigned teacher.</p>
+            <p class="ob-subhead">Each course needs a name, subject, grade, and a teacher. At least one to continue.</p>
 
-            <form action="students.html" method="get" novalidate>
-                <div class="ob-repeater" data-repeater-list="courses">
-                    <div class="ob-row ob-row--four">
-                        <div class="ob-row__head">
-                            <span>Course <span data-repeater-index>1</span></span>
-                            <button type="button" class="ob-row__remove" data-repeater-remove>Remove</button>
-                        </div>
-                        <div class="ob-field">
-                            <label class="ob-field-label">Course name</label>
-                            <input class="ob-input" type="text" name="courses[][class_name]" value="Biology 101" required>
-                        </div>
-                        <div class="ob-field">
-                            <label class="ob-field-label">Subject</label>
-                            <input class="ob-input" type="text" name="courses[][subject]" value="Biology" required>
-                        </div>
-                        <div class="ob-field">
-                            <label class="ob-field-label">Grade</label>
-                            <input class="ob-input" type="text" name="courses[][grade]" value="10" required>
-                        </div>
-                        <div class="ob-field">
-                            <label class="ob-field-label">Teacher</label>
-                            <select class="ob-input" name="courses[][teacher_id]" required>
-                                <option value="" disabled>Pick a teacher</option>
-                                <option value="0" selected>Roberto Salas</option>
-                                <option value="1">Aliyah Brooks</option>
-                            </select>
-                        </div>
+            <form action="students.html" method="get" id="ob-form" novalidate>
+                <div class="ob-add-row ob-add-row--four" id="ob-add-row">
+                    <div class="ob-field">
+                        <label class="ob-field-label" for="add-name">Course name</label>
+                        <input id="add-name" class="ob-input" type="text" data-add="class_name">
                     </div>
-
-                    <div class="ob-row ob-row--four">
-                        <div class="ob-row__head">
-                            <span>Course <span data-repeater-index>2</span></span>
-                            <button type="button" class="ob-row__remove" data-repeater-remove>Remove</button>
-                        </div>
-                        <div class="ob-field">
-                            <label class="ob-field-label">Course name</label>
-                            <input class="ob-input" type="text" name="courses[][class_name]" value="Algebra II" required>
-                        </div>
-                        <div class="ob-field">
-                            <label class="ob-field-label">Subject</label>
-                            <input class="ob-input" type="text" name="courses[][subject]" value="Math" required>
-                        </div>
-                        <div class="ob-field">
-                            <label class="ob-field-label">Grade</label>
-                            <input class="ob-input" type="text" name="courses[][grade]" value="10" required>
-                        </div>
-                        <div class="ob-field">
-                            <label class="ob-field-label">Teacher</label>
-                            <select class="ob-input" name="courses[][teacher_id]" required>
-                                <option value="" disabled>Pick a teacher</option>
-                                <option value="0" selected>Roberto Salas</option>
-                                <option value="1">Aliyah Brooks</option>
-                            </select>
-                        </div>
+                    <div class="ob-field">
+                        <label class="ob-field-label" for="add-subject">Subject</label>
+                        <input id="add-subject" class="ob-input" type="text" data-add="subject">
                     </div>
+                    <div class="ob-field">
+                        <label class="ob-field-label" for="add-grade">Grade</label>
+                        <input id="add-grade" class="ob-input" type="text" data-add="grade">
+                    </div>
+                    <div class="ob-field">
+                        <label class="ob-field-label" for="add-teacher">Teacher</label>
+                        <select id="add-teacher" class="ob-input" data-add="teacher_id">
+                            <option value="" disabled selected>Pick teacher</option>
+                            <option value="0" data-name="Roberto Salas">Roberto Salas</option>
+                            <option value="1" data-name="Aliyah Brooks">Aliyah Brooks</option>
+                        </select>
+                    </div>
+                    <button type="button" class="ob-add-row__cta" id="ob-add-btn">
+                        <span aria-hidden="true">+</span> Add course
+                    </button>
+                    <p class="ob-add-row__error" id="ob-add-error" role="alert" hidden></p>
                 </div>
 
-                <template data-repeater-template="courses">
-                    <div class="ob-row ob-row--four">
-                        <div class="ob-row__head">
-                            <span>Course <span data-repeater-index>3</span></span>
-                            <button type="button" class="ob-row__remove" data-repeater-remove>Remove</button>
-                        </div>
-                        <div class="ob-field">
-                            <label class="ob-field-label">Course name</label>
-                            <input class="ob-input" type="text" name="courses[][class_name]" required>
-                        </div>
-                        <div class="ob-field">
-                            <label class="ob-field-label">Subject</label>
-                            <input class="ob-input" type="text" name="courses[][subject]" required>
-                        </div>
-                        <div class="ob-field">
-                            <label class="ob-field-label">Grade</label>
-                            <input class="ob-input" type="text" name="courses[][grade]" required>
-                        </div>
-                        <div class="ob-field">
-                            <label class="ob-field-label">Teacher</label>
-                            <select class="ob-input" name="courses[][teacher_id]" required>
-                                <option value="" disabled selected>Pick a teacher</option>
-                                <option value="0">Roberto Salas</option>
-                                <option value="1">Aliyah Brooks</option>
-                            </select>
-                        </div>
+                <div class="ob-list-table ob-list-table--courses" id="ob-list" aria-label="Courses added">
+                    <div class="ob-list-table__header" role="row">
+                        <span role="columnheader">Course</span>
+                        <span role="columnheader">Subject</span>
+                        <span role="columnheader">Grade</span>
+                        <span role="columnheader">Teacher</span>
+                        <span role="columnheader" style="text-align:right;">Actions</span>
                     </div>
-                </template>
-
-                <button type="button" class="ob-repeater__add" data-repeater-add="courses" style="margin-top: var(--space-4);">
-                    <span aria-hidden="true">+</span> Add another course
-                </button>
+                    <div class="ob-list-table__empty" id="ob-empty">No courses yet. Add one above.</div>
+                </div>
 
                 <div class="ob-actions" style="margin-top: var(--space-7);">
-                    <button type="submit" class="ob-btn ob-btn--primary">
+                    <button type="submit" class="ob-btn ob-btn--primary" id="ob-continue" disabled aria-disabled="true">
                         Continue
                         <span class="ob-btn-arrow" aria-hidden="true">&rarr;</span>
                     </button>
@@ -125,6 +74,115 @@
         </section>
     </main>
 </div>
-<script src="onboarding-repeater.js"></script>
+
+<script>
+(function () {
+    var list = document.getElementById('ob-list');
+    var empty = document.getElementById('ob-empty');
+    var addBtn = document.getElementById('ob-add-btn');
+    var addRow = document.getElementById('ob-add-row');
+    var continueBtn = document.getElementById('ob-continue');
+    var errorEl = document.getElementById('ob-add-error');
+    var inputs = {
+        class_name: addRow.querySelector('[data-add="class_name"]'),
+        subject: addRow.querySelector('[data-add="subject"]'),
+        grade: addRow.querySelector('[data-add="grade"]'),
+        teacher_id: addRow.querySelector('[data-add="teacher_id"]')
+    };
+
+    function clearError() { errorEl.hidden = true; errorEl.textContent = ''; }
+    function showError(msg) { errorEl.hidden = false; errorEl.textContent = msg; }
+
+    function refreshState() {
+        var rows = list.querySelectorAll('.ob-list-table__row');
+        empty.style.display = rows.length === 0 ? '' : 'none';
+        continueBtn.disabled = rows.length === 0;
+        continueBtn.setAttribute('aria-disabled', rows.length === 0 ? 'true' : 'false');
+    }
+
+    function reindex() {
+        var rows = list.querySelectorAll('.ob-list-table__row');
+        rows.forEach(function (row, i) {
+            row.querySelectorAll('input[type="hidden"]').forEach(function (inp) {
+                inp.name = 'courses[' + i + '][' + inp.dataset.field + ']';
+            });
+        });
+    }
+
+    function addEntry(data) {
+        var row = document.createElement('div');
+        row.className = 'ob-list-table__row';
+        row.setAttribute('role', 'row');
+
+        var nameC = document.createElement('span');
+        nameC.className = 'ob-list-table__cell--strong';
+        nameC.textContent = data.class_name;
+
+        var subjectC = document.createElement('span');
+        subjectC.textContent = data.subject;
+
+        var gradeC = document.createElement('span');
+        gradeC.textContent = data.grade;
+
+        var teacherC = document.createElement('span');
+        teacherC.textContent = data.teacher_name;
+
+        var actions = document.createElement('span');
+        actions.className = 'ob-list-table__row-actions';
+        var rm = document.createElement('button');
+        rm.type = 'button';
+        rm.className = 'ob-list-table__remove';
+        rm.textContent = 'Remove';
+        rm.addEventListener('click', function () { row.remove(); reindex(); refreshState(); });
+        actions.appendChild(rm);
+
+        ['class_name', 'subject', 'grade', 'teacher_id'].forEach(function (k) {
+            var h = document.createElement('input');
+            h.type = 'hidden';
+            h.dataset.field = k;
+            h.value = data[k];
+            row.appendChild(h);
+        });
+
+        row.appendChild(nameC);
+        row.appendChild(subjectC);
+        row.appendChild(gradeC);
+        row.appendChild(teacherC);
+        row.appendChild(actions);
+        list.appendChild(row);
+        reindex();
+    }
+
+    function readAndAdd() {
+        clearError();
+        var name = inputs.class_name.value.trim();
+        var subject = inputs.subject.value.trim();
+        var grade = inputs.grade.value.trim();
+        var teacherId = inputs.teacher_id.value;
+        if (!name || !subject || !grade || teacherId === '') {
+            showError('All fields required.');
+            return;
+        }
+        var teacherName = inputs.teacher_id.options[inputs.teacher_id.selectedIndex].dataset.name;
+        addEntry({ class_name: name, subject: subject, grade: grade, teacher_id: teacherId, teacher_name: teacherName });
+        inputs.class_name.value = '';
+        inputs.subject.value = '';
+        inputs.grade.value = '';
+        inputs.teacher_id.value = '';
+        inputs.class_name.focus();
+        refreshState();
+    }
+
+    addBtn.addEventListener('click', readAndAdd);
+    addRow.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' && e.target.tagName !== 'SELECT') { e.preventDefault(); readAndAdd(); }
+    });
+
+    // Seed
+    addEntry({ class_name: 'Biology 101', subject: 'Biology', grade: '10', teacher_id: '0', teacher_name: 'Roberto Salas' });
+    addEntry({ class_name: 'Algebra II', subject: 'Math', grade: '10', teacher_id: '0', teacher_name: 'Roberto Salas' });
+    refreshState();
+})();
+</script>
 </body>
 </html>

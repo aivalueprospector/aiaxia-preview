@@ -15,82 +15,45 @@
             <img class="ob-logo" alt="" hidden>
             <span class="ob-wordmark">EduAsiste</span>
         </span>
-        <span class="ob-progress" aria-label="Step 2 of 4">2 / 4</span>
+        <span class="ob-progress" aria-label="Step 2 of 5">2 / 5</span>
     </header>
 
     <main class="ob-stage">
         <section class="ob-content" aria-labelledby="teachers-headline">
             <h1 class="ob-leadin" id="teachers-headline">Add your teachers.</h1>
-            <p class="ob-subhead">At least one teacher to continue. You can add more later from the dashboard.</p>
+            <p class="ob-subhead">Fill the row, click Add. At least one teacher to continue.</p>
 
-            <form action="courses.html" method="get" novalidate>
-                <div class="ob-repeater" data-repeater-list="teachers">
-                    <div class="ob-row ob-row--three">
-                        <div class="ob-row__head">
-                            <span>Teacher <span data-repeater-index>1</span></span>
-                            <button type="button" class="ob-row__remove" data-repeater-remove>Remove</button>
-                        </div>
-                        <div class="ob-field">
-                            <label class="ob-field-label">First name</label>
-                            <input class="ob-input" type="text" name="teachers[][first_name]" value="Roberto" required>
-                        </div>
-                        <div class="ob-field">
-                            <label class="ob-field-label">Last name</label>
-                            <input class="ob-input" type="text" name="teachers[][last_name]" value="Salas" required>
-                        </div>
-                        <div class="ob-field">
-                            <label class="ob-field-label">Email (optional)</label>
-                            <input class="ob-input" type="email" name="teachers[][email]" value="r.salas@lincolnhigh.edu">
-                        </div>
+            <form action="courses.html" method="get" id="ob-form" novalidate>
+                <div class="ob-add-row ob-add-row--three" id="ob-add-row">
+                    <div class="ob-field">
+                        <label class="ob-field-label" for="add-first">First name</label>
+                        <input id="add-first" class="ob-input" type="text" data-add="first_name">
                     </div>
-
-                    <div class="ob-row ob-row--three">
-                        <div class="ob-row__head">
-                            <span>Teacher <span data-repeater-index>2</span></span>
-                            <button type="button" class="ob-row__remove" data-repeater-remove>Remove</button>
-                        </div>
-                        <div class="ob-field">
-                            <label class="ob-field-label">First name</label>
-                            <input class="ob-input" type="text" name="teachers[][first_name]" value="Aliyah" required>
-                        </div>
-                        <div class="ob-field">
-                            <label class="ob-field-label">Last name</label>
-                            <input class="ob-input" type="text" name="teachers[][last_name]" value="Brooks" required>
-                        </div>
-                        <div class="ob-field">
-                            <label class="ob-field-label">Email (optional)</label>
-                            <input class="ob-input" type="email" name="teachers[][email]" value="a.brooks@lincolnhigh.edu">
-                        </div>
+                    <div class="ob-field">
+                        <label class="ob-field-label" for="add-last">Last name</label>
+                        <input id="add-last" class="ob-input" type="text" data-add="last_name">
                     </div>
+                    <div class="ob-field">
+                        <label class="ob-field-label" for="add-email">Email (optional)</label>
+                        <input id="add-email" class="ob-input" type="email" data-add="email">
+                    </div>
+                    <button type="button" class="ob-add-row__cta" id="ob-add-btn">
+                        <span aria-hidden="true">+</span> Add teacher
+                    </button>
+                    <p class="ob-add-row__error" id="ob-add-error" role="alert" hidden></p>
                 </div>
 
-                <template data-repeater-template="teachers">
-                    <div class="ob-row ob-row--three">
-                        <div class="ob-row__head">
-                            <span>Teacher <span data-repeater-index>3</span></span>
-                            <button type="button" class="ob-row__remove" data-repeater-remove>Remove</button>
-                        </div>
-                        <div class="ob-field">
-                            <label class="ob-field-label">First name</label>
-                            <input class="ob-input" type="text" name="teachers[][first_name]" required>
-                        </div>
-                        <div class="ob-field">
-                            <label class="ob-field-label">Last name</label>
-                            <input class="ob-input" type="text" name="teachers[][last_name]" required>
-                        </div>
-                        <div class="ob-field">
-                            <label class="ob-field-label">Email (optional)</label>
-                            <input class="ob-input" type="email" name="teachers[][email]">
-                        </div>
+                <div class="ob-list-table ob-list-table--teachers" id="ob-list" aria-label="Teachers added">
+                    <div class="ob-list-table__header" role="row">
+                        <span role="columnheader">Name</span>
+                        <span role="columnheader">Email</span>
+                        <span role="columnheader" style="text-align:right;">Actions</span>
                     </div>
-                </template>
-
-                <button type="button" class="ob-repeater__add" data-repeater-add="teachers" style="margin-top: var(--space-4);">
-                    <span aria-hidden="true">+</span> Add another teacher
-                </button>
+                    <div class="ob-list-table__empty" id="ob-empty">No teachers yet. Add one above.</div>
+                </div>
 
                 <div class="ob-actions" style="margin-top: var(--space-7);">
-                    <button type="submit" class="ob-btn ob-btn--primary">
+                    <button type="submit" class="ob-btn ob-btn--primary" id="ob-continue" disabled aria-disabled="true">
                         Continue
                         <span class="ob-btn-arrow" aria-hidden="true">&rarr;</span>
                     </button>
@@ -101,6 +64,110 @@
         </section>
     </main>
 </div>
-<script src="onboarding-repeater.js"></script>
+
+<script>
+(function () {
+    var form = document.getElementById('ob-form');
+    var list = document.getElementById('ob-list');
+    var empty = document.getElementById('ob-empty');
+    var addBtn = document.getElementById('ob-add-btn');
+    var addRow = document.getElementById('ob-add-row');
+    var continueBtn = document.getElementById('ob-continue');
+    var errorEl = document.getElementById('ob-add-error');
+    var inputs = {
+        first_name: addRow.querySelector('[data-add="first_name"]'),
+        last_name: addRow.querySelector('[data-add="last_name"]'),
+        email: addRow.querySelector('[data-add="email"]')
+    };
+    var counter = 0;
+
+    function clearError() { errorEl.hidden = true; errorEl.textContent = ''; }
+    function showError(msg) { errorEl.hidden = false; errorEl.textContent = msg; }
+
+    function refreshState() {
+        var rows = list.querySelectorAll('.ob-list-table__row');
+        empty.style.display = rows.length === 0 ? '' : 'none';
+        var has = rows.length > 0;
+        continueBtn.disabled = !has;
+        continueBtn.setAttribute('aria-disabled', has ? 'false' : 'true');
+    }
+
+    function reindex() {
+        var rows = list.querySelectorAll('.ob-list-table__row');
+        rows.forEach(function (row, i) {
+            row.querySelectorAll('input[type="hidden"]').forEach(function (inp) {
+                var key = inp.dataset.field;
+                inp.name = 'teachers[' + i + '][' + key + ']';
+            });
+        });
+    }
+
+    function addRowEntry(data) {
+        var idx = counter++;
+        var row = document.createElement('div');
+        row.className = 'ob-list-table__row';
+        row.setAttribute('role', 'row');
+
+        var name = document.createElement('span');
+        name.className = 'ob-list-table__cell--strong';
+        name.textContent = (data.first_name + ' ' + data.last_name).trim();
+
+        var email = document.createElement('span');
+        email.className = 'ob-list-table__cell--meta';
+        email.textContent = data.email || '—';
+
+        var actions = document.createElement('span');
+        actions.className = 'ob-list-table__row-actions';
+
+        var rm = document.createElement('button');
+        rm.type = 'button';
+        rm.className = 'ob-list-table__remove';
+        rm.textContent = 'Remove';
+        rm.addEventListener('click', function () { row.remove(); reindex(); refreshState(); });
+        actions.appendChild(rm);
+
+        ['first_name', 'last_name', 'email'].forEach(function (k) {
+            var h = document.createElement('input');
+            h.type = 'hidden';
+            h.dataset.field = k;
+            h.value = data[k] || '';
+            row.appendChild(h);
+        });
+
+        row.appendChild(name);
+        row.appendChild(email);
+        row.appendChild(actions);
+        list.appendChild(row);
+        reindex();
+    }
+
+    function readAndAdd() {
+        clearError();
+        var first = inputs.first_name.value.trim();
+        var last = inputs.last_name.value.trim();
+        var email = inputs.email.value.trim();
+        if (!first || !last) {
+            showError('First and last name are required.');
+            return;
+        }
+        addRowEntry({ first_name: first, last_name: last, email: email });
+        inputs.first_name.value = '';
+        inputs.last_name.value = '';
+        inputs.email.value = '';
+        inputs.first_name.focus();
+        refreshState();
+    }
+
+    addBtn.addEventListener('click', readAndAdd);
+    addRow.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter') { e.preventDefault(); readAndAdd(); }
+    });
+
+    // Seed sample
+    addRowEntry({ first_name: 'Roberto', last_name: 'Salas', email: 'r.salas@lincolnhigh.edu' });
+    addRowEntry({ first_name: 'Aliyah', last_name: 'Brooks', email: 'a.brooks@lincolnhigh.edu' });
+    refreshState();
+})();
+</script>
 </body>
 </html>
