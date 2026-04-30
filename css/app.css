@@ -2344,10 +2344,10 @@ img {
 }
 
 @media (min-width: 700px) {
-  .ob-add-row--two   { grid-template-columns: 1fr 1fr auto; }
-  .ob-add-row--three { grid-template-columns: 1fr 1fr 1fr auto; }
-  .ob-add-row--four  { grid-template-columns: 1fr 1fr 1fr 1fr auto; }
-  .ob-add-row--five  { grid-template-columns: 1fr 1fr 1fr 1fr 1fr auto; }
+  .ob-add-row--two   { grid-template-columns: 1fr 1fr; }
+  .ob-add-row--three { grid-template-columns: 1fr 1fr 1fr; }
+  .ob-add-row--four  { grid-template-columns: 1fr 1fr 1fr 1fr; }
+  .ob-add-row--five  { grid-template-columns: 1fr 1fr 1fr 1fr 1fr; }
 }
 
 .ob-add-row .ob-field-label {
@@ -2355,11 +2355,12 @@ img {
 }
 
 .ob-add-row__cta {
-  align-self: end;
+  grid-column: 1 / -1;
+  justify-self: start;
   display: inline-flex;
   align-items: center;
   gap: var(--space-2);
-  padding: 14px 20px;
+  padding: 12px 20px;
   font-family: inherit;
   font-size: var(--size-body);
   font-weight: 500;
@@ -2560,4 +2561,9 @@ img {
     grid-template-columns: 1fr;
   }
   .ob-list-table__header { display: none; }
+}
+
+/* Wider content surface for onboarding steps that show roster tables. */
+.ob-content--wide {
+  max-width: 920px;
 }
