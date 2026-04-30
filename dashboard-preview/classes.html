@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="eduasiste">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>EduAsiste · Classes</title>
+    <script src="preview-theme.js"></script>
+    <link rel="stylesheet" href="../css/app.css">
+</head>
+<body>
+<div class="dash-shell-v2">
+    <header class="dash-topbar-v2">
+        <span class="dash-topbar-v2__brand">
+            <span class="dash-topbar-v2__logo" aria-hidden="true"></span>
+            <span class="dash-topbar-v2__company" data-tenant-copy="dashboard.company_name">Lincoln High School</span>
+        </span>
+        <span class="dash-topbar-v2__spacer"></span>
+        <span class="dash-topbar-v2__user">
+            <button type="button" class="dash-topbar-v2__user-trigger" data-action="user-menu-toggle" aria-haspopup="menu" aria-expanded="false">
+                <span data-tenant-copy="dashboard.user_first_name">Mara</span>
+            </button>
+            <div class="dash-usermenu" role="menu" data-open="false">
+                <a class="dash-usermenu__item" role="menuitem" href="billing.html">Billing</a>
+                <a class="dash-usermenu__item" role="menuitem" href="settings.html">Settings</a>
+                <span class="dash-usermenu__divider" role="separator"></span>
+                <a class="dash-usermenu__item" role="menuitem" href="#">Logout</a>
+            </div>
+        </span>
+    </header>
+
+    <div class="dash-body">
+        <nav class="dash-nav" aria-label="Dashboard sections">
+            <a class="dash-nav__item" href="dashboard.html"><span class="dash-nav__icon" aria-hidden="true">⌂</span><span class="dash-nav__label">Home</span></a>
+            <div class="dash-nav__group dash-nav__group--business">
+                <span class="dash-nav__group-label">Workspace</span>
+                <a class="dash-nav__item" href="projects.html"><span class="dash-nav__icon" aria-hidden="true">◇</span><span class="dash-nav__label">Projects</span></a>
+                <a class="dash-nav__item" href="employees-business.html"><span class="dash-nav__icon" aria-hidden="true">◷</span><span class="dash-nav__label">Employees</span></a>
+            </div>
+            <div class="dash-nav__group dash-nav__group--school">
+                <span class="dash-nav__group-label">School</span>
+                <a class="dash-nav__item" href="employees-school.html"><span class="dash-nav__icon" aria-hidden="true">◷</span><span class="dash-nav__label">Employees</span></a>
+                <a class="dash-nav__item dash-nav__item--active" href="classes.html" aria-current="page"><span class="dash-nav__icon" aria-hidden="true">▤</span><span class="dash-nav__label">Classes</span></a>
+                <a class="dash-nav__item" href="students.html"><span class="dash-nav__icon" aria-hidden="true">◯</span><span class="dash-nav__label">Students</span></a>
+            </div>
+        </nav>
+
+        <main class="dash-center">
+            <header class="dash-section-head">
+                <div class="dash-section-head__titles">
+                    <h1>Classes</h1>
+                    <p>Each class has one or more teachers and a student roster. Teachers can be assigned to multiple classes.</p>
+                </div>
+                <button type="button" class="dash-add-cta"><span aria-hidden="true">+</span> Add class</button>
+            </header>
+
+            <div class="dash-table dash-table--classes" role="table" aria-label="Classes">
+                <div class="dash-table__header" role="row">
+                    <span role="columnheader">Class</span>
+                    <span role="columnheader">Subject</span>
+                    <span role="columnheader">Grade</span>
+                    <span role="columnheader">Teachers</span>
+                    <span role="columnheader">Students</span>
+                    <span role="columnheader" style="text-align:right;">Actions</span>
+                </div>
+
+                <div class="dash-table__row" role="row">
+                    <span class="dash-table__cell dash-table__cell-strong">Biology 101 — Section A</span>
+                    <span class="dash-table__cell">Biology</span>
+                    <span class="dash-table__cell">10</span>
+                    <span class="dash-table__cell">
+                        <span class="dash-table__pills">
+                            <span class="dash-table__pill dash-table__pill--accent">R. Salas</span>
+                            <span class="dash-table__pill dash-table__pill--accent">A. Brooks</span>
+                        </span>
+                    </span>
+                    <span class="dash-table__cell">28</span>
+                    <span class="dash-table__cell dash-table__row-actions">
+                        <button class="dash-table__icon-btn" title="Edit">✎</button>
+                        <button class="dash-table__icon-btn" title="Remove">×</button>
+                    </span>
+                </div>
+
+                <div class="dash-table__row" role="row">
+                    <span class="dash-table__cell dash-table__cell-strong">English Lit — Honors</span>
+                    <span class="dash-table__cell">English</span>
+                    <span class="dash-table__cell">11</span>
+                    <span class="dash-table__cell">
+                        <span class="dash-table__pills">
+                            <span class="dash-table__pill dash-table__pill--accent">H. Vogel</span>
+                        </span>
+                    </span>
+                    <span class="dash-table__cell">22</span>
+                    <span class="dash-table__cell dash-table__row-actions">
+                        <button class="dash-table__icon-btn" title="Edit">✎</button>
+                        <button class="dash-table__icon-btn" title="Remove">×</button>
+                    </span>
+                </div>
+
+                <div class="dash-table__row" role="row">
+                    <span class="dash-table__cell dash-table__cell-strong">Algebra II</span>
+                    <span class="dash-table__cell">Math</span>
+                    <span class="dash-table__cell">10</span>
+                    <span class="dash-table__cell">
+                        <span class="dash-table__pills">
+                            <span class="dash-table__pill dash-table__pill--accent">R. Salas</span>
+                        </span>
+                    </span>
+                    <span class="dash-table__cell">31</span>
+                    <span class="dash-table__cell dash-table__row-actions">
+                        <button class="dash-table__icon-btn" title="Edit">✎</button>
+                        <button class="dash-table__icon-btn" title="Remove">×</button>
+                    </span>
+                </div>
+
+                <div class="dash-table__row" role="row">
+                    <span class="dash-table__cell dash-table__cell-strong">World History</span>
+                    <span class="dash-table__cell">History</span>
+                    <span class="dash-table__cell">9</span>
+                    <span class="dash-table__cell">
+                        <span class="dash-table__pills">
+                            <span class="dash-table__pill dash-table__pill--accent">A. Brooks</span>
+                            <span class="dash-table__pill dash-table__pill--accent">H. Vogel</span>
+                        </span>
+                    </span>
+                    <span class="dash-table__cell">25</span>
+                    <span class="dash-table__cell dash-table__row-actions">
+                        <button class="dash-table__icon-btn" title="Edit">✎</button>
+                        <button class="dash-table__icon-btn" title="Remove">×</button>
+                    </span>
+                </div>
+            </div>
+
+            <p class="dash-section-meta" style="margin-top: var(--space-5);">Click a class to edit teachers, subject, grade, and student roster.</p>
+        </main>
+
+        <aside class="dash-twin-rail" aria-label="Twin chat">
+            <button type="button" class="dash-twin-rail__rail-toggle" data-action="rail-toggle" aria-controls="dash-twin-panel" aria-expanded="true"><span aria-hidden="true">💬</span></button>
+            <div class="dash-twin-rail__header">
+                <h3 class="dash-twin-rail__title">Twin chat</h3>
+                <button type="button" class="dash-twin-rail__toggle" data-action="rail-toggle" aria-controls="dash-twin-panel" aria-expanded="true"><span aria-hidden="true">›</span></button>
+            </div>
+            <div class="dash-twin-rail__body" id="dash-twin-panel">
+                <div class="dash-twin-thread">
+                    <div class="dash-twin-msg dash-twin-msg--twin"><span class="dash-twin-msg__role">Twin</span>Mr. Salas teaches both Biology 101 and Algebra II. Want to balance his load?</div>
+                </div>
+            </div>
+        </aside>
+    </div>
+</div>
+<script src="dash-shell.js"></script>
+</body>
+</html>

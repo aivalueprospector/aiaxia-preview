@@ -13,13 +13,24 @@
   // Per-tenant copy overrides. Mirrors config/tenants.php "copy" arrays.
   // Keys must match data-tenant-copy attributes in the HTML.
   var COPY = {
-    aiaxia:    {},
-    eduasiste: {
-      'company.name_label':    'School name',
-      'upload.subhead':        'Course materials, lesson plans, prior assessments, sample student work. PDF, DOCX, TXT, images. Up to 10 files.',
-      'dashboard.project_pill': 'Lincoln High · active project'
+    aiaxia:    {
+      'dashboard.company_name':   'Acme Health',
+      'dashboard.user_first_name': 'Maya',
+      'dashboard.org_label':      'Company'
     },
-    proasiste: {}
+    eduasiste: {
+      'company.name_label':       'School name',
+      'upload.subhead':           'Course materials, lesson plans, prior assessments, sample student work. PDF, DOCX, TXT, images. Up to 10 files.',
+      'dashboard.project_pill':   'Lincoln High · active project',
+      'dashboard.company_name':   'Lincoln High School',
+      'dashboard.user_first_name': 'Mara',
+      'dashboard.org_label':      'School'
+    },
+    proasiste: {
+      'dashboard.company_name':   'Stiles & Co Consulting',
+      'dashboard.user_first_name': 'Walt',
+      'dashboard.org_label':      'Practice'
+    }
   };
 
   var STORAGE_KEY = 'aiaxiaTheme';
@@ -94,8 +105,35 @@
       } catch (e) {}
     });
 
-    // Mount switcher in topbar
-    var bar = document.querySelector('.ob-topbar');
+    // Sample-logo placeholder for dashboard topbar v2 (when no user upload).
+    // In production, the topbar logo binds to companies.logo_path; here in
+    // the static preview we paint a wordmark cap into the 75x75 box so
+    // every theme renders something recognizable.
+    var dashLogoBox = document.querySelector('.dash-topbar-v2__logo');
+    if (dashLogoBox) {
+      var img = dashLogoBox.querySelector('img');
+      if (t.logo) {
+        if (!img) { img = document.createElement('img'); dashLogoBox.appendChild(img); }
+        img.src = t.logo;
+        img.alt = t.title + ' logo';
+        var ph = dashLogoBox.querySelector('.dash-topbar-v2__logo--placeholder');
+        if (ph) ph.remove();
+      } else {
+        if (img) img.remove();
+        var existing = dashLogoBox.querySelector('.dash-topbar-v2__logo--placeholder');
+        if (!existing) {
+          var ph2 = document.createElement('span');
+          ph2.className = 'dash-topbar-v2__logo--placeholder';
+          ph2.textContent = t.wordmark.charAt(0);
+          dashLogoBox.appendChild(ph2);
+        } else {
+          existing.textContent = t.wordmark.charAt(0);
+        }
+      }
+    }
+
+    // Mount switcher in topbar (onboarding .ob-topbar OR dashboard .dash-topbar-v2)
+    var bar = document.querySelector('.ob-topbar') || document.querySelector('.dash-topbar-v2');
     if (!bar || bar.querySelector('.ob-theme-switcher')) return;
 
     var wrap = document.createElement('div');
@@ -118,8 +156,13 @@
     });
 
     var progress = bar.querySelector('.ob-progress');
-    if (progress) bar.insertBefore(wrap, progress);
-    else bar.appendChild(wrap);
+    if (progress) {
+      bar.insertBefore(wrap, progress);
+    } else {
+      var anchor = bar.querySelector('.dash-topbar-v2__user') || bar.querySelector('.dash-topbar-v2__spacer');
+      if (anchor) bar.insertBefore(wrap, anchor);
+      else bar.appendChild(wrap);
+    }
   }
 
   if (document.readyState === 'loading') {

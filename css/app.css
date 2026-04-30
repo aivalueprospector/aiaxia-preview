@@ -1388,3 +1388,781 @@ img {
   margin: 0;
   padding-left: var(--space-5);
 }
+
+/* ============================================================
+   Dashboard v2 — workspace shell
+   Topbar (logo + org name + user menu) over a 3-column body
+   (left nav, center content, right twin chat rail).
+   ============================================================ */
+
+.dash-shell-v2 {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--color-parchment);
+}
+
+/* Topbar v2 */
+.dash-topbar-v2 {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  padding: var(--space-3) var(--space-5);
+  background: var(--color-parchment);
+  border-bottom: 1px solid var(--color-margin);
+}
+
+.dash-topbar-v2__brand {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.dash-topbar-v2__logo {
+  width: 75px;
+  height: 75px;
+  flex: 0 0 75px;
+  aspect-ratio: 1 / 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-2);
+  background: var(--color-field-cream);
+  border: 1px solid var(--color-margin);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.dash-topbar-v2__logo img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+.dash-topbar-v2__logo--placeholder {
+  font-family: var(--font-serif);
+  font-size: var(--size-title);
+  font-weight: 500;
+  color: var(--color-whisper);
+  letter-spacing: 0.02em;
+}
+
+.dash-topbar-v2__company {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  font-size: var(--size-headline);
+  line-height: var(--line-headline);
+  color: var(--color-ink);
+  letter-spacing: -0.005em;
+}
+
+:root[data-theme="eduasiste"] .dash-topbar-v2__company,
+:root[data-theme="proasiste"] .dash-topbar-v2__company {
+  font-family: var(--font-sans);
+  font-weight: 700;
+}
+
+:root[data-theme="proasiste"] .dash-topbar-v2__company {
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
+.dash-topbar-v2__spacer {
+  flex: 1 1 auto;
+}
+
+.dash-topbar-v2__user {
+  position: relative;
+}
+
+.dash-topbar-v2__user-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 8px 14px;
+  font-family: inherit;
+  font-size: var(--size-body);
+  font-weight: 500;
+  color: var(--color-ink);
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: var(--radius-md);
+  transition: background var(--transition-soft), border-color var(--transition-soft);
+}
+
+.dash-topbar-v2__user-trigger:hover,
+.dash-topbar-v2__user-trigger[aria-expanded="true"] {
+  background: var(--color-field-cream);
+  border-color: var(--color-margin);
+}
+
+.dash-topbar-v2__user-trigger::after {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-right: 1.5px solid var(--color-ink-soft);
+  border-bottom: 1.5px solid var(--color-ink-soft);
+  transform: rotate(45deg) translate(-2px, -2px);
+  transition: transform var(--transition-soft);
+}
+
+.dash-topbar-v2__user-trigger[aria-expanded="true"]::after {
+  transform: rotate(225deg) translate(-2px, -2px);
+}
+
+/* User menu popover */
+.dash-usermenu {
+  position: absolute;
+  right: 0;
+  top: calc(100% + var(--space-2));
+  min-width: 220px;
+  padding: var(--space-2);
+  background: var(--color-parchment);
+  border: 1px solid var(--color-margin);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-modal);
+  display: none;
+  z-index: 30;
+}
+
+.dash-usermenu[data-open="true"] {
+  display: block;
+}
+
+.dash-usermenu__item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  width: 100%;
+  padding: 10px 12px;
+  font-family: inherit;
+  font-size: var(--size-body);
+  color: var(--color-ink);
+  background: transparent;
+  border: none;
+  border-radius: var(--radius-sm);
+  text-align: left;
+  cursor: pointer;
+  transition: background var(--transition-soft);
+}
+
+.dash-usermenu__item:hover,
+.dash-usermenu__item:focus-visible {
+  background: var(--color-field-cream);
+  outline: none;
+}
+
+.dash-usermenu__divider {
+  height: 1px;
+  margin: var(--space-2) 0;
+  background: var(--color-margin-soft);
+}
+
+/* 3-column body */
+.dash-body {
+  flex: 1 1 auto;
+  display: grid;
+  grid-template-columns: 232px 1fr 360px;
+  min-height: 0;
+}
+
+.dash-body--rail-collapsed {
+  grid-template-columns: 232px 1fr 56px;
+}
+
+@media (max-width: 1024px) {
+  .dash-body,
+  .dash-body--rail-collapsed {
+    grid-template-columns: 200px 1fr 56px;
+  }
+}
+
+@media (max-width: 720px) {
+  .dash-body,
+  .dash-body--rail-collapsed {
+    grid-template-columns: 1fr;
+  }
+  .dash-nav,
+  .dash-twin-rail {
+    display: none;
+  }
+}
+
+/* Left nav */
+.dash-nav {
+  border-right: 1px solid var(--color-margin);
+  padding: var(--space-5) var(--space-3);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  background: var(--color-parchment);
+}
+
+.dash-nav__group-label {
+  margin-top: var(--space-4);
+  padding: 0 var(--space-3);
+  font-size: var(--size-tiny);
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-whisper);
+}
+
+.dash-nav__item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: 10px var(--space-3);
+  font-size: var(--size-body);
+  font-weight: 500;
+  color: var(--color-ink-soft);
+  border-radius: var(--radius-md);
+  transition: background var(--transition-soft), color var(--transition-soft);
+}
+
+.dash-nav__item:hover {
+  background: var(--color-field-cream);
+  color: var(--color-ink);
+}
+
+.dash-nav__item--active {
+  background: var(--color-accent-soft);
+  color: var(--color-accent-deep);
+}
+
+:root[data-theme="aiaxia"] .dash-nav__item--active {
+  color: var(--color-ink);
+}
+
+.dash-nav__icon {
+  width: 18px;
+  height: 18px;
+  flex: 0 0 18px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  line-height: 1;
+}
+
+/* Static-preview helper: hide the nav branch that doesn't match the
+   resolved tenant. Production Blade renders one branch only based on
+   $tenant->slug. */
+.dash-nav__group {
+  display: contents;
+}
+:root[data-theme="eduasiste"] .dash-nav__group--business { display: none; }
+:root:not([data-theme="eduasiste"]) .dash-nav__group--school { display: none; }
+
+.dash-nav__label {
+  flex: 1 1 auto;
+}
+
+/* Center column */
+.dash-center {
+  flex: 1 1 auto;
+  overflow-y: auto;
+  padding: var(--space-7) var(--space-6);
+  min-width: 0;
+}
+
+.dash-center > .dash-greeting:first-child,
+.dash-center > .dash-stage-header:first-child {
+  margin-top: 0;
+}
+
+/* Twin rail (right column) */
+.dash-twin-rail {
+  border-left: 1px solid var(--color-margin);
+  background: var(--color-parchment);
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  position: relative;
+}
+
+.dash-twin-rail__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-4) var(--space-4);
+  border-bottom: 1px solid var(--color-margin-soft);
+}
+
+.dash-twin-rail__title {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  font-size: var(--size-body-large);
+  color: var(--color-ink);
+  margin: 0;
+}
+
+:root[data-theme="eduasiste"] .dash-twin-rail__title,
+:root[data-theme="proasiste"] .dash-twin-rail__title {
+  font-family: var(--font-sans);
+  font-weight: 700;
+}
+
+.dash-twin-rail__toggle {
+  width: 32px;
+  height: 32px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: 1px solid var(--color-margin);
+  border-radius: var(--radius-sm);
+  color: var(--color-ink-soft);
+  transition: background var(--transition-soft), border-color var(--transition-soft);
+}
+
+.dash-twin-rail__toggle:hover {
+  background: var(--color-field-cream);
+  border-color: var(--color-ink-soft);
+  color: var(--color-ink);
+}
+
+.dash-twin-rail__body {
+  flex: 1 1 auto;
+  padding: var(--space-4);
+  overflow-y: auto;
+}
+
+.dash-twin-rail__iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  border-radius: var(--radius-md);
+}
+
+.dash-twin-rail__empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  padding: var(--space-7) var(--space-4);
+  text-align: center;
+  color: var(--color-ink-soft);
+  font-size: var(--size-label);
+}
+
+/* Collapsed state */
+.dash-twin-rail--collapsed {
+  align-items: center;
+  padding: var(--space-3) 0;
+}
+
+.dash-twin-rail--collapsed .dash-twin-rail__header,
+.dash-twin-rail--collapsed .dash-twin-rail__body {
+  display: none;
+}
+
+.dash-twin-rail--collapsed .dash-twin-rail__rail-toggle {
+  display: inline-flex;
+}
+
+.dash-twin-rail__rail-toggle {
+  display: none;
+  position: relative;
+  width: 40px;
+  height: 40px;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-field-cream);
+  border: 1px solid var(--color-margin);
+  border-radius: var(--radius-md);
+  color: var(--color-ink-soft);
+  font-size: 18px;
+  margin-top: var(--space-2);
+}
+
+.dash-twin-rail__rail-toggle:hover {
+  background: var(--color-accent-soft);
+  color: var(--color-accent-deep);
+}
+
+.dash-twin-rail__pulse {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  width: 8px;
+  height: 8px;
+  background: var(--color-accent);
+  border-radius: 50%;
+  border: 2px solid var(--color-parchment);
+}
+
+/* Management table primitives (CSS grid, not <table>) */
+.dash-table {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border: 1px solid var(--color-margin);
+  border-radius: var(--radius-md);
+  background: var(--color-parchment);
+  overflow: hidden;
+}
+
+.dash-table__header,
+.dash-table__row {
+  display: grid;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+}
+
+.dash-table__header {
+  background: var(--color-field-cream);
+  font-size: var(--size-tiny);
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-whisper);
+  border-bottom: 1px solid var(--color-margin);
+}
+
+.dash-table__row {
+  border-bottom: 1px solid var(--color-margin-soft);
+  font-size: var(--size-body);
+  color: var(--color-ink);
+  transition: background var(--transition-soft);
+}
+
+.dash-table__row:last-child {
+  border-bottom: none;
+}
+
+.dash-table__row:hover {
+  background: var(--color-field-cream);
+}
+
+.dash-table__cell {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.dash-table__cell--wrap {
+  white-space: normal;
+}
+
+.dash-table__cell-strong {
+  font-weight: 500;
+  color: var(--color-ink);
+}
+
+.dash-table__cell-meta {
+  font-size: var(--size-label);
+  color: var(--color-whisper);
+}
+
+.dash-table__pills {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.dash-table__pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 10px;
+  font-size: var(--size-tiny);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: var(--color-ink-soft);
+  background: var(--color-field-cream);
+  border: 1px solid var(--color-margin);
+  border-radius: 999px;
+}
+
+.dash-table__pill--accent {
+  background: var(--color-accent-soft);
+  border-color: transparent;
+  color: var(--color-accent-deep);
+}
+
+.dash-table__row-actions {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  justify-content: flex-end;
+}
+
+.dash-table__icon-btn {
+  width: 28px;
+  height: 28px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+  color: var(--color-ink-soft);
+  transition: background var(--transition-soft), color var(--transition-soft);
+}
+
+.dash-table__icon-btn:hover {
+  background: var(--color-field-cream);
+  border-color: var(--color-margin);
+  color: var(--color-ink);
+}
+
+.dash-table__empty {
+  padding: var(--space-7) var(--space-4);
+  text-align: center;
+  color: var(--color-whisper);
+  font-size: var(--size-label);
+}
+
+/* Section header for management screens */
+.dash-section-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--space-4);
+  margin-bottom: var(--space-5);
+}
+
+.dash-section-head__titles h1 {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: var(--size-headline);
+  line-height: var(--line-headline);
+  color: var(--color-ink);
+  margin: 0 0 var(--space-1);
+}
+
+:root[data-theme="eduasiste"] .dash-section-head__titles h1,
+:root[data-theme="proasiste"] .dash-section-head__titles h1 {
+  font-family: var(--font-sans);
+  font-weight: 700;
+}
+
+.dash-section-head__titles p {
+  margin: 0;
+  font-size: var(--size-label);
+  color: var(--color-whisper);
+}
+
+.dash-add-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 10px 18px;
+  font-family: inherit;
+  font-size: var(--size-body);
+  font-weight: 500;
+  background: var(--color-accent);
+  color: var(--color-parchment);
+  border: 1px solid var(--color-accent);
+  border-radius: var(--radius-md);
+  transition: background var(--transition-soft);
+}
+
+.dash-add-cta:hover {
+  background: var(--color-accent-deep);
+}
+
+/* Edit card (Settings, Projects) */
+.dash-edit-card {
+  background: var(--color-parchment);
+  border: 1px solid var(--color-margin);
+  border-radius: var(--radius-md);
+  padding: var(--space-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  margin-bottom: var(--space-5);
+}
+
+.dash-edit-card__head h2 {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: var(--size-title);
+  color: var(--color-ink);
+  margin: 0 0 var(--space-1);
+}
+
+:root[data-theme="eduasiste"] .dash-edit-card__head h2,
+:root[data-theme="proasiste"] .dash-edit-card__head h2 {
+  font-family: var(--font-sans);
+  font-weight: 700;
+}
+
+.dash-edit-card__head p {
+  margin: 0;
+  font-size: var(--size-label);
+  color: var(--color-whisper);
+}
+
+.dash-edit-card__row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-3);
+}
+
+@media (min-width: 720px) {
+  .dash-edit-card__row--two {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.dash-edit-card__actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--space-3);
+}
+
+/* Logo control inside Settings */
+.dash-logo-control {
+  display: flex;
+  align-items: center;
+  gap: var(--space-5);
+}
+
+.dash-logo-preview {
+  width: 75px;
+  height: 75px;
+  flex: 0 0 75px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-2);
+  background: var(--color-field-cream);
+  border: 1px solid var(--color-margin);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.dash-logo-preview img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+.dash-logo-preview--empty {
+  color: var(--color-whisper);
+  font-size: var(--size-tiny);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+/* Modal */
+.dash-modal__backdrop {
+  position: fixed;
+  inset: 0;
+  background: oklch(20% 0.02 130 / 0.32);
+  z-index: 40;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-5);
+}
+
+.dash-modal__panel {
+  width: 100%;
+  max-width: 520px;
+  background: var(--color-parchment);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-modal);
+  padding: var(--space-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.dash-modal__title {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: var(--size-title);
+  color: var(--color-ink);
+  margin: 0;
+}
+
+:root[data-theme="eduasiste"] .dash-modal__title,
+:root[data-theme="proasiste"] .dash-modal__title {
+  font-family: var(--font-sans);
+  font-weight: 700;
+}
+
+.dash-modal__actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--space-3);
+  margin-top: var(--space-3);
+}
+
+/* Multi-select chips (used in Class teacher / Student class assignment) */
+.dash-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: var(--space-2);
+  border: 1px solid var(--color-margin);
+  border-radius: var(--radius-md);
+  background: var(--color-field-cream);
+  min-height: 44px;
+}
+
+.dash-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  font-size: var(--size-label);
+  background: var(--color-accent-soft);
+  color: var(--color-accent-deep);
+  border-radius: 999px;
+}
+
+.dash-chip__remove {
+  background: transparent;
+  border: none;
+  color: inherit;
+  font-size: 14px;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0;
+}
+
+/* Specific column templates for the management tables */
+.dash-table--employees .dash-table__header,
+.dash-table--employees .dash-table__row {
+  grid-template-columns: 1.5fr 1.6fr 1fr 1.1fr 0.7fr;
+}
+
+.dash-table--classes .dash-table__header,
+.dash-table--classes .dash-table__row {
+  grid-template-columns: 1.5fr 1fr 0.7fr 1.6fr 0.7fr 0.7fr;
+}
+
+.dash-table--students .dash-table__header,
+.dash-table--students .dash-table__row {
+  grid-template-columns: 1.6fr 0.7fr 1.8fr 0.7fr;
+}
+
+@media (max-width: 900px) {
+  .dash-table--employees .dash-table__header,
+  .dash-table--employees .dash-table__row,
+  .dash-table--classes .dash-table__header,
+  .dash-table--classes .dash-table__row,
+  .dash-table--students .dash-table__header,
+  .dash-table--students .dash-table__row {
+    grid-template-columns: 1fr;
+    gap: var(--space-2);
+  }
+  .dash-table__header {
+    display: none;
+  }
+}

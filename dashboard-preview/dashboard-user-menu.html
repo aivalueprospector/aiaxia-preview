@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="aiaxia">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>AiAxia · user menu</title>
+    <script src="preview-theme.js"></script>
+    <link rel="stylesheet" href="../css/app.css">
+</head>
+<body>
+<div class="dash-shell-v2">
+    <header class="dash-topbar-v2">
+        <span class="dash-topbar-v2__brand">
+            <span class="dash-topbar-v2__logo" aria-hidden="true"><span class="dash-topbar-v2__logo--placeholder">A</span></span>
+            <span class="dash-topbar-v2__company" data-tenant-copy="dashboard.company_name">Acme Health</span>
+        </span>
+        <span class="dash-topbar-v2__spacer"></span>
+        <span class="dash-topbar-v2__user">
+            <button type="button" class="dash-topbar-v2__user-trigger" data-action="user-menu-toggle" aria-haspopup="menu" aria-expanded="true">
+                <span data-tenant-copy="dashboard.user_first_name">Maya</span>
+            </button>
+            <div class="dash-usermenu" role="menu" data-open="true">
+                <a class="dash-usermenu__item" role="menuitem" href="billing.html"><span aria-hidden="true">$</span> Billing</a>
+                <a class="dash-usermenu__item" role="menuitem" href="settings.html"><span aria-hidden="true">⚙</span> Settings</a>
+                <span class="dash-usermenu__divider" role="separator"></span>
+                <a class="dash-usermenu__item" role="menuitem" href="#"><span aria-hidden="true">↩</span> Logout</a>
+            </div>
+        </span>
+    </header>
+
+    <div class="dash-body">
+        <nav class="dash-nav" aria-label="Dashboard sections">
+            <a class="dash-nav__item dash-nav__item--active" href="dashboard.html" aria-current="page">
+                <span class="dash-nav__icon" aria-hidden="true">⌂</span><span class="dash-nav__label">Home</span>
+            </a>
+            <div class="dash-nav__group dash-nav__group--business">
+                <span class="dash-nav__group-label">Workspace</span>
+                <a class="dash-nav__item" href="projects.html"><span class="dash-nav__icon" aria-hidden="true">◇</span><span class="dash-nav__label">Projects</span></a>
+                <a class="dash-nav__item" href="employees-business.html"><span class="dash-nav__icon" aria-hidden="true">◷</span><span class="dash-nav__label">Employees</span></a>
+            </div>
+            <div class="dash-nav__group dash-nav__group--school">
+                <span class="dash-nav__group-label">School</span>
+                <a class="dash-nav__item" href="employees-school.html"><span class="dash-nav__icon" aria-hidden="true">◷</span><span class="dash-nav__label">Employees</span></a>
+                <a class="dash-nav__item" href="classes.html"><span class="dash-nav__icon" aria-hidden="true">▤</span><span class="dash-nav__label">Classes</span></a>
+                <a class="dash-nav__item" href="students.html"><span class="dash-nav__icon" aria-hidden="true">◯</span><span class="dash-nav__label">Students</span></a>
+            </div>
+        </nav>
+
+        <main class="dash-center">
+            <section class="dash-greeting">
+                <h1>User-menu open</h1>
+                <p class="dash-section-meta">Click the first-name button in the topbar to toggle Billing / Settings / Logout.</p>
+            </section>
+        </main>
+
+        <aside class="dash-twin-rail" aria-label="Twin chat">
+            <button type="button" class="dash-twin-rail__rail-toggle" data-action="rail-toggle" aria-controls="dash-twin-panel" aria-expanded="true">
+                <span aria-hidden="true">💬</span>
+            </button>
+            <div class="dash-twin-rail__header">
+                <h3 class="dash-twin-rail__title">Twin chat</h3>
+                <button type="button" class="dash-twin-rail__toggle" data-action="rail-toggle" aria-controls="dash-twin-panel" aria-expanded="true">
+                    <span aria-hidden="true">›</span>
+                </button>
+            </div>
+            <div class="dash-twin-rail__body" id="dash-twin-panel">
+                <div class="dash-twin-thread">
+                    <div class="dash-twin-msg dash-twin-msg--twin"><span class="dash-twin-msg__role">Twin</span>Ready when you are.</div>
+                </div>
+            </div>
+        </aside>
+    </div>
+</div>
+<script src="dash-shell.js"></script>
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="aiaxia">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>AiAxia · Projects</title>
+    <script src="preview-theme.js"></script>
+    <link rel="stylesheet" href="../css/app.css">
+</head>
+<body>
+<div class="dash-shell-v2">
+    <header class="dash-topbar-v2">
+        <span class="dash-topbar-v2__brand">
+            <span class="dash-topbar-v2__logo" aria-hidden="true"><span class="dash-topbar-v2__logo--placeholder">A</span></span>
+            <span class="dash-topbar-v2__company" data-tenant-copy="dashboard.company_name">Acme Health</span>
+        </span>
+        <span class="dash-topbar-v2__spacer"></span>
+        <span class="dash-topbar-v2__user">
+            <button type="button" class="dash-topbar-v2__user-trigger" data-action="user-menu-toggle" aria-haspopup="menu" aria-expanded="false">
+                <span data-tenant-copy="dashboard.user_first_name">Maya</span>
+            </button>
+            <div class="dash-usermenu" role="menu" data-open="false">
+                <a class="dash-usermenu__item" role="menuitem" href="billing.html">Billing</a>
+                <a class="dash-usermenu__item" role="menuitem" href="settings.html">Settings</a>
+                <span class="dash-usermenu__divider" role="separator"></span>
+                <a class="dash-usermenu__item" role="menuitem" href="#">Logout</a>
+            </div>
+        </span>
+    </header>
+
+    <div class="dash-body">
+        <nav class="dash-nav" aria-label="Dashboard sections">
+            <a class="dash-nav__item" href="dashboard.html"><span class="dash-nav__icon" aria-hidden="true">⌂</span><span class="dash-nav__label">Home</span></a>
+            <div class="dash-nav__group dash-nav__group--business">
+                <span class="dash-nav__group-label">Workspace</span>
+                <a class="dash-nav__item dash-nav__item--active" href="projects.html" aria-current="page"><span class="dash-nav__icon" aria-hidden="true">◇</span><span class="dash-nav__label">Projects</span></a>
+                <a class="dash-nav__item" href="employees-business.html"><span class="dash-nav__icon" aria-hidden="true">◷</span><span class="dash-nav__label">Employees</span></a>
+            </div>
+            <div class="dash-nav__group dash-nav__group--school">
+                <span class="dash-nav__group-label">School</span>
+                <a class="dash-nav__item" href="employees-school.html"><span class="dash-nav__icon" aria-hidden="true">◷</span><span class="dash-nav__label">Employees</span></a>
+                <a class="dash-nav__item" href="classes.html"><span class="dash-nav__icon" aria-hidden="true">▤</span><span class="dash-nav__label">Classes</span></a>
+                <a class="dash-nav__item" href="students.html"><span class="dash-nav__icon" aria-hidden="true">◯</span><span class="dash-nav__label">Students</span></a>
+            </div>
+        </nav>
+
+        <main class="dash-center">
+            <header class="dash-section-head">
+                <div class="dash-section-head__titles">
+                    <h1>Project</h1>
+                    <p>What you captured during onboarding. Edit any field; saves in place.</p>
+                </div>
+            </header>
+
+            <form class="dash-edit-card" onsubmit="return false;">
+                <div class="dash-edit-card__head">
+                    <h2>Acme Health</h2>
+                    <p>Pain-point discovery — three fields. Updates roll forward into the Imagine workflow.</p>
+                </div>
+
+                <div class="dash-edit-card__row">
+                    <label class="ob-field">
+                        <span class="ob-field-label">In one sentence, what does Acme Health do?</span>
+                        <textarea class="ob-textarea" rows="2">A scheduling and intake SaaS for independent primary-care clinics in the US.</textarea>
+                    </label>
+                </div>
+
+                <div class="dash-edit-card__row">
+                    <label class="ob-field">
+                        <span class="ob-field-label">Who you serve</span>
+                        <textarea class="ob-textarea" rows="2">Independent primary-care clinics, 1-3 providers, owner-operated. Front-desk staff are the daily users.</textarea>
+                        <span class="ob-field-helper">Add adjacent segments later. Keep the primary one focused.</span>
+                    </label>
+                </div>
+
+                <div class="dash-edit-card__row">
+                    <label class="ob-field">
+                        <span class="ob-field-label">What you're trying to figure out</span>
+                        <textarea class="ob-textarea" rows="4">Whether front-desk adoption is the real bottleneck. Owners say onboarding takes too long; staff say the new system is "another thing." We're not sure if the problem is the tool, training, or scheduling.</textarea>
+                        <span class="ob-field-helper">The twin uses this to focus its questions.</span>
+                    </label>
+                </div>
+
+                <div class="dash-edit-card__actions">
+                    <button type="button" class="ob-btn ob-btn--ghost">Cancel</button>
+                    <button type="submit" class="ob-btn ob-btn--primary">Save changes</button>
+                </div>
+            </form>
+        </main>
+
+        <aside class="dash-twin-rail" aria-label="Twin chat">
+            <button type="button" class="dash-twin-rail__rail-toggle" data-action="rail-toggle" aria-controls="dash-twin-panel" aria-expanded="true"><span aria-hidden="true">💬</span></button>
+            <div class="dash-twin-rail__header">
+                <h3 class="dash-twin-rail__title">Twin chat</h3>
+                <button type="button" class="dash-twin-rail__toggle" data-action="rail-toggle" aria-controls="dash-twin-panel" aria-expanded="true"><span aria-hidden="true">›</span></button>
+            </div>
+            <div class="dash-twin-rail__body" id="dash-twin-panel">
+                <div class="dash-twin-thread">
+                    <div class="dash-twin-msg dash-twin-msg--twin"><span class="dash-twin-msg__role">Twin</span>Editing the project? I'll re-read it after you save.</div>
+                </div>
+            </div>
+        </aside>
+    </div>
+</div>
+<script src="dash-shell.js"></script>
+</body>
+</html>

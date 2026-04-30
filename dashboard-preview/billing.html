@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="aiaxia">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>AiAxia · Billing</title>
+    <script src="preview-theme.js"></script>
+    <link rel="stylesheet" href="../css/app.css">
+</head>
+<body>
+<div class="dash-shell-v2">
+    <header class="dash-topbar-v2">
+        <span class="dash-topbar-v2__brand">
+            <span class="dash-topbar-v2__logo" aria-hidden="true"><span class="dash-topbar-v2__logo--placeholder">A</span></span>
+            <span class="dash-topbar-v2__company" data-tenant-copy="dashboard.company_name">Acme Health</span>
+        </span>
+        <span class="dash-topbar-v2__spacer"></span>
+        <span class="dash-topbar-v2__user">
+            <button type="button" class="dash-topbar-v2__user-trigger" data-action="user-menu-toggle" aria-haspopup="menu" aria-expanded="false">
+                <span data-tenant-copy="dashboard.user_first_name">Maya</span>
+            </button>
+            <div class="dash-usermenu" role="menu" data-open="false">
+                <a class="dash-usermenu__item" role="menuitem" href="billing.html">Billing</a>
+                <a class="dash-usermenu__item" role="menuitem" href="settings.html">Settings</a>
+                <span class="dash-usermenu__divider" role="separator"></span>
+                <a class="dash-usermenu__item" role="menuitem" href="#">Logout</a>
+            </div>
+        </span>
+    </header>
+
+    <div class="dash-body">
+        <nav class="dash-nav" aria-label="Dashboard sections">
+            <a class="dash-nav__item" href="dashboard.html"><span class="dash-nav__icon" aria-hidden="true">⌂</span><span class="dash-nav__label">Home</span></a>
+            <div class="dash-nav__group dash-nav__group--business">
+                <span class="dash-nav__group-label">Workspace</span>
+                <a class="dash-nav__item" href="projects.html"><span class="dash-nav__icon" aria-hidden="true">◇</span><span class="dash-nav__label">Projects</span></a>
+                <a class="dash-nav__item" href="employees-business.html"><span class="dash-nav__icon" aria-hidden="true">◷</span><span class="dash-nav__label">Employees</span></a>
+            </div>
+            <div class="dash-nav__group dash-nav__group--school">
+                <span class="dash-nav__group-label">School</span>
+                <a class="dash-nav__item" href="employees-school.html"><span class="dash-nav__icon" aria-hidden="true">◷</span><span class="dash-nav__label">Employees</span></a>
+                <a class="dash-nav__item" href="classes.html"><span class="dash-nav__icon" aria-hidden="true">▤</span><span class="dash-nav__label">Classes</span></a>
+                <a class="dash-nav__item" href="students.html"><span class="dash-nav__icon" aria-hidden="true">◯</span><span class="dash-nav__label">Students</span></a>
+            </div>
+        </nav>
+
+        <main class="dash-center">
+            <header class="dash-section-head">
+                <div class="dash-section-head__titles">
+                    <h1>Billing</h1>
+                    <p>Subscription, seats, and invoice history.</p>
+                </div>
+            </header>
+
+            <div class="dash-edit-card">
+                <div class="dash-edit-card__head">
+                    <h2>Billing details coming soon</h2>
+                    <p>This page will surface your current plan, seat usage, and invoice history. Hooked up in a follow-up.</p>
+                </div>
+                <p style="margin: 0; font-size: var(--size-label); color: var(--color-whisper);">
+                    Need to upgrade or change your plan today? <a href="#" style="color: var(--color-accent-deep); border-bottom: 1px solid var(--color-margin);">Contact support</a>.
+                </p>
+                <div class="dash-edit-card__actions">
+                    <a class="ob-btn ob-btn--ghost" href="dashboard.html">← Back to Home</a>
+                </div>
+            </div>
+        </main>
+
+        <aside class="dash-twin-rail" aria-label="Twin chat">
+            <button type="button" class="dash-twin-rail__rail-toggle" data-action="rail-toggle" aria-controls="dash-twin-panel" aria-expanded="true"><span aria-hidden="true">💬</span></button>
+            <div class="dash-twin-rail__header">
+                <h3 class="dash-twin-rail__title">Twin chat</h3>
+                <button type="button" class="dash-twin-rail__toggle" data-action="rail-toggle" aria-controls="dash-twin-panel" aria-expanded="true"><span aria-hidden="true">›</span></button>
+            </div>
+            <div class="dash-twin-rail__body" id="dash-twin-panel">
+                <div class="dash-twin-thread">
+                    <div class="dash-twin-msg dash-twin-msg--twin"><span class="dash-twin-msg__role">Twin</span>Billing's a quiet page for now. Anything I can do meanwhile?</div>
+                </div>
+            </div>
+        </aside>
+    </div>
+</div>
+<script src="dash-shell.js"></script>
+</body>
+</html>

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="eduasiste">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>EduAsiste · Students</title>
+    <script src="preview-theme.js"></script>
+    <link rel="stylesheet" href="../css/app.css">
+</head>
+<body>
+<div class="dash-shell-v2">
+    <header class="dash-topbar-v2">
+        <span class="dash-topbar-v2__brand">
+            <span class="dash-topbar-v2__logo" aria-hidden="true"></span>
+            <span class="dash-topbar-v2__company" data-tenant-copy="dashboard.company_name">Lincoln High School</span>
+        </span>
+        <span class="dash-topbar-v2__spacer"></span>
+        <span class="dash-topbar-v2__user">
+            <button type="button" class="dash-topbar-v2__user-trigger" data-action="user-menu-toggle" aria-haspopup="menu" aria-expanded="false">
+                <span data-tenant-copy="dashboard.user_first_name">Mara</span>
+            </button>
+            <div class="dash-usermenu" role="menu" data-open="false">
+                <a class="dash-usermenu__item" role="menuitem" href="billing.html">Billing</a>
+                <a class="dash-usermenu__item" role="menuitem" href="settings.html">Settings</a>
+                <span class="dash-usermenu__divider" role="separator"></span>
+                <a class="dash-usermenu__item" role="menuitem" href="#">Logout</a>
+            </div>
+        </span>
+    </header>
+
+    <div class="dash-body">
+        <nav class="dash-nav" aria-label="Dashboard sections">
+            <a class="dash-nav__item" href="dashboard.html"><span class="dash-nav__icon" aria-hidden="true">⌂</span><span class="dash-nav__label">Home</span></a>
+            <div class="dash-nav__group dash-nav__group--business">
+                <span class="dash-nav__group-label">Workspace</span>
+                <a class="dash-nav__item" href="projects.html"><span class="dash-nav__icon" aria-hidden="true">◇</span><span class="dash-nav__label">Projects</span></a>
+                <a class="dash-nav__item" href="employees-business.html"><span class="dash-nav__icon" aria-hidden="true">◷</span><span class="dash-nav__label">Employees</span></a>
+            </div>
+            <div class="dash-nav__group dash-nav__group--school">
+                <span class="dash-nav__group-label">School</span>
+                <a class="dash-nav__item" href="employees-school.html"><span class="dash-nav__icon" aria-hidden="true">◷</span><span class="dash-nav__label">Employees</span></a>
+                <a class="dash-nav__item" href="classes.html"><span class="dash-nav__icon" aria-hidden="true">▤</span><span class="dash-nav__label">Classes</span></a>
+                <a class="dash-nav__item dash-nav__item--active" href="students.html" aria-current="page"><span class="dash-nav__icon" aria-hidden="true">◯</span><span class="dash-nav__label">Students</span></a>
+            </div>
+        </nav>
+
+        <main class="dash-center">
+            <header class="dash-section-head">
+                <div class="dash-section-head__titles">
+                    <h1>Students</h1>
+                    <p>Roster across the school. Students can be assigned to multiple classes.</p>
+                </div>
+                <button type="button" class="dash-add-cta"><span aria-hidden="true">+</span> Add student</button>
+            </header>
+
+            <div class="dash-table dash-table--students" role="table" aria-label="Students">
+                <div class="dash-table__header" role="row">
+                    <span role="columnheader">Name</span>
+                    <span role="columnheader">Grade</span>
+                    <span role="columnheader">Classes</span>
+                    <span role="columnheader" style="text-align:right;">Actions</span>
+                </div>
+
+                <div class="dash-table__row" role="row">
+                    <span class="dash-table__cell dash-table__cell-strong">Sofia Alvarez</span>
+                    <span class="dash-table__cell">10</span>
+                    <span class="dash-table__cell">
+                        <span class="dash-table__pills">
+                            <span class="dash-table__pill">Biology 101 — A</span>
+                            <span class="dash-table__pill">Algebra II</span>
+                        </span>
+                    </span>
+                    <span class="dash-table__cell dash-table__row-actions">
+                        <button class="dash-table__icon-btn" title="Edit">✎</button>
+                        <button class="dash-table__icon-btn" title="Remove">×</button>
+                    </span>
+                </div>
+
+                <div class="dash-table__row" role="row">
+                    <span class="dash-table__cell dash-table__cell-strong">Marcus Chen</span>
+                    <span class="dash-table__cell">11</span>
+                    <span class="dash-table__cell">
+                        <span class="dash-table__pills">
+                            <span class="dash-table__pill">English Lit — Honors</span>
+                        </span>
+                    </span>
+                    <span class="dash-table__cell dash-table__row-actions">
+                        <button class="dash-table__icon-btn" title="Edit">✎</button>
+                        <button class="dash-table__icon-btn" title="Remove">×</button>
+                    </span>
+                </div>
+
+                <div class="dash-table__row" role="row">
+                    <span class="dash-table__cell dash-table__cell-strong">Aisha Ben-David</span>
+                    <span class="dash-table__cell">9</span>
+                    <span class="dash-table__cell">
+                        <span class="dash-table__pills">
+                            <span class="dash-table__pill">World History</span>
+                        </span>
+                    </span>
+                    <span class="dash-table__cell dash-table__row-actions">
+                        <button class="dash-table__icon-btn" title="Edit">✎</button>
+                        <button class="dash-table__icon-btn" title="Remove">×</button>
+                    </span>
+                </div>
+
+                <div class="dash-table__row" role="row">
+                    <span class="dash-table__cell dash-table__cell-strong">Liam O'Brien</span>
+                    <span class="dash-table__cell">10</span>
+                    <span class="dash-table__cell">
+                        <span class="dash-table__pills">
+                            <span class="dash-table__pill">Biology 101 — A</span>
+                            <span class="dash-table__pill">Algebra II</span>
+                            <span class="dash-table__pill">World History</span>
+                        </span>
+                    </span>
+                    <span class="dash-table__cell dash-table__row-actions">
+                        <button class="dash-table__icon-btn" title="Edit">✎</button>
+                        <button class="dash-table__icon-btn" title="Remove">×</button>
+                    </span>
+                </div>
+            </div>
+
+            <!-- Add-student modal mock, displayed inline so we can show the design without JS state -->
+            <div class="dash-modal__backdrop" style="display:none;" aria-hidden="true">
+                <div class="dash-modal__panel" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+                    <h2 class="dash-modal__title" id="modal-title">Add student</h2>
+                    <div class="ob-fields">
+                        <label class="ob-field">
+                            <span class="ob-field-label">First name</span>
+                            <input class="ob-input" type="text">
+                        </label>
+                        <label class="ob-field">
+                            <span class="ob-field-label">Last name</span>
+                            <input class="ob-input" type="text">
+                        </label>
+                        <label class="ob-field">
+                            <span class="ob-field-label">Grade</span>
+                            <input class="ob-input" type="text" placeholder="e.g. 10">
+                        </label>
+                        <div class="ob-field">
+                            <span class="ob-field-label">Classes</span>
+                            <div class="dash-chips">
+                                <span class="dash-chip">Biology 101 — A <button class="dash-chip__remove" aria-label="Remove">×</button></span>
+                                <span class="dash-chip">Algebra II <button class="dash-chip__remove" aria-label="Remove">×</button></span>
+                            </div>
+                            <span class="ob-field-helper">Pick one or more. Students can belong to multiple classes.</span>
+                        </div>
+                    </div>
+                    <div class="dash-modal__actions">
+                        <button class="ob-btn ob-btn--ghost">Cancel</button>
+                        <button class="ob-btn ob-btn--primary">Add student</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <aside class="dash-twin-rail" aria-label="Twin chat">
+            <button type="button" class="dash-twin-rail__rail-toggle" data-action="rail-toggle" aria-controls="dash-twin-panel" aria-expanded="true"><span aria-hidden="true">💬</span></button>
+            <div class="dash-twin-rail__header">
+                <h3 class="dash-twin-rail__title">Twin chat</h3>
+                <button type="button" class="dash-twin-rail__toggle" data-action="rail-toggle" aria-controls="dash-twin-panel" aria-expanded="true"><span aria-hidden="true">›</span></button>
+            </div>
+            <div class="dash-twin-rail__body" id="dash-twin-panel">
+                <div class="dash-twin-thread">
+                    <div class="dash-twin-msg dash-twin-msg--twin"><span class="dash-twin-msg__role">Twin</span>Liam is enrolled in three classes — heaviest load in grade 10. Worth a check-in?</div>
+                </div>
+            </div>
+        </aside>
+    </div>
+</div>
+<script src="dash-shell.js"></script>
+</body>
+</html>
