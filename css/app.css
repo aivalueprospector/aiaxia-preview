@@ -2029,6 +2029,32 @@ img {
 
 .dash-twin-rail--fullscreen .dash-twin-rail__action--fullscreen-close {
   display: inline-flex;
+  width: 44px;
+  height: 44px;
+  font-size: 22px;
+  background: var(--color-ink);
+  color: var(--color-parchment);
+  border-color: var(--color-ink);
+  font-weight: 600;
+}
+.dash-twin-rail--fullscreen .dash-twin-rail__action--fullscreen-close:hover,
+.dash-twin-rail--fullscreen .dash-twin-rail__action--fullscreen-close:focus-visible {
+  background: var(--color-accent-deep);
+  border-color: var(--color-accent-deep);
+  color: var(--color-parchment);
+}
+
+/* Make the rail header obvious when fullscreen — sticky, distinct background */
+.dash-twin-rail--fullscreen .dash-twin-rail__header {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background: var(--color-parchment);
+  border-bottom: 1px solid var(--color-margin);
+  padding: var(--space-3) var(--space-4);
+}
+.dash-twin-rail--fullscreen .dash-twin-rail__title {
+  font-size: var(--size-headline, 1.25rem);
 }
 
 /* Fullscreen rail (mobile primary use, also available on desktop) */
