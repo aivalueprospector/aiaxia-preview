@@ -10,6 +10,13 @@
 <body>
 <div class="dash-shell-v2">
     <header class="dash-topbar-v2">
+            <button type="button" class="dash-topbar-v2__nav-toggle"
+            data-action="nav-toggle"
+            aria-controls="dash-nav"
+            aria-expanded="false"
+            aria-label="Open navigation">
+        <span aria-hidden="true">☰</span>
+    </button>
         <span class="dash-topbar-v2__brand">
             <span class="dash-topbar-v2__logo" aria-hidden="true">
                 <span class="dash-topbar-v2__logo--placeholder">A</span>
@@ -36,38 +43,45 @@
                 </a>
             </div>
         </span>
+        <button type="button" class="dash-topbar-v2__chat-toggle"
+            data-action="rail-drawer-open"
+            aria-controls="dash-twin-rail"
+            aria-expanded="false"
+            aria-label="Open twin chat">
+        <span aria-hidden="true">💬</span>
+    </button>
     </header>
 
-    <div class="dash-body">
-        <nav class="dash-nav" aria-label="Dashboard sections">
+    <div class="dash-body" id="dash-body">
+        <nav class="dash-nav" id="dash-nav" aria-label="Dashboard sections">
             <a class="dash-nav__item dash-nav__item--active" href="dashboard.html" aria-current="page">
-                <span class="dash-nav__icon" aria-hidden="true">⌂</span>
+                <span class="dash-nav__icon" aria-hidden="true"><svg focusable="false"><use href="../icons/fa-sprite.svg#house"/></svg></span>
                 <span class="dash-nav__label">Home</span>
             </a>
 
             <div class="dash-nav__group dash-nav__group--business">
                 <span class="dash-nav__group-label">Workspace</span>
                 <a class="dash-nav__item" href="projects.html">
-                    <span class="dash-nav__icon" aria-hidden="true">◇</span>
+                    <span class="dash-nav__icon" aria-hidden="true"><svg focusable="false"><use href="../icons/fa-sprite.svg#diagram-project"/></svg></span>
                     <span class="dash-nav__label">Projects</span>
                 </a>
                 <a class="dash-nav__item" href="employees-business.html">
-                    <span class="dash-nav__icon" aria-hidden="true">◷</span>
+                    <span class="dash-nav__icon" aria-hidden="true"><svg focusable="false"><use href="../icons/fa-sprite.svg#users"/></svg></span>
                     <span class="dash-nav__label">Employees</span>
                 </a>
             </div>
             <div class="dash-nav__group dash-nav__group--school">
                 <span class="dash-nav__group-label">School</span>
                 <a class="dash-nav__item" href="employees-school.html">
-                    <span class="dash-nav__icon" aria-hidden="true">◷</span>
+                    <span class="dash-nav__icon" aria-hidden="true"><svg focusable="false"><use href="../icons/fa-sprite.svg#users"/></svg></span>
                     <span class="dash-nav__label">Employees</span>
                 </a>
                 <a class="dash-nav__item" href="classes.html">
-                    <span class="dash-nav__icon" aria-hidden="true">▤</span>
+                    <span class="dash-nav__icon" aria-hidden="true"><svg focusable="false"><use href="../icons/fa-sprite.svg#chalkboard-user"/></svg></span>
                     <span class="dash-nav__label">Classes</span>
                 </a>
                 <a class="dash-nav__item" href="students.html">
-                    <span class="dash-nav__icon" aria-hidden="true">◯</span>
+                    <span class="dash-nav__icon" aria-hidden="true"><svg focusable="false"><use href="../icons/fa-sprite.svg#user-graduate"/></svg></span>
                     <span class="dash-nav__label">Students</span>
                 </a>
             </div>
@@ -184,7 +198,7 @@
             </section>
         </main>
 
-        <aside class="dash-twin-rail" aria-label="Twin chat">
+        <aside class="dash-twin-rail" id="dash-twin-rail" aria-label="Twin chat">
             <button type="button" class="dash-twin-rail__rail-toggle"
                     data-action="rail-toggle"
                     aria-controls="dash-twin-panel"

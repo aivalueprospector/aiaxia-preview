@@ -10,6 +10,13 @@
 <body>
 <div class="dash-shell-v2">
     <header class="dash-topbar-v2">
+            <button type="button" class="dash-topbar-v2__nav-toggle"
+            data-action="nav-toggle"
+            aria-controls="dash-nav"
+            aria-expanded="false"
+            aria-label="Open navigation">
+        <span aria-hidden="true">☰</span>
+    </button>
         <span class="dash-topbar-v2__brand">
             <span class="dash-topbar-v2__logo" aria-hidden="true"></span>
             <span class="dash-topbar-v2__company" data-tenant-copy="dashboard.company_name">Lincoln High School</span>
@@ -26,21 +33,28 @@
                 <a class="dash-usermenu__item" role="menuitem" href="#">Logout</a>
             </div>
         </span>
+        <button type="button" class="dash-topbar-v2__chat-toggle"
+            data-action="rail-drawer-open"
+            aria-controls="dash-twin-rail"
+            aria-expanded="false"
+            aria-label="Open twin chat">
+        <span aria-hidden="true">💬</span>
+    </button>
     </header>
 
-    <div class="dash-body">
-        <nav class="dash-nav" aria-label="Dashboard sections">
-            <a class="dash-nav__item" href="dashboard.html"><span class="dash-nav__icon" aria-hidden="true">⌂</span><span class="dash-nav__label">Home</span></a>
+    <div class="dash-body" id="dash-body">
+        <nav class="dash-nav" id="dash-nav" aria-label="Dashboard sections">
+            <a class="dash-nav__item" href="dashboard.html"><span class="dash-nav__icon" aria-hidden="true"><svg focusable="false"><use href="../icons/fa-sprite.svg#house"/></svg></span><span class="dash-nav__label">Home</span></a>
             <div class="dash-nav__group dash-nav__group--business">
                 <span class="dash-nav__group-label">Workspace</span>
-                <a class="dash-nav__item" href="projects.html"><span class="dash-nav__icon" aria-hidden="true">◇</span><span class="dash-nav__label">Projects</span></a>
-                <a class="dash-nav__item" href="employees-business.html"><span class="dash-nav__icon" aria-hidden="true">◷</span><span class="dash-nav__label">Employees</span></a>
+                <a class="dash-nav__item" href="projects.html"><span class="dash-nav__icon" aria-hidden="true"><svg focusable="false"><use href="../icons/fa-sprite.svg#diagram-project"/></svg></span><span class="dash-nav__label">Projects</span></a>
+                <a class="dash-nav__item" href="employees-business.html"><span class="dash-nav__icon" aria-hidden="true"><svg focusable="false"><use href="../icons/fa-sprite.svg#users"/></svg></span><span class="dash-nav__label">Employees</span></a>
             </div>
             <div class="dash-nav__group dash-nav__group--school">
                 <span class="dash-nav__group-label">School</span>
-                <a class="dash-nav__item" href="employees-school.html"><span class="dash-nav__icon" aria-hidden="true">◷</span><span class="dash-nav__label">Employees</span></a>
-                <a class="dash-nav__item dash-nav__item--active" href="classes.html" aria-current="page"><span class="dash-nav__icon" aria-hidden="true">▤</span><span class="dash-nav__label">Classes</span></a>
-                <a class="dash-nav__item" href="students.html"><span class="dash-nav__icon" aria-hidden="true">◯</span><span class="dash-nav__label">Students</span></a>
+                <a class="dash-nav__item" href="employees-school.html"><span class="dash-nav__icon" aria-hidden="true"><svg focusable="false"><use href="../icons/fa-sprite.svg#users"/></svg></span><span class="dash-nav__label">Employees</span></a>
+                <a class="dash-nav__item dash-nav__item--active" href="classes.html" aria-current="page"><span class="dash-nav__icon" aria-hidden="true"><svg focusable="false"><use href="../icons/fa-sprite.svg#chalkboard-user"/></svg></span><span class="dash-nav__label">Classes</span></a>
+                <a class="dash-nav__item" href="students.html"><span class="dash-nav__icon" aria-hidden="true"><svg focusable="false"><use href="../icons/fa-sprite.svg#user-graduate"/></svg></span><span class="dash-nav__label">Students</span></a>
             </div>
         </nav>
 
@@ -64,66 +78,66 @@
                 </div>
 
                 <div class="dash-table__row" role="row">
-                    <span class="dash-table__cell dash-table__cell-strong">Biology 101 — Section A</span>
-                    <span class="dash-table__cell">Biology</span>
-                    <span class="dash-table__cell">10</span>
-                    <span class="dash-table__cell">
+                    <span class="dash-table__cell dash-table__cell-strong" data-role="name">Biology 101 — Section A</span>
+                    <span class="dash-table__cell" data-role="status">Biology</span>
+                    <span class="dash-table__cell" data-role="status">10</span>
+                    <span class="dash-table__cell" data-role="indicator">
                         <span class="dash-table__pills">
                             <span class="dash-table__pill dash-table__pill--accent">R. Salas</span>
                             <span class="dash-table__pill dash-table__pill--accent">A. Brooks</span>
                         </span>
                     </span>
-                    <span class="dash-table__cell">28</span>
-                    <span class="dash-table__cell dash-table__row-actions">
+                    <span class="dash-table__cell" data-role="indicator">28</span>
+                    <span class="dash-table__cell dash-table__row-actions" data-role="actions">
                         <button class="dash-table__icon-btn" title="Edit">✎</button>
                         <button class="dash-table__icon-btn" title="Remove">×</button>
                     </span>
                 </div>
 
                 <div class="dash-table__row" role="row">
-                    <span class="dash-table__cell dash-table__cell-strong">English Lit — Honors</span>
-                    <span class="dash-table__cell">English</span>
-                    <span class="dash-table__cell">11</span>
-                    <span class="dash-table__cell">
+                    <span class="dash-table__cell dash-table__cell-strong" data-role="name">English Lit — Honors</span>
+                    <span class="dash-table__cell" data-role="status">English</span>
+                    <span class="dash-table__cell" data-role="status">11</span>
+                    <span class="dash-table__cell" data-role="indicator">
                         <span class="dash-table__pills">
                             <span class="dash-table__pill dash-table__pill--accent">H. Vogel</span>
                         </span>
                     </span>
-                    <span class="dash-table__cell">22</span>
-                    <span class="dash-table__cell dash-table__row-actions">
+                    <span class="dash-table__cell" data-role="indicator">22</span>
+                    <span class="dash-table__cell dash-table__row-actions" data-role="actions">
                         <button class="dash-table__icon-btn" title="Edit">✎</button>
                         <button class="dash-table__icon-btn" title="Remove">×</button>
                     </span>
                 </div>
 
                 <div class="dash-table__row" role="row">
-                    <span class="dash-table__cell dash-table__cell-strong">Algebra II</span>
-                    <span class="dash-table__cell">Math</span>
-                    <span class="dash-table__cell">10</span>
-                    <span class="dash-table__cell">
+                    <span class="dash-table__cell dash-table__cell-strong" data-role="name">Algebra II</span>
+                    <span class="dash-table__cell" data-role="status">Math</span>
+                    <span class="dash-table__cell" data-role="status">10</span>
+                    <span class="dash-table__cell" data-role="indicator">
                         <span class="dash-table__pills">
                             <span class="dash-table__pill dash-table__pill--accent">R. Salas</span>
                         </span>
                     </span>
-                    <span class="dash-table__cell">31</span>
-                    <span class="dash-table__cell dash-table__row-actions">
+                    <span class="dash-table__cell" data-role="indicator">31</span>
+                    <span class="dash-table__cell dash-table__row-actions" data-role="actions">
                         <button class="dash-table__icon-btn" title="Edit">✎</button>
                         <button class="dash-table__icon-btn" title="Remove">×</button>
                     </span>
                 </div>
 
                 <div class="dash-table__row" role="row">
-                    <span class="dash-table__cell dash-table__cell-strong">World History</span>
-                    <span class="dash-table__cell">History</span>
-                    <span class="dash-table__cell">9</span>
-                    <span class="dash-table__cell">
+                    <span class="dash-table__cell dash-table__cell-strong" data-role="name">World History</span>
+                    <span class="dash-table__cell" data-role="status">History</span>
+                    <span class="dash-table__cell" data-role="status">9</span>
+                    <span class="dash-table__cell" data-role="indicator">
                         <span class="dash-table__pills">
                             <span class="dash-table__pill dash-table__pill--accent">A. Brooks</span>
                             <span class="dash-table__pill dash-table__pill--accent">H. Vogel</span>
                         </span>
                     </span>
-                    <span class="dash-table__cell">25</span>
-                    <span class="dash-table__cell dash-table__row-actions">
+                    <span class="dash-table__cell" data-role="indicator">25</span>
+                    <span class="dash-table__cell dash-table__row-actions" data-role="actions">
                         <button class="dash-table__icon-btn" title="Edit">✎</button>
                         <button class="dash-table__icon-btn" title="Remove">×</button>
                     </span>
@@ -133,7 +147,7 @@
             <p class="dash-section-meta" style="margin-top: var(--space-5);">Click a class to edit teachers, subject, grade, and student roster.</p>
         </main>
 
-        <aside class="dash-twin-rail" aria-label="Twin chat">
+        <aside class="dash-twin-rail" id="dash-twin-rail" aria-label="Twin chat">
             <button type="button" class="dash-twin-rail__rail-toggle" data-action="rail-toggle" aria-controls="dash-twin-panel" aria-expanded="true"><span aria-hidden="true">💬</span></button>
             <div class="dash-twin-rail__header">
                 <h3 class="dash-twin-rail__title">Twin chat</h3>

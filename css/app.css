@@ -1477,6 +1477,28 @@ img {
   flex: 1 1 auto;
 }
 
+.dash-topbar-v2__version-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 6px 12px;
+  margin-right: var(--space-3);
+  font-size: var(--size-label);
+  color: var(--color-ink-soft);
+  text-decoration: none;
+  border: 1px dashed var(--color-margin);
+  border-radius: var(--radius-sm);
+  transition: background var(--transition-soft), color var(--transition-soft), border-color var(--transition-soft);
+}
+
+.dash-topbar-v2__version-toggle:hover,
+.dash-topbar-v2__version-toggle:focus-visible {
+  background: var(--color-field-cream);
+  color: var(--color-ink);
+  border-color: var(--color-ink-soft);
+  outline: none;
+}
+
 .dash-topbar-v2__user {
   position: relative;
 }
@@ -1583,15 +1605,109 @@ img {
   }
 }
 
-@media (max-width: 720px) {
+/* Narrow viewport (≤640px). QA target: iPhone 16 Pro at 402×874 CSS px.
+   Layout stays fluid 320–640; design must be visually correct at 402×874.
+   Left nav becomes a 64px icon rail; twin rail hides off-canvas (summoned
+   via header chat button → side drawer). */
+@media (max-width: 640px) {
   .dash-body,
   .dash-body--rail-collapsed {
-    grid-template-columns: 1fr;
+    grid-template-columns: 64px 1fr 0;
   }
-  .dash-nav,
+  .dash-nav {
+    padding: var(--space-4) var(--space-2);
+  }
+  .dash-nav__group-label,
+  .dash-nav__label {
+    display: none;
+  }
+  .dash-nav__item {
+    justify-content: center;
+    padding: 12px 0;
+  }
   .dash-twin-rail {
     display: none;
   }
+
+  /* Header toggle buttons: visible only at narrow */
+  .dash-topbar-v2__nav-toggle,
+  .dash-topbar-v2__chat-toggle {
+    display: inline-flex;
+  }
+  /* Hide the desktop-only "← Classic dashboard" link to save header space */
+  .dash-topbar-v2__version-toggle {
+    display: none;
+  }
+
+  /* Nav drawer overlay state — hamburger opens nav with labels */
+  .dash-nav.dash-nav--drawer-open {
+    display: flex;
+    position: fixed;
+    inset: 56px 0 0 0;
+    width: min(80vw, 280px);
+    z-index: 60;
+    box-shadow: 0 4px 18px oklch(20% 0.02 80 / 0.18);
+    background: var(--color-parchment);
+    padding: var(--space-4) var(--space-3);
+    overflow-y: auto;
+  }
+  .dash-nav.dash-nav--drawer-open .dash-nav__group-label,
+  .dash-nav.dash-nav--drawer-open .dash-nav__label {
+    display: revert;
+  }
+  .dash-nav.dash-nav--drawer-open .dash-nav__item {
+    justify-content: flex-start;
+    padding: 10px var(--space-3);
+  }
+
+  /* Chat side drawer — anchored right, 90vw, 10vw back-tap gutter */
+  .dash-twin-rail.dash-twin-rail--drawer-open {
+    display: flex;
+    position: fixed;
+    top: 56px;
+    right: 0;
+    bottom: 0;
+    width: 90vw;
+    z-index: 60;
+    box-shadow: -4px 0 18px oklch(20% 0.02 80 / 0.18);
+    background: var(--color-parchment);
+  }
+  .dash-twin-rail.dash-twin-rail--drawer-open .dash-twin-rail__iframe {
+    width: 100%;
+  }
+
+  /* Backdrop when either drawer is open */
+  .dash-shell-v2.dash-shell-v2--drawer-open::before {
+    content: "";
+    position: fixed;
+    inset: 56px 0 0 0;
+    background: oklch(20% 0.02 80 / 0.32);
+    z-index: 55;
+  }
+}
+
+/* Header toggle buttons: hidden by default (above 640px) */
+.dash-topbar-v2__nav-toggle,
+.dash-topbar-v2__chat-toggle {
+  display: none;
+  width: 40px;
+  height: 40px;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-size: 22px;
+  cursor: pointer;
+  color: var(--color-ink);
+  padding: 0;
+}
+.dash-topbar-v2__nav-toggle:hover,
+.dash-topbar-v2__chat-toggle:hover,
+.dash-topbar-v2__nav-toggle:focus-visible,
+.dash-topbar-v2__chat-toggle:focus-visible {
+  background: var(--color-field-cream);
+  outline: none;
 }
 
 /* Left nav */
@@ -1641,14 +1757,20 @@ img {
 }
 
 .dash-nav__icon {
-  width: 18px;
-  height: 18px;
-  flex: 0 0 18px;
+  width: 22px;
+  height: 22px;
+  flex: 0 0 22px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-size: 16px;
-  line-height: 1;
+  color: currentColor;
+}
+
+.dash-nav__icon svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+  fill: currentColor;
 }
 
 /* Static-preview helper: hide the nav branch that doesn't match the
@@ -1797,6 +1919,113 @@ img {
   background: var(--color-accent);
   border-radius: 50%;
   border: 2px solid var(--color-parchment);
+}
+
+/* Header action group (pop-out, fullscreen-close, collapse) */
+.dash-twin-rail__actions {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.dash-twin-rail__action {
+  width: 32px;
+  height: 32px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: 1px solid var(--color-margin);
+  border-radius: var(--radius-sm);
+  color: var(--color-ink-soft);
+  font-size: 16px;
+  text-decoration: none;
+  transition: background var(--transition-soft), border-color var(--transition-soft), color var(--transition-soft);
+}
+
+.dash-twin-rail__action:hover,
+.dash-twin-rail__action:focus-visible {
+  background: var(--color-field-cream);
+  border-color: var(--color-ink-soft);
+  color: var(--color-ink);
+  outline: none;
+}
+
+/* Close button hidden by default, shown only when rail is fullscreen */
+.dash-twin-rail__action--fullscreen-close {
+  display: none;
+}
+
+.dash-twin-rail--fullscreen .dash-twin-rail__action--fullscreen-close {
+  display: inline-flex;
+}
+
+/* Fullscreen rail (mobile primary use, also available on desktop) */
+.dash-twin-rail--fullscreen {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 9999;
+  border-left: none;
+  display: flex !important;
+}
+
+.dash-twin-rail--fullscreen .dash-twin-rail__header,
+.dash-twin-rail--fullscreen .dash-twin-rail__body {
+  display: flex;
+}
+
+.dash-twin-rail--fullscreen .dash-twin-rail__body {
+  flex-direction: column;
+}
+
+/* In fullscreen mode hide the desktop collapse toggle (it has no meaning) */
+.dash-twin-rail--fullscreen .dash-twin-rail__toggle {
+  display: none;
+}
+
+/* Lock body scroll while fullscreen rail is active */
+body.dash-twin-rail-locked {
+  overflow: hidden;
+}
+
+/* Mobile FAB to summon the rail (visible only ≤720px when twin available) */
+.dash-twin-fab {
+  display: none;
+  position: fixed;
+  right: var(--space-4);
+  bottom: var(--space-4);
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  color: var(--color-parchment);
+  border: none;
+  box-shadow: var(--shadow-modal);
+  font-size: 22px;
+  z-index: 50;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform var(--transition-soft);
+}
+
+.dash-twin-fab:hover,
+.dash-twin-fab:focus-visible {
+  transform: translateY(-2px);
+  outline: none;
+}
+
+@media (max-width: 640px) {
+  /* FAB hidden at narrow — header chat toggle replaces it. */
+  .dash-twin-fab {
+    display: none;
+  }
+  /* Override the default hide-at-narrow rule when fullscreen is requested */
+  .dash-twin-rail--fullscreen {
+    display: flex !important;
+  }
 }
 
 /* Management table primitives (CSS grid, not <table>) */
@@ -2152,18 +2381,63 @@ img {
   grid-template-columns: 1.6fr 0.7fr 1.8fr 0.7fr;
 }
 
-@media (max-width: 900px) {
-  .dash-table--employees .dash-table__header,
-  .dash-table--employees .dash-table__row,
-  .dash-table--classes .dash-table__header,
-  .dash-table--classes .dash-table__row,
-  .dash-table--students .dash-table__header,
-  .dash-table--students .dash-table__row {
-    grid-template-columns: 1fr;
-    gap: var(--space-2);
-  }
+@media (max-width: 640px) {
+  /* Stacked row layout: name top, status row, indicators row, actions right */
   .dash-table__header {
     display: none;
+  }
+  .dash-table--employees .dash-table__row,
+  .dash-table--classes .dash-table__row,
+  .dash-table--students .dash-table__row {
+    grid-template-columns: 1fr auto;
+    grid-template-areas:
+      "name    actions"
+      "status  actions"
+      "pills   actions";
+    column-gap: var(--space-3);
+    row-gap: 6px;
+    padding: var(--space-3) var(--space-4);
+    align-items: start;
+  }
+  .dash-table__row [data-role="name"] {
+    grid-area: name;
+    font-size: var(--size-body-large, 1.0625rem);
+    line-height: 1.3;
+  }
+  /* Multiple status cells (e.g. classes: subject + grade) flow inline with separator */
+  .dash-table__row [data-role="status"] {
+    grid-area: status;
+    display: inline;
+    font-size: var(--size-label, 0.8125rem);
+    color: var(--color-whisper);
+  }
+  .dash-table__row [data-role="status"] + [data-role="status"]::before {
+    content: " · ";
+    color: var(--color-margin);
+  }
+  .dash-table__row [data-role="indicator"] {
+    grid-area: pills;
+    display: inline-flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    align-items: center;
+  }
+  /* Multiple indicator cells stack into the same pills row */
+  .dash-table__row [data-role="indicator"] + [data-role="indicator"] {
+    margin-left: 0;
+  }
+  .dash-table__row [data-role="actions"] {
+    grid-area: actions;
+    flex-direction: column;
+    align-self: start;
+    gap: 6px;
+    padding-left: 0;
+  }
+  /* Bigger touch targets on narrow */
+  .dash-table__icon-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
   }
 }
 
