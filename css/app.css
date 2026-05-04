@@ -2938,3 +2938,213 @@ body.dash-twin-rail-locked {
 .ob-content--wide {
   max-width: 920px;
 }
+
+/* Static-preview tenant visibility helpers. Production Blade renders one
+   branch only based on $isSchool — these attributes are no-ops there. */
+:root[data-theme="eduasiste"] [data-tenant-hide="eduasiste"] { display: none !important; }
+:root:not([data-theme="eduasiste"]) [data-tenant-show="eduasiste"] { display: none !important; }
+
+/* ============================================================
+   V2 dashboard home — admin action items + summary stats + chart
+   ============================================================ */
+
+.dash-stat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: var(--space-3);
+}
+
+.dash-stat-card {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: var(--space-4);
+  background: var(--color-field-cream);
+  border: 1px solid var(--color-margin-soft);
+  border-radius: var(--radius-md);
+}
+
+.dash-stat-card__value {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: 1.75rem;
+  line-height: 1.1;
+  color: var(--color-ink);
+}
+
+:root[data-theme="eduasiste"] .dash-stat-card__value,
+:root[data-theme="proasiste"] .dash-stat-card__value {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.dash-stat-card__label {
+  font-size: var(--size-label);
+  color: var(--color-whisper);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.dash-action-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.dash-action-item {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  background: var(--color-parchment);
+  border: 1px solid var(--color-margin);
+  border-left: 3px solid var(--color-margin);
+  border-radius: var(--radius-md);
+}
+
+.dash-action-item--high {
+  border-left-color: var(--color-accent-deep);
+}
+
+.dash-action-item--medium {
+  border-left-color: var(--color-accent);
+}
+
+.dash-action-item--low {
+  border-left-color: var(--color-margin);
+}
+
+.dash-action-item__count {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  font-weight: 400;
+  min-width: 36px;
+  color: var(--color-ink);
+}
+
+:root[data-theme="eduasiste"] .dash-action-item__count,
+:root[data-theme="proasiste"] .dash-action-item__count {
+  font-family: var(--font-sans);
+  font-weight: 700;
+}
+
+.dash-action-item__label {
+  font-size: var(--size-body);
+  color: var(--color-ink);
+}
+
+.dash-action-item__cta {
+  padding: 6px 14px;
+  font-size: var(--size-label);
+  font-weight: 500;
+  color: var(--color-accent-deep);
+  background: var(--color-accent-soft);
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.dash-action-item__cta:hover,
+.dash-action-item__cta:focus-visible {
+  background: var(--color-accent);
+  color: var(--color-parchment);
+  outline: none;
+}
+
+.dash-bar-chart {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.dash-bar-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 3fr) auto;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.dash-bar-row__label {
+  font-size: var(--size-body);
+  color: var(--color-ink);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.dash-bar-row__bar {
+  display: block;
+  height: 18px;
+  background: var(--color-field-cream);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+
+.dash-bar-row__fill {
+  display: block;
+  height: 100%;
+  background: var(--color-accent);
+  transition: width var(--transition-soft);
+}
+
+.dash-bar-row__value {
+  font-size: var(--size-label);
+  font-weight: 500;
+  color: var(--color-ink);
+  min-width: 32px;
+  text-align: right;
+}
+
+.dash-data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--size-body);
+}
+
+.dash-data-table th,
+.dash-data-table td {
+  padding: 10px 12px;
+  text-align: left;
+  border-bottom: 1px solid var(--color-margin-soft);
+}
+
+.dash-data-table th {
+  font-size: var(--size-tiny);
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-whisper);
+}
+
+@media (max-width: 640px) {
+  .dash-action-item {
+    grid-template-columns: auto 1fr;
+    grid-template-areas:
+      "count  label"
+      ".      cta";
+    row-gap: 8px;
+  }
+  .dash-action-item__count { grid-area: count; }
+  .dash-action-item__label { grid-area: label; }
+  .dash-action-item__cta {
+    grid-area: cta;
+    justify-self: end;
+  }
+
+  .dash-bar-row {
+    grid-template-columns: 1fr auto;
+    grid-template-areas:
+      "label value"
+      "bar   bar";
+    row-gap: 4px;
+  }
+  .dash-bar-row__label { grid-area: label; }
+  .dash-bar-row__value { grid-area: value; }
+  .dash-bar-row__bar { grid-area: bar; }
+}

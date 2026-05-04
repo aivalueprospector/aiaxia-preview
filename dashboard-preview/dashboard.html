@@ -84,108 +84,106 @@
                 <span class="dash-project-pill" data-tenant-copy="dashboard.project_pill">Acme Health · active project</span>
             </section>
 
-            <nav class="dash-spine" aria-label="Workflow stages">
-                <a class="dash-spine-step dash-spine-step--complete" href="imagine.html">
-                    <span class="dash-spine-step__index">Stage 1</span>
-                    <span class="dash-spine-step__label">Imagine</span>
-                    <span class="dash-spine-step__hint">3 pain points · 2 outcomes</span>
-                </a>
-                <a class="dash-spine-step dash-spine-step--current" href="map.html">
-                    <span class="dash-spine-step__index">Stage 2</span>
-                    <span class="dash-spine-step__label">Map</span>
-                    <span class="dash-spine-step__hint">In progress · 1 segment drafted</span>
-                </a>
-                <a class="dash-spine-step" href="connect.html">
-                    <span class="dash-spine-step__index">Stage 3</span>
-                    <span class="dash-spine-step__label">Connect</span>
-                    <span class="dash-spine-step__hint">Locked until Map is complete</span>
-                </a>
-                <a class="dash-spine-step" href="deliver.html">
-                    <span class="dash-spine-step__index">Stage 4</span>
-                    <span class="dash-spine-step__label">Deliver</span>
-                    <span class="dash-spine-step__hint">Locked</span>
-                </a>
-            </nav>
-
-            <section class="dash-section" aria-labelledby="next-up">
-                <h2 id="next-up">What's next in Map</h2>
-                <p class="dash-section-meta">Three concrete moves before Connect unlocks.</p>
-                <ul class="dash-list">
-                    <li class="dash-list-item">
-                        <span class="dash-list-item__index">1</span>
-                        <span class="dash-list-item__body">
-                            <span class="dash-list-item__title">Name your second customer segment</span>
-                            <span class="dash-list-item__meta">You drafted "Independent primary-care clinics in the US." A second segment sharpens the comparison.</span>
-                        </span>
-                        <button class="dash-list-item__action">Open</button>
-                    </li>
-                    <li class="dash-list-item">
-                        <span class="dash-list-item__index">2</span>
-                        <span class="dash-list-item__body">
-                            <span class="dash-list-item__title">Sketch the lifecycle for clinics</span>
-                            <span class="dash-list-item__meta">Awareness → Trial → Adoption → Renewal. Notes carry over from Imagine.</span>
-                        </span>
-                        <button class="dash-list-item__action">Open</button>
-                    </li>
-                    <li class="dash-list-item">
-                        <span class="dash-list-item__index">3</span>
-                        <span class="dash-list-item__body">
-                            <span class="dash-list-item__title">Define stage goals + needs</span>
-                            <span class="dash-list-item__meta">For each lifecycle stage, write the goal and what the customer needs from you.</span>
-                        </span>
-                        <button class="dash-list-item__action">Open</button>
-                    </li>
-                </ul>
-            </section>
-
-            <section class="dash-section" aria-labelledby="recent">
-                <h2 id="recent">Recent captures</h2>
-                <p class="dash-section-meta">Last seven days · across stages</p>
-                <ul class="dash-list">
-                    <li class="dash-list-item">
-                        <span class="dash-list-item__index">·</span>
-                        <span class="dash-list-item__body">
-                            <span class="dash-list-item__title">Pain point added: "Front-desk staff resist new tools without dedicated training."</span>
-                            <span class="dash-list-item__meta">Imagine · yesterday · twin-suggested wording</span>
-                        </span>
-                    </li>
-                    <li class="dash-list-item">
-                        <span class="dash-list-item__index">·</span>
-                        <span class="dash-list-item__body">
-                            <span class="dash-list-item__title">Outcome captured: "Sub-15-minute patient onboarding for 80% of new visits."</span>
-                            <span class="dash-list-item__meta">Imagine · 2 days ago</span>
-                        </span>
-                    </li>
-                    <li class="dash-list-item">
-                        <span class="dash-list-item__index">·</span>
-                        <span class="dash-list-item__body">
-                            <span class="dash-list-item__title">Segment drafted: "Independent primary-care clinics in the US."</span>
-                            <span class="dash-list-item__meta">Map · 4 days ago</span>
-                        </span>
-                    </li>
-                </ul>
-            </section>
-
-            <section class="dash-deliverables" aria-labelledby="deliverables">
-                <h2 id="deliverables" style="font-family: var(--font-serif); font-weight: 400; font-size: 1.5rem; margin: 0;">Final deliverables</h2>
-                <p class="dash-section-meta">Unlock as you progress. All three are queued from your captured work.</p>
-                <div class="dash-deliverables-grid">
-                    <article class="dash-deliverable dash-deliverable--locked">
-                        <span class="dash-deliverable__name">Meet Maria narrative</span>
-                        <span class="dash-deliverable__meta">A first-person narrative grounded in your segment + lifecycle.</span>
-                        <span class="dash-deliverable__lock-tag">Unlocks at Connect</span>
-                    </article>
-                    <article class="dash-deliverable dash-deliverable--locked">
-                        <span class="dash-deliverable__name">P3 plan</span>
-                        <span class="dash-deliverable__meta">Pain · Path · Proof. Synthesized from Imagine + Connect.</span>
-                        <span class="dash-deliverable__lock-tag">Unlocks at Deliver</span>
-                    </article>
-                    <article class="dash-deliverable dash-deliverable--locked">
-                        <span class="dash-deliverable__name">L-Ingots</span>
-                        <span class="dash-deliverable__meta">Distilled high-leverage actions, sized to take the next step.</span>
-                        <span class="dash-deliverable__lock-tag">Unlocks at Deliver</span>
-                    </article>
+            <section class="dash-section dash-section--summary" aria-labelledby="summary">
+                <h2 id="summary">At a glance</h2>
+                <div class="dash-stat-grid">
+                    <!-- Eduasiste sample stats -->
+                    <div class="dash-stat-card" data-tenant-show="eduasiste"><span class="dash-stat-card__value">128</span><span class="dash-stat-card__label">Students</span></div>
+                    <div class="dash-stat-card" data-tenant-show="eduasiste"><span class="dash-stat-card__value">7</span><span class="dash-stat-card__label">Classes</span></div>
+                    <div class="dash-stat-card" data-tenant-show="eduasiste"><span class="dash-stat-card__value">5</span><span class="dash-stat-card__label">Teachers</span></div>
+                    <div class="dash-stat-card" data-tenant-show="eduasiste"><span class="dash-stat-card__value">3 / 5</span><span class="dash-stat-card__label">Twin licenses</span></div>
+                    <!-- Business sample stats -->
+                    <div class="dash-stat-card" data-tenant-hide="eduasiste"><span class="dash-stat-card__value">12</span><span class="dash-stat-card__label">Employees</span></div>
+                    <div class="dash-stat-card" data-tenant-hide="eduasiste"><span class="dash-stat-card__value">11</span><span class="dash-stat-card__label">Active</span></div>
+                    <div class="dash-stat-card" data-tenant-hide="eduasiste"><span class="dash-stat-card__value">6 / 12</span><span class="dash-stat-card__label">Twin licenses</span></div>
+                    <div class="dash-stat-card" data-tenant-hide="eduasiste"><span class="dash-stat-card__value">3</span><span class="dash-stat-card__label">Projects</span></div>
                 </div>
+            </section>
+
+            <section class="dash-section" aria-labelledby="action-items">
+                <h2 id="action-items">Action items</h2>
+                <p class="dash-section-meta" data-tenant-show="eduasiste">4 items need your attention.</p>
+                <p class="dash-section-meta" data-tenant-hide="eduasiste">3 items need your attention.</p>
+                <ul class="dash-action-list">
+                    <!-- Eduasiste sample action items -->
+                    <li class="dash-action-item dash-action-item--high" data-tenant-show="eduasiste">
+                        <span class="dash-action-item__count">6</span>
+                        <span class="dash-action-item__label">students not assigned to any class</span>
+                        <a class="dash-action-item__cta" href="students.html">Assign</a>
+                    </li>
+                    <li class="dash-action-item dash-action-item--high" data-tenant-show="eduasiste">
+                        <span class="dash-action-item__count">2</span>
+                        <span class="dash-action-item__label">teachers haven't been invited yet</span>
+                        <a class="dash-action-item__cta" href="employees-school.html">Invite</a>
+                    </li>
+                    <li class="dash-action-item dash-action-item--medium" data-tenant-show="eduasiste">
+                        <span class="dash-action-item__count">1</span>
+                        <span class="dash-action-item__label">class without an assigned teacher</span>
+                        <a class="dash-action-item__cta" href="classes.html">Assign</a>
+                    </li>
+                    <li class="dash-action-item dash-action-item--medium" data-tenant-show="eduasiste">
+                        <span class="dash-action-item__count">2</span>
+                        <span class="dash-action-item__label">teachers without a twin license</span>
+                        <a class="dash-action-item__cta" href="employees-school.html">Provision</a>
+                    </li>
+                    <!-- Business sample action items -->
+                    <li class="dash-action-item dash-action-item--high" data-tenant-hide="eduasiste">
+                        <span class="dash-action-item__count">3</span>
+                        <span class="dash-action-item__label">employees haven't been invited yet</span>
+                        <a class="dash-action-item__cta" href="employees-business.html">Invite</a>
+                    </li>
+                    <li class="dash-action-item dash-action-item--medium" data-tenant-hide="eduasiste">
+                        <span class="dash-action-item__count">6</span>
+                        <span class="dash-action-item__label">employees without a twin license</span>
+                        <a class="dash-action-item__cta" href="employees-business.html">Provision</a>
+                    </li>
+                    <li class="dash-action-item dash-action-item--low" data-tenant-hide="eduasiste">
+                        <span class="dash-action-item__count">1</span>
+                        <span class="dash-action-item__label">disabled account</span>
+                        <a class="dash-action-item__cta" href="employees-business.html">Review</a>
+                    </li>
+                </ul>
+            </section>
+
+            <section class="dash-section" data-tenant-show="eduasiste" aria-labelledby="enrollments">
+                <h2 id="enrollments">Class enrollment</h2>
+                <p class="dash-section-meta">Students per class. Hover/tap a row for the assigned teacher.</p>
+                <div class="dash-bar-chart">
+                    <div class="dash-bar-row" title="Teacher: Salas">
+                        <span class="dash-bar-row__label">Algebra II</span>
+                        <span class="dash-bar-row__bar"><span class="dash-bar-row__fill" style="width: 100%;"></span></span>
+                        <span class="dash-bar-row__value">31</span>
+                    </div>
+                    <div class="dash-bar-row" title="Teacher: Salas">
+                        <span class="dash-bar-row__label">Biology 101 — Section A</span>
+                        <span class="dash-bar-row__bar"><span class="dash-bar-row__fill" style="width: 90%;"></span></span>
+                        <span class="dash-bar-row__value">28</span>
+                    </div>
+                    <div class="dash-bar-row" title="Teachers: Brooks, Vogel">
+                        <span class="dash-bar-row__label">World History</span>
+                        <span class="dash-bar-row__bar"><span class="dash-bar-row__fill" style="width: 80%;"></span></span>
+                        <span class="dash-bar-row__value">25</span>
+                    </div>
+                    <div class="dash-bar-row" title="Teacher: Vogel">
+                        <span class="dash-bar-row__label">English Lit — Honors</span>
+                        <span class="dash-bar-row__bar"><span class="dash-bar-row__fill" style="width: 70%;"></span></span>
+                        <span class="dash-bar-row__value">22</span>
+                    </div>
+                </div>
+            </section>
+
+            <section class="dash-section" data-tenant-hide="eduasiste" aria-labelledby="roles">
+                <h2 id="roles">Team composition</h2>
+                <p class="dash-section-meta">Headcount by role.</p>
+                <table class="dash-data-table">
+                    <thead><tr><th scope="col">Role</th><th scope="col">Headcount</th></tr></thead>
+                    <tbody>
+                        <tr><td>Operations</td><td>4</td></tr>
+                        <tr><td>Sales</td><td>3</td></tr>
+                        <tr><td>Engineering</td><td>3</td></tr>
+                        <tr><td>Marketing</td><td>2</td></tr>
+                    </tbody>
+                </table>
             </section>
         </main>
 
