@@ -1,8 +1,8 @@
 /* Static-preview theme bootstrap. Reads ?theme= or localStorage, applies
    data-theme on <html>, swaps wordmark/logo/title, propagates ?theme= to
-   in-page links, mounts a small theme switcher into the topbar. Production
-   Laravel does this server-side via App\Http\Middleware\ResolveTenant —
-   this file only exists for the public static-HTML preview. */
+   in-page links. Brand is locked in at session start — no runtime switcher.
+   Production Laravel resolves tenant from host via ResolveTenant; this
+   file only exists for the public static-HTML preview. */
 (function () {
   var THEMES = {
     aiaxia:    { wordmark: 'AiAxia',    style: 'italic', weight: 500, title: 'AiAxia',    logo: null },
@@ -132,37 +132,11 @@
       }
     }
 
-    // Mount switcher in topbar (onboarding .ob-topbar OR dashboard .dash-topbar-v2)
-    var bar = document.querySelector('.ob-topbar') || document.querySelector('.dash-topbar-v2');
-    if (!bar || bar.querySelector('.ob-theme-switcher')) return;
-
-    var wrap = document.createElement('div');
-    wrap.className = 'ob-theme-switcher';
-    wrap.setAttribute('role', 'group');
-    wrap.setAttribute('aria-label', 'Preview theme');
-
-    Object.keys(THEMES).forEach(function (slug) {
-      var btn = document.createElement('button');
-      btn.type = 'button';
-      btn.dataset.theme = slug;
-      btn.textContent = THEMES[slug].wordmark;
-      if (slug === theme) btn.setAttribute('aria-pressed', 'true');
-      btn.addEventListener('click', function () {
-        var url = new URL(window.location.href);
-        url.searchParams.set('theme', slug);
-        window.location.href = url.toString();
-      });
-      wrap.appendChild(btn);
-    });
-
-    var progress = bar.querySelector('.ob-progress');
-    if (progress) {
-      bar.insertBefore(wrap, progress);
-    } else {
-      var anchor = bar.querySelector('.dash-topbar-v2__user') || bar.querySelector('.dash-topbar-v2__spacer');
-      if (anchor) bar.insertBefore(wrap, anchor);
-      else bar.appendChild(wrap);
-    }
+    // Brand is locked in at start of session via ?theme= URL param (or
+    // localStorage carryover). No runtime switcher in topbar — the choice
+    // made during onboarding/signup drives the entire experience.
+    // Production Laravel resolves tenant from host via ResolveTenant
+    // middleware; this static preview reads ?theme= once and persists.
   }
 
   if (document.readyState === 'loading') {
