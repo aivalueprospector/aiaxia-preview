@@ -360,6 +360,25 @@ img {
   padding: 0 var(--space-6) var(--space-7);
 }
 
+/* Onboarding inside the dashboard center column — no full-bleed centering. */
+.ob-stage--in-dash {
+  display: block;
+  padding: var(--space-5) var(--space-6) var(--space-7);
+  max-width: 720px;
+  margin: 0 auto;
+}
+.ob-stage--in-dash .ob-content {
+  padding-top: var(--space-5);
+  max-width: none;
+}
+.ob-stage--in-dash .ob-progress {
+  margin: 0 0 var(--space-4);
+  font-size: var(--size-tiny);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-whisper);
+}
+
 .ob-content {
   width: 100%;
   max-width: 560px;
@@ -1756,6 +1775,16 @@ img {
   color: var(--color-ink);
 }
 
+/* Locked nav items during onboarding — dimmed, non-clickable. */
+.dash-nav__item--locked {
+  opacity: 0.5;
+  cursor: not-allowed;
+  color: var(--color-whisper);
+}
+.dash-nav__item--locked:hover {
+  background: transparent;
+}
+
 .dash-nav__icon {
   width: 22px;
   height: 22px;
@@ -1861,6 +1890,37 @@ img {
   height: 100%;
   border: 0;
   border-radius: var(--radius-md);
+}
+
+/* Onboarding rail variant — narration + sign-out footer. */
+.dash-twin-rail--onboarding {
+  display: flex;
+  flex-direction: column;
+}
+.dash-twin-rail--onboarding .dash-twin-rail__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+.rail-footer {
+  border-top: 1px solid var(--color-margin);
+  padding: var(--space-3) var(--space-4);
+}
+.rail-footer__signout-form {
+  margin: 0;
+}
+.rail-footer__signout {
+  background: transparent;
+  border: 0;
+  padding: 0;
+  font-size: var(--size-label);
+  color: var(--color-whisper);
+  cursor: pointer;
+  text-decoration: none;
+}
+.rail-footer__signout:hover {
+  color: var(--color-ink);
+  text-decoration: underline;
 }
 
 .dash-twin-rail__empty {
