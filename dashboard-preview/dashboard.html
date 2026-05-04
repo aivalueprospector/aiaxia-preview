@@ -9,15 +9,7 @@
 </head>
 <body>
 <div class="dash-shell-v2">
-    <header class="dash-topbar-v2">
-            <button type="button" class="dash-topbar-v2__nav-toggle"
-            data-action="nav-toggle"
-            aria-controls="dash-nav"
-            aria-expanded="false"
-            aria-label="Open navigation">
-        <span aria-hidden="true">☰</span>
-    </button>
-        <span class="dash-topbar-v2__brand">
+    <header class="dash-topbar-v2">        <span class="dash-topbar-v2__brand">
             <span class="dash-topbar-v2__logo" aria-hidden="true">
                 <span class="dash-topbar-v2__logo--placeholder">A</span>
             </span>
@@ -42,18 +34,17 @@
                     <span aria-hidden="true">↩</span> Logout
                 </a>
             </div>
-        </span>
-        <button type="button" class="dash-topbar-v2__chat-toggle"
-            data-action="rail-drawer-open"
-            aria-controls="dash-twin-rail"
-            aria-expanded="false"
-            aria-label="Open twin chat">
-        <span aria-hidden="true">💬</span>
-    </button>
-    </header>
+        </span>    </header>
 
     <div class="dash-body" id="dash-body">
         <nav class="dash-nav" id="dash-nav" aria-label="Dashboard sections">
+            <button type="button" class="dash-nav__hamburger"
+                    data-action="nav-toggle"
+                    aria-controls="dash-nav"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation labels">
+                <span aria-hidden="true">☰</span>
+            </button>
             <a class="dash-nav__item dash-nav__item--active" href="dashboard.html" aria-current="page">
                 <span class="dash-nav__icon" aria-hidden="true"><svg focusable="false"><use href="../icons/fa-sprite.svg#house"/></svg></span>
                 <span class="dash-nav__label">Home</span>

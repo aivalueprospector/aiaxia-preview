@@ -9,15 +9,7 @@
 </head>
 <body>
 <div class="dash-shell-v2">
-    <header class="dash-topbar-v2">
-            <button type="button" class="dash-topbar-v2__nav-toggle"
-            data-action="nav-toggle"
-            aria-controls="dash-nav"
-            aria-expanded="false"
-            aria-label="Open navigation">
-        <span aria-hidden="true">☰</span>
-    </button>
-        <span class="dash-topbar-v2__brand">
+    <header class="dash-topbar-v2">        <span class="dash-topbar-v2__brand">
             <span class="dash-topbar-v2__logo" aria-hidden="true"><span class="dash-topbar-v2__logo--placeholder">A</span></span>
             <span class="dash-topbar-v2__company" data-tenant-copy="dashboard.company_name">Acme Health</span>
         </span>
@@ -32,18 +24,17 @@
                 <span class="dash-usermenu__divider" role="separator"></span>
                 <a class="dash-usermenu__item" role="menuitem" href="#">Logout</a>
             </div>
-        </span>
-        <button type="button" class="dash-topbar-v2__chat-toggle"
-            data-action="rail-drawer-open"
-            aria-controls="dash-twin-rail"
-            aria-expanded="false"
-            aria-label="Open twin chat">
-        <span aria-hidden="true">💬</span>
-    </button>
-    </header>
+        </span>    </header>
 
     <div class="dash-body" id="dash-body">
         <nav class="dash-nav" id="dash-nav" aria-label="Dashboard sections">
+            <button type="button" class="dash-nav__hamburger"
+                    data-action="nav-toggle"
+                    aria-controls="dash-nav"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation labels">
+                <span aria-hidden="true">☰</span>
+            </button>
             <a class="dash-nav__item" href="dashboard.html"><span class="dash-nav__icon" aria-hidden="true"><svg focusable="false"><use href="../icons/fa-sprite.svg#house"/></svg></span><span class="dash-nav__label">Home</span></a>
             <div class="dash-nav__group dash-nav__group--business">
                 <span class="dash-nav__group-label">Workspace</span>

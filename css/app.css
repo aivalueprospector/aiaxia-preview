@@ -1617,28 +1617,28 @@ img {
   grid-template-columns: 232px 1fr 56px;
 }
 
-/* Header toggle buttons: hidden by default; shown only at narrow viewport.
-   Defined here BEFORE the narrow media query so cascade order works. */
-.dash-topbar-v2__nav-toggle,
-.dash-topbar-v2__chat-toggle {
+/* Hamburger button at top of left nav rail. Toggles drawer overlay
+   (with labels) at narrow viewports; hidden at desktop where labels
+   already render inline. */
+.dash-nav__hamburger {
   display: none;
   width: 40px;
   height: 40px;
+  margin: 0 auto var(--space-2);
   align-items: center;
   justify-content: center;
   background: transparent;
-  border: none;
+  border: 1px solid transparent;
   border-radius: var(--radius-sm);
   font-size: 22px;
   cursor: pointer;
   color: var(--color-ink);
   padding: 0;
 }
-.dash-topbar-v2__nav-toggle:hover,
-.dash-topbar-v2__chat-toggle:hover,
-.dash-topbar-v2__nav-toggle:focus-visible,
-.dash-topbar-v2__chat-toggle:focus-visible {
+.dash-nav__hamburger:hover,
+.dash-nav__hamburger:focus-visible {
   background: var(--color-field-cream);
+  border-color: var(--color-margin);
   outline: none;
 }
 
@@ -1651,15 +1651,18 @@ img {
 
 /* Narrow viewport (≤640px). QA target: iPhone 16 Pro at 402×874 CSS px.
    Layout stays fluid 320–640; design must be visually correct at 402×874.
-   Left nav becomes a 64px icon rail; twin rail hides off-canvas (summoned
-   via header chat button → side drawer). */
+   Both rails always visible as collapsed icon strips. Hamburger at top
+   of left nav opens labels drawer. Speech-bubble at top of right rail
+   triggers fullscreen chat. */
 @media (max-width: 640px) {
   .dash-body,
   .dash-body--rail-collapsed {
-    grid-template-columns: 64px 1fr 0;
+    grid-template-columns: 56px 1fr 56px;
   }
+
+  /* Left nav: collapsed icon rail with hamburger at top */
   .dash-nav {
-    padding: var(--space-4) var(--space-2);
+    padding: var(--space-3) 0;
   }
   .dash-nav__group-label,
   .dash-nav__label {
@@ -1669,23 +1672,42 @@ img {
     justify-content: center;
     padding: 12px 0;
   }
-  .dash-twin-rail {
-    display: none;
-  }
-
-  /* Header toggle buttons: visible only at narrow */
-  .dash-topbar-v2__nav-toggle,
-  .dash-topbar-v2__chat-toggle {
+  .dash-nav__hamburger {
     display: inline-flex;
   }
-  /* Hide the desktop-only "← Classic dashboard" link to save header space */
+
+  /* Right rail: force collapsed state at narrow (overrides expanded class
+     so leftover localStorage state can't blow up the layout). */
+  .dash-twin-rail:not(.dash-twin-rail--fullscreen) {
+    align-items: center;
+    padding: var(--space-3) 0;
+  }
+  .dash-twin-rail:not(.dash-twin-rail--fullscreen) .dash-twin-rail__header,
+  .dash-twin-rail:not(.dash-twin-rail--fullscreen) .dash-twin-rail__body {
+    display: none;
+  }
+  .dash-twin-rail:not(.dash-twin-rail--fullscreen) .dash-twin-rail__rail-toggle {
+    display: inline-flex;
+  }
+
+  /* Hide desktop-only "← Classic dashboard" link to save topbar space */
   .dash-topbar-v2__version-toggle {
     display: none;
+  }
+  /* Truncate company name so topbar doesn't overflow */
+  .dash-topbar-v2__company {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    min-width: 0;
+  }
+  .dash-topbar-v2__brand {
+    min-width: 0;
+    flex: 1 1 auto;
   }
 
   /* Nav drawer overlay state — hamburger opens nav with labels */
   .dash-nav.dash-nav--drawer-open {
-    display: flex;
     position: fixed;
     inset: 56px 0 0 0;
     width: min(80vw, 280px);
@@ -1703,24 +1725,12 @@ img {
     justify-content: flex-start;
     padding: 10px var(--space-3);
   }
-
-  /* Chat side drawer — anchored right, 90vw, 10vw back-tap gutter */
-  .dash-twin-rail.dash-twin-rail--drawer-open {
-    display: flex;
-    position: fixed;
-    top: 56px;
-    right: 0;
-    bottom: 0;
-    width: 90vw;
-    z-index: 60;
-    box-shadow: -4px 0 18px oklch(20% 0.02 80 / 0.18);
-    background: var(--color-parchment);
-  }
-  .dash-twin-rail.dash-twin-rail--drawer-open .dash-twin-rail__iframe {
-    width: 100%;
+  .dash-nav.dash-nav--drawer-open .dash-nav__hamburger {
+    margin-left: auto;
+    margin-right: 0;
   }
 
-  /* Backdrop when either drawer is open */
+  /* Backdrop when nav drawer is open */
   .dash-shell-v2.dash-shell-v2--drawer-open::before {
     content: "";
     position: fixed;

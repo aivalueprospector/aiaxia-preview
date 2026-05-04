@@ -18,9 +18,19 @@
     } catch (e) {}
   }
 
+  function isNarrow() {
+    return window.matchMedia('(max-width: 640px)').matches;
+  }
+
   function setupRailToggles() {
     document.querySelectorAll('[data-action="rail-toggle"]').forEach(function (btn) {
       btn.addEventListener('click', function () {
+        // At narrow viewports the rail can't expand inline (no room).
+        // Tap the speech-bubble at top of the collapsed strip → open fullscreen.
+        if (isNarrow()) {
+          openFullscreen();
+          return;
+        }
         try {
           var current = localStorage.getItem(STORAGE_RAIL) === '1';
           localStorage.setItem(STORAGE_RAIL, current ? '0' : '1');
@@ -62,7 +72,6 @@
   }
 
   var NAV_DRAWER_OPEN = 'dash-nav--drawer-open';
-  var RAIL_DRAWER_OPEN = 'dash-twin-rail--drawer-open';
   var SHELL_DRAWER_OPEN = 'dash-shell-v2--drawer-open';
 
   function closeNavDrawer() {
@@ -75,18 +84,7 @@
     });
   }
 
-  function closeRailDrawer() {
-    var rail = document.getElementById('dash-twin-rail');
-    var shell = document.querySelector('.dash-shell-v2');
-    if (rail) rail.classList.remove(RAIL_DRAWER_OPEN);
-    if (shell) shell.classList.remove(SHELL_DRAWER_OPEN);
-    document.querySelectorAll('[data-action="rail-drawer-open"]').forEach(function (b) {
-      b.setAttribute('aria-expanded', 'false');
-    });
-  }
-
   function openNavDrawer() {
-    closeRailDrawer();
     var nav = document.getElementById('dash-nav');
     var shell = document.querySelector('.dash-shell-v2');
     if (nav) nav.classList.add(NAV_DRAWER_OPEN);
@@ -96,25 +94,9 @@
     });
   }
 
-  function openRailDrawer() {
-    closeNavDrawer();
-    var rail = document.getElementById('dash-twin-rail');
-    var shell = document.querySelector('.dash-shell-v2');
-    if (rail) rail.classList.add(RAIL_DRAWER_OPEN);
-    if (shell) shell.classList.add(SHELL_DRAWER_OPEN);
-    document.querySelectorAll('[data-action="rail-drawer-open"]').forEach(function (b) {
-      b.setAttribute('aria-expanded', 'true');
-    });
-  }
-
   function isNavDrawerOpen() {
     var nav = document.getElementById('dash-nav');
     return !!(nav && nav.classList.contains(NAV_DRAWER_OPEN));
-  }
-
-  function isRailDrawerOpen() {
-    var rail = document.getElementById('dash-twin-rail');
-    return !!(rail && rail.classList.contains(RAIL_DRAWER_OPEN));
   }
 
   function setupNavDrawer() {
@@ -126,35 +108,16 @@
     });
   }
 
-  function setupRailDrawer() {
-    document.querySelectorAll('[data-action="rail-drawer-open"]').forEach(function (btn) {
-      btn.addEventListener('click', function (e) {
-        e.stopPropagation();
-        if (isRailDrawerOpen()) closeRailDrawer(); else openRailDrawer();
-      });
-    });
-    document.querySelectorAll('[data-action="rail-drawer-close"]').forEach(function (btn) {
-      btn.addEventListener('click', closeRailDrawer);
-    });
-  }
-
   function setupDrawerDismissal() {
     document.addEventListener('click', function (e) {
       var nav = document.getElementById('dash-nav');
-      var rail = document.getElementById('dash-twin-rail');
       if (isNavDrawerOpen() && nav && !nav.contains(e.target) &&
           !e.target.closest('[data-action="nav-toggle"]')) {
         closeNavDrawer();
       }
-      if (isRailDrawerOpen() && rail && !rail.contains(e.target) &&
-          !e.target.closest('[data-action="rail-drawer-open"]')) {
-        closeRailDrawer();
-      }
     });
     document.addEventListener('keydown', function (e) {
-      if (e.key !== 'Escape') return;
-      if (isNavDrawerOpen()) closeNavDrawer();
-      if (isRailDrawerOpen()) closeRailDrawer();
+      if (e.key === 'Escape' && isNavDrawerOpen()) closeNavDrawer();
     });
   }
 
@@ -192,7 +155,6 @@
     setupRailToggles();
     setupFullscreenToggles();
     setupNavDrawer();
-    setupRailDrawer();
     setupDrawerDismissal();
     setupUserMenu();
   }
