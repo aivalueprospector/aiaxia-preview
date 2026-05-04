@@ -1617,6 +1617,31 @@ img {
   grid-template-columns: 232px 1fr 56px;
 }
 
+/* Header toggle buttons: hidden by default; shown only at narrow viewport.
+   Defined here BEFORE the narrow media query so cascade order works. */
+.dash-topbar-v2__nav-toggle,
+.dash-topbar-v2__chat-toggle {
+  display: none;
+  width: 40px;
+  height: 40px;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-size: 22px;
+  cursor: pointer;
+  color: var(--color-ink);
+  padding: 0;
+}
+.dash-topbar-v2__nav-toggle:hover,
+.dash-topbar-v2__chat-toggle:hover,
+.dash-topbar-v2__nav-toggle:focus-visible,
+.dash-topbar-v2__chat-toggle:focus-visible {
+  background: var(--color-field-cream);
+  outline: none;
+}
+
 @media (max-width: 1024px) {
   .dash-body,
   .dash-body--rail-collapsed {
@@ -1703,30 +1728,6 @@ img {
     background: oklch(20% 0.02 80 / 0.32);
     z-index: 55;
   }
-}
-
-/* Header toggle buttons: hidden by default (above 640px) */
-.dash-topbar-v2__nav-toggle,
-.dash-topbar-v2__chat-toggle {
-  display: none;
-  width: 40px;
-  height: 40px;
-  align-items: center;
-  justify-content: center;
-  background: transparent;
-  border: none;
-  border-radius: var(--radius-sm);
-  font-size: 22px;
-  cursor: pointer;
-  color: var(--color-ink);
-  padding: 0;
-}
-.dash-topbar-v2__nav-toggle:hover,
-.dash-topbar-v2__chat-toggle:hover,
-.dash-topbar-v2__nav-toggle:focus-visible,
-.dash-topbar-v2__chat-toggle:focus-visible {
-  background: var(--color-field-cream);
-  outline: none;
 }
 
 /* Left nav */
