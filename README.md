@@ -2,7 +2,7 @@
 
 Static HTML preview of the AiAxia onboarding flow. Mirrored from `aivalueprospector/AiAxia` (`public/onboarding-preview/` + `public/css/`) for visual review without running the Laravel backend.
 
-**Live URL:** https://aivalueprospector.github.io/aiaxia-preview/
+**Live URL:** https://aivalueprospector.github.io/aiaxia-preview/onboarding-preview/
 
 ## What's here
 
