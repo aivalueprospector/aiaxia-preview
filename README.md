@@ -7,7 +7,7 @@ Static HTML preview of the AiAxia onboarding flow. Mirrored from `aivalueprospec
 ## What's here
 
 - `index.html` redirects to the preview entry point.
-- `onboarding-preview/welcome.html` ... `complete.html` are the five screens, with sample data baked in.
+- `onboarding-preview/` ... `complete.html` are the five screens, with sample data baked in.
 - `css/app.css` is the AiAxia v1 design system (OKLCH botanical palette, Source Serif 4 + Inter).
 
 ## How to update
