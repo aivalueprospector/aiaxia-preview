@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L-twin — Gemelos IA de Aprendizaje para Educación</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #f8fafc;
+            --card: #ffffff;
+            --border: #e2e8f0;
+            --text: #1e293b;
+            --text-muted: #64748b;
+            --accent: #336699;
+            --accent-light: #e0ecf5;
+            --green: #16a34a;
+            --orange: #ea580c;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Inter', -apple-system, sans-serif; background: var(--bg); color: var(--text); }
+        a { color: var(--accent); text-decoration: none; }
+
+        nav { display: flex; justify-content: space-between; align-items: center; padding: 16px 5%; max-width: 1200px; margin: 0 auto; }
+        nav .logo { font-size: 20px; font-weight: 700; color: var(--accent); }
+        nav .links { display: flex; gap: 24px; align-items: center; font-size: 14px; }
+        .btn { padding: 10px 24px; border-radius: 8px; font-size: 14px; font-weight: 600; cursor: pointer; border: none; transition: all 0.2s; }
+        .btn-primary { background: var(--accent); color: #fff; }
+        .btn-primary:hover { opacity: 0.9; }
+        .btn-outline { border: 1px solid var(--accent); color: var(--accent); background: transparent; }
+
+        .hero { text-align: center; padding: 80px 5% 60px; max-width: 800px; margin: 0 auto; }
+        .hero h1 { font-size: 42px; font-weight: 700; line-height: 1.2; margin-bottom: 20px; }
+        .hero h1 span { color: var(--accent); }
+        .hero p { font-size: 18px; color: var(--text-muted); line-height: 1.6; margin-bottom: 32px; }
+        .hero-buttons { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+
+        .personas { padding: 60px 5%; max-width: 1200px; margin: 0 auto; }
+        .personas h2 { text-align: center; font-size: 28px; margin-bottom: 12px; }
+        .personas .subtitle { text-align: center; color: var(--text-muted); margin-bottom: 40px; font-size: 16px; }
+        .persona-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; }
+        .persona-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 28px; }
+        .persona-icon { font-size: 36px; margin-bottom: 12px; }
+        .persona-card h3 { font-size: 18px; margin-bottom: 8px; }
+        .persona-card p { font-size: 14px; color: var(--text-muted); line-height: 1.6; margin-bottom: 16px; }
+        .persona-tag { display: inline-block; font-size: 11px; padding: 3px 10px; border-radius: 12px; font-weight: 600; }
+        .tag-teacher { background: #dbeafe; color: #1d4ed8; }
+        .tag-parent { background: #dcfce7; color: #15803d; }
+        .tag-student { background: #fef3c7; color: #92400e; }
+        .tag-adult { background: #f3e8ff; color: #7c3aed; }
+
+        .how { padding: 60px 5%; max-width: 900px; margin: 0 auto; }
+        .how h2 { text-align: center; font-size: 28px; margin-bottom: 40px; }
+        .step { display: flex; gap: 20px; margin-bottom: 32px; align-items: flex-start; }
+        .step-num { width: 40px; height: 40px; border-radius: 50%; background: var(--accent); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 700; flex-shrink: 0; }
+        .step-content h3 { font-size: 16px; margin-bottom: 4px; }
+        .step-content p { font-size: 14px; color: var(--text-muted); line-height: 1.5; }
+
+        .demos { padding: 60px 5%; max-width: 1200px; margin: 0 auto; }
+        .demos h2 { text-align: center; font-size: 28px; margin-bottom: 12px; }
+        .demos .subtitle { text-align: center; color: var(--text-muted); margin-bottom: 40px; font-size: 16px; }
+        .demo-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+        .demo-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 24px; }
+        .demo-card h3 { font-size: 16px; margin-bottom: 4px; }
+        .demo-card .demo-role { font-size: 12px; color: var(--text-muted); margin-bottom: 12px; }
+        .demo-card p { font-size: 13px; color: var(--text-muted); line-height: 1.5; margin-bottom: 16px; }
+        .demo-card .btn { width: 100%; text-align: center; display: block; font-size: 13px; padding: 8px; }
+
+        .pricing { padding: 60px 5%; max-width: 1000px; margin: 0 auto; }
+        .pricing h2 { text-align: center; font-size: 28px; margin-bottom: 12px; }
+        .pricing .subtitle { text-align: center; color: var(--text-muted); margin-bottom: 40px; font-size: 16px; }
+        .price-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
+        .price-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 24px; text-align: center; }
+        .price-card.featured { border-color: var(--accent); box-shadow: 0 4px 20px rgba(51,102,153,0.15); }
+        .price-card .price { font-size: 32px; font-weight: 700; color: var(--accent); }
+        .price-card .price span { font-size: 14px; font-weight: 400; color: var(--text-muted); }
+        .price-card h3 { font-size: 18px; margin: 8px 0; }
+        .price-card ul { list-style: none; text-align: left; font-size: 13px; color: var(--text-muted); margin: 16px 0; }
+        .price-card ul li { padding: 6px 0; border-bottom: 1px solid #f1f5f9; }
+        .price-card ul li::before { content: "✓ "; color: var(--green); font-weight: 600; }
+        .popular { position: absolute; top: -10px; left: 50%; transform: translateX(-50%); background: var(--accent); color: #fff; font-size: 11px; padding: 3px 12px; border-radius: 12px; font-weight: 600; }
+
+        footer { text-align: center; padding: 40px 5%; color: var(--text-muted); font-size: 13px; border-top: 1px solid var(--border); margin-top: 40px; }
+
+        @media (max-width: 600px) {
+            .hero h1 { font-size: 28px; }
+            .hero p { font-size: 15px; }
+            .step { flex-direction: column; align-items: center; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="logo">L-twin</div>
+    <div class="links">
+        <a href="#personas">Para Quién</a>
+        <a href="#demos">Probar</a>
+        <a href="#pricing">Precios</a>
+        <a href="#signup" class="btn btn-primary">Comenzar</a>
+    </div>
+</nav>
+
+<section class="hero">
+    <h1>Un gemelo IA que <span>aprende contigo</span></h1>
+    <p>Para profesores que monitorean el progreso estudiantil. Para padres que apoyan la educación de sus hijos. Para estudiantes que descubren respuestas por sí mismos. Para adultos dominando nuevas habilidades.</p>
+    <div class="hero-buttons">
+        <a href="#demos" class="btn btn-primary">Probar un Demo</a>
+        <a href="#pricing" class="btn btn-outline">Ver Precios</a>
+    </div>
+</section>
+
+<section class="personas" id="personas">
+    <h2>Cuatro formas de aprender con un gemelo</h2>
+    <p class="subtitle">Misma plataforma, experiencia diferente para cada rol</p>
+    <div class="persona-grid">
+        <div class="persona-card">
+            <div class="persona-icon">👩‍🏫</div>
+            <h3>Para Profesores</h3>
+            <p>Monitorea el progreso de cada estudiante por objetivo. Recibe recomendaciones directas. Genera informes para apoderados en segundos. Ve quién necesita ayuda antes de que se atrase.</p>
+            <span class="persona-tag tag-teacher">Gemelo mentor humano</span>
+        </div>
+        <div class="persona-card">
+            <div class="persona-icon">👨‍👩‍👧</div>
+            <h3>Para Padres</h3>
+            <p>Sube una libreta de notas, obtén respuestas claras. "¿Debería preocuparme por las fracciones?" Sugerencias de actividades semanales que se sienten como diversión, no como tarea.</p>
+            <span class="persona-tag tag-parent">Directo y práctico</span>
+        </div>
+        <div class="persona-card">
+            <div class="persona-icon">🧒</div>
+            <h3>Para Niños</h3>
+            <p>Un compañero de aprendizaje que nunca da respuestas — solo hace preguntas. Convierte las tareas en aventuras. Celebra cada descubrimiento. Se adapta a lo que le gusta a tu hijo.</p>
+            <span class="persona-tag tag-student">Método socrático</span>
+        </div>
+        <div class="persona-card">
+            <div class="persona-icon">🎓</div>
+            <h3>Para Adultos</h3>
+            <p>Aprendiendo una nueva habilidad, cambiando de carrera o volviendo a estudiar. Tu gemelo monitorea tu progreso, conecta conceptos y te mantiene enfocado.</p>
+            <span class="persona-tag tag-adult">Autodirigido</span>
+        </div>
+    </div>
+</section>
+
+<section class="how">
+    <h2>Cómo funciona</h2>
+    <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-content">
+            <h3>Crea tu gemelo</h3>
+            <p>Regístrate, elige tu rol (profesor, padre o aprendiz). Tu gemelo está listo en segundos.</p>
+        </div>
+    </div>
+    <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-content">
+            <h3>Aliméntalo con lo que sabes</h3>
+            <p>Sube libretas de notas, resultados de pruebas, documentos curriculares, o simplemente chatea sobre lo que estás aprendiendo. El gemelo lee todo y lo recuerda.</p>
+        </div>
+    </div>
+    <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-content">
+            <h3>Pregunta lo que quieras</h3>
+            <p>Profesores: "¿Cuáles estudiantes están atrasados en matemáticas?" Padres: "¿En qué debería trabajar con Mateo esta semana?" Estudiantes: "¿Por qué erupcionan los volcanes?"</p>
+        </div>
+    </div>
+    <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-content">
+            <h3>Se vuelve más inteligente con el tiempo</h3>
+            <p>Cada documento, cada conversación, cada resultado hace que tu gemelo sea más útil. Después de un mes, conoce a tus estudiantes, a tu hijo, o tus metas de aprendizaje mejor que cualquier app.</p>
+        </div>
+    </div>
+</section>
+
+<section class="demos" id="demos">
+    <h2>Prueba un demo en vivo</h2>
+    <p class="subtitle">Gemelos reales con datos reales — haz clic para chatear</p>
+    <div class="demo-grid">
+        <div class="demo-card">
+            <h3>👩‍🏫 Profesora — María</h3>
+            <div class="demo-role">Gemelo mentor · Escuela Piloto</div>
+            <p>Monitorea 5 estudiantes en 91 objetivos de aprendizaje. Pregunta sobre el progreso, genera informes para apoderados, ve el mapa de calor.</p>
+            <a href="https://ltwin.ai/chat/escuela-piloto-mentor/073bf5d1068fa97ef0135cc81cf39c32" class="btn btn-primary" target="_blank">Chatear con María</a>
+        </div>
+        <div class="demo-card">
+            <h3>👨‍👩‍👧 Padre/Madre — Español</h3>
+            <div class="demo-role">Gemelo del padre · Familia de Mateo</div>
+            <p>Mateo tiene 7 años, 2° Básico. Fuerte en matemáticas, débil en lectura. Pregunta "¿Cómo va Mateo?"</p>
+            <a href="https://ltwin.ai/chat/familia-padre/8f263f7b44c442adf1f9343576c19aab" class="btn btn-primary" target="_blank">Chatear como Padre</a>
+        </div>
+        <div class="demo-card">
+            <h3>🧒 Hijo — Mateo</h3>
+            <div class="demo-role">Compañero de aprendizaje · Método socrático</div>
+            <p>El compañero de Mateo. Nunca da respuestas — solo hace preguntas. "¿Por qué se extinguieron los dinosaurios?"</p>
+            <a href="https://ltwin.ai/chat/familia-hijo/0b737819b497a983d1c65958a6fcb7cd" class="btn btn-primary" target="_blank">Chatear como Mateo</a>
+        </div>
+        <div class="demo-card">
+            <h3>👨‍👩‍👧 Parent — English</h3>
+            <div class="demo-role">Parent twin · Alex's family</div>
+            <p>Alex tiene 8 años, 3er grado. Fuerte en lectura, débil en fracciones. Pregunta "How's Alex doing?"</p>
+            <a href="https://ltwin.ai/chat/family-parent/209edf5dc7569e0583622c5fa720039a" class="btn btn-primary" target="_blank">Chat as Parent</a>
+        </div>
+        <div class="demo-card">
+            <h3>🧒 Child — Alex</h3>
+            <div class="demo-role">Learning buddy · Socratic method</div>
+            <p>El compañero de Alex. Nunca da respuestas. Prueba "Why do cats purr?" o "Help me with fractions."</p>
+            <a href="https://ltwin.ai/chat/family-child/e50e80def3daa2176b4690ac2097ca87" class="btn btn-primary" target="_blank">Chat as Alex</a>
+        </div>
+        <div class="demo-card">
+            <h3>👩‍🏫 Profesora — Isabel</h3>
+            <div class="demo-role">Gemelo mentor · San Andrés del Bosque</div>
+            <p>3.097 objetivos del currículum chileno. Respuestas directas y prácticas.</p>
+            <a href="https://ltwin.ai/chat/san-andres-mentor/eb0bce60bb5b00f5213c76eb9b86d63b" class="btn btn-primary" target="_blank">Chatear con Isabel</a>
+        </div>
+    </div>
+</section>
+
+<section class="pricing" id="pricing">
+    <h2>Precios simples</h2>
+    <p class="subtitle">Chat ilimitado, documentos ilimitados, informes ilimitados. Paga por puestos.</p>
+    <div class="price-grid">
+        <div class="price-card">
+            <h3>Estudiante</h3>
+            <div class="price">$29<span>/mes</span></div>
+            <ul>
+                <li>Eduardo, compañero de aprendizaje para tu hijo</li>
+                <li>Notas de sesión de cada sesión</li>
+                <li>Funciona en inglés y español</li>
+            </ul>
+            <a href="families-es.html#pricing" class="btn btn-outline">Comenzar</a>
+        </div>
+        <div class="price-card featured" style="position:relative;">
+            <div class="popular">Más Popular</div>
+            <h3>Familiar</h3>
+            <div class="price">$49<span>/mes</span></div>
+            <ul>
+                <li>Eduardo + tu propio gemelo de padre/madre</li>
+                <li>Sube libretas de notas, análisis instantáneo</li>
+                <li>Toggle padre-hijo</li>
+                <li>Hijos adicionales: $19/mes cada uno</li>
+            </ul>
+            <a href="families-es.html#pricing" class="btn btn-primary">Comenzar</a>
+        </div>
+        <div class="price-card">
+            <h3>Educador</h3>
+            <div class="price">$79<span>/puesto/mes</span></div>
+            <ul>
+                <li>Un gemelo IA por profesor</li>
+                <li>Mapa de progreso, alineación curricular</li>
+                <li>Informes para apoderados, supervisión mentor</li>
+                <li>Puesto de mentor siempre gratis</li>
+            </ul>
+            <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ2nvPt4Y4K87urlqQse75X7RlufSSrx8Oc5NvU4vLRzoDvMQGkYYTAefA88osyiiT5yY242FzUW" class="btn btn-outline" target="_blank" rel="noopener">Hablar con un experto</a>
+        </div>
+    </div>
+    <p style="text-align:center;font-size:13px;color:var(--text-muted);margin-top:16px;">
+        Puestos adicionales: $19/puesto/mes · Ayuda de mentor humano siempre gratis · Cancela cuando quieras
+    </p>
+</section>
+
+<section id="signup" style="text-align:center;padding:60px 5%;">
+    <h2 style="font-size:28px;margin-bottom:12px;">Comienza en 30 segundos</h2>
+    <p style="color:var(--text-muted);margin-bottom:24px;">Sin tarjeta de crédito el primer mes.</p>
+    <a href="https://ltwin.ai/onboarding/signup" class="btn btn-primary" style="font-size:16px;padding:14px 40px;">Crea Tu Gemelo</a>
+</section>
+
+<footer>
+    <p>&copy; 2026 AIAXIA · <a href="https://aiaxia.org">aiaxia.org</a> · <a href="https://wa.me/17819447979">Soporte</a></p>
+</footer>
+
+</body>
+</html>

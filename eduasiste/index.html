@@ -3,207 +3,278 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>L-twin | AI Learning Twins for Education</title>
-    <meta name="description" content="L-twin — AI twins for teachers, parents, and students. Socratic learning buddy, progress tracking, curriculum alignment. Live demos.">
-    <link rel="canonical" href="https://ltwin.ai/">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://ltwin.ai/">
-    <meta property="og:title" content="L-twin | AI Learning Twins for Education">
-    <meta property="og:description" content="Every teacher gets an AI twin. Every student gets a learning buddy. Every parent gets clear answers.">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>EduAsiste - Meet Eduardo, The Study Buddy That Never Gives The Answer</title>
+    <meta name="description" content="Meet Eduardo - the study buddy that never gives the answer. Know what your kid is stuck on before the teacher calls. Built for parents and mentors.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --bg: #f8fafc;
-            --text: #1e293b;
-            --muted: #64748b;
-            --accent: #336699;
-            --accent-light: #e0ecf5;
-            --border: #e2e8f0;
-            --card: #ffffff;
-            --green: #16a34a;
-            --gold: #CFB382;
-            --shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
-            --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1);
-        }
+        :root { --bg: #f8fafc; --text: #1e293b; --muted: #475569; --accent: #0077B6; --accent-dark: #03045E; --accent-light: #DBEBFF; --border: #e2e8f0; --card: #ffffff; --green: #16a34a; --dark: #0f172a; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Inter', -apple-system, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
-        a { color: var(--accent); text-decoration: none; }
-        .btn { display: inline-flex; align-items: center; padding: 0.75rem 1.5rem; border-radius: 8px; font-weight: 600; font-size: 0.95rem; text-decoration: none; transition: all 0.2s; border: none; cursor: pointer; }
-        .btn-primary { background: var(--accent); color: #fff; }
-        .btn-primary:hover { opacity: 0.9; }
-        .btn-outline { background: transparent; border: 2px solid var(--accent); color: var(--accent); }
-        .btn-outline:hover { background: var(--accent-light); }
-        .btn-lg { padding: 1rem 2rem; font-size: 1.1rem; }
+        a { color: var(--accent-dark); text-decoration: none; }
+        a:focus-visible, button:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
 
-        nav { display: flex; justify-content: space-between; align-items: center; padding: 1.25rem 5%; max-width: 1200px; margin: 0 auto; }
-        nav .logo { font-size: 1.4rem; font-weight: 700; color: var(--accent); }
-        nav .links { display: flex; gap: 1.5rem; align-items: center; font-size: 0.9rem; }
-        nav .links a { color: var(--muted); }
-        nav .links a:hover { color: var(--text); }
-        .lang-switch { font-size: 0.8rem; color: var(--muted); border: 1px solid var(--border); padding: 0.3rem 0.6rem; border-radius: 4px; }
+        /* Skip-to-content link (visible on focus) */
+        .skip-link { position: absolute; top: -40px; left: 12px; padding: 10px 16px; background: var(--accent-dark); color: #fff; border-radius: 6px; font-weight: 600; z-index: 200; }
+        .skip-link:focus { top: 12px; color: #fff; }
 
-        .hero { text-align: center; padding: 6rem 5% 3rem; max-width: 800px; margin: 0 auto; }
-        .hero h1 { font-size: 3rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 1rem; line-height: 1.15; }
-        .hero h1 em { font-style: normal; color: var(--accent); }
-        .hero p { font-size: 1.15rem; color: var(--muted); max-width: 620px; margin: 0 auto 2rem; }
-        .hero-cta { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
-
-        .audiences { max-width: 1100px; margin: 0 auto; padding: 3rem 5% 4rem; }
-        .audiences h2 { text-align: center; font-size: 1.75rem; margin-bottom: 0.5rem; }
-        .audiences .sub { text-align: center; color: var(--muted); margin-bottom: 2.5rem; }
-        .aud-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
-        .aud-card { background: var(--card); border: 2px solid var(--border); border-radius: 16px; padding: 2rem; transition: all 0.2s; display: flex; flex-direction: column; }
-        .aud-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-2px); border-color: var(--accent); }
-        .aud-icon { font-size: 2.5rem; margin-bottom: 0.75rem; }
-        .aud-card h3 { font-size: 1.2rem; margin-bottom: 0.5rem; }
-        .aud-card p { font-size: 0.9rem; color: var(--muted); margin-bottom: 1rem; flex: 1; }
-        .aud-features { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1.25rem; }
-        .aud-feat { font-size: 0.75rem; background: var(--accent-light); color: var(--accent); padding: 3px 10px; border-radius: 12px; font-weight: 500; }
-        .aud-card .btn { width: 100%; justify-content: center; }
-
-        .pricing-preview { max-width: 1100px; margin: 0 auto; padding: 0 5% 4rem; }
-        .pricing-preview h2 { text-align: center; font-size: 1.75rem; margin-bottom: 2rem; }
-        .price-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1.25rem; }
-        .price-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; text-align: center; }
-        .price-card.featured { border: 2px solid var(--accent); }
-        .price-card h3 { font-size: 1rem; margin-bottom: 0.25rem; }
-        .price-card .price { font-size: 1.75rem; font-weight: 700; color: var(--accent); }
-        .price-card .price span { font-size: 0.85rem; font-weight: 400; color: var(--muted); }
-        .price-card p { font-size: 0.85rem; color: var(--muted); margin: 0.5rem 0 1rem; }
-        .price-card .btn { width: 100%; justify-content: center; font-size: 0.85rem; padding: 0.5rem; }
-
-        .ctwin-banner { max-width: 1100px; margin: 0 auto; padding: 0 5% 3rem; }
-        .ctwin-card { background: #FFF8E7; border: 2px solid #e8d5a8; border-radius: 16px; padding: 2.5rem; display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap; }
-        .ctwin-card h3 { font-size: 1.25rem; margin-bottom: 0.25rem; color: #8B6914; }
-        .ctwin-card p { font-size: 0.95rem; color: var(--muted); }
-        .btn-gold { background: #CFB382; color: #000; }
-        .btn-gold:hover { background: #8B6914; color: #fff; }
-
-        footer { text-align: center; padding: 2rem 5%; color: var(--muted); font-size: 0.85rem; border-top: 1px solid var(--border); margin-top: 2rem; }
-
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2rem; }
-            .aud-grid, .price-row { grid-template-columns: 1fr; }
-            .ctwin-card { flex-direction: column; text-align: center; }
-            nav .links a:not(.btn) { display: none; }
+        /* Respect user motion preference */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; transform: none !important; }
         }
+
+        /* Header - small owl left, nav right */
+        header { position: sticky; top: 0; background: rgba(255,255,255,0.95); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); z-index: 100; }
+        .header-inner { display: flex; justify-content: space-between; align-items: center; padding: 10px 5%; max-width: 1200px; margin: 0 auto; }
+        .header-brand { display: flex; align-items: center; gap: 10px; font-size: 1.2rem; font-weight: 700; color: var(--text); text-decoration: none; }
+        .header-brand img { width: 36px; height: 36px; }
+        .header-nav { display: flex; gap: 24px; align-items: center; font-size: 0.9rem; margin-left: auto; }
+        .header-nav a { color: var(--muted); font-weight: 500; }
+        .header-nav a:hover { color: var(--text); }
+        .header-nav .btn-contact { padding: 8px 18px; background: var(--accent); color: #fff; border-radius: 8px; font-weight: 600; font-size: 0.85rem; }
+        .header-nav .btn-contact:hover { background: var(--accent-dark); }
+
+        /* Hero - text left, owl right */
+        .hero { display: flex; flex-direction: row-reverse; justify-content: center; align-items: center; gap: 48px; padding: 80px 5% 40px; max-width: 960px; margin: 0 auto; }
+        .hero img.hero-owl { width: 220px; height: auto; flex-shrink: 0; filter: drop-shadow(0 14px 28px rgba(0,119,182,0.25)); }
+        .hero-text { text-align: left; max-width: 520px; }
+        .hero h1 { font-size: 3rem; font-weight: 800; letter-spacing: -0.03em; margin-bottom: 10px; line-height: 1.1; color: var(--accent-dark); }
+        .hero .hero-subtitle { font-size: 1.5rem; font-weight: 600; color: var(--text); margin-bottom: 22px; }
+        .hero-cta { display: inline-block; padding: 14px 28px; background: var(--accent); color: #fff; border-radius: 10px; font-weight: 700; font-size: 1rem; }
+        .hero-cta:hover { background: var(--accent-dark); color: #fff; }
+
+        /* Sub-tagline - standalone centered */
+        .sub-tagline-wrap { text-align: center; padding: 20px 5% 60px; }
+        .sub-tagline { max-width: 720px; margin: 0 auto; font-size: 1.1rem; color: var(--text); font-weight: 500; }
+
+        /* Value-prop (after trust) */
+        .value-prop { text-align: center; max-width: 860px; margin: 0 auto; padding: 60px 5%; }
+        .value-prop h2 { font-size: 2rem; font-weight: 700; line-height: 1.3; color: var(--accent-dark); }
+
+        /* Section wrappers */
+        .section { max-width: 1100px; margin: 0 auto; padding: 0 5% 60px; }
+        .section-title { font-size: 1.8rem; font-weight: 700; text-align: center; margin-bottom: 8px; }
+        .section-sub { font-size: 1rem; color: var(--muted); text-align: center; margin-bottom: 40px; max-width: 620px; margin-left: auto; margin-right: auto; }
+
+        /* Split (student / you) */
+        .split { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+        .split-card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 30px; }
+        .split-card h2 { font-size: 1.3rem; margin-bottom: 16px; color: var(--accent-dark); }
+        .split-card ul { list-style: none; }
+        .split-card ul li { padding: 8px 0; font-size: 0.98rem; display: flex; gap: 10px; align-items: flex-start; }
+        .split-card ul li::before { content: "✓"; color: var(--accent); font-weight: 700; flex-shrink: 0; }
+
+        /* Privacy block */
+        .privacy { background: var(--dark); color: #fff; padding: 40px 5%; text-align: center; border-radius: 16px; }
+        .privacy-lead { font-size: 1.25rem; font-weight: 600; color: #fff; max-width: 760px; margin: 0 auto 8px; }
+        .privacy-sub { font-size: 0.95rem; color: #cbd5e1; max-width: 720px; margin: 0 auto; }
+
+        /* Features (6 cards) */
+        .features { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+        .feature-card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 26px 22px; transition: all 0.2s; }
+        .feature-card:hover { box-shadow: 0 8px 24px rgba(0,119,182,0.12); transform: translateY(-2px); border-color: var(--accent); }
+        .feature-card:hover .icon-tile { background: var(--accent); color: #fff; }
+        .feature-card h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 6px; color: var(--accent-dark); }
+        .feature-card p { font-size: 0.9rem; color: var(--muted); line-height: 1.55; }
+
+        /* Icon system - rounded tile + line-art SVG */
+        .icon-tile { width: 52px; height: 52px; border-radius: 14px; background: var(--accent-light); color: var(--accent-dark); display: inline-flex; align-items: center; justify-content: center; margin-bottom: 14px; transition: all 0.2s; }
+        .icon-tile svg { width: 28px; height: 28px; fill: none; stroke: currentColor; stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; }
+        .icon-tile.lg { width: 72px; height: 72px; border-radius: 18px; }
+        .icon-tile.lg svg { width: 38px; height: 38px; }
+
+        /* Learn more CTAs */
+        .learn-more { text-align: center; padding: 60px 5% 40px; }
+        .learn-more h2 { font-size: 2.2rem; font-weight: 800; margin-bottom: 36px; color: var(--accent-dark); }
+        .cta-buttons { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+        .cta-btn { display: flex; flex-direction: column; align-items: center; padding: 32px 40px; background: var(--card); border: 2px solid var(--border); border-radius: 16px; color: var(--text); min-width: 240px; transition: all 0.2s; text-decoration: none; font-family: inherit; font-size: inherit; cursor: pointer; }
+        .cta-btn:hover:not(.disabled) { border-color: var(--accent); box-shadow: 0 10px 28px rgba(0,119,182,0.18); transform: translateY(-3px); color: var(--text); }
+        button.cta-btn { font-family: 'Inter', -apple-system, sans-serif; }
+        .cta-btn .cta-label { font-size: 1.15rem; font-weight: 700; }
+        .cta-btn .cta-desc { font-size: 0.88rem; color: var(--muted); margin-top: 6px; }
+        .cta-btn.disabled { opacity: 0.55; cursor: not-allowed; border-style: dashed; }
+        .cta-btn.disabled:hover { border-color: var(--border); box-shadow: none; transform: none; }
+        .cta-btn .cta-soon { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent); margin-top: 8px; padding: 3px 10px; background: var(--accent-light); border-radius: 12px; }
+
+        /* Footer */
+        footer { text-align: center; padding: 32px 5%; color: var(--muted); font-size: 0.9rem; border-top: 1px solid var(--border); }
+
+        @media (max-width: 900px) {
+            .features { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 760px) {
+            .hero { flex-direction: column; text-align: center; gap: 20px; }
+            .hero-text { text-align: center; }
+            .hero img.hero-owl { width: 160px; }
+        }
+        @media (max-width: 600px) {
+            .hero h1 { font-size: 2.2rem; }
+            .hero .hero-subtitle { font-size: 1.2rem; }
+            .hero img.hero-owl { width: 140px; }
+            .features { grid-template-columns: 1fr; }
+            .split { grid-template-columns: 1fr; }
+            .cta-buttons { flex-direction: column; align-items: center; }
+            .header-inner { flex-wrap: wrap; gap: 8px; }
+            .header-nav { gap: 14px; font-size: 0.82rem; }
+            .privacy-lead { font-size: 1.1rem; }
+        }
+
+        /* Bottom talk-to-expert prominent block */
+        .talk-section { text-align: center; padding: 50px 5% 60px; background: var(--accent-light); margin: 0 5% 40px; border-radius: 20px; }
+        .talk-lead { font-size: 1.3rem; font-weight: 600; color: var(--accent-dark); margin-bottom: 22px; }
+        .talk-cta-big { display: inline-block; padding: 18px 44px; background: var(--accent); color: #fff; border-radius: 12px; font-weight: 700; font-size: 1.15rem; box-shadow: 0 8px 20px rgba(0,119,182,0.25); transition: all 0.2s; }
+        .talk-cta-big:hover { background: var(--accent-dark); color: #fff; transform: translateY(-2px); box-shadow: 0 12px 28px rgba(0,119,182,0.35); }
+
+        /* Audience router */
+        .audience-router { max-width: 1100px; margin: 0 auto; padding: 60px 5%; }
+        .router-title { font-size: 1.9rem; font-weight: 700; text-align: center; color: var(--accent-dark); margin-bottom: 32px; }
+        .router-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+        .router-card { background: var(--card); border: 2px solid var(--border); border-radius: 16px; padding: 36px; text-align: center; text-decoration: none; color: var(--text); transition: all 0.2s; display: block; }
+        .router-card:hover { border-color: var(--accent); box-shadow: 0 10px 28px rgba(0,119,182,0.15); transform: translateY(-3px); color: var(--text); }
+        .router-card h3 { font-size: 1.4rem; color: var(--accent-dark); margin-bottom: 10px; }
+        .router-card p { color: var(--muted); font-size: 0.98rem; margin-bottom: 16px; }
+        .router-card .arrow { color: var(--accent); font-weight: 700; font-size: 0.95rem; }
+        @media (max-width: 760px) { .router-cards { grid-template-columns: 1fr; } }
+
+        /* Pricing teaser */
+        .pricing-teaser { text-align: center; padding: 12px 5% 36px; color: var(--muted); font-size: 1rem; }
+        .pricing-teaser .pricing-headline { display: block; color: var(--accent-dark); font-size: 1.35rem; font-weight: 700; margin-bottom: 4px; }
+        .pricing-teaser a { color: var(--accent-dark); font-weight: 600; border-bottom: 1px solid var(--accent); }
+        .pricing-teaser a:hover { color: var(--accent); }
     </style>
 </head>
 <body>
 
-<nav>
-    <a href="index.html" class="logo">L-twin</a>
-    <div class="links">
-        <a href="https://ctwin.ai/onboarding/signup">Get Started</a>
-        <a href="schools.html">Schools</a>
-        <a href="families.html">Families</a>
-        <a href="mentors.html">Mentors</a>
-        <a href="teachers.html">For Teachers</a>
-        <a href="families-es.html" class="lang-switch">ES</a>
-        <a href="https://ctwin.ai/onboarding/signup" class="btn btn-primary">Get Started</a>
-    </div>
-</nav>
+<a href="#main" class="skip-link">Skip to content</a>
 
-<section class="hero">
-    <h1>Every teacher gets a <em>twin</em>. Every child gets a <em>buddy</em>.</h1>
-    <p>AI learning twins for teachers, parents, and students. Teachers track progress and generate reports. Parents get clear answers. Children discover through questions — never lectures.</p>
-    <div class="hero-cta">
-        <a href="https://ctwin.ai/onboarding/signup" class="btn btn-primary btn-lg">Get Started</a>
-        <a href="schools.html" class="btn btn-outline btn-lg">For Schools</a>
-        <a href="families.html" class="btn btn-outline btn-lg">For Families</a>
+<header>
+    <div class="header-inner">
+        <a href="index.html" class="header-brand">
+            <img src="_assets/eduardo_owl.png" alt="">
+            EduAsiste
+        </a>
+        <nav class="header-nav" aria-label="Primary">
+            <a href="families.html">Families</a>
+            <a href="mentors.html">Mentors</a>
+            <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ2nvPt4Y4K87urlqQse75X7RlufSSrx8Oc5NvU4vLRzoDvMQGkYYTAefA88osyiiT5yY242FzUW" class="btn-contact" target="_blank" rel="noopener">Talk to an Expert</a>
+        </nav>
     </div>
+</header>
+
+<main id="main">
+
+<section class="hero" aria-labelledby="hero-title">
+    <div class="hero-text">
+        <h1 id="hero-title">Meet Eduardo.</h1>
+        <p class="hero-subtitle">The study buddy that never gives the answer.</p>
+        <a href="#audience-router" class="hero-cta">Meet Eduardo in 90 seconds</a>
+    </div>
+    <img class="hero-owl" src="_assets/eduardo_owl.png" alt="Eduardo the owl">
 </section>
 
-<section class="audiences">
-    <h2>Who is it for?</h2>
-    <p class="sub">Same platform, different experience for each role.</p>
-    <div class="aud-grid">
-        <div class="aud-card">
-            <div class="aud-icon">👩‍🏫</div>
-            <h3>For Schools</h3>
-            <p>Every teacher gets an AI twin that knows their students, tracks curriculum objectives, detects regression, and generates parent reports. The school sees it all.</p>
-            <div class="aud-features">
-                <span class="aud-feat">Progress heatmap</span>
-                <span class="aud-feat">Curriculum alignment</span>
-                <span class="aud-feat">Parent reports</span>
-                <span class="aud-feat">Mentor oversight</span>
-            </div>
-            <a href="schools.html" class="btn btn-primary">Schools &rarr;</a>
-        </div>
-        <div class="aud-card">
-            <div class="aud-icon">👨‍👩‍👧</div>
+<section class="sub-tagline-wrap">
+    <p class="sub-tagline">Know exactly where each student is stuck - and what to do about it. No spreadsheets. No guesswork.</p>
+</section>
+
+<section class="audience-router" id="audience-router" aria-labelledby="router-title">
+    <h2 class="router-title" id="router-title">Who is Eduardo for?</h2>
+    <div class="router-cards">
+        <a href="families.html" class="router-card">
             <h3>For Families</h3>
-            <p>Your child gets Eduardo — a Socratic learning buddy that never gives answers, only asks questions. You get a parent twin that reads report cards and tells you exactly what to do.</p>
-            <div class="aud-features">
-                <span class="aud-feat">Eduardo learning buddy</span>
-                <span class="aud-feat">Session notes</span>
-                <span class="aud-feat">Parent-child toggle</span>
-                <span class="aud-feat">Weekly activities</span>
-            </div>
-            <a href="families.html" class="btn btn-primary">Families &rarr;</a>
+            <p>Your child's study buddy at home - with full parent visibility.</p>
+            <span class="arrow">Learn more →</span>
+        </a>
+        <a href="mentors.html" class="router-card">
+            <h3>For Mentors</h3>
+            <p>Your coaching force between sessions - reports, tracking, retention.</p>
+            <span class="arrow">Learn more →</span>
+        </a>
+    </div>
+</section>
+
+<section class="section" aria-label="Privacy">
+    <div class="privacy">
+        <p class="privacy-lead"><span aria-hidden="true">🔒</span> Eduardo keeps all student data encrypted and private.</p>
+        <p class="privacy-sub">You control access. End-to-end encrypted. No data sold. COPPA compliant.</p>
+    </div>
+</section>
+
+<section class="value-prop" aria-labelledby="value-prop-title">
+    <h2 id="value-prop-title">See where each student is stuck. Know what to do about it.</h2>
+</section>
+
+<section class="section" aria-label="Features">
+    <div class="features">
+        <div class="feature-card">
+            <span class="icon-tile" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M4 20h16"/><rect x="6" y="12" width="3" height="6" rx="0.6"/><rect x="10.5" y="8" width="3" height="10" rx="0.6"/><rect x="15" y="4" width="3" height="14" rx="0.6"/></svg>
+            </span>
+            <h3>Learning Insights</h3><p>Not just a C on the report card - the specific concept tripping them up.</p>
         </div>
-        <div class="aud-card">
-            <div class="aud-icon">🧒</div>
-            <h3>For Children</h3>
-            <p>Eduardo uses the Socratic method, scaffolding, spaced repetition, and error diagnosis to guide discovery. Adapts to your child's interests — if they love dinosaurs, the math is about dinosaurs.</p>
-            <div class="aud-features">
-                <span class="aud-feat">Socratic method</span>
-                <span class="aud-feat">CRA scaffolding</span>
-                <span class="aud-feat">Spaced repetition</span>
-                <span class="aud-feat">Story mode</span>
-            </div>
-            <a href="families.html#demos" class="btn btn-outline">Try Eduardo</a>
+        <div class="feature-card">
+            <span class="icon-tile" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><circle cx="12" cy="8.5" r="3"/><path d="M5 20c0-3.5 3-6 7-6s7 2.5 7 6"/><path d="M19 3.5l.7 1.6 1.6.7-1.6.7-.7 1.6-.7-1.6-1.6-.7 1.6-.7z"/></svg>
+            </span>
+            <h3>Personalized Learning</h3><p>Adapts to your kid's grade, pace, and interests. Same math lesson, soccer examples.</p>
         </div>
-        <div class="aud-card">
-            <div class="aud-icon">🎓</div>
-            <h3>For Adult Learners</h3>
-            <p>Learning a new skill, changing careers, or going back to school. Your twin tracks progress, connects concepts, and keeps you accountable. Like a personal tutor that never forgets.</p>
-            <div class="aud-features">
-                <span class="aud-feat">Goal tracking</span>
-                <span class="aud-feat">Knowledge graph</span>
-                <span class="aud-feat">Self-directed</span>
-            </div>
-            <a href="https://ctwin.ai/onboarding/signup" class="btn btn-outline">Try a Demo</a>
+        <div class="feature-card">
+            <span class="icon-tile" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M4 5.5a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2V15a2 2 0 0 1-2 2h-8l-4 3.5V15H6a2 2 0 0 1-2-2z"/><path d="M10 8.5c0-1.5 1-2.5 2.5-2.5S15 7 15 8.5c0 1.5-2.5 1.5-2.5 3"/><circle cx="12.5" cy="13.2" r="0.7" fill="currentColor" stroke="none"/></svg>
+            </span>
+            <h3>Socratic Method</h3><p>Eduardo teaches through questions, not answers. Real understanding, not copy-paste habits.</p>
+        </div>
+        <div class="feature-card">
+            <span class="icon-tile" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M4 20h16"/><path d="M4 16l5-5 4 4 7-8"/><circle cx="20" cy="7" r="1.6" fill="currentColor" stroke="none"/></svg>
+            </span>
+            <h3>Progress Tracking</h3><p>A simple weekly briefing: what got covered, what stuck, what didn't.</p>
+        </div>
+        <div class="feature-card">
+            <span class="icon-tile" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M12 6.5C10 5 7.5 4.5 5 5v13c2.5-.5 5 0 7 1.5"/><path d="M12 6.5C14 5 16.5 4.5 19 5v13c-2.5-.5-5 0-7 1.5"/><path d="M12 6.5v13"/></svg>
+            </span>
+            <h3>Curriculum Aligned</h3><p>Follows your district's standards. Compound words Unit 17? That's what Eduardo practices.</p>
+        </div>
+        <div class="feature-card">
+            <span class="icon-tile" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>
+            </span>
+            <h3>Full Visibility</h3><p>Read every conversation. Switch to student-view. Ask Eduardo questions yourself.</p>
         </div>
     </div>
 </section>
 
-<section class="pricing-preview">
-    <h2>Simple pricing</h2>
-    <div class="price-row">
-        <div class="price-card">
-            <h3>Student</h3>
-            <div class="price">$29 <span>/mo</span></div>
-            <p>Eduardo learning buddy for your child. Session notes and progress tracking.</p>
-            <a href="families.html#pricing" class="btn btn-outline">Learn More</a>
-        </div>
-        <div class="price-card featured">
-            <h3>Family</h3>
-            <div class="price">Starts at $39 <span>/mo</span></div>
-            <p>Eduardo + parent twin. Drop report cards, get weekly activities, parent-child toggle. +$19/mo per additional child.</p>
-            <a href="families.html#pricing" class="btn btn-primary">Most Popular</a>
-        </div>
-        <div class="price-card">
-            <h3>Educator</h3>
-            <div class="price">$79 <span>/seat/mo</span></div>
-            <p>AI twin per teacher. Heatmap, curriculum alignment, parent reports, mentor oversight.</p>
-            <a href="schools.html#pricing" class="btn btn-outline">For Schools</a>
-        </div>
+<p class="pricing-teaser"><span class="pricing-headline">Starts at $39 / month</span>(Plans from $29 per student per month. See <a href="families.html">Family</a> or <a href="mentors.html">Mentor</a> plans.)</p>
+
+<section class="learn-more" aria-labelledby="learn-more-title">
+    <h2 id="learn-more-title">Try it in 90 seconds.</h2>
+    <div class="cta-buttons">
+        <a href="families.html" class="cta-btn">
+            <span class="icon-tile lg" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><circle cx="8" cy="7" r="2.4"/><path d="M3 19c0-3 2.4-5 5-5s5 2 5 5"/><circle cx="16.5" cy="9.5" r="1.8"/><path d="M12.5 19c0-2.3 1.6-3.8 4-3.8s4 1.5 4 3.8"/></svg>
+            </span>
+            <div class="cta-label">I'm a Parent</div>
+            <div class="cta-desc">Save your weeknight sanity.</div>
+        </a>
+        <a href="mentors.html" class="cta-btn">
+            <span class="icon-tile lg" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M12 3L2 7.5l10 4.5 10-4.5L12 3z"/><path d="M6 10.3v3.5c0 1.9 2.7 3.4 6 3.4s6-1.5 6-3.4v-3.5"/><path d="M22 7.5v5.5"/></svg>
+            </span>
+            <div class="cta-label">I'm a Mentor</div>
+            <div class="cta-desc">Turn one hour a week into seven days of reinforcement.</div>
+        </a>
     </div>
 </section>
 
-<section class="ctwin-banner">
-    <div class="ctwin-card">
-        <div>
-            <h3>Looking for business?</h3>
-            <p>C-twin by AIVP — AI twins that capture your business expertise from conversations, documents, and data.</p>
-        </div>
-        <a href="https://ctwin.ai/" class="btn btn-gold">Visit C-twin &rarr;</a>
-    </div>
+
+<section class="talk-section" aria-label="Schedule a call">
+    <p class="talk-lead">Have a question? Schedule time with an expert.</p>
+    <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ2nvPt4Y4K87urlqQse75X7RlufSSrx8Oc5NvU4vLRzoDvMQGkYYTAefA88osyiiT5yY242FzUW" class="talk-cta-big" target="_blank" rel="noopener">Talk to an Expert</a>
 </section>
+
+</main>
 
 <footer>
-    <p>&copy; 2026 L-twin by <a href="https://aiaxia.org">AIAXIA</a> &middot; <a href="https://ctwin.ai/">C-twin</a> &middot; <a href="https://meet.google.com/nxi-mubh-nnk?authuser=0">Support</a> &middot; <a href="families-es.html">Espa&ntilde;ol</a></p>
+    <p>&copy; 2026 EduAsiste · <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ2nvPt4Y4K87urlqQse75X7RlufSSrx8Oc5NvU4vLRzoDvMQGkYYTAefA88osyiiT5yY242FzUW" target="_blank" rel="noopener">Talk to an Expert</a></p>
 </footer>
 
 </body>
