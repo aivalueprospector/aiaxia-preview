@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduAssist for Teachers | Your AI Teaching Assistant</title>
+    <meta name="description" content="EduAssist — an AI assistant for teachers that generates worksheets, grades assignments, tracks student progress, and produces parent reports.">
+    <link rel="canonical" href="https://ltwin.ai/teachers">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ltwin.ai/teachers">
+    <meta property="og:title" content="EduAssist for Teachers | Your AI Teaching Assistant">
+    <meta property="og:description" content="An AI assistant that generates worksheets, grades student work, tracks progress, and creates parent reports.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        :root {
+            --bg: #f8fafc;
+            --text: #1e293b;
+            --muted: #64748b;
+            --accent: #336699;
+            --accent-dark: #1d4ed8;
+            --accent-light: #e0ecf5;
+            --border: #e2e8f0;
+            --card: #ffffff;
+            --shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', -apple-system, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+        a { color: var(--accent-dark); text-decoration: none; }
+        .btn { display: inline-flex; align-items: center; padding: 0.75rem 1.5rem; border-radius: 8px; font-weight: 600; font-size: 0.95rem; text-decoration: none; transition: all 0.2s; border: none; cursor: pointer; }
+        .btn-primary { background: var(--accent); color: #fff; }
+        .btn-primary:hover { background: var(--accent-dark); color: #fff; }
+        .btn-outline { background: transparent; border: 2px solid var(--accent); color: var(--accent); }
+        .btn-outline:hover { background: var(--accent-light); }
+        .btn-lg { padding: 1rem 2rem; font-size: 1.1rem; }
+
+        /* Header */
+        nav { display: flex; justify-content: space-between; align-items: center; padding: 1.25rem 5%; max-width: 1200px; margin: 0 auto; }
+        .logo-link { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+        .logo-mark { width: 40px; height: 40px; }
+        .logo-text { font-size: 1.4rem; font-weight: 700; color: var(--accent); }
+
+        /* Hero */
+        .hero { text-align: center; padding: 6rem 5% 3rem; max-width: 860px; margin: 0 auto; }
+        .hero-avatar { width: 80px; height: 80px; margin: 0 auto 1.5rem; }
+        .hero h1 { font-size: 2.75rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 1.25rem; line-height: 1.2; }
+        .hero h1 em { font-style: normal; color: var(--accent-dark); }
+        .hero p { font-size: 1.1rem; color: var(--muted); max-width: 700px; margin: 0 auto 2rem; line-height: 1.7; }
+        .hero-cta { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; margin-bottom: 1rem; }
+
+        /* Capabilities */
+        .capabilities { max-width: 1100px; margin: 0 auto; padding: 2rem 5% 4rem; }
+        .capabilities h2 { text-align: center; font-size: 1.75rem; margin-bottom: 0.5rem; }
+        .capabilities .sub { text-align: center; color: var(--muted); margin-bottom: 2.5rem; font-size: 1rem; }
+        .cap-grid { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 1.25rem; }
+        .cap-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; text-align: center; transition: all 0.2s; }
+        .cap-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-2px); border-color: var(--accent); }
+        .cap-icon { font-size: 2rem; margin-bottom: 0.75rem; color: var(--accent-dark); }
+        .cap-card h3 { font-size: 1rem; margin-bottom: 0.4rem; }
+        .cap-card p { font-size: 0.85rem; color: var(--muted); line-height: 1.5; }
+
+        /* Demo */
+        .demo { max-width: 1100px; margin: 0 auto; padding: 0 5% 4rem; }
+        .demo h2 { text-align: center; font-size: 1.75rem; margin-bottom: 0.5rem; }
+        .demo .sub { text-align: center; color: var(--muted); margin-bottom: 2rem; }
+        .demo-feature { background: var(--card); border: 2px solid var(--border); border-radius: 16px; padding: 2.5rem; max-width: 700px; margin: 0 auto; text-align: center; transition: all 0.2s; }
+        .demo-feature:hover { border-color: var(--accent); box-shadow: var(--shadow-lg); }
+        .demo-feature h3 { font-size: 1.25rem; margin-bottom: 0.5rem; }
+        .demo-feature .demo-role { font-size: 0.85rem; color: var(--muted); margin-bottom: 1rem; }
+        .demo-feature p { font-size: 0.95rem; color: var(--muted); margin-bottom: 1.5rem; line-height: 1.6; }
+        .demo-tags { display: flex; justify-content: center; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem; }
+        .demo-tag { font-size: 0.75rem; background: var(--accent-light); color: var(--accent); padding: 4px 12px; border-radius: 12px; font-weight: 500; }
+
+        /* Security */
+        .security { max-width: 1100px; margin: 0 auto; padding: 3rem 5% 4rem; }
+        .security-card { background: #1a1a1a; border-radius: 16px; padding: 3rem; text-align: center; }
+        .security-card h2 { font-size: 1.75rem; color: #fff; margin-bottom: 0.75rem; }
+        .security-card .sub { color: #999; font-size: 0.95rem; max-width: 600px; margin: 0 auto 2rem; }
+        .security-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; max-width: 500px; margin: 0 auto; }
+        .security-item { color: #ccc; font-size: 1rem; text-align: left; padding: 0.5rem 0; }
+
+        /* Pricing */
+        .pricing { max-width: 1100px; margin: 0 auto; padding: 0 5% 4rem; }
+        .pricing h2 { text-align: center; font-size: 1.75rem; margin-bottom: 0.5rem; }
+        .pricing .sub { text-align: center; color: var(--muted); margin-bottom: 2.5rem; font-size: 1rem; }
+        .price-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; max-width: 700px; margin: 0 auto; }
+        .price-card { background: var(--card); border: 2px solid var(--border); border-radius: 16px; padding: 2rem; display: flex; flex-direction: column; }
+        .price-card.featured { border-color: var(--accent); }
+        .price-card h3 { font-size: 1.15rem; margin-bottom: 0.25rem; }
+        .price-amount { font-size: 2rem; font-weight: 700; color: var(--accent-dark); margin-bottom: 0.25rem; }
+        .price-amount span { font-size: 0.85rem; font-weight: 400; color: var(--muted); }
+        .price-card ul { list-style: none; padding: 0; margin: 1rem 0; font-size: 0.9rem; line-height: 2; }
+        .price-card ul li { padding-left: 4px; }
+        .price-card ul li::before { content: "\f00c  "; font-family: "Font Awesome 6 Free"; font-weight: 900; color: var(--accent-dark); font-size: 0.8em; }
+        .price-card .btn { width: 100%; justify-content: center; margin-top: auto; }
+
+        /* Footer */
+        footer { text-align: center; padding: 2rem 5%; color: var(--muted); font-size: 0.85rem; border-top: 1px solid var(--border); margin-top: 2rem; }
+        footer a { color: var(--accent-dark); }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+            .cap-grid { grid-template-columns: 1fr 1fr; }
+            .price-grid { grid-template-columns: 1fr; }
+            .security-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <a href="index.html" class="logo-link">
+        <img class="logo-mark" src="https://sendy.bostonchi.org/img/avatar_teacher_mente.jpg" alt="Mente" style="border-radius:10px;object-fit:cover;">
+        <span class="logo-text">EduAssist</span>
+    </a>
+    <a href="https://meet.google.com/nxi-mubh-nnk?authuser=0" class="btn btn-primary"><i class="fa-solid fa-headset" style="margin-right:6px;"></i> Contact Us</a>
+</nav>
+
+<section class="hero">
+    <img class="hero-avatar" src="https://sendy.bostonchi.org/img/avatar_teacher_mente.jpg" alt="Mente — your teaching assistant" style="border-radius:50%;object-fit:cover;background:#e0ecf5;">
+    <div style="font-size:0.9rem;color:var(--muted);margin-bottom:1rem;font-weight:500;">Meet <strong style="color:var(--accent);">Eduardo</strong> — your AI teaching assistant</div>
+    <h1>Every teacher deserves an <em style="white-space:nowrap;">AI assistant</em></h1>
+    <p>Eduardo generates worksheets, grades student work, tracks progress over time, and produces parent-ready reports — so you can focus on teaching.</p>
+    <div class="hero-cta">
+        <a href="#demo" class="btn btn-primary btn-lg"><i class="fa-solid fa-play" style="margin-right:8px;"></i> Try a Live Demo</a>
+        <a href="#pricing" class="btn btn-outline btn-lg"><i class="fa-solid fa-tag" style="margin-right:8px;"></i> See Pricing</a>
+    </div>
+</section>
+
+<section class="capabilities">
+    <h2>What Eduardo can do for you</h2>
+    <p class="sub">Upload a document or describe what you need. Eduardo handles the rest.</p>
+    <div class="cap-grid">
+        <div class="cap-card">
+            <div class="cap-icon"><i class="fa-solid fa-clipboard-list"></i></div>
+            <h3>Generate Worksheets</h3>
+            <p>Create printable or digital worksheets tailored to grade level, subject, and difficulty. Multiple choice, fill-in, short answer.</p>
+        </div>
+        <div class="cap-card">
+            <div class="cap-icon"><i class="fa-solid fa-pen-ruler"></i></div>
+            <h3>Grade Student Work</h3>
+            <p>Scan completed worksheets or upload digital submissions. Eduardo grades against the rubric and shows where students struggled.</p>
+        </div>
+        <div class="cap-card">
+            <div class="cap-icon"><i class="fa-solid fa-chart-line"></i></div>
+            <h3>Track Progress</h3>
+            <p>Every assignment becomes a data point. See which students are improving, which need attention, and which topics to revisit.</p>
+        </div>
+        <div class="cap-card">
+            <div class="cap-icon"><i class="fa-solid fa-file-pdf"></i></div>
+            <h3>Parent Reports</h3>
+            <p>Generate clear, professional progress reports for parent-teacher conferences. Backed by real data, ready to print or email.</p>
+        </div>
+    </div>
+</section>
+
+<section class="demo" id="demo">
+    <h2>See Eduardo in action</h2>
+    <p class="sub">A live assistant loaded with real classroom data. No signup required.</p>
+    <div class="demo-feature">
+        <img src="https://sendy.bostonchi.org/img/avatar_teacher_mente.jpg" alt="Mente" style="width:56px;height:56px;border-radius:50%;object-fit:cover;margin:0 auto 0.75rem;display:block;background:#e0ecf5;">
+        <h3>Elementary & Middle School Classroom</h3>
+        <div class="demo-role">Eduardo — live assistant with real student data</div>
+        <p>Explore how Eduardo handles a typical classroom — generate a math worksheet, grade a scanned assignment, check student progress, and create a parent report. Try it yourself.</p>
+        <div class="demo-tags">
+            <span class="demo-tag"><i class="fa-solid fa-calculator"></i> Math</span>
+            <span class="demo-tag"><i class="fa-solid fa-book-open"></i> Reading</span>
+            <span class="demo-tag"><i class="fa-solid fa-flask"></i> Science</span>
+            <span class="demo-tag"><i class="fa-solid fa-clipboard-check"></i> Grading</span>
+            <span class="demo-tag"><i class="fa-solid fa-chart-bar"></i> Progress Tracking</span>
+            <span class="demo-tag"><i class="fa-solid fa-file-pdf"></i> PDF Reports</span>
+        </div>
+        <a href="https://ctwin.ai/onboarding/signup" class="btn btn-primary btn-lg"><i class="fa-solid fa-arrow-right" style="margin-right:8px;"></i> Get Started</a>
+    </div>
+</section>
+
+<section class="security" id="security">
+    <div class="security-card">
+        <h2>Student data is private and secure</h2>
+        <p class="sub">Student information stays protected. Encrypted, access-controlled, and never shared with third parties.</p>
+        <div class="security-grid">
+            <div class="security-item"><i class="fa-solid fa-lock" style="color:#60a5fa;margin-right:8px;"></i> End-to-end encrypted</div>
+            <div class="security-item"><i class="fa-solid fa-user-shield" style="color:#60a5fa;margin-right:8px;"></i> Teacher-controlled access</div>
+            <div class="security-item"><i class="fa-solid fa-ban" style="color:#60a5fa;margin-right:8px;"></i> No data sold or shared</div>
+            <div class="security-item"><i class="fa-solid fa-child" style="color:#60a5fa;margin-right:8px;"></i> COPPA compliant</div>
+        </div>
+    </div>
+</section>
+
+<section class="pricing" id="pricing">
+    <h2>Simple pricing</h2>
+    <p class="sub">Start with what you need. Scale when your school is ready.</p>
+    <div class="price-grid">
+        <div class="price-card featured">
+            <h3>Educator</h3>
+            <div class="price-amount">$79 <span>/seat/month</span></div>
+            <ul>
+                <li>Worksheet generation — printable and digital</li>
+                <li>Scan and grade student work</li>
+                <li>Student progress tracking over time</li>
+                <li>Parent-ready PDF reports</li>
+                <li>Up to 5 teacher seats</li>
+            </ul>
+            <a href="https://meet.google.com/nxi-mubh-nnk?authuser=0" class="btn btn-primary"><i class="fa-solid fa-rocket" style="margin-right:6px;"></i> Get Started</a>
+        </div>
+        <div class="price-card">
+            <h3>School</h3>
+            <div class="price-amount">Custom</div>
+            <ul>
+                <li>Everything in Educator</li>
+                <li>School-wide analytics dashboard</li>
+                <li>Curriculum alignment tools</li>
+                <li>Admin oversight and reporting</li>
+                <li>Unlimited teacher seats</li>
+            </ul>
+            <a href="https://meet.google.com/nxi-mubh-nnk?authuser=0" class="btn btn-outline"><i class="fa-solid fa-headset" style="margin-right:6px;"></i> Contact Us</a>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <p>&copy; 2026 EduAssist by <a href="https://aiaxia.org">AIAXIA</a> &middot; <a href="index.html">L-twin</a> &middot; <a href="https://meet.google.com/nxi-mubh-nnk?authuser=0">Support</a></p>
+</footer>
+
+</body>
+</html>

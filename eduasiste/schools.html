@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduAsiste for Schools — Run your district on evidence</title>
+    <meta name="description" content="A workspace for school administrators that surfaces what teachers need, what students are missing, and what your standards require — securely, with evidence, and without adding to anyone's workload.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {"@type": "Question", "name": "Does this replace our SIS, LMS, or assessment platform?", "acceptedAnswer": {"@type": "Answer", "text": "No. EduAsiste coexists with your SIS. We don't replace attendance, gradebook, or finance modules. Where the SIS exposes an API or webhook (PowerSchool, Infinite Campus, Clever, ClassLink, Skyward), we ingest evaluation results, attendance, and roster updates so the standards-coverage view stays in sync. Where it doesn't, we ingest exports."}},
+        {"@type": "Question", "name": "How is student and teacher data handled under FERPA and COPPA?", "acceptedAnswer": {"@type": "Answer", "text": "EduAsiste is FERPA-aligned and COPPA-aligned. Student PII stays in a private vault on your dedicated environment; only obfuscated knowledge projections (entity types and relationships, no names) are exposed to graph queries. Data is never used to train models. Full DPA available."}},
+        {"@type": "Question", "name": "Do you train models on our data?", "acceptedAnswer": {"@type": "Answer", "text": "No. Your district's data is never used to train any model — ours or a third party's. Each district runs in an isolated environment with its own vault, knowledge graph, and audit log."}},
+        {"@type": "Question", "name": "Can teachers opt out?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Teacher participation is opt-in at every level. Districts can scope rollout school-by-school, grade-by-grade, or teacher-by-teacher. Pulling a teacher out at any time exports and removes their workspace within one billing cycle."}},
+        {"@type": "Question", "name": "What's the lift on our IT team?", "acceptedAnswer": {"@type": "Answer", "text": "A single-school pilot is typically live in a week. SSO via SAML or OIDC, optional SIS roster sync (Clever, ClassLink, or CSV), and a network allowlist. No on-prem install. Your CTO gets a full security questionnaire and SOC 2 Type II report on request."}},
+        {"@type": "Question", "name": "What if we already have ChatGPT for Edu or Gemini for Education?", "acceptedAnswer": {"@type": "Answer", "text": "Those are general-purpose chat. EduAsiste is a curriculum-aware workspace per administrator, teacher, and student — it remembers your curriculum, tracks every student's progress against your standards, and produces auditable reports. It is the layer that makes a general assistant defensible in a district."}},
+        {"@type": "Question", "name": "Where is EduAsiste on the ESSA evidence ladder?", "acceptedAnswer": {"@type": "Answer", "text": "Tier 4 (logic model) today, with Tier 3 (correlational) studies in progress with pilot districts. We will not claim higher than the evidence supports. The pilot pathway is designed to produce Tier 3 data within one academic year."}},
+        {"@type": "Question", "name": "How do parents fit in?", "acceptedAnswer": {"@type": "Answer", "text": "Parents can be granted optional Family-tier access at the district's discretion. Family access is read-only on their child's progress and never includes other students. Many districts run EduAsiste internally for the first term and add Family access in the second."}},
+        {"@type": "Question", "name": "What languages does EduAsiste support?", "acceptedAnswer": {"@type": "Answer", "text": "English, Spanish, Portuguese, French, and German. Standards libraries are language-aware — Common Core, state standards, Chilean OAs, Mexican SEP, IB, and custom district frameworks can all be uploaded."}},
+        {"@type": "Question", "name": "What does it cost?", "acceptedAnswer": {"@type": "Answer", "text": "The Discipline tier is $79/month per administrator (up to 15 users) and the Institution tier is $99/month per administrator (up to 50 users). Teacher and student seats are quoted per district. Mentor seats are always free. Annual commitment receives a 17% discount."}}
+      ]
+    }
+    </script>
+    <style>
+        :root { --bg: #f8fafc; --text: #1e293b; --muted: #475569; --accent: #0077B6; --accent-dark: #03045E; --accent-light: #DBEBFF; --border: #e2e8f0; --card: #ffffff; --green: #16a34a; --gold: #f59e0b; --dark: #0f172a; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', -apple-system, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+        a { color: var(--accent-dark); text-decoration: none; }
+        a:focus-visible, button:focus-visible, summary:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+
+        .skip-link { position: absolute; top: -40px; left: 12px; padding: 10px 16px; background: var(--accent-dark); color: #fff; border-radius: 6px; font-weight: 600; z-index: 200; }
+        .skip-link:focus { top: 12px; color: #fff; }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; transform: none !important; }
+        }
+
+        header { position: sticky; top: 0; background: rgba(255,255,255,0.95); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); z-index: 100; }
+        .header-inner { display: flex; justify-content: space-between; align-items: center; padding: 10px 5%; max-width: 1200px; margin: 0 auto; }
+        .header-brand { display: flex; align-items: center; gap: 10px; font-size: 1.2rem; font-weight: 700; color: var(--text); text-decoration: none; }
+        .header-brand img { width: 36px; height: 36px; }
+        .header-brand span.tag { font-size: 0.78rem; font-weight: 500; color: var(--muted); margin-left: 4px; }
+        .header-nav { display: flex; gap: 22px; align-items: center; font-size: 0.9rem; margin-left: auto; }
+        .header-nav a { color: var(--muted); font-weight: 500; }
+        .header-nav a:hover { color: var(--text); }
+        .header-nav .btn-contact { padding: 8px 18px; background: var(--accent); color: #fff; border-radius: 8px; font-weight: 600; font-size: 0.85rem; }
+        .header-nav .btn-contact:hover { background: var(--accent-dark); }
+
+        .hero { display: flex; flex-direction: row-reverse; justify-content: center; align-items: center; gap: 40px; padding: 70px 5% 30px; max-width: 1100px; margin: 0 auto; }
+        .hero img.hero-owl { width: 200px; height: auto; flex-shrink: 0; filter: drop-shadow(0 14px 28px rgba(0,119,182,0.25)); }
+        .hero-text { text-align: left; max-width: 640px; }
+        .hero h1 { font-size: 2.6rem; font-weight: 800; letter-spacing: -0.03em; margin-bottom: 14px; line-height: 1.15; color: var(--accent-dark); }
+        .hero h1 em { font-style: normal; color: var(--accent); }
+        .hero .hero-subtitle { font-size: 1.1rem; font-weight: 500; color: var(--text); margin-bottom: 22px; line-height: 1.55; }
+        .hero-ctas { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 22px; }
+        .btn-primary { display: inline-block; padding: 13px 26px; background: var(--accent); color: #fff; border-radius: 10px; font-weight: 700; font-size: 0.98rem; }
+        .btn-primary:hover { background: var(--accent-dark); color: #fff; }
+        .btn-outline { display: inline-block; padding: 13px 26px; background: transparent; border: 2px solid var(--accent); color: var(--accent-dark); border-radius: 10px; font-weight: 700; font-size: 0.98rem; }
+        .btn-outline:hover { background: var(--accent-light); }
+
+        .trust-strip { display: flex; flex-wrap: wrap; gap: 8px 18px; align-items: center; font-size: 0.78rem; color: var(--muted); padding-top: 8px; border-top: 1px dashed var(--border); }
+        .trust-strip span.lbl { font-weight: 700; color: var(--accent-dark); margin-right: 4px; }
+        .trust-strip .badge { display: inline-flex; align-items: center; gap: 5px; padding: 3px 9px; background: #fff; border: 1px solid var(--border); border-radius: 999px; font-weight: 600; color: var(--text); }
+        .trust-strip .badge::before { content: "✓"; color: var(--accent); font-weight: 800; }
+
+        .section { max-width: 1100px; margin: 0 auto; padding: 60px 5%; }
+        .section-eyebrow { text-align: center; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.12em; color: var(--accent); text-transform: uppercase; margin-bottom: 8px; }
+        .section-title { font-size: 2rem; font-weight: 700; text-align: center; color: var(--accent-dark); margin-bottom: 10px; }
+        .section-sub { font-size: 1rem; color: var(--muted); text-align: center; margin-bottom: 40px; max-width: 720px; margin-left: auto; margin-right: auto; }
+
+        .pain-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+        .pain-card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 28px 24px; }
+        .pain-card .pain-num { display: inline-block; padding: 3px 10px; border-radius: 999px; background: var(--accent-light); color: var(--accent-dark); font-weight: 700; font-size: 0.78rem; margin-bottom: 10px; }
+        .pain-card h3 { font-size: 1.05rem; font-weight: 700; color: var(--text); line-height: 1.35; margin-bottom: 10px; }
+        .pain-card p { font-size: 0.9rem; color: var(--muted); line-height: 1.55; }
+        .pain-card .stat { display: block; margin-top: 10px; font-size: 0.82rem; color: var(--accent-dark); font-weight: 600; }
+
+        .cascade { display: grid; grid-template-columns: 1fr 24px 1fr 24px 1fr; align-items: stretch; gap: 0; max-width: 1080px; margin: 0 auto; }
+        .cascade-card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 28px 22px; display: flex; flex-direction: column; }
+        .cascade-card .role { display: inline-block; font-size: 0.74rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; }
+        .cascade-card h3 { font-size: 1.2rem; font-weight: 700; color: var(--accent-dark); margin-bottom: 8px; }
+        .cascade-card p { font-size: 0.92rem; color: var(--text); line-height: 1.55; margin-bottom: 12px; }
+        .cascade-card ul { list-style: none; font-size: 0.85rem; color: var(--muted); margin-top: auto; }
+        .cascade-card ul li { padding: 4px 0 4px 20px; position: relative; }
+        .cascade-card ul li::before { content: "→"; position: absolute; left: 0; color: var(--accent); font-weight: 800; }
+        .cascade-arrow { display: flex; align-items: center; justify-content: center; color: var(--accent); font-size: 1.6rem; font-weight: 800; }
+
+        .outcomes { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+        .outcome-card { background: linear-gradient(180deg, var(--accent-light) 0%, #fff 100%); border: 2px solid var(--accent); border-radius: 16px; padding: 28px 18px; text-align: center; }
+        .outcome-num { font-size: 2.4rem; font-weight: 800; color: var(--accent-dark); line-height: 1; margin-bottom: 6px; }
+        .outcome-num small { font-size: 1rem; font-weight: 600; color: var(--accent); }
+        .outcome-label { font-size: 0.88rem; font-weight: 600; color: var(--text); margin-bottom: 4px; }
+        .outcome-note { font-size: 0.74rem; color: var(--muted); }
+        .pilot-disclaimer { text-align: center; font-size: 0.78rem; color: var(--muted); margin-top: 16px; font-style: italic; }
+
+        .roles { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+        .role-card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 28px; transition: all 0.2s; }
+        .role-card:hover { box-shadow: 0 8px 24px rgba(0,119,182,0.12); transform: translateY(-2px); border-color: var(--accent); }
+        .role-card .role-tag { display: inline-block; padding: 4px 10px; border-radius: 999px; background: var(--accent-light); color: var(--accent-dark); font-size: 0.74rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 12px; }
+        .role-card h3 { font-size: 1.15rem; font-weight: 700; color: var(--accent-dark); margin-bottom: 10px; }
+        .role-card .qa { margin-bottom: 12px; }
+        .role-card .qa .q { font-size: 0.92rem; font-weight: 600; color: var(--text); margin-bottom: 4px; }
+        .role-card .qa .q::before { content: "Asks: "; color: var(--accent); font-weight: 700; }
+        .role-card .qa .a { font-size: 0.88rem; color: var(--muted); line-height: 1.55; }
+        .role-card .qa .a::before { content: "We answer: "; color: var(--accent-dark); font-weight: 700; }
+
+        .standards { background: linear-gradient(135deg, #fff, var(--accent-light)); border: 1px solid var(--accent-light); border-radius: 18px; padding: 40px; }
+        .standards h3 { font-size: 1.4rem; color: var(--accent-dark); margin-bottom: 12px; }
+        .standards p { color: var(--text); line-height: 1.6; margin-bottom: 16px; }
+        .std-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+        .std-tag { padding: 6px 12px; background: #fff; border: 1px solid var(--accent); color: var(--accent-dark); border-radius: 999px; font-size: 0.82rem; font-weight: 600; }
+
+        .evidence { display: grid; grid-template-columns: 1fr 2fr; gap: 28px; align-items: start; }
+        .evidence-tier { background: var(--card); border: 2px solid var(--accent); border-radius: 14px; padding: 24px; text-align: center; }
+        .evidence-tier .tier-num { font-size: 2.2rem; font-weight: 800; color: var(--accent-dark); line-height: 1; }
+        .evidence-tier .tier-label { font-size: 0.82rem; font-weight: 700; color: var(--accent); letter-spacing: 0.08em; text-transform: uppercase; margin-top: 6px; }
+        .evidence-text p { font-size: 0.95rem; color: var(--text); line-height: 1.6; margin-bottom: 10px; }
+        .evidence-ladder { list-style: none; margin-top: 16px; }
+        .evidence-ladder li { padding: 8px 0 8px 28px; position: relative; font-size: 0.9rem; color: var(--muted); border-bottom: 1px dashed var(--border); }
+        .evidence-ladder li::before { content: ""; position: absolute; left: 0; top: 14px; width: 14px; height: 14px; border-radius: 50%; background: var(--border); }
+        .evidence-ladder li.now::before { background: var(--accent); box-shadow: 0 0 0 4px var(--accent-light); }
+        .evidence-ladder li.next::before { background: var(--gold); }
+        .evidence-ladder li strong { color: var(--text); font-weight: 700; }
+
+        .security { background: var(--dark); color: #fff; border-radius: 18px; padding: 40px; }
+        .security h3 { color: #fff; font-size: 1.4rem; margin-bottom: 12px; }
+        .security .badges { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; }
+        .security .badges span { padding: 6px 12px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.18); border-radius: 999px; font-size: 0.82rem; font-weight: 600; color: #fff; }
+        .security p { color: #cbd5e1; line-height: 1.65; font-size: 0.95rem; margin-bottom: 12px; }
+        .security ul { list-style: none; margin-top: 14px; }
+        .security ul li { padding: 6px 0 6px 22px; position: relative; color: #e2e8f0; font-size: 0.92rem; }
+        .security ul li::before { content: "✓"; position: absolute; left: 0; color: var(--accent); font-weight: 800; }
+
+        .pilot { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; position: relative; }
+        .pilot-step { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 28px 22px; }
+        .pilot-step .step-num { display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 50%; background: var(--accent); color: #fff; font-weight: 800; font-size: 1rem; margin-bottom: 12px; }
+        .pilot-step h3 { font-size: 1.1rem; font-weight: 700; color: var(--accent-dark); margin-bottom: 8px; }
+        .pilot-step p { font-size: 0.9rem; color: var(--muted); line-height: 1.55; margin-bottom: 8px; }
+        .pilot-step .timing { display: inline-block; font-size: 0.76rem; font-weight: 700; color: var(--accent); padding: 3px 9px; background: var(--accent-light); border-radius: 999px; }
+
+        .pricing-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; }
+        .price-box { background: var(--card); border: 2px solid var(--border); border-radius: 16px; padding: 32px 24px; display: flex; flex-direction: column; }
+        .price-box.featured { border-color: var(--accent); position: relative; }
+        .price-box.featured::before { content: "RECOMMENDED FOR DISTRICTS"; position: absolute; top: -11px; left: 50%; transform: translateX(-50%); background: var(--accent); color: #fff; padding: 4px 12px; border-radius: 999px; font-size: 0.7rem; font-weight: 800; letter-spacing: 0.08em; white-space: nowrap; }
+        .price-box .tier-name { font-size: 0.82rem; font-weight: 800; color: var(--accent); letter-spacing: 0.1em; text-transform: uppercase; }
+        .price-box .display-name { font-size: 1.4rem; font-weight: 700; color: var(--accent-dark); margin: 4px 0 12px; }
+        .price-box .amount { font-size: 2.6rem; font-weight: 800; color: var(--accent-dark); line-height: 1; }
+        .price-box .amount small { font-size: 0.95rem; font-weight: 500; color: var(--muted); }
+        .price-box .annual-note { font-size: 0.82rem; color: var(--muted); margin: 6px 0 14px; }
+        .price-box ul { list-style: none; font-size: 0.9rem; color: var(--text); margin-bottom: 18px; flex-grow: 1; }
+        .price-box ul li { padding: 6px 0 6px 22px; position: relative; }
+        .price-box ul li::before { content: "✓"; position: absolute; left: 0; color: var(--accent); font-weight: 800; }
+        .price-box .price-cta { width: 100%; text-align: center; }
+        .price-foot { text-align: center; font-size: 0.82rem; color: var(--muted); margin-top: 18px; }
+
+        .faq-list { max-width: 820px; margin: 0 auto; }
+        .faq-item { background: var(--card); border: 1px solid var(--border); border-radius: 12px; margin-bottom: 12px; }
+        .faq-item summary { cursor: pointer; padding: 20px 24px; font-weight: 600; font-size: 1rem; color: var(--accent-dark); list-style: none; position: relative; padding-right: 48px; }
+        .faq-item summary::-webkit-details-marker { display: none; }
+        .faq-item summary::after { content: "+"; position: absolute; right: 24px; top: 50%; transform: translateY(-50%); font-size: 1.6rem; font-weight: 300; color: var(--accent); transition: transform 0.2s; }
+        .faq-item[open] summary::after { content: "−"; }
+        .faq-item .faq-body { padding: 0 24px 20px; font-size: 0.95rem; color: var(--muted); line-height: 1.7; }
+
+        .final-cta-band { background: linear-gradient(135deg, var(--accent-dark), var(--accent)); color: #fff; border-radius: 20px; padding: 48px 40px; text-align: center; margin: 40px 5%; }
+        .final-cta-band h2 { color: #fff; font-size: 1.9rem; margin-bottom: 10px; }
+        .final-cta-band p { color: rgba(255,255,255,0.9); margin-bottom: 24px; max-width: 640px; margin-left: auto; margin-right: auto; font-size: 1rem; }
+        .final-cta-band .cta-row { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-bottom: 16px; }
+        .final-cta-band .btn-primary { background: #fff; color: var(--accent-dark); }
+        .final-cta-band .btn-primary:hover { background: var(--accent-light); color: var(--accent-dark); }
+        .final-cta-band .btn-outline { border-color: #fff; color: #fff; }
+        .final-cta-band .btn-outline:hover { background: rgba(255,255,255,0.1); }
+        .final-cta-band .contact-line { font-size: 0.92rem; color: rgba(255,255,255,0.85); margin-top: 12px; }
+        .final-cta-band .contact-line a { color: #fff; text-decoration: underline; }
+
+        footer { text-align: center; padding: 32px 5%; color: var(--muted); font-size: 0.9rem; border-top: 1px solid var(--border); }
+        footer a { color: var(--accent-dark); }
+
+        @media (max-width: 980px) {
+            .pain-grid { grid-template-columns: 1fr; }
+            .roles { grid-template-columns: 1fr; }
+            .outcomes { grid-template-columns: repeat(2, 1fr); }
+            .cascade { grid-template-columns: 1fr; gap: 14px; }
+            .cascade-arrow { transform: rotate(90deg); padding: 4px 0; }
+            .pricing-grid { grid-template-columns: 1fr; }
+            .pilot { grid-template-columns: 1fr; }
+            .evidence { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 760px) {
+            .hero { flex-direction: column; text-align: center; gap: 24px; padding-top: 50px; }
+            .hero-text { text-align: center; }
+            .hero img.hero-owl { width: 150px; }
+            .hero-ctas { justify-content: center; }
+            .trust-strip { justify-content: center; }
+            .standards { padding: 28px; }
+            .security { padding: 28px; }
+            .final-cta-band { padding: 36px 24px; }
+        }
+        @media (max-width: 600px) {
+            .hero h1 { font-size: 1.85rem; }
+            .section-title { font-size: 1.55rem; }
+            .header-inner { flex-wrap: wrap; gap: 8px; }
+            .header-nav { gap: 12px; font-size: 0.78rem; }
+            .header-brand span.tag { display: none; }
+            .outcomes { grid-template-columns: 1fr 1fr; }
+            .outcome-num { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+<a href="#main" class="skip-link">Skip to content</a>
+
+<header>
+    <div class="header-inner">
+        <a href="index.html" class="header-brand">
+            <img src="_assets/eduardo_owl.png" alt="">
+            EduAsiste <span class="tag">for Schools</span>
+        </a>
+        <nav class="header-nav" aria-label="Primary">
+            <a href="#why">Why</a>
+            <a href="#cascade">How it Works</a>
+            <a href="#outcomes">Outcomes</a>
+            <a href="#security">Security</a>
+            <a href="#pricing">Pricing</a>
+            <a href="#consult" class="btn-contact">Book a District Consult</a>
+        </nav>
+    </div>
+</header>
+
+<main id="main">
+
+<section class="hero" aria-labelledby="hero-title">
+    <div class="hero-text">
+        <h1 id="hero-title">Run your district on <em>evidence</em>.</h1>
+        <p class="hero-subtitle">EduAsiste gives every administrator one workspace that surfaces what teachers need, what students are missing, and what your standards require — securely, with evidence, and without adding to anyone's workload.</p>
+        <div class="hero-ctas">
+            <a href="#consult" class="btn-primary">Book a 20-minute district consult</a>
+            <a href="#checklist" class="btn-outline">District Readiness Checklist</a>
+        </div>
+        <div class="trust-strip" aria-label="Compliance and trust indicators">
+            <span class="lbl">Trust:</span>
+            <span class="badge">ESSA Tier 4 (Tier 3 in progress)</span>
+            <span class="badge">FERPA-aligned</span>
+            <span class="badge">COPPA-aligned</span>
+            <span class="badge">Full audit log</span>
+            <span class="badge">Your data stays in your district</span>
+        </div>
+    </div>
+    <img class="hero-owl" src="_assets/eduardo_owl.png" alt="Eduardo the owl, the EduAsiste guide">
+</section>
+
+<section class="section" id="why" aria-labelledby="why-title">
+    <p class="section-eyebrow">The Problem</p>
+    <h2 class="section-title" id="why-title">Three pressures hitting every district at once</h2>
+    <p class="section-sub">Whatever you're evaluating right now, you're balancing burnout, governance, and outcomes — usually with the same headcount you had last year.</p>
+    <div class="pain-grid">
+        <div class="pain-card">
+            <span class="pain-num">01</span>
+            <h3>Teacher burnout and turnover</h3>
+            <p>Around half of teachers report burnout. Roughly 1 in 7 leaves the profession yearly. Replacement cost runs near $20K per teacher — and the institutional knowledge walks out the door.</p>
+            <span class="stat">~50% burnout · ~14% annual turnover · ~$20K cost per leaver</span>
+        </div>
+        <div class="pain-card">
+            <span class="pain-num">02</span>
+            <h3>Vendor accountability and student-data policy</h3>
+            <p>Boards and parents want governance on every platform that touches student data: what is collected, who can see it, who controls it, with what audit trail. Vendors that can't answer the policy questionnaire get pulled mid-pilot.</p>
+            <span class="stat">Every district policy review now starts with: "Where does our student data go?"</span>
+        </div>
+        <div class="pain-card">
+            <span class="pain-num">03</span>
+            <h3>Outcome accountability under ESSA</h3>
+            <p>Chronic absenteeism near 26%. Persistent post-pandemic learning loss in math (~27%) and reading (~45%). State and federal accountability does not pause for staffing shortages.</p>
+            <span class="stat">Standards coverage and at-risk visibility, by Friday — not by the next test cycle.</span>
+        </div>
+    </div>
+</section>
+
+<section class="section" id="cascade" aria-labelledby="cascade-title">
+    <p class="section-eyebrow">How it works</p>
+    <h2 class="section-title" id="cascade-title">The cascade: administrator &rarr; teacher &rarr; student</h2>
+    <p class="section-sub">EduAsiste is not another tool bolted onto your district. It is one workspace per role, connected by your standards. Help flows downward; evidence flows upward.</p>
+    <div class="cascade">
+        <div class="cascade-card">
+            <span class="role">Administrator</span>
+            <h3>Sees the whole district</h3>
+            <p>The administrator workspace briefs your curriculum director, principal, and superintendent on what is actually happening in classrooms — without writing another report request.</p>
+            <ul>
+                <li>School-wide standards coverage by grade and section</li>
+                <li>At-risk cohorts surfaced across all teachers</li>
+                <li>Teacher workload and assessment cadence</li>
+                <li>Board, ministry, and ESSA-shaped reports on demand</li>
+            </ul>
+        </div>
+        <div class="cascade-arrow" aria-hidden="true">&rarr;</div>
+        <div class="cascade-card">
+            <span class="role">Teacher</span>
+            <h3>Gets help where it counts</h3>
+            <p>The teacher workspace documents the curriculum, drafts assessments with grading keys, and tracks every student's progress against your standards — so the teacher spends time teaching, not paperwork.</p>
+            <ul>
+                <li>Curriculum and lesson plan documentation</li>
+                <li>Assessments and worksheets aligned to learning objectives</li>
+                <li>Drafted parent-facing progress notes for teacher approval</li>
+                <li>Real-time at-risk flags for their roster</li>
+            </ul>
+        </div>
+        <div class="cascade-arrow" aria-hidden="true">&rarr;</div>
+        <div class="cascade-card">
+            <span class="role">Student</span>
+            <h3>Learns by being asked</h3>
+            <p>The student workspace is strictly Socratic — never gives the answer, always guides. One question at a time, scaffolded to the student's grade and standards profile. Every interaction creates evidence.</p>
+            <ul>
+                <li>Adaptive guided practice on their gaps</li>
+                <li>Worksheets and discussion sessions assigned by the teacher</li>
+                <li>Strengths and weaknesses tracked against standards</li>
+                <li>Activity log visible to parent and mentor</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section class="section" id="outcomes" aria-labelledby="outcomes-title">
+    <p class="section-eyebrow">Outcomes</p>
+    <h2 class="section-title" id="outcomes-title">What administrators see in the first term</h2>
+    <p class="section-sub">Numbers from our active pilot districts. We commit to publishing the pilot study at the end of each academic year.</p>
+    <div class="outcomes">
+        <div class="outcome-card">
+            <div class="outcome-num">3-6<small>hrs</small></div>
+            <div class="outcome-label">Returned to teachers per week</div>
+            <div class="outcome-note">Drafting, grading, and parent updates</div>
+        </div>
+        <div class="outcome-card">
+            <div class="outcome-num">100<small>%</small></div>
+            <div class="outcome-label">Standards coverage visibility</div>
+            <div class="outcome-note">Per teacher, per grade, per cohort</div>
+        </div>
+        <div class="outcome-card">
+            <div class="outcome-num">3-5<small>wk</small></div>
+            <div class="outcome-label">Earlier at-risk detection</div>
+            <div class="outcome-note">Vs. waiting on the next assessment cycle</div>
+        </div>
+        <div class="outcome-card">
+            <div class="outcome-num">2-4<small>x</small></div>
+            <div class="outcome-label">Parent communication lift</div>
+            <div class="outcome-note">Auto-drafted, teacher-approved</div>
+        </div>
+    </div>
+    <p class="pilot-disclaimer">Ranges reflect data from active pilot districts. Your results will vary by school size, baseline, and rollout scope. Honest about what we can prove — see the Evidence section below.</p>
+</section>
+
+<section class="section" id="roles" aria-labelledby="roles-title">
+    <p class="section-eyebrow">For your role</p>
+    <h2 class="section-title" id="roles-title">What you ask. What we answer.</h2>
+    <p class="section-sub">Districts buy by consensus. Below is what each stakeholder needs from a vendor evaluation.</p>
+    <div class="roles">
+        <div class="role-card">
+            <span class="role-tag">Superintendent</span>
+            <h3>Board-defensible adoption</h3>
+            <div class="qa">
+                <p class="q">Can I defend this purchase to the board and to parents?</p>
+                <p class="a">Yes. Every workspace is auditable, standards-aligned, and produces a written rationale for every recommendation. Your data never leaves your environment.</p>
+            </div>
+            <div class="qa">
+                <p class="q">What is the outcome story I take to the board?</p>
+                <p class="a">Hours returned to teachers, earlier at-risk detection, and standards-coverage transparency by school. We will sit with you to draft the board memo at the end of term one.</p>
+            </div>
+        </div>
+        <div class="role-card">
+            <span class="role-tag">Curriculum Director</span>
+            <h3>Standards-aligned by design</h3>
+            <div class="qa">
+                <p class="q">Will it actually map to our curriculum and our standards?</p>
+                <p class="a">Yes. Upload Common Core, your state standards, Chilean OAs, IB, or your district frameworks. Every assessment, lesson, and student note is mapped to your learning objectives — not generic ones.</p>
+            </div>
+            <div class="qa">
+                <p class="q">Can I see coverage gaps before the next assessment cycle?</p>
+                <p class="a">Yes. Curriculum Coverage Audit reports surface objectives that no teacher has assessed school-wide, by grade, by section. You see the gap weeks earlier.</p>
+            </div>
+        </div>
+        <div class="role-card">
+            <span class="role-tag">Principal</span>
+            <h3>Time back, without rollout pain</h3>
+            <div class="qa">
+                <p class="q">Will my teachers actually use this?</p>
+                <p class="a">Eduardo onboards in under 30 minutes per teacher. The first thing it does is take a chore off their plate — drafting parent updates or pulling a class report. Adoption follows.</p>
+            </div>
+            <div class="qa">
+                <p class="q">What about the at-risk students nobody flagged?</p>
+                <p class="a">Eduardo cross-reads every classroom and surfaces students who are sliding before the next quiz lands. You get the list. You decide the intervention.</p>
+            </div>
+        </div>
+        <div class="role-card">
+            <span class="role-tag">CTO / Technology Director</span>
+            <h3>Built for school IT, not against it</h3>
+            <div class="qa">
+                <p class="q">What does my security review need?</p>
+                <p class="a">SOC 2 Type II report, FERPA and COPPA-aligned DPA, data residency options, full audit log, SAML/OIDC SSO, and the answer to "do you train on our data?" is no.</p>
+            </div>
+            <div class="qa">
+                <p class="q">How do I integrate with our SIS?</p>
+                <p class="a">Clever and ClassLink rostering, SAML/OIDC SSO, and CSV import for districts not on either. No on-prem install. A single-school pilot is live in a week.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section" id="standards" aria-labelledby="standards-title">
+    <p class="section-eyebrow">Standards Alignment</p>
+    <h2 class="section-title" id="standards-title">Your standards. Your students. One graph.</h2>
+    <div class="standards">
+        <h3>Upload your standards. Every student's progress maps automatically.</h3>
+        <p>EduAsiste's knowledge graph models <strong>Curriculum</strong>, <strong>LearningObj</strong>, <strong>Assessment</strong>, and <strong>Student</strong> as first-class entities, connected by an <code>ALIGNED_TO</code> relationship. The instant a teacher uploads a quiz or a lesson plan, every question and objective is mapped to your standards — not a generic taxonomy.</p>
+        <p>That is what makes "standards coverage" a real number instead of a guess. Curriculum Director sees the gap. Principal sees the gap by section. Teacher sees the gap by student. Same graph.</p>
+        <div class="std-tags">
+            <span class="std-tag">Common Core</span>
+            <span class="std-tag">State standards (50 states)</span>
+            <span class="std-tag">NGSS</span>
+            <span class="std-tag">Chilean OAs</span>
+            <span class="std-tag">Mexican SEP</span>
+            <span class="std-tag">IB</span>
+            <span class="std-tag">Custom district frameworks</span>
+            <span class="std-tag">+ your scope &amp; sequence</span>
+        </div>
+    </div>
+</section>
+
+<section class="section" id="evidence" aria-labelledby="evidence-title">
+    <p class="section-eyebrow">Evidence</p>
+    <h2 class="section-title" id="evidence-title">Where we are on the ESSA evidence ladder</h2>
+    <p class="section-sub">We will not claim higher than the evidence supports. Here is exactly where we stand and where we are headed.</p>
+    <div class="evidence">
+        <div class="evidence-tier">
+            <div class="tier-num">Tier 4</div>
+            <div class="tier-label">Demonstrates a Rationale</div>
+        </div>
+        <div class="evidence-text">
+            <p>EduAsiste is at <strong>ESSA Tier 4 (Demonstrates a Rationale)</strong> today. Our logic model — that a unified workspace reduces administrative load, surfaces at-risk students earlier, and improves standards coverage transparency — is published and being measured against pilot data.</p>
+            <p>Our pilot pathway is designed to produce <strong>Tier 3 (Promising Evidence)</strong> data within one academic year, in partnership with three signed pilot districts.</p>
+            <ul class="evidence-ladder" aria-label="ESSA evidence tiers">
+                <li class="now"><strong>Tier 4 — Demonstrates a Rationale.</strong> Where we are. Logic model published.</li>
+                <li class="next"><strong>Tier 3 — Promising Evidence.</strong> Target for end of academic year 2026-2027.</li>
+                <li><strong>Tier 2 — Moderate Evidence.</strong> Quasi-experimental, target 2027-2028.</li>
+                <li><strong>Tier 1 — Strong Evidence.</strong> RCT, longer horizon. Earned, not claimed.</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section class="section" id="security" aria-labelledby="security-title">
+    <p class="section-eyebrow">Security &amp; Data Policy</p>
+    <h2 class="section-title" id="security-title">Built so your CTO can say yes</h2>
+    <div class="security">
+        <h3>Compliance posture</h3>
+        <div class="badges">
+            <span>FERPA-aligned</span>
+            <span>COPPA-aligned</span>
+            <span>SAML / OIDC SSO</span>
+            <span>SDPC Standard DPA</span>
+            <span>Data residency: US, EU, LATAM</span>
+            <span>SOC 2 Type II report under NDA</span>
+        </div>
+        <p><strong>Your data is yours.</strong> Each district runs in an isolated environment with a private vault for student PII, a separate knowledge graph, and a full audit log. Obfuscated knowledge projections (entity types and relationships, no names) are what graph queries see — full PII never leaves the vault.</p>
+        <p><strong>Your data never trains our models — ours or any third party's.</strong> No fine-tuning on customer data, no shared prompts, no anonymized training corpus.</p>
+        <p><strong>Human oversight on every interaction.</strong> Every student session is reviewable by their teacher and administrator. Every drafted parent communication is teacher-approved before it sends.</p>
+        <ul>
+            <li>Full audit log of every access, query, and report</li>
+            <li>One-click data export at any time, in standard formats (Obsidian markdown, CSV, JSON)</li>
+            <li>Account deletion within one billing cycle, no questions</li>
+            <li>Penetration test report and SOC 2 Type II available under NDA</li>
+        </ul>
+    </div>
+</section>
+
+<section class="section" id="pilot" aria-labelledby="pilot-title">
+    <p class="section-eyebrow">Pilot Pathway</p>
+    <h2 class="section-title" id="pilot-title">Three steps from pilot to district-wide</h2>
+    <p class="section-sub">The ladder most districts climb. We meet you at any rung.</p>
+    <div class="pilot">
+        <div class="pilot-step">
+            <span class="step-num">1</span>
+            <h3>Single-school pilot</h3>
+            <p>One school, one cohort, one curriculum director, one principal, up to 20 teachers. Eduardo onboarded for administrators and teachers in week one. First report on the principal's desk by end of month one.</p>
+            <span class="timing">30 days</span>
+        </div>
+        <div class="pilot-step">
+            <span class="step-num">2</span>
+            <h3>District expansion</h3>
+            <p>Roll to a second and third school. SIS roster sync turned on. ESSA-shaped reporting surfaced to the curriculum director. Teacher cohort feedback session at month two and month four.</p>
+            <span class="timing">One academic term</span>
+        </div>
+        <div class="pilot-step">
+            <span class="step-num">3</span>
+            <h3>Multi-district / county</h3>
+            <p>District-wide adoption with role-based dashboards for superintendent, curriculum director, principals, CTO, and teachers. Pilot study published. Optional Family-tier access for parents.</p>
+            <span class="timing">One academic year</span>
+        </div>
+    </div>
+</section>
+
+<section class="section" id="pricing" aria-labelledby="pricing-title">
+    <p class="section-eyebrow">Pricing</p>
+    <h2 class="section-title" id="pricing-title">Tier pricing, transparent</h2>
+    <p class="section-sub">Per-administrator pricing for Discipline and Institution. Teacher and student seats are quoted per district. Mentor seats are always free. Annual billing receives a 17% discount.</p>
+    <div class="pricing-grid" id="pricing-cards">
+        <div class="price-box">
+            <span class="tier-name">Discipline</span>
+            <div class="display-name">Department / Single School</div>
+            <div class="amount" data-tier="PLATINUM" data-field="amount">$<span data-monthly>79</span><small>/mo</small></div>
+            <div class="annual-note" data-tier="PLATINUM" data-field="annual">Or $<span data-annual>787</span>/year (~$<span data-annual-mo>66</span>/mo)</div>
+            <ul>
+                <li>Up to 15 administrators</li>
+                <li>30 document extractions per day</li>
+                <li>Standards alignment for one school</li>
+                <li>Department-level analytics</li>
+                <li>Curriculum coverage audit reports</li>
+                <li>Mentor seats free</li>
+            </ul>
+            <a href="#consult" class="btn-outline price-cta">Talk to us about Discipline</a>
+        </div>
+        <div class="price-box featured">
+            <span class="tier-name">Institution</span>
+            <div class="display-name">Multi-school district</div>
+            <div class="amount" data-tier="DIAMOND" data-field="amount">$<span data-monthly>99</span><small>/mo</small></div>
+            <div class="annual-note" data-tier="DIAMOND" data-field="annual">Or $<span data-annual>987</span>/year (~$<span data-annual-mo>82</span>/mo)</div>
+            <ul>
+                <li>Up to 50 administrators</li>
+                <li>Unlimited document extractions</li>
+                <li>District-wide standards alignment</li>
+                <li>Full institutional analytics</li>
+                <li>ESSA-shaped reporting</li>
+                <li>Strategy recommendations</li>
+                <li>Cross-school cohort comparisons</li>
+                <li>Mentor seats free</li>
+            </ul>
+            <a href="#consult" class="btn-primary price-cta">Talk to us about Institution</a>
+        </div>
+        <div class="price-box">
+            <span class="tier-name">Custom</span>
+            <div class="display-name">County / Multi-district</div>
+            <div class="amount">Quote</div>
+            <div class="annual-note">For 50+ administrators or multi-district rollouts</div>
+            <ul>
+                <li>Unlimited administrators</li>
+                <li>Dedicated environment + data residency</li>
+                <li>Multi-district roll-up reporting</li>
+                <li>Dedicated success manager</li>
+                <li>Custom standards libraries</li>
+                <li>Priority security review support</li>
+                <li>Quarterly roadmap input</li>
+            </ul>
+            <a href="#consult" class="btn-outline price-cta">Request a quote</a>
+        </div>
+    </div>
+    <p class="price-foot">Teacher and student seats are quoted per district based on enrollment. Optional Family-tier access for parents is added per family. Need a Mentor-only deployment for a tutoring program? <a href="mentors.html">See the Mentor plan</a>.</p>
+</section>
+
+<section class="section" id="faq" aria-labelledby="faq-title">
+    <p class="section-eyebrow">FAQ</p>
+    <h2 class="section-title" id="faq-title">Questions district leaders ask</h2>
+    <div class="faq-list">
+        <details class="faq-item">
+            <summary>Does this replace our SIS, LMS, or assessment platform?</summary>
+            <div class="faq-body">No. EduAsiste coexists with your SIS. We don't replace attendance, gradebook, or finance modules. Where the SIS exposes an API or webhook (PowerSchool, Infinite Campus, Clever, ClassLink, Skyward), we ingest evaluation results, attendance, and roster updates so the standards-coverage view stays in sync. Where it doesn't, we ingest exports.</div>
+        </details>
+        <details class="faq-item">
+            <summary>How is student and teacher data handled under FERPA and COPPA?</summary>
+            <div class="faq-body">EduAsiste is FERPA-aligned and COPPA-aligned. Student PII stays in a private vault on your dedicated environment; only obfuscated knowledge projections (entity types and relationships, no names) are exposed to graph queries. Data is never used to train models. Full DPA available.</div>
+        </details>
+        <details class="faq-item">
+            <summary>Do you train models on our data?</summary>
+            <div class="faq-body">No. Your district's data is never used to train any model — ours or a third party's. Each district runs in an isolated environment with its own vault, knowledge graph, and audit log.</div>
+        </details>
+        <details class="faq-item">
+            <summary>Can teachers opt out?</summary>
+            <div class="faq-body">Yes. Teacher participation is opt-in at every level. Districts can scope rollout school-by-school, grade-by-grade, or teacher-by-teacher. Pulling a teacher out at any time exports and removes their workspace within one billing cycle.</div>
+        </details>
+        <details class="faq-item">
+            <summary>What's the lift on our IT team?</summary>
+            <div class="faq-body">A single-school pilot is typically live in a week. SSO via SAML or OIDC, optional SIS roster sync (Clever, ClassLink, or CSV), and a network allowlist. No on-prem install. Your CTO gets a full security questionnaire and SOC 2 Type II report on request.</div>
+        </details>
+        <details class="faq-item">
+            <summary>What if we already have ChatGPT for Edu or Gemini for Education?</summary>
+            <div class="faq-body">Those are general-purpose chat. EduAsiste is a curriculum-aware workspace per administrator, teacher, and student — it remembers your curriculum, tracks every student's progress against your standards, and produces auditable reports. It is the layer that makes a general assistant defensible in a district.</div>
+        </details>
+        <details class="faq-item">
+            <summary>Where is EduAsiste on the ESSA evidence ladder?</summary>
+            <div class="faq-body">Tier 4 (logic model) today, with Tier 3 (correlational) studies in progress with pilot districts. We will not claim higher than the evidence supports. The pilot pathway is designed to produce Tier 3 data within one academic year.</div>
+        </details>
+        <details class="faq-item">
+            <summary>How do parents fit in?</summary>
+            <div class="faq-body">Parents can be granted optional Family-tier access at the district's discretion. Family access is read-only on their child's progress and never includes other students. Many districts run EduAsiste internally for the first term and add Family access in the second.</div>
+        </details>
+        <details class="faq-item">
+            <summary>What languages does EduAsiste support?</summary>
+            <div class="faq-body">English, Spanish, Portuguese, French, and German. Standards libraries are language-aware — Common Core, state standards, Chilean OAs, Mexican SEP, IB, and custom district frameworks can all be uploaded.</div>
+        </details>
+        <details class="faq-item">
+            <summary>What does it cost?</summary>
+            <div class="faq-body">The Discipline tier is $79/month per administrator (up to 15 users) and the Institution tier is $99/month per administrator (up to 50 users). Teacher and student seats are quoted per district. Mentor seats are always free. Annual commitment receives a 17% discount.</div>
+        </details>
+    </div>
+</section>
+
+<section id="consult" class="final-cta-band" aria-labelledby="final-cta-title">
+    <h2 id="final-cta-title">Talk with someone who understands district platform evaluation.</h2>
+    <p>Twenty minutes. No deck. We will ask about your standards, your stakeholders, and what your board needs to see — and tell you honestly whether EduAsiste is the right fit for your district right now.</p>
+    <div class="cta-row">
+        <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ2nvPt4Y4K87urlqQse75X7RlufSSrx8Oc5NvU4vLRzoDvMQGkYYTAefA88osyiiT5yY242FzUW" class="btn-primary" target="_blank" rel="noopener">Book a 20-minute district consult</a>
+        <a href="#checklist" class="btn-outline">Get the District Readiness Checklist</a>
+        <a href="#pilot" class="btn-outline">Start a 30-day single-school pilot</a>
+    </div>
+    <p class="contact-line" id="checklist">Or email a district lead directly: <a href="mailto:schools@ltwin.ai">schools@ltwin.ai</a></p>
+</section>
+
+</main>
+
+<footer>
+    <p>&copy; 2026 EduAsiste · <a href="families.html">Families</a> · <a href="mentors.html">Mentors</a> · <a href="mailto:schools@ltwin.ai">schools@ltwin.ai</a></p>
+</footer>
+
+<script>
+(async function(){
+  try {
+    const r = await fetch('/api/pricing', {headers: {'Accept': 'application/json'}});
+    if (!r.ok) return;
+    const data = await r.json();
+    const tiers = (data && data.tiers) || {};
+    function setNumber(el, n) { if (el && Number.isFinite(n)) el.textContent = String(Math.round(n)); }
+    function applyTier(tierKey) {
+      const t = tiers[tierKey];
+      if (!t || !t.pricing) return;
+      const m = Number(t.pricing.monthly);
+      const a = Number(t.pricing.annual);
+      const annMo = a ? a/12 : null;
+      document.querySelectorAll('[data-tier="'+tierKey+'"][data-field="amount"] [data-monthly]').forEach(el => setNumber(el, m));
+      document.querySelectorAll('[data-tier="'+tierKey+'"][data-field="annual"] [data-annual]').forEach(el => setNumber(el, a));
+      document.querySelectorAll('[data-tier="'+tierKey+'"][data-field="annual"] [data-annual-mo]').forEach(el => setNumber(el, annMo));
+    }
+    applyTier('PLATINUM');
+    applyTier('DIAMOND');
+  } catch(e) { /* keep static fallback */ }
+})();
+</script>
+
+</body>
+</html>

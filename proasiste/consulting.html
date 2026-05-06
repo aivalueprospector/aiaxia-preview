@@ -1,0 +1,1002 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C-Twin for Consulting Firms | Stop Reinventing the Wheel on Every Engagement</title>
+    <meta name="description" content="Your consultants reinvent the wheel on every engagement. C-Twin captures project knowledge, client history, and methodologies into a living knowledge graph your whole firm can reuse.">
+    <meta name="keywords" content="consulting knowledge management, professional services AI, client relationship management, project knowledge capture, consulting firm productivity, methodology reuse">
+    <link rel="canonical" href="https://ctwin.ai/landing/consulting">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ctwin.ai/landing/consulting">
+    <meta property="og:title" content="C-Twin for Consulting Firms">
+    <meta property="og:description" content="Your team reinvents the wheel on every engagement. C-Twin captures what you've already solved into a knowledge graph your whole firm can reuse.">
+    <meta property="og:site_name" content="C-Twin by AI Value Prospector">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="C-Twin for Consulting Firms">
+    <meta name="twitter:description" content="Capture project knowledge. Reuse methodologies. Stop losing institutional memory when consultants leave.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #FFF8E7;
+            --text: #1a1a1a;
+            --text-muted: #555;
+            --text-light: #888;
+            --accent: #CFB382;
+            --accent-dark: #8B6914;
+            --accent-light: rgba(207, 179, 130, 0.15);
+            --border: #e5e5e5;
+            --card-bg: #ffffff;
+            --success: #15803d;
+            --danger: #ef4444;
+            --shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -4px rgba(0,0,0,0.1);
+            --shadow-xl: 0 20px 25px -5px rgba(0,0,0,0.1), 0 8px 10px -6px rgba(0,0,0,0.1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .header {
+            padding: 1.25rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent-dark);
+            text-decoration: none;
+        }
+
+        .logo-tm { font-size: 0.6em; vertical-align: super; }
+
+        .header-nav { display: flex; gap: 1.5rem; align-items: center; }
+
+        .header-nav a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+
+        .header-nav a:hover { color: var(--text); }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-decoration: none;
+            transition: all 0.2s;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary { background: var(--accent); color: #000; }
+        .btn-primary:hover { background: var(--accent-dark); transform: translateY(-1px); box-shadow: var(--shadow); }
+
+        .btn-outline { background: transparent; border: 2px solid var(--accent); color: var(--text); }
+        .btn-outline:hover { background: var(--accent-light); }
+
+        .btn-lg { padding: 1rem 2rem; font-size: 1.1rem; }
+        .btn-sm { padding: 0.5rem 1rem; font-size: 0.85rem; }
+
+        .btn-dark { background: #1a1a1a; color: #fff; }
+        .btn-dark:hover { background: #333; transform: translateY(-1px); }
+
+        /* Hero */
+        .hero {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 5rem 2rem 3rem;
+            text-align: center;
+        }
+
+        .hero-eyebrow {
+            display: inline-block;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--accent-dark);
+            background: var(--accent-light);
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero h1 {
+            font-size: 3.25rem;
+            font-weight: 800;
+            line-height: 1.15;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.03em;
+        }
+
+        .hero h1 .highlight { color: var(--accent-dark); }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            line-height: 1.7;
+        }
+
+        .hero-ctas {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .hero-stat-strip {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .hero-stat { text-align: center; }
+
+        .hero-stat-number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--accent-dark);
+        }
+
+        .hero-stat-label {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* Pain Section */
+        .pain-section {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .pain-section h2 {
+            text-align: center;
+            font-size: 2.25rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            letter-spacing: -0.02em;
+        }
+
+        .pain-section > p {
+            text-align: center;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto 3rem;
+            font-size: 1.1rem;
+        }
+
+        .pain-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .pain-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: box-shadow 0.2s;
+        }
+
+        .pain-card:hover { box-shadow: var(--shadow-lg); }
+
+        .pain-icon { font-size: 2rem; margin-bottom: 1rem; }
+
+        .pain-card h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .pain-card p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        .pain-cost {
+            display: inline-block;
+            margin-top: 0.75rem;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--danger);
+            background: rgba(239, 68, 68, 0.08);
+            padding: 0.25rem 0.75rem;
+            border-radius: 4px;
+        }
+
+        /* Quote */
+        .quote-section {
+            background: var(--card-bg);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .quote-text {
+            font-size: 1.5rem;
+            font-weight: 500;
+            font-style: italic;
+            max-width: 750px;
+            margin: 0 auto 1rem;
+            line-height: 1.6;
+            color: var(--text);
+        }
+
+        .quote-attr {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        /* Solution Section */
+        .solution-section {
+            background: var(--card-bg);
+            padding: 5rem 2rem;
+        }
+
+        .solution-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .solution-inner h2 {
+            text-align: center;
+            font-size: 2.25rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        .solution-inner > p {
+            text-align: center;
+            color: var(--text-muted);
+            max-width: 650px;
+            margin: 0 auto 3rem;
+            font-size: 1.1rem;
+        }
+
+        .solution-steps {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .solution-step {
+            text-align: center;
+            padding: 1.5rem 1rem;
+            border-radius: 12px;
+            background: var(--bg);
+            border: 1px solid var(--border);
+        }
+
+        .step-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: var(--accent);
+            color: #000;
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .solution-step h3 {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .solution-step p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        .solution-step .tier-tag {
+            display: inline-block;
+            font-size: 0.65rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            padding: 2px 8px;
+            border-radius: 4px;
+            margin-top: 0.75rem;
+        }
+
+        .tag-individual { background: #C0C0C0; color: #000; }
+        .tag-team { background: #FFD700; color: #000; }
+        .tag-discipline { background: #E5E4E2; color: #000; }
+        .tag-institution { background: #B9F2FF; color: #000; }
+
+        /* Demo Section */
+        .demo-section {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 5rem 2rem;
+        }
+
+        .demo-section h2 {
+            text-align: center;
+            font-size: 2.25rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        .demo-section > p {
+            text-align: center;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto 2.5rem;
+            font-size: 1.1rem;
+        }
+
+        .demo-card {
+            background: var(--card-bg);
+            border: 2px solid var(--accent);
+            border-radius: 20px;
+            padding: 3rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+            box-shadow: var(--shadow-xl);
+        }
+
+        .demo-info h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+        }
+
+        .demo-info p {
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .demo-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .demo-stat {
+            background: var(--bg);
+            padding: 0.75rem 1rem;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+        }
+
+        .demo-stat-value {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--accent-dark);
+        }
+
+        .demo-stat-label {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        .demo-ctas {
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+        }
+
+        .demo-preview {
+            background: #0f1419;
+            border-radius: 12px;
+            padding: 1.5rem;
+            color: #e0e0e0;
+            font-family: 'SF Mono', 'Fira Code', monospace;
+            font-size: 0.8rem;
+            line-height: 1.8;
+            min-height: 300px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .demo-preview-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 1rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid #333;
+        }
+
+        .demo-preview-dot { width: 10px; height: 10px; border-radius: 50%; }
+        .dot-red { background: #ff5f56; }
+        .dot-yellow { background: #ffbd2e; }
+        .dot-green { background: #27c93f; }
+        .demo-preview-title { font-size: 0.7rem; color: #888; margin-left: 8px; }
+        .demo-line { margin-bottom: 0.25rem; }
+        .demo-gold { color: #8B6914; }
+        .demo-green { color: #15803d; }
+        .demo-blue { color: #3b82f6; }
+        .demo-red { color: #dc2626; }
+        .demo-purple { color: #a855f7; }
+        .demo-yellow { color: #eab308; }
+        .demo-dim { color: #666; }
+        .demo-bold { font-weight: 600; }
+
+        /* Use Cases */
+        .usecases-section {
+            background: var(--card-bg);
+            padding: 5rem 2rem;
+        }
+
+        .usecases-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .usecases-inner h2 {
+            text-align: center;
+            font-size: 2.25rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .usecases-inner > p {
+            text-align: center;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto 3rem;
+            font-size: 1.1rem;
+        }
+
+        .usecase-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        .usecase-card {
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2rem;
+        }
+
+        .usecase-card h3 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .usecase-card p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin-bottom: 0.75rem;
+        }
+
+        .usecase-result {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--success);
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        /* Pricing Strip */
+        .pricing-section {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 5rem 2rem;
+            text-align: center;
+        }
+
+        .pricing-section h2 {
+            font-size: 2.25rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .pricing-section > p {
+            color: var(--text-muted);
+            margin-bottom: 2.5rem;
+            font-size: 1.1rem;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .pricing-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: box-shadow 0.2s;
+        }
+
+        .pricing-card:hover { box-shadow: var(--shadow-lg); }
+
+        .pricing-card.recommended {
+            border-color: var(--accent);
+            box-shadow: var(--shadow-lg);
+            position: relative;
+        }
+
+        .recommended-badge {
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--accent);
+            color: #000;
+            font-size: 0.7rem;
+            font-weight: 600;
+            padding: 3px 10px;
+            border-radius: 10px;
+            white-space: nowrap;
+        }
+
+        .pricing-tier-name { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.25rem; }
+        .pricing-tier-sub { font-size: 0.75rem; color: var(--text-muted); margin-bottom: 0.75rem; }
+        .pricing-amount { font-size: 2rem; font-weight: 800; }
+        .pricing-period { font-size: 0.85rem; color: var(--text-muted); }
+        .pricing-annual { font-size: 0.75rem; color: var(--text-light); margin-top: 0.25rem; margin-bottom: 1rem; }
+
+        /* CTA Section */
+        .cta-section {
+            background: #1a1a1a;
+            color: #fff;
+            padding: 5rem 2rem;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+        }
+
+        .cta-section p {
+            color: #aaa;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            font-size: 1.1rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-gold { background: var(--accent); color: #000; }
+        .btn-gold:hover { background: var(--accent-dark); transform: translateY(-1px); }
+        .btn-ghost { background: transparent; border: 1px solid #555; color: #fff; }
+        .btn-ghost:hover { border-color: var(--accent); background: rgba(207,179,130,0.1); }
+
+        /* Footer */
+        .footer {
+            background: var(--card-bg);
+            border-top: 1px solid var(--border);
+            padding: 2rem;
+        }
+
+        .footer-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .footer-brand { font-size: 0.85rem; color: var(--text-muted); }
+        .footer-links { display: flex; gap: 1.5rem; }
+        .footer-links a { font-size: 0.85rem; color: var(--text-muted); text-decoration: none; }
+        .footer-links a:hover { color: var(--text); }
+
+        @media (max-width: 1024px) {
+            .solution-steps { grid-template-columns: repeat(2, 1fr); }
+            .pricing-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.25rem; }
+            .hero p { font-size: 1.05rem; }
+            .pain-grid { grid-template-columns: 1fr; }
+            .solution-steps { grid-template-columns: 1fr; }
+            .demo-card { grid-template-columns: 1fr; }
+            .usecase-grid { grid-template-columns: 1fr; }
+            .pricing-grid { grid-template-columns: 1fr; max-width: 350px; margin-left: auto; margin-right: auto; }
+            .hero-stat-strip { flex-direction: column; gap: 1.5rem; }
+            .cta-section h2 { font-size: 1.75rem; }
+            .header-nav a:not(.btn) { display: none; }
+            .quote-text { font-size: 1.15rem; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <a href="index.html" class="logo">C-twin<span class="logo-tm">&trade;</span></a>
+        <nav class="header-nav">
+            <a href="https://ctwin.ai/pricing">Pricing</a>
+            <a href="https://ctwin.ai/onboarding/signup">Get Started</a>
+            <a href="features.html">Platform</a>
+            <a href="https://ctwin.ai/onboarding/signup?tier=PLATINUM" class="btn btn-primary btn-sm">Start Free Trial</a>
+        </nav>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-eyebrow">C-Twin for Consulting &amp; Professional Services</div>
+        <h1>How many hours does your team spend <span class="highlight">searching for work you've already done?</span></h1>
+        <p>
+            Past project insights, client history, and proven methodologies live in people's heads
+            or buried in folders. C-Twin captures it all into a knowledge graph your whole firm can reuse.
+        </p>
+        <div class="hero-ctas">
+            <a href="#live-demo" class="btn btn-primary btn-lg">See the Live Demo</a>
+            <a href="https://ctwin.ai/onboarding/signup?tier=PLATINUM" class="btn btn-outline btn-lg">Start Free Trial</a>
+        </div>
+
+        <div class="hero-stat-strip">
+            <div class="hero-stat">
+                <div class="hero-stat-number">30%</div>
+                <div class="hero-stat-label">Time spent searching for info</div>
+            </div>
+            <div class="hero-stat">
+                <div class="hero-stat-number">7</div>
+                <div class="hero-stat-label">Entity classes per engagement</div>
+            </div>
+            <div class="hero-stat">
+                <div class="hero-stat-number">54</div>
+                <div class="hero-stat-label">Days free trial</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pain Points -->
+    <section class="pain-section">
+        <h2>The knowledge problem in consulting</h2>
+        <p>Every firm faces these. The bigger you grow, the worse they get.</p>
+
+        <div class="pain-grid">
+            <div class="pain-card">
+                <div class="pain-icon">&#128260;</div>
+                <h3>Reinventing the wheel</h3>
+                <p>
+                    "Didn't we do something like this for Acme Corp two years ago?"
+                    Your team spends hours recreating frameworks, templates, and analyses
+                    that already exist somewhere in the firm.
+                </p>
+                <span class="pain-cost">Cost: 20-30% of billable capacity</span>
+            </div>
+            <div class="pain-card">
+                <div class="pain-icon">&#128682;</div>
+                <h3>Senior consultant leaves</h3>
+                <p>
+                    When a partner or senior consultant exits, they take client relationships,
+                    engagement history, and the "how we actually do things" knowledge with them.
+                    The firm starts from scratch.
+                </p>
+                <span class="pain-cost">Cost: years of institutional memory</span>
+            </div>
+            <div class="pain-card">
+                <div class="pain-icon">&#128193;</div>
+                <h3>Proposals take too long</h3>
+                <p>
+                    Every proposal requires digging through past deliverables, case studies, and
+                    team bios. Client context is scattered across email threads, Slack, and
+                    someone's personal notes.
+                </p>
+                <span class="pain-cost">Cost: slower pipeline, lost deals</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quote -->
+    <section class="quote-section">
+        <div class="quote-text">
+            "The average knowledge worker spends 9.3 hours per week searching for information.
+            In consulting, that's unbillable time that directly erodes margins."
+        </div>
+        <div class="quote-attr">&mdash; McKinsey Global Institute, The Social Economy</div>
+    </section>
+
+    <!-- Solution: How C-Twin Works -->
+    <section class="solution-section">
+        <div class="solution-inner">
+            <h2>C-Twin turns your firm's experience into a reusable asset</h2>
+            <p>Every engagement makes your knowledge graph smarter. Every consultant benefits from what the firm already knows.</p>
+
+            <div class="solution-steps">
+                <div class="solution-step">
+                    <div class="step-number">1</div>
+                    <h3>Organize</h3>
+                    <p>Import your data. Your twin creates K-Notes for every client, consultant, and capability, and K-Links for every relationship.</p>
+                    <span class="tier-tag tag-individual">Individual &mdash; $29/mo</span>
+                </div>
+                <div class="solution-step">
+                    <div class="step-number">2</div>
+                    <h3>Automate</h3>
+                    <p>Connect Gmail. New client contacts become K-Notes automatically. Tasks generate follow-ups from your K-Notes.</p>
+                    <span class="tier-tag tag-team">Team &mdash; $49/mo</span>
+                </div>
+                <div class="solution-step">
+                    <div class="step-number">3</div>
+                    <h3>Document</h3>
+                    <p>Upload proposals, deliverables, and case studies. Your twin extracts K-Notes and K-Links, cross-referencing against everything.</p>
+                    <span class="tier-tag tag-discipline">Discipline &mdash; $79/mo</span>
+                </div>
+                <div class="solution-step">
+                    <div class="step-number">4</div>
+                    <h3>Strategize</h3>
+                    <p>Your K-Notes reveal client overlaps, underused capabilities, and where growth opportunities hide.</p>
+                    <span class="tier-tag tag-institution">Institution &mdash; $99/mo</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Live Demo -->
+    <section class="demo-section" id="live-demo">
+        <h2>See a live consulting knowledge graph</h2>
+        <p>Explore a CRM and client management twin with full DIAMOND-tier access.</p>
+
+        <div class="demo-card">
+            <div class="demo-info">
+                <h3>CRM &amp; Sales Pipeline Demo</h3>
+                <p>
+                    A live knowledge graph modeling a professional services firm's client
+                    relationships, engagement history, team capabilities, and sales pipeline.
+                    Clients, contacts, services, and deals &mdash; all connected.
+                </p>
+                <div class="demo-stats">
+                    <div class="demo-stat">
+                        <div class="demo-stat-value">CRM</div>
+                        <div class="demo-stat-label">Industry focus</div>
+                    </div>
+                    <div class="demo-stat">
+                        <div class="demo-stat-value">7</div>
+                        <div class="demo-stat-label">Entity classes</div>
+                    </div>
+                    <div class="demo-stat">
+                        <div class="demo-stat-value">DIAMOND</div>
+                        <div class="demo-stat-label">Full access tier</div>
+                    </div>
+                    <div class="demo-stat">
+                        <div class="demo-stat-value">Live</div>
+                        <div class="demo-stat-label">Neo4j + graphs</div>
+                    </div>
+                </div>
+                <div class="demo-ctas">
+                    <a href="https://ctwin.ai/chat/ctwin/demo-CRM-mentor?token=285533c94ad3a409b752db1a3e911e53" class="btn btn-primary" target="_blank">Open Mentor View</a>
+                    <a href="https://ctwin.ai/chat/ctwin/demo-CRM-au1?token=6a76f31c8f131f2af1e79f128c6bcaa4" class="btn btn-outline" target="_blank">Open Consultant View</a>
+                </div>
+            </div>
+            <div class="demo-preview">
+                <div class="demo-preview-header">
+                    <span class="demo-preview-dot dot-red"></span>
+                    <span class="demo-preview-dot dot-yellow"></span>
+                    <span class="demo-preview-dot dot-green"></span>
+                    <span class="demo-preview-title">c-CRM &mdash; Knowledge Graph</span>
+                </div>
+                <div class="demo-line"><span class="demo-green demo-bold">Clients</span> <span class="demo-dim">(accounts)</span></div>
+                <div class="demo-line">&nbsp;&nbsp;<span class="demo-green">Acme Corp</span> <span class="demo-dim">- strategy, 3 engagements</span></div>
+                <div class="demo-line">&nbsp;&nbsp;<span class="demo-green">GlobalTech</span> <span class="demo-dim">- ops transformation</span></div>
+                <div class="demo-line">&nbsp;&nbsp;<span class="demo-green">MedGroup</span> <span class="demo-dim">- digital, recurring</span></div>
+                <div class="demo-line">&nbsp;</div>
+                <div class="demo-line"><span class="demo-yellow demo-bold">Team</span> <span class="demo-dim">(consultants)</span></div>
+                <div class="demo-line">&nbsp;&nbsp;<span class="demo-yellow">Sarah K.</span> <span class="demo-dim">- strategy, healthcare</span></div>
+                <div class="demo-line">&nbsp;&nbsp;<span class="demo-yellow">James M.</span> <span class="demo-dim">- operations, FMCG</span></div>
+                <div class="demo-line">&nbsp;</div>
+                <div class="demo-line"><span class="demo-purple demo-bold">Engagements</span> <span class="demo-dim">(projects)</span></div>
+                <div class="demo-line">&nbsp;&nbsp;<span class="demo-purple">Acme cost reduction</span> <span class="demo-dim">- Q3 2025, $180K</span></div>
+                <div class="demo-line">&nbsp;&nbsp;<span class="demo-purple">GlobalTech SCM review</span> <span class="demo-dim">- Q1 2026</span></div>
+                <div class="demo-line">&nbsp;</div>
+                <div class="demo-line"><span class="demo-gold demo-bold">Relationships</span></div>
+                <div class="demo-line">&nbsp;&nbsp;Sarah K. <span class="demo-gold">LED</span> Acme cost reduction</div>
+                <div class="demo-line">&nbsp;&nbsp;Acme Corp <span class="demo-gold">REFERRED</span> GlobalTech</div>
+                <div class="demo-line">&nbsp;&nbsp;James M. <span class="demo-gold">SPECIALIZES_IN</span> FMCG ops</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Use Cases -->
+    <section class="usecases-section">
+        <div class="usecases-inner">
+            <h2>What consulting firms use it for</h2>
+            <p>Real workflows that turn experience into revenue.</p>
+
+            <div class="usecase-grid">
+                <div class="usecase-card">
+                    <h3>&#128221; Faster proposals</h3>
+                    <p>Ask your twin: "What past projects are relevant to a healthcare cost reduction engagement?" It searches your graph, finds matching case studies, team members with relevant experience, and related deliverables.</p>
+                    <span class="usecase-result">&#10003; Proposal prep time cut by 60%</span>
+                </div>
+                <div class="usecase-card">
+                    <h3>&#128101; New hire ramp-up</h3>
+                    <p>New consultants get instant access to every client relationship, past engagement, methodology, and lesson learned. No more "ask around and hope someone remembers."</p>
+                    <span class="usecase-result">&#10003; Productive in weeks, not months</span>
+                </div>
+                <div class="usecase-card">
+                    <h3>&#128231; Client intelligence from email</h3>
+                    <p>Connect Gmail. Your twin extracts client contacts, meeting notes, and action items into the graph. Never lose track of who said what to whom.</p>
+                    <span class="usecase-result">&#10003; Automatic CRM without data entry</span>
+                </div>
+                <div class="usecase-card">
+                    <h3>&#128200; Cross-sell opportunities</h3>
+                    <p>Your knowledge graph reveals which clients could benefit from services they haven't used yet. "Acme loved our strategy work &mdash; they also have an ops problem that matches James's expertise."</p>
+                    <span class="usecase-result">&#10003; Revenue from existing relationships</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Strip -->
+    <section class="pricing-section" id="pricing">
+        <h2>Start with what you need</h2>
+        <p>Every tier includes K-Notes, K-Links, daily briefings, and full data export. Your data is always yours.</p>
+
+        <div class="pricing-grid" id="pricing-grid">
+            <div class="pricing-card" data-tier="SILVER">
+                <div class="pricing-tier-name">Individual</div>
+                <div class="pricing-tier-sub">Create K-Notes from your data</div>
+                <div class="pricing-amount">$29</div>
+                <div class="pricing-period">/month</div>
+                <div class="pricing-annual">$24/mo billed annually</div>
+                <a href="https://ctwin.ai/onboarding/signup?tier=SILVER" class="btn btn-outline btn-sm">Start Free</a>
+            </div>
+            <div class="pricing-card" data-tier="GOLD">
+                <div class="pricing-tier-name">Team</div>
+                <div class="pricing-tier-sub">K-Notes automate your tasks</div>
+                <div class="pricing-amount">$49</div>
+                <div class="pricing-period">/month</div>
+                <div class="pricing-annual">$41/mo billed annually</div>
+                <a href="https://ctwin.ai/onboarding/signup?tier=GOLD" class="btn btn-outline btn-sm">Start Free</a>
+            </div>
+            <div class="pricing-card recommended" data-tier="PLATINUM">
+                <span class="recommended-badge">Best for Consulting</span>
+                <div class="pricing-tier-name">Discipline</div>
+                <div class="pricing-tier-sub">Documents become K-Notes</div>
+                <div class="pricing-amount">$79</div>
+                <div class="pricing-period">/month</div>
+                <div class="pricing-annual">$66/mo billed annually</div>
+                <a href="https://ctwin.ai/onboarding/signup?tier=PLATINUM" class="btn btn-primary btn-sm">Start Free Trial</a>
+            </div>
+            <div class="pricing-card" data-tier="DIAMOND">
+                <div class="pricing-tier-name">Institution</div>
+                <div class="pricing-tier-sub">K-Notes reveal patterns</div>
+                <div class="pricing-amount">$99</div>
+                <div class="pricing-period">/month</div>
+                <div class="pricing-annual">$82/mo billed annually</div>
+                <a href="https://ctwin.ai/onboarding/signup?tier=DIAMOND" class="btn btn-outline btn-sm">Talk to Us</a>
+            </div>
+        </div>
+
+        <p style="font-size: 0.9rem; color: var(--text-muted);">Teams: +$19/seat/month. Mentor seat always free.</p>
+        <p style="font-size: 0.9rem; color: var(--text-muted);">
+            54-day free trial across all tiers. No credit card required.
+            <a href="https://ctwin.ai/pricing" style="color: var(--accent-dark);">See full pricing details &rarr;</a>
+        </p>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="cta-section">
+        <h2>Your firm's experience is your most valuable asset.<br>Stop letting it walk out the door.</h2>
+        <p>Start capturing client knowledge, project insights, and proven methodologies today.</p>
+        <div class="cta-buttons">
+            <a href="#live-demo" class="btn btn-gold btn-lg">Explore the Live Demo</a>
+            <a href="https://ctwin.ai/onboarding/signup?tier=PLATINUM" class="btn btn-ghost btn-lg">Start Free Trial</a>
+            <a href="https://ctwin.ai/pricing" class="btn btn-ghost btn-lg">See Pricing</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-brand">
+                &copy; 2026 C-twin&trade; by <a href="https://avaluei.com" style="color: var(--accent-dark); text-decoration: none;">AIVP</a>. All rights reserved.
+            </div>
+            <div class="footer-links">
+                <a href="https://ctwin.ai/pricing">Pricing</a>
+                <a href="features.html">Platform</a>
+                <a href="https://ctwin.ai/onboarding/signup">Get Started</a>
+                <a href="https://ltwin.ai">L-twin&trade; for Education</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Dynamic pricing from /api/pricing -->
+    <script>
+    (async function() {
+        try {
+            const resp = await fetch('/api/pricing');
+            if (!resp.ok) return;
+            const data = await resp.json();
+            const tiers = data.tiers;
+
+            document.querySelectorAll('.pricing-card[data-tier]').forEach(card => {
+                const key = card.dataset.tier;
+                const tier = tiers[key];
+                if (!tier) return;
+
+                const nameEl = card.querySelector('.pricing-tier-name');
+                const amountEl = card.querySelector('.pricing-amount');
+                const annualEl = card.querySelector('.pricing-annual');
+
+                if (nameEl) nameEl.textContent = tier.display_name;
+                if (amountEl) amountEl.textContent = '$' + tier.pricing.monthly;
+                if (annualEl) annualEl.textContent = '$' + Math.round(tier.pricing.annual / 12) + '/mo billed annually';
+            });
+
+            const stepPrices = {
+                'Individual': tiers.SILVER,
+                'Team': tiers.GOLD,
+                'Discipline': tiers.PLATINUM,
+                'Institution': tiers.DIAMOND
+            };
+            document.querySelectorAll('.tier-tag').forEach(tag => {
+                for (const [name, tier] of Object.entries(stepPrices)) {
+                    if (tag.textContent.includes(name) && tier) {
+                        tag.textContent = `${tier.display_name} \u2014 $${tier.pricing.monthly}/mo`;
+                    }
+                }
+            });
+        } catch(e) {}
+    })();
+    </script>
+</body>
+</html>

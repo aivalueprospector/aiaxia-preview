@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C-twin Features | Capture Expertise, Scale Knowledge</title>
+    <meta name="description" content="Explore C-twin features: Kaigraph knowledge mapping, task automation, document extraction, and value metrics for businesses of any size.">
+    <meta name="keywords" content="C-twin features, knowledge graph, Kaigraph, K-Notes, K-Links, business automation, AI knowledge management">
+    <link rel="canonical" href="https://ctwin.ai/landing/ctwin-features">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ctwin.ai/landing/ctwin-features">
+    <meta property="og:title" content="C-twin Features | Capture Expertise, Scale Knowledge">
+    <meta property="og:description" content="Explore C-twin features: Kaigraph knowledge mapping, task automation, document extraction, and value metrics.">
+    <meta property="og:site_name" content="C-twin by AIVP">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="C-twin Features | Capture Expertise, Scale Knowledge">
+    <meta name="twitter:description" content="Explore C-twin features: Kaigraph knowledge mapping, task automation, document extraction, and value metrics.">
+
+    <!-- Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'GA_MEASUREMENT_ID');
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #0a0a0f;
+            --bg-card: #141414;
+            --accent: #CFB382;
+            --accent-dim: rgba(207, 179, 130, 0.2);
+            --text: #ffffff;
+            --text-muted: #9b9b9b;
+            --success: #10b981;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-dark);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+        .hero {
+            padding: 80px 0;
+            text-align: center;
+            background: linear-gradient(180deg, #1a1a1a 0%, var(--bg-dark) 100%);
+            border-bottom: 1px solid #333;
+        }
+        .hero h1 {
+            font-size: 3rem; font-weight: 700; margin-bottom: 16px;
+            background: linear-gradient(135deg, var(--accent) 0%, #e8d5a3 100%);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        }
+        .hero p { font-size: 1.25rem; color: var(--text-muted); max-width: 600px; margin: 0 auto 32px; }
+        .hero-cta { display: inline-flex; gap: 16px; flex-wrap: wrap; justify-content: center; }
+
+        .btn { padding: 14px 32px; border-radius: 8px; font-size: 1rem; font-weight: 600; text-decoration: none; transition: all 0.2s; }
+        .btn-primary { background: var(--accent); color: #141414; }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(207, 179, 130, 0.3); }
+        .btn-secondary { background: transparent; color: var(--accent); border: 1px solid var(--accent); }
+        .btn-secondary:hover { background: var(--accent-dim); }
+
+        .features { padding: 80px 0; }
+        .section-title { text-align: center; margin-bottom: 48px; }
+        .section-title h2 { font-size: 2rem; margin-bottom: 12px; }
+        .section-title p { color: var(--text-muted); }
+
+        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
+
+        .feature-card {
+            background: var(--bg-card); border: 1px solid #333; border-radius: 16px;
+            padding: 32px; transition: all 0.3s;
+        }
+        .feature-card:hover { border-color: var(--accent); transform: translateY(-4px); }
+        .feature-icon {
+            width: 56px; height: 56px; background: var(--accent-dim); border-radius: 12px;
+            display: flex; align-items: center; justify-content: center; font-size: 24px; margin-bottom: 20px;
+        }
+        .feature-card h3 { font-size: 1.25rem; margin-bottom: 12px; color: var(--accent); }
+        .feature-card p { color: var(--text-muted); font-size: 0.95rem; }
+        .feature-tag {
+            display: inline-block; background: var(--accent-dim); color: var(--accent);
+            padding: 4px 12px; border-radius: 4px; font-size: 0.75rem; font-weight: 600; margin-top: 16px;
+        }
+
+        .how-it-works { padding: 80px 0; background: #0f0f0f; }
+        .steps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 32px; margin-top: 48px; }
+        .step { text-align: center; }
+        .step-number {
+            width: 48px; height: 48px; background: var(--accent); color: #141414; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center; font-size: 1.25rem; font-weight: 700; margin: 0 auto 16px;
+        }
+        .step h3 { font-size: 1.1rem; margin-bottom: 8px; }
+        .step p { color: var(--text-muted); font-size: 0.9rem; }
+
+        .tiers { padding: 80px 0; }
+        .tiers-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 24px; }
+        .tier-card { background: var(--bg-card); border: 1px solid #333; border-radius: 16px; padding: 32px; text-align: center; }
+        .tier-card.featured { border-color: var(--accent); position: relative; }
+        .tier-card.featured::before {
+            content: 'Most Popular'; position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
+            background: var(--accent); color: #141414; padding: 4px 16px; border-radius: 4px; font-size: 0.75rem; font-weight: 600;
+        }
+        .tier-name { font-size: 1.25rem; font-weight: 600; margin-bottom: 8px; }
+        .tier-price { font-size: 2.5rem; font-weight: 700; color: var(--accent); margin-bottom: 4px; }
+        .tier-price span { font-size: 1rem; font-weight: 400; color: var(--text-muted); }
+        .tier-features { list-style: none; margin: 24px 0; text-align: left; }
+        .tier-features li { padding: 8px 0; color: var(--text-muted); display: flex; align-items: center; gap: 8px; }
+        .tier-features li::before { content: '\2713'; color: var(--success); }
+        .tier-cta { width: 100%; padding: 12px; border-radius: 8px; font-size: 1rem; font-weight: 600; cursor: pointer; transition: all 0.2s; }
+
+        .footer { padding: 40px 0; text-align: center; border-top: 1px solid #333; color: var(--text-muted); }
+        .footer a { color: var(--accent); text-decoration: none; }
+
+        @media (max-width: 768px) { .hero h1 { font-size: 2rem; } }
+    </style>
+</head>
+<body>
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container">
+            <h1>C-twin</h1>
+            <p>Your AI-powered business twin that captures expertise, automates tasks, and builds a knowledge graph from every conversation and document.</p>
+            <div class="hero-cta">
+                <a href="https://ctwin.ai/onboarding/signup?platform=ctwin" class="btn btn-primary">Start Free Trial</a>
+                <a href="#features" class="btn btn-secondary">See Features</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-title">
+                <h2>Powerful Features</h2>
+                <p>Five tabs, one Kaigraph. Everything connects.</p>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">&#x1F9E0;</div>
+                    <h3>Kaigraph</h3>
+                    <p>Automatically builds a connected knowledge graph from your conversations and documents. K-Notes capture entities, K-Links map relationships. Export to Obsidian anytime.</p>
+                    <span class="feature-tag">All Tiers</span>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">&#x1F4CB;</div>
+                    <h3>Task Automation</h3>
+                    <p>Define task templates that generate reports, checklists, and follow-ups from your K-Notes. Review and approve before they run.</p>
+                    <span class="feature-tag">All Tiers</span>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">&#x1F4C4;</div>
+                    <h3>Document Extraction</h3>
+                    <p>Upload PDFs, spreadsheets, and contracts. AI extracts entities and relationships as K-Notes and K-Links directly into your Kaigraph.</p>
+                    <span class="feature-tag">All Tiers</span>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">&#x2705;</div>
+                    <h3>Verify</h3>
+                    <p>Human-in-the-loop: review incoming K-Notes before they enter your graph. Approve, edit, or reject. AI also suggests stale knowledge to archive.</p>
+                    <span class="feature-tag">All Tiers</span>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">&#x1F4CA;</div>
+                    <h3>Value Metrics</h3>
+                    <p>Track ROI: K-Notes created, K-Links discovered, documents processed, tasks completed, and savings accrued. See your knowledge compound over time.</p>
+                    <span class="feature-tag">All Tiers</span>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">&#x1F4E7;</div>
+                    <h3>Email + Calendar</h3>
+                    <p>Gmail sync turns contacts into K-Notes automatically. Google Calendar integration creates morning standups and smart timeboxes from your graph.</p>
+                    <span class="feature-tag">All Tiers</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-it-works">
+        <div class="container">
+            <div class="section-title">
+                <h2>How It Works</h2>
+                <p>From conversation to connected knowledge in minutes</p>
+            </div>
+
+            <div class="steps-grid">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Chat or Upload</h3>
+                    <p>Talk to your C-twin about your business, or upload documents like contracts and spreadsheets.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>K-Notes Created</h3>
+                    <p>AI extracts entities (suppliers, customers, products) and creates K-Notes with K-Links between them.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Review &amp; Approve</h3>
+                    <p>Check incoming K-Notes in the Verify tab. Approve what's right, edit what needs work.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>Knowledge Compounds</h3>
+                    <p>Your Kaigraph grows with every interaction. New uploads connect to existing knowledge automatically.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tiers -->
+    <section class="tiers" id="pricing">
+        <div class="container">
+            <div class="section-title">
+                <h2>Choose Your Plan</h2>
+                <p>All features included at every tier. Tiers differ by scale.</p>
+            </div>
+
+            <div class="tiers-grid">
+                <div class="tier-card" data-tier="SILVER">
+                    <div class="tier-name">Individual</div>
+                    <div class="tier-price">$29<span>/mo</span></div>
+                    <ul class="tier-features">
+                        <li>K-Notes from chat, email, and spreadsheets</li>
+                        <li>K-Links connect your knowledge automatically</li>
+                        <li>3 document extractions/day</li>
+                        <li>5 task executions/day</li>
+                        <li>Obsidian + GDrive export</li>
+                    </ul>
+                    <a href="https://ctwin.ai/onboarding/signup?platform=ctwin&tier=SILVER" class="tier-cta btn btn-secondary">Start Free Trial</a>
+                </div>
+
+                <div class="tier-card featured" data-tier="GOLD">
+                    <div class="tier-name">Team</div>
+                    <div class="tier-price">$49<span>/mo</span></div>
+                    <ul class="tier-features">
+                        <li>Everything in Individual</li>
+                        <li>Up to 5 users with shared Kaigraph</li>
+                        <li>Gmail sync adds K-Links automatically</li>
+                        <li>10 document extractions/day</li>
+                        <li>15 task executions/day</li>
+                        <li>Smart scheduling + daily briefings</li>
+                    </ul>
+                    <a href="https://ctwin.ai/onboarding/signup?platform=ctwin&tier=GOLD" class="tier-cta btn btn-primary">Start Free Trial</a>
+                </div>
+
+                <div class="tier-card" data-tier="PLATINUM">
+                    <div class="tier-name">Discipline</div>
+                    <div class="tier-price">$79<span>/mo</span></div>
+                    <ul class="tier-features">
+                        <li>Everything in Team</li>
+                        <li>Up to 15 users</li>
+                        <li>30 document extractions/day</li>
+                        <li>50 task executions/day</li>
+                        <li>Every document becomes K-Notes</li>
+                        <li>Department analytics</li>
+                    </ul>
+                    <a href="https://ctwin.ai/onboarding/signup?platform=ctwin&tier=PLATINUM" class="tier-cta btn btn-secondary">Start Free Trial</a>
+                </div>
+
+                <div class="tier-card" data-tier="DIAMOND">
+                    <div class="tier-name">Institution</div>
+                    <div class="tier-price">$99<span>/mo</span></div>
+                    <ul class="tier-features">
+                        <li>Everything in Discipline</li>
+                        <li>Up to 50 users</li>
+                        <li>Unlimited extractions and tasks</li>
+                        <li>K-Notes reveal patterns and track savings</li>
+                        <li>Strategy recommendations</li>
+                        <li>Priority support + onboarding</li>
+                    </ul>
+                    <a href="https://ctwin.ai/onboarding/signup?platform=ctwin&tier=DIAMOND" class="tier-cta btn btn-secondary">Contact Sales</a>
+                </div>
+            </div>
+            <p style="text-align: center; color: #888; font-size: 0.85rem; margin-top: 1.5rem;">+ $19/seat for teams. Mentor seat always free. 54-day free trial across all tiers.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>C-twin by <a href="https://avaluei.com">AIVP</a> | <a href="https://ctwin.ai">ctwin.ai</a></p>
+            <p style="margin-top: 8px; font-size: 0.85rem;">
+                Have an L-twin? Get <strong>30% off</strong> your C-twin subscription.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Dynamic pricing from API
+        (function() {
+            var tierKeys = ['SILVER', 'GOLD', 'PLATINUM', 'DIAMOND'];
+            fetch('/api/pricing')
+                .then(function(res) {
+                    if (!res.ok) throw new Error('HTTP ' + res.status);
+                    return res.json();
+                })
+                .then(function(data) {
+                    var tiers = data.tiers || data;
+                    tierKeys.forEach(function(key) {
+                        var tier = tiers[key];
+                        if (!tier) return;
+                        var card = document.querySelector('.tier-card[data-tier="' + key + '"]');
+                        if (!card) return;
+                        if (tier.pricing && tier.pricing.monthly != null) {
+                            var priceEl = card.querySelector('.tier-price');
+                            if (priceEl) priceEl.innerHTML = '$' + tier.pricing.monthly + '<span>/mo</span>';
+                        }
+                        if (tier.display_name) {
+                            var nameEl = card.querySelector('.tier-name');
+                            if (nameEl) nameEl.textContent = tier.display_name;
+                        }
+                    });
+                })
+                .catch(function() {});
+        })();
+    </script>
+</body>
+</html>

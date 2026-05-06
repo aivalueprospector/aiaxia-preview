@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduAsiste for Mentors - Turn One Hour a Week Into Seven Days of Reinforcement</title>
+    <meta name="description" content="Eduardo works with your students between your sessions. Auto-generated parent reports. Assignment tracking. Mentors cut prep time and keep students longer.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {"@type": "Question", "name": "Does this replace me?", "acceptedAnswer": {"@type": "Answer", "text": "No. You set the curriculum, the pace, and the relationship. Eduardo amplifies the one hour you have — between sessions, not instead of them."}},
+        {"@type": "Question", "name": "Can I onboard my existing students?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Migration is about 10 minutes per student. Upload their context (current unit, recent assessments, learning style) and Eduardo calibrates immediately."}},
+        {"@type": "Question", "name": "Do my student and I share one login?", "acceptedAnswer": {"@type": "Answer", "text": "No. You each have a separate link and a separate twin. Your Mentor link opens your twin; your student's link opens theirs."}},
+        {"@type": "Question", "name": "What devices can we use?", "acceptedAnswer": {"@type": "Answer", "text": "Any modern web browser — laptop, tablet, or phone. No app to install."}},
+        {"@type": "Question", "name": "Can I have more than one student?", "acceptedAnswer": {"@type": "Answer", "text": "The current plan supports one linked student per Mentor twin. Multi-student support is on the roadmap. Contact support to be notified when it is available."}},
+        {"@type": "Question", "name": "Does my student need an email address to sign up?", "acceptedAnswer": {"@type": "Answer", "text": "No. Students access their twin through their link. No email or password is required on the student side."}},
+        {"@type": "Question", "name": "My student already has a Family twin (with their parents). Can I link them to a Mentor twin as well?", "acceptedAnswer": {"@type": "Answer", "text": "This is a planned capability. Contact support to discuss the specific configuration for your student."}},
+        {"@type": "Question", "name": "What age range does the Mentor Plan support?", "acceptedAnswer": {"@type": "Answer", "text": "Ages 8–18. Eduardo adapts tone and content filter to grade and level — 3rd grade through 12th grade, including test-prep (SAT, ACT, AP)."}},
+        {"@type": "Question", "name": "How does my twin get my student's data?", "acceptedAnswer": {"@type": "Answer", "text": "Your Mentor twin connects to your student's twin securely on the server. When you ask a question about your student, the answer is pulled live from their records — you are always seeing current information."}},
+        {"@type": "Question", "name": "My student just finished a topic session. Why haven't I seen a report?", "acceptedAnswer": {"@type": "Answer", "text": "Reports appear the next time you open your Mentor twin and start a conversation. They are delivered as a natural message at the start of your session."}},
+        {"@type": "Question", "name": "Can I see the exact words my student typed?", "acceptedAnswer": {"@type": "Answer", "text": "No. Your student's private chat messages are theirs alone. What you see is structured output: assessment scores, topic objectives completed, KaiNotes created, and goals updated."}},
+        {"@type": "Question", "name": "How far back does the history go?", "acceptedAnswer": {"@type": "Answer", "text": "As long as you are subscribed, all records are retained and fully searchable."}},
+        {"@type": "Question", "name": "How do I control what Eduardo teaches?", "acceptedAnswer": {"@type": "Answer", "text": "Upload lesson plans, worksheets, test prep documents. Eduardo stays grounded in your materials and your district's standards. You can also lock specific topics or approaches."}},
+        {"@type": "Question", "name": "Do I always have to generate a grading key?", "acceptedAnswer": {"@type": "Answer", "text": "Yes — for worksheets, quizzes, and tests, your twin always produces both the student version and a grading key. This happens automatically."}},
+        {"@type": "Question", "name": "Where are grading keys stored?", "acceptedAnswer": {"@type": "Answer", "text": "In your Mentor twin's Reports tab under Documents. They are never visible to your student or their parents."}},
+        {"@type": "Question", "name": "Can I see the answers my student gave on a quiz?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. When a quiz or test is completed, the report delivered to you includes a per-question breakdown of what was answered correctly and what was missed."}},
+        {"@type": "Question", "name": "Can my student refuse or dismiss an assignment?", "acceptedAnswer": {"@type": "Answer", "text": "Students can mark an assignment as dismissed. You will see that status from your Mentor twin. The record stays on both sides."}},
+        {"@type": "Question", "name": "What is a topic session and how is it different from a worksheet?", "acceptedAnswer": {"@type": "Answer", "text": "A worksheet is a fixed set of questions your student answers. A topic session is a guided, adaptive conversation — your student's twin leads them through the topic using questions and hints, adapting in real time. Topic sessions generate a more detailed report showing which objectives were and weren't met."}},
+        {"@type": "Question", "name": "Do I need a PIN to switch into my student's view?", "acceptedAnswer": {"@type": "Answer", "text": "No. The Mentor Plan does not use a PIN. You switch into your student's interface directly from the Open Student's View button in your Mentor twin."}},
+        {"@type": "Question", "name": "Can my student's parents also see the student's twin?", "acceptedAnswer": {"@type": "Answer", "text": "Parents who have their own Family Plan twin linked to the same student can view the student's KaiBrain data through their Family twin. Mentor and parent access are separate — each reads the student's data through their own twin."}},
+        {"@type": "Question", "name": "Is my student's data visible to anyone else?", "acceptedAnswer": {"@type": "Answer", "text": "No. Your student's data is private to them, with the following exceptions: you (as their linked mentor) can see structured records through your Mentor twin, and their parents (if on the Family Plan) can see the same structured records through their Parent twin."}},
+        {"@type": "Question", "name": "Does my student know when I look at their records?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Your student's twin shows them an activity log with entries like 'Your tutor viewed your KaiZen goals' or 'Your tutor assigned a fractions quiz.'"}},
+        {"@type": "Question", "name": "Are my session notes and grading keys visible to parents?", "acceptedAnswer": {"@type": "Answer", "text": "No. Your professional documents — session plans, grading keys, mentor notes, gap analysis — are stored in your Mentor twin only. Parents cannot access them."}},
+        {"@type": "Question", "name": "What does the Mentor Plan cost?", "acceptedAnswer": {"@type": "Answer", "text": "$39/month per student, flat. Covers both your Mentor twin and your linked student twin."}},
+        {"@type": "Question", "name": "Who pays — me or the student's family?", "acceptedAnswer": {"@type": "Answer", "text": "You pay EduAsiste directly per student. If you bill a family for tutoring, they pay you (not EduAsiste) — Eduardo is part of your practice, not a separate subscription for the family."}},
+        {"@type": "Question", "name": "Is there a trial?", "acceptedAnswer": {"@type": "Answer", "text": "Your first student is free for 14 days. No credit card required. Cancel any time during the trial without being charged."}},
+        {"@type": "Question", "name": "What happens to my data if I cancel?", "acceptedAnswer": {"@type": "Answer", "text": "Your subscription stays active until the end of the billing period. After that, your twin is placed in read-only mode for 30 days so you can export your data. After 30 days, all data is permanently deleted. Your student's twin data is unaffected — it is owned by the student."}}
+      ]
+    }
+    </script>
+    <style>
+        :root { --bg: #f8fafc; --text: #1e293b; --muted: #475569; --accent: #0077B6; --accent-dark: #03045E; --accent-light: #DBEBFF; --border: #e2e8f0; --card: #ffffff; --green: #16a34a; --dark: #0f172a; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', -apple-system, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+        a { color: var(--accent-dark); text-decoration: none; }
+        a:focus-visible, button:focus-visible, summary:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+
+        .skip-link { position: absolute; top: -40px; left: 12px; padding: 10px 16px; background: var(--accent-dark); color: #fff; border-radius: 6px; font-weight: 600; z-index: 200; }
+        .skip-link:focus { top: 12px; color: #fff; }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; transform: none !important; }
+        }
+
+        header { position: sticky; top: 0; background: rgba(255,255,255,0.95); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); z-index: 100; }
+        .header-inner { display: flex; justify-content: space-between; align-items: center; padding: 10px 5%; max-width: 1200px; margin: 0 auto; }
+        .header-brand { display: flex; align-items: center; gap: 10px; font-size: 1.2rem; font-weight: 700; color: var(--text); text-decoration: none; }
+        .header-brand img { width: 36px; height: 36px; }
+        .header-nav { display: flex; gap: 24px; align-items: center; font-size: 0.9rem; margin-left: auto; }
+        .header-nav a { color: var(--muted); font-weight: 500; }
+        .header-nav a:hover { color: var(--text); }
+        .header-nav .btn-contact { padding: 8px 18px; background: var(--accent); color: #fff; border-radius: 8px; font-weight: 600; font-size: 0.85rem; }
+        .header-nav .btn-contact:hover { background: var(--accent-dark); }
+
+        /* Hero */
+        .hero { display: flex; flex-direction: row-reverse; justify-content: center; align-items: center; gap: 48px; padding: 80px 5% 40px; max-width: 980px; margin: 0 auto; }
+        .hero img.hero-owl { width: 220px; height: auto; flex-shrink: 0; filter: drop-shadow(0 14px 28px rgba(0,119,182,0.25)); }
+        .hero-text { text-align: left; max-width: 560px; }
+        .hero h1 { font-size: 2.6rem; font-weight: 800; letter-spacing: -0.03em; margin-bottom: 12px; line-height: 1.15; color: var(--accent-dark); }
+        .hero .hero-subtitle { font-size: 1.15rem; font-weight: 500; color: var(--text); margin-bottom: 20px; }
+        .hero-cta { display: inline-block; padding: 14px 28px; background: var(--accent); color: #fff; border-radius: 10px; font-weight: 700; font-size: 1rem; }
+        .hero-cta:hover { background: var(--accent-dark); color: #fff; }
+
+        .section { max-width: 1100px; margin: 0 auto; padding: 60px 5%; }
+        .section-title { font-size: 2rem; font-weight: 700; text-align: center; color: var(--accent-dark); margin-bottom: 10px; }
+        .section-sub { font-size: 1rem; color: var(--muted); text-align: center; margin-bottom: 40px; max-width: 640px; margin-left: auto; margin-right: auto; }
+
+        .icon-tile { width: 52px; height: 52px; border-radius: 14px; background: var(--accent-light); color: var(--accent-dark); display: inline-flex; align-items: center; justify-content: center; margin-bottom: 14px; transition: all 0.2s; }
+        .icon-tile svg { width: 28px; height: 28px; fill: none; stroke: currentColor; stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; }
+        .icon-tile.lg { width: 72px; height: 72px; border-radius: 18px; }
+        .icon-tile.lg svg { width: 38px; height: 38px; }
+
+        .pain-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+        .pain-card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 28px 24px; }
+        .pain-card .pain-quote { font-size: 1.05rem; font-weight: 600; color: var(--text); line-height: 1.4; }
+        .pain-card .pain-note { font-size: 0.85rem; color: var(--muted); margin-top: 10px; }
+
+        .features { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+        .feature-card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 28px; transition: all 0.2s; }
+        .feature-card:hover { box-shadow: 0 8px 24px rgba(0,119,182,0.12); transform: translateY(-2px); border-color: var(--accent); }
+        .feature-card:hover .icon-tile { background: var(--accent); color: #fff; }
+        .feature-card h3 { font-size: 1.15rem; font-weight: 700; margin-bottom: 6px; color: var(--accent-dark); }
+        .feature-card p { font-size: 0.95rem; color: var(--muted); line-height: 1.55; }
+
+        .testimonials { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+        .tm { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 26px; }
+        .tm-name { font-weight: 700; font-size: 1rem; }
+        .tm-role { font-size: 0.8rem; color: var(--muted); margin-bottom: 14px; }
+        .tm-quote { font-style: italic; color: var(--text); font-size: 0.95rem; line-height: 1.6; }
+
+        .demos { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+        .demo-card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 28px; text-align: center; }
+        .demo-card h3 { font-size: 1.1rem; margin-top: 10px; margin-bottom: 4px; color: var(--accent-dark); }
+        .demo-card p { font-size: 0.88rem; color: var(--muted); margin-bottom: 18px; }
+        .demo-btn { display: inline-block; padding: 11px 24px; background: var(--accent); color: #fff; border-radius: 8px; font-weight: 600; font-size: 0.9rem; }
+        .demo-btn:hover { background: var(--accent-dark); color: #fff; }
+
+        .pricing-hero { background: linear-gradient(135deg, var(--accent-light), #fff); border: 2px solid var(--accent); border-radius: 18px; padding: 40px; text-align: center; max-width: 520px; margin: 0 auto; }
+        .pricing-hero .tier-name { font-size: 1rem; font-weight: 700; color: var(--accent-dark); letter-spacing: 0.05em; text-transform: uppercase; }
+        .pricing-hero .price { font-size: 3.2rem; font-weight: 800; color: var(--accent-dark); line-height: 1; margin: 8px 0; }
+        .pricing-hero .price small { font-size: 0.95rem; font-weight: 500; color: var(--muted); }
+        .pricing-hero .price-sub { font-size: 0.9rem; color: var(--muted); margin-bottom: 20px; }
+        .pricing-hero ul { list-style: none; text-align: left; margin-bottom: 24px; font-size: 0.95rem; }
+        .pricing-hero ul li { padding: 6px 0; display: flex; gap: 10px; align-items: flex-start; }
+        .pricing-hero ul li::before { content: "✓"; color: var(--accent); font-weight: 700; flex-shrink: 0; }
+        .pricing-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+        .btn-primary { display: inline-block; padding: 12px 26px; background: var(--accent); color: #fff; border-radius: 8px; font-weight: 600; font-size: 0.95rem; }
+        .btn-primary:hover { background: var(--accent-dark); color: #fff; }
+        .btn-outline { display: inline-block; padding: 12px 26px; background: transparent; border: 2px solid var(--accent); color: var(--accent-dark); border-radius: 8px; font-weight: 600; font-size: 0.95rem; }
+        .btn-outline:hover { background: var(--accent-light); }
+
+        .faq-list { max-width: 800px; margin: 0 auto; }
+        .faq-item { background: var(--card); border: 1px solid var(--border); border-radius: 12px; margin-bottom: 12px; }
+        .faq-item summary { cursor: pointer; padding: 20px 24px; font-weight: 600; font-size: 1rem; color: var(--accent-dark); list-style: none; position: relative; padding-right: 48px; }
+        .faq-item summary::-webkit-details-marker { display: none; }
+        .faq-item summary::after { content: "+"; position: absolute; right: 24px; top: 50%; transform: translateY(-50%); font-size: 1.6rem; font-weight: 300; color: var(--accent); transition: transform 0.2s; }
+        .faq-item[open] summary::after { content: "−"; }
+        .faq-item .faq-body { padding: 0 24px 20px; font-size: 0.95rem; color: var(--muted); line-height: 1.7; }
+
+        .privacy { background: var(--dark); color: #fff; padding: 40px 5%; text-align: center; border-radius: 16px; }
+        .privacy-lead { font-size: 1.25rem; font-weight: 600; color: #fff; max-width: 760px; margin: 0 auto 8px; }
+        .privacy-sub { font-size: 0.95rem; color: #cbd5e1; max-width: 720px; margin: 0 auto; }
+
+        .final-cta { text-align: center; padding: 60px 5%; }
+        .final-cta h2 { font-size: 2rem; color: var(--accent-dark); margin-bottom: 10px; }
+        .final-cta p { color: var(--muted); margin-bottom: 28px; }
+        .cta-buttons { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
+
+        footer { text-align: center; padding: 32px 5%; color: var(--muted); font-size: 0.9rem; border-top: 1px solid var(--border); }
+
+        @media (max-width: 900px) {
+            .pain-grid { grid-template-columns: 1fr; }
+            .features { grid-template-columns: 1fr; }
+            .testimonials { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 760px) {
+            .hero { flex-direction: column; text-align: center; gap: 20px; }
+            .hero-text { text-align: center; }
+            .hero img.hero-owl { width: 160px; }
+            .demos { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 600px) {
+            .hero h1 { font-size: 2rem; }
+            .section-title { font-size: 1.6rem; }
+            .header-inner { flex-wrap: wrap; gap: 8px; }
+            .header-nav { gap: 14px; font-size: 0.82rem; }
+            .privacy-lead { font-size: 1.1rem; }
+        }
+
+        /* Bottom talk-to-expert prominent block */
+        .talk-section { text-align: center; padding: 50px 5% 60px; background: var(--accent-light); margin: 0 5% 40px; border-radius: 20px; }
+        .talk-lead { font-size: 1.3rem; font-weight: 600; color: var(--accent-dark); margin-bottom: 22px; }
+        .talk-cta-big { display: inline-block; padding: 18px 44px; background: var(--accent); color: #fff; border-radius: 12px; font-weight: 700; font-size: 1.15rem; box-shadow: 0 8px 20px rgba(0,119,182,0.25); transition: all 0.2s; }
+        .talk-cta-big:hover { background: var(--accent-dark); color: #fff; transform: translateY(-2px); box-shadow: 0 12px 28px rgba(0,119,182,0.35); }
+    </style>
+</head>
+<body>
+
+<a href="#main" class="skip-link">Skip to content</a>
+
+<header>
+    <div class="header-inner">
+        <a href="index.html" class="header-brand">
+            <img src="_assets/eduardo_owl.png" alt="">
+            EduAsiste
+        </a>
+        <nav class="header-nav" aria-label="Primary">
+            <a href="families.html">Families</a>
+            <a href="mentors.html">Mentors</a>
+            <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ2nvPt4Y4K87urlqQse75X7RlufSSrx8Oc5NvU4vLRzoDvMQGkYYTAefA88osyiiT5yY242FzUW" class="btn-contact" target="_blank" rel="noopener">Talk to an Expert</a>
+        </nav>
+    </div>
+</header>
+
+<main id="main">
+
+<section class="hero" aria-labelledby="hero-title">
+    <div class="hero-text">
+        <h1 id="hero-title">Turn one hour a week into seven days of reinforcement.</h1>
+        <p class="hero-subtitle">Eduardo works with your students between sessions - following your lesson plan, flagging where they stick, and giving you a briefing before the next meeting.</p>
+        <a href="https://ctwin.ai/chat/v3/demo-mentor-bennett-teacher/6e24ed6e56c4f0560261be76b4475d6b" class="hero-cta">See the Mentor Demo</a>
+    </div>
+    <img class="hero-owl" src="_assets/eduardo_owl.png" alt="Eduardo the owl">
+</section>
+
+<section class="section" aria-labelledby="pain-title">
+    <h2 class="section-title" id="pain-title">Sound familiar?</h2>
+    <p class="section-sub">If any of these hit home, you're the reason we built Eduardo.</p>
+    <div class="pain-grid">
+        <div class="pain-card">
+            <p class="pain-quote">"I spend 30 minutes every Sunday writing parent updates."</p>
+            <p class="pain-note">Your expertise pays $80/hr. Your admin time pays zero.</p>
+        </div>
+        <div class="pain-card">
+            <p class="pain-quote">"The work I assigned last week? Maybe half got done. Maybe."</p>
+            <p class="pain-note">Between-session practice is where learning happens - or doesn't.</p>
+        </div>
+        <div class="pain-card">
+            <p class="pain-quote">"Tuesday's session starts with 'where did we leave off?' because they forgot."</p>
+            <p class="pain-note">Every session bleeds 15 minutes on review that shouldn't be needed.</p>
+        </div>
+    </div>
+</section>
+
+<section class="section" aria-labelledby="solution-title">
+    <h2 class="section-title" id="solution-title">How Eduardo amplifies your practice</h2>
+    <p class="section-sub">Eduardo doesn't replace you. It makes your hour 10× more effective.</p>
+    <div class="features">
+        <div class="feature-card">
+            <span class="icon-tile" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/></svg>
+            </span>
+            <h3>Session continuity</h3>
+            <p>Eduardo picks up where you left off. Students arrive on Tuesday already warmed up, not asking "what unit are we on?"</p>
+        </div>
+        <div class="feature-card">
+            <span class="icon-tile" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 9l2 2 4-4"/><path d="M9 15h6"/></svg>
+            </span>
+            <h3>Assignment tracking</h3>
+            <p>Know exactly what was completed, where they got stuck, and what you need to reteach. No more guessing.</p>
+        </div>
+        <div class="feature-card">
+            <span class="icon-tile" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M4 5.5a2 2 0 0 1 2-2h10l4 4V18a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2z"/><path d="M15 3.5V8h5"/><path d="M8 12h8M8 16h5"/></svg>
+            </span>
+            <h3>Auto-generated parent reports</h3>
+            <p>Weekly briefings written for you. Your voice, your data. Cut 2 hours off your Sunday.</p>
+        </div>
+        <div class="feature-card">
+            <span class="icon-tile" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M12 6.5C10 5 7.5 4.5 5 5v13c2.5-.5 5 0 7 1.5"/><path d="M12 6.5C14 5 16.5 4.5 19 5v13c-2.5-.5-5 0-7 1.5"/><path d="M12 6.5v13"/></svg>
+            </span>
+            <h3>Upload your lesson plan</h3>
+            <p>Eduardo follows your curriculum, not a generic one. Worksheets, test prep, syllabi - drop them in, Eduardo stays on your track.</p>
+        </div>
+    </div>
+</section>
+
+<section class="section" aria-labelledby="demo-title">
+    <h2 class="section-title" id="demo-title">Try Eduardo live - no signup</h2>
+    <p class="section-sub">Meet Marcus Chen's practice. See both the mentor briefing and the student experience.</p>
+    <div class="demos">
+        <div class="demo-card">
+            <span class="icon-tile lg" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M12 3L2 7.5l10 4.5 10-4.5L12 3z"/><path d="M6 10.3v3.5c0 1.9 2.7 3.4 6 3.4s6-1.5 6-3.4v-3.5"/><path d="M22 7.5v5.5"/></svg>
+            </span>
+            <h3>Mentor View</h3>
+            <p>What Marcus sees: Jordan's quiz trend, session notes, auto-generated parent briefing.</p>
+            <a href="https://ctwin.ai/chat/v3/demo-mentor-bennett-teacher/6e24ed6e56c4f0560261be76b4475d6b" class="demo-btn" target="_blank" rel="noopener">Try Mentor Demo</a>
+        </div>
+        <div class="demo-card">
+            <span class="icon-tile lg" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="3"/><path d="M5 20c0-3.5 3-6 7-6s7 2.5 7 6"/><path d="M16 4l0.8 1.6 1.6 0.8-1.6 0.7L16 8.7l-0.7-1.6-1.6-0.7 1.6-0.8z"/></svg>
+            </span>
+            <h3>Student View</h3>
+            <p>What Jordan (13) sees: age-appropriate practice prompts, stuck-list, small-wins journal.</p>
+            <a href="https://ctwin.ai/chat/v3/demo-mentor-bennett-student/6dd069e2b9f440e66ca244fec9e8486b" class="demo-btn" target="_blank" rel="noopener">Try Student Demo</a>
+        </div>
+    </div>
+</section>
+
+<section class="section" aria-labelledby="pricing-title">
+    <h2 class="section-title" id="pricing-title">Pricing that scales with your practice</h2>
+    <p class="section-sub">Less than one hour of your time per student per month.</p>
+    <div class="pricing-hero">
+        <div class="tier-name">Mentor Plan</div>
+        <div class="price">$39<small>/mo per student</small></div>
+        <div class="price-sub">Ages 8–18 · flat per-student rate</div>
+        <ul>
+            <li>Eduardo coaching for each student, between your sessions</li>
+            <li>Mentor dashboard with progress + stuck flags</li>
+            <li>Auto-generated weekly parent briefings</li>
+            <li>Upload your lesson plans, worksheets, test prep</li>
+            <li>Parent visibility - stops the status-update calls</li>
+            <li>First student free for 14 days · cancel anytime</li>
+        </ul>
+        <div class="pricing-actions">
+            <a href="https://ltwin.ai/onboarding/signup?tier=GOLD&step=2&price=39" class="btn-primary">Start with 1 Student Free</a>
+            <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ2nvPt4Y4K87urlqQse75X7RlufSSrx8Oc5NvU4vLRzoDvMQGkYYTAefA88osyiiT5yY242FzUW" class="btn-outline" target="_blank" rel="noopener">Talk to an Expert</a>
+        </div>
+    </div>
+</section>
+
+<section class="section" aria-labelledby="faq-title">
+    <h2 class="section-title" id="faq-title">Questions mentors ask</h2>
+
+    <h3 class="section-sub" style="font-size:1.1rem;font-weight:700;color:var(--accent-dark);margin-top:20px;margin-bottom:12px;">Getting started</h3>
+    <div class="faq-list">
+        <details class="faq-item">
+            <summary>Does this replace me?</summary>
+            <div class="faq-body">No. You set the curriculum, the pace, and the relationship. Eduardo amplifies the one hour you have — between sessions, not instead of them.</div>
+        </details>
+        <details class="faq-item">
+            <summary>Can I onboard my existing students?</summary>
+            <div class="faq-body">Yes. Migration is about 10 minutes per student. Upload their context (current unit, recent assessments, learning style) and Eduardo calibrates immediately.</div>
+        </details>
+        <details class="faq-item">
+            <summary>Do my student and I share one login?</summary>
+            <div class="faq-body">No. You each have a separate link and a separate twin. Your Mentor link opens your twin; your student's link opens theirs.</div>
+        </details>
+        <details class="faq-item">
+            <summary>What devices can we use?</summary>
+            <div class="faq-body">Any modern web browser — laptop, tablet, or phone. No app to install.</div>
+        </details>
+        <details class="faq-item">
+            <summary>Can I have more than one student?</summary>
+            <div class="faq-body">The current plan supports one linked student per Mentor twin. Multi-student support is on the roadmap. Contact support to be notified when it is available.</div>
+        </details>
+        <details class="faq-item">
+            <summary>Does my student need an email address to sign up?</summary>
+            <div class="faq-body">No. Students access their twin through their link. No email or password is required on the student side.</div>
+        </details>
+        <details class="faq-item">
+            <summary>My student already has a Family twin (with their parents). Can I link them to a Mentor twin as well?</summary>
+            <div class="faq-body">This is a planned capability. Contact support to discuss the specific configuration for your student.</div>
+        </details>
+        <details class="faq-item">
+            <summary>What age range does the Mentor Plan support?</summary>
+            <div class="faq-body">Ages 8–18. Eduardo adapts tone and content filter to grade and level — 3rd grade through 12th grade, including test-prep (SAT, ACT, AP).</div>
+        </details>
+    </div>
+
+    <h3 class="section-sub" style="font-size:1.1rem;font-weight:700;color:var(--accent-dark);margin-top:32px;margin-bottom:12px;">Tracking progress</h3>
+    <div class="faq-list">
+        <details class="faq-item">
+            <summary>How does my twin get my student's data?</summary>
+            <div class="faq-body">Your Mentor twin connects to your student's twin securely on the server. When you ask a question about your student, the answer is pulled live from their records — you are always seeing current information.</div>
+        </details>
+        <details class="faq-item">
+            <summary>My student just finished a topic session. Why haven't I seen a report?</summary>
+            <div class="faq-body">Reports appear the next time you open your Mentor twin and start a conversation. They are delivered as a natural message at the start of your session.</div>
+        </details>
+        <details class="faq-item">
+            <summary>Can I see the exact words my student typed?</summary>
+            <div class="faq-body">No. Your student's private chat messages are theirs alone. What you see is structured output: assessment scores, topic objectives completed, KaiNotes created, and goals updated.</div>
+        </details>
+        <details class="faq-item">
+            <summary>How far back does the history go?</summary>
+            <div class="faq-body">As long as you are subscribed, all records are retained and fully searchable.</div>
+        </details>
+    </div>
+
+    <h3 class="section-sub" style="font-size:1.1rem;font-weight:700;color:var(--accent-dark);margin-top:32px;margin-bottom:12px;">Assignments and grading</h3>
+    <div class="faq-list">
+        <details class="faq-item">
+            <summary>How do I control what Eduardo teaches?</summary>
+            <div class="faq-body">Upload lesson plans, worksheets, test prep documents. Eduardo stays grounded in your materials and your district's standards. You can also lock specific topics or approaches.</div>
+        </details>
+        <details class="faq-item">
+            <summary>Do I always have to generate a grading key?</summary>
+            <div class="faq-body">Yes — for worksheets, quizzes, and tests, your twin always produces both the student version and a grading key. This happens automatically.</div>
+        </details>
+        <details class="faq-item">
+            <summary>Where are grading keys stored?</summary>
+            <div class="faq-body">In your Mentor twin's <strong>Reports</strong> tab under Documents. They are never visible to your student or their parents.</div>
+        </details>
+        <details class="faq-item">
+            <summary>Can I see the answers my student gave on a quiz?</summary>
+            <div class="faq-body">Yes. When a quiz or test is completed, the report delivered to you includes a per-question breakdown of what was answered correctly and what was missed.</div>
+        </details>
+        <details class="faq-item">
+            <summary>Can my student refuse or dismiss an assignment?</summary>
+            <div class="faq-body">Students can mark an assignment as dismissed. You will see that status from your Mentor twin. The record stays on both sides.</div>
+        </details>
+        <details class="faq-item">
+            <summary>What is a topic session and how is it different from a worksheet?</summary>
+            <div class="faq-body">A worksheet is a fixed set of questions your student answers. A topic session is a guided, adaptive conversation — your student's twin leads them through the topic using questions and hints, adapting in real time. Topic sessions generate a more detailed report showing which objectives were and weren't met.</div>
+        </details>
+    </div>
+
+    <h3 class="section-sub" style="font-size:1.1rem;font-weight:700;color:var(--accent-dark);margin-top:32px;margin-bottom:12px;">Switching and access</h3>
+    <div class="faq-list">
+        <details class="faq-item">
+            <summary>Do I need a PIN to switch into my student's view?</summary>
+            <div class="faq-body">No. The Mentor Plan does not use a PIN. You switch into your student's interface directly from the <strong>Open Student's View</strong> button in your Mentor twin.</div>
+        </details>
+        <details class="faq-item">
+            <summary>Can my student's parents also see the student's twin?</summary>
+            <div class="faq-body">Parents who have their own Family Plan twin linked to the same student can view the student's KaiBrain data through their Family twin. Mentor and parent access are separate — each reads the student's data through their own twin.</div>
+        </details>
+    </div>
+
+    <h3 class="section-sub" style="font-size:1.1rem;font-weight:700;color:var(--accent-dark);margin-top:32px;margin-bottom:12px;">Privacy &amp; professionalism</h3>
+    <div class="faq-list">
+        <details class="faq-item">
+            <summary>Is my student's data visible to anyone else?</summary>
+            <div class="faq-body">No. Your student's data is private to them, with the following exceptions: you (as their linked mentor) can see structured records through your Mentor twin, and their parents (if on the Family Plan) can see the same structured records through their Parent twin.</div>
+        </details>
+        <details class="faq-item">
+            <summary>Does my student know when I look at their records?</summary>
+            <div class="faq-body">Yes. Your student's twin shows them an activity log with entries like <em>"Your tutor viewed your KaiZen goals"</em> or <em>"Your tutor assigned a fractions quiz."</em></div>
+        </details>
+        <details class="faq-item">
+            <summary>Are my session notes and grading keys visible to parents?</summary>
+            <div class="faq-body">No. Your professional documents — session plans, grading keys, mentor notes, gap analysis — are stored in your Mentor twin only. Parents cannot access them.</div>
+        </details>
+    </div>
+
+    <h3 class="section-sub" style="font-size:1.1rem;font-weight:700;color:var(--accent-dark);margin-top:32px;margin-bottom:12px;">Billing</h3>
+    <div class="faq-list">
+        <details class="faq-item">
+            <summary>What does the Mentor Plan cost?</summary>
+            <div class="faq-body">$39/month per student, flat. Covers both your Mentor twin and your linked student twin.</div>
+        </details>
+        <details class="faq-item">
+            <summary>Who pays — me or the student's family?</summary>
+            <div class="faq-body">You pay EduAsiste directly per student. If you bill a family for tutoring, they pay you (not EduAsiste) — Eduardo is part of your practice, not a separate subscription for the family.</div>
+        </details>
+        <details class="faq-item">
+            <summary>Is there a trial?</summary>
+            <div class="faq-body">Your first student is free for 14 days. No credit card required. Cancel any time during the trial without being charged.</div>
+        </details>
+        <details class="faq-item">
+            <summary>What happens to my data if I cancel?</summary>
+            <div class="faq-body">Your subscription stays active until the end of the billing period. After that, your twin is placed in read-only mode for 30 days so you can export your data. After 30 days, all data is permanently deleted. Your student's twin data is unaffected — it is owned by the student.</div>
+        </details>
+    </div>
+</section>
+
+<section class="section" aria-label="Privacy">
+    <div class="privacy">
+        <p class="privacy-lead"><span aria-hidden="true">🔒</span> Eduardo keeps all student data encrypted and private.</p>
+        <p class="privacy-sub">You control access. End-to-end encrypted. No data sold. COPPA compliant.</p>
+    </div>
+</section>
+
+<section class="final-cta" aria-labelledby="final-cta-title">
+    <h2 id="final-cta-title">Get one Sunday back this month.</h2>
+    <p>Try Eduardo with one student free for 14 days. No credit card.</p>
+    <div class="cta-buttons">
+        <a href="https://ctwin.ai/chat/v3/demo-mentor-bennett-teacher/6e24ed6e56c4f0560261be76b4475d6b" class="btn-primary" target="_blank" rel="noopener">Try Mentor Demo</a>
+        <a href="families.html" class="btn-outline">Are you a Parent?</a>
+    </div>
+</section>
+
+
+<section class="talk-section" aria-label="Schedule a call">
+    <p class="talk-lead">Have a question? Schedule time with an expert.</p>
+    <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ2nvPt4Y4K87urlqQse75X7RlufSSrx8Oc5NvU4vLRzoDvMQGkYYTAefA88osyiiT5yY242FzUW" class="talk-cta-big" target="_blank" rel="noopener">Talk to an Expert</a>
+</section>
+
+</main>
+
+<footer>
+    <p>&copy; 2026 EduAsiste · <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ2nvPt4Y4K87urlqQse75X7RlufSSrx8Oc5NvU4vLRzoDvMQGkYYTAefA88osyiiT5yY242FzUW" target="_blank" rel="noopener">Talk to an Expert</a></p>
+</footer>
+
+</body>
+</html>

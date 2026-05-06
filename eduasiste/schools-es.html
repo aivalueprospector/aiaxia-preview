@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduAsiste para Escuelas — Dirija su distrito con evidencia</title>
+    <meta name="description" content="EduAsiste entrega a su equipo directivo un solo espacio que muestra qué necesitan los profesores, qué les falta a los estudiantes y qué exigen sus Bases Curriculares — con evidencia que la Agencia de Calidad reconoce y conforme a la Ley 21.719.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {"@type": "Question", "name": "¿Reemplaza a Colegium/SchoolNet, Webclass, Lirmi o nuestro SIE?", "acceptedAnswer": {"@type": "Answer", "text": "No — convive. EduAsiste no reemplaza asistencia, libro de clases ni finanzas. Donde su SIE expone API o webhook, ingerimos resultados de evaluaciones, asistencia y altas/bajas para mantener sincronizado el panel de cobertura curricular. Donde no, ingerimos exportaciones."}},
+        {"@type": "Question", "name": "¿Cumple con la Ley 21.719 (LPDP)?", "acceptedAnswer": {"@type": "Answer", "text": "Sí. EduAsiste cumple con los requisitos de la Ley 21.719 (LPDP) que entra en vigor el 1 de diciembre de 2026 — DPA estándar, controles adicionales para datos de menores, residencia de datos en LATAM, registro de auditoría completo, y eliminación dentro de un ciclo de facturación. La nueva Agencia de Protección de Datos Personales puede fiscalizar a su establecimiento; nosotros le acompañamos en la respuesta."}},
+        {"@type": "Question", "name": "¿Entrenan modelos con nuestros datos?", "acceptedAnswer": {"@type": "Answer", "text": "No. Los datos de su establecimiento nunca se usan para entrenar ningún modelo — ni el nuestro ni el de un tercero. Cada Sostenedor corre en un entorno aislado con su propia bóveda, grafo de conocimiento y registro de auditoría."}},
+        {"@type": "Question", "name": "¿Pueden los docentes optar por no participar?", "acceptedAnswer": {"@type": "Answer", "text": "Sí. La participación docente es voluntaria en cada nivel. Los Sostenedores pueden escalar el despliegue escuela por escuela, nivel por nivel, o docente por docente. Retirar a un docente exporta y elimina su espacio de trabajo dentro de un ciclo de facturación."}},
+        {"@type": "Question", "name": "¿Cuánto trabajo es para nuestro equipo de TI?", "acceptedAnswer": {"@type": "Answer", "text": "Un piloto en una escuela suele estar activo en una semana. SSO vía SAML u OIDC, sincronización opcional de roster con su SIE (Colegium/SchoolNet, Webclass, Lirmi, Syscol o CSV) y una lista de permitidos de red. Sin instalación on-prem. Su Encargado TI recibe el cuestionario de seguridad completo; informe SOC 2 Type II disponible bajo NDA."}},
+        {"@type": "Question", "name": "¿En qué se diferencia de SofIA, ChatLPO o AI-Llu?", "acceptedAnswer": {"@type": "Answer", "text": "SofIA, ChatLPO y AI-Llu son excelentes asistentes para un docente preparando una clase. EduAsiste es la capa para el equipo directivo — cobertura curricular por escuela, evidencia para PME, panel para Categoría de Desempeño, y reportes para el Sostenedor. No competimos con AI-Llu (gratis); coexistimos: AI-Llu apoya al profesor, EduAsiste apoya al Jefe UTP."}},
+        {"@type": "Question", "name": "¿Cómo aporta evidencia a mi PME y al DID Escolar 2026?", "acceptedAnswer": {"@type": "Answer", "text": "EduAsiste consolida SIMCE, IDPS y cobertura de OAs en un panel para su equipo directivo y su Sostenedor. Producimos las plantillas que el Jefe UTP usa al redactar el PME y al participar del ciclo DID Escolar 2026. La evidencia es trazable y exportable — la Agencia de Calidad la reconoce porque viene de los mismos datos que ya recolectan."}},
+        {"@type": "Question", "name": "¿Cómo encajan las familias?", "acceptedAnswer": {"@type": "Answer", "text": "Las familias pueden recibir acceso opcional de plan Familia a discreción del Sostenedor. El acceso de familia es de sólo lectura sobre el progreso de su hijo y nunca incluye a otros estudiantes. Muchos colegios corren EduAsiste internamente el primer semestre y agregan acceso Familia el segundo."}},
+        {"@type": "Question", "name": "¿Qué idiomas soporta EduAsiste?", "acceptedAnswer": {"@type": "Answer", "text": "Inglés, español, portugués, francés y alemán. Las bibliotecas de estándares son sensibles al idioma — Bases Curriculares (OAs por nivel y asignatura), IB y marcos curriculares propios del establecimiento pueden cargarse."}},
+        {"@type": "Question", "name": "¿Cuánto cuesta?", "acceptedAnswer": {"@type": "Answer", "text": "El plan Discipline cuesta $79/mes por directivo (hasta 15 usuarios) y el plan Institution $99/mes por directivo (hasta 50 usuarios). Las plazas de docentes y estudiantes se cotizan por establecimiento. Las plazas de mentor son siempre gratis. El compromiso anual recibe un descuento del 17%."}},
+        {"@type": "Question", "name": "¿Pueden cotizar en CLP o UF?", "acceptedAnswer": {"@type": "Answer", "text": "Sí. Los precios listados están en USD para referencia. Cotizamos en CLP o UF para colegios chilenos — escriba a schools@ltwin.ai con número de docentes y de estudiantes y le enviamos la cotización en la moneda que prefiera."}}
+      ]
+    }
+    </script>
+    <style>
+        :root { --bg: #f8fafc; --text: #1e293b; --muted: #475569; --accent: #0077B6; --accent-dark: #03045E; --accent-light: #DBEBFF; --border: #e2e8f0; --card: #ffffff; --green: #16a34a; --gold: #f59e0b; --dark: #0f172a; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', -apple-system, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+        a { color: var(--accent-dark); text-decoration: none; }
+        a:focus-visible, button:focus-visible, summary:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+
+        .skip-link { position: absolute; top: -40px; left: 12px; padding: 10px 16px; background: var(--accent-dark); color: #fff; border-radius: 6px; font-weight: 600; z-index: 200; }
+        .skip-link:focus { top: 12px; color: #fff; }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; transform: none !important; }
+        }
+
+        header { position: sticky; top: 0; background: rgba(255,255,255,0.95); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); z-index: 100; }
+        .header-inner { display: flex; justify-content: space-between; align-items: center; padding: 10px 5%; max-width: 1200px; margin: 0 auto; }
+        .header-brand { display: flex; align-items: center; gap: 10px; font-size: 1.2rem; font-weight: 700; color: var(--text); text-decoration: none; }
+        .header-brand img { width: 36px; height: 36px; }
+        .header-brand span.tag { font-size: 0.78rem; font-weight: 500; color: var(--muted); margin-left: 4px; }
+        .header-nav { display: flex; gap: 22px; align-items: center; font-size: 0.9rem; margin-left: auto; }
+        .header-nav a { color: var(--muted); font-weight: 500; }
+        .header-nav a:hover { color: var(--text); }
+        .header-nav .btn-contact { padding: 8px 18px; background: var(--accent); color: #fff; border-radius: 8px; font-weight: 600; font-size: 0.85rem; }
+        .header-nav .btn-contact:hover { background: var(--accent-dark); }
+
+        .hero { display: flex; flex-direction: row-reverse; justify-content: center; align-items: center; gap: 40px; padding: 70px 5% 30px; max-width: 1100px; margin: 0 auto; }
+        .hero img.hero-owl { width: 200px; height: auto; flex-shrink: 0; filter: drop-shadow(0 14px 28px rgba(0,119,182,0.25)); }
+        .hero-text { text-align: left; max-width: 640px; }
+        .hero h1 { font-size: 2.4rem; font-weight: 800; letter-spacing: -0.03em; margin-bottom: 14px; line-height: 1.15; color: var(--accent-dark); }
+        .hero h1 em { font-style: normal; color: var(--accent); }
+        .hero .hero-subtitle { font-size: 1.1rem; font-weight: 500; color: var(--text); margin-bottom: 22px; line-height: 1.55; }
+        .hero-ctas { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 22px; }
+        .btn-primary { display: inline-block; padding: 13px 26px; background: var(--accent); color: #fff; border-radius: 10px; font-weight: 700; font-size: 0.98rem; }
+        .btn-primary:hover { background: var(--accent-dark); color: #fff; }
+        .btn-outline { display: inline-block; padding: 13px 26px; background: transparent; border: 2px solid var(--accent); color: var(--accent-dark); border-radius: 10px; font-weight: 700; font-size: 0.98rem; }
+        .btn-outline:hover { background: var(--accent-light); }
+
+        .trust-strip { display: flex; flex-wrap: wrap; gap: 8px 18px; align-items: center; font-size: 0.78rem; color: var(--muted); padding-top: 8px; border-top: 1px dashed var(--border); }
+        .trust-strip span.lbl { font-weight: 700; color: var(--accent-dark); margin-right: 4px; }
+        .trust-strip .badge { display: inline-flex; align-items: center; gap: 5px; padding: 3px 9px; background: #fff; border: 1px solid var(--border); border-radius: 999px; font-weight: 600; color: var(--text); }
+        .trust-strip .badge::before { content: "✓"; color: var(--accent); font-weight: 800; }
+
+        .section { max-width: 1100px; margin: 0 auto; padding: 60px 5%; }
+        .section-eyebrow { text-align: center; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.12em; color: var(--accent); text-transform: uppercase; margin-bottom: 8px; }
+        .section-title { font-size: 2rem; font-weight: 700; text-align: center; color: var(--accent-dark); margin-bottom: 10px; }
+        .section-sub { font-size: 1rem; color: var(--muted); text-align: center; margin-bottom: 40px; max-width: 720px; margin-left: auto; margin-right: auto; }
+
+        .pain-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+        .pain-card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 28px 24px; }
+        .pain-card .pain-num { display: inline-block; padding: 3px 10px; border-radius: 999px; background: var(--accent-light); color: var(--accent-dark); font-weight: 700; font-size: 0.78rem; margin-bottom: 10px; }
+        .pain-card h3 { font-size: 1.05rem; font-weight: 700; color: var(--text); line-height: 1.35; margin-bottom: 10px; }
+        .pain-card p { font-size: 0.9rem; color: var(--muted); line-height: 1.55; }
+        .pain-card .stat { display: block; margin-top: 10px; font-size: 0.82rem; color: var(--accent-dark); font-weight: 600; }
+
+        .cascade { display: grid; grid-template-columns: 1fr 24px 1fr 24px 1fr; align-items: stretch; gap: 0; max-width: 1080px; margin: 0 auto; }
+        .cascade-card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 28px 22px; display: flex; flex-direction: column; }
+        .cascade-card .role { display: inline-block; font-size: 0.74rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; }
+        .cascade-card h3 { font-size: 1.2rem; font-weight: 700; color: var(--accent-dark); margin-bottom: 8px; }
+        .cascade-card p { font-size: 0.92rem; color: var(--text); line-height: 1.55; margin-bottom: 12px; }
+        .cascade-card ul { list-style: none; font-size: 0.85rem; color: var(--muted); margin-top: auto; }
+        .cascade-card ul li { padding: 4px 0 4px 20px; position: relative; }
+        .cascade-card ul li::before { content: "→"; position: absolute; left: 0; color: var(--accent); font-weight: 800; }
+        .cascade-arrow { display: flex; align-items: center; justify-content: center; color: var(--accent); font-size: 1.6rem; font-weight: 800; }
+
+        .outcomes { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; }
+        .outcome-card { background: linear-gradient(180deg, var(--accent-light) 0%, #fff 100%); border: 2px solid var(--accent); border-radius: 16px; padding: 28px 18px; text-align: center; }
+        .outcome-num { font-size: 2.4rem; font-weight: 800; color: var(--accent-dark); line-height: 1; margin-bottom: 6px; }
+        .outcome-num small { font-size: 1rem; font-weight: 600; color: var(--accent); }
+        .outcome-label { font-size: 0.88rem; font-weight: 600; color: var(--text); margin-bottom: 4px; }
+        .outcome-note { font-size: 0.74rem; color: var(--muted); }
+        .pilot-disclaimer { text-align: center; font-size: 0.78rem; color: var(--muted); margin-top: 16px; font-style: italic; }
+
+        .roles { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+        .role-card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 28px; transition: all 0.2s; }
+        .role-card:hover { box-shadow: 0 8px 24px rgba(0,119,182,0.12); transform: translateY(-2px); border-color: var(--accent); }
+        .role-card .role-tag { display: inline-block; padding: 4px 10px; border-radius: 999px; background: var(--accent-light); color: var(--accent-dark); font-size: 0.74rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 12px; }
+        .role-card h3 { font-size: 1.15rem; font-weight: 700; color: var(--accent-dark); margin-bottom: 10px; }
+        .role-card .qa { margin-bottom: 12px; }
+        .role-card .qa .q { font-size: 0.92rem; font-weight: 600; color: var(--text); margin-bottom: 4px; }
+        .role-card .qa .q::before { content: "Pregunta: "; color: var(--accent); font-weight: 700; }
+        .role-card .qa .a { font-size: 0.88rem; color: var(--muted); line-height: 1.55; }
+        .role-card .qa .a::before { content: "Respondemos: "; color: var(--accent-dark); font-weight: 700; }
+
+        .standards { background: linear-gradient(135deg, #fff, var(--accent-light)); border: 1px solid var(--accent-light); border-radius: 18px; padding: 40px; }
+        .standards h3 { font-size: 1.4rem; color: var(--accent-dark); margin-bottom: 12px; }
+        .standards p { color: var(--text); line-height: 1.6; margin-bottom: 16px; }
+        .std-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+        .std-tag { padding: 6px 12px; background: #fff; border: 1px solid var(--accent); color: var(--accent-dark); border-radius: 999px; font-size: 0.82rem; font-weight: 600; }
+
+        .evidence { display: grid; grid-template-columns: 1fr 2fr; gap: 28px; align-items: start; }
+        .evidence-tier { background: var(--card); border: 2px solid var(--accent); border-radius: 14px; padding: 24px; text-align: center; }
+        .evidence-tier .tier-num { font-size: 2.2rem; font-weight: 800; color: var(--accent-dark); line-height: 1; }
+        .evidence-tier .tier-label { font-size: 0.82rem; font-weight: 700; color: var(--accent); letter-spacing: 0.08em; text-transform: uppercase; margin-top: 6px; }
+        .evidence-text p { font-size: 0.95rem; color: var(--text); line-height: 1.6; margin-bottom: 10px; }
+        .evidence-ladder { list-style: none; margin-top: 16px; }
+        .evidence-ladder li { padding: 8px 0 8px 28px; position: relative; font-size: 0.9rem; color: var(--muted); border-bottom: 1px dashed var(--border); }
+        .evidence-ladder li::before { content: ""; position: absolute; left: 0; top: 14px; width: 14px; height: 14px; border-radius: 50%; background: var(--border); }
+        .evidence-ladder li.now::before { background: var(--accent); box-shadow: 0 0 0 4px var(--accent-light); }
+        .evidence-ladder li.next::before { background: var(--gold); }
+        .evidence-ladder li strong { color: var(--text); font-weight: 700; }
+
+        .security { background: var(--dark); color: #fff; border-radius: 18px; padding: 40px; }
+        .security h3 { color: #fff; font-size: 1.4rem; margin-bottom: 12px; }
+        .security .badges { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; }
+        .security .badges span { padding: 6px 12px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.18); border-radius: 999px; font-size: 0.82rem; font-weight: 600; color: #fff; }
+        .security p { color: #cbd5e1; line-height: 1.65; font-size: 0.95rem; margin-bottom: 12px; }
+        .security ul { list-style: none; margin-top: 14px; }
+        .security ul li { padding: 6px 0 6px 22px; position: relative; color: #e2e8f0; font-size: 0.92rem; }
+        .security ul li::before { content: "✓"; position: absolute; left: 0; color: var(--accent); font-weight: 800; }
+
+        .pilot { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; position: relative; }
+        .pilot-step { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 28px 22px; }
+        .pilot-step .step-num { display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 50%; background: var(--accent); color: #fff; font-weight: 800; font-size: 1rem; margin-bottom: 12px; }
+        .pilot-step h3 { font-size: 1.1rem; font-weight: 700; color: var(--accent-dark); margin-bottom: 8px; }
+        .pilot-step p { font-size: 0.9rem; color: var(--muted); line-height: 1.55; margin-bottom: 8px; }
+        .pilot-step .timing { display: inline-block; font-size: 0.76rem; font-weight: 700; color: var(--accent); padding: 3px 9px; background: var(--accent-light); border-radius: 999px; }
+
+        .pricing-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; }
+        .price-box { background: var(--card); border: 2px solid var(--border); border-radius: 16px; padding: 32px 24px; display: flex; flex-direction: column; }
+        .price-box.featured { border-color: var(--accent); position: relative; }
+        .price-box.featured::before { content: "RECOMENDADO PARA SOSTENEDORES"; position: absolute; top: -11px; left: 50%; transform: translateX(-50%); background: var(--accent); color: #fff; padding: 4px 12px; border-radius: 999px; font-size: 0.7rem; font-weight: 800; letter-spacing: 0.08em; white-space: nowrap; }
+        .price-box .tier-name { font-size: 0.82rem; font-weight: 800; color: var(--accent); letter-spacing: 0.1em; text-transform: uppercase; }
+        .price-box .display-name { font-size: 1.4rem; font-weight: 700; color: var(--accent-dark); margin: 4px 0 12px; }
+        .price-box .amount { font-size: 2.6rem; font-weight: 800; color: var(--accent-dark); line-height: 1; }
+        .price-box .amount small { font-size: 0.95rem; font-weight: 500; color: var(--muted); }
+        .price-box .annual-note { font-size: 0.82rem; color: var(--muted); margin: 6px 0 14px; }
+        .price-box ul { list-style: none; font-size: 0.9rem; color: var(--text); margin-bottom: 18px; flex-grow: 1; }
+        .price-box ul li { padding: 6px 0 6px 22px; position: relative; }
+        .price-box ul li::before { content: "✓"; position: absolute; left: 0; color: var(--accent); font-weight: 800; }
+        .price-box .price-cta { width: 100%; text-align: center; }
+        .price-foot { text-align: center; font-size: 0.82rem; color: var(--muted); margin-top: 18px; }
+
+        .faq-list { max-width: 820px; margin: 0 auto; }
+        .faq-item { background: var(--card); border: 1px solid var(--border); border-radius: 12px; margin-bottom: 12px; }
+        .faq-item summary { cursor: pointer; padding: 20px 24px; font-weight: 600; font-size: 1rem; color: var(--accent-dark); list-style: none; position: relative; padding-right: 48px; }
+        .faq-item summary::-webkit-details-marker { display: none; }
+        .faq-item summary::after { content: "+"; position: absolute; right: 24px; top: 50%; transform: translateY(-50%); font-size: 1.6rem; font-weight: 300; color: var(--accent); transition: transform 0.2s; }
+        .faq-item[open] summary::after { content: "−"; }
+        .faq-item .faq-body { padding: 0 24px 20px; font-size: 0.95rem; color: var(--muted); line-height: 1.7; }
+
+        .final-cta-band { background: linear-gradient(135deg, var(--accent-dark), var(--accent)); color: #fff; border-radius: 20px; padding: 48px 40px; text-align: center; margin: 40px 5%; }
+        .final-cta-band h2 { color: #fff; font-size: 1.9rem; margin-bottom: 10px; }
+        .final-cta-band p { color: rgba(255,255,255,0.9); margin-bottom: 24px; max-width: 640px; margin-left: auto; margin-right: auto; font-size: 1rem; }
+        .final-cta-band .cta-row { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-bottom: 16px; }
+        .final-cta-band .btn-primary { background: #fff; color: var(--accent-dark); }
+        .final-cta-band .btn-primary:hover { background: var(--accent-light); color: var(--accent-dark); }
+        .final-cta-band .btn-outline { border-color: #fff; color: #fff; }
+        .final-cta-band .btn-outline:hover { background: rgba(255,255,255,0.1); }
+        .final-cta-band .contact-line { font-size: 0.92rem; color: rgba(255,255,255,0.85); margin-top: 12px; }
+        .final-cta-band .contact-line a { color: #fff; text-decoration: underline; }
+
+        footer { text-align: center; padding: 32px 5%; color: var(--muted); font-size: 0.9rem; border-top: 1px solid var(--border); }
+        footer a { color: var(--accent-dark); }
+
+        @media (max-width: 980px) {
+            .pain-grid { grid-template-columns: 1fr; }
+            .roles { grid-template-columns: 1fr; }
+            .outcomes { grid-template-columns: repeat(2, 1fr); }
+            .cascade { grid-template-columns: 1fr; gap: 14px; }
+            .cascade-arrow { transform: rotate(90deg); padding: 4px 0; }
+            .pricing-grid { grid-template-columns: 1fr; }
+            .pilot { grid-template-columns: 1fr; }
+            .evidence { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 760px) {
+            .hero { flex-direction: column; text-align: center; gap: 24px; padding-top: 50px; }
+            .hero-text { text-align: center; }
+            .hero img.hero-owl { width: 150px; }
+            .hero-ctas { justify-content: center; }
+            .trust-strip { justify-content: center; }
+            .standards { padding: 28px; }
+            .security { padding: 28px; }
+            .final-cta-band { padding: 36px 24px; }
+        }
+        @media (max-width: 600px) {
+            .hero h1 { font-size: 1.7rem; }
+            .section-title { font-size: 1.55rem; }
+            .header-inner { flex-wrap: wrap; gap: 8px; }
+            .header-nav { gap: 12px; font-size: 0.78rem; }
+            .header-brand span.tag { display: none; }
+            .outcomes { grid-template-columns: 1fr 1fr; }
+            .outcome-num { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+<a href="#main" class="skip-link">Saltar al contenido</a>
+
+<header>
+    <div class="header-inner">
+        <a href="index.html" class="header-brand">
+            <img src="_assets/eduardo_owl.png" alt="">
+            EduAsiste <span class="tag">para Escuelas</span>
+        </a>
+        <nav class="header-nav" aria-label="Principal">
+            <a href="#why">Por qué</a>
+            <a href="#cascade">Cómo funciona</a>
+            <a href="#outcomes">Resultados</a>
+            <a href="#security">Seguridad</a>
+            <a href="#pricing">Precios</a>
+            <a href="#consult" class="btn-contact">Agendar consulta</a>
+        </nav>
+    </div>
+</header>
+
+<main id="main">
+
+<section class="hero" aria-labelledby="hero-title">
+    <div class="hero-text">
+        <h1 id="hero-title">Dirija su colegio con <em>evidencia</em>.</h1>
+        <p class="hero-subtitle">EduAsiste entrega a su equipo directivo un solo espacio que muestra qué necesitan los profesores, qué les falta a los estudiantes y qué exigen sus Bases Curriculares — con evidencia que la Agencia de Calidad reconoce y conforme a la Ley 21.719.</p>
+        <div class="hero-ctas">
+            <a href="#consult" class="btn-primary">Agendar consulta para Sostenedores y directivos</a>
+            <a href="#checklist" class="btn-outline">Checklist de IA y LPDP para colegios chilenos</a>
+        </div>
+        <div class="trust-strip" aria-label="Indicadores de confianza y cumplimiento">
+            <span class="lbl">Confianza:</span>
+            <span class="badge">Evidencia para Categoría de Desempeño</span>
+            <span class="badge">Ley 21.719 (LPDP) listo</span>
+            <span class="badge">Alineado a PotencIA Mineduc</span>
+            <span class="badge">Auditoría completa</span>
+            <span class="badge">Sus datos no entrenan nuestros modelos</span>
+        </div>
+    </div>
+    <img class="hero-owl" src="_assets/eduardo_owl.png" alt="Eduardo el búho, guía de EduAsiste">
+</section>
+
+<section class="section" id="why" aria-labelledby="why-title">
+    <p class="section-eyebrow">El problema</p>
+    <h2 class="section-title" id="why-title">Tres presiones simultáneas en cada colegio</h2>
+    <p class="section-sub">Sea lo que sea que esté evaluando ahora, está balanceando carga docente, cumplimiento normativo y rendición de cuentas — usualmente con la misma planta del año pasado.</p>
+    <div class="pain-grid">
+        <div class="pain-card">
+            <span class="pain-num">01</span>
+            <h3>Carga docente y rotación</h3>
+            <p>El docente chileno promedio dedica más de 9 horas semanales fuera de aula a tareas administrativas. Cerca de la mitad reporta agotamiento. El conocimiento institucional se va con cada salida — y el reemplazo cuesta tiempo y plata que no estaban en el presupuesto.</p>
+            <span class="stat">+9 hs/semana en planillas · ~50% agotamiento · alta rotación en subvencionados</span>
+        </div>
+        <div class="pain-card">
+            <span class="pain-num">02</span>
+            <h3>Cumplimiento Ley 21.719 (LPDP) y política de IA</h3>
+            <p>Desde el 1 de diciembre de 2026, todo establecimiento que trate datos de menores debe aplicar controles adicionales y responder ante la nueva Agencia de Protección de Datos Personales. Mineduc, vía PotencIA el Aprendizaje, también pide uso consciente y responsable de la IA en aula. Los proveedores que no respondan se quedan fuera del próximo ciclo.</p>
+            <span class="stat">Vigencia LPDP: 1 de diciembre de 2026 · aplica a todo dato de menor de edad</span>
+        </div>
+        <div class="pain-card">
+            <span class="pain-num">03</span>
+            <h3>Rendición de cuentas: PME y Categoría de Desempeño</h3>
+            <p>Su Sostenedor responde por su PME ante la Agencia de Calidad. Su Categoría de Desempeño (Alto / Medio / Medio-Bajo / Insuficiente) se construye con SIMCE, IDPS y avance en los OAs. Para enseñanza media, los resultados PAES también pesan. La evidencia tiene que estar lista para el ciclo DID Escolar 2026, no después.</p>
+            <span class="stat">Cobertura de OAs y evidencia para PME — antes del próximo ciclo SIMCE/PAES, no después.</span>
+        </div>
+    </div>
+</section>
+
+<section class="section" id="cascade" aria-labelledby="cascade-title">
+    <p class="section-eyebrow">Cómo funciona</p>
+    <h2 class="section-title" id="cascade-title">La cascada: equipo directivo &rarr; docente &rarr; estudiante</h2>
+    <p class="section-sub">EduAsiste no es otra herramienta pegada a su colegio. Es un solo espacio de trabajo por rol, conectado por sus Bases Curriculares. La ayuda fluye hacia abajo; la evidencia para PME y Categoría de Desempeño fluye hacia arriba.</p>
+    <div class="cascade">
+        <div class="cascade-card">
+            <span class="role">Equipo directivo</span>
+            <h3>Ve todo el colegio</h3>
+            <p>El espacio del equipo directivo informa al Jefe UTP, al Director y al Sostenedor sobre lo que realmente está pasando en las aulas — sin pedir otro reporte.</p>
+            <ul>
+                <li>Cobertura de OAs por nivel y sección</li>
+                <li>Cohortes en riesgo detectadas en todos los docentes</li>
+                <li>Carga docente y cadencia de evaluaciones</li>
+                <li>Reportes para PME, Sostenedor y Agencia de Calidad a demanda</li>
+            </ul>
+        </div>
+        <div class="cascade-arrow" aria-hidden="true">&rarr;</div>
+        <div class="cascade-card">
+            <span class="role">Docente</span>
+            <h3>Recibe ayuda donde importa</h3>
+            <p>El espacio del docente documenta el currículo, redacta evaluaciones con clave de corrección, y monitorea el progreso de cada estudiante contra sus OAs — para que el docente dedique tiempo a enseñar, no a planillas.</p>
+            <ul>
+                <li>Planificación anual y de unidad alineada a OAs</li>
+                <li>Evaluaciones y rúbricas alineadas a OAs (DUA opcional)</li>
+                <li>Comunicaciones a apoderados redactadas para aprobación del docente</li>
+                <li>Alertas de riesgo en tiempo real para su curso</li>
+            </ul>
+        </div>
+        <div class="cascade-arrow" aria-hidden="true">&rarr;</div>
+        <div class="cascade-card">
+            <span class="role">Estudiante</span>
+            <h3>Aprende siendo cuestionado</h3>
+            <p>El espacio del estudiante es estrictamente socrático — nunca da la respuesta, siempre guía. Una pregunta a la vez, con andamiaje según el nivel y los OAs. Cada interacción genera evidencia para IDPS y SIMCE.</p>
+            <ul>
+                <li>Práctica guiada y adaptativa sobre sus brechas de OAs</li>
+                <li>Guías y sesiones de discusión asignadas por el docente</li>
+                <li>Fortalezas y debilidades vinculadas a OAs</li>
+                <li>Bitácora de actividad visible para apoderado y mentor</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section class="section" id="outcomes" aria-labelledby="outcomes-title">
+    <p class="section-eyebrow">Resultados</p>
+    <h2 class="section-title" id="outcomes-title">Lo que el equipo directivo ve en el primer semestre</h2>
+    <p class="section-sub">Cifras de nuestros pilotos activos. Publicamos el estudio piloto al cierre de cada año académico (Diciembre).</p>
+    <div class="outcomes">
+        <div class="outcome-card">
+            <div class="outcome-num">3-6<small>hs</small></div>
+            <div class="outcome-label">Devueltas al docente por semana</div>
+            <div class="outcome-note">Planificación, corrección y comunicación con apoderados</div>
+        </div>
+        <div class="outcome-card">
+            <div class="outcome-num">100<small>%</small></div>
+            <div class="outcome-label">Visibilidad de cobertura de OAs</div>
+            <div class="outcome-note">Por docente, por nivel, por sección</div>
+        </div>
+        <div class="outcome-card">
+            <div class="outcome-num">3-5<small>sem</small></div>
+            <div class="outcome-label">Detección temprana de riesgo</div>
+            <div class="outcome-note">Vs. esperar al próximo ciclo de evaluación</div>
+        </div>
+        <div class="outcome-card">
+            <div class="outcome-num">2-4<small>x</small></div>
+            <div class="outcome-label">Comunicación con apoderados</div>
+            <div class="outcome-note">Auto-redactada, aprobada por el docente</div>
+        </div>
+        <div class="outcome-card">
+            <div class="outcome-num" style="font-size:1.4rem; font-weight:800; line-height:1.1;">SIMCE+IDPS</div>
+            <div class="outcome-label">Panel para Categoría de Desempeño</div>
+            <div class="outcome-note">SIMCE, IDPS y niveles de aprendizaje consolidados para su Sostenedor</div>
+        </div>
+    </div>
+    <p class="pilot-disclaimer">Los rangos reflejan datos de pilotos activos. Sus resultados variarán según tamaño del establecimiento, línea base y alcance del despliegue. Honestos sobre lo que podemos demostrar — vea la sección Evidencia abajo (DID Escolar y PME).</p>
+</section>
+
+<section class="section" id="roles" aria-labelledby="roles-title">
+    <p class="section-eyebrow">Para su rol</p>
+    <h2 class="section-title" id="roles-title">Lo que pregunta. Lo que respondemos.</h2>
+    <p class="section-sub">Los Sostenedores compran por consenso. Abajo está lo que cada interlocutor necesita de la evaluación de un proveedor.</p>
+    <div class="roles">
+        <div class="role-card">
+            <span class="role-tag">Sostenedor</span>
+            <h3>Una compra defendible ante su consejo y la Agencia</h3>
+            <div class="qa">
+                <p class="q">¿Puedo defender esta compra ante mi consejo y la Agencia de Calidad?</p>
+                <p class="a">Sí. Cada espacio de trabajo es auditable, alineado a las Bases Curriculares y a la Ley 21.719 (LPDP). Cada recomendación lleva justificación escrita. Sus datos nunca dejan su entorno y la documentación para fiscalización está lista.</p>
+            </div>
+            <div class="qa">
+                <p class="q">¿Qué historia llevo al cierre de año?</p>
+                <p class="a">Cobertura de OAs por establecimiento, evidencia para PME, panel de Categoría de Desempeño con SIMCE e IDPS consolidados, y horas devueltas a sus docentes. Redactamos con usted la presentación al consejo al cierre del primer semestre.</p>
+            </div>
+        </div>
+        <div class="role-card">
+            <span class="role-tag">Jefe UTP</span>
+            <h3>Cobertura curricular sin más papeleo</h3>
+            <div class="qa">
+                <p class="q">¿Realmente se mapea a las Bases Curriculares y a los OAs?</p>
+                <p class="a">Sí. Cargue las Bases Curriculares por nivel y asignatura, IB o su Plan de Estudios propio. Cada planificación, evaluación y nota de estudiante se mapea a sus OAs — menos tiempo en planillas, más tiempo en lo pedagógico.</p>
+            </div>
+            <div class="qa">
+                <p class="q">¿Puedo ver brechas de cobertura antes del próximo ciclo SIMCE?</p>
+                <p class="a">Sí. Los reportes de Auditoría de Cobertura Curricular muestran OAs que ningún docente ha evaluado a nivel de escuela, por nivel, por sección. La brecha la ve semanas antes — y la documenta para su PME.</p>
+            </div>
+        </div>
+        <div class="role-card">
+            <span class="role-tag">Director</span>
+            <h3>Tiempo recuperado, sin dolor de despliegue</h3>
+            <div class="qa">
+                <p class="q">¿Mis docentes realmente lo van a usar?</p>
+                <p class="a">Eduardo se incorpora en menos de 30 minutos por docente. Lo primero que hace es quitarles una tarea — redactar comunicaciones a apoderados o sacar un reporte de clase. La adopción sigue.</p>
+            </div>
+            <div class="qa">
+                <p class="q">¿Y los estudiantes en riesgo que nadie marcó?</p>
+                <p class="a">Eduardo lee transversalmente todas las aulas y muestra a los estudiantes que se están deslizando antes de la próxima prueba. Usted obtiene la lista. Usted decide la intervención con su Jefe UTP.</p>
+            </div>
+        </div>
+        <div class="role-card">
+            <span class="role-tag">Encargado de Convivencia y TI</span>
+            <h3>Cumple Ley 21.719 y convive con su SIE actual</h3>
+            <div class="qa">
+                <p class="q">¿Qué necesita mi revisión técnica y de convivencia digital?</p>
+                <p class="a">DPA alineado a Ley 21.719 (LPDP), residencia de datos en LATAM, registro de auditoría completo, SSO SAML/OIDC, y la respuesta a "¿entrenan con nuestros datos?" es no. Informe SOC 2 Type II disponible bajo NDA.</p>
+            </div>
+            <div class="qa">
+                <p class="q">¿Cómo integramos con Colegium/SchoolNet, Webclass, Lirmi o Syscol?</p>
+                <p class="a">Convivimos. Donde la SIE expone API o webhook, ingerimos asistencia, evaluaciones y altas/bajas. Donde no, importamos CSV. Sin instalación on-prem. Un piloto en una escuela está activo en una semana.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section" id="standards" aria-labelledby="standards-title">
+    <p class="section-eyebrow">Alineación a Bases Curriculares</p>
+    <h2 class="section-title" id="standards-title">Sus Bases Curriculares. Sus estudiantes. Un solo grafo.</h2>
+    <div class="standards">
+        <h3>Cargue sus Bases Curriculares — todo progreso de estudiante se mapea automáticamente a sus OAs.</h3>
+        <p>El grafo de conocimiento de EduAsiste modela <strong>Bases Curriculares</strong>, <strong>OA</strong>, <strong>Evaluación</strong> y <strong>Estudiante</strong> como entidades de primer orden, conectadas por una relación <code>ALIGNED_TO</code>. En el momento en que un docente sube una prueba o planificación, cada pregunta y OA se mapea a la base oficial — no a una taxonomía genérica.</p>
+        <p>Eso es lo que vuelve a "cobertura curricular" un número real en vez de una intuición. El Jefe UTP ve la brecha por nivel. El Director ve la brecha por sección. El docente ve la brecha por estudiante. El Sostenedor ve la brecha por establecimiento. El mismo grafo.</p>
+        <div class="std-tags">
+            <span class="std-tag">Bases Curriculares (OAs por nivel y asignatura)</span>
+            <span class="std-tag">Bachillerato Internacional (IB)</span>
+            <span class="std-tag">Marcos curriculares propios del establecimiento</span>
+            <span class="std-tag">+ su Plan de Estudios y Programa</span>
+        </div>
+    </div>
+</section>
+
+<section class="section" id="evidence" aria-labelledby="evidence-title">
+    <p class="section-eyebrow">Evidencia</p>
+    <h2 class="section-title" id="evidence-title">Evidencia que su equipo y la Agencia ya reconocen</h2>
+    <p class="section-sub">No vamos a afirmar más de lo que la evidencia respalda. Aquí está cómo EduAsiste alimenta su PME y el ciclo DID Escolar 2026.</p>
+    <div class="evidence">
+        <div class="evidence-tier">
+            <div class="tier-num" style="font-size:1.3rem; font-weight:800;">Categoría<br>de Desempeño</div>
+            <div class="tier-label">Su evidencia, lista para la Agencia</div>
+        </div>
+        <div class="evidence-text">
+            <p>EduAsiste consolida <strong>SIMCE</strong>, <strong>IDPS (Indicadores de Desarrollo Personal y Social)</strong> y la cobertura de OAs en un solo panel para su equipo directivo y su Sostenedor. Producimos las plantillas que el Jefe UTP usa al redactar el <strong>PME (Plan de Mejoramiento Educativo)</strong> y al participar del ciclo <strong>DID Escolar 2026</strong> — la herramienta de autoevaluación que la Agencia de Calidad invita a aplicar a cada establecimiento.</p>
+            <p>La evidencia es trazable y exportable. La Agencia la reconoce porque viene de los mismos datos que el establecimiento ya recolecta — sólo que organizados, fechados y vinculados a OAs. <em>Aviso honesto: EduAsiste no está aún en el registro ATE oficial; el PME lo presenta su Sostenedor, no nosotros.</em></p>
+            <ul class="evidence-ladder" aria-label="Niveles de Categoría de Desempeño">
+                <li class="now"><strong>Alto.</strong> Mantener evidencia y cobertura de OAs trimestralmente.</li>
+                <li class="next"><strong>Medio.</strong> Subir a Alto: foco en OAs sub-evaluados + IDPS.</li>
+                <li><strong>Medio-Bajo.</strong> Apoyo prioritario de la Agencia. Documentar PME con evidencia auditable.</li>
+                <li><strong>Insuficiente.</strong> Apoyo prioritario y plan urgente. EduAsiste produce la evidencia mensual que el ciclo exige.</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section class="section" id="security" aria-labelledby="security-title">
+    <p class="section-eyebrow">Seguridad y política de datos</p>
+    <h2 class="section-title" id="security-title">Construido para Ley 21.719 (LPDP) y la realidad de TI escolar</h2>
+    <div class="security">
+        <h3>Postura de cumplimiento</h3>
+        <div class="badges">
+            <span>Ley 21.719 (LPDP)</span>
+            <span>Alineado a PotencIA Mineduc</span>
+            <span>SSO SAML / OIDC</span>
+            <span>DPA bajo NDA</span>
+            <span>Residencia de datos LATAM</span>
+            <span>Sin entrenamiento en datos del cliente</span>
+        </div>
+        <p><strong>Sus datos cumplen con la Ley 21.719 (LPDP).</strong> A partir del 1 de diciembre de 2026, todo establecimiento que trate datos de menores debe aplicar controles adicionales y responder ante la nueva Agencia de Protección de Datos Personales. EduAsiste entrega DPA estándar, residencia de datos en LATAM, registro de auditoría completo y eliminación de cuenta dentro de un ciclo de facturación. Cada Sostenedor corre en un entorno aislado con bóveda privada para datos personales de estudiantes; las proyecciones obfuscadas (tipos y relaciones, sin nombres) son lo que el grafo expone.</p>
+        <p><strong>Sus datos nunca entrenan nuestros modelos — ni los nuestros ni los de terceros.</strong> Sin fine-tuning sobre datos del cliente, sin prompts compartidos, sin corpus de entrenamiento anonimizado. Esto es lo que pide PotencIA el Aprendizaje (Mineduc) cuando habla de uso consciente y responsable de la IA en aula.</p>
+        <p><strong>Supervisión humana en cada interacción.</strong> Cada sesión de estudiante es revisable por su docente y por el Jefe UTP. Cada comunicación a apoderado redactada por la plataforma es aprobada por el docente antes de enviarse.</p>
+        <ul>
+            <li>Registro de auditoría completo de cada acceso, consulta y reporte</li>
+            <li>Exportación de datos en un clic y en cualquier momento, en formatos estándar (markdown Obsidian, CSV, JSON)</li>
+            <li>Eliminación de cuenta dentro de un ciclo de facturación, sin preguntas</li>
+            <li>Informe de pen-test e informe SOC 2 Type II disponibles bajo NDA</li>
+        </ul>
+    </div>
+</section>
+
+<section class="section" id="pilot" aria-labelledby="pilot-title">
+    <p class="section-eyebrow">Ruta del piloto</p>
+    <h2 class="section-title" id="pilot-title">Tres pasos: del co-diseño al año académico completo</h2>
+    <p class="section-sub">La escalera que sube la mayoría de los Sostenedores. El año académico chileno corre de marzo a diciembre — nos coordinamos con su calendario.</p>
+    <div class="pilot">
+        <div class="pilot-step">
+            <span class="step-num">1</span>
+            <h3>Co-diseño de invierno (julio)</h3>
+            <p>Una escuela, un Jefe UTP, un Director, hasta 20 docentes. En el receso de invierno (mediados de julio) instalamos, importamos artefactos del primer semestre y dejamos un panel inicial. En agosto, todos vuelven a una escuela donde EduAsiste ya conoce sus OAs.</p>
+            <span class="timing">Receso de invierno · 30 días</span>
+        </div>
+        <div class="pilot-step">
+            <span class="step-num">2</span>
+            <h3>Semestre 2 — expansión a la red del Sostenedor</h3>
+            <p>Despliegue a una segunda y tercera escuela del mismo Sostenedor. Sincronización SIE (Colegium/SchoolNet, Webclass, Lirmi). Reportes con formato PME y panel de Categoría de Desempeño. Sesión con cohortes docentes en septiembre y noviembre.</p>
+            <span class="timing">Agosto–Diciembre 2026</span>
+        </div>
+        <div class="pilot-step">
+            <span class="step-num">3</span>
+            <h3>Año académico completo — multi-Sostenedor o red regional</h3>
+            <p>Adopción multi-Sostenedor con tableros por rol para Sostenedor, Director, Jefe UTP, Encargado TI y docentes. Estudio piloto publicado al cierre del año académico. Acceso opcional Familia para apoderados.</p>
+            <span class="timing">Marzo–Diciembre 2027</span>
+        </div>
+    </div>
+</section>
+
+<section class="section" id="pricing" aria-labelledby="pricing-title">
+    <p class="section-eyebrow">Precios</p>
+    <h2 class="section-title" id="pricing-title">Precios por nivel, transparentes</h2>
+    <p class="section-sub">Precio por directivo para Discipline e Institution. Las plazas de docentes y estudiantes se cotizan por establecimiento. Las plazas de mentor son siempre gratis. La facturación anual recibe un descuento del 17%.</p>
+    <div class="pricing-grid" id="pricing-cards">
+        <div class="price-box">
+            <span class="tier-name">Discipline</span>
+            <div class="display-name">Una escuela / Departamento (15 directivos)</div>
+            <div class="amount" data-tier="PLATINUM" data-field="amount">$<span data-monthly>79</span><small>/mes</small></div>
+            <div class="annual-note" data-tier="PLATINUM" data-field="annual">O $<span data-annual>787</span>/año (~$<span data-annual-mo>66</span>/mes)</div>
+            <ul>
+                <li>Hasta 15 directivos (Sostenedor, Director, Jefe UTP, etc.)</li>
+                <li>30 extracciones de documentos por día</li>
+                <li>Alineación a Bases Curriculares para una escuela</li>
+                <li>Panel de cobertura por nivel y sección</li>
+                <li>Reportes de Auditoría de Cobertura Curricular</li>
+                <li>Plazas de mentor gratis</li>
+            </ul>
+            <a href="#consult" class="btn-outline price-cta">Hablar sobre Discipline</a>
+        </div>
+        <div class="price-box featured">
+            <span class="tier-name">Institution</span>
+            <div class="display-name">Red de Sostenedor (50 directivos)</div>
+            <div class="amount" data-tier="DIAMOND" data-field="amount">$<span data-monthly>99</span><small>/mes</small></div>
+            <div class="annual-note" data-tier="DIAMOND" data-field="annual">O $<span data-annual>987</span>/año (~$<span data-annual-mo>82</span>/mes)</div>
+            <ul>
+                <li>Hasta 50 directivos en la red</li>
+                <li>Extracciones de documentos ilimitadas</li>
+                <li>Alineación a Bases Curriculares en toda la red</li>
+                <li>Panel de Categoría de Desempeño (SIMCE + IDPS)</li>
+                <li>Reportes con formato PME y DID Escolar</li>
+                <li>Recomendaciones estratégicas para el Sostenedor</li>
+                <li>Comparación de cohortes entre escuelas</li>
+                <li>Plazas de mentor gratis</li>
+            </ul>
+            <a href="#consult" class="btn-primary price-cta">Hablar sobre Institution</a>
+        </div>
+        <div class="price-box">
+            <span class="tier-name">Personalizado</span>
+            <div class="display-name">Regional / Multi-Sostenedor / SLEP</div>
+            <div class="amount">Cotización</div>
+            <div class="annual-note">Para 50+ directivos, despliegues SLEP o redes multi-Sostenedor</div>
+            <ul>
+                <li>Directivos ilimitados</li>
+                <li>Entorno dedicado + residencia de datos en LATAM</li>
+                <li>Reportes consolidados multi-Sostenedor</li>
+                <li>Gerente de éxito dedicado</li>
+                <li>Bibliotecas de OAs personalizadas (SLEP, redes religiosas)</li>
+                <li>Soporte prioritario en revisión de Ley 21.719</li>
+                <li>Influencia trimestral en la hoja de ruta</li>
+            </ul>
+            <a href="#consult" class="btn-outline price-cta">Solicitar cotización</a>
+        </div>
+    </div>
+    <p class="price-foot">Precios en USD para referencia. Para colegios en Chile, consulte cotización en CLP o UF a <a href="mailto:schools@ltwin.ai">schools@ltwin.ai</a>. Las plazas de docentes y estudiantes se cotizan por establecimiento según matrícula. El acceso opcional Familia para apoderados se agrega por familia. Plazas de mentor siempre gratis. ¿Necesita un despliegue sólo de mentores para un programa de tutoría? <a href="mentors.html">Vea el plan Mentor</a>.</p>
+</section>
+
+<section class="section" id="faq" aria-labelledby="faq-title">
+    <p class="section-eyebrow">Preguntas frecuentes</p>
+    <h2 class="section-title" id="faq-title">Preguntas que hacen los Sostenedores y Jefes UTP</h2>
+    <div class="faq-list">
+        <details class="faq-item">
+            <summary>¿Reemplaza a Colegium/SchoolNet, Webclass, Lirmi o nuestro SIE?</summary>
+            <div class="faq-body">No — convive. EduAsiste no reemplaza asistencia, libro de clases ni finanzas. Donde su SIE expone API o webhook, ingerimos resultados de evaluaciones, asistencia y altas/bajas para mantener sincronizado el panel de cobertura curricular. Donde no, ingerimos exportaciones.</div>
+        </details>
+        <details class="faq-item">
+            <summary>¿Cumple con la Ley 21.719 (LPDP)?</summary>
+            <div class="faq-body">Sí. EduAsiste cumple con los requisitos de la Ley 21.719 (LPDP) que entra en vigor el 1 de diciembre de 2026 — DPA estándar, controles adicionales para datos de menores, residencia de datos en LATAM, registro de auditoría completo, y eliminación dentro de un ciclo de facturación. La nueva Agencia de Protección de Datos Personales puede fiscalizar a su establecimiento; nosotros le acompañamos en la respuesta.</div>
+        </details>
+        <details class="faq-item">
+            <summary>¿Entrenan modelos con nuestros datos?</summary>
+            <div class="faq-body">No. Los datos de su establecimiento nunca se usan para entrenar ningún modelo — ni el nuestro ni el de un tercero. Cada Sostenedor corre en un entorno aislado con su propia bóveda, grafo de conocimiento y registro de auditoría.</div>
+        </details>
+        <details class="faq-item">
+            <summary>¿Pueden los docentes optar por no participar?</summary>
+            <div class="faq-body">Sí. La participación docente es voluntaria en cada nivel. Los Sostenedores pueden escalar el despliegue escuela por escuela, nivel por nivel, o docente por docente. Retirar a un docente exporta y elimina su espacio de trabajo dentro de un ciclo de facturación.</div>
+        </details>
+        <details class="faq-item">
+            <summary>¿Cuánto trabajo es para nuestro equipo de TI?</summary>
+            <div class="faq-body">Un piloto en una escuela suele estar activo en una semana. SSO vía SAML u OIDC, sincronización opcional de roster con su SIE (Colegium/SchoolNet, Webclass, Lirmi, Syscol o CSV) y una lista de permitidos de red. Sin instalación on-prem. Su Encargado TI recibe el cuestionario de seguridad completo; informe SOC 2 Type II disponible bajo NDA.</div>
+        </details>
+        <details class="faq-item">
+            <summary>¿En qué se diferencia de SofIA, ChatLPO o AI-Llu?</summary>
+            <div class="faq-body">SofIA, ChatLPO y AI-Llu son excelentes asistentes para un docente preparando una clase. EduAsiste es la capa para el equipo directivo — cobertura curricular por escuela, evidencia para PME, panel para Categoría de Desempeño, y reportes para el Sostenedor. No competimos con AI-Llu (gratis); coexistimos: AI-Llu apoya al profesor, EduAsiste apoya al Jefe UTP.</div>
+        </details>
+        <details class="faq-item">
+            <summary>¿Cómo aporta evidencia a mi PME y al DID Escolar 2026?</summary>
+            <div class="faq-body">EduAsiste consolida SIMCE, IDPS y cobertura de OAs en un panel para su equipo directivo y su Sostenedor. Producimos las plantillas que el Jefe UTP usa al redactar el PME y al participar del ciclo DID Escolar 2026. La evidencia es trazable y exportable — la Agencia de Calidad la reconoce porque viene de los mismos datos que ya recolectan.</div>
+        </details>
+        <details class="faq-item">
+            <summary>¿Cómo encajan las familias?</summary>
+            <div class="faq-body">Las familias pueden recibir acceso opcional de plan Familia a discreción del Sostenedor. El acceso de familia es de sólo lectura sobre el progreso de su hijo y nunca incluye a otros estudiantes. Muchos colegios corren EduAsiste internamente el primer semestre y agregan acceso Familia el segundo.</div>
+        </details>
+        <details class="faq-item">
+            <summary>¿Qué idiomas soporta EduAsiste?</summary>
+            <div class="faq-body">Inglés, español, portugués, francés y alemán. Las bibliotecas de estándares son sensibles al idioma — Bases Curriculares (OAs por nivel y asignatura), IB y marcos curriculares propios del establecimiento pueden cargarse.</div>
+        </details>
+        <details class="faq-item">
+            <summary>¿Cuánto cuesta?</summary>
+            <div class="faq-body">El plan Discipline cuesta $79/mes por directivo (hasta 15 usuarios) y el plan Institution $99/mes por directivo (hasta 50 usuarios). Las plazas de docentes y estudiantes se cotizan por establecimiento. Las plazas de mentor son siempre gratis. El compromiso anual recibe un descuento del 17%.</div>
+        </details>
+        <details class="faq-item">
+            <summary>¿Pueden cotizar en CLP o UF?</summary>
+            <div class="faq-body">Sí. Los precios listados están en USD para referencia. Cotizamos en CLP o UF para colegios chilenos — escriba a <a href="mailto:schools@ltwin.ai">schools@ltwin.ai</a> con número de docentes y de estudiantes y le enviamos la cotización en la moneda que prefiera.</div>
+        </details>
+    </div>
+</section>
+
+<section id="consult" class="final-cta-band" aria-labelledby="final-cta-title">
+    <h2 id="final-cta-title">Hable con alguien que entiende cómo se evalúa una plataforma en un colegio chileno.</h2>
+    <p>Veinte minutos. Sin presentación. Le preguntamos sobre sus Bases Curriculares, sus interlocutores y lo que su Sostenedor necesita ver — y le decimos honestamente si EduAsiste es el ajuste correcto para su establecimiento ahora mismo.</p>
+    <div class="cta-row">
+        <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ2nvPt4Y4K87urlqQse75X7RlufSSrx8Oc5NvU4vLRzoDvMQGkYYTAefA88osyiiT5yY242FzUW" class="btn-primary" target="_blank" rel="noopener">Agendar consulta para Sostenedores y directivos</a>
+        <a href="#checklist" class="btn-outline">Checklist de IA y LPDP</a>
+        <a href="#pilot" class="btn-outline">Iniciar co-diseño de invierno (julio)</a>
+    </div>
+    <p class="contact-line" id="checklist">O escriba directamente a un líder de equipo directivo: <a href="mailto:schools@ltwin.ai">schools@ltwin.ai</a></p>
+</section>
+
+</main>
+
+<footer>
+    <p>&copy; 2026 EduAsiste · <a href="families.html">Familias</a> · <a href="mentors.html">Mentores</a> · <a href="mailto:schools@ltwin.ai">schools@ltwin.ai</a></p>
+</footer>
+
+<script>
+(async function(){
+  try {
+    const r = await fetch('/api/pricing', {headers: {'Accept': 'application/json'}});
+    if (!r.ok) return;
+    const data = await r.json();
+    const tiers = (data && data.tiers) || {};
+    function setNumber(el, n) { if (el && Number.isFinite(n)) el.textContent = String(Math.round(n)); }
+    function applyTier(tierKey) {
+      const t = tiers[tierKey];
+      if (!t || !t.pricing) return;
+      const m = Number(t.pricing.monthly);
+      const a = Number(t.pricing.annual);
+      const annMo = a ? a/12 : null;
+      document.querySelectorAll('[data-tier="'+tierKey+'"][data-field="amount"] [data-monthly]').forEach(el => setNumber(el, m));
+      document.querySelectorAll('[data-tier="'+tierKey+'"][data-field="annual"] [data-annual]').forEach(el => setNumber(el, a));
+      document.querySelectorAll('[data-tier="'+tierKey+'"][data-field="annual"] [data-annual-mo]').forEach(el => setNumber(el, annMo));
+    }
+    applyTier('PLATINUM');
+    applyTier('DIAMOND');
+  } catch(e) { /* mantener fallback estático */ }
+})();
+</script>
+
+</body>
+</html>

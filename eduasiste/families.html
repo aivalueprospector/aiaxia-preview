@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduAsiste for Families - Homework Shouldn't End in Tears</title>
+    <meta name="description" content="Eduardo is your child's AI study buddy. You see everything. You answer nothing you don't want to. Built for parents who want results without the fight.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root { --bg: #f8fafc; --text: #1e293b; --muted: #475569; --accent: #0077B6; --accent-dark: #03045E; --accent-light: #DBEBFF; --border: #e2e8f0; --card: #ffffff; --green: #16a34a; --dark: #0f172a; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', -apple-system, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+        a { color: var(--accent-dark); text-decoration: none; }
+        a:focus-visible, button:focus-visible, summary:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+
+        .skip-link { position: absolute; top: -40px; left: 12px; padding: 10px 16px; background: var(--accent-dark); color: #fff; border-radius: 6px; font-weight: 600; z-index: 200; }
+        .skip-link:focus { top: 12px; color: #fff; }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; transform: none !important; }
+        }
+
+        header { position: sticky; top: 0; background: rgba(255,255,255,0.95); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); z-index: 100; }
+        .header-inner { display: flex; justify-content: space-between; align-items: center; padding: 10px 5%; max-width: 1200px; margin: 0 auto; }
+        .header-brand { display: flex; align-items: center; gap: 10px; font-size: 1.2rem; font-weight: 700; color: var(--text); text-decoration: none; }
+        .header-brand img { width: 36px; height: 36px; }
+        .header-nav { display: flex; gap: 24px; align-items: center; font-size: 0.9rem; margin-left: auto; }
+        .header-nav a { color: var(--muted); font-weight: 500; }
+        .header-nav a:hover { color: var(--text); }
+        .header-nav .btn-contact { padding: 8px 18px; background: var(--accent); color: #fff; border-radius: 8px; font-weight: 600; font-size: 0.85rem; }
+        .header-nav .btn-contact:hover { background: var(--accent-dark); }
+
+        /* Hero */
+        .hero { display: flex; flex-direction: row-reverse; justify-content: center; align-items: center; gap: 48px; padding: 80px 5% 40px; max-width: 960px; margin: 0 auto; }
+        .hero img.hero-owl { width: 220px; height: auto; flex-shrink: 0; filter: drop-shadow(0 14px 28px rgba(0,119,182,0.25)); }
+        .hero-text { text-align: left; max-width: 520px; }
+        .hero h1 { font-size: 2.8rem; font-weight: 800; letter-spacing: -0.03em; margin-bottom: 12px; line-height: 1.1; color: var(--accent-dark); }
+        .hero .hero-subtitle { font-size: 1.2rem; font-weight: 500; color: var(--text); margin-bottom: 20px; }
+        .hero-cta { display: inline-block; padding: 14px 28px; background: var(--accent); color: #fff; border-radius: 10px; font-weight: 700; font-size: 1rem; }
+        .hero-cta:hover { background: var(--accent-dark); color: #fff; }
+
+        .section { max-width: 1100px; margin: 0 auto; padding: 60px 5%; }
+        .section-title { font-size: 2rem; font-weight: 700; text-align: center; color: var(--accent-dark); margin-bottom: 10px; }
+        .section-sub { font-size: 1rem; color: var(--muted); text-align: center; margin-bottom: 40px; max-width: 640px; margin-left: auto; margin-right: auto; }
+
+        /* Icon tile */
+        .icon-tile { width: 52px; height: 52px; border-radius: 14px; background: var(--accent-light); color: var(--accent-dark); display: inline-flex; align-items: center; justify-content: center; margin-bottom: 14px; transition: all 0.2s; }
+        .icon-tile svg { width: 28px; height: 28px; fill: none; stroke: currentColor; stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; }
+        .icon-tile.lg { width: 72px; height: 72px; border-radius: 18px; }
+        .icon-tile.lg svg { width: 38px; height: 38px; }
+
+        /* Pain cards */
+        .pain-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+        .pain-card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 28px 24px; }
+        .pain-card .pain-quote { font-size: 1.05rem; font-weight: 600; color: var(--text); line-height: 1.4; }
+        .pain-card .pain-note { font-size: 0.85rem; color: var(--muted); margin-top: 10px; }
+
+        /* Feature grid (4 cards) */
+        .features { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+        .feature-card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 28px; transition: all 0.2s; }
+        .feature-card:hover { box-shadow: 0 8px 24px rgba(0,119,182,0.12); transform: translateY(-2px); border-color: var(--accent); }
+        .feature-card:hover .icon-tile { background: var(--accent); color: #fff; }
+        .feature-card h3 { font-size: 1.15rem; font-weight: 700; margin-bottom: 6px; color: var(--accent-dark); }
+        .feature-card p { font-size: 0.95rem; color: var(--muted); line-height: 1.55; }
+
+        /* Testimonials */
+        .testimonials { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+        .tm { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 26px; }
+        .tm-name { font-weight: 700; font-size: 1rem; }
+        .tm-role { font-size: 0.8rem; color: var(--muted); margin-bottom: 14px; }
+        .tm-quote { font-style: italic; color: var(--text); font-size: 0.95rem; line-height: 1.6; }
+
+        /* Demos */
+        .demos { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+        .demo-card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 28px; text-align: center; }
+        .demo-card h3 { font-size: 1.1rem; margin-top: 10px; margin-bottom: 4px; color: var(--accent-dark); }
+        .demo-card p { font-size: 0.88rem; color: var(--muted); margin-bottom: 18px; }
+        .demo-btn { display: inline-block; padding: 11px 24px; background: var(--accent); color: #fff; border-radius: 8px; font-weight: 600; font-size: 0.9rem; }
+        .demo-btn:hover { background: var(--accent-dark); color: #fff; }
+
+        /* Pricing */
+        .pricing-hero { background: linear-gradient(135deg, var(--accent-light), #fff); border: 2px solid var(--accent); border-radius: 18px; padding: 40px; text-align: center; max-width: 520px; margin: 0 auto; }
+        .pricing-hero .tier-name { font-size: 1rem; font-weight: 700; color: var(--accent-dark); letter-spacing: 0.05em; text-transform: uppercase; }
+        .pricing-hero .price { font-size: 3.2rem; font-weight: 800; color: var(--accent-dark); line-height: 1; margin: 8px 0; }
+        .pricing-hero .price small { font-size: 0.95rem; font-weight: 500; color: var(--muted); }
+        .pricing-hero .price-sub { font-size: 0.9rem; color: var(--muted); margin-bottom: 20px; }
+        .pricing-hero ul { list-style: none; text-align: left; margin-bottom: 24px; font-size: 0.95rem; }
+        .pricing-hero ul li { padding: 6px 0; display: flex; gap: 10px; align-items: flex-start; }
+        .pricing-hero ul li::before { content: "✓"; color: var(--accent); font-weight: 700; flex-shrink: 0; }
+        .pricing-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+        .btn-primary { display: inline-block; padding: 12px 26px; background: var(--accent); color: #fff; border-radius: 8px; font-weight: 600; font-size: 0.95rem; }
+        .btn-primary:hover { background: var(--accent-dark); color: #fff; }
+        .btn-outline { display: inline-block; padding: 12px 26px; background: transparent; border: 2px solid var(--accent); color: var(--accent-dark); border-radius: 8px; font-weight: 600; font-size: 0.95rem; }
+        .btn-outline:hover { background: var(--accent-light); }
+
+        /* FAQ */
+        .faq-list { max-width: 800px; margin: 0 auto; }
+        .faq-item { background: var(--card); border: 1px solid var(--border); border-radius: 12px; margin-bottom: 12px; }
+        .faq-item summary { cursor: pointer; padding: 20px 24px; font-weight: 600; font-size: 1rem; color: var(--accent-dark); list-style: none; position: relative; padding-right: 48px; }
+        .faq-item summary::-webkit-details-marker { display: none; }
+        .faq-item summary::after { content: "+"; position: absolute; right: 24px; top: 50%; transform: translateY(-50%); font-size: 1.6rem; font-weight: 300; color: var(--accent); transition: transform 0.2s; }
+        .faq-item[open] summary::after { content: "−"; }
+        .faq-item .faq-body { padding: 0 24px 20px; font-size: 0.95rem; color: var(--muted); line-height: 1.7; }
+
+        /* Privacy */
+        .privacy { background: var(--dark); color: #fff; padding: 40px 5%; text-align: center; border-radius: 16px; }
+        .privacy-lead { font-size: 1.25rem; font-weight: 600; color: #fff; max-width: 760px; margin: 0 auto 8px; }
+        .privacy-sub { font-size: 0.95rem; color: #cbd5e1; max-width: 720px; margin: 0 auto; }
+
+        /* Final CTA */
+        .final-cta { text-align: center; padding: 60px 5%; }
+        .final-cta h2 { font-size: 2rem; color: var(--accent-dark); margin-bottom: 10px; }
+        .final-cta p { color: var(--muted); margin-bottom: 28px; }
+        .cta-buttons { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
+
+        footer { text-align: center; padding: 32px 5%; color: var(--muted); font-size: 0.9rem; border-top: 1px solid var(--border); }
+
+        @media (max-width: 900px) {
+            .pain-grid { grid-template-columns: 1fr; }
+            .features { grid-template-columns: 1fr; }
+            .testimonials { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 760px) {
+            .hero { flex-direction: column; text-align: center; gap: 20px; }
+            .hero-text { text-align: center; }
+            .hero img.hero-owl { width: 160px; }
+            .demos { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 600px) {
+            .hero h1 { font-size: 2.1rem; }
+            .section-title { font-size: 1.6rem; }
+            .header-inner { flex-wrap: wrap; gap: 8px; }
+            .header-nav { gap: 14px; font-size: 0.82rem; }
+            .privacy-lead { font-size: 1.1rem; }
+        }
+
+        /* Bottom talk-to-expert prominent block */
+        .talk-section { text-align: center; padding: 50px 5% 60px; background: var(--accent-light); margin: 0 5% 40px; border-radius: 20px; }
+        .talk-lead { font-size: 1.3rem; font-weight: 600; color: var(--accent-dark); margin-bottom: 22px; }
+        .talk-cta-big { display: inline-block; padding: 18px 44px; background: var(--accent); color: #fff; border-radius: 12px; font-weight: 700; font-size: 1.15rem; box-shadow: 0 8px 20px rgba(0,119,182,0.25); transition: all 0.2s; }
+        .talk-cta-big:hover { background: var(--accent-dark); color: #fff; transform: translateY(-2px); box-shadow: 0 12px 28px rgba(0,119,182,0.35); }
+    </style>
+</head>
+<body>
+
+<a href="#main" class="skip-link">Skip to content</a>
+
+<header>
+    <div class="header-inner">
+        <a href="index.html" class="header-brand">
+            <img src="_assets/eduardo_owl.png" alt="">
+            EduAsiste
+        </a>
+        <nav class="header-nav" aria-label="Primary">
+            <a href="families.html">Families</a>
+            <a href="mentors.html">Mentors</a>
+            <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ2nvPt4Y4K87urlqQse75X7RlufSSrx8Oc5NvU4vLRzoDvMQGkYYTAefA88osyiiT5yY242FzUW" class="btn-contact" target="_blank" rel="noopener">Talk to an Expert</a>
+        </nav>
+    </div>
+</header>
+
+<main id="main">
+
+<section class="hero" aria-labelledby="hero-title">
+    <div class="hero-text">
+        <h1 id="hero-title">Homework shouldn't end in tears.</h1>
+        <p class="hero-subtitle">Eduardo is the study buddy that adapts to your child. You see everything. You answer nothing you don't want to.</p>
+        <a href="https://ctwin.ai/chat/v3/demo-family-bennett-parent/bd861ba12bc030f361885eb6238e81a5" class="hero-cta">Meet Eduardo in 90 seconds</a>
+    </div>
+    <img class="hero-owl" src="_assets/eduardo_owl.png" alt="Eduardo the owl">
+</section>
+
+<section class="section" aria-labelledby="pain-title">
+    <h2 class="section-title" id="pain-title">Sound familiar?</h2>
+    <p class="section-sub">If any of these hit home, you're the reason we built Eduardo.</p>
+    <div class="pain-grid">
+        <div class="pain-card">
+            <p class="pain-quote">"It's 9pm. Page 42 is still blank. And you don't remember fractions either."</p>
+            <p class="pain-note">Homework battles nobody wins.</p>
+        </div>
+        <div class="pain-card">
+            <p class="pain-quote">"Parent-teacher night is in three days and you have no clue what to ask."</p>
+            <p class="pain-note">Conferences are short. Confusion lasts longer.</p>
+        </div>
+        <div class="pain-card">
+            <p class="pain-quote">"You paid for a tutor all last year. Grades barely moved."</p>
+            <p class="pain-note">One hour a week isn't enough. Your kid needs support between sessions.</p>
+        </div>
+    </div>
+</section>
+
+<section class="section" aria-labelledby="solution-title">
+    <h2 class="section-title" id="solution-title">How Eduardo helps</h2>
+    <p class="section-sub">Built for parents who want results, not another app to babysit.</p>
+    <div class="features">
+        <div class="feature-card">
+            <span class="icon-tile" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M4 20h16"/><rect x="6" y="12" width="3" height="6" rx="0.6"/><rect x="10.5" y="8" width="3" height="10" rx="0.6"/><rect x="15" y="4" width="3" height="14" rx="0.6"/></svg>
+            </span>
+            <h3>See where they actually struggle</h3>
+            <p>Not just a C on the report card. Eduardo shows you the specific concept that's tripping them up - and what to do about it.</p>
+        </div>
+        <div class="feature-card">
+            <span class="icon-tile" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M4 5.5a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2V15a2 2 0 0 1-2 2h-8l-4 3.5V15H6a2 2 0 0 1-2-2z"/><path d="M10 8.5c0-1.5 1-2.5 2.5-2.5S15 7 15 8.5c0 1.5-2.5 1.5-2.5 3"/><circle cx="12.5" cy="13.2" r="0.7" fill="currentColor" stroke="none"/></svg>
+            </span>
+            <h3>Eduardo never gives the answer</h3>
+            <p>Socratic method - questions, not shortcuts. Your child earns the understanding. You see every attempt.</p>
+        </div>
+        <div class="feature-card">
+            <span class="icon-tile" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M12 6.5C10 5 7.5 4.5 5 5v13c2.5-.5 5 0 7 1.5"/><path d="M12 6.5C14 5 16.5 4.5 19 5v13c-2.5-.5-5 0-7 1.5"/><path d="M12 6.5v13"/></svg>
+            </span>
+            <h3>Follows your district's curriculum</h3>
+            <p>Eduardo knows your state's standards. If the class is on compound words Unit 17, that's exactly what your kid practices.</p>
+        </div>
+        <div class="feature-card">
+            <span class="icon-tile" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>
+            </span>
+            <h3>Full visibility, zero babysitting</h3>
+            <p>Read every conversation. Ask Eduardo questions yourself. Flip to your child's view. It's your household - you stay in charge.</p>
+        </div>
+    </div>
+</section>
+
+<section class="section" aria-labelledby="demo-title">
+    <h2 class="section-title" id="demo-title">Try Eduardo live - no signup</h2>
+    <p class="section-sub">Meet the Bennett family. See both sides.</p>
+    <div class="demos">
+        <div class="demo-card">
+            <span class="icon-tile lg" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><circle cx="8" cy="7" r="2.4"/><path d="M3 19c0-3 2.4-5 5-5s5 2 5 5"/><circle cx="16.5" cy="9.5" r="1.8"/><path d="M12.5 19c0-2.3 1.6-3.8 4-3.8s4 1.5 4 3.8"/></svg>
+            </span>
+            <h3>Parent View</h3>
+            <p>What Sarah Bennett sees: Emma's progress, quiz trends, and Eduardo's weekly briefing.</p>
+            <a href="https://ctwin.ai/chat/v3/demo-family-bennett-parent/bd861ba12bc030f361885eb6238e81a5" class="demo-btn" target="_blank" rel="noopener">Try Parent Demo</a>
+        </div>
+        <div class="demo-card">
+            <span class="icon-tile lg" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="3"/><path d="M5 20c0-3.5 3-6 7-6s7 2.5 7 6"/><circle cx="6" cy="6" r="0.8" fill="currentColor" stroke="none"/><circle cx="18" cy="6" r="0.8" fill="currentColor" stroke="none"/></svg>
+            </span>
+            <h3>Student View</h3>
+            <p>What 8-year-old Emma sees: age-appropriate Socratic questions, wins journal, no answers given away.</p>
+            <a href="https://ctwin.ai/chat/v3/demo-family-bennett-child/8a2ee9dd7038a9a036532bc56274f7a2" class="demo-btn" target="_blank" rel="noopener">Try Student Demo</a>
+        </div>
+    </div>
+</section>
+
+<section class="section" aria-labelledby="pricing-title">
+    <h2 class="section-title" id="pricing-title">Simple pricing</h2>
+    <p class="section-sub">Less than a single tutoring session per month.</p>
+    <div class="pricing-hero">
+        <div class="tier-name">Family Plan</div>
+        <div class="price">$39<small>/mo</small></div>
+        <div class="price-sub">Includes one student · +$19/mo per additional child</div>
+        <ul>
+            <li>Eduardo AI study buddy, aligned to your state's curriculum</li>
+            <li>Parent dashboard with weekly briefings</li>
+            <li>Read every conversation · switch to child view</li>
+            <li>Document upload (report cards, quizzes, assignments)</li>
+            <li>English and Spanish</li>
+            <li>First week free · cancel anytime</li>
+        </ul>
+        <div class="pricing-actions">
+            <a href="https://ltwin.ai/onboarding/signup?tier=GOLD&step=2&price=39" class="btn-primary">Start Free Week</a>
+            <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ2nvPt4Y4K87urlqQse75X7RlufSSrx8Oc5NvU4vLRzoDvMQGkYYTAefA88osyiiT5yY242FzUW" class="btn-outline" target="_blank" rel="noopener">Talk to an Expert</a>
+        </div>
+    </div>
+</section>
+
+<section class="section" aria-labelledby="faq-title">
+    <h2 class="section-title" id="faq-title">Questions parents ask</h2>
+    <div class="faq-list">
+        <details class="faq-item">
+            <summary>What ages is Eduardo designed for?</summary>
+            <div class="faq-body">Ages 8 to 18. Eduardo adapts tone, vocabulary, and content filters to the child's grade level — a 3rd-grader sees short, encouraging prompts; a high-schooler sees deeper Socratic probing. Under 13, content moderation is stricter and COPPA parental-consent rules apply.</div>
+        </details>
+        <details class="faq-item">
+            <summary>Is this safe for my kid?</summary>
+            <div class="faq-body">COPPA-compliant. End-to-end encrypted. You read every conversation. We never sell data. You control access - you can pause or delete everything at any time. No PIN or separate login for the child — the parent stays the account owner and monitors full history.</div>
+        </details>
+        <details class="faq-item">
+            <summary>Can my child chat with Eduardo outside of homework?</summary>
+            <div class="faq-body">Yes. Children can start free-form conversations with Eduardo — curiosity questions, stories, "how do airplanes work?" Eduardo stays on the Socratic path (questions, not answers) and you see every exchange in your parent dashboard.</div>
+        </details>
+        <details class="faq-item">
+            <summary>Won't my child just ask Eduardo for the answer?</summary>
+            <div class="faq-body">Eduardo is built on the Socratic method and explicitly refuses to give answers. Your child has to work through every problem. You can see every attempt and every nudge Eduardo gave.</div>
+        </details>
+        <details class="faq-item">
+            <summary>Does this replace a human tutor?</summary>
+            <div class="faq-body">No. It makes your time - or a tutor's time - 10× more effective between sessions. A tutor meets your kid once a week. Eduardo is there every night.</div>
+        </details>
+        <details class="faq-item">
+            <summary>How does onboarding work?</summary>
+            <div class="faq-body">You set up the child's profile during signup — name, age, grade, state for curriculum alignment, subjects they're working on. Each child gets their own private workspace and document folder, separate from yours but fully visible to you. No setup required from the child — they sign in and start learning.</div>
+        </details>
+        <details class="faq-item">
+            <summary>What if my kid hates it?</summary>
+            <div class="faq-body">First week is free. Cancel anytime, no questions. If Eduardo isn't earning its keep in 30 days, you get a refund.</div>
+        </details>
+    </div>
+</section>
+
+<section class="section" aria-label="Privacy">
+    <div class="privacy">
+        <p class="privacy-lead"><span aria-hidden="true">🔒</span> Eduardo keeps all student data encrypted and private.</p>
+        <p class="privacy-sub">You control access. End-to-end encrypted. No data sold. COPPA compliant.</p>
+    </div>
+</section>
+
+<section class="final-cta" aria-labelledby="final-cta-title">
+    <h2 id="final-cta-title">Ready to see it for yourself?</h2>
+    <p>Try Eduardo with the Bennett family demo - no signup, no credit card.</p>
+    <div class="cta-buttons">
+        <a href="https://ctwin.ai/chat/v3/demo-family-bennett-parent/bd861ba12bc030f361885eb6238e81a5" class="btn-primary" target="_blank" rel="noopener">Try Parent Demo</a>
+        <a href="mentors.html" class="btn-outline">Are you a Mentor?</a>
+    </div>
+</section>
+
+
+<section class="talk-section" aria-label="Schedule a call">
+    <p class="talk-lead">Have a question? Schedule time with an expert.</p>
+    <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ2nvPt4Y4K87urlqQse75X7RlufSSrx8Oc5NvU4vLRzoDvMQGkYYTAefA88osyiiT5yY242FzUW" class="talk-cta-big" target="_blank" rel="noopener">Talk to an Expert</a>
+</section>
+
+</main>
+
+<footer>
+    <p>&copy; 2026 EduAsiste · <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ2nvPt4Y4K87urlqQse75X7RlufSSrx8Oc5NvU4vLRzoDvMQGkYYTAefA88osyiiT5yY242FzUW" target="_blank" rel="noopener">Talk to an Expert</a></p>
+</footer>
+
+</body>
+</html>

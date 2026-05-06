@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Team - C-twin | The People Behind Your AI Twin</title>
+    <meta name="description" content="Meet the team behind C-twin and L-twin. Built by AI Value Prospector (AIVP) and AIAXIA — turning business expertise and learning into structured, portable knowledge.">
+    <meta name="keywords" content="C-twin team, AIVP, AI Value Prospector, AIAXIA, cognitive twin, learning twin">
+    <link rel="canonical" href="https://ctwin.ai/landing/team">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Our Team - C-twin">
+    <meta property="og:description" content="Meet the team behind C-twin and L-twin.">
+    <meta property="og:url" content="https://ctwin.ai/landing/team">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="C-Twin by AI Value Prospector">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Our Team - C-twin">
+    <meta name="twitter:description" content="Meet the team behind C-twin and L-twin.">
+
+    <!-- GA4 placeholder -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'GA_MEASUREMENT_ID');
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #FFF8E7;
+            --text: #1a1a1a;
+            --text-muted: #666;
+            --accent: #CFB382;
+            --accent-dark: #8B6914;
+            --border: #e5e5e5;
+            --card-bg: #ffffff;
+            --success: #15803d;
+            --shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -2px rgba(0,0,0,0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -4px rgba(0,0,0,0.1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        /* Header */
+        .header {
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent-dark);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-hexagon {
+            width: 36px;
+            height: 40px;
+            background: #000;
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo-img {
+            height: 28px;
+            width: auto;
+            filter: brightness(0) invert(1);
+        }
+
+        .logo-tm { font-size: 0.6em; vertical-align: super; }
+
+        .header-nav {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .header-nav a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+
+        .header-nav a:hover { color: var(--text); }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 500;
+            font-size: 0.95rem;
+            text-decoration: none;
+            transition: all 0.2s;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary { background: var(--accent); color: #000; }
+        .btn-primary:hover { background: var(--accent-dark); }
+
+        .btn-outline {
+            background: transparent;
+            border: 1px solid var(--border);
+            color: var(--text);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--accent);
+            background: rgba(207, 179, 130, 0.1);
+        }
+
+        /* Hero */
+        .hero {
+            text-align: center;
+            padding: 4rem 2rem 3rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+        }
+
+        .hero p {
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            max-width: 640px;
+            margin: 0 auto;
+        }
+
+        /* Content */
+        .content {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 2rem 4rem;
+        }
+
+        /* Mission Section */
+        .mission-section {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 3rem;
+            margin-bottom: 3rem;
+            box-shadow: var(--shadow);
+        }
+
+        .mission-section h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .mission-section p {
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+            line-height: 1.7;
+        }
+
+        .mission-section p:last-child { margin-bottom: 0; }
+
+        /* Two Platforms */
+        .platforms {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .platform-card {
+            background: var(--card-bg);
+            border: 2px solid var(--border);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: box-shadow 0.2s;
+        }
+
+        .platform-card:hover { box-shadow: var(--shadow-lg); }
+
+        .platform-card.gold { border-color: var(--accent); }
+        .platform-card.blue { border-color: #0b6dba; }
+
+        .platform-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .platform-icon.gold { background: rgba(207, 179, 130, 0.2); color: var(--accent-dark); }
+        .platform-icon.blue { background: rgba(46, 163, 242, 0.15); color: #0b6dba; }
+
+        .platform-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .platform-card .subtitle {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+        }
+
+        .platform-card p {
+            color: var(--text-muted);
+            font-size: 0.92rem;
+            line-height: 1.6;
+        }
+
+        .platform-card a {
+            display: inline-block;
+            margin-top: 1rem;
+            color: var(--accent-dark);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.92rem;
+        }
+
+        .platform-card.blue a { color: #0b6dba; }
+
+        .platform-card a:hover { text-decoration: underline; }
+
+        /* Team Grid */
+        .team-section {
+            margin-bottom: 3rem;
+        }
+
+        .team-section h2 {
+            text-align: center;
+            font-size: 1.75rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .team-section > p {
+            text-align: center;
+            color: var(--text-muted);
+            margin-bottom: 2.5rem;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .team-card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: box-shadow 0.2s;
+        }
+
+        .team-card:hover { box-shadow: var(--shadow-lg); }
+
+        .team-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin: 0 auto 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .team-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .team-role {
+            font-size: 0.85rem;
+            color: var(--accent-dark);
+            font-weight: 500;
+            margin-bottom: 0.75rem;
+        }
+
+        .team-bio {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        .team-twin {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            margin-top: 0.75rem;
+            font-size: 0.8rem;
+            padding: 4px 10px;
+            border-radius: 12px;
+            background: rgba(207, 179, 130, 0.15);
+            color: var(--accent-dark);
+            font-weight: 500;
+        }
+
+        /* Values */
+        .values-section {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 3rem;
+            margin-bottom: 3rem;
+            box-shadow: var(--shadow);
+        }
+
+        .values-section h2 {
+            text-align: center;
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 2rem;
+        }
+
+        .value-item h4 {
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .value-item p {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        /* Contact CTA */
+        .contact-section {
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
+            border-radius: 16px;
+            padding: 3rem;
+            text-align: center;
+            color: #000;
+            margin-bottom: 2rem;
+        }
+
+        .contact-section h2 {
+            font-size: 1.75rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .contact-section p {
+            opacity: 0.8;
+            margin-bottom: 1.5rem;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .contact-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-buttons .btn {
+            background: #000;
+            color: var(--accent);
+        }
+
+        .contact-buttons .btn:hover {
+            background: #222;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--card-bg);
+            border-top: 1px solid var(--border);
+            padding: 2.5rem 2rem;
+        }
+
+        .footer-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .footer-brand {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .footer-links a {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            text-decoration: none;
+        }
+
+        .footer-links a:hover { color: var(--text); }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header { padding: 1rem; }
+            .header-nav { gap: 1rem; }
+            .header-nav .btn { padding: 0.5rem 1rem; font-size: 0.85rem; }
+            .hero h1 { font-size: 2rem; }
+            .platforms { grid-template-columns: 1fr; }
+            .mission-section { padding: 2rem 1.5rem; }
+            .values-section { padding: 2rem 1.5rem; }
+            .contact-section { padding: 2rem 1.5rem; }
+            .footer-inner { flex-direction: column; text-align: center; }
+        }
+
+        @media (max-width: 480px) {
+            .header-nav a:not(.btn) { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <a href="index.html" class="logo">
+            <div class="logo-hexagon">
+                <img src="https://avaluei.com/frontend/assets/img/logo/logo.png" alt="AIVP" class="logo-img">
+            </div>
+            C-twin<span class="logo-tm">&trade;</span>
+        </a>
+        <nav class="header-nav">
+            <a href="features.html">Features</a>
+            <a href="https://ctwin.ai/pricing">Pricing</a>
+            <a href="team.html" style="color: var(--text); font-weight: 500;">Team</a>
+            <a href="https://ctwin.ai/login" class="btn btn-outline">Log in</a>
+            <a href="https://ctwin.ai/onboarding/signup?tier=SILVER" class="btn btn-primary">Start Free Trial</a>
+        </nav>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <h1>Built by practitioners, for practitioners</h1>
+        <p>We've spent decades in operations, supply chain, and education. We built C-twin and L-twin because we needed them ourselves.</p>
+    </section>
+
+    <div class="content">
+
+        <!-- Mission -->
+        <div class="mission-section">
+            <h2>Our mission</h2>
+            <p>Most AI tools give you a conversation that disappears. We believe your knowledge deserves better. Every conversation, every document, every relationship should accumulate into a structured, portable knowledge graph that you own.</p>
+            <p>C-twin captures business expertise. L-twin accelerates learning. Both are built on the same principle: <strong>your data belongs to you</strong>, structured as a graph you can query, export, and take anywhere.</p>
+        </div>
+
+        <!-- Two Platforms -->
+        <div class="platforms">
+            <div class="platform-card gold">
+                <div class="platform-icon gold">C</div>
+                <h3>C-twin&trade;</h3>
+                <div class="subtitle">by AI Value Prospector (AIVP)</div>
+                <p>Cognitive twins for business. Capture expertise, automate workflows, mine documents, and trace value from supplier to customer. Built for operations leaders, consultants, and founders.</p>
+                <a href="https://ctwin.ai">ctwin.ai &rarr;</a>
+            </div>
+            <div class="platform-card blue">
+                <div class="platform-icon blue">L</div>
+                <h3>L-twin&trade;</h3>
+                <div class="subtitle">by AIAXIA</div>
+                <p>Learning twins for education. Socratic guidance, curriculum mapping, learning objectives, and student progress tracking. Built for teachers, schools, and educational institutions.</p>
+                <a href="https://ltwin.ai">ltwin.ai &rarr;</a>
+            </div>
+        </div>
+
+        <!-- Team -->
+        <div class="team-section">
+            <h2>The team</h2>
+            <p>Small team, deep domain expertise.</p>
+
+            <div class="team-grid">
+                <div class="team-card">
+                    <div class="team-avatar" style="background: linear-gradient(135deg, var(--accent), var(--accent-dark));">S</div>
+                    <h3>Simran</h3>
+                    <div class="team-role">Founder &amp; CEO</div>
+                    <p class="team-bio">Operations and supply chain background. Built C-twin to capture the expertise that lives in people's heads and make it queryable, actionable, and portable.</p>
+                    <span class="team-twin">Twin: c-Simi</span>
+                </div>
+
+                <div class="team-card">
+                    <div class="team-avatar" style="background: linear-gradient(135deg, #64748b, #475569);">+</div>
+                    <h3>Join us</h3>
+                    <div class="team-role">Open Roles</div>
+                    <p class="team-bio">We're looking for people who think in graphs, care about data ownership, and want to build AI that accumulates knowledge instead of forgetting it.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Values -->
+        <div class="values-section">
+            <h2>What we believe</h2>
+            <div class="values-grid">
+                <div class="value-item">
+                    <h4>You own your data</h4>
+                    <p>Export anytime. Obsidian vault, Google Drive, Neo4j dump. If you leave, take everything. No lock-in, no hostage data.</p>
+                </div>
+                <div class="value-item">
+                    <h4>Structure beats memory</h4>
+                    <p>Conversations fade. A knowledge graph grows. Every interaction adds nodes and relationships that compound over time.</p>
+                </div>
+                <div class="value-item">
+                    <h4>AI should do work, not just talk</h4>
+                    <p>Chat is the starting point. Tasks, document mining, reports, calendar sync &mdash; your twin does real work with real outputs.</p>
+                </div>
+                <div class="value-item">
+                    <h4>Human in the loop</h4>
+                    <p>Nothing hits your graph without your approval. Verify-AI lets you review, edit, and reject before anything is committed.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact CTA -->
+        <div class="contact-section">
+            <h2>Let's talk</h2>
+            <p>Interested in a partnership, demo, or just want to see how it works? We'd love to hear from you.</p>
+            <div class="contact-buttons">
+                <a href="https://ctwin.ai/onboarding/signup" class="btn">Get Started</a>
+                <a href="https://ctwin.ai/contact?team=true" class="btn">Contact Us</a>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-brand">
+                &copy; 2026 C-twin&trade; by <a href="https://avaluei.com" style="color: var(--accent-dark); text-decoration: none;">AI Value Prospector</a>. All rights reserved.
+            </div>
+            <div class="footer-links">
+                <a href="https://ctwin.ai/privacy">Privacy</a>
+                <a href="https://ctwin.ai/terms">Terms</a>
+                <a href="https://ctwin.ai/pricing">Pricing</a>
+                <a href="https://ltwin.ai">L-twin&trade; for Education</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

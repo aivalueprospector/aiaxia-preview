@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduAsiste — Gemelo IA de Aprendizaje para tu Familia</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root { --bg: #f8fafc; --card: #ffffff; --border: #e2e8f0; --text: #1e293b; --muted: #64748b; --accent: #336699; --accent-light: #e0ecf5; --green: #16a34a; }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Inter', -apple-system, sans-serif; background: var(--bg); color: var(--text); }
+        a { color: var(--accent); text-decoration: none; }
+        .btn { padding: 12px 28px; border-radius: 8px; font-size: 15px; font-weight: 600; cursor: pointer; border: none; transition: all 0.2s; display: inline-block; }
+        .btn-primary { background: var(--accent); color: #fff; }
+        .btn-primary:hover { opacity: 0.9; }
+        .btn-outline { border: 2px solid var(--accent); color: var(--accent); background: transparent; }
+
+        nav { display: flex; justify-content: space-between; align-items: center; padding: 16px 5%; max-width: 1100px; margin: 0 auto; }
+        nav .logo { font-size: 20px; font-weight: 700; color: var(--accent); }
+        nav .logo span { font-weight: 400; color: var(--muted); font-size: 14px; }
+        nav .links { display: flex; gap: 20px; align-items: center; font-size: 14px; }
+
+        .hero { text-align: center; padding: 80px 5% 50px; max-width: 750px; margin: 0 auto; }
+        .hero h1 { font-size: 40px; font-weight: 700; line-height: 1.2; margin-bottom: 16px; }
+        .hero h1 em { font-style: normal; color: var(--accent); }
+        .hero p { font-size: 17px; color: var(--muted); line-height: 1.6; margin-bottom: 28px; }
+
+        section { padding: 50px 5%; max-width: 1100px; margin: 0 auto; }
+        h2 { font-size: 28px; text-align: center; margin-bottom: 10px; }
+        .sub { text-align: center; color: var(--muted); margin-bottom: 36px; font-size: 15px; }
+
+        .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: start; }
+        .col-card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 32px; }
+        .col-card .icon { font-size: 40px; margin-bottom: 12px; }
+        .col-card h3 { font-size: 20px; margin-bottom: 8px; }
+        .col-card p { font-size: 14px; color: var(--muted); line-height: 1.6; margin-bottom: 12px; }
+        .col-card ul { list-style: none; font-size: 14px; color: var(--muted); }
+        .col-card ul li { padding: 6px 0; }
+        .col-card ul li::before { content: "→ "; color: var(--accent); font-weight: 600; }
+
+        .how-steps { display: flex; flex-direction: column; gap: 24px; max-width: 700px; margin: 0 auto; }
+        .step { display: flex; gap: 16px; align-items: flex-start; }
+        .step-n { width: 36px; height: 36px; border-radius: 50%; background: var(--accent); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 700; flex-shrink: 0; font-size: 14px; }
+        .step h3 { font-size: 15px; margin-bottom: 2px; }
+        .step p { font-size: 13px; color: var(--muted); line-height: 1.5; }
+
+        .demos { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+        .demo { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; }
+        .demo h3 { font-size: 15px; margin-bottom: 4px; }
+        .demo .role { font-size: 12px; color: var(--muted); margin-bottom: 10px; }
+        .demo p { font-size: 13px; color: var(--muted); line-height: 1.5; margin-bottom: 12px; }
+        .demo .btn { width: 100%; text-align: center; font-size: 13px; padding: 8px; }
+
+        .pricing-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; max-width: 820px; margin: 0 auto; }
+        .price-box { background: var(--card); border: 2px solid var(--border); border-radius: 16px; padding: 36px; text-align: center; }
+        .price-box.featured { border-color: var(--accent); }
+        .price-box .amount { font-size: 48px; font-weight: 700; color: var(--accent); }
+        .price-box .amount span { font-size: 16px; font-weight: 400; color: var(--muted); }
+        .price-box h3 { font-size: 20px; margin: 8px 0 16px; }
+        .price-box ul { list-style: none; text-align: left; font-size: 14px; color: var(--muted); margin: 20px 0; }
+        .price-box ul li { padding: 8px 0; border-bottom: 1px solid #f1f5f9; }
+        .price-box ul li::before { content: "✓ "; color: var(--green); font-weight: 700; }
+        @media (max-width: 700px) { .pricing-grid { grid-template-columns: 1fr; } }
+
+        footer { text-align: center; padding: 36px 5%; color: var(--muted); font-size: 12px; border-top: 1px solid var(--border); margin-top: 40px; }
+
+        @media (max-width: 700px) {
+            .hero h1 { font-size: 28px; }
+            .two-col, .demos { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="logo">EduAsiste <span>para Familias</span></div>
+    <div class="links">
+        <a href="#how">Cómo Funciona</a>
+        <a href="#demos">Probar</a>
+        <a href="#pricing">Precios</a>
+        <a href="#pricing" class="btn btn-primary">Comenzar</a>
+    </div>
+</nav>
+
+<section class="hero">
+    <h1>Tu hijo recibe un <em>compañero de aprendizaje</em>. Tú recibes <em>respuestas claras</em>.</h1>
+    <p>Una IA que enseña a tu hijo a través de preguntas — nunca dando respuestas. Y un gemelo para ti que lee las notas, monitorea el progreso y te dice exactamente qué hacer.</p>
+    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+        <a href="#demos" class="btn btn-primary">Probar un Demo</a>
+        <a href="#pricing" class="btn btn-outline">Ver Precios</a>
+    </div>
+</section>
+
+<section>
+    <h2>Dos gemelos. Un objetivo.</h2>
+    <p class="sub">Tu hijo explora y descubre. Tú te mantienes informado y en control.</p>
+    <div class="two-col">
+        <div class="col-card">
+            <div class="icon">👨‍👩‍👧</div>
+            <h3>Tu Gemelo</h3>
+            <p>Directo, claro, práctico. Sube una libreta de notas y obtén respuestas — no un volcado de datos.</p>
+            <ul>
+                <li>"¿Cómo va mi hijo?" → resumen de 30 segundos</li>
+                <li>"¿Debería preocuparme por las fracciones?" → respuesta honesta y calibrada</li>
+                <li>"¿Qué hago esta semana?" → una actividad específica por día</li>
+                <li>Preparación para reunión con el profesor → 3 preguntas para hacer</li>
+                <li>Ver en qué trabajó tu hijo con Eduardo hoy</li>
+            </ul>
+        </div>
+        <div class="col-card">
+            <div class="icon">🧒</div>
+            <h3>El Compañero de tu Hijo — Eduardo</h3>
+            <p>Nunca da respuestas. Solo hace preguntas. Convierte el aprendizaje en aventura.</p>
+            <ul>
+                <li>"¿Por qué el cielo es azul?" → descubrimiento guiado, no una clase</li>
+                <li>Ayuda con tareas → divide problemas en preguntas más pequeñas</li>
+                <li>Modo historia → aventuras que enseñan matemáticas y lectura</li>
+                <li>Desafío diario → un puzzle divertido adaptado a áreas débiles</li>
+                <li>Conecta todo con lo que le apasiona a tu hijo</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section id="how">
+    <h2>Cómo funciona</h2>
+    <div class="how-steps">
+        <div class="step">
+            <div class="step-n">1</div>
+            <div>
+                <h3>Regístrate y agrega a tu hijo</h3>
+                <p>Tú recibes tu propio gemelo. Tu hijo recibe a Eduardo, su compañero de aprendizaje IA. Toma 30 segundos.</p>
+            </div>
+        </div>
+        <div class="step">
+            <div class="step-n">2</div>
+            <div>
+                <h3>Cuéntale sobre tu hijo</h3>
+                <p>Sube una libreta de notas, escribe sus fortalezas, comparte lo que le gusta. El gemelo construye un perfil y recuerda todo.</p>
+            </div>
+        </div>
+        <div class="step">
+            <div class="step-n">3</div>
+            <div>
+                <h3>Tu hijo chatea con Eduardo</h3>
+                <p>Eduardo hace preguntas que guían a tu hijo hacia la comprensión. No da respuestas — solo descubrimiento guiado. Si a tu hijo le encanta Minecraft, las fracciones son sobre Minecraft.</p>
+            </div>
+        </div>
+        <div class="step">
+            <div class="step-n">4</div>
+            <div>
+                <h3>Tú ves los resultados</h3>
+                <p>Después de cada sesión, Eduardo escribe notas: qué descubrió tu hijo, en qué se quedó atascado. Pregúntale a tu gemelo "¿en qué trabajó hoy?" y obtén un resumen claro.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="demos">
+    <h2>Pruébalo en vivo</h2>
+    <p class="sub">Gemelos reales de padre e hijo con datos reales</p>
+    <div class="demos">
+        <div class="demo">
+            <h3>👨‍👩‍👧 Padre/Madre — Español</h3>
+            <div class="role">Padre de Mateo · Directo y práctico</div>
+            <p>Mateo tiene 7 años, 2° Básico. Fuerte en matemáticas, débil en lectura. Pregunta "¿Cómo va Mateo?"</p>
+            <a href="https://ltwin.ai/chat/familia-padre/8f263f7b44c442adf1f9343576c19aab" class="btn btn-primary" target="_blank">Chatear como Padre</a>
+        </div>
+        <div class="demo">
+            <h3>🧒 Eduardo — Español</h3>
+            <div class="role">Compañero de Mateo · Socrático</div>
+            <p>Nunca da respuestas, solo preguntas. Prueba "¿Por qué se extinguieron los dinosaurios?"</p>
+            <a href="https://ltwin.ai/chat/familia-hijo/0b737819b497a983d1c65958a6fcb7cd" class="btn btn-primary" target="_blank">Chatear como Mateo</a>
+        </div>
+        <div class="demo">
+            <h3>👨‍👩‍👧 Parent Twin — English</h3>
+            <div class="role">Alex's parent · Direct and practical</div>
+            <p>Alex has 8 years, 3rd grade. Strong in reading, weak in fractions. Ask "How's Alex doing?"</p>
+            <a href="https://ltwin.ai/chat/family-parent/209edf5dc7569e0583622c5fa720039a" class="btn btn-primary" target="_blank">Chat as Parent</a>
+        </div>
+        <div class="demo">
+            <h3>🧒 Eduardo — English</h3>
+            <div class="role">Alex's learning buddy · Socratic</div>
+            <p>Never gives answers. Try "Why do cats purr?" or "Help me with fractions"</p>
+            <a href="https://ltwin.ai/chat/family-child/e50e80def3daa2176b4690ac2097ca87" class="btn btn-primary" target="_blank">Chat as Alex</a>
+        </div>
+    </div>
+</section>
+
+<section id="pricing">
+    <h2>Elige tu plan</h2>
+    <p class="sub">Comienza solo con el compañero de aprendizaje, o accede a la experiencia familiar completa.</p>
+    <div class="pricing-grid">
+        <div class="price-box">
+            <div class="amount">$29<span>/mes</span></div>
+            <h3>Plan Estudiante</h3>
+            <ul>
+                <li>El gemelo Eduardo para tu hijo — compañero de aprendizaje IA</li>
+                <li>Notas de sesión de cada sesión de aprendizaje</li>
+                <li>Funciona en inglés y español</li>
+            </ul>
+            <p style="font-size:13px;color:var(--muted);margin-bottom:16px;">Cancela cuando quieras</p>
+            <div style="display:flex;gap:8px;">
+                <a href="#contact" class="btn btn-outline" style="flex:1;font-size:14px;padding:14px;text-align:center;">Hablar con Experto</a>
+                <a href="https://aiaxia.org/register?plan=student&interval=monthly" class="btn btn-primary" style="flex:1;font-size:14px;padding:14px;text-align:center;">Comprar</a>
+            </div>
+        </div>
+        <div class="price-box featured">
+            <div class="amount">$49<span>/mes</span></div>
+            <h3>Plan Familiar</h3>
+            <ul>
+                <li>Todo lo del Plan Estudiante, más:</li>
+                <li>Tu propio gemelo de padre/madre — respuestas directas sobre tu hijo</li>
+                <li>Sube libretas de notas, pruebas, tareas — análisis instantáneo</li>
+                <li>Sugerencias de actividades semanales basadas en los intereses de tu hijo</li>
+                <li>Preparación para reunión con el profesor con preguntas específicas</li>
+                <li>Toggle padre-hijo — cambia entre vistas al instante</li>
+            </ul>
+            <p style="font-size:13px;color:var(--muted);margin-bottom:16px;">Hijos adicionales: $19/mes cada uno · Cancela cuando quieras</p>
+            <div style="display:flex;gap:8px;">
+                <a href="#contact" class="btn btn-outline" style="flex:1;font-size:14px;padding:14px;text-align:center;">Hablar con Experto</a>
+                <a href="https://aiaxia.org/register?plan=family&interval=monthly" class="btn btn-primary" style="flex:1;font-size:14px;padding:14px;text-align:center;">Comprar</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="contact" style="padding:50px 5%;max-width:600px;margin:0 auto;">
+    <h2 style="text-align:center;margin-bottom:8px;">Hablar con un Experto</h2>
+    <p class="sub">Te ayudaremos a configurar Eduardo para tu hijo y te mostraremos cómo funciona el gemelo de padre/madre — toma 15 minutos.</p>
+    <form id="lead-form" style="background:var(--card);border:1px solid var(--border);border-radius:16px;padding:28px;">
+        <div style="margin-bottom:12px;">
+            <label style="display:block;font-size:13px;font-weight:600;margin-bottom:4px;">Tu Nombre</label>
+            <input type="text" name="name" required style="width:100%;padding:10px 12px;border:1px solid var(--border);border-radius:8px;font-size:14px;">
+        </div>
+        <div style="margin-bottom:12px;">
+            <label style="display:block;font-size:13px;font-weight:600;margin-bottom:4px;">Email</label>
+            <input type="email" name="email" required style="width:100%;padding:10px 12px;border:1px solid var(--border);border-radius:8px;font-size:14px;">
+        </div>
+        <div style="margin-bottom:12px;">
+            <label style="display:block;font-size:13px;font-weight:600;margin-bottom:4px;">Edad del Hijo/a</label>
+            <select name="age" style="width:100%;padding:10px 12px;border:1px solid var(--border);border-radius:8px;font-size:14px;">
+                <option value="5-7">5-7 años</option>
+                <option value="8-10" selected>8-10 años</option>
+                <option value="11-13">11-13 años</option>
+                <option value="14+">14+</option>
+            </select>
+        </div>
+        <div style="margin-bottom:16px;">
+            <label style="display:block;font-size:13px;font-weight:600;margin-bottom:4px;">¿En qué necesita ayuda tu hijo/a?</label>
+            <textarea name="message" rows="3" placeholder="Matemáticas, lectura, tareas, motivación..." style="width:100%;padding:10px 12px;border:1px solid var(--border);border-radius:8px;font-size:14px;resize:vertical;"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:100%;font-size:16px;padding:14px;">Enviar Solicitud</button>
+        <div id="lead-form-result" style="text-align:center;margin-top:12px;font-size:14px;"></div>
+    </form>
+    <script>
+    document.getElementById('lead-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        var f = this;
+        var data = { name: f.name.value, email: f.email.value, age: f.age.value, message: f.message.value, source: 'families-es', plan: 'family' };
+        fetch('/chat/api/lead', { method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(data)
+        }).then(function(r) { return r.json(); }).then(function() {
+            document.getElementById('lead-form-result').innerHTML = '<span style="color:var(--green);">¡Gracias! Nos pondremos en contacto en 24 horas.</span>';
+            f.reset();
+        }).catch(function() {
+            document.getElementById('lead-form-result').innerHTML = '<span style="color:var(--green);">¡Gracias! Nos pondremos en contacto en 24 horas.</span>';
+            window.open('https://wa.me/17819447979?text=' + encodeURIComponent('Consulta familiar de ' + data.name + ' (' + data.email + '). Edad: ' + data.age), '_blank');
+        });
+    });
+    </script>
+</section>
+
+<footer>
+    <p>&copy; 2026 AIAXIA · <a href="https://aiaxia.org">aiaxia.org</a> · <a href="https://wa.me/17819447979">Soporte</a> · <a href="https://ltwin.ai/demo/es">Volver a L-twin</a></p>
+</footer>
+
+</body>
+</html>

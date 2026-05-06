@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L-twin | AI Learning Twins for Education</title>
+    <meta name="description" content="L-twin — AI twins for teachers, parents, and students. Socratic learning buddy, progress tracking, curriculum alignment. Live demos.">
+    <link rel="canonical" href="https://ltwin.ai/">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ltwin.ai/">
+    <meta property="og:title" content="L-twin | AI Learning Twins for Education">
+    <meta property="og:description" content="Every teacher gets an AI twin. Every student gets a learning buddy. Every parent gets clear answers.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #f8fafc;
+            --text: #1e293b;
+            --muted: #64748b;
+            --accent: #336699;
+            --accent-light: #e0ecf5;
+            --border: #e2e8f0;
+            --card: #ffffff;
+            --green: #16a34a;
+            --gold: #CFB382;
+            --shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', -apple-system, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+        a { color: var(--accent); text-decoration: none; }
+        .btn { display: inline-flex; align-items: center; padding: 0.75rem 1.5rem; border-radius: 8px; font-weight: 600; font-size: 0.95rem; text-decoration: none; transition: all 0.2s; border: none; cursor: pointer; }
+        .btn-primary { background: var(--accent); color: #fff; }
+        .btn-primary:hover { opacity: 0.9; }
+        .btn-outline { background: transparent; border: 2px solid var(--accent); color: var(--accent); }
+        .btn-outline:hover { background: var(--accent-light); }
+        .btn-lg { padding: 1rem 2rem; font-size: 1.1rem; }
+
+        nav { display: flex; justify-content: space-between; align-items: center; padding: 1.25rem 5%; max-width: 1200px; margin: 0 auto; }
+        nav .logo { font-size: 1.4rem; font-weight: 700; color: var(--accent); }
+        nav .links { display: flex; gap: 1.5rem; align-items: center; font-size: 0.9rem; }
+        nav .links a { color: var(--muted); }
+        nav .links a:hover { color: var(--text); }
+        .lang-switch { font-size: 0.8rem; color: var(--muted); border: 1px solid var(--border); padding: 0.3rem 0.6rem; border-radius: 4px; }
+
+        .hero { text-align: center; padding: 6rem 5% 3rem; max-width: 800px; margin: 0 auto; }
+        .hero h1 { font-size: 3rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 1rem; line-height: 1.15; }
+        .hero h1 em { font-style: normal; color: var(--accent); }
+        .hero p { font-size: 1.15rem; color: var(--muted); max-width: 620px; margin: 0 auto 2rem; }
+        .hero-cta { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
+
+        .audiences { max-width: 1100px; margin: 0 auto; padding: 3rem 5% 4rem; }
+        .audiences h2 { text-align: center; font-size: 1.75rem; margin-bottom: 0.5rem; }
+        .audiences .sub { text-align: center; color: var(--muted); margin-bottom: 2.5rem; }
+        .aud-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+        .aud-card { background: var(--card); border: 2px solid var(--border); border-radius: 16px; padding: 2rem; transition: all 0.2s; display: flex; flex-direction: column; }
+        .aud-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-2px); border-color: var(--accent); }
+        .aud-icon { font-size: 2.5rem; margin-bottom: 0.75rem; }
+        .aud-card h3 { font-size: 1.2rem; margin-bottom: 0.5rem; }
+        .aud-card p { font-size: 0.9rem; color: var(--muted); margin-bottom: 1rem; flex: 1; }
+        .aud-features { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1.25rem; }
+        .aud-feat { font-size: 0.75rem; background: var(--accent-light); color: var(--accent); padding: 3px 10px; border-radius: 12px; font-weight: 500; }
+        .aud-card .btn { width: 100%; justify-content: center; }
+
+        .pricing-preview { max-width: 1100px; margin: 0 auto; padding: 0 5% 4rem; }
+        .pricing-preview h2 { text-align: center; font-size: 1.75rem; margin-bottom: 2rem; }
+        .price-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1.25rem; }
+        .price-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; text-align: center; }
+        .price-card.featured { border: 2px solid var(--accent); }
+        .price-card h3 { font-size: 1rem; margin-bottom: 0.25rem; }
+        .price-card .price { font-size: 1.75rem; font-weight: 700; color: var(--accent); }
+        .price-card .price span { font-size: 0.85rem; font-weight: 400; color: var(--muted); }
+        .price-card p { font-size: 0.85rem; color: var(--muted); margin: 0.5rem 0 1rem; }
+        .price-card .btn { width: 100%; justify-content: center; font-size: 0.85rem; padding: 0.5rem; }
+
+        .ctwin-banner { max-width: 1100px; margin: 0 auto; padding: 0 5% 3rem; }
+        .ctwin-card { background: #FFF8E7; border: 2px solid #e8d5a8; border-radius: 16px; padding: 2.5rem; display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap; }
+        .ctwin-card h3 { font-size: 1.25rem; margin-bottom: 0.25rem; color: #8B6914; }
+        .ctwin-card p { font-size: 0.95rem; color: var(--muted); }
+        .btn-gold { background: #CFB382; color: #000; }
+        .btn-gold:hover { background: #8B6914; color: #fff; }
+
+        footer { text-align: center; padding: 2rem 5%; color: var(--muted); font-size: 0.85rem; border-top: 1px solid var(--border); margin-top: 2rem; }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+            .aud-grid, .price-row { grid-template-columns: 1fr; }
+            .ctwin-card { flex-direction: column; text-align: center; }
+            nav .links a:not(.btn) { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <a href="index.html" class="logo">L-twin</a>
+    <div class="links">
+        <a href="https://ctwin.ai/onboarding/signup">Get Started</a>
+        <a href="schools.html">Schools</a>
+        <a href="families.html">Families</a>
+        <a href="mentors.html">Mentors</a>
+        <a href="teachers.html">For Teachers</a>
+        <a href="families-es.html" class="lang-switch">ES</a>
+        <a href="https://ctwin.ai/onboarding/signup" class="btn btn-primary">Get Started</a>
+    </div>
+</nav>
+
+<section class="hero">
+    <h1>Every teacher gets a <em>twin</em>. Every child gets a <em>buddy</em>.</h1>
+    <p>AI learning twins for teachers, parents, and students. Teachers track progress and generate reports. Parents get clear answers. Children discover through questions — never lectures.</p>
+    <div class="hero-cta">
+        <a href="https://ctwin.ai/onboarding/signup" class="btn btn-primary btn-lg">Get Started</a>
+        <a href="schools.html" class="btn btn-outline btn-lg">For Schools</a>
+        <a href="families.html" class="btn btn-outline btn-lg">For Families</a>
+    </div>
+</section>
+
+<section class="audiences">
+    <h2>Who is it for?</h2>
+    <p class="sub">Same platform, different experience for each role.</p>
+    <div class="aud-grid">
+        <div class="aud-card">
+            <div class="aud-icon">👩‍🏫</div>
+            <h3>For Schools</h3>
+            <p>Every teacher gets an AI twin that knows their students, tracks curriculum objectives, detects regression, and generates parent reports. The school sees it all.</p>
+            <div class="aud-features">
+                <span class="aud-feat">Progress heatmap</span>
+                <span class="aud-feat">Curriculum alignment</span>
+                <span class="aud-feat">Parent reports</span>
+                <span class="aud-feat">Mentor oversight</span>
+            </div>
+            <a href="schools.html" class="btn btn-primary">Schools &rarr;</a>
+        </div>
+        <div class="aud-card">
+            <div class="aud-icon">👨‍👩‍👧</div>
+            <h3>For Families</h3>
+            <p>Your child gets Eduardo — a Socratic learning buddy that never gives answers, only asks questions. You get a parent twin that reads report cards and tells you exactly what to do.</p>
+            <div class="aud-features">
+                <span class="aud-feat">Eduardo learning buddy</span>
+                <span class="aud-feat">Session notes</span>
+                <span class="aud-feat">Parent-child toggle</span>
+                <span class="aud-feat">Weekly activities</span>
+            </div>
+            <a href="families.html" class="btn btn-primary">Families &rarr;</a>
+        </div>
+        <div class="aud-card">
+            <div class="aud-icon">🧒</div>
+            <h3>For Children</h3>
+            <p>Eduardo uses the Socratic method, scaffolding, spaced repetition, and error diagnosis to guide discovery. Adapts to your child's interests — if they love dinosaurs, the math is about dinosaurs.</p>
+            <div class="aud-features">
+                <span class="aud-feat">Socratic method</span>
+                <span class="aud-feat">CRA scaffolding</span>
+                <span class="aud-feat">Spaced repetition</span>
+                <span class="aud-feat">Story mode</span>
+            </div>
+            <a href="families.html#demos" class="btn btn-outline">Try Eduardo</a>
+        </div>
+        <div class="aud-card">
+            <div class="aud-icon">🎓</div>
+            <h3>For Adult Learners</h3>
+            <p>Learning a new skill, changing careers, or going back to school. Your twin tracks progress, connects concepts, and keeps you accountable. Like a personal tutor that never forgets.</p>
+            <div class="aud-features">
+                <span class="aud-feat">Goal tracking</span>
+                <span class="aud-feat">Knowledge graph</span>
+                <span class="aud-feat">Self-directed</span>
+            </div>
+            <a href="https://ctwin.ai/onboarding/signup" class="btn btn-outline">Try a Demo</a>
+        </div>
+    </div>
+</section>
+
+<section class="pricing-preview">
+    <h2>Simple pricing</h2>
+    <div class="price-row">
+        <div class="price-card">
+            <h3>Student</h3>
+            <div class="price">$29 <span>/mo</span></div>
+            <p>Eduardo learning buddy for your child. Session notes and progress tracking.</p>
+            <a href="families.html#pricing" class="btn btn-outline">Learn More</a>
+        </div>
+        <div class="price-card featured">
+            <h3>Family</h3>
+            <div class="price">Starts at $39 <span>/mo</span></div>
+            <p>Eduardo + parent twin. Drop report cards, get weekly activities, parent-child toggle. +$19/mo per additional child.</p>
+            <a href="families.html#pricing" class="btn btn-primary">Most Popular</a>
+        </div>
+        <div class="price-card">
+            <h3>Educator</h3>
+            <div class="price">$79 <span>/seat/mo</span></div>
+            <p>AI twin per teacher. Heatmap, curriculum alignment, parent reports, mentor oversight.</p>
+            <a href="schools.html#pricing" class="btn btn-outline">For Schools</a>
+        </div>
+    </div>
+</section>
+
+<section class="ctwin-banner">
+    <div class="ctwin-card">
+        <div>
+            <h3>Looking for business?</h3>
+            <p>C-twin by AIVP — AI twins that capture your business expertise from conversations, documents, and data.</p>
+        </div>
+        <a href="https://ctwin.ai/" class="btn btn-gold">Visit C-twin &rarr;</a>
+    </div>
+</section>
+
+<footer>
+    <p>&copy; 2026 L-twin by <a href="https://aiaxia.org">AIAXIA</a> &middot; <a href="https://ctwin.ai/">C-twin</a> &middot; <a href="https://meet.google.com/nxi-mubh-nnk?authuser=0">Support</a> &middot; <a href="families-es.html">Espa&ntilde;ol</a></p>
+</footer>
+
+</body>
+</html>
