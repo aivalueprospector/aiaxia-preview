@@ -1,51 +1,61 @@
 /* ===================================================================
    Twin Management Dashboard — utility admin styles
    One stylesheet, all pages. Brand swap via `data-brand` on <html>.
-   Tokens mirror the ProAsiste twin at ctwin.ai (light slate + sky blue,
-   Inter typeface). EduAsiste uses the same light surface with a warm
-   accent. AiVP keeps a dark back-of-house palette for separation.
+
+   Brand palettes are taken verbatim from the TwinCloud chat UI
+   (`src/lib/themes.ts`):
+   - ProAsiste = business LOB (dark), cream/gold on dark brown
+   - EduAsiste = education LOB (dark), sky blue on dark slate
+   - AiVP     = internal admin console, lime on graphite
    =================================================================== */
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
-/* ---------- Shared light surface (ProAsiste + EduAsiste) ----------- */
-:root,
-[data-brand="proasiste"],
-[data-brand="eduasiste"] {
-  --bg:           #f8fafc;
-  --bg-elev:      #ffffff;
-  --bg-hover:     #f1f5f9;
-  --border:       #e2e8f0;
-  --border-strong:#cbd5e1;
-  --text:         #0f172a;
-  --text-soft:    #334155;
-  --text-muted:   #64748b;
-  --status-active: #16a34a;
-  --status-trial:  #2563eb;
-  --status-idle:   #64748b;
-  --status-warn:   #d97706;
-  --status-error:  #dc2626;
-}
-
-/* ---------- ProAsiste accent (matches ctwin twin --primary) -------- */
+/* ---------- ProAsiste (business LOB, dark) ------------------------- */
 :root,
 [data-brand="proasiste"] {
-  --brand:        #2ea3f2;
-  --brand-hover:  #1f8fd9;
-  --brand-fg:     #ffffff;
-  --brand-tint:   #e8f3fc;
-  --focus:        #2ea3f2;
-  --link:         #1f8fd9;
+  --bg:           #1A1610;
+  --bg-elev:      #231E16;
+  --bg-hover:     #2E2720;
+  --border:       #3D3328;
+  --border-strong:#4D4232;
+  --text:         #F5EDD6;
+  --text-soft:    #D4C8A8;
+  --text-muted:   #A89068;
+  --brand:        #CFB382;
+  --brand-hover:  #DBC494;
+  --brand-fg:     #000000;
+  --brand-tint:   #2A1F12;
+  --focus:        #CFB382;
+  --link:         #DBC494;
+  --status-active: #22c55e;
+  --status-trial:  #3b82f6;
+  --status-idle:   #A89068;
+  --status-warn:   #f59e0b;
+  --status-error:  #ef4444;
 }
 
-/* ---------- EduAsiste accent (warm contrast to sister brand) ------- */
+/* ---------- EduAsiste (education LOB, dark) ----------------------- */
 [data-brand="eduasiste"] {
-  --brand:        #f97316;
-  --brand-hover:  #ea580c;
+  --bg:           #0f172a;
+  --bg-elev:      #1e293b;
+  --bg-hover:     #283548;
+  --border:       #334155;
+  --border-strong:#475569;
+  --text:         #e2e8f0;
+  --text-soft:    #cbd5e1;
+  --text-muted:   #94a3b8;
+  --brand:        #2ea3f2;
+  --brand-hover:  #4cb3f4;
   --brand-fg:     #ffffff;
-  --brand-tint:   #fef3eb;
-  --focus:        #f97316;
-  --link:         #c2410c;
+  --brand-tint:   #0d2538;
+  --focus:        #2ea3f2;
+  --link:         #4cb3f4;
+  --status-active: #22c55e;
+  --status-trial:  #3b82f6;
+  --status-idle:   #94a3b8;
+  --status-warn:   #f59e0b;
+  --status-error:  #ef4444;
 }
 
 /* ---------- AiVP dark back-of-house console ----------------------- */
@@ -381,8 +391,8 @@ h3 { font-size: 14px; }
   background: var(--chip-color, var(--text-muted));
   border-radius: 2px;
 }
-.chip--brand[data-of="proasiste"] { --chip-color: #2ea3f2; }
-.chip--brand[data-of="eduasiste"] { --chip-color: #f97316; }
+.chip--brand[data-of="proasiste"] { --chip-color: #CFB382; }
+.chip--brand[data-of="eduasiste"] { --chip-color: #2ea3f2; }
 .chip--brand[data-of="aivp"]      { --chip-color: #C5F500; }
 
 /* ---------- Buttons ------------------------------------------------ */
