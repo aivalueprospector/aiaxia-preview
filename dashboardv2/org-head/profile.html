@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en" data-brand="proasiste">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Profile — Twin Management</title>
+<link rel="stylesheet" href="../shared/styles.css">
+</head>
+<body data-page="profile">
+
+<div class="app">
+  <aside class="sidebar">
+    <div class="sidebar__brand">
+      <div class="sidebar__brand-mark" data-brand-mark>P</div>
+      <div class="sidebar__brand-name" data-brand-name>ProAsiste</div>
+    </div>
+    <div class="sidebar__role">Org Head · Quintana Industrial</div>
+    <div class="sidebar__group">
+      <div class="sidebar__group-label">Manage</div>
+      <nav class="sidebar__nav">
+        <a class="sidebar__link" data-page="overview" href="overview.html">Overview</a>
+        <a class="sidebar__link" data-page="twins" href="twins.html">Twins</a>
+        <a class="sidebar__link" data-page="members" href="members.html">Members</a>
+      </nav>
+    </div>
+    <div class="sidebar__group">
+      <div class="sidebar__group-label">Account</div>
+      <nav class="sidebar__nav">
+        <a class="sidebar__link" data-page="profile" href="profile.html">Profile</a>
+      </nav>
+    </div>
+    <div class="sidebar__footer">
+      <div class="sidebar__avatar">RQ</div>
+      <div class="sidebar__user">
+        <div class="sidebar__user-name">Rosa Quintana</div>
+        <div class="sidebar__user-email">rosa@quintana-industrial.mx</div>
+      </div>
+      <a href="../login.html" class="btn--link" aria-label="Sign out" title="Sign out">↩</a>
+    </div>
+  </aside>
+
+  <div>
+    <div class="topbar">
+      <div>
+        <div class="topbar__title">Profile</div>
+        <div class="topbar__sub">Edit your account and organization.</div>
+      </div>
+    </div>
+
+    <div class="content">
+
+      <section class="card" style="margin-bottom: 24px;">
+        <div class="card__head"><h2>Your account</h2></div>
+        <div class="card__body">
+          <form class="form">
+            <div class="field">
+              <label class="field__label" for="full">Full name</label>
+              <input id="full" class="input" value="Rosa Quintana">
+            </div>
+            <div class="field">
+              <label class="field__label" for="email">
+                Email
+                <span class="field__locked">🔒 Locked</span>
+              </label>
+              <input id="email" class="input" type="email" value="rosa@quintana-industrial.mx" readonly>
+              <div class="field__help">Email is tied to billing in Stripe and cannot be changed here. Contact your sales rep.</div>
+            </div>
+            <div class="field">
+              <label class="field__label" for="lang">Language</label>
+              <select id="lang" class="select">
+                <option>English</option>
+                <option selected>Spanish</option>
+                <option>Portuguese</option>
+                <option>French</option>
+              </select>
+            </div>
+            <div class="form__actions">
+              <button type="submit" class="btn btn--primary">Save changes</button>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <section class="card" style="margin-bottom: 24px;">
+        <div class="card__head"><h2>Change password</h2></div>
+        <div class="card__body">
+          <form class="form">
+            <div class="field">
+              <label class="field__label" for="cur-pwd">Current password</label>
+              <input id="cur-pwd" type="password" class="input">
+            </div>
+            <div class="field">
+              <label class="field__label" for="new-pwd">New password</label>
+              <input id="new-pwd" type="password" class="input">
+            </div>
+            <div class="field">
+              <label class="field__label" for="conf-pwd">Confirm new password</label>
+              <input id="conf-pwd" type="password" class="input">
+            </div>
+            <div class="form__actions">
+              <button type="submit" class="btn btn--primary">Update password</button>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="card__head">
+          <h2>Organization</h2>
+          <span class="muted" style="font-size: 12px;">Visible to org heads only.</span>
+        </div>
+        <div class="card__body">
+          <form class="form">
+            <div class="field">
+              <label class="field__label" for="orgname">Organization name</label>
+              <input id="orgname" class="input" value="Quintana Industrial">
+              <div class="field__help">Shown to your employees throughout the app.</div>
+            </div>
+
+            <dl class="dl" style="margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--border);">
+              <dt>Brand</dt><dd><span class="chip chip--brand" data-of="proasiste"></span> <span data-brand-name>ProAsiste</span></dd>
+              <dt>Host</dt><dd class="mono">proasiste.com</dd>
+              <dt>Seat quota</dt><dd>14 (managed in Stripe)</dd>
+              <dt>Created by</dt><dd>Rodrigo Salas · Sales</dd>
+            </dl>
+
+            <div class="form__actions">
+              <button type="submit" class="btn btn--primary">Save organization</button>
+            </div>
+          </form>
+        </div>
+      </section>
+
+    </div>
+  </div>
+</div>
+
+<div class="proto-toggle" id="proto-toggle" role="group" aria-label="Preview brand"></div>
+<script src="../shared/nav.js"></script>
+</body>
+</html>

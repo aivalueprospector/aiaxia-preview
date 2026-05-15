@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en" data-brand="aivp">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Quintana Industrial — Twin Management (Sales)</title>
+<link rel="stylesheet" href="../shared/styles.css">
+</head>
+<body data-page="orgs">
+
+<div class="app">
+  <aside class="sidebar">
+    <div class="sidebar__brand">
+      <div class="sidebar__brand-mark">A</div>
+      <div class="sidebar__brand-name">AiVP Internal</div>
+    </div>
+    <div class="sidebar__role">Sales · Rodrigo Salas</div>
+    <div class="sidebar__group">
+      <div class="sidebar__group-label">Manage</div>
+      <nav class="sidebar__nav">
+        <a class="sidebar__link" data-page="overview" href="overview.html">Overview</a>
+        <a class="sidebar__link" data-page="orgs" href="orgs.html">Organizations</a>
+      </nav>
+    </div>
+    <div class="sidebar__group">
+      <div class="sidebar__group-label">Account</div>
+      <nav class="sidebar__nav">
+        <a class="sidebar__link" data-page="profile" href="profile.html">Profile</a>
+      </nav>
+    </div>
+    <div class="sidebar__footer">
+      <div class="sidebar__avatar">RS</div>
+      <div class="sidebar__user">
+        <div class="sidebar__user-name">Rodrigo Salas</div>
+        <div class="sidebar__user-email">rodrigo@aivp.com</div>
+      </div>
+      <a href="../login.html" class="btn--link" aria-label="Sign out" title="Sign out">↩</a>
+    </div>
+  </aside>
+
+  <div>
+    <div class="topbar">
+      <div>
+        <div class="topbar__title">Quintana Industrial</div>
+        <div class="topbar__sub"><a href="orgs.html">← Organizations</a> · <span class="chip chip--brand" data-of="proasiste"></span> ProAsiste · proasiste.com</div>
+      </div>
+      <div class="topbar__actions">
+        <button class="btn btn--primary">Provision twin</button>
+      </div>
+    </div>
+
+    <div class="content">
+
+      <div class="tiles">
+        <div class="tile">
+          <div class="tile__label">Seats used</div>
+          <div class="tile__value">11 / 14</div>
+          <div class="tile__bar"><div class="tile__bar-fill" style="width: 78.6%;"></div></div>
+        </div>
+        <div class="tile">
+          <div class="tile__label">Members</div>
+          <div class="tile__value">12</div>
+          <div class="tile__sub">1 head · 11 employees</div>
+        </div>
+        <div class="tile">
+          <div class="tile__label">Created</div>
+          <div class="tile__value" style="font-size: 18px;">2025-08-04</div>
+          <div class="tile__sub">by Rodrigo Salas</div>
+        </div>
+        <div class="tile">
+          <div class="tile__label">Stripe</div>
+          <div class="tile__value" style="font-size: 18px;">cus_OqJ…</div>
+          <div class="tile__sub">Subscription active</div>
+        </div>
+      </div>
+
+      <div class="banner">
+        <span class="banner__dot" style="background: var(--status-trial);"></span>
+        <span><strong>At-quota state:</strong> when the org is fully seated (e.g. Rincón Construcción at 5/5), the Provision button is disabled — <button class="btn btn--small" disabled title="At seat quota. Raise quota in Stripe first.">Provision twin</button> — until the seat count is raised in Stripe.</span>
+      </div>
+
+      <section class="card" style="margin-bottom: 24px;">
+        <div class="card__head">
+          <h2>Org Head</h2>
+        </div>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Twin</th>
+              <th>Last sign-in</th>
+              <th class="actions">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="primary-cell">Rosa Quintana</td>
+              <td>rosa@quintana-industrial.mx</td>
+              <td><span class="status status--active">Active</span></td>
+              <td>2 hours ago</td>
+              <td class="actions">
+                <button class="btn btn--small">Send reset link</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="card">
+        <div class="card__head">
+          <h2>Employees</h2>
+          <span class="muted" style="font-size: 12px;">11 of 14 seats used</span>
+        </div>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Twin</th>
+              <th>Last sign-in</th>
+              <th class="actions">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="primary-cell">Mateo Ibarra</td>
+              <td>mateo@quintana-industrial.mx</td>
+              <td><span class="status status--active">Active</span></td>
+              <td>3 hours ago</td>
+              <td class="actions">
+                <button class="btn btn--small">Send reset link</button>
+                <button class="btn btn--small btn--danger">Deprovision</button>
+              </td>
+            </tr>
+            <tr>
+              <td class="primary-cell">Lucía Otero</td>
+              <td>lucia@quintana-industrial.mx</td>
+              <td><span class="status status--trial">Trial</span></td>
+              <td>Yesterday</td>
+              <td class="actions">
+                <button class="btn btn--small">Send reset link</button>
+                <button class="btn btn--small btn--danger">Deprovision</button>
+              </td>
+            </tr>
+            <tr>
+              <td class="primary-cell">Tomás Echevarría</td>
+              <td>tomas@quintana-industrial.mx</td>
+              <td><span class="status status--idle">Idle 14d</span></td>
+              <td>14 days ago</td>
+              <td class="actions">
+                <button class="btn btn--small">Send reset link</button>
+                <button class="btn btn--small btn--danger">Deprovision</button>
+              </td>
+            </tr>
+            <tr>
+              <td class="primary-cell">Ana Sofía Beltrán</td>
+              <td>ana@quintana-industrial.mx</td>
+              <td><span class="status status--error">Suspended</span></td>
+              <td>2 months ago</td>
+              <td class="actions">
+                <button class="btn btn--small">Send reset link</button>
+                <button class="btn btn--small">Reactivate</button>
+              </td>
+            </tr>
+            <tr>
+              <td class="primary-cell">Beto Carrillo</td>
+              <td>beto@quintana-industrial.mx</td>
+              <td><span class="status">No twin</span></td>
+              <td>1 week ago</td>
+              <td class="actions">
+                <button class="btn btn--small btn--primary">Provision twin</button>
+                <button class="btn btn--small">Send reset link</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+    </div>
+  </div>
+</div>
+
+<div class="proto-toggle" id="proto-toggle" role="group" aria-label="Preview brand"></div>
+<script src="../shared/nav.js"></script>
+</body>
+</html>

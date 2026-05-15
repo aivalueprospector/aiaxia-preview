@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en" data-brand="aivp">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Create organization — Twin Management (Sales)</title>
+<link rel="stylesheet" href="../shared/styles.css">
+</head>
+<body data-page="orgs">
+
+<div class="app">
+  <aside class="sidebar">
+    <div class="sidebar__brand">
+      <div class="sidebar__brand-mark">A</div>
+      <div class="sidebar__brand-name">AiVP Internal</div>
+    </div>
+    <div class="sidebar__role">Sales · Rodrigo Salas</div>
+    <div class="sidebar__group">
+      <div class="sidebar__group-label">Manage</div>
+      <nav class="sidebar__nav">
+        <a class="sidebar__link" data-page="overview" href="overview.html">Overview</a>
+        <a class="sidebar__link" data-page="orgs" href="orgs.html">Organizations</a>
+      </nav>
+    </div>
+    <div class="sidebar__group">
+      <div class="sidebar__group-label">Account</div>
+      <nav class="sidebar__nav">
+        <a class="sidebar__link" data-page="profile" href="profile.html">Profile</a>
+      </nav>
+    </div>
+    <div class="sidebar__footer">
+      <div class="sidebar__avatar">RS</div>
+      <div class="sidebar__user">
+        <div class="sidebar__user-name">Rodrigo Salas</div>
+        <div class="sidebar__user-email">rodrigo@aivp.com</div>
+      </div>
+      <a href="../login.html" class="btn--link" aria-label="Sign out" title="Sign out">↩</a>
+    </div>
+  </aside>
+
+  <div>
+    <div class="topbar">
+      <div>
+        <div class="topbar__title">Create organization</div>
+        <div class="topbar__sub"><a href="orgs.html">← Back to organizations</a></div>
+      </div>
+    </div>
+
+    <div class="content">
+
+      <p style="color: var(--text-muted); margin-bottom: 24px; max-width: 520px;">
+        Creating an organization also creates a Stripe customer for billing and registers the first org head. The org head receives an invite to set their password.
+      </p>
+
+      <form class="form form--wide">
+
+        <h2 style="margin-bottom: 12px;">Organization</h2>
+
+        <div class="field">
+          <label class="field__label" for="orgname">Organization name</label>
+          <input id="orgname" class="input" placeholder="e.g. Núñez Logística">
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <label class="field__label" for="brand">Brand</label>
+            <select id="brand" class="select">
+              <option value="proasiste">ProAsiste</option>
+              <option value="eduasiste">EduAsiste</option>
+            </select>
+            <div class="field__help">Determines which host the org head logs in on.</div>
+          </div>
+          <div class="field">
+            <label class="field__label" for="host">Host</label>
+            <input id="host" class="input" value="proasiste.com" readonly>
+            <div class="field__help">Derived from brand selection.</div>
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="field__label" for="region">Region</label>
+          <select id="region" class="select">
+            <option>Mexico</option>
+            <option>Colombia</option>
+            <option>Spain</option>
+            <option>USA</option>
+          </select>
+        </div>
+
+        <h2 style="margin: 28px 0 12px;">First org head</h2>
+
+        <div class="field-row">
+          <div class="field">
+            <label class="field__label" for="first">First name</label>
+            <input id="first" class="input">
+          </div>
+          <div class="field">
+            <label class="field__label" for="last">Last name</label>
+            <input id="last" class="input">
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="field__label" for="email">Email</label>
+          <input id="email" type="email" class="input">
+          <div class="field__help">Used as the Stripe billing identifier and the org head's sign-in. Cannot be changed later by the user.</div>
+        </div>
+
+        <div class="field">
+          <label class="field__label" for="lang">Language</label>
+          <select id="lang" class="select">
+            <option>English</option>
+            <option selected>Spanish</option>
+            <option>Portuguese</option>
+            <option>French</option>
+          </select>
+        </div>
+
+        <h2 style="margin: 28px 0 12px;">Plan</h2>
+
+        <div class="field">
+          <label class="field__label" for="seats">Initial seat quota</label>
+          <input id="seats" type="number" class="input" value="5" min="1">
+          <div class="field__help">Seat count is reconciled from Stripe via webhook after the first payment.</div>
+        </div>
+
+        <div class="banner banner--warn">
+          <span class="banner__dot"></span>
+          <span>This will charge a setup fee and create a recurring subscription on the org's Stripe customer.</span>
+        </div>
+
+        <div class="form__actions">
+          <button type="submit" class="btn btn--primary">Create organization</button>
+          <a href="orgs.html" class="btn">Cancel</a>
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+</div>
+
+<div class="proto-toggle" id="proto-toggle" role="group" aria-label="Preview brand"></div>
+<script src="../shared/nav.js"></script>
+</body>
+</html>

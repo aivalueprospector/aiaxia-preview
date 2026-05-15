@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en" data-brand="proasiste">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Overview — Twin Management</title>
+<link rel="stylesheet" href="../shared/styles.css">
+</head>
+<body data-page="overview">
+
+<div class="app">
+  <aside class="sidebar">
+    <div class="sidebar__brand">
+      <div class="sidebar__brand-mark" data-brand-mark>P</div>
+      <div class="sidebar__brand-name" data-brand-name>ProAsiste</div>
+    </div>
+    <div class="sidebar__role">Org Head · Quintana Industrial</div>
+    <div class="sidebar__group">
+      <div class="sidebar__group-label">Manage</div>
+      <nav class="sidebar__nav">
+        <a class="sidebar__link" data-page="overview" href="overview.html">Overview</a>
+        <a class="sidebar__link" data-page="twins" href="twins.html">Twins</a>
+        <a class="sidebar__link" data-page="members" href="members.html">Members</a>
+      </nav>
+    </div>
+    <div class="sidebar__group">
+      <div class="sidebar__group-label">Account</div>
+      <nav class="sidebar__nav">
+        <a class="sidebar__link" data-page="profile" href="profile.html">Profile</a>
+      </nav>
+    </div>
+    <div class="sidebar__footer">
+      <div class="sidebar__avatar">RQ</div>
+      <div class="sidebar__user">
+        <div class="sidebar__user-name">Rosa Quintana</div>
+        <div class="sidebar__user-email">rosa@quintana-industrial.mx</div>
+      </div>
+      <a href="../login.html" class="btn--link" aria-label="Sign out" title="Sign out">↩</a>
+    </div>
+  </aside>
+
+  <div>
+    <div class="topbar">
+      <div>
+        <div class="topbar__title">Overview</div>
+        <div class="topbar__sub">Quintana Industrial</div>
+      </div>
+      <div class="topbar__actions">
+        <a href="twins-provision.html" class="btn btn--primary">Provision twin</a>
+      </div>
+    </div>
+
+    <div class="content">
+
+      <div class="tiles">
+        <div class="tile">
+          <div class="tile__label">Twins active</div>
+          <div class="tile__value">11</div>
+          <div class="tile__sub">of 14 seats</div>
+          <div class="tile__bar"><div class="tile__bar-fill" style="width: 78.6%;"></div></div>
+        </div>
+        <div class="tile">
+          <div class="tile__label">Seats available</div>
+          <div class="tile__value">3</div>
+          <div class="tile__sub">3 unprovisioned</div>
+        </div>
+        <div class="tile">
+          <div class="tile__label">Members</div>
+          <div class="tile__value">12</div>
+          <div class="tile__sub">1 head · 11 employees</div>
+        </div>
+        <div class="tile">
+          <div class="tile__label">Last activity</div>
+          <div class="tile__value">14m</div>
+          <div class="tile__sub">user invite sent</div>
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <section class="section">
+          <div class="card">
+            <div class="card__head">
+              <h2>Recent twins</h2>
+              <a href="twins.html">View all</a>
+            </div>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Email</th>
+                  <th>Status</th>
+                  <th>Provisioned</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="primary-cell">Rosa Quintana</td>
+                  <td>rosa@quintana-industrial.mx</td>
+                  <td><span class="status status--active">Active</span></td>
+                  <td>2025-09-12</td>
+                </tr>
+                <tr>
+                  <td class="primary-cell">Mateo Ibarra</td>
+                  <td>mateo@quintana-industrial.mx</td>
+                  <td><span class="status status--active">Active</span></td>
+                  <td>2026-01-08</td>
+                </tr>
+                <tr>
+                  <td class="primary-cell">Lucía Otero</td>
+                  <td>lucia@quintana-industrial.mx</td>
+                  <td><span class="status status--trial">Trial</span></td>
+                  <td>2026-04-22</td>
+                </tr>
+                <tr>
+                  <td class="primary-cell">Tomás Echevarría</td>
+                  <td>tomas@quintana-industrial.mx</td>
+                  <td><span class="status status--idle">Idle 14d</span></td>
+                  <td>2025-11-30</td>
+                </tr>
+                <tr>
+                  <td class="primary-cell">Ana Sofía Beltrán</td>
+                  <td>ana@quintana-industrial.mx</td>
+                  <td><span class="status status--error">Suspended</span></td>
+                  <td>2025-12-04</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <aside class="section">
+          <div class="card">
+            <div class="card__head">
+              <h2>Recent activity</h2>
+            </div>
+            <div class="card__body" style="padding: 0 16px;">
+              <ul class="activity">
+                <li>
+                  <time>14 min ago</time>
+                  <span><code>user.invited</code> — Lucía Otero invited as employee.</span>
+                </li>
+                <li>
+                  <time>2 hours ago</time>
+                  <span><code>twin.provisioned</code> — Mateo Ibarra. Quota now 11 / 14.</span>
+                </li>
+                <li>
+                  <time>Yesterday</time>
+                  <span><code>twin.deprovisioned</code> — Ana Sofía Beltrán. User retained.</span>
+                </li>
+                <li>
+                  <time>3 days ago</time>
+                  <span><code>subscription.updated</code> — quota raised from 12 to 14.</span>
+                </li>
+                <li>
+                  <time>5 days ago</time>
+                  <span><code>password.reset</code> — Tomás Echevarría reset by org head.</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </aside>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="proto-toggle" id="proto-toggle" role="group" aria-label="Preview brand"></div>
+<script src="../shared/nav.js"></script>
+</body>
+</html>

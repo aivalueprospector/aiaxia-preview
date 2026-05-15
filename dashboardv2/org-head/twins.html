@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en" data-brand="proasiste">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Twins — Twin Management</title>
+<link rel="stylesheet" href="../shared/styles.css">
+</head>
+<body data-page="twins">
+
+<div class="app">
+  <aside class="sidebar">
+    <div class="sidebar__brand">
+      <div class="sidebar__brand-mark" data-brand-mark>P</div>
+      <div class="sidebar__brand-name" data-brand-name>ProAsiste</div>
+    </div>
+    <div class="sidebar__role">Org Head · Quintana Industrial</div>
+    <div class="sidebar__group">
+      <div class="sidebar__group-label">Manage</div>
+      <nav class="sidebar__nav">
+        <a class="sidebar__link" data-page="overview" href="overview.html">Overview</a>
+        <a class="sidebar__link" data-page="twins" href="twins.html">Twins</a>
+        <a class="sidebar__link" data-page="members" href="members.html">Members</a>
+      </nav>
+    </div>
+    <div class="sidebar__group">
+      <div class="sidebar__group-label">Account</div>
+      <nav class="sidebar__nav">
+        <a class="sidebar__link" data-page="profile" href="profile.html">Profile</a>
+      </nav>
+    </div>
+    <div class="sidebar__footer">
+      <div class="sidebar__avatar">RQ</div>
+      <div class="sidebar__user">
+        <div class="sidebar__user-name">Rosa Quintana</div>
+        <div class="sidebar__user-email">rosa@quintana-industrial.mx</div>
+      </div>
+      <a href="../login.html" class="btn--link" aria-label="Sign out" title="Sign out">↩</a>
+    </div>
+  </aside>
+
+  <div>
+    <div class="topbar">
+      <div>
+        <div class="topbar__title">Twins</div>
+        <div class="topbar__sub">11 of 14 seats used</div>
+      </div>
+      <div class="topbar__actions">
+        <a href="twins-provision.html" class="btn btn--primary">Provision twin</a>
+      </div>
+    </div>
+
+    <div class="content">
+
+      <div class="card">
+        <div class="card__head" style="gap: 12px;">
+          <div style="display: flex; gap: 8px; align-items: center; flex: 1;">
+            <input type="search" class="input" placeholder="Search by name or email" style="max-width: 280px;">
+            <select class="select" style="max-width: 140px;">
+              <option>All statuses</option>
+              <option>Active</option>
+              <option>Trial</option>
+              <option>Idle</option>
+              <option>Suspended</option>
+            </select>
+          </div>
+          <a class="btn btn--small" href="#">Export CSV</a>
+        </div>
+        <table class="table">
+          <thead>
+            <tr>
+              <th style="width: 40px;">#</th>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Status</th>
+              <th>Provisioned</th>
+              <th class="actions">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="num">01</td>
+              <td class="primary-cell">Rosa Quintana</td>
+              <td>rosa@quintana-industrial.mx</td>
+              <td><span class="status status--active">Active</span></td>
+              <td>2025-09-12</td>
+              <td class="actions">
+                <a class="btn btn--small" href="#">Open</a>
+              </td>
+            </tr>
+            <tr>
+              <td class="num">02</td>
+              <td class="primary-cell">Mateo Ibarra</td>
+              <td>mateo@quintana-industrial.mx</td>
+              <td><span class="status status--active">Active</span></td>
+              <td>2026-01-08</td>
+              <td class="actions">
+                <a class="btn btn--small" href="#">Open</a>
+                <button class="btn btn--small btn--danger">Deprovision</button>
+              </td>
+            </tr>
+            <tr>
+              <td class="num">03</td>
+              <td class="primary-cell">Lucía Otero</td>
+              <td>lucia@quintana-industrial.mx</td>
+              <td><span class="status status--trial">Trial</span></td>
+              <td>2026-04-22</td>
+              <td class="actions">
+                <a class="btn btn--small" href="#">Open</a>
+                <button class="btn btn--small btn--danger">Deprovision</button>
+              </td>
+            </tr>
+            <tr>
+              <td class="num">04</td>
+              <td class="primary-cell">Tomás Echevarría</td>
+              <td>tomas@quintana-industrial.mx</td>
+              <td><span class="status status--idle">Idle 14d</span></td>
+              <td>2025-11-30</td>
+              <td class="actions">
+                <a class="btn btn--small" href="#">Open</a>
+                <button class="btn btn--small btn--danger">Deprovision</button>
+              </td>
+            </tr>
+            <tr>
+              <td class="num">05</td>
+              <td class="primary-cell">Ana Sofía Beltrán</td>
+              <td>ana@quintana-industrial.mx</td>
+              <td><span class="status status--error">Suspended</span></td>
+              <td>2025-12-04</td>
+              <td class="actions">
+                <a class="btn btn--small" href="#">Open</a>
+                <button class="btn btn--small">Reactivate</button>
+              </td>
+            </tr>
+            <tr>
+              <td class="num">06</td>
+              <td class="primary-cell">Beto Carrillo</td>
+              <td>beto@quintana-industrial.mx</td>
+              <td><span class="status status--active">Active</span></td>
+              <td>2026-02-15</td>
+              <td class="actions">
+                <a class="btn btn--small" href="#">Open</a>
+                <button class="btn btn--small btn--danger">Deprovision</button>
+              </td>
+            </tr>
+            <tr>
+              <td class="num">07</td>
+              <td class="primary-cell">Cinthia Padilla</td>
+              <td>cinthia@quintana-industrial.mx</td>
+              <td><span class="status status--active">Active</span></td>
+              <td>2026-02-22</td>
+              <td class="actions">
+                <a class="btn btn--small" href="#">Open</a>
+                <button class="btn btn--small btn--danger">Deprovision</button>
+              </td>
+            </tr>
+            <tr>
+              <td class="num">08</td>
+              <td class="primary-cell">Diego Marín</td>
+              <td>diego@quintana-industrial.mx</td>
+              <td><span class="status status--active">Active</span></td>
+              <td>2026-03-01</td>
+              <td class="actions">
+                <a class="btn btn--small" href="#">Open</a>
+                <button class="btn btn--small btn--danger">Deprovision</button>
+              </td>
+            </tr>
+            <tr>
+              <td class="num">09</td>
+              <td class="primary-cell">Elena Ruiz</td>
+              <td>elena@quintana-industrial.mx</td>
+              <td><span class="status status--active">Active</span></td>
+              <td>2026-03-10</td>
+              <td class="actions">
+                <a class="btn btn--small" href="#">Open</a>
+                <button class="btn btn--small btn--danger">Deprovision</button>
+              </td>
+            </tr>
+            <tr>
+              <td class="num">10</td>
+              <td class="primary-cell">Felipe Mora</td>
+              <td>felipe@quintana-industrial.mx</td>
+              <td><span class="status status--active">Active</span></td>
+              <td>2026-03-18</td>
+              <td class="actions">
+                <a class="btn btn--small" href="#">Open</a>
+                <button class="btn btn--small btn--danger">Deprovision</button>
+              </td>
+            </tr>
+            <tr>
+              <td class="num">11</td>
+              <td class="primary-cell">Gabriela Soto</td>
+              <td>gabriela@quintana-industrial.mx</td>
+              <td><span class="status status--active">Active</span></td>
+              <td>2026-04-02</td>
+              <td class="actions">
+                <a class="btn btn--small" href="#">Open</a>
+                <button class="btn btn--small btn--danger">Deprovision</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="banner" style="margin-top: 16px;">
+        <span class="banner__dot" style="background: var(--status-trial);"></span>
+        <span><strong>Deprovisioning preserves the user account.</strong> The user can be re-provisioned later without recreating their identity.</span>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="proto-toggle" id="proto-toggle" role="group" aria-label="Preview brand"></div>
+<script src="../shared/nav.js"></script>
+</body>
+</html>

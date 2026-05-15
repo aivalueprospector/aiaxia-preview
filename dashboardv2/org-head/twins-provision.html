@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en" data-brand="proasiste">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Provision twin — Twin Management</title>
+<link rel="stylesheet" href="../shared/styles.css">
+</head>
+<body data-page="twins">
+
+<div class="app">
+  <aside class="sidebar">
+    <div class="sidebar__brand">
+      <div class="sidebar__brand-mark" data-brand-mark>P</div>
+      <div class="sidebar__brand-name" data-brand-name>ProAsiste</div>
+    </div>
+    <div class="sidebar__role">Org Head · Quintana Industrial</div>
+    <div class="sidebar__group">
+      <div class="sidebar__group-label">Manage</div>
+      <nav class="sidebar__nav">
+        <a class="sidebar__link" data-page="overview" href="overview.html">Overview</a>
+        <a class="sidebar__link" data-page="twins" href="twins.html">Twins</a>
+        <a class="sidebar__link" data-page="members" href="members.html">Members</a>
+      </nav>
+    </div>
+    <div class="sidebar__group">
+      <div class="sidebar__group-label">Account</div>
+      <nav class="sidebar__nav">
+        <a class="sidebar__link" data-page="profile" href="profile.html">Profile</a>
+      </nav>
+    </div>
+    <div class="sidebar__footer">
+      <div class="sidebar__avatar">RQ</div>
+      <div class="sidebar__user">
+        <div class="sidebar__user-name">Rosa Quintana</div>
+        <div class="sidebar__user-email">rosa@quintana-industrial.mx</div>
+      </div>
+      <a href="../login.html" class="btn--link" aria-label="Sign out" title="Sign out">↩</a>
+    </div>
+  </aside>
+
+  <div>
+    <div class="topbar">
+      <div>
+        <div class="topbar__title">Provision twin</div>
+        <div class="topbar__sub"><a href="twins.html">← Back to Twins</a> · 11 of 14 seats used</div>
+      </div>
+    </div>
+
+    <div class="content">
+
+      <p style="color: var(--text-muted); margin-bottom: 24px; max-width: 520px;">
+        Provisioning creates an employee account if needed and assigns them a twin. The new twin counts toward your seat quota.
+      </p>
+
+      <form class="form">
+
+        <h2 style="margin-bottom: 12px;">Employee</h2>
+
+        <div class="field">
+          <label class="field__label" for="recipient">Provision for</label>
+          <select id="recipient" class="select">
+            <option>Create a new employee…</option>
+            <option>Existing — Beto Carrillo (no twin)</option>
+            <option>Existing — Daniel Cruz (no twin)</option>
+          </select>
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <label class="field__label" for="first">First name</label>
+            <input id="first" class="input" value="Helena">
+          </div>
+          <div class="field">
+            <label class="field__label" for="last">Last name</label>
+            <input id="last" class="input" value="Vargas">
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="field__label" for="empemail">Email</label>
+          <input id="empemail" class="input" type="email" value="helena@quintana-industrial.mx">
+          <div class="field__help">An invite is emailed for the employee to set their password.</div>
+        </div>
+
+        <div class="field">
+          <label class="field__label" for="lang">Language</label>
+          <select id="lang" class="select">
+            <option>English</option>
+            <option selected>Spanish</option>
+            <option>Portuguese</option>
+            <option>French</option>
+          </select>
+        </div>
+
+        <h2 style="margin: 28px 0 12px;">Twin</h2>
+
+        <div class="field">
+          <label class="field__label" for="seat">Seat type</label>
+          <select id="seat" class="select">
+            <option selected>Business</option>
+            <option>Mentor</option>
+            <option>Client</option>
+          </select>
+          <div class="field__help">Available seat: 1 of 3 remaining in your quota.</div>
+        </div>
+
+        <div class="banner banner--warn">
+          <span class="banner__dot"></span>
+          <span>Provisioning calls the TwinCloud service and increases your Stripe seat count by 1.</span>
+        </div>
+
+        <div class="form__actions">
+          <button type="submit" class="btn btn--primary">Provision twin</button>
+          <a href="twins.html" class="btn">Cancel</a>
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+</div>
+
+<div class="proto-toggle" id="proto-toggle" role="group" aria-label="Preview brand"></div>
+<script src="../shared/nav.js"></script>
+</body>
+</html>

@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en" data-brand="aivp">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Overview — Twin Management (Admin)</title>
+<link rel="stylesheet" href="../shared/styles.css">
+</head>
+<body data-page="overview">
+
+<div class="app">
+  <aside class="sidebar">
+    <div class="sidebar__brand">
+      <div class="sidebar__brand-mark">A</div>
+      <div class="sidebar__brand-name">AiVP Internal</div>
+    </div>
+    <div class="sidebar__role">Admin · Todd Chapin</div>
+    <div class="sidebar__group">
+      <div class="sidebar__group-label">Manage</div>
+      <nav class="sidebar__nav">
+        <a class="sidebar__link" data-page="overview" href="overview.html">Overview</a>
+        <a class="sidebar__link" data-page="orgs" href="orgs.html">Organizations</a>
+        <a class="sidebar__link" data-page="users" href="users.html">Users</a>
+      </nav>
+    </div>
+    <div class="sidebar__group">
+      <div class="sidebar__group-label">Account</div>
+      <nav class="sidebar__nav">
+        <a class="sidebar__link" data-page="profile" href="profile.html">Profile</a>
+      </nav>
+    </div>
+    <div class="sidebar__footer">
+      <div class="sidebar__avatar">TC</div>
+      <div class="sidebar__user">
+        <div class="sidebar__user-name">Todd Chapin</div>
+        <div class="sidebar__user-email">todd@aivp.com</div>
+      </div>
+      <a href="../login.html" class="btn--link" aria-label="Sign out" title="Sign out">↩</a>
+    </div>
+  </aside>
+
+  <div>
+    <div class="topbar">
+      <div>
+        <div class="topbar__title">Overview</div>
+        <div class="topbar__sub">Global view across all brands.</div>
+      </div>
+    </div>
+
+    <div class="content">
+
+      <div class="tiles">
+        <div class="tile">
+          <div class="tile__label">Organizations</div>
+          <div class="tile__value">38</div>
+          <div class="tile__sub">26 ProAsiste · 12 EduAsiste</div>
+        </div>
+        <div class="tile">
+          <div class="tile__label">Twins active</div>
+          <div class="tile__value">312</div>
+          <div class="tile__sub">of 384 seats</div>
+        </div>
+        <div class="tile">
+          <div class="tile__label">Users</div>
+          <div class="tile__value">421</div>
+          <div class="tile__sub">4 admin · 8 sales · 38 heads · 371 employees</div>
+        </div>
+        <div class="tile">
+          <div class="tile__label">Sales reps</div>
+          <div class="tile__value">8</div>
+          <div class="tile__sub">Avg 5 orgs / rep</div>
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <section class="section">
+          <div class="card">
+            <div class="card__head">
+              <h2>Top organizations by twins</h2>
+              <a href="orgs.html">All organizations</a>
+            </div>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Organization</th>
+                  <th>Brand</th>
+                  <th>Head</th>
+                  <th>Sales rep</th>
+                  <th>Seats</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="primary-cell">Colegio San Jerónimo</td>
+                  <td><span class="chip chip--brand" data-of="eduasiste"></span> EduAsiste</td>
+                  <td>Sister Isabel Ruiz</td>
+                  <td>Rodrigo Salas</td>
+                  <td>22 / 25</td>
+                </tr>
+                <tr>
+                  <td class="primary-cell">Universidad del Valle Norte</td>
+                  <td><span class="chip chip--brand" data-of="eduasiste"></span> EduAsiste</td>
+                  <td>Dr. Esteban Páez</td>
+                  <td>Simran Kaur</td>
+                  <td>18 / 20</td>
+                </tr>
+                <tr>
+                  <td class="primary-cell">Escuela Politécnica del Bajío</td>
+                  <td><span class="chip chip--brand" data-of="eduasiste"></span> EduAsiste</td>
+                  <td>Carlos Madrigal</td>
+                  <td>Rodrigo Salas</td>
+                  <td>17 / 24</td>
+                </tr>
+                <tr>
+                  <td class="primary-cell">Grupo Industrial Mendieta</td>
+                  <td><span class="chip chip--brand" data-of="proasiste"></span> ProAsiste</td>
+                  <td>Lorena Mendieta</td>
+                  <td>Kabir Sharma</td>
+                  <td>14 / 16</td>
+                </tr>
+                <tr>
+                  <td class="primary-cell">Quintana Industrial</td>
+                  <td><span class="chip chip--brand" data-of="proasiste"></span> ProAsiste</td>
+                  <td>Rosa Quintana</td>
+                  <td>Rodrigo Salas</td>
+                  <td>11 / 14</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <aside class="section">
+          <div class="card">
+            <div class="card__head"><h2>System activity</h2></div>
+            <div class="card__body" style="padding: 0 16px;">
+              <ul class="activity">
+                <li>
+                  <time>3 min ago</time>
+                  <span><code>twin.provisioned</code> — Helena Vargas at Quintana Industrial.</span>
+                </li>
+                <li>
+                  <time>1 hour ago</time>
+                  <span><code>org.created</code> — Núñez Logística by Rodrigo Salas.</span>
+                </li>
+                <li>
+                  <time>2 hours ago</time>
+                  <span><code>user.created</code> — new sales rep Simran Kaur.</span>
+                </li>
+                <li>
+                  <time>Yesterday</time>
+                  <span><code>subscription.updated</code> — Colegio San Jerónimo · quota 22 → 25.</span>
+                </li>
+                <li>
+                  <time>2 days ago</time>
+                  <span><code>auth.failed</code> — 3 attempts on rosa@quintana-industrial.mx (resolved).</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </aside>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="proto-toggle" id="proto-toggle" role="group" aria-label="Preview brand"></div>
+<script src="../shared/nav.js"></script>
+</body>
+</html>

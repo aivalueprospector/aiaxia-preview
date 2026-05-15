@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en" data-brand="aivp">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Overview — Twin Management (Sales)</title>
+<link rel="stylesheet" href="../shared/styles.css">
+</head>
+<body data-page="overview">
+
+<div class="app">
+  <aside class="sidebar">
+    <div class="sidebar__brand">
+      <div class="sidebar__brand-mark">A</div>
+      <div class="sidebar__brand-name">AiVP Internal</div>
+    </div>
+    <div class="sidebar__role">Sales · Rodrigo Salas</div>
+    <div class="sidebar__group">
+      <div class="sidebar__group-label">Manage</div>
+      <nav class="sidebar__nav">
+        <a class="sidebar__link" data-page="overview" href="overview.html">Overview</a>
+        <a class="sidebar__link" data-page="orgs" href="orgs.html">Organizations</a>
+      </nav>
+    </div>
+    <div class="sidebar__group">
+      <div class="sidebar__group-label">Account</div>
+      <nav class="sidebar__nav">
+        <a class="sidebar__link" data-page="profile" href="profile.html">Profile</a>
+      </nav>
+    </div>
+    <div class="sidebar__footer">
+      <div class="sidebar__avatar">RS</div>
+      <div class="sidebar__user">
+        <div class="sidebar__user-name">Rodrigo Salas</div>
+        <div class="sidebar__user-email">rodrigo@aivp.com</div>
+      </div>
+      <a href="../login.html" class="btn--link" aria-label="Sign out" title="Sign out">↩</a>
+    </div>
+  </aside>
+
+  <div>
+    <div class="topbar">
+      <div>
+        <div class="topbar__title">Overview</div>
+        <div class="topbar__sub">Your organizations and twin.</div>
+      </div>
+      <div class="topbar__actions">
+        <a href="orgs-create.html" class="btn btn--primary">Create organization</a>
+      </div>
+    </div>
+
+    <div class="content">
+
+      <div class="tiles">
+        <div class="tile">
+          <div class="tile__label">Organizations</div>
+          <div class="tile__value">7</div>
+          <div class="tile__sub">5 ProAsiste · 2 EduAsiste</div>
+        </div>
+        <div class="tile">
+          <div class="tile__label">Twins across orgs</div>
+          <div class="tile__value">63</div>
+          <div class="tile__sub">of 80 seat quota</div>
+        </div>
+        <div class="tile">
+          <div class="tile__label">Active accounts</div>
+          <div class="tile__value">68</div>
+          <div class="tile__sub">across 7 orgs</div>
+        </div>
+        <div class="tile">
+          <div class="tile__label">Your twin</div>
+          <div class="tile__value">1</div>
+          <div class="tile__sub">Private. Not part of any client org.</div>
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <section class="section">
+          <div class="card">
+            <div class="card__head">
+              <h2>Organizations you manage</h2>
+              <a href="orgs.html">View all</a>
+            </div>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Organization</th>
+                  <th>Brand</th>
+                  <th>Head</th>
+                  <th>Seats</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="primary-cell"><a href="org-detail.html">Quintana Industrial</a></td>
+                  <td><span class="chip chip--brand" data-of="proasiste"></span> ProAsiste</td>
+                  <td>Rosa Quintana</td>
+                  <td>11 / 14</td>
+                </tr>
+                <tr>
+                  <td class="primary-cell"><a href="org-detail.html">Núñez Logística</a></td>
+                  <td><span class="chip chip--brand" data-of="proasiste"></span> ProAsiste</td>
+                  <td>Mariano Núñez</td>
+                  <td>8 / 12</td>
+                </tr>
+                <tr>
+                  <td class="primary-cell"><a href="org-detail.html">Colegio San Jerónimo</a></td>
+                  <td><span class="chip chip--brand" data-of="eduasiste"></span> EduAsiste</td>
+                  <td>Sister Isabel Ruiz</td>
+                  <td>22 / 25</td>
+                </tr>
+                <tr>
+                  <td class="primary-cell"><a href="org-detail.html">Rincón Construcción</a></td>
+                  <td><span class="chip chip--brand" data-of="proasiste"></span> ProAsiste</td>
+                  <td>Pablo Rincón</td>
+                  <td>5 / 5</td>
+                </tr>
+                <tr>
+                  <td class="primary-cell"><a href="org-detail.html">Escuela Politécnica del Bajío</a></td>
+                  <td><span class="chip chip--brand" data-of="eduasiste"></span> EduAsiste</td>
+                  <td>Carlos Madrigal</td>
+                  <td>17 / 24</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <aside class="section">
+          <div class="card" style="margin-bottom: 16px;">
+            <div class="card__head"><h2>Your twin</h2></div>
+            <div class="card__body">
+              <p class="muted" style="margin-bottom: 12px; font-size: 13px;">Sales twins are private and not part of any client org.</p>
+              <dl class="dl">
+                <dt>Name</dt><dd>Rodrigo Salas</dd>
+                <dt>Org</dt><dd>AiVP Internal Sales</dd>
+                <dt>Status</dt><dd><span class="status status--active">Active</span></dd>
+              </dl>
+              <a href="#" class="btn btn--small" style="margin-top: 12px;">Open twin</a>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card__head"><h2>Recent activity</h2></div>
+            <div class="card__body" style="padding: 0 16px;">
+              <ul class="activity">
+                <li>
+                  <time>1 hour ago</time>
+                  <span><code>org.created</code> — Núñez Logística (ProAsiste).</span>
+                </li>
+                <li>
+                  <time>Yesterday</time>
+                  <span><code>twin.provisioned</code> — Helena Vargas at Quintana Industrial.</span>
+                </li>
+                <li>
+                  <time>2 days ago</time>
+                  <span><code>password.reset</code> — Pablo Rincón reset link sent.</span>
+                </li>
+                <li>
+                  <time>4 days ago</time>
+                  <span><code>subscription.updated</code> — Colegio San Jerónimo raised to 25 seats.</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </aside>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="proto-toggle" id="proto-toggle" role="group" aria-label="Preview brand"></div>
+<script src="../shared/nav.js"></script>
+</body>
+</html>

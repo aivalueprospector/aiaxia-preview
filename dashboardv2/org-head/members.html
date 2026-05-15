@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en" data-brand="proasiste">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Members — Twin Management</title>
+<link rel="stylesheet" href="../shared/styles.css">
+</head>
+<body data-page="members">
+
+<div class="app">
+  <aside class="sidebar">
+    <div class="sidebar__brand">
+      <div class="sidebar__brand-mark" data-brand-mark>P</div>
+      <div class="sidebar__brand-name" data-brand-name>ProAsiste</div>
+    </div>
+    <div class="sidebar__role">Org Head · Quintana Industrial</div>
+    <div class="sidebar__group">
+      <div class="sidebar__group-label">Manage</div>
+      <nav class="sidebar__nav">
+        <a class="sidebar__link" data-page="overview" href="overview.html">Overview</a>
+        <a class="sidebar__link" data-page="twins" href="twins.html">Twins</a>
+        <a class="sidebar__link" data-page="members" href="members.html">Members</a>
+      </nav>
+    </div>
+    <div class="sidebar__group">
+      <div class="sidebar__group-label">Account</div>
+      <nav class="sidebar__nav">
+        <a class="sidebar__link" data-page="profile" href="profile.html">Profile</a>
+      </nav>
+    </div>
+    <div class="sidebar__footer">
+      <div class="sidebar__avatar">RQ</div>
+      <div class="sidebar__user">
+        <div class="sidebar__user-name">Rosa Quintana</div>
+        <div class="sidebar__user-email">rosa@quintana-industrial.mx</div>
+      </div>
+      <a href="../login.html" class="btn--link" aria-label="Sign out" title="Sign out">↩</a>
+    </div>
+  </aside>
+
+  <div>
+    <div class="topbar">
+      <div>
+        <div class="topbar__title">Members</div>
+        <div class="topbar__sub">12 people · 1 head · 11 employees</div>
+      </div>
+      <div class="topbar__actions">
+        <button class="btn btn--primary" id="show-invite">Invite employee</button>
+      </div>
+    </div>
+
+    <div class="content">
+
+      <section id="invite-form" class="card" style="display: none; margin-bottom: 24px;">
+        <div class="card__head"><h2>Invite an employee</h2></div>
+        <div class="card__body">
+          <form class="form form--wide">
+            <div class="field-row">
+              <div class="field">
+                <label class="field__label" for="inv-first">First name</label>
+                <input id="inv-first" class="input">
+              </div>
+              <div class="field">
+                <label class="field__label" for="inv-last">Last name</label>
+                <input id="inv-last" class="input">
+              </div>
+            </div>
+            <div class="field">
+              <label class="field__label" for="inv-email">Email</label>
+              <input id="inv-email" type="email" class="input">
+              <div class="field__help">An invite link is emailed to set their password. They will not have a twin until you provision one.</div>
+            </div>
+            <div class="field">
+              <label class="field__label" for="inv-lang">Language</label>
+              <select id="inv-lang" class="select">
+                <option>English</option>
+                <option selected>Spanish</option>
+                <option>Portuguese</option>
+                <option>French</option>
+              </select>
+            </div>
+            <div class="form__actions">
+              <button type="submit" class="btn btn--primary">Send invite</button>
+              <button type="button" class="btn" id="cancel-invite">Cancel</button>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <section class="card" style="margin-bottom: 16px;">
+        <div class="card__head">
+          <h2>Org Head</h2>
+          <span class="muted" style="font-size: 12px;">Only one head per organization.</span>
+        </div>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Twin</th>
+              <th>Language</th>
+              <th class="actions">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="primary-cell">Rosa Quintana <span class="chip chip--role-admin">You</span></td>
+              <td>rosa@quintana-industrial.mx</td>
+              <td><span class="status status--active">Active</span></td>
+              <td>Spanish</td>
+              <td class="actions">
+                <a class="btn btn--small" href="profile.html">Edit profile</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="card">
+        <div class="card__head">
+          <h2>Employees</h2>
+          <span class="muted" style="font-size: 12px;">11 of 14 seats used</span>
+        </div>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Twin</th>
+              <th>Language</th>
+              <th class="actions">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="primary-cell">Mateo Ibarra</td>
+              <td>mateo@quintana-industrial.mx</td>
+              <td><span class="status status--active">Active</span></td>
+              <td>Spanish</td>
+              <td class="actions">
+                <button class="btn btn--small set-pwd">Set password</button>
+              </td>
+            </tr>
+            <tr class="set-pwd-target" style="display: none;">
+              <td colspan="5">
+                <div class="inline-form">
+                  <strong style="display: block; margin-bottom: 8px;">Set new password for Mateo Ibarra</strong>
+                  <form style="display: flex; gap: 8px; align-items: end;">
+                    <div class="field" style="margin: 0; flex: 1; max-width: 320px;">
+                      <label class="field__label" for="new-pwd-mateo">New password</label>
+                      <input id="new-pwd-mateo" type="password" class="input">
+                    </div>
+                    <button type="submit" class="btn btn--primary btn--small">Save</button>
+                    <button type="button" class="btn btn--small cancel-pwd">Cancel</button>
+                  </form>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td class="primary-cell">Lucía Otero</td>
+              <td>lucia@quintana-industrial.mx</td>
+              <td><span class="status status--trial">Trial</span></td>
+              <td>Spanish</td>
+              <td class="actions">
+                <button class="btn btn--small set-pwd">Set password</button>
+              </td>
+            </tr>
+            <tr class="set-pwd-target" style="display: none;"><td colspan="5"></td></tr>
+            <tr>
+              <td class="primary-cell">Tomás Echevarría</td>
+              <td>tomas@quintana-industrial.mx</td>
+              <td><span class="status status--idle">Idle 14d</span></td>
+              <td>English</td>
+              <td class="actions">
+                <button class="btn btn--small set-pwd">Set password</button>
+              </td>
+            </tr>
+            <tr class="set-pwd-target" style="display: none;"><td colspan="5"></td></tr>
+            <tr>
+              <td class="primary-cell">Beto Carrillo</td>
+              <td>beto@quintana-industrial.mx</td>
+              <td><span class="status">No twin</span></td>
+              <td>Spanish</td>
+              <td class="actions">
+                <a class="btn btn--small btn--primary" href="twins-provision.html">Provision twin</a>
+                <button class="btn btn--small set-pwd">Set password</button>
+              </td>
+            </tr>
+            <tr class="set-pwd-target" style="display: none;"><td colspan="5"></td></tr>
+            <tr>
+              <td class="primary-cell">Daniel Cruz</td>
+              <td>daniel@quintana-industrial.mx</td>
+              <td><span class="status">No twin</span></td>
+              <td>Spanish</td>
+              <td class="actions">
+                <a class="btn btn--small btn--primary" href="twins-provision.html">Provision twin</a>
+                <button class="btn btn--small set-pwd">Set password</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+    </div>
+  </div>
+</div>
+
+<div class="proto-toggle" id="proto-toggle" role="group" aria-label="Preview brand"></div>
+<script src="../shared/nav.js"></script>
+<script>
+  document.getElementById('show-invite').addEventListener('click', () => {
+    document.getElementById('invite-form').style.display = '';
+  });
+  document.getElementById('cancel-invite').addEventListener('click', () => {
+    document.getElementById('invite-form').style.display = 'none';
+  });
+  document.querySelectorAll('.set-pwd').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const row = btn.closest('tr');
+      const target = row.nextElementSibling;
+      if (target && target.classList.contains('set-pwd-target')) {
+        target.style.display = target.style.display === '' ? 'none' : '';
+      }
+    });
+  });
+</script>
+</body>
+</html>

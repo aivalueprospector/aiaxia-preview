@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en" data-brand="aivp">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Profile — Twin Management (Admin)</title>
+<link rel="stylesheet" href="../shared/styles.css">
+</head>
+<body data-page="profile">
+
+<div class="app">
+  <aside class="sidebar">
+    <div class="sidebar__brand">
+      <div class="sidebar__brand-mark">A</div>
+      <div class="sidebar__brand-name">AiVP Internal</div>
+    </div>
+    <div class="sidebar__role">Admin · Todd Chapin</div>
+    <div class="sidebar__group">
+      <div class="sidebar__group-label">Manage</div>
+      <nav class="sidebar__nav">
+        <a class="sidebar__link" data-page="overview" href="overview.html">Overview</a>
+        <a class="sidebar__link" data-page="orgs" href="orgs.html">Organizations</a>
+        <a class="sidebar__link" data-page="users" href="users.html">Users</a>
+      </nav>
+    </div>
+    <div class="sidebar__group">
+      <div class="sidebar__group-label">Account</div>
+      <nav class="sidebar__nav">
+        <a class="sidebar__link" data-page="profile" href="profile.html">Profile</a>
+      </nav>
+    </div>
+    <div class="sidebar__footer">
+      <div class="sidebar__avatar">TC</div>
+      <div class="sidebar__user">
+        <div class="sidebar__user-name">Todd Chapin</div>
+        <div class="sidebar__user-email">todd@aivp.com</div>
+      </div>
+      <a href="../login.html" class="btn--link" aria-label="Sign out" title="Sign out">↩</a>
+    </div>
+  </aside>
+
+  <div>
+    <div class="topbar">
+      <div>
+        <div class="topbar__title">Profile</div>
+        <div class="topbar__sub">Edit your account.</div>
+      </div>
+    </div>
+
+    <div class="content">
+
+      <section class="card" style="margin-bottom: 24px;">
+        <div class="card__head"><h2>Your account</h2></div>
+        <div class="card__body">
+          <form class="form">
+            <div class="field">
+              <label class="field__label" for="full">Full name</label>
+              <input id="full" class="input" value="Todd Chapin">
+            </div>
+            <div class="field">
+              <label class="field__label" for="email">
+                Email
+                <span class="field__locked">🔒 Locked</span>
+              </label>
+              <input id="email" class="input" type="email" value="todd@aivp.com" readonly>
+              <div class="field__help">Email is tied to billing in Stripe and cannot be changed here.</div>
+            </div>
+            <div class="field">
+              <label class="field__label" for="lang">Language</label>
+              <select id="lang" class="select">
+                <option selected>English</option>
+                <option>Spanish</option>
+                <option>Portuguese</option>
+                <option>French</option>
+              </select>
+            </div>
+            <div class="form__actions">
+              <button type="submit" class="btn btn--primary">Save changes</button>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="card__head"><h2>Change password</h2></div>
+        <div class="card__body">
+          <form class="form">
+            <div class="field">
+              <label class="field__label" for="cur-pwd">Current password</label>
+              <input id="cur-pwd" type="password" class="input">
+            </div>
+            <div class="field">
+              <label class="field__label" for="new-pwd">New password</label>
+              <input id="new-pwd" type="password" class="input">
+            </div>
+            <div class="field">
+              <label class="field__label" for="conf-pwd">Confirm new password</label>
+              <input id="conf-pwd" type="password" class="input">
+            </div>
+            <div class="form__actions">
+              <button type="submit" class="btn btn--primary">Update password</button>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <p class="muted" style="margin-top: 16px; font-size: 12px;">Admin accounts cannot rename the AiVP Internal organization here. Use a migration if it must change.</p>
+
+    </div>
+  </div>
+</div>
+
+<div class="proto-toggle" id="proto-toggle" role="group" aria-label="Preview brand"></div>
+<script src="../shared/nav.js"></script>
+</body>
+</html>
