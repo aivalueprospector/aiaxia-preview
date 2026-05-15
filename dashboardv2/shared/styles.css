@@ -1,12 +1,54 @@
 /* ===================================================================
    Twin Management Dashboard — utility admin styles
    One stylesheet, all pages. Brand swap via `data-brand` on <html>.
+   Tokens mirror the ProAsiste twin at ctwin.ai (light slate + sky blue,
+   Inter typeface). EduAsiste uses the same light surface with a warm
+   accent. AiVP keeps a dark back-of-house palette for separation.
    =================================================================== */
 
-/* ---------- Tokens — all three brands use the dark surface palette -- */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+/* ---------- Shared light surface (ProAsiste + EduAsiste) ----------- */
 :root,
 [data-brand="proasiste"],
-[data-brand="eduasiste"],
+[data-brand="eduasiste"] {
+  --bg:           #f8fafc;
+  --bg-elev:      #ffffff;
+  --bg-hover:     #f1f5f9;
+  --border:       #e2e8f0;
+  --border-strong:#cbd5e1;
+  --text:         #0f172a;
+  --text-soft:    #334155;
+  --text-muted:   #64748b;
+  --status-active: #16a34a;
+  --status-trial:  #2563eb;
+  --status-idle:   #64748b;
+  --status-warn:   #d97706;
+  --status-error:  #dc2626;
+}
+
+/* ---------- ProAsiste accent (matches ctwin twin --primary) -------- */
+:root,
+[data-brand="proasiste"] {
+  --brand:        #2ea3f2;
+  --brand-hover:  #1f8fd9;
+  --brand-fg:     #ffffff;
+  --brand-tint:   #e8f3fc;
+  --focus:        #2ea3f2;
+  --link:         #1f8fd9;
+}
+
+/* ---------- EduAsiste accent (warm contrast to sister brand) ------- */
+[data-brand="eduasiste"] {
+  --brand:        #f97316;
+  --brand-hover:  #ea580c;
+  --brand-fg:     #ffffff;
+  --brand-tint:   #fef3eb;
+  --focus:        #f97316;
+  --link:         #c2410c;
+}
+
+/* ---------- AiVP dark back-of-house console ----------------------- */
 [data-brand="aivp"] {
   --bg:           #0F1115;
   --bg-elev:      #161A22;
@@ -16,6 +58,12 @@
   --text:         #E8EAED;
   --text-soft:    #C2C6CC;
   --text-muted:   #9AA0A6;
+  --brand:        #C5F500;
+  --brand-hover:  #DEFF3A;
+  --brand-fg:     #0F1115;
+  --brand-tint:   #1B2007;
+  --focus:        #C5F500;
+  --link:         #C5F500;
   --status-active: #5BD27A;
   --status-trial:  #5BA7FF;
   --status-idle:   #9AA0A6;
@@ -23,37 +71,11 @@
   --status-error:  #FF6E4A;
 }
 
-:root,
-[data-brand="proasiste"] {
-  --brand:        #D85F4B;
-  --brand-hover:  #EC7460;
-  --brand-fg:     #0F1115;
-  --brand-tint:   #2A1411;
-  --focus:        #D85F4B;
-  --link:         #E78676;
-}
-[data-brand="eduasiste"] {
-  --brand:        #6E92D6;
-  --brand-hover:  #8AA8E3;
-  --brand-fg:     #0F1115;
-  --brand-tint:   #131A2A;
-  --focus:        #6E92D6;
-  --link:         #9AB6E8;
-}
-[data-brand="aivp"] {
-  --brand:        #C5F500;
-  --brand-hover:  #DEFF3A;
-  --brand-fg:     #0F1115;
-  --brand-tint:   #1B2007;
-  --focus:        #C5F500;
-  --link:         #C5F500;
-}
-
 /* ---------- Base ---------------------------------------------------- */
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html { font-size: 14px; }
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", system-ui, sans-serif;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", system-ui, sans-serif;
   font-weight: 400;
   font-size: 14px;
   line-height: 1.45;
@@ -359,8 +381,8 @@ h3 { font-size: 14px; }
   background: var(--chip-color, var(--text-muted));
   border-radius: 2px;
 }
-.chip--brand[data-of="proasiste"] { --chip-color: #D85F4B; }
-.chip--brand[data-of="eduasiste"] { --chip-color: #6E92D6; }
+.chip--brand[data-of="proasiste"] { --chip-color: #2ea3f2; }
+.chip--brand[data-of="eduasiste"] { --chip-color: #f97316; }
 .chip--brand[data-of="aivp"]      { --chip-color: #C5F500; }
 
 /* ---------- Buttons ------------------------------------------------ */
