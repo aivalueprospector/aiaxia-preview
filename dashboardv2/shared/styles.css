@@ -3,37 +3,10 @@
    One stylesheet, all pages. Brand swap via `data-brand` on <html>.
    =================================================================== */
 
-/* ---------- Tokens (neutral defaults + per-brand swap) -------------- */
+/* ---------- Tokens — all three brands use the dark surface palette -- */
 :root,
-[data-brand="proasiste"] {
-  --bg:           #FFFFFF;
-  --bg-elev:      #FAFAFA;
-  --bg-hover:     #F5F5F5;
-  --border:       #E5E5E5;
-  --border-strong:#D1D1D1;
-  --text:         #111111;
-  --text-soft:    #383838;
-  --text-muted:   #6B6B6B;
-  --brand:        #5B1924;
-  --brand-hover:  #461217;
-  --brand-fg:     #FFFFFF;
-  --brand-tint:   #FAF1F2;
-  --focus:        #5B1924;
-  --link:         #5B1924;
-  --status-active: #2F7A4A;
-  --status-trial:  #1F6FB3;
-  --status-idle:   #6B6B6B;
-  --status-warn:   #B57B12;
-  --status-error:  #B23A2A;
-}
-[data-brand="eduasiste"] {
-  --brand:        #1A2B4D;
-  --brand-hover:  #0F1E3A;
-  --brand-fg:     #FFFFFF;
-  --brand-tint:   #EEF1F7;
-  --focus:        #1A2B4D;
-  --link:         #1A2B4D;
-}
+[data-brand="proasiste"],
+[data-brand="eduasiste"],
 [data-brand="aivp"] {
   --bg:           #0F1115;
   --bg-elev:      #161A22;
@@ -43,17 +16,37 @@
   --text:         #E8EAED;
   --text-soft:    #C2C6CC;
   --text-muted:   #9AA0A6;
+  --status-active: #5BD27A;
+  --status-trial:  #5BA7FF;
+  --status-idle:   #9AA0A6;
+  --status-warn:   #E4B45A;
+  --status-error:  #FF6E4A;
+}
+
+:root,
+[data-brand="proasiste"] {
+  --brand:        #D85F4B;
+  --brand-hover:  #EC7460;
+  --brand-fg:     #0F1115;
+  --brand-tint:   #2A1411;
+  --focus:        #D85F4B;
+  --link:         #E78676;
+}
+[data-brand="eduasiste"] {
+  --brand:        #6E92D6;
+  --brand-hover:  #8AA8E3;
+  --brand-fg:     #0F1115;
+  --brand-tint:   #131A2A;
+  --focus:        #6E92D6;
+  --link:         #9AB6E8;
+}
+[data-brand="aivp"] {
   --brand:        #C5F500;
   --brand-hover:  #DEFF3A;
   --brand-fg:     #0F1115;
   --brand-tint:   #1B2007;
   --focus:        #C5F500;
   --link:         #C5F500;
-  --status-active: #5BD27A;
-  --status-trial:  #5BA7FF;
-  --status-idle:   #9AA0A6;
-  --status-warn:   #E4B45A;
-  --status-error:  #FF6E4A;
 }
 
 /* ---------- Base ---------------------------------------------------- */
@@ -366,8 +359,8 @@ h3 { font-size: 14px; }
   background: var(--chip-color, var(--text-muted));
   border-radius: 2px;
 }
-.chip--brand[data-of="proasiste"] { --chip-color: #5B1924; }
-.chip--brand[data-of="eduasiste"] { --chip-color: #1A2B4D; }
+.chip--brand[data-of="proasiste"] { --chip-color: #D85F4B; }
+.chip--brand[data-of="eduasiste"] { --chip-color: #6E92D6; }
 .chip--brand[data-of="aivp"]      { --chip-color: #C5F500; }
 
 /* ---------- Buttons ------------------------------------------------ */
