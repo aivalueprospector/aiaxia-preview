@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en" data-brand="aivp">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Deleted Clients — Twin Management (Admin)</title>
+<link rel="stylesheet" href="../shared/styles.css">
+</head>
+<body data-page="deleted-clients">
+
+<div class="app">
+  <aside class="sidebar">
+    <div class="sidebar__brand">
+      <div class="sidebar__brand-mark">A</div>
+      <div class="sidebar__brand-name">AiVP Internal</div>
+    </div>
+    <div class="sidebar__role">Admin · Todd Chapin</div>
+    <div class="sidebar__group">
+      <div class="sidebar__group-label">Manage</div>
+      <nav class="sidebar__nav">
+        <a class="sidebar__link" data-page="overview" href="overview.html">Overview</a>
+        <a class="sidebar__link" data-page="orgs" href="orgs.html">Organizations</a>
+        <a class="sidebar__link" data-page="users" href="users.html">Users</a>
+        <a class="sidebar__link" data-page="fdsr" href="fdsr.html">FDSR Management</a>
+      </nav>
+    </div>
+    <div class="sidebar__group">
+      <div class="sidebar__group-label">Billing</div>
+      <nav class="sidebar__nav">
+        <a class="sidebar__link" data-page="upgrade-tier" href="upgrade-tier.html">Clients Upgrade Tier</a>
+        <a class="sidebar__link" data-page="discount-codes" href="discount-codes.html">Stripe Discount Codes</a>
+        <a class="sidebar__link" data-page="billing-summary" href="billing-summary.html">Twin Billing Summary</a>
+      </nav>
+    </div>
+    <div class="sidebar__group">
+      <div class="sidebar__group-label">Operations</div>
+      <nav class="sidebar__nav">
+        <a class="sidebar__link" data-page="twin-management" href="twin-management.html">Twin Management</a>
+        <a class="sidebar__link" data-page="deleted-clients" href="deleted-clients.html">Deleted Clients</a>
+      </nav>
+    </div>
+    <div class="sidebar__group">
+      <div class="sidebar__group-label">Account</div>
+      <nav class="sidebar__nav">
+        <a class="sidebar__link" data-page="profile" href="profile.html">Profile</a>
+      </nav>
+    </div>
+    <div class="sidebar__footer">
+      <div class="sidebar__avatar">TC</div>
+      <div class="sidebar__user">
+        <div class="sidebar__user-name">Todd Chapin</div>
+        <div class="sidebar__user-email">todd@aivp.com</div>
+      </div>
+      <a href="../login.html" class="btn--link" aria-label="Sign out" title="Sign out">↩</a>
+    </div>
+  </aside>
+
+  <div>
+    <div class="topbar">
+      <div>
+        <div class="topbar__title">Deleted Clients</div>
+        <div class="topbar__sub">Soft-deleted organizations. Restore within retention window or purge.</div>
+      </div>
+    </div>
+
+    <div class="content">
+
+      <div class="banner banner--warn" style="margin-bottom: 16px;">
+        Deleted organizations are kept for <strong>90 days</strong>, then permanently purged by the <code>retention-sweep</code> job. Restore re-enables the org_head login and rehydrates twins from the last snapshot. Purge is irreversible.
+      </div>
+
+      <div class="tiles">
+        <div class="tile">
+          <div class="tile__label">Deleted total</div>
+          <div class="tile__value">14</div>
+          <div class="tile__sub">All-time in retention window</div>
+        </div>
+        <div class="tile">
+          <div class="tile__label">Deleted (30 days)</div>
+          <div class="tile__value">3</div>
+          <div class="tile__sub">vs 2 in prior 30</div>
+        </div>
+        <div class="tile">
+          <div class="tile__label">Purging next 7 days</div>
+          <div class="tile__value">2</div>
+          <div class="tile__sub">Retention expiring</div>
+        </div>
+        <div class="tile">
+          <div class="tile__label">Restored YTD</div>
+          <div class="tile__value">1</div>
+          <div class="tile__sub">Customer-requested undo</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card__head" style="gap: 12px;">
+          <div style="display: flex; gap: 8px; align-items: center; flex: 1;">
+            <input type="search" class="input" placeholder="Search organization or head" style="max-width: 280px;">
+            <select class="select" style="max-width: 140px;">
+              <option>All brands</option>
+              <option>ProAsiste</option>
+              <option>EduAsiste</option>
+            </select>
+          </div>
+          <a class="btn btn--small" href="#">Export CSV</a>
+        </div>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Organization</th>
+              <th>Brand</th>
+              <th>Head</th>
+              <th>Deleted by</th>
+              <th>Deleted at</th>
+              <th class="num">Twins archived</th>
+              <th>Retention left</th>
+              <th class="actions">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="primary-cell">Bermúdez Asesores</td>
+              <td><span class="chip chip--brand" data-of="proasiste"></span> ProAsiste</td>
+              <td>Iván Bermúdez</td>
+              <td>Todd Chapin (admin)</td>
+              <td>2026-05-12</td>
+              <td class="num">6</td>
+              <td>84 days</td>
+              <td class="actions">
+                <a class="btn btn--small" href="#">Restore</a>
+                <a class="btn btn--small btn--danger" href="#">Purge now</a>
+              </td>
+            </tr>
+            <tr>
+              <td class="primary-cell">Colegio Andino del Sur</td>
+              <td><span class="chip chip--brand" data-of="eduasiste"></span> EduAsiste</td>
+              <td>Magdalena Vera</td>
+              <td>Rodrigo Salas (fdsr)</td>
+              <td>2026-05-05</td>
+              <td class="num">14</td>
+              <td>77 days</td>
+              <td class="actions">
+                <a class="btn btn--small" href="#">Restore</a>
+                <a class="btn btn--small btn--danger" href="#">Purge now</a>
+              </td>
+            </tr>
+            <tr>
+              <td class="primary-cell">Constructora Olmedo</td>
+              <td><span class="chip chip--brand" data-of="proasiste"></span> ProAsiste</td>
+              <td>Verónica Olmedo</td>
+              <td>Todd Chapin (admin)</td>
+              <td>2026-04-28</td>
+              <td class="num">0</td>
+              <td>70 days</td>
+              <td class="actions">
+                <a class="btn btn--small" href="#">Restore</a>
+                <a class="btn btn--small btn--danger" href="#">Purge now</a>
+              </td>
+            </tr>
+            <tr>
+              <td class="primary-cell">Liceo Camino Real</td>
+              <td><span class="chip chip--brand" data-of="eduasiste"></span> EduAsiste</td>
+              <td>Diego Solano</td>
+              <td>Kabir Sharma (fdsr)</td>
+              <td>2026-03-14</td>
+              <td class="num">9</td>
+              <td>28 days</td>
+              <td class="actions">
+                <a class="btn btn--small" href="#">Restore</a>
+                <a class="btn btn--small btn--danger" href="#">Purge now</a>
+              </td>
+            </tr>
+            <tr>
+              <td class="primary-cell">Talleres Bravo</td>
+              <td><span class="chip chip--brand" data-of="proasiste"></span> ProAsiste</td>
+              <td>Daniel Bravo</td>
+              <td>Aditi Rao (fdsr)</td>
+              <td>2026-02-26</td>
+              <td class="num">4</td>
+              <td>12 days</td>
+              <td class="actions">
+                <a class="btn btn--small" href="#">Restore</a>
+                <a class="btn btn--small btn--danger" href="#">Purge now</a>
+              </td>
+            </tr>
+            <tr>
+              <td class="primary-cell">Importadora Lince</td>
+              <td><span class="chip chip--brand" data-of="proasiste"></span> ProAsiste</td>
+              <td>Antonella Lince</td>
+              <td>Todd Chapin (admin)</td>
+              <td>2026-02-22</td>
+              <td class="num">3</td>
+              <td>8 days</td>
+              <td class="actions">
+                <a class="btn btn--small" href="#">Restore</a>
+                <a class="btn btn--small btn--danger" href="#">Purge now</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p class="muted" style="margin-top: 16px; font-size: 12px;">… and 8 more (all within 90-day retention).</p>
+
+    </div>
+  </div>
+</div>
+
+<div class="proto-toggle" id="proto-toggle" role="group" aria-label="Preview brand"></div>
+<script src="../shared/nav.js"></script>
+</body>
+</html>
