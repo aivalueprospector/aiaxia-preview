@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="en" data-brand="aivp">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Twin Management — Twin Management (Admin)</title>
+<link rel="stylesheet" href="../shared/styles.css">
+</head>
+<body data-page="twin-management">
+
+<div class="app">
+  <aside class="sidebar">
+    <div class="sidebar__brand">
+      <div class="sidebar__brand-mark">A</div>
+      <div class="sidebar__brand-name">AiVP Internal</div>
+    </div>
+    <div class="sidebar__role">Admin · Todd Chapin</div>
+    <div class="sidebar__group">
+      <div class="sidebar__group-label">Manage</div>
+      <nav class="sidebar__nav">
+        <a class="sidebar__link" data-page="overview" href="overview.html">Overview</a>
+        <a class="sidebar__link" data-page="orgs" href="orgs.html">Organizations</a>
+        <a class="sidebar__link" data-page="users" href="users.html">Users</a>
+        <a class="sidebar__link" data-page="fdsr" href="fdsr.html">FDSR Management</a>
+      </nav>
+    </div>
+    <div class="sidebar__group">
+      <div class="sidebar__group-label">Billing</div>
+      <nav class="sidebar__nav">
+        <a class="sidebar__link" data-page="upgrade-tier" href="upgrade-tier.html">Clients Upgrade Tier</a>
+        <a class="sidebar__link" data-page="discount-codes" href="discount-codes.html">Stripe Discount Codes</a>
+        <a class="sidebar__link" data-page="billing-summary" href="billing-summary.html">Twin Billing Summary</a>
+      </nav>
+    </div>
+    <div class="sidebar__group">
+      <div class="sidebar__group-label">Operations</div>
+      <nav class="sidebar__nav">
+        <a class="sidebar__link" data-page="twin-management" href="twin-management.html">Twin Management</a>
+        <a class="sidebar__link" data-page="deleted-clients" href="deleted-clients.html">Deleted Clients</a>
+      </nav>
+    </div>
+    <div class="sidebar__group">
+      <div class="sidebar__group-label">Account</div>
+      <nav class="sidebar__nav">
+        <a class="sidebar__link" data-page="profile" href="profile.html">Profile</a>
+      </nav>
+    </div>
+    <div class="sidebar__footer">
+      <div class="sidebar__avatar">TC</div>
+      <div class="sidebar__user">
+        <div class="sidebar__user-name">Todd Chapin</div>
+        <div class="sidebar__user-email">todd@aivp.com</div>
+      </div>
+      <a href="../login.html" class="btn--link" aria-label="Sign out" title="Sign out">↩</a>
+    </div>
+  </aside>
+
+  <div>
+    <div class="topbar">
+      <div>
+        <div class="topbar__title">Twin Management</div>
+        <div class="topbar__sub">Global twin inventory across every brand and organization.</div>
+      </div>
+    </div>
+
+    <div class="content">
+
+      <div class="tiles">
+        <div class="tile">
+          <div class="tile__label">Twins total</div>
+          <div class="tile__value">312</div>
+          <div class="tile__sub">of 384 seats provisioned</div>
+        </div>
+        <div class="tile">
+          <div class="tile__label">Active (last 24h)</div>
+          <div class="tile__value">274</div>
+          <div class="tile__sub">88% engagement</div>
+        </div>
+        <div class="tile">
+          <div class="tile__label">Idle &gt; 14 days</div>
+          <div class="tile__value">23</div>
+          <div class="tile__sub">Candidates for deprovision</div>
+        </div>
+        <div class="tile">
+          <div class="tile__label">Errored</div>
+          <div class="tile__value">4</div>
+          <div class="tile__sub">Provisioning or sync failures</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card__head" style="gap: 12px;">
+          <div style="display: flex; gap: 8px; align-items: center; flex: 1; flex-wrap: wrap;">
+            <input type="search" class="input" placeholder="Search twin id, owner, or org" style="max-width: 280px;">
+            <select class="select" style="max-width: 140px;">
+              <option>All brands</option>
+              <option>ProAsiste</option>
+              <option>EduAsiste</option>
+            </select>
+            <select class="select" style="max-width: 140px;">
+              <option>All regions</option>
+              <option>latam</option>
+              <option>emea</option>
+            </select>
+            <select class="select" style="max-width: 140px;">
+              <option>All statuses</option>
+              <option>Active</option>
+              <option>Idle</option>
+              <option>Errored</option>
+            </select>
+          </div>
+          <a class="btn btn--small" href="#">Export CSV</a>
+        </div>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Twin ID</th>
+              <th>Owner</th>
+              <th>Organization</th>
+              <th>Brand</th>
+              <th>Region</th>
+              <th>Last activity</th>
+              <th>Status</th>
+              <th class="actions">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="primary-cell"><code>pro-quintana-rosa</code></td>
+              <td>Rosa Quintana</td>
+              <td>Quintana Industrial</td>
+              <td><span class="chip chip--brand" data-of="proasiste"></span> ProAsiste</td>
+              <td>latam</td>
+              <td>3 min ago</td>
+              <td><span class="status status--active">Active</span></td>
+              <td class="actions">
+                <a class="btn btn--small" href="#">Open</a>
+                <a class="btn btn--small" href="#">Logs</a>
+              </td>
+            </tr>
+            <tr>
+              <td class="primary-cell"><code>edu-sanjeronimo-isabel</code></td>
+              <td>Sister Isabel Ruiz</td>
+              <td>Colegio San Jerónimo</td>
+              <td><span class="chip chip--brand" data-of="eduasiste"></span> EduAsiste</td>
+              <td>latam</td>
+              <td>14 min ago</td>
+              <td><span class="status status--active">Active</span></td>
+              <td class="actions">
+                <a class="btn btn--small" href="#">Open</a>
+                <a class="btn btn--small" href="#">Logs</a>
+              </td>
+            </tr>
+            <tr>
+              <td class="primary-cell"><code>pro-nunez-mariano</code></td>
+              <td>Mariano Núñez</td>
+              <td>Núñez Logística</td>
+              <td><span class="chip chip--brand" data-of="proasiste"></span> ProAsiste</td>
+              <td>latam</td>
+              <td>1 hour ago</td>
+              <td><span class="status status--active">Active</span></td>
+              <td class="actions">
+                <a class="btn btn--small" href="#">Open</a>
+                <a class="btn btn--small" href="#">Logs</a>
+              </td>
+            </tr>
+            <tr>
+              <td class="primary-cell"><code>edu-vallenorte-esteban</code></td>
+              <td>Dr. Esteban Páez</td>
+              <td>Universidad del Valle Norte</td>
+              <td><span class="chip chip--brand" data-of="eduasiste"></span> EduAsiste</td>
+              <td>latam</td>
+              <td>2 hours ago</td>
+              <td><span class="status status--active">Active</span></td>
+              <td class="actions">
+                <a class="btn btn--small" href="#">Open</a>
+                <a class="btn btn--small" href="#">Logs</a>
+              </td>
+            </tr>
+            <tr>
+              <td class="primary-cell"><code>pro-mendieta-lorena</code></td>
+              <td>Lorena Mendieta</td>
+              <td>Grupo Industrial Mendieta</td>
+              <td><span class="chip chip--brand" data-of="proasiste"></span> ProAsiste</td>
+              <td>latam</td>
+              <td>5 hours ago</td>
+              <td><span class="status status--active">Active</span></td>
+              <td class="actions">
+                <a class="btn btn--small" href="#">Open</a>
+                <a class="btn btn--small" href="#">Logs</a>
+              </td>
+            </tr>
+            <tr>
+              <td class="primary-cell"><code>pro-rincon-pablo</code></td>
+              <td>Pablo Rincón</td>
+              <td>Rincón Construcción</td>
+              <td><span class="chip chip--brand" data-of="proasiste"></span> ProAsiste</td>
+              <td>latam</td>
+              <td>3 days ago</td>
+              <td><span class="status status--idle">Idle</span></td>
+              <td class="actions">
+                <a class="btn btn--small" href="#">Open</a>
+                <a class="btn btn--small" href="#">Logs</a>
+              </td>
+            </tr>
+            <tr>
+              <td class="primary-cell"><code>edu-politecnica-carlos</code></td>
+              <td>Carlos Madrigal</td>
+              <td>Escuela Politécnica del Bajío</td>
+              <td><span class="chip chip--brand" data-of="eduasiste"></span> EduAsiste</td>
+              <td>latam</td>
+              <td>22 days ago</td>
+              <td><span class="status status--warn">Idle &gt; 14d</span></td>
+              <td class="actions">
+                <a class="btn btn--small" href="#">Open</a>
+                <a class="btn btn--small" href="#">Logs</a>
+              </td>
+            </tr>
+            <tr>
+              <td class="primary-cell"><code>pro-olmedo-veronica</code></td>
+              <td>Verónica Olmedo</td>
+              <td>Constructora Olmedo</td>
+              <td><span class="chip chip--brand" data-of="proasiste"></span> ProAsiste</td>
+              <td>latam</td>
+              <td>—</td>
+              <td><span class="status status--error">Provision failed</span></td>
+              <td class="actions">
+                <a class="btn btn--small" href="#">Retry</a>
+                <a class="btn btn--small" href="#">Logs</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p class="muted" style="margin-top: 16px; font-size: 12px;">… and 304 more twins.</p>
+
+    </div>
+  </div>
+</div>
+
+<div class="proto-toggle" id="proto-toggle" role="group" aria-label="Preview brand"></div>
+<script src="../shared/nav.js"></script>
+</body>
+</html>
