@@ -53,24 +53,24 @@
 
       <div class="tiles">
         <div class="tile">
-          <div class="tile__label">Organizations</div>
+          <div class="tile__label">Assigned Clients</div>
           <div class="tile__value">7</div>
           <div class="tile__sub">5 ProAsiste · 2 EduAsiste</div>
         </div>
         <div class="tile">
-          <div class="tile__label">Twins across orgs</div>
-          <div class="tile__value">63</div>
-          <div class="tile__sub">of 80 seat quota</div>
+          <div class="tile__label">Active Pro Clients</div>
+          <div class="tile__value">5</div>
+          <div class="tile__sub">Paid + profile complete + twins live</div>
         </div>
         <div class="tile">
-          <div class="tile__label">Active accounts</div>
-          <div class="tile__value">68</div>
-          <div class="tile__sub">across 7 orgs</div>
-        </div>
-        <div class="tile">
-          <div class="tile__label">Your twin</div>
+          <div class="tile__label">Clients Missing Profile Data</div>
           <div class="tile__value">1</div>
-          <div class="tile__sub">Private. Not part of any client org.</div>
+          <div class="tile__sub">Needs setup before provisioning</div>
+        </div>
+        <div class="tile">
+          <div class="tile__label">Pending Twin + Billing Issues</div>
+          <div class="tile__value">1</div>
+          <div class="tile__sub">Twin pending · 0 billing pending</div>
         </div>
       </div>
 
@@ -88,6 +88,7 @@
                   <th>Brand</th>
                   <th>Head</th>
                   <th>Seats</th>
+                  <th>Status</th>
                 </tr>
               </thead>
               <tbody>
@@ -96,30 +97,35 @@
                   <td><span class="chip chip--brand" data-of="proasiste"></span> ProAsiste</td>
                   <td>Rosa Quintana</td>
                   <td>11 / 14</td>
+                  <td><span class="status status--active">Active</span></td>
                 </tr>
                 <tr>
                   <td class="primary-cell"><a href="org-detail.html">Núñez Logística</a></td>
                   <td><span class="chip chip--brand" data-of="proasiste"></span> ProAsiste</td>
                   <td>Mariano Núñez</td>
                   <td>8 / 12</td>
+                  <td><span class="status status--active">Active</span></td>
                 </tr>
                 <tr>
                   <td class="primary-cell"><a href="org-detail.html">Colegio San Jerónimo</a></td>
                   <td><span class="chip chip--brand" data-of="eduasiste"></span> EduAsiste</td>
                   <td>Sister Isabel Ruiz</td>
                   <td>22 / 25</td>
+                  <td><span class="status status--active">Active</span></td>
                 </tr>
                 <tr>
                   <td class="primary-cell"><a href="org-detail.html">Rincón Construcción</a></td>
                   <td><span class="chip chip--brand" data-of="proasiste"></span> ProAsiste</td>
                   <td>Pablo Rincón</td>
                   <td>5 / 5</td>
+                  <td><span class="status status--idle">Needs Setup</span></td>
                 </tr>
                 <tr>
                   <td class="primary-cell"><a href="org-detail.html">Escuela Politécnica del Bajío</a></td>
                   <td><span class="chip chip--brand" data-of="eduasiste"></span> EduAsiste</td>
                   <td>Carlos Madrigal</td>
                   <td>17 / 24</td>
+                  <td><span class="status status--warn">Twin Pending</span></td>
                 </tr>
               </tbody>
             </table>
