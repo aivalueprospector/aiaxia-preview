@@ -68,12 +68,12 @@
   --text:         #E8EAED;
   --text-soft:    #C2C6CC;
   --text-muted:   #9AA0A6;
-  --brand:        #C5F500;
-  --brand-hover:  #DEFF3A;
+  --brand:        #E8B547;
+  --brand-hover:  #F2C764;
   --brand-fg:     #0F1115;
-  --brand-tint:   #1B2007;
-  --focus:        #C5F500;
-  --link:         #C5F500;
+  --brand-tint:   #2A1F08;
+  --focus:        #E8B547;
+  --link:         #E8B547;
   --status-active: #5BD27A;
   --status-trial:  #5BA7FF;
   --status-idle:   #9AA0A6;
@@ -393,7 +393,7 @@ h3 { font-size: 14px; }
 }
 .chip--brand[data-of="proasiste"] { --chip-color: #CFB382; }
 .chip--brand[data-of="eduasiste"] { --chip-color: #2ea3f2; }
-.chip--brand[data-of="aivp"]      { --chip-color: #C5F500; }
+.chip--brand[data-of="aivp"]      { --chip-color: #E8B547; }
 
 /* ---------- Buttons ------------------------------------------------ */
 .btn {
