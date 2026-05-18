@@ -55,13 +55,13 @@
       <section id="create-form" class="card" style="display: none; margin-bottom: 24px;">
         <div class="card__head"><h2>Create user</h2></div>
         <div class="card__body">
-          <p style="color: var(--text-muted); margin-bottom: 16px; font-size: 13px;">Admins can create users in any role. Sales and org heads cannot reach this form.</p>
+          <p style="color: var(--text-muted); margin-bottom: 16px; font-size: 13px;">Admins can create users in any role. Forward deployed sales reps and org heads cannot reach this form.</p>
           <form class="form form--wide">
             <div class="field">
               <label class="field__label" for="role">Role</label>
               <select id="role" class="select">
                 <option value="admin">Admin — full dashboard access across all orgs</option>
-                <option value="sales">Sales — manage own organizations + own twin</option>
+                <option value="sales">Forward Deployed Sales Rep — manage own organizations + own twin</option>
                 <option value="org_head" selected>Org Head — manage one organization</option>
                 <option value="org_employee">Org Employee — uses a twin, no dashboard access</option>
               </select>
@@ -70,7 +70,7 @@
             <div class="field">
               <label class="field__label" for="org">Organization</label>
               <select id="org" class="select">
-                <option>AiVP Internal (admin / sales)</option>
+                <option>AiVP Internal (admin / forward deployed sales rep)</option>
                 <option>Quintana Industrial · ProAsiste</option>
                 <option>Núñez Logística · ProAsiste</option>
                 <option>Colegio San Jerónimo · EduAsiste</option>
@@ -120,7 +120,7 @@
             <select class="select" style="max-width: 140px;">
               <option>All roles</option>
               <option>Admin</option>
-              <option>Sales</option>
+              <option>Forward Deployed Sales Rep</option>
               <option>Org Head</option>
               <option>Org Employee</option>
             </select>
@@ -157,7 +157,7 @@
             <tr>
               <td class="primary-cell">Rodrigo Salas</td>
               <td>rodrigo@aivp.com</td>
-              <td><span class="chip">Sales</span></td>
+              <td><span class="chip" title="Forward Deployed Sales Rep">FDSR</span></td>
               <td>AiVP Internal Sales</td>
               <td><span class="status status--active">Active</span></td>
               <td class="actions">
@@ -201,7 +201,7 @@
             <tr>
               <td class="primary-cell">Simran Kaur</td>
               <td>simran@aivp.com</td>
-              <td><span class="chip">Sales</span></td>
+              <td><span class="chip" title="Forward Deployed Sales Rep">FDSR</span></td>
               <td>AiVP Internal Sales</td>
               <td><span class="status status--active">Active</span></td>
               <td class="actions">
