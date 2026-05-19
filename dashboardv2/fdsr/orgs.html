@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>All organizations — Twin Management (Admin)</title>
+<title>Organizations — Twin Management (Business Partner)</title>
 <link rel="stylesheet" href="../shared/styles.css">
 </head>
 <body data-page="orgs">
@@ -14,29 +14,12 @@
       <div class="sidebar__brand-mark">A</div>
       <div class="sidebar__brand-name">AiVP Internal</div>
     </div>
-    <div class="sidebar__role">Admin · Todd Chapin</div>
+    <div class="sidebar__role">Business Partner · Rodrigo Salas</div>
     <div class="sidebar__group">
       <div class="sidebar__group-label">Manage</div>
       <nav class="sidebar__nav">
         <a class="sidebar__link" data-page="overview" href="overview.html">Overview</a>
         <a class="sidebar__link" data-page="orgs" href="orgs.html">Organizations</a>
-        <a class="sidebar__link" data-page="users" href="users.html">Users</a>
-        <a class="sidebar__link" data-page="fdsr" href="fdsr.html">FDSR Management</a>
-      </nav>
-    </div>
-    <div class="sidebar__group">
-      <div class="sidebar__group-label">Billing</div>
-      <nav class="sidebar__nav">
-        <a class="sidebar__link" data-page="upgrade-tier" href="upgrade-tier.html">Clients Upgrade Tier</a>
-        <a class="sidebar__link" data-page="discount-codes" href="discount-codes.html">Stripe Discount Codes</a>
-        <a class="sidebar__link" data-page="billing-summary" href="billing-summary.html">Twin Billing Summary</a>
-      </nav>
-    </div>
-    <div class="sidebar__group">
-      <div class="sidebar__group-label">Operations</div>
-      <nav class="sidebar__nav">
-        <a class="sidebar__link" data-page="twin-management" href="twin-management.html">Twin Management</a>
-        <a class="sidebar__link" data-page="deleted-clients" href="deleted-clients.html">Deleted Clients</a>
       </nav>
     </div>
     <div class="sidebar__group">
@@ -46,10 +29,10 @@
       </nav>
     </div>
     <div class="sidebar__footer">
-      <div class="sidebar__avatar">TC</div>
+      <div class="sidebar__avatar">RS</div>
       <div class="sidebar__user">
-        <div class="sidebar__user-name">Todd Chapin</div>
-        <div class="sidebar__user-email">todd@aivp.com</div>
+        <div class="sidebar__user-name">Rodrigo Salas</div>
+        <div class="sidebar__user-email">rodrigo@aivp.com</div>
       </div>
       <a href="../login.html" class="btn--link" aria-label="Sign out" title="Sign out">↩</a>
     </div>
@@ -58,8 +41,11 @@
   <div>
     <div class="topbar">
       <div>
-        <div class="topbar__title">All organizations</div>
-        <div class="topbar__sub">38 organizations across all brands</div>
+        <div class="topbar__title">Organizations</div>
+        <div class="topbar__sub">7 organizations · 63 of 80 seats used</div>
+      </div>
+      <div class="topbar__actions">
+        <a href="orgs-create.html" class="btn btn--primary">Create organization</a>
       </div>
     </div>
 
@@ -68,20 +54,13 @@
       <div class="card">
         <div class="card__head" style="gap: 12px;">
           <div style="display: flex; gap: 8px; align-items: center; flex: 1;">
-            <input type="search" class="input" placeholder="Search by name, head, or fwd. deployed rep" style="max-width: 320px;">
-            <select class="select" style="max-width: 140px;">
+            <input type="search" class="input" placeholder="Search organizations" style="max-width: 280px;">
+            <select class="select" style="max-width: 160px;">
               <option>All brands</option>
               <option>ProAsiste</option>
               <option>EduAsiste</option>
             </select>
-            <select class="select" style="max-width: 160px;">
-              <option>All fwd. deployed reps</option>
-              <option>Rodrigo Salas</option>
-              <option>Kabir Sharma</option>
-              <option>Simran Kaur</option>
-            </select>
           </div>
-          <a class="btn btn--small" href="#">Export CSV</a>
         </div>
         <table class="table">
           <thead>
@@ -89,90 +68,79 @@
               <th>Organization</th>
               <th>Brand</th>
               <th>Head</th>
-              <th>Fwd. Deployed Rep</th>
               <th>Seats</th>
               <th>Status</th>
               <th>Created</th>
+              <th class="actions">Actions</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td class="primary-cell"><a href="../sales/org-detail.html">Quintana Industrial</a></td>
+              <td class="primary-cell"><a href="org-detail.html">Quintana Industrial</a></td>
               <td><span class="chip chip--brand" data-of="proasiste"></span> ProAsiste</td>
               <td>Rosa Quintana</td>
-              <td>Rodrigo Salas</td>
               <td>11 / 14</td>
               <td><span class="status status--active">Active</span></td>
               <td>2025-08-04</td>
+              <td class="actions"><a href="org-detail.html" class="btn btn--small">Open</a></td>
             </tr>
             <tr>
-              <td class="primary-cell"><a href="../sales/org-detail.html">Núñez Logística</a></td>
+              <td class="primary-cell"><a href="org-detail.html">Núñez Logística</a></td>
               <td><span class="chip chip--brand" data-of="proasiste"></span> ProAsiste</td>
               <td>Mariano Núñez</td>
-              <td>Rodrigo Salas</td>
               <td>8 / 12</td>
               <td><span class="status status--active">Active</span></td>
               <td>2025-09-22</td>
+              <td class="actions"><a href="org-detail.html" class="btn btn--small">Open</a></td>
             </tr>
             <tr>
-              <td class="primary-cell"><a href="../sales/org-detail.html">Colegio San Jerónimo</a></td>
+              <td class="primary-cell"><a href="org-detail.html">Colegio San Jerónimo</a></td>
               <td><span class="chip chip--brand" data-of="eduasiste"></span> EduAsiste</td>
               <td>Sister Isabel Ruiz</td>
-              <td>Rodrigo Salas</td>
               <td>22 / 25</td>
               <td><span class="status status--active">Active</span></td>
               <td>2025-10-11</td>
+              <td class="actions"><a href="org-detail.html" class="btn btn--small">Open</a></td>
             </tr>
             <tr>
-              <td class="primary-cell"><a href="../sales/org-detail.html">Universidad del Valle Norte</a></td>
-              <td><span class="chip chip--brand" data-of="eduasiste"></span> EduAsiste</td>
-              <td>Dr. Esteban Páez</td>
-              <td>Simran Kaur</td>
-              <td>18 / 20</td>
-              <td><span class="status status--active">Active</span></td>
-              <td>2025-09-04</td>
-            </tr>
-            <tr>
-              <td class="primary-cell"><a href="../sales/org-detail.html">Rincón Construcción</a></td>
+              <td class="primary-cell"><a href="org-detail.html">Rincón Construcción</a></td>
               <td><span class="chip chip--brand" data-of="proasiste"></span> ProAsiste</td>
               <td>Pablo Rincón</td>
-              <td>Rodrigo Salas</td>
               <td>5 / 5</td>
               <td><span class="status status--warn">At quota</span></td>
               <td>2025-11-19</td>
+              <td class="actions"><a href="org-detail.html" class="btn btn--small">Open</a></td>
             </tr>
             <tr>
-              <td class="primary-cell"><a href="../sales/org-detail.html">Grupo Industrial Mendieta</a></td>
-              <td><span class="chip chip--brand" data-of="proasiste"></span> ProAsiste</td>
-              <td>Lorena Mendieta</td>
-              <td>Kabir Sharma</td>
-              <td>14 / 16</td>
-              <td><span class="status status--active">Active</span></td>
-              <td>2025-07-25</td>
-            </tr>
-            <tr>
-              <td class="primary-cell"><a href="../sales/org-detail.html">Escuela Politécnica del Bajío</a></td>
+              <td class="primary-cell"><a href="org-detail.html">Escuela Politécnica del Bajío</a></td>
               <td><span class="chip chip--brand" data-of="eduasiste"></span> EduAsiste</td>
               <td>Carlos Madrigal</td>
-              <td>Rodrigo Salas</td>
               <td>17 / 24</td>
               <td><span class="status status--active">Active</span></td>
               <td>2026-01-15</td>
+              <td class="actions"><a href="org-detail.html" class="btn btn--small">Open</a></td>
             </tr>
             <tr>
-              <td class="primary-cell"><a href="../sales/org-detail.html">Constructora Olmedo</a></td>
+              <td class="primary-cell"><a href="org-detail.html">Talleres Padilla</a></td>
+              <td><span class="chip chip--brand" data-of="proasiste"></span> ProAsiste</td>
+              <td>Sergio Padilla</td>
+              <td>0 / 4</td>
+              <td><span class="status status--trial">Pending</span></td>
+              <td>2026-05-02</td>
+              <td class="actions"><a href="org-detail.html" class="btn btn--small">Open</a></td>
+            </tr>
+            <tr>
+              <td class="primary-cell"><a href="org-detail.html">Constructora Olmedo</a></td>
               <td><span class="chip chip--brand" data-of="proasiste"></span> ProAsiste</td>
               <td>Verónica Olmedo</td>
-              <td>Rodrigo Salas</td>
               <td>0 / 0</td>
               <td><span class="status status--error">Suspended</span></td>
               <td>2025-06-30</td>
+              <td class="actions"><a href="org-detail.html" class="btn btn--small">Open</a></td>
             </tr>
           </tbody>
         </table>
       </div>
-
-      <p class="muted" style="margin-top: 16px; font-size: 12px;">… and 30 more organizations.</p>
 
     </div>
   </div>
