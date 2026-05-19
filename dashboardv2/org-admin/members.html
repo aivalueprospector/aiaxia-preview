@@ -14,7 +14,7 @@
       <div class="sidebar__brand-mark" data-brand-mark>P</div>
       <div class="sidebar__brand-name" data-brand-name>ProAsiste</div>
     </div>
-    <div class="sidebar__role">Org Head · Quintana Industrial</div>
+    <div class="sidebar__role">Org Admin · Quintana Industrial</div>
     <div class="sidebar__group">
       <div class="sidebar__group-label">Manage</div>
       <nav class="sidebar__nav">
@@ -90,7 +90,7 @@
 
       <section class="card" style="margin-bottom: 16px;">
         <div class="card__head">
-          <h2>Org Head</h2>
+          <h2>Org Admin</h2>
           <span class="muted" style="font-size: 12px;">Only one head per organization.</span>
         </div>
         <table class="table">
@@ -139,22 +139,7 @@
               <td><span class="status status--active">Active</span></td>
               <td>Spanish</td>
               <td class="actions">
-                <button class="btn btn--small set-pwd">Set password</button>
-              </td>
-            </tr>
-            <tr class="set-pwd-target" style="display: none;">
-              <td colspan="5">
-                <div class="inline-form">
-                  <strong style="display: block; margin-bottom: 8px;">Set new password for Mateo Ibarra</strong>
-                  <form style="display: flex; gap: 8px; align-items: end;">
-                    <div class="field" style="margin: 0; flex: 1; max-width: 320px;">
-                      <label class="field__label" for="new-pwd-mateo">New password</label>
-                      <input id="new-pwd-mateo" type="password" class="input">
-                    </div>
-                    <button type="submit" class="btn btn--primary btn--small">Save</button>
-                    <button type="button" class="btn btn--small cancel-pwd">Cancel</button>
-                  </form>
-                </div>
+                <button class="btn btn--small" type="button">Send password reset email</button>
               </td>
             </tr>
             <tr>
@@ -163,20 +148,18 @@
               <td><span class="status status--trial">Trial</span></td>
               <td>Spanish</td>
               <td class="actions">
-                <button class="btn btn--small set-pwd">Set password</button>
+                <button class="btn btn--small" type="button">Send password reset email</button>
               </td>
             </tr>
-            <tr class="set-pwd-target" style="display: none;"><td colspan="5"></td></tr>
             <tr>
               <td class="primary-cell">Tomás Echevarría</td>
               <td>tomas@quintana-industrial.mx</td>
               <td><span class="status status--idle">Idle 14d</span></td>
               <td>English</td>
               <td class="actions">
-                <button class="btn btn--small set-pwd">Set password</button>
+                <button class="btn btn--small" type="button">Send password reset email</button>
               </td>
             </tr>
-            <tr class="set-pwd-target" style="display: none;"><td colspan="5"></td></tr>
             <tr>
               <td class="primary-cell">Beto Carrillo</td>
               <td>beto@quintana-industrial.mx</td>
@@ -184,10 +167,9 @@
               <td>Spanish</td>
               <td class="actions">
                 <a class="btn btn--small btn--primary" href="twins-provision.html">Provision twin</a>
-                <button class="btn btn--small set-pwd">Set password</button>
+                <button class="btn btn--small" type="button">Send password reset email</button>
               </td>
             </tr>
-            <tr class="set-pwd-target" style="display: none;"><td colspan="5"></td></tr>
             <tr>
               <td class="primary-cell">Daniel Cruz</td>
               <td>daniel@quintana-industrial.mx</td>
@@ -195,7 +177,7 @@
               <td>Spanish</td>
               <td class="actions">
                 <a class="btn btn--small btn--primary" href="twins-provision.html">Provision twin</a>
-                <button class="btn btn--small set-pwd">Set password</button>
+                <button class="btn btn--small" type="button">Send password reset email</button>
               </td>
             </tr>
           </tbody>
@@ -214,15 +196,6 @@
   });
   document.getElementById('cancel-invite').addEventListener('click', () => {
     document.getElementById('invite-form').style.display = 'none';
-  });
-  document.querySelectorAll('.set-pwd').forEach((btn) => {
-    btn.addEventListener('click', () => {
-      const row = btn.closest('tr');
-      const target = row.nextElementSibling;
-      if (target && target.classList.contains('set-pwd-target')) {
-        target.style.display = target.style.display === '' ? 'none' : '';
-      }
-    });
   });
 </script>
 </body>

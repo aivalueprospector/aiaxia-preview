@@ -20,16 +20,7 @@
       <nav class="sidebar__nav">
         <a class="sidebar__link" data-page="overview" href="overview.html">Overview</a>
         <a class="sidebar__link" data-page="orgs" href="orgs.html">Organizations</a>
-        <a class="sidebar__link" data-page="users" href="users.html">Users</a>
-        <a class="sidebar__link" data-page="fdsr" href="fdsr.html">FDSR Management</a>
-      </nav>
-    </div>
-    <div class="sidebar__group">
-      <div class="sidebar__group-label">Billing</div>
-      <nav class="sidebar__nav">
-        <a class="sidebar__link" data-page="upgrade-tier" href="upgrade-tier.html">Clients Upgrade Tier</a>
-        <a class="sidebar__link" data-page="discount-codes" href="discount-codes.html">Stripe Discount Codes</a>
-        <a class="sidebar__link" data-page="billing-summary" href="billing-summary.html">Twin Billing Summary</a>
+        <a class="sidebar__link" data-page="fdsr" href="fdsr.html">Business Partner Management</a>
       </nav>
     </div>
     <div class="sidebar__group">
@@ -79,10 +70,10 @@
         <div class="tile">
           <div class="tile__label">Users</div>
           <div class="tile__value">421</div>
-          <div class="tile__sub">4 admin · 8 fwd. deployed sales · 38 heads · 371 employees</div>
+          <div class="tile__sub">4 platform_admin · 8 fdsr · 38 org_admin · 371 non-admin org roles</div>
         </div>
         <div class="tile">
-          <div class="tile__label">Forward Deployed Sales Reps</div>
+          <div class="tile__label">Business Partners</div>
           <div class="tile__value">8</div>
           <div class="tile__sub">Avg 5 orgs / rep</div>
         </div>
@@ -101,8 +92,10 @@
                   <th>Organization</th>
                   <th>Brand</th>
                   <th>Head</th>
-                  <th>Fwd. Deployed Rep</th>
+                  <th>Business Partner</th>
                   <th>Seats</th>
+                  <th>Tokens Used</th>
+                  <th>Cost ($)</th>
                 </tr>
               </thead>
               <tbody>
@@ -112,6 +105,8 @@
                   <td>Sister Isabel Ruiz</td>
                   <td>Rodrigo Salas</td>
                   <td>22 / 25</td>
+                  <td>4.2M</td>
+                  <td>$84.00</td>
                 </tr>
                 <tr>
                   <td class="primary-cell">Universidad del Valle Norte</td>
@@ -119,6 +114,8 @@
                   <td>Dr. Esteban Páez</td>
                   <td>Simran Kaur</td>
                   <td>18 / 20</td>
+                  <td>3.6M</td>
+                  <td>$72.00</td>
                 </tr>
                 <tr>
                   <td class="primary-cell">Escuela Politécnica del Bajío</td>
@@ -126,6 +123,8 @@
                   <td>Carlos Madrigal</td>
                   <td>Rodrigo Salas</td>
                   <td>17 / 24</td>
+                  <td>2.9M</td>
+                  <td>$58.00</td>
                 </tr>
                 <tr>
                   <td class="primary-cell">Grupo Industrial Mendieta</td>
@@ -133,6 +132,8 @@
                   <td>Lorena Mendieta</td>
                   <td>Kabir Sharma</td>
                   <td>14 / 16</td>
+                  <td>2.1M</td>
+                  <td>$42.00</td>
                 </tr>
                 <tr>
                   <td class="primary-cell">Quintana Industrial</td>
@@ -140,9 +141,14 @@
                   <td>Rosa Quintana</td>
                   <td>Rodrigo Salas</td>
                   <td>11 / 14</td>
+                  <td>1.6M</td>
+                  <td>$32.00</td>
                 </tr>
               </tbody>
             </table>
+            <div class="card__foot muted" style="padding: 8px 16px; font-size: 12px;">
+              Tokens Used + Cost columns are visible to <code>platform_admin</code> only.
+            </div>
           </div>
         </section>
 
@@ -161,7 +167,7 @@
                 </li>
                 <li>
                   <time>2 hours ago</time>
-                  <span><code>user.created</code> — new forward deployed sales rep Simran Kaur.</span>
+                  <span><code>user.created</code> — new Business Partner Simran Kaur.</span>
                 </li>
                 <li>
                   <time>Yesterday</time>
@@ -176,6 +182,66 @@
           </div>
         </aside>
       </div>
+
+      <section class="section">
+        <div class="card">
+          <div class="card__head">
+            <h2>Twin billing summary</h2>
+            <span class="muted" style="font-size: 12px;">Top 50 newest accounts · visible to <code>platform_admin</code> only.</span>
+          </div>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Account</th>
+                <th>Status</th>
+                <th>Business seat target</th>
+                <th>Monthly client/customer twins</th>
+                <th>Prepaid client/customer twins</th>
+                <th>Subscription amount</th>
+                <th>Stripe action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="primary-cell">Colegio San Jerónimo<br><span class="muted" style="font-size: 12px;">Sister Isabel Ruiz · isabel@sanjeronimo.edu</span></td>
+                <td><span class="chip chip--ok">Active</span></td>
+                <td>22</td>
+                <td>3</td>
+                <td>0</td>
+                <td>$528.00</td>
+                <td><button class="btn">Sync billing</button></td>
+              </tr>
+              <tr>
+                <td class="primary-cell">Universidad del Valle Norte<br><span class="muted" style="font-size: 12px;">Dr. Esteban Páez · esteban@uvn.edu</span></td>
+                <td><span class="chip chip--ok">Active</span></td>
+                <td>18</td>
+                <td>2</td>
+                <td>0</td>
+                <td>$432.00</td>
+                <td><button class="btn">Sync billing</button></td>
+              </tr>
+              <tr>
+                <td class="primary-cell">Quintana Industrial<br><span class="muted" style="font-size: 12px;">Rosa Quintana · rosa@quintana-industrial.mx</span></td>
+                <td><span class="chip chip--warn">Past due</span></td>
+                <td>11</td>
+                <td>0</td>
+                <td>3</td>
+                <td>$264.00</td>
+                <td><button class="btn">Sync billing</button></td>
+              </tr>
+              <tr>
+                <td class="primary-cell">Núñez Logística<br><span class="muted" style="font-size: 12px;">Hugo Núñez · hugo@nunez-logistica.mx</span></td>
+                <td><span class="muted">No active subscription</span></td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td>$0.00</td>
+                <td><span class="muted">—</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
 
     </div>
   </div>

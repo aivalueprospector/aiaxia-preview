@@ -14,7 +14,7 @@
       <div class="sidebar__brand-mark" data-brand-mark>P</div>
       <div class="sidebar__brand-name" data-brand-name>ProAsiste</div>
     </div>
-    <div class="sidebar__role">Org Head · Quintana Industrial</div>
+    <div class="sidebar__role">Org Admin · Quintana Industrial</div>
     <div class="sidebar__group">
       <div class="sidebar__group-label">Manage</div>
       <nav class="sidebar__nav">
@@ -63,7 +63,7 @@
                 <span class="field__locked">🔒 Locked</span>
               </label>
               <input id="email" class="input" type="email" value="rosa@quintana-industrial.mx" readonly>
-              <div class="field__help">Email is tied to billing in Stripe and cannot be changed here. Contact your forward deployed sales rep.</div>
+              <div class="field__help">Email is tied to billing in Stripe and cannot be changed here. Contact your Business Partner.</div>
             </div>
             <div class="field">
               <label class="field__label" for="lang">Language</label>
@@ -83,25 +83,15 @@
       </section>
 
       <section class="card" style="margin-bottom: 24px;">
-        <div class="card__head"><h2>Change password</h2></div>
+        <div class="card__head"><h2>Password</h2></div>
         <div class="card__body">
-          <form class="form">
-            <div class="field">
-              <label class="field__label" for="cur-pwd">Current password</label>
-              <input id="cur-pwd" type="password" class="input">
-            </div>
-            <div class="field">
-              <label class="field__label" for="new-pwd">New password</label>
-              <input id="new-pwd" type="password" class="input">
-            </div>
-            <div class="field">
-              <label class="field__label" for="conf-pwd">Confirm new password</label>
-              <input id="conf-pwd" type="password" class="input">
-            </div>
-            <div class="form__actions">
-              <button type="submit" class="btn btn--primary">Update password</button>
-            </div>
-          </form>
+          <p class="muted" style="margin: 0 0 12px; font-size: 13px;">
+            For account safety, passwords are not set or changed in the dashboard. Trigger a password reset email
+            and follow the link to set a new password.
+          </p>
+          <div class="form__actions">
+            <button type="button" class="btn btn--primary">Send password reset email</button>
+          </div>
         </div>
       </section>
 
@@ -122,7 +112,7 @@
               <dt>Brand</dt><dd><span class="chip chip--brand" data-of="proasiste"></span> <span data-brand-name>ProAsiste</span></dd>
               <dt>Host</dt><dd class="mono">proasiste.com</dd>
               <dt>Seat quota</dt><dd>14 (managed in Stripe)</dd>
-              <dt>Created by</dt><dd>Rodrigo Salas · Forward Deployed Sales Rep</dd>
+              <dt>Created by</dt><dd>Rodrigo Salas · Business Partner</dd>
             </dl>
 
             <div class="form__actions">
