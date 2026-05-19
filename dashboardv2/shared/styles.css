@@ -710,3 +710,29 @@ h3 { font-size: 14px; }
 }
 .dl dt { color: var(--text-muted); }
 .dl dd { color: var(--text); }
+
+/* ---------- Filter-header table (column-header dropdowns) -------- */
+.table--filter-headers thead th {
+  padding-top: 6px;
+  padding-bottom: 6px;
+  text-transform: none;
+  letter-spacing: 0;
+  font-weight: 500;
+}
+.input--header,
+.select--header {
+  width: 100%;
+  margin: 0;
+  padding: 5px 8px;
+  font-size: 12px;
+  font-weight: 500;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text);
+  border-radius: 4px;
+}
+.input--header:focus-visible,
+.select--header:focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: 1px;
+}
