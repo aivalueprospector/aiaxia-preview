@@ -79,109 +79,107 @@
         </div>
       </div>
 
-      <div class="grid-2">
-        <section class="section">
-          <div class="card">
-            <div class="card__head">
-              <h2>Top organizations by twins</h2>
-              <a href="orgs.html">All organizations</a>
-            </div>
-            <table class="table">
-              <thead>
-                <tr>
-                  <th>Organization</th>
-                  <th>Brand</th>
-                  <th>Head</th>
-                  <th>Business Partner</th>
-                  <th>Seats</th>
-                  <th>Tokens Used</th>
-                  <th>Cost ($)</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td class="primary-cell">Colegio San Jerónimo</td>
-                  <td><span class="chip chip--brand" data-of="eduasiste"></span> EduAsiste</td>
-                  <td>Sister Isabel Ruiz</td>
-                  <td>Rodrigo Salas</td>
-                  <td>22 / 25</td>
-                  <td>4.2M</td>
-                  <td>$84.00</td>
-                </tr>
-                <tr>
-                  <td class="primary-cell">Universidad del Valle Norte</td>
-                  <td><span class="chip chip--brand" data-of="eduasiste"></span> EduAsiste</td>
-                  <td>Dr. Esteban Páez</td>
-                  <td>Simran Kaur</td>
-                  <td>18 / 20</td>
-                  <td>3.6M</td>
-                  <td>$72.00</td>
-                </tr>
-                <tr>
-                  <td class="primary-cell">Escuela Politécnica del Bajío</td>
-                  <td><span class="chip chip--brand" data-of="eduasiste"></span> EduAsiste</td>
-                  <td>Carlos Madrigal</td>
-                  <td>Rodrigo Salas</td>
-                  <td>17 / 24</td>
-                  <td>2.9M</td>
-                  <td>$58.00</td>
-                </tr>
-                <tr>
-                  <td class="primary-cell">Grupo Industrial Mendieta</td>
-                  <td><span class="chip chip--brand" data-of="proasiste"></span> ProAsiste</td>
-                  <td>Lorena Mendieta</td>
-                  <td>Kabir Sharma</td>
-                  <td>14 / 16</td>
-                  <td>2.1M</td>
-                  <td>$42.00</td>
-                </tr>
-                <tr>
-                  <td class="primary-cell">Quintana Industrial</td>
-                  <td><span class="chip chip--brand" data-of="proasiste"></span> ProAsiste</td>
-                  <td>Rosa Quintana</td>
-                  <td>Rodrigo Salas</td>
-                  <td>11 / 14</td>
-                  <td>1.6M</td>
-                  <td>$32.00</td>
-                </tr>
-              </tbody>
-            </table>
-            <div class="card__foot muted" style="padding: 8px 16px; font-size: 12px;">
-              Tokens Used + Cost columns are visible to <code>platform_admin</code> only.
-            </div>
+      <section class="section">
+        <div class="card">
+          <div class="card__head"><h2>System activity</h2></div>
+          <div class="card__body" style="padding: 0 16px;">
+            <ul class="activity">
+              <li>
+                <time>3 min ago</time>
+                <span><code>twin.provisioned</code> — Helena Vargas at Quintana Industrial.</span>
+              </li>
+              <li>
+                <time>1 hour ago</time>
+                <span><code>org.created</code> — Núñez Logística by Rodrigo Salas.</span>
+              </li>
+              <li>
+                <time>2 hours ago</time>
+                <span><code>user.created</code> — new Business Partner Simran Kaur.</span>
+              </li>
+              <li>
+                <time>Yesterday</time>
+                <span><code>subscription.updated</code> — Colegio San Jerónimo · quota 22 → 25.</span>
+              </li>
+              <li>
+                <time>2 days ago</time>
+                <span><code>auth.failed</code> — 3 attempts on rosa@quintana-industrial.mx (resolved).</span>
+              </li>
+            </ul>
           </div>
-        </section>
+        </div>
+      </section>
 
-        <aside class="section">
-          <div class="card">
-            <div class="card__head"><h2>System activity</h2></div>
-            <div class="card__body" style="padding: 0 16px;">
-              <ul class="activity">
-                <li>
-                  <time>3 min ago</time>
-                  <span><code>twin.provisioned</code> — Helena Vargas at Quintana Industrial.</span>
-                </li>
-                <li>
-                  <time>1 hour ago</time>
-                  <span><code>org.created</code> — Núñez Logística by Rodrigo Salas.</span>
-                </li>
-                <li>
-                  <time>2 hours ago</time>
-                  <span><code>user.created</code> — new Business Partner Simran Kaur.</span>
-                </li>
-                <li>
-                  <time>Yesterday</time>
-                  <span><code>subscription.updated</code> — Colegio San Jerónimo · quota 22 → 25.</span>
-                </li>
-                <li>
-                  <time>2 days ago</time>
-                  <span><code>auth.failed</code> — 3 attempts on rosa@quintana-industrial.mx (resolved).</span>
-                </li>
-              </ul>
-            </div>
+      <section class="section">
+        <div class="card">
+          <div class="card__head">
+            <h2>Top organizations by twins</h2>
+            <a href="orgs.html">View all orgs</a>
           </div>
-        </aside>
-      </div>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Organization</th>
+                <th>Brand</th>
+                <th>Head</th>
+                <th>Business Partner</th>
+                <th>Seats</th>
+                <th>Tokens Used</th>
+                <th>Cost ($)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="primary-cell">Colegio San Jerónimo</td>
+                <td><span class="chip chip--brand" data-of="eduasiste"></span> EduAsiste</td>
+                <td>Sister Isabel Ruiz</td>
+                <td>Rodrigo Salas</td>
+                <td>22 / 25</td>
+                <td>4.2M</td>
+                <td>$84.00</td>
+              </tr>
+              <tr>
+                <td class="primary-cell">Universidad del Valle Norte</td>
+                <td><span class="chip chip--brand" data-of="eduasiste"></span> EduAsiste</td>
+                <td>Dr. Esteban Páez</td>
+                <td>Simran Kaur</td>
+                <td>18 / 20</td>
+                <td>3.6M</td>
+                <td>$72.00</td>
+              </tr>
+              <tr>
+                <td class="primary-cell">Escuela Politécnica del Bajío</td>
+                <td><span class="chip chip--brand" data-of="eduasiste"></span> EduAsiste</td>
+                <td>Carlos Madrigal</td>
+                <td>Rodrigo Salas</td>
+                <td>17 / 24</td>
+                <td>2.9M</td>
+                <td>$58.00</td>
+              </tr>
+              <tr>
+                <td class="primary-cell">Grupo Industrial Mendieta</td>
+                <td><span class="chip chip--brand" data-of="proasiste"></span> ProAsiste</td>
+                <td>Lorena Mendieta</td>
+                <td>Kabir Sharma</td>
+                <td>14 / 16</td>
+                <td>2.1M</td>
+                <td>$42.00</td>
+              </tr>
+              <tr>
+                <td class="primary-cell">Quintana Industrial</td>
+                <td><span class="chip chip--brand" data-of="proasiste"></span> ProAsiste</td>
+                <td>Rosa Quintana</td>
+                <td>Rodrigo Salas</td>
+                <td>11 / 14</td>
+                <td>1.6M</td>
+                <td>$32.00</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="card__foot muted" style="padding: 8px 16px; font-size: 12px;">
+            Tokens Used + Cost columns are visible to <code>platform_admin</code> only.
+          </div>
+        </div>
+      </section>
 
       <section class="section">
         <div class="card">

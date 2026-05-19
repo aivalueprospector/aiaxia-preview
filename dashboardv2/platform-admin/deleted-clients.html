@@ -56,10 +56,6 @@
 
     <div class="content">
 
-      <div class="banner banner--warn" style="margin-bottom: 16px;">
-        Deleted organizations are kept for <strong>90 days</strong>, then permanently purged by the <code>retention-sweep</code> job. Restore re-enables the org_admin login and rehydrates twins from the last snapshot. Purge is irreversible.
-      </div>
-
       <div class="tiles">
         <div class="tile">
           <div class="tile__label">Deleted total</div>
@@ -119,7 +115,7 @@
               <td>84 days</td>
               <td class="actions">
                 <a class="btn btn--small" href="#">Restore</a>
-                <a class="btn btn--small btn--danger" href="#">Purge now</a>
+                <button class="btn btn--small btn--danger" onclick="return confirm('Permanently purge Bermúdez Asesores? Restore re-enables the org_admin login and rehydrates twins from the last snapshot. Purge is irreversible.');">Purge now</button>
               </td>
             </tr>
             <tr>
@@ -132,7 +128,7 @@
               <td>77 days</td>
               <td class="actions">
                 <a class="btn btn--small" href="#">Restore</a>
-                <a class="btn btn--small btn--danger" href="#">Purge now</a>
+                <button class="btn btn--small btn--danger" onclick="return confirm('Permanently purge Colegio Andino del Sur? Restore re-enables the org_admin login and rehydrates twins from the last snapshot. Purge is irreversible.');">Purge now</button>
               </td>
             </tr>
             <tr>
@@ -145,7 +141,7 @@
               <td>70 days</td>
               <td class="actions">
                 <a class="btn btn--small" href="#">Restore</a>
-                <a class="btn btn--small btn--danger" href="#">Purge now</a>
+                <button class="btn btn--small btn--danger" onclick="return confirm('Permanently purge Constructora Olmedo? Restore re-enables the org_admin login and rehydrates twins from the last snapshot. Purge is irreversible.');">Purge now</button>
               </td>
             </tr>
             <tr>
@@ -158,7 +154,7 @@
               <td>28 days</td>
               <td class="actions">
                 <a class="btn btn--small" href="#">Restore</a>
-                <a class="btn btn--small btn--danger" href="#">Purge now</a>
+                <button class="btn btn--small btn--danger" onclick="return confirm('Permanently purge Liceo Camino Real? Restore re-enables the org_admin login and rehydrates twins from the last snapshot. Purge is irreversible.');">Purge now</button>
               </td>
             </tr>
             <tr>
@@ -171,7 +167,7 @@
               <td>12 days</td>
               <td class="actions">
                 <a class="btn btn--small" href="#">Restore</a>
-                <a class="btn btn--small btn--danger" href="#">Purge now</a>
+                <button class="btn btn--small btn--danger" onclick="return confirm('Permanently purge Talleres Bravo? Restore re-enables the org_admin login and rehydrates twins from the last snapshot. Purge is irreversible.');">Purge now</button>
               </td>
             </tr>
             <tr>
@@ -184,7 +180,7 @@
               <td>8 days</td>
               <td class="actions">
                 <a class="btn btn--small" href="#">Restore</a>
-                <a class="btn btn--small btn--danger" href="#">Purge now</a>
+                <button class="btn btn--small btn--danger" onclick="return confirm('Permanently purge Importadora Lince? Restore re-enables the org_admin login and rehydrates twins from the last snapshot. Purge is irreversible.');">Purge now</button>
               </td>
             </tr>
           </tbody>
