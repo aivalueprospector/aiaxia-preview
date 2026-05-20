@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="en" data-brand="aivp">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>All users — Twin Management (Admin)</title>
+<link rel="stylesheet" href="../shared/styles.css">
+</head>
+<body data-page="users">
+
+<div class="app">
+  <aside class="sidebar">
+    <div class="sidebar__brand">
+      <div class="sidebar__brand-mark">A</div>
+      <div class="sidebar__brand-name">AiVP Internal</div>
+    </div>
+    <div class="sidebar__role">Admin · Todd Chapin</div>
+    <div class="sidebar__group">
+      <div class="sidebar__group-label">Manage</div>
+      <nav class="sidebar__nav">
+        <a class="sidebar__link" data-page="overview" href="overview.html">Overview</a>
+        <a class="sidebar__link" data-page="orgs" href="orgs.html">Organizations</a>
+        <a class="sidebar__link" data-page="users" href="users.html">Users</a>
+        <a class="sidebar__link" data-page="fdsr" href="fdsr.html">FDSR Management</a>
+      </nav>
+    </div>
+    <div class="sidebar__group">
+      <div class="sidebar__group-label">Billing</div>
+      <nav class="sidebar__nav">
+        <a class="sidebar__link" data-page="upgrade-tier" href="upgrade-tier.html">Clients Upgrade Tier</a>
+        <a class="sidebar__link" data-page="discount-codes" href="discount-codes.html">Stripe Discount Codes</a>
+        <a class="sidebar__link" data-page="billing-summary" href="billing-summary.html">Twin Billing Summary</a>
+      </nav>
+    </div>
+    <div class="sidebar__group">
+      <div class="sidebar__group-label">Operations</div>
+      <nav class="sidebar__nav">
+        <a class="sidebar__link" data-page="twin-management" href="twin-management.html">Twin Management</a>
+        <a class="sidebar__link" data-page="deleted-clients" href="deleted-clients.html">Deleted Clients</a>
+      </nav>
+    </div>
+    <div class="sidebar__group">
+      <div class="sidebar__group-label">Account</div>
+      <nav class="sidebar__nav">
+        <a class="sidebar__link" data-page="profile" href="profile.html">Profile</a>
+      </nav>
+    </div>
+    <div class="sidebar__footer">
+      <div class="sidebar__avatar">TC</div>
+      <div class="sidebar__user">
+        <div class="sidebar__user-name">Todd Chapin</div>
+        <div class="sidebar__user-email">todd@aivp.com</div>
+      </div>
+      <a href="../login.html" class="btn--link" aria-label="Sign out" title="Sign out">↩</a>
+    </div>
+  </aside>
+
+  <div>
+    <div class="topbar">
+      <div>
+        <div class="topbar__title">All users</div>
+        <div class="topbar__sub">421 users · all roles · all orgs</div>
+      </div>
+      <div class="topbar__actions">
+        <button class="btn btn--primary" id="show-create">Create user</button>
+      </div>
+    </div>
+
+    <div class="content">
+
+      <section id="create-form" class="card" style="display: none; margin-bottom: 24px;">
+        <div class="card__head"><h2>Create user</h2></div>
+        <div class="card__body">
+          <p style="color: var(--text-muted); margin-bottom: 16px; font-size: 13px;">Admins can create users in any role. Forward deployed sales reps and org heads cannot reach this form.</p>
+          <form class="form form--wide">
+            <div class="field">
+              <label class="field__label" for="role">Role</label>
+              <select id="role" class="select">
+                <option value="admin">Admin — full dashboard access across all orgs</option>
+                <option value="sales">Forward Deployed Sales Rep — manage own organizations + own twin</option>
+                <option value="org_head" selected>Org Head — manage one organization</option>
+                <option value="org_employee">Org Employee — uses a twin, no dashboard access</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label class="field__label" for="org">Organization</label>
+              <select id="org" class="select">
+                <option>AiVP Internal (admin / forward deployed sales rep)</option>
+                <option>Quintana Industrial · ProAsiste</option>
+                <option>Núñez Logística · ProAsiste</option>
+                <option>Colegio San Jerónimo · EduAsiste</option>
+                <option>Rincón Construcción · ProAsiste</option>
+              </select>
+            </div>
+
+            <div class="field-row">
+              <div class="field">
+                <label class="field__label" for="cu-first">First name</label>
+                <input id="cu-first" class="input">
+              </div>
+              <div class="field">
+                <label class="field__label" for="cu-last">Last name</label>
+                <input id="cu-last" class="input">
+              </div>
+            </div>
+
+            <div class="field">
+              <label class="field__label" for="cu-email">Email</label>
+              <input id="cu-email" type="email" class="input">
+              <div class="field__help">Used for sign-in and Stripe billing. Cannot be changed by the user.</div>
+            </div>
+
+            <div class="field">
+              <label class="field__label" for="cu-lang">Language</label>
+              <select id="cu-lang" class="select">
+                <option>English</option>
+                <option>Spanish</option>
+                <option>Portuguese</option>
+                <option>French</option>
+              </select>
+            </div>
+
+            <div class="form__actions">
+              <button type="submit" class="btn btn--primary">Create user &amp; send invite</button>
+              <button type="button" class="btn" id="cancel-create">Cancel</button>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <div class="card">
+        <div class="card__head" style="gap: 12px;">
+          <div style="display: flex; gap: 8px; align-items: center; flex: 1;">
+            <input type="search" class="input" placeholder="Search by name or email" style="max-width: 280px;">
+            <select class="select" style="max-width: 140px;">
+              <option>All roles</option>
+              <option>Admin</option>
+              <option>Forward Deployed Sales Rep</option>
+              <option>Org Head</option>
+              <option>Org Employee</option>
+            </select>
+            <select class="select" style="max-width: 160px;">
+              <option>All organizations</option>
+              <option>AiVP Internal</option>
+              <option>Quintana Industrial</option>
+              <option>Núñez Logística</option>
+            </select>
+          </div>
+        </div>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Role</th>
+              <th>Organization</th>
+              <th>Twin</th>
+              <th class="actions">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="primary-cell">Armando Reyes</td>
+              <td>armando@aivp.com</td>
+              <td><span class="chip chip--role-admin">Admin</span></td>
+              <td>AiVP Internal</td>
+              <td><span class="status">—</span></td>
+              <td class="actions">
+                <button class="btn btn--small">Send reset link</button>
+              </td>
+            </tr>
+            <tr>
+              <td class="primary-cell">Rodrigo Salas</td>
+              <td>rodrigo@aivp.com</td>
+              <td><span class="chip" title="Forward Deployed Sales Rep">FDSR</span></td>
+              <td>AiVP Internal Sales</td>
+              <td><span class="status status--active">Active</span></td>
+              <td class="actions">
+                <button class="btn btn--small">Edit</button>
+                <button class="btn btn--small">Send reset link</button>
+              </td>
+            </tr>
+            <tr>
+              <td class="primary-cell">Rosa Quintana</td>
+              <td>rosa@quintana-industrial.mx</td>
+              <td><span class="chip">Org Head</span></td>
+              <td>Quintana Industrial</td>
+              <td><span class="status status--active">Active</span></td>
+              <td class="actions">
+                <button class="btn btn--small">Edit</button>
+                <button class="btn btn--small">Send reset link</button>
+              </td>
+            </tr>
+            <tr>
+              <td class="primary-cell">Mateo Ibarra</td>
+              <td>mateo@quintana-industrial.mx</td>
+              <td><span class="chip">Org Employee</span></td>
+              <td>Quintana Industrial</td>
+              <td><span class="status status--active">Active</span></td>
+              <td class="actions">
+                <button class="btn btn--small">Edit</button>
+                <button class="btn btn--small">Send reset link</button>
+              </td>
+            </tr>
+            <tr>
+              <td class="primary-cell">Sister Isabel Ruiz</td>
+              <td>isabel@sanjeronimo.edu</td>
+              <td><span class="chip">Org Head</span></td>
+              <td>Colegio San Jerónimo</td>
+              <td><span class="status status--active">Active</span></td>
+              <td class="actions">
+                <button class="btn btn--small">Edit</button>
+                <button class="btn btn--small">Send reset link</button>
+              </td>
+            </tr>
+            <tr>
+              <td class="primary-cell">Simran Kaur</td>
+              <td>simran@aivp.com</td>
+              <td><span class="chip" title="Forward Deployed Sales Rep">FDSR</span></td>
+              <td>AiVP Internal Sales</td>
+              <td><span class="status status--active">Active</span></td>
+              <td class="actions">
+                <button class="btn btn--small">Edit</button>
+                <button class="btn btn--small">Send reset link</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p class="muted" style="margin-top: 16px; font-size: 12px;">… and 415 more users.</p>
+
+    </div>
+  </div>
+</div>
+
+<div class="proto-toggle" id="proto-toggle" role="group" aria-label="Preview brand"></div>
+<script src="../shared/nav.js"></script>
+<script>
+  document.getElementById('show-create').addEventListener('click', () => {
+    document.getElementById('create-form').style.display = '';
+  });
+  document.getElementById('cancel-create').addEventListener('click', () => {
+    document.getElementById('create-form').style.display = 'none';
+  });
+</script>
+</body>
+</html>

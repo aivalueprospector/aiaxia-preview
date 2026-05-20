@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="en" data-brand="aivp">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Twin Billing Summary — Twin Management (Admin)</title>
+<link rel="stylesheet" href="../shared/styles.css">
+</head>
+<body data-page="billing-summary">
+
+<div class="app">
+  <aside class="sidebar">
+    <div class="sidebar__brand">
+      <div class="sidebar__brand-mark">A</div>
+      <div class="sidebar__brand-name">AiVP Internal</div>
+    </div>
+    <div class="sidebar__role">Admin · Todd Chapin</div>
+    <div class="sidebar__group">
+      <div class="sidebar__group-label">Manage</div>
+      <nav class="sidebar__nav">
+        <a class="sidebar__link" data-page="overview" href="overview.html">Overview</a>
+        <a class="sidebar__link" data-page="orgs" href="orgs.html">Organizations</a>
+        <a class="sidebar__link" data-page="users" href="users.html">Users</a>
+        <a class="sidebar__link" data-page="fdsr" href="fdsr.html">FDSR Management</a>
+      </nav>
+    </div>
+    <div class="sidebar__group">
+      <div class="sidebar__group-label">Billing</div>
+      <nav class="sidebar__nav">
+        <a class="sidebar__link" data-page="upgrade-tier" href="upgrade-tier.html">Clients Upgrade Tier</a>
+        <a class="sidebar__link" data-page="discount-codes" href="discount-codes.html">Stripe Discount Codes</a>
+        <a class="sidebar__link" data-page="billing-summary" href="billing-summary.html">Twin Billing Summary</a>
+      </nav>
+    </div>
+    <div class="sidebar__group">
+      <div class="sidebar__group-label">Operations</div>
+      <nav class="sidebar__nav">
+        <a class="sidebar__link" data-page="twin-management" href="twin-management.html">Twin Management</a>
+        <a class="sidebar__link" data-page="deleted-clients" href="deleted-clients.html">Deleted Clients</a>
+      </nav>
+    </div>
+    <div class="sidebar__group">
+      <div class="sidebar__group-label">Account</div>
+      <nav class="sidebar__nav">
+        <a class="sidebar__link" data-page="profile" href="profile.html">Profile</a>
+      </nav>
+    </div>
+    <div class="sidebar__footer">
+      <div class="sidebar__avatar">TC</div>
+      <div class="sidebar__user">
+        <div class="sidebar__user-name">Todd Chapin</div>
+        <div class="sidebar__user-email">todd@aivp.com</div>
+      </div>
+      <a href="../login.html" class="btn--link" aria-label="Sign out" title="Sign out">↩</a>
+    </div>
+  </aside>
+
+  <div>
+    <div class="topbar">
+      <div>
+        <div class="topbar__title">Twin Billing Summary</div>
+        <div class="topbar__sub">Aggregated seat counts × tiers × Stripe charges. Read-only mirror of Stripe.</div>
+      </div>
+      <div class="topbar__actions">
+        <a class="btn btn--small" href="#">Open in Stripe</a>
+      </div>
+    </div>
+
+    <div class="content">
+
+      <div class="banner" style="margin-bottom: 16px;">
+        Source of truth for invoices, payment methods, and proration is Stripe. This page mirrors Stripe's <code>subscription</code>, <code>invoice</code>, and <code>customer</code> objects. Numbers refresh hourly from the <code>billing-sync</code> job.
+      </div>
+
+      <div class="tiles">
+        <div class="tile">
+          <div class="tile__label">MRR</div>
+          <div class="tile__value">$22,460</div>
+          <div class="tile__sub">+ $1,820 vs last month</div>
+        </div>
+        <div class="tile">
+          <div class="tile__label">ARR (run rate)</div>
+          <div class="tile__value">$269.5K</div>
+          <div class="tile__sub">12 × current MRR</div>
+        </div>
+        <div class="tile">
+          <div class="tile__label">Paying seats</div>
+          <div class="tile__value">312</div>
+          <div class="tile__sub">of 384 quota · 81% utilization</div>
+        </div>
+        <div class="tile">
+          <div class="tile__label">Past-due invoices</div>
+          <div class="tile__value">2</div>
+          <div class="tile__sub">$680 outstanding</div>
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <section class="section">
+          <div class="card">
+            <div class="card__head"><h2>By tier</h2></div>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Tier</th>
+                  <th class="num">Orgs</th>
+                  <th class="num">Seats</th>
+                  <th class="num">MRR</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="primary-cell">Starter</td>
+                  <td class="num">9</td>
+                  <td class="num">38</td>
+                  <td class="num">$1,140</td>
+                </tr>
+                <tr>
+                  <td class="primary-cell">Growth</td>
+                  <td class="num">19</td>
+                  <td class="num">168</td>
+                  <td class="num">$10,080</td>
+                </tr>
+                <tr>
+                  <td class="primary-cell">Scale</td>
+                  <td class="num">8</td>
+                  <td class="num">142</td>
+                  <td class="num">$8,520</td>
+                </tr>
+                <tr>
+                  <td class="primary-cell">Enterprise</td>
+                  <td class="num">2</td>
+                  <td class="num">36</td>
+                  <td class="num">$2,720</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="card">
+            <div class="card__head"><h2>By brand</h2></div>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Brand</th>
+                  <th class="num">Orgs</th>
+                  <th class="num">Seats</th>
+                  <th class="num">MRR</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="primary-cell"><span class="chip chip--brand" data-of="proasiste"></span> ProAsiste</td>
+                  <td class="num">26</td>
+                  <td class="num">214</td>
+                  <td class="num">$14,180</td>
+                </tr>
+                <tr>
+                  <td class="primary-cell"><span class="chip chip--brand" data-of="eduasiste"></span> EduAsiste</td>
+                  <td class="num">12</td>
+                  <td class="num">170</td>
+                  <td class="num">$8,280</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </div>
+
+      <div class="card">
+        <div class="card__head" style="gap: 12px;">
+          <div style="display: flex; gap: 8px; align-items: center; flex: 1;">
+            <input type="search" class="input" placeholder="Search organization" style="max-width: 280px;">
+            <select class="select" style="max-width: 160px;">
+              <option>All invoice statuses</option>
+              <option>Paid</option>
+              <option>Past due</option>
+              <option>Trialing</option>
+            </select>
+          </div>
+          <a class="btn btn--small" href="#">Export CSV</a>
+        </div>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Organization</th>
+              <th>Brand</th>
+              <th>Tier</th>
+              <th class="num">Seats</th>
+              <th class="num">Monthly charge</th>
+              <th>Last invoice</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="primary-cell">Quintana Industrial</td>
+              <td><span class="chip chip--brand" data-of="proasiste"></span> ProAsiste</td>
+              <td>Growth</td>
+              <td class="num">14</td>
+              <td class="num">$420</td>
+              <td>2026-05-04</td>
+              <td><span class="status status--active">Paid</span></td>
+            </tr>
+            <tr>
+              <td class="primary-cell">Núñez Logística</td>
+              <td><span class="chip chip--brand" data-of="proasiste"></span> ProAsiste</td>
+              <td>Growth</td>
+              <td class="num">12</td>
+              <td class="num">$360</td>
+              <td>2026-04-22</td>
+              <td><span class="status status--active">Paid</span></td>
+            </tr>
+            <tr>
+              <td class="primary-cell">Colegio San Jerónimo</td>
+              <td><span class="chip chip--brand" data-of="eduasiste"></span> EduAsiste</td>
+              <td>Scale</td>
+              <td class="num">25</td>
+              <td class="num">$875</td>
+              <td>2026-05-11</td>
+              <td><span class="status status--active">Paid</span></td>
+            </tr>
+            <tr>
+              <td class="primary-cell">Universidad del Valle Norte</td>
+              <td><span class="chip chip--brand" data-of="eduasiste"></span> EduAsiste</td>
+              <td>Scale</td>
+              <td class="num">20</td>
+              <td class="num">$700</td>
+              <td>2026-05-04</td>
+              <td><span class="status status--active">Paid</span></td>
+            </tr>
+            <tr>
+              <td class="primary-cell">Rincón Construcción</td>
+              <td><span class="chip chip--brand" data-of="proasiste"></span> ProAsiste</td>
+              <td>Starter</td>
+              <td class="num">5</td>
+              <td class="num">$150</td>
+              <td>2026-04-19</td>
+              <td><span class="status status--warn">Past due</span></td>
+            </tr>
+            <tr>
+              <td class="primary-cell">Grupo Industrial Mendieta</td>
+              <td><span class="chip chip--brand" data-of="proasiste"></span> ProAsiste</td>
+              <td>Growth</td>
+              <td class="num">16</td>
+              <td class="num">$480</td>
+              <td>2026-04-25</td>
+              <td><span class="status status--active">Paid</span></td>
+            </tr>
+            <tr>
+              <td class="primary-cell">Escuela Politécnica del Bajío</td>
+              <td><span class="chip chip--brand" data-of="eduasiste"></span> EduAsiste</td>
+              <td>Scale</td>
+              <td class="num">24</td>
+              <td class="num">$840</td>
+              <td>2026-05-15</td>
+              <td><span class="status status--active">Paid</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="proto-toggle" id="proto-toggle" role="group" aria-label="Preview brand"></div>
+<script src="../shared/nav.js"></script>
+</body>
+</html>

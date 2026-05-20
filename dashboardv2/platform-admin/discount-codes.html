@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="en" data-brand="aivp">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Stripe Discount Codes — Twin Management (Admin)</title>
+<link rel="stylesheet" href="../shared/styles.css">
+</head>
+<body data-page="discount-codes">
+
+<div class="app">
+  <aside class="sidebar">
+    <div class="sidebar__brand">
+      <div class="sidebar__brand-mark">A</div>
+      <div class="sidebar__brand-name">AiVP Internal</div>
+    </div>
+    <div class="sidebar__role">Admin · Todd Chapin</div>
+    <div class="sidebar__group">
+      <div class="sidebar__group-label">Manage</div>
+      <nav class="sidebar__nav">
+        <a class="sidebar__link" data-page="overview" href="overview.html">Overview</a>
+        <a class="sidebar__link" data-page="orgs" href="orgs.html">Organizations</a>
+        <a class="sidebar__link" data-page="users" href="users.html">Users</a>
+        <a class="sidebar__link" data-page="fdsr" href="fdsr.html">FDSR Management</a>
+      </nav>
+    </div>
+    <div class="sidebar__group">
+      <div class="sidebar__group-label">Billing</div>
+      <nav class="sidebar__nav">
+        <a class="sidebar__link" data-page="upgrade-tier" href="upgrade-tier.html">Clients Upgrade Tier</a>
+        <a class="sidebar__link" data-page="discount-codes" href="discount-codes.html">Stripe Discount Codes</a>
+        <a class="sidebar__link" data-page="billing-summary" href="billing-summary.html">Twin Billing Summary</a>
+      </nav>
+    </div>
+    <div class="sidebar__group">
+      <div class="sidebar__group-label">Operations</div>
+      <nav class="sidebar__nav">
+        <a class="sidebar__link" data-page="twin-management" href="twin-management.html">Twin Management</a>
+        <a class="sidebar__link" data-page="deleted-clients" href="deleted-clients.html">Deleted Clients</a>
+      </nav>
+    </div>
+    <div class="sidebar__group">
+      <div class="sidebar__group-label">Account</div>
+      <nav class="sidebar__nav">
+        <a class="sidebar__link" data-page="profile" href="profile.html">Profile</a>
+      </nav>
+    </div>
+    <div class="sidebar__footer">
+      <div class="sidebar__avatar">TC</div>
+      <div class="sidebar__user">
+        <div class="sidebar__user-name">Todd Chapin</div>
+        <div class="sidebar__user-email">todd@aivp.com</div>
+      </div>
+      <a href="../login.html" class="btn--link" aria-label="Sign out" title="Sign out">↩</a>
+    </div>
+  </aside>
+
+  <div>
+    <div class="topbar">
+      <div>
+        <div class="topbar__title">Stripe Discount Codes</div>
+        <div class="topbar__sub">Promotional codes issued by AiVP. Created and redeemed through the Stripe Coupons API.</div>
+      </div>
+      <div class="topbar__actions">
+        <a class="btn btn--primary" href="#">Create code</a>
+      </div>
+    </div>
+
+    <div class="content">
+
+      <div class="tiles">
+        <div class="tile">
+          <div class="tile__label">Active codes</div>
+          <div class="tile__value">12</div>
+          <div class="tile__sub">3 expiring in next 30 days</div>
+        </div>
+        <div class="tile">
+          <div class="tile__label">Redemptions</div>
+          <div class="tile__value">47</div>
+          <div class="tile__sub">Last 90 days</div>
+        </div>
+        <div class="tile">
+          <div class="tile__label">MRR discounted</div>
+          <div class="tile__value">$1,820</div>
+          <div class="tile__sub">≈ 8% of gross MRR</div>
+        </div>
+        <div class="tile">
+          <div class="tile__label">Archived codes</div>
+          <div class="tile__value">31</div>
+          <div class="tile__sub">All-time, no longer redeemable</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card__head" style="gap: 12px;">
+          <div style="display: flex; gap: 8px; align-items: center; flex: 1;">
+            <input type="search" class="input" placeholder="Search code or label" style="max-width: 260px;">
+            <select class="select" style="max-width: 140px;">
+              <option>All statuses</option>
+              <option>Active</option>
+              <option>Expiring</option>
+              <option>Archived</option>
+            </select>
+            <select class="select" style="max-width: 140px;">
+              <option>All types</option>
+              <option>Percent off</option>
+              <option>Amount off</option>
+            </select>
+          </div>
+          <a class="btn btn--small" href="#">Open in Stripe</a>
+        </div>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Code</th>
+              <th>Label</th>
+              <th>Type</th>
+              <th class="num">Value</th>
+              <th>Applies to</th>
+              <th class="num">Redemptions</th>
+              <th>Expires</th>
+              <th>Status</th>
+              <th class="actions">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="primary-cell"><code>LAUNCH2026</code></td>
+              <td>Q1 launch promo</td>
+              <td>Percent off</td>
+              <td class="num">25%</td>
+              <td>All tiers · 3 months</td>
+              <td class="num">14 / 50</td>
+              <td>2026-06-30</td>
+              <td><span class="status status--active">Active</span></td>
+              <td class="actions">
+                <a class="btn btn--small" href="#">Edit</a>
+                <a class="btn btn--small btn--danger" href="#">Archive</a>
+              </td>
+            </tr>
+            <tr>
+              <td class="primary-cell"><code>EDU-PARTNER</code></td>
+              <td>EduAsiste school partner</td>
+              <td>Percent off</td>
+              <td class="num">15%</td>
+              <td>EduAsiste only · 12 months</td>
+              <td class="num">9 / 25</td>
+              <td>2026-12-31</td>
+              <td><span class="status status--active">Active</span></td>
+              <td class="actions">
+                <a class="btn btn--small" href="#">Edit</a>
+                <a class="btn btn--small btn--danger" href="#">Archive</a>
+              </td>
+            </tr>
+            <tr>
+              <td class="primary-cell"><code>FOUNDER-50</code></td>
+              <td>Founder pilot 50% off</td>
+              <td>Percent off</td>
+              <td class="num">50%</td>
+              <td>Growth tier · 6 months</td>
+              <td class="num">8 / 10</td>
+              <td>2026-05-31</td>
+              <td><span class="status status--warn">Expiring</span></td>
+              <td class="actions">
+                <a class="btn btn--small" href="#">Edit</a>
+                <a class="btn btn--small btn--danger" href="#">Archive</a>
+              </td>
+            </tr>
+            <tr>
+              <td class="primary-cell"><code>REFERRAL-100</code></td>
+              <td>Customer referral credit</td>
+              <td>Amount off</td>
+              <td class="num">$100</td>
+              <td>All tiers · once</td>
+              <td class="num">11 / —</td>
+              <td>No expiry</td>
+              <td><span class="status status--active">Active</span></td>
+              <td class="actions">
+                <a class="btn btn--small" href="#">Edit</a>
+                <a class="btn btn--small btn--danger" href="#">Archive</a>
+              </td>
+            </tr>
+            <tr>
+              <td class="primary-cell"><code>ENTERPRISE-Q2</code></td>
+              <td>Custom enterprise quote</td>
+              <td>Amount off</td>
+              <td class="num">$2,400</td>
+              <td>Enterprise only · 12 months</td>
+              <td class="num">1 / 1</td>
+              <td>2027-04-30</td>
+              <td><span class="status status--idle">Fully redeemed</span></td>
+              <td class="actions">
+                <a class="btn btn--small" href="#">Edit</a>
+                <a class="btn btn--small btn--danger" href="#">Archive</a>
+              </td>
+            </tr>
+            <tr>
+              <td class="primary-cell"><code>BLACKFRIDAY25</code></td>
+              <td>2025 Black Friday</td>
+              <td>Percent off</td>
+              <td class="num">30%</td>
+              <td>All tiers · 3 months</td>
+              <td class="num">19 / 100</td>
+              <td>2026-01-31</td>
+              <td><span class="status status--error">Expired</span></td>
+              <td class="actions">
+                <a class="btn btn--small" href="#">Duplicate</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="proto-toggle" id="proto-toggle" role="group" aria-label="Preview brand"></div>
+<script src="../shared/nav.js"></script>
+</body>
+</html>
