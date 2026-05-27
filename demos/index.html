@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ProAsiste — Live Demo Twins</title>
+    <meta name="description" content="Five live ProAsiste demo twins across real small-business scenarios — a law firm, auto shop, furniture maker, freight company, and ad agency. Each pre-loaded with realistic data to explore.">
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%23336699'/%3E%3Ctext x='32' y='43' font-family='Inter,sans-serif' font-size='34' font-weight='800' fill='white' text-anchor='middle'%3EM%3C/text%3E%3C/svg%3E">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        :root {
+            --bg: #f8fafc;
+            --text: #1e293b;
+            --muted: #64748b;
+            --accent: #336699;
+            --accent-dark: #1d4ed8;
+            --accent-light: #e0ecf5;
+            --border: #e2e8f0;
+            --card: #ffffff;
+            --success: #059669;
+            --shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', -apple-system, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+        a { color: var(--accent-dark); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        .skip-link { position: absolute; top: -40px; left: 0; background: var(--accent); color: #fff; padding: 0.5rem 1rem; z-index: 100; transition: top 0.2s; }
+        .skip-link:focus { top: 0; text-decoration: none; }
+
+        header.bar { display: flex; align-items: center; padding: 1.25rem 5%; max-width: 1100px; margin: 0 auto; }
+        .logo-link { display: flex; align-items: center; gap: 10px; }
+        .logo-mark { width: 40px; height: 40px; border-radius: 10px; background: var(--accent); display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 800; font-size: 1.15rem; }
+        .logo-text { font-size: 1.3rem; font-weight: 700; color: var(--accent); line-height: 1; }
+        .logo-text small { font-weight: 500; color: var(--muted); font-size: 0.65em; display: block; margin-top: 3px; }
+
+        .hero { text-align: center; padding: 2.5rem 5% 1.5rem; max-width: 820px; margin: 0 auto; }
+        .hero-eyebrow { display: inline-block; font-size: 0.8rem; font-weight: 600; color: var(--accent); background: var(--accent-light); padding: 0.35rem 0.85rem; border-radius: 999px; margin-bottom: 1.25rem; letter-spacing: 0.02em; }
+        .hero h1 { font-size: 2.5rem; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 1rem; line-height: 1.15; }
+        .hero h1 em { font-style: normal; color: var(--accent-dark); }
+        .hero p { font-size: 1.1rem; color: var(--muted); }
+
+        .note { max-width: 1100px; margin: 0 auto 2rem; padding: 0 5%; }
+        .note-box { background: #fffbeb; border: 1px solid #fde68a; border-radius: 10px; padding: 0.85rem 1.1rem; font-size: 0.9rem; color: #92400e; display: flex; gap: 0.6rem; align-items: flex-start; }
+        .note-box i { margin-top: 0.2rem; }
+
+        .grid { max-width: 1100px; margin: 0 auto; padding: 0 5% 4rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem; }
+
+        .card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 1.5rem; box-shadow: var(--shadow); display: flex; flex-direction: column; transition: box-shadow 0.2s, transform 0.2s; }
+        .card:hover { box-shadow: var(--shadow-lg); transform: translateY(-2px); }
+        .card-head { display: flex; align-items: center; gap: 0.85rem; margin-bottom: 0.4rem; }
+        .card-icon { width: 46px; height: 46px; flex: none; border-radius: 11px; background: var(--accent-light); color: var(--accent); display: flex; align-items: center; justify-content: center; font-size: 1.25rem; }
+        .card-title { font-size: 1.2rem; font-weight: 700; line-height: 1.2; }
+        .card-sub { font-size: 0.85rem; color: var(--muted); }
+
+        .badges { display: flex; flex-wrap: wrap; gap: 0.4rem; margin: 0.6rem 0 0.9rem; }
+        .badge { font-size: 0.72rem; font-weight: 600; padding: 0.22rem 0.6rem; border-radius: 999px; background: #f1f5f9; color: var(--muted); border: 1px solid var(--border); }
+        .badge.legal { background: #fef2f2; color: #b91c1c; border-color: #fecaca; }
+
+        .persona { font-size: 0.9rem; margin-bottom: 0.9rem; }
+        .persona strong { color: var(--text); }
+
+        .section-label { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent); margin: 0.6rem 0 0.35rem; }
+        .scenarios { list-style: none; font-size: 0.88rem; color: var(--text); }
+        .scenarios li { padding-left: 1.3rem; position: relative; margin-bottom: 0.3rem; }
+        .scenarios li::before { content: "\f105"; font-family: "Font Awesome 6 Free"; font-weight: 900; position: absolute; left: 0.2rem; color: var(--accent); }
+
+        .seed { font-size: 0.82rem; color: var(--muted); margin: 0.75rem 0 1rem; display: flex; flex-wrap: wrap; gap: 0.5rem 1rem; }
+        .seed span { display: inline-flex; align-items: center; gap: 0.35rem; }
+
+        .card-cta { margin-top: auto; display: flex; flex-direction: column; gap: 0.5rem; }
+        .btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; padding: 0.8rem 1.2rem; border-radius: 9px; font-weight: 600; font-size: 0.95rem; transition: all 0.2s; border: none; cursor: pointer; font-family: inherit; }
+        .btn-primary { background: var(--accent); color: #fff; }
+        .btn-primary:hover { background: var(--accent-dark); color: #fff; text-decoration: none; }
+        .copy-row { display: flex; gap: 0.4rem; }
+        .copy-row input { flex: 1; min-width: 0; font-size: 0.75rem; font-family: ui-monospace, monospace; padding: 0.5rem 0.6rem; border: 1px solid var(--border); border-radius: 8px; color: var(--muted); background: #f8fafc; }
+        .btn-copy { flex: none; padding: 0.5rem 0.7rem; border-radius: 8px; background: #f1f5f9; border: 1px solid var(--border); color: var(--muted); cursor: pointer; font-size: 0.8rem; font-family: inherit; }
+        .btn-copy:hover { background: var(--accent-light); color: var(--accent); }
+
+        footer { text-align: center; padding: 2.5rem 5%; color: var(--muted); font-size: 0.85rem; border-top: 1px solid var(--border); }
+
+        @media (max-width: 560px) {
+            .hero h1 { font-size: 1.9rem; }
+            .hero { padding-top: 1.5rem; }
+            header.bar { padding: 1rem 5%; }
+        }
+    </style>
+</head>
+<body>
+    <a href="#main" class="skip-link">Skip to content</a>
+    <header class="bar">
+        <span class="logo-link">
+            <span class="logo-mark">M</span>
+            <span class="logo-text">ProAsiste<small>Powered by Mente</small></span>
+        </span>
+    </header>
+
+    <section class="hero">
+        <span class="hero-eyebrow">LIVE DEMO TWINS</span>
+        <h1>Five businesses, <em>already running</em> on ProAsiste</h1>
+        <p>Each demo is a working twin pre-loaded with realistic people, customers, operations, goals, and past conversations. Open one and ask it anything — it already knows the business.</p>
+    </section>
+
+    <div class="note">
+        <div class="note-box">
+            <i class="fas fa-circle-info"></i>
+            <span><strong>Demo data only.</strong> Every name, customer, and number below is fictional, generated for demonstration. These twins reset deterministically — explore freely.</span>
+        </div>
+    </div>
+
+    <main id="main" class="grid">
+
+        <!-- LAW FIRM -->
+        <article class="card">
+            <div class="card-head">
+                <div class="card-icon"><i class="fas fa-scale-balanced"></i></div>
+                <div>
+                    <div class="card-title">Whitman &amp; Reyes LLP</div>
+                    <div class="card-sub">Boutique business-law firm · Denver, CO</div>
+                </div>
+            </div>
+            <div class="badges">
+                <span class="badge">Legal services</span>
+                <span class="badge legal">Reports tab hidden</span>
+                <span class="badge">Solo owner twin</span>
+            </div>
+            <p class="persona"><strong>Marcus Whitman</strong>, managing partner of a 6-person firm doing corporate, contract &amp; employment work. Focused on growing recurring retainer clients and protecting realization rate.</p>
+
+            <div class="section-label">Try asking</div>
+            <ul class="scenarios">
+                <li>"What needs my attention this week?"</li>
+                <li>"Status one-pager on the Nordic acquisition."</li>
+                <li>"Which clients should we target for retainer conversion?"</li>
+                <li>"Chart Q1 revenue by practice area."</li>
+            </ul>
+
+            <div class="seed">
+                <span><i class="fas fa-id-card"></i> 20 entities</span>
+                <span><i class="fas fa-bolt"></i> 12 events</span>
+                <span><i class="fas fa-bullseye"></i> 3 goals</span>
+                <span><i class="fas fa-comments"></i> 4 chats</span>
+            </div>
+
+            <div class="card-cta">
+                <a class="btn btn-primary" href="https://ctwin.ai/chat/v3/demo-law-firm/e7c13186a4d405c9f60338810736b5d8" target="_blank" rel="noopener"><i class="fas fa-up-right-from-square"></i> Open this demo</a>
+                <div class="copy-row">
+                    <input readonly value="https://ctwin.ai/chat/v3/demo-law-firm/e7c13186a4d405c9f60338810736b5d8">
+                    <button class="btn-copy" onclick="copyLink(this)"><i class="far fa-copy"></i></button>
+                </div>
+            </div>
+        </article>
+
+        <!-- AUTO SHOP -->
+        <article class="card">
+            <div class="card-head">
+                <div class="card-icon"><i class="fas fa-car-wrench"></i></div>
+                <div>
+                    <div class="card-title">Rivertown Auto &amp; Tire</div>
+                    <div class="card-sub">5-bay independent repair shop · Columbus, OH</div>
+                </div>
+            </div>
+            <div class="badges">
+                <span class="badge">Auto repair</span>
+                <span class="badge">Solo owner twin</span>
+            </div>
+            <p class="persona"><strong>Tony Delgado</strong>, owner/service-manager. Juggles the bays, fleet accounts, and parts. Wants to grow recurring fleet contracts and lift the average repair ticket.</p>
+
+            <div class="section-label">Try asking</div>
+            <ul class="scenarios">
+                <li>"What's in the bays and what needs a call?"</li>
+                <li>"Where do I stand on the fleet contract goal?"</li>
+                <li>"How's the average ticket trending and what's dragging it?"</li>
+                <li>"Chart Q1 revenue by service category."</li>
+            </ul>
+
+            <div class="seed">
+                <span><i class="fas fa-id-card"></i> 18 entities</span>
+                <span><i class="fas fa-bolt"></i> 12 events</span>
+                <span><i class="fas fa-bullseye"></i> 3 goals</span>
+                <span><i class="fas fa-comments"></i> 4 chats</span>
+            </div>
+
+            <div class="card-cta">
+                <a class="btn btn-primary" href="https://ctwin.ai/chat/v3/demo-auto-shop/91b2631f749c8e7ab415deb6ae52f037" target="_blank" rel="noopener"><i class="fas fa-up-right-from-square"></i> Open this demo</a>
+                <div class="copy-row">
+                    <input readonly value="https://ctwin.ai/chat/v3/demo-auto-shop/91b2631f749c8e7ab415deb6ae52f037">
+                    <button class="btn-copy" onclick="copyLink(this)"><i class="far fa-copy"></i></button>
+                </div>
+            </div>
+        </article>
+
+        <!-- FURNITURE -->
+        <article class="card">
+            <div class="card-head">
+                <div class="card-icon"><i class="fas fa-couch"></i></div>
+                <div>
+                    <div class="card-title">Oakridge Woodworks</div>
+                    <div class="card-sub">Custom furniture maker · Grand Rapids, MI</div>
+                </div>
+            </div>
+            <div class="badges">
+                <span class="badge">Manufacturing</span>
+                <span class="badge">Solo owner twin</span>
+            </div>
+            <p class="persona"><strong>Hannah Brecht</strong>, owner of a 12-person shop. Fighting to cut order lead time, protect margin against rising lumber costs, and win wholesale accounts before the fall market.</p>
+
+            <div class="section-label">Try asking</div>
+            <ul class="scenarios">
+                <li>"What's the state of the floor and what should I worry about?"</li>
+                <li>"What's driving our lead time, and what gets us to 6 weeks?"</li>
+                <li>"Where are we on landing new wholesale accounts?"</li>
+                <li>"Chart Q1 revenue by channel."</li>
+            </ul>
+
+            <div class="seed">
+                <span><i class="fas fa-id-card"></i> 18 entities</span>
+                <span><i class="fas fa-bolt"></i> 12 events</span>
+                <span><i class="fas fa-bullseye"></i> 3 goals</span>
+                <span><i class="fas fa-comments"></i> 4 chats</span>
+            </div>
+
+            <div class="card-cta">
+                <a class="btn btn-primary" href="https://ctwin.ai/chat/v3/demo-furniture-mfr/cba04ecb79b846f9f13140ada63fdcec" target="_blank" rel="noopener"><i class="fas fa-up-right-from-square"></i> Open this demo</a>
+                <div class="copy-row">
+                    <input readonly value="https://ctwin.ai/chat/v3/demo-furniture-mfr/cba04ecb79b846f9f13140ada63fdcec">
+                    <button class="btn-copy" onclick="copyLink(this)"><i class="far fa-copy"></i></button>
+                </div>
+            </div>
+        </article>
+
+        <!-- SHIPPING -->
+        <article class="card">
+            <div class="card-head">
+                <div class="card-icon"><i class="fas fa-truck-fast"></i></div>
+                <div>
+                    <div class="card-title">PortLine Freight</div>
+                    <div class="card-sub">Regional LTL &amp; drayage · Long Beach, CA</div>
+                </div>
+            </div>
+            <div class="badges">
+                <span class="badge">Freight &amp; logistics</span>
+                <span class="badge">Solo owner twin</span>
+            </div>
+            <p class="persona"><strong>Andre Okafor</strong>, owner/ops director of a 14-truck fleet. Pushing on-time delivery up, fixing the worst lanes, and locking dedicated-lane contracts against spot-market swings.</p>
+
+            <div class="section-label">Try asking</div>
+            <ul class="scenarios">
+                <li>"Give me the operational picture and what's at risk today."</li>
+                <li>"Break down the on-time gap. Where do I find 5 points?"</li>
+                <li>"Which lane is hurting us and what do I do about it?"</li>
+                <li>"Chart Q1 revenue by service type."</li>
+            </ul>
+
+            <div class="seed">
+                <span><i class="fas fa-id-card"></i> 18 entities</span>
+                <span><i class="fas fa-bolt"></i> 12 events</span>
+                <span><i class="fas fa-bullseye"></i> 3 goals</span>
+                <span><i class="fas fa-comments"></i> 4 chats</span>
+            </div>
+
+            <div class="card-cta">
+                <a class="btn btn-primary" href="https://ctwin.ai/chat/v3/demo-shipping-co/5552d88c2107bdde16ca4d86d81d7d8f" target="_blank" rel="noopener"><i class="fas fa-up-right-from-square"></i> Open this demo</a>
+                <div class="copy-row">
+                    <input readonly value="https://ctwin.ai/chat/v3/demo-shipping-co/5552d88c2107bdde16ca4d86d81d7d8f">
+                    <button class="btn-copy" onclick="copyLink(this)"><i class="far fa-copy"></i></button>
+                </div>
+            </div>
+        </article>
+
+        <!-- AD AGENCY -->
+        <article class="card">
+            <div class="card-head">
+                <div class="card-icon"><i class="fas fa-bullhorn"></i></div>
+                <div>
+                    <div class="card-title">BrightFork Creative</div>
+                    <div class="card-sub">Independent ad &amp; brand agency · Austin, TX</div>
+                </div>
+            </div>
+            <div class="badges">
+                <span class="badge">Advertising / creative</span>
+                <span class="badge">Solo owner twin</span>
+            </div>
+            <p class="persona"><strong>Priya Nair</strong>, founder of a 9-person agency. Growing recurring retainer revenue, improving team utilization, and converting the new-business pipeline before clients' fall planning.</p>
+
+            <div class="section-label">Try asking</div>
+            <ul class="scenarios">
+                <li>"Where do things stand and what needs me this week?"</li>
+                <li>"How do we get retainer revenue to $75K/mo?"</li>
+                <li>"How bad is the Bluebonnet scope creep and what should I do?"</li>
+                <li>"Chart Q1 net revenue by type."</li>
+            </ul>
+
+            <div class="seed">
+                <span><i class="fas fa-id-card"></i> 18 entities</span>
+                <span><i class="fas fa-bolt"></i> 12 events</span>
+                <span><i class="fas fa-bullseye"></i> 3 goals</span>
+                <span><i class="fas fa-comments"></i> 4 chats</span>
+            </div>
+
+            <div class="card-cta">
+                <a class="btn btn-primary" href="https://ctwin.ai/chat/v3/demo-ad-agency/96dd8e9cf679f37a8708012147327659" target="_blank" rel="noopener"><i class="fas fa-up-right-from-square"></i> Open this demo</a>
+                <div class="copy-row">
+                    <input readonly value="https://ctwin.ai/chat/v3/demo-ad-agency/96dd8e9cf679f37a8708012147327659">
+                    <button class="btn-copy" onclick="copyLink(this)"><i class="far fa-copy"></i></button>
+                </div>
+            </div>
+        </article>
+
+    </main>
+
+    <footer>
+        ProAsiste demo twins · Powered by Mente
+    </footer>
+
+    <script>
+        function copyLink(btn) {
+            const input = btn.previousElementSibling;
+            const icon = btn.querySelector('i');
+            navigator.clipboard.writeText(input.value).then(() => {
+                const prev = icon.className;
+                icon.className = 'fas fa-check';
+                setTimeout(() => { icon.className = prev; }, 1400);
+            });
+        }
+    </script>
+</body>
+</html>
