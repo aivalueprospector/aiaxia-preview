@@ -83,6 +83,20 @@
 
         footer { text-align: center; padding: 2.5rem 5%; color: var(--muted); font-size: 0.85rem; border-top: 1px solid var(--border); }
 
+        .pills { display: flex; flex-wrap: wrap; gap: 0.6rem; justify-content: center; max-width: 1100px; margin: 0 auto 1.5rem; padding: 0 5%; position: sticky; top: 0; background: rgba(248,250,252,0.92); backdrop-filter: blur(6px); padding-top: 0.75rem; padding-bottom: 0.75rem; z-index: 50; }
+        .pill { display: inline-flex; align-items: center; gap: 0.45rem; padding: 0.55rem 1.05rem; border-radius: 999px; font-weight: 600; font-size: 0.88rem; border: 1px solid var(--border); background: #fff; color: var(--text); transition: all 0.2s; }
+        .pill:hover { text-decoration: none; border-color: var(--accent); color: var(--accent); background: var(--accent-light); }
+        .pill.edu:hover { border-color: #0077B6; color: #0077B6; background: #caf0f8; }
+        .pill i { font-size: 0.82rem; }
+
+        .section-title { max-width: 1100px; margin: 2rem auto 0.25rem; padding: 0 5%; font-size: 1.7rem; font-weight: 800; letter-spacing: -0.01em; display: flex; align-items: baseline; flex-wrap: wrap; gap: 0.6rem; scroll-margin-top: 5rem; }
+        .section-title span { font-size: 0.85rem; font-weight: 600; color: var(--muted); }
+        .subgroup { max-width: 1100px; margin: 1.75rem auto 0; padding: 0 5%; font-size: 1.05rem; font-weight: 700; color: var(--accent); scroll-margin-top: 5rem; }
+
+        /* EduAsiste = ocean-blue brand (Eduardo). Scoped var override recolors
+           card icons, badges, and buttons within the section. */
+        .edu-section { --accent: #0077B6; --accent-dark: #023e8a; --accent-light: #caf0f8; }
+
         @media (max-width: 560px) {
             .hero h1 { font-size: 1.9rem; }
             .hero { padding-top: 1.5rem; }
@@ -110,6 +124,14 @@
             <span><strong>Demo data only.</strong> Every name, customer, and number below is fictional, generated for demonstration. These twins reset deterministically — explore freely.</span>
         </div>
     </div>
+
+    <nav class="pills" aria-label="Jump to a demo group">
+        <a class="pill" href="#proasiste"><i class="fas fa-briefcase"></i> ProAsiste (Business)</a>
+        <a class="pill edu" href="#edu-institution"><i class="fas fa-school"></i> Educational Institution (Admin + Teacher)</a>
+        <a class="pill edu" href="#edu-mentor"><i class="fas fa-user-graduate"></i> Mentor LOB (Mentor + Student)</a>
+    </nav>
+
+    <h2 id="proasiste" class="section-title">ProAsiste Demos <span>Business · powered by Mente</span></h2>
 
     <main id="main" class="grid">
 
@@ -311,8 +333,178 @@
 
     </main>
 
+    <section class="edu-section">
+        <h2 class="section-title">EduAsiste Demos <span>Education · powered by Eduardo</span></h2>
+
+        <h3 id="edu-institution" class="subgroup"><i class="fas fa-school"></i> Educational Institution (Admin + Teacher)</h3>
+        <div class="grid">
+
+            <!-- PRINCIPAL / ADMIN -->
+            <article class="card">
+                <div class="card-head">
+                    <div class="card-icon"><i class="fas fa-user-tie"></i></div>
+                    <div>
+                        <div class="card-title">Dr. Angela Foster</div>
+                        <div class="card-sub">Principal · Lakeside Learning Academy · Portland, OR</div>
+                    </div>
+                </div>
+                <div class="badges">
+                    <span class="badge">Educational Institution</span>
+                    <span class="badge">Role: Administrator</span>
+                    <span class="badge">Eduardo</span>
+                </div>
+                <p class="persona">Principal of a K-8 charter school (410 students, 26 teachers). Sees across the whole school — MAP math growth, chronic absenteeism, teacher retention, and charter-renewal readiness.</p>
+
+                <div class="section-label">Try asking</div>
+                <ul class="scenarios">
+                    <li>"Quick read on our three School Improvement Plan priorities."</li>
+                    <li>"Grades 3-5 hit math growth but 6-8 didn't — why?"</li>
+                    <li>"What are our weak spots for the charter renewal?"</li>
+                </ul>
+
+                <div class="seed">
+                    <span><i class="fas fa-id-card"></i> 14 entities</span>
+                    <span><i class="fas fa-bolt"></i> 10 events</span>
+                    <span><i class="fas fa-bullseye"></i> 3 goals</span>
+                    <span><i class="fas fa-comments"></i> 3 chats</span>
+                </div>
+
+                <div class="card-cta">
+                    <a class="btn btn-primary" href="https://ltwin.ai/chat/v3/demo-edu-principal/08831492ceb9214a4c7a6a836df1faf7" target="_blank" rel="noopener"><i class="fas fa-up-right-from-square"></i> Open this demo</a>
+                    <div class="copy-row">
+                        <input readonly value="https://ltwin.ai/chat/v3/demo-edu-principal/08831492ceb9214a4c7a6a836df1faf7">
+                        <button class="btn-copy" onclick="copyLink(this)"><i class="far fa-copy"></i></button>
+                    </div>
+                </div>
+            </article>
+
+            <!-- TEACHER -->
+            <article class="card">
+                <div class="card-head">
+                    <div class="card-icon"><i class="fas fa-chalkboard-user"></i></div>
+                    <div>
+                        <div class="card-title">Daniel Reed</div>
+                        <div class="card-sub">4th Grade Teacher · Lakeside Learning Academy · Portland, OR</div>
+                    </div>
+                </div>
+                <div class="badges">
+                    <span class="badge">Educational Institution</span>
+                    <span class="badge">Role: Teacher</span>
+                    <span class="badge">Eduardo</span>
+                </div>
+                <p class="persona">Lead 4th-grade teacher, Room 12 (27 students). Owns his classroom — students, units, assessments, family conferences. Known for daily small-group math; mentors two first-year teachers.</p>
+
+                <div class="section-label">Try asking</div>
+                <ul class="scenarios">
+                    <li>"I'm meeting Ava's mom — what should I lead with?"</li>
+                    <li>"Help me set up small groups for the fractions unit."</li>
+                    <li>"How do I share my small-group model with the 6-8 teachers?"</li>
+                </ul>
+
+                <div class="seed">
+                    <span><i class="fas fa-id-card"></i> 12 entities</span>
+                    <span><i class="fas fa-bolt"></i> 9 events</span>
+                    <span><i class="fas fa-bullseye"></i> 2 goals</span>
+                    <span><i class="fas fa-comments"></i> 3 chats</span>
+                </div>
+
+                <div class="card-cta">
+                    <a class="btn btn-primary" href="https://ltwin.ai/chat/v3/demo-edu-teacher/b356998d42608e45ad6406e6d519b78f" target="_blank" rel="noopener"><i class="fas fa-up-right-from-square"></i> Open this demo</a>
+                    <div class="copy-row">
+                        <input readonly value="https://ltwin.ai/chat/v3/demo-edu-teacher/b356998d42608e45ad6406e6d519b78f">
+                        <button class="btn-copy" onclick="copyLink(this)"><i class="far fa-copy"></i></button>
+                    </div>
+                </div>
+            </article>
+
+        </div>
+
+        <h3 id="edu-mentor" class="subgroup"><i class="fas fa-user-graduate"></i> Mentor LOB (Mentor + Student)</h3>
+        <div class="grid">
+
+            <!-- MENTOR / TUTOR -->
+            <article class="card">
+                <div class="card-head">
+                    <div class="card-icon"><i class="fas fa-person-chalkboard"></i></div>
+                    <div>
+                        <div class="card-title">Maria Lopez</div>
+                        <div class="card-sub">Writing Tutor · San Diego, CA</div>
+                    </div>
+                </div>
+                <div class="badges">
+                    <span class="badge">Mentor LOB</span>
+                    <span class="badge">Role: Mentor / Tutor</span>
+                    <span class="badge">Eduardo</span>
+                </div>
+                <p class="persona">Independent writing tutor working 1-on-1 with Jayden (11, 5th grade) on essay writing. Tracks his drafts, goals, and what to work on next — and sends progress recaps to his parents.</p>
+
+                <div class="section-label">Try asking</div>
+                <ul class="scenarios">
+                    <li>"What should I focus on with Jayden this week?"</li>
+                    <li>"Write the recap email to Jayden's parents."</li>
+                    <li>"Give me the progress picture on Jayden."</li>
+                </ul>
+
+                <div class="seed">
+                    <span><i class="fas fa-id-card"></i> 9 entities</span>
+                    <span><i class="fas fa-bolt"></i> 8 events</span>
+                    <span><i class="fas fa-bullseye"></i> 2 goals</span>
+                    <span><i class="fas fa-comments"></i> 3 chats</span>
+                </div>
+
+                <div class="card-cta">
+                    <a class="btn btn-primary" href="https://ltwin.ai/chat/v3/demo-edu-mentor/0efc6ff50dff4a10752a1d735edc7587" target="_blank" rel="noopener"><i class="fas fa-up-right-from-square"></i> Open this demo</a>
+                    <div class="copy-row">
+                        <input readonly value="https://ltwin.ai/chat/v3/demo-edu-mentor/0efc6ff50dff4a10752a1d735edc7587">
+                        <button class="btn-copy" onclick="copyLink(this)"><i class="far fa-copy"></i></button>
+                    </div>
+                </div>
+            </article>
+
+            <!-- STUDENT -->
+            <article class="card">
+                <div class="card-head">
+                    <div class="card-icon"><i class="fas fa-graduation-cap"></i></div>
+                    <div>
+                        <div class="card-title">Jayden Brooks</div>
+                        <div class="card-sub">Student (age 11, 5th grade) · San Diego, CA</div>
+                    </div>
+                </div>
+                <div class="badges">
+                    <span class="badge">Mentor LOB</span>
+                    <span class="badge">Role: Student</span>
+                    <span class="badge">Age-appropriate tone</span>
+                </div>
+                <p class="persona">The student-facing twin, scoped to Jayden's writing tutoring. Speaks at an 11-year-old's level — encouraging, choice-driven, celebrates wins, and never exposes tutor-level diagnostics or scores.</p>
+
+                <div class="section-label">Try asking (as Jayden)</div>
+                <ul class="scenarios">
+                    <li>"i dont know how to start my essay its boring"</li>
+                    <li>"i finished my paragraph helper"</li>
+                    <li>"can you help me with my game-time essay?"</li>
+                </ul>
+
+                <div class="seed">
+                    <span><i class="fas fa-id-card"></i> 5 entities</span>
+                    <span><i class="fas fa-bolt"></i> 3 events</span>
+                    <span><i class="fas fa-bullseye"></i> 1 goal</span>
+                    <span><i class="fas fa-comments"></i> 2 chats</span>
+                </div>
+
+                <div class="card-cta">
+                    <a class="btn btn-primary" href="https://ltwin.ai/chat/v3/demo-edu-student/ca2d63e04308efe2a35d995be2b969e0" target="_blank" rel="noopener"><i class="fas fa-up-right-from-square"></i> Open this demo</a>
+                    <div class="copy-row">
+                        <input readonly value="https://ltwin.ai/chat/v3/demo-edu-student/ca2d63e04308efe2a35d995be2b969e0">
+                        <button class="btn-copy" onclick="copyLink(this)"><i class="far fa-copy"></i></button>
+                    </div>
+                </div>
+            </article>
+
+        </div>
+    </section>
+
     <footer>
-        ProAsiste demo twins · Powered by Mente
+        ProAsiste · EduAsiste demo twins · Powered by Mente &amp; Eduardo
     </footer>
 
     <script>
