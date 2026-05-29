@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ExpertAsiste — Turn what you know into a practice</title>
+    <meta name="description" content="ExpertAsiste connects subject-matter experts with the clients who need them — and handles intake, scheduling, and knowledge management in between.">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%230D9488'/%3E%3Ctext x='32' y='43' font-family='Inter,sans-serif' font-size='34' font-weight='800' fill='white' text-anchor='middle'%3EE%3C/text%3E%3C/svg%3E">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        :root {
+            --bg: #f0fdf9;
+            --text: #1e293b;
+            --muted: #64748b;
+            --accent: #0D9488;
+            --accent-dark: #0F766E;
+            --accent-light: #CCFBF1;
+            --border: #99f6e4;
+            --card: #ffffff;
+            --success: #059669;
+            --dark: #0f172a;
+            --shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', -apple-system, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+        a { color: var(--accent-dark); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        .skip-link { position: absolute; top: -40px; left: 0; background: var(--accent); color: #fff; padding: 0.5rem 1rem; z-index: 100; transition: top 0.2s; }
+        .skip-link:focus { top: 0; text-decoration: none; }
+        .btn { display: inline-flex; align-items: center; padding: 0.75rem 1.5rem; border-radius: 8px; font-weight: 600; font-size: 0.95rem; text-decoration: none; transition: all 0.2s; border: none; cursor: pointer; font-family: inherit; }
+        .btn:hover { text-decoration: none; }
+        .btn-teal { background: var(--accent); color: #fff; }
+        .btn-teal:hover { background: var(--accent-dark); }
+        .btn-outline { background: transparent; border: 2px solid var(--accent-dark); color: var(--accent-dark); }
+        .btn-outline:hover { background: var(--accent-light); }
+        .btn-lg { padding: 1rem 2rem; font-size: 1.05rem; }
+
+        /* nav */
+        .header-inner { display: flex; justify-content: space-between; align-items: center; padding: 1.25rem 5%; max-width: 1200px; margin: 0 auto; }
+        .logo-link { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+        .logo-mark { width: 40px; height: 40px; border-radius: 10px; background: var(--accent); display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 800; font-size: 1.2rem; flex-shrink: 0; }
+        .logo-text { font-size: 1.3rem; font-weight: 700; color: var(--accent-dark); line-height: 1; }
+
+        /* hero */
+        .hero { text-align: center; padding: 5rem 5% 3.5rem; max-width: 860px; margin: 0 auto; }
+        .hero-eyebrow { display: inline-block; font-size: 0.8rem; font-weight: 600; color: var(--accent-dark); background: var(--accent-light); padding: 0.35rem 0.85rem; border-radius: 999px; margin-bottom: 1.25rem; letter-spacing: 0.02em; }
+        .hero h1 { font-size: 3rem; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 1.25rem; line-height: 1.15; }
+        .hero h1 em { font-style: normal; color: var(--accent-dark); }
+        .hero-lead { font-size: 1.15rem; color: var(--muted); max-width: 660px; margin: 0 auto 2rem; line-height: 1.65; }
+        .hero-cta { display: flex; justify-content: center; gap: 0.85rem; flex-wrap: wrap; margin-bottom: 0.75rem; }
+        .hero-note { font-size: 0.85rem; color: var(--muted); margin-top: 0.5rem; }
+
+        /* section defaults */
+        section { max-width: 1100px; margin: 0 auto; padding: 3.5rem 5%; }
+        section > h2 { text-align: center; font-size: 1.85rem; font-weight: 800; margin-bottom: 0.5rem; letter-spacing: -0.01em; }
+        section > .sub { text-align: center; color: var(--muted); margin-bottom: 2.5rem; font-size: 1rem; max-width: 640px; margin-left: auto; margin-right: auto; }
+
+        /* how it works */
+        .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+        .step { text-align: center; padding: 2rem 1.5rem; background: var(--card); border: 1px solid var(--border); border-radius: 16px; position: relative; }
+        .step-num { width: 44px; height: 44px; border-radius: 50%; background: var(--accent); color: #fff; font-weight: 800; font-size: 1.1rem; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; }
+        .step h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 0.5rem; }
+        .step p { font-size: 0.9rem; color: var(--muted); line-height: 1.55; }
+
+        /* router cards */
+        .router-cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+        .router-card { background: var(--card); border: 2px solid var(--border); border-radius: 16px; padding: 2rem 1.75rem; text-decoration: none; color: var(--text); transition: all 0.2s; display: flex; flex-direction: column; gap: 0.75rem; }
+        .router-card:hover { border-color: var(--accent); box-shadow: var(--shadow-lg); transform: translateY(-2px); text-decoration: none; }
+        .router-card .rc-icon { width: 52px; height: 52px; border-radius: 12px; background: var(--accent-light); display: flex; align-items: center; justify-content: center; font-size: 1.4rem; color: var(--accent-dark); }
+        .router-card h3 { font-size: 1.15rem; font-weight: 700; }
+        .router-card p { font-size: 0.9rem; color: var(--muted); line-height: 1.55; flex: 1; }
+        .router-card .rc-link { font-size: 0.9rem; font-weight: 600; color: var(--accent-dark); display: flex; align-items: center; gap: 0.35rem; }
+        .router-card-soon { opacity: 0.6; cursor: default; }
+        .soon-badge { font-size: 0.7rem; font-weight: 600; background: var(--border); color: var(--muted); padding: 2px 8px; border-radius: 999px; margin-left: 6px; vertical-align: middle; }
+
+        /* capabilities */
+        .cap-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+        .cap-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1.75rem 1.5rem; transition: all 0.2s; }
+        .cap-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-2px); border-color: var(--accent); }
+        .cap-icon { font-size: 1.5rem; margin-bottom: 0.75rem; color: var(--accent-dark); }
+        .cap-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 0.5rem; }
+        .cap-card p { font-size: 0.88rem; color: var(--muted); line-height: 1.55; }
+
+        /* cta band */
+        .cta-band { background: var(--accent-light); border-radius: 20px; text-align: center; padding: 3rem 2rem; }
+        .cta-band h2 { font-size: 1.85rem; font-weight: 800; margin-bottom: 0.75rem; }
+        .cta-band p { color: var(--muted); margin-bottom: 1.75rem; font-size: 1rem; max-width: 520px; margin-left: auto; margin-right: auto; }
+        .cta-band .cta-buttons { display: flex; justify-content: center; gap: 0.85rem; flex-wrap: wrap; }
+
+        /* footer */
+        footer { border-top: 1px solid var(--border); padding: 2rem 5%; text-align: center; color: var(--muted); font-size: 0.875rem; max-width: 1200px; margin: 2rem auto 0; }
+        footer a { color: var(--muted); }
+        footer a:hover { color: var(--text); }
+
+        /* preview banner */
+        .preview-banner { background: var(--dark); color: #94a3b8; font-size: 0.8rem; text-align: center; padding: 0.5rem; }
+        .preview-banner strong { color: #f8fafc; }
+
+        @media (max-width: 900px) {
+            .steps { grid-template-columns: 1fr; }
+            .router-cards { grid-template-columns: 1fr; }
+            .cap-grid { grid-template-columns: repeat(2, 1fr); }
+            .hero h1 { font-size: 2.2rem; }
+        }
+        @media (max-width: 600px) {
+            .cap-grid { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 1.9rem; }
+        }
+    </style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+<div class="preview-banner"><strong>Design mockup</strong> — Issue #25 · ExpertAsiste brand concept · <a href="https://github.com/aivalueprospector/marketing-websites/issues/25" style="color:#64748b">View issue</a></div>
+
+<header>
+    <nav class="header-inner">
+        <a class="logo-link" href="index.html" aria-label="ExpertAsiste home">
+            <div class="logo-mark">E</div>
+            <span class="logo-text">ExpertAsiste</span>
+        </a>
+        <a href="#request-access" class="btn btn-teal">Request Access</a>
+    </nav>
+</header>
+
+<main id="main">
+    <!-- Hero -->
+    <section class="hero" aria-labelledby="hero-heading">
+        <span class="hero-eyebrow">Introducing ExpertAsiste</span>
+        <h1 id="hero-heading">Turn what you know<br>into <em>a practice.</em></h1>
+        <p class="hero-lead">ExpertAsiste connects subject-matter experts with the clients who need them — and handles intake, scheduling, and knowledge management in between.</p>
+        <div class="hero-cta">
+            <a href="#request-access" class="btn btn-teal btn-lg">Get Early Access</a>
+            <a href="#how-it-works" class="btn btn-outline btn-lg">See how it works</a>
+        </div>
+        <p class="hero-note">Goal: open to legal and accounting professionals first.</p>
+    </section>
+
+    <!-- How it works -->
+    <section aria-labelledby="how-heading" id="how-it-works">
+        <h2 id="how-heading">How ExpertAsiste works</h2>
+        <p class="sub">Three steps from expertise to engaged client.</p>
+        <div class="steps">
+            <div class="step">
+                <div class="step-num">1</div>
+                <h3>Build your expert profile</h3>
+                <p>Describe your specialty, years of experience, and the types of matters you take. Mente learns from your uploaded documents to surface your knowledge on demand.</p>
+            </div>
+            <div class="step">
+                <div class="step-num">2</div>
+                <h3>Accept consultancy requests</h3>
+                <p>Clients find you by vertical and expertise. AI-powered intake screens requests and surfaces relevant context before your first conversation.</p>
+            </div>
+            <div class="step">
+                <div class="step-num">3</div>
+                <h3>Deliver AI-assisted advice</h3>
+                <p>Search your prior work, generate client-ready memos, and track deadlines — all from one workspace purpose-built for subject-matter experts.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vertical router -->
+    <section aria-labelledby="verticals-heading">
+        <h2 id="verticals-heading">Find your vertical</h2>
+        <p class="sub">ExpertAsiste is built for specific industries. Start with the one that fits your practice.</p>
+        <div class="router-cards">
+            <a class="router-card" href="legal.html" aria-label="ExpertAsiste for legal professionals">
+                <div class="rc-icon"><i class="fa-solid fa-scale-balanced" aria-hidden="true"></i></div>
+                <h3>Legal professionals</h3>
+                <p>Abogados, solicitors, and legal consultants who want to turn their case knowledge into a scalable practice. Intake screening, precedent search, document review.</p>
+                <span class="rc-link">Explore legal <i class="fa-solid fa-arrow-right fa-sm" aria-hidden="true"></i></span>
+            </a>
+            <a class="router-card" href="accounting.html" aria-label="ExpertAsiste for accountants and CPAs">
+                <div class="rc-icon"><i class="fa-solid fa-calculator" aria-hidden="true"></i></div>
+                <h3>Accountants &amp; CPAs</h3>
+                <p>Contadores and tax professionals who want to stop repeating regulation explanations and start building a durable client knowledge base.</p>
+                <span class="rc-link">Explore accounting <i class="fa-solid fa-arrow-right fa-sm" aria-hidden="true"></i></span>
+            </a>
+        </div>
+        <p style="text-align:center; margin-top:1.5rem; font-size:0.9rem; color:var(--muted);">Engineering, architecture, and financial advisory <span class="soon-badge">coming soon</span></p>
+    </section>
+
+    <!-- Platform capabilities -->
+    <section aria-labelledby="cap-heading">
+        <h2 id="cap-heading">Built for the way experts actually work</h2>
+        <p class="sub">Not a generic CRM. Not a project management tool. ExpertAsiste is designed for knowledge workers who bill by the hour and think for a living.</p>
+        <div class="cap-grid">
+            <div class="cap-card">
+                <div class="cap-icon"><i class="fa-solid fa-magnifying-glass-chart" aria-hidden="true"></i></div>
+                <h3>Searchable expert knowledge</h3>
+                <p>Upload your prior work — case files, memos, analyses — and search it instantly. Stop re-reading your own documents to answer a new client question.</p>
+            </div>
+            <div class="cap-card">
+                <div class="cap-icon"><i class="fa-solid fa-inbox" aria-hidden="true"></i></div>
+                <h3>AI-powered intake screening</h3>
+                <p>New inquiry comes in. Mente reads it, surfaces your relevant prior work, and tells you in two paragraphs whether this is a matter worth taking.</p>
+            </div>
+            <div class="cap-card">
+                <div class="cap-icon"><i class="fa-solid fa-file-lines" aria-hidden="true"></i></div>
+                <h3>Client-ready documents</h3>
+                <p>Generate engagement letters, opinion memos, and status summaries grounded in your knowledge base — not a generic template.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section id="request-access" aria-labelledby="cta-heading" style="padding-top: 1rem;">
+        <div class="cta-band">
+            <h2 id="cta-heading">Your expertise is the product.<br>We handle the rest.</h2>
+            <p>ExpertAsiste is accepting early-access requests from legal and accounting professionals. Goal: first cohort live in Q3 2026.</p>
+            <div class="cta-buttons">
+                <a href="#" class="btn btn-teal btn-lg">Request Early Access</a>
+                <a href="legal.html" class="btn btn-outline btn-lg">See legal vertical</a>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <p>&copy; 2026 AI Value Prospector &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a> &middot; <a href="https://avaluei.com">avaluei.com</a></p>
+    <p style="margin-top:0.5rem; font-size:0.8rem;">ExpertAsiste is a product in development. All personas are illustrative.</p>
+</footer>
+</body>
+</html>

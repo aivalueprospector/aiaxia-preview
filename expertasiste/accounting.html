@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ExpertAsiste for Accountants &amp; CPAs — Your expertise shouldn't retire with you</title>
+    <meta name="description" content="ExpertAsiste helps contadores and CPAs build a durable client knowledge base, look up regulations instantly, and stop re-explaining the same tax rules to every client.">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%230D9488'/%3E%3Ctext x='32' y='43' font-family='Inter,sans-serif' font-size='34' font-weight='800' fill='white' text-anchor='middle'%3EE%3C/text%3E%3C/svg%3E">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        :root {
+            --bg: #f0fdf9;
+            --text: #1e293b;
+            --muted: #64748b;
+            --accent: #0D9488;
+            --accent-dark: #0F766E;
+            --accent-light: #CCFBF1;
+            --border: #99f6e4;
+            --card: #ffffff;
+            --success: #059669;
+            --dark: #0f172a;
+            --shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', -apple-system, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+        a { color: var(--accent-dark); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        .skip-link { position: absolute; top: -40px; left: 0; background: var(--accent); color: #fff; padding: 0.5rem 1rem; z-index: 100; transition: top 0.2s; }
+        .skip-link:focus { top: 0; text-decoration: none; }
+        .btn { display: inline-flex; align-items: center; padding: 0.75rem 1.5rem; border-radius: 8px; font-weight: 600; font-size: 0.95rem; text-decoration: none; transition: all 0.2s; border: none; cursor: pointer; font-family: inherit; }
+        .btn:hover { text-decoration: none; }
+        .btn-teal { background: var(--accent); color: #fff; }
+        .btn-teal:hover { background: var(--accent-dark); }
+        .btn-outline { background: transparent; border: 2px solid var(--accent-dark); color: var(--accent-dark); }
+        .btn-outline:hover { background: var(--accent-light); }
+        .btn-lg { padding: 1rem 2rem; font-size: 1.05rem; }
+
+        /* nav */
+        .header-inner { display: flex; justify-content: space-between; align-items: center; padding: 1.25rem 5%; max-width: 1200px; margin: 0 auto; }
+        .logo-link { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+        .logo-mark { width: 40px; height: 40px; border-radius: 10px; background: var(--accent); display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 800; font-size: 1.2rem; flex-shrink: 0; }
+        .logo-text { font-size: 1.3rem; font-weight: 700; color: var(--accent-dark); line-height: 1; }
+        .logo-tag { font-size: 0.7rem; font-weight: 600; color: var(--accent-dark); background: var(--accent-light); padding: 2px 8px; border-radius: 999px; margin-left: 6px; }
+
+        /* hero */
+        .hero { display: flex; flex-direction: row-reverse; align-items: center; gap: 3rem; padding: 4rem 5% 3rem; max-width: 1100px; margin: 0 auto; }
+        .hero-body { flex: 1; }
+        .hero-visual { flex-shrink: 0; }
+        .hero-avatar { width: 180px; height: 180px; border-radius: 50%; background: var(--accent-light); border: 4px solid var(--card); box-shadow: 0 14px 28px rgba(13,148,136,0.25); display: flex; align-items: center; justify-content: center; font-size: 4rem; font-weight: 800; color: var(--accent-dark); }
+        .hero-eyebrow { display: inline-block; font-size: 0.8rem; font-weight: 600; color: var(--accent-dark); background: var(--accent-light); padding: 0.35rem 0.85rem; border-radius: 999px; margin-bottom: 1.25rem; letter-spacing: 0.02em; }
+        .hero h1 { font-size: 2.6rem; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 1.25rem; line-height: 1.15; }
+        .hero h1 em { font-style: normal; color: var(--accent-dark); }
+        .hero-lead { font-size: 1.1rem; color: var(--muted); margin-bottom: 2rem; line-height: 1.65; max-width: 560px; }
+        .hero-cta { display: flex; gap: 0.85rem; flex-wrap: wrap; }
+
+        /* section defaults */
+        section { max-width: 1100px; margin: 0 auto; padding: 3rem 5%; }
+        section > h2 { text-align: center; font-size: 1.85rem; font-weight: 800; margin-bottom: 0.5rem; letter-spacing: -0.01em; }
+        section > .sub { text-align: center; color: var(--muted); margin-bottom: 2.5rem; font-size: 1rem; max-width: 640px; margin-left: auto; margin-right: auto; }
+
+        /* pain cards */
+        .pain-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+        .pain-card { background: #fef2f2; border: 1px solid #fecaca; border-radius: 12px; padding: 1.5rem; }
+        .pain-quote { font-size: 0.95rem; font-style: italic; color: var(--text); margin-bottom: 0.5rem; line-height: 1.55; }
+        .pain-quote::before { content: '\201C'; }
+        .pain-quote::after { content: '\201D'; }
+        .pain-note { font-size: 0.8rem; color: #dc2626; font-weight: 600; }
+
+        /* features */
+        .features { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; }
+        .feature-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1.75rem 1.5rem; display: flex; gap: 1.25rem; align-items: flex-start; transition: all 0.2s; }
+        .feature-card:hover { box-shadow: var(--shadow-lg); border-color: var(--accent); transform: translateY(-2px); }
+        .feature-icon { width: 48px; height: 48px; border-radius: 10px; background: var(--accent-light); display: flex; align-items: center; justify-content: center; font-size: 1.2rem; color: var(--accent-dark); flex-shrink: 0; }
+        .feature-body h3 { font-size: 1rem; font-weight: 700; margin-bottom: 0.4rem; }
+        .feature-body p { font-size: 0.88rem; color: var(--muted); line-height: 1.55; }
+
+        /* demo block */
+        .demo-block { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 2.5rem; }
+        .demo-persona { display: flex; align-items: center; gap: 1.25rem; margin-bottom: 1.75rem; }
+        .demo-avatar { width: 64px; height: 64px; border-radius: 50%; background: var(--accent); color: #fff; font-weight: 800; font-size: 1.4rem; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+        .demo-persona-info h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 0.15rem; }
+        .demo-persona-info p { font-size: 0.88rem; color: var(--muted); }
+        .demo-narrative { font-size: 0.95rem; color: var(--text); line-height: 1.65; margin-bottom: 1.5rem; }
+        .demo-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+        .demo-tag { font-size: 0.8rem; font-weight: 600; background: var(--accent-light); color: var(--accent-dark); padding: 0.3rem 0.75rem; border-radius: 999px; }
+        .demo-label { font-size: 0.78rem; color: var(--muted); margin-bottom: 0.75rem; }
+
+        /* security */
+        .security-section { background: var(--dark); border-radius: 20px; padding: 3rem 2.5rem; }
+        .security-section h2 { color: #f8fafc; text-align: center; font-size: 1.6rem; font-weight: 800; margin-bottom: 0.5rem; }
+        .security-section .sub { color: #94a3b8; text-align: center; margin-bottom: 2rem; }
+        .security-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; }
+        .security-item { display: flex; gap: 1rem; align-items: flex-start; }
+        .security-icon { color: var(--accent); font-size: 1.1rem; margin-top: 0.2rem; flex-shrink: 0; }
+        .security-item h3 { font-size: 0.95rem; font-weight: 700; color: #f8fafc; margin-bottom: 0.25rem; }
+        .security-item p { font-size: 0.85rem; color: #94a3b8; line-height: 1.5; }
+
+        /* faq */
+        .faq-list { max-width: 720px; margin: 0 auto; }
+        details { border: 1px solid var(--border); border-radius: 10px; margin-bottom: 0.75rem; background: var(--card); }
+        details summary { padding: 1.1rem 1.25rem; font-weight: 600; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-size: 0.97rem; list-style: none; }
+        details summary::-webkit-details-marker { display: none; }
+        details summary::after { content: '+'; font-size: 1.2rem; color: var(--accent-dark); font-weight: 700; }
+        details[open] summary::after { content: '−'; }
+        details .faq-answer { padding: 0 1.25rem 1.1rem; font-size: 0.9rem; color: var(--muted); line-height: 1.6; }
+
+        /* cta band */
+        .cta-band { background: var(--accent-light); border-radius: 20px; text-align: center; padding: 3rem 2rem; }
+        .cta-band h2 { font-size: 1.7rem; font-weight: 800; margin-bottom: 0.75rem; }
+        .cta-band p { color: var(--muted); margin-bottom: 1.75rem; font-size: 0.97rem; max-width: 520px; margin-left: auto; margin-right: auto; }
+        .cta-band .cta-buttons { display: flex; justify-content: center; gap: 0.85rem; flex-wrap: wrap; }
+
+        /* footer */
+        footer { border-top: 1px solid var(--border); padding: 2rem 5%; text-align: center; color: var(--muted); font-size: 0.875rem; max-width: 1200px; margin: 2rem auto 0; }
+        footer a { color: var(--muted); }
+        footer a:hover { color: var(--text); }
+
+        /* preview banner */
+        .preview-banner { background: var(--dark); color: #94a3b8; font-size: 0.8rem; text-align: center; padding: 0.5rem; }
+        .preview-banner strong { color: #f8fafc; }
+
+        @media (max-width: 900px) {
+            .hero { flex-direction: column; text-align: center; }
+            .hero-cta { justify-content: center; }
+            .hero-lead { margin-left: auto; margin-right: auto; }
+            .pain-grid { grid-template-columns: 1fr; }
+            .features { grid-template-columns: 1fr; }
+            .security-grid { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+<div class="preview-banner"><strong>Design mockup — Accounting vertical</strong> · Issue #25 · <a href="index.html" style="color:#64748b">← Back to ExpertAsiste hub</a></div>
+
+<header>
+    <nav class="header-inner">
+        <a class="logo-link" href="index.html" aria-label="ExpertAsiste home">
+            <div class="logo-mark">E</div>
+            <span class="logo-text">ExpertAsiste</span>
+            <span class="logo-tag">for Accounting</span>
+        </a>
+        <a href="#request-access" class="btn btn-teal">Request Access</a>
+    </nav>
+</header>
+
+<main id="main">
+    <!-- Hero -->
+    <div class="hero" role="banner">
+        <div class="hero-visual">
+            <div class="hero-avatar" aria-hidden="true">RF</div>
+        </div>
+        <div class="hero-body">
+            <span class="hero-eyebrow">ExpertAsiste for Accountants &amp; CPAs</span>
+            <h1>Your expertise<br>shouldn't <em>retire with you.</em></h1>
+            <p class="hero-lead">ExpertAsiste helps contadores and CPAs turn recurring client questions into a knowledge base — and keep up with regulation changes without reading every bulletin.</p>
+            <div class="hero-cta">
+                <a href="#request-access" class="btn btn-teal btn-lg">Request Early Access</a>
+                <a href="#how-it-helps" class="btn btn-outline btn-lg">See how it helps</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pain -->
+    <section aria-labelledby="pain-heading" id="how-it-helps">
+        <h2 id="pain-heading">If you've said any of these, you need ExpertAsiste.</h2>
+        <p class="sub">Three patterns we heard from every accounting professional we spoke with.</p>
+        <div class="pain-grid">
+            <div class="pain-card">
+                <p class="pain-quote">Clients call me in a panic three days before the filing deadline.</p>
+                <p class="pain-note">Reactive intake — no triage, no early warning system</p>
+            </div>
+            <div class="pain-card">
+                <p class="pain-quote">I spend half my day explaining the same tax regulations to different clients.</p>
+                <p class="pain-note">Repeated unbillable education — no shared knowledge base</p>
+            </div>
+            <div class="pain-card">
+                <p class="pain-quote">Tax law changes every year. Keeping my team current is a second full-time job.</p>
+                <p class="pain-note">Regulation drift — bulletins arrive faster than teams can absorb them</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section aria-labelledby="features-heading">
+        <h2 id="features-heading">What ExpertAsiste does for accounting professionals</h2>
+        <p class="sub">Built around how contadores and CPAs actually bill and advise.</p>
+        <div class="features">
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fa-solid fa-book-open" aria-hidden="true"></i></div>
+                <div class="feature-body">
+                    <h3>Regulation lookup &amp; interpretation</h3>
+                    <p>Ask in plain language: "What's the current SII rule on depreciation of software assets?" Mente searches the regulations you've uploaded and your annotated notes — not a generic legal database.</p>
+                </div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fa-solid fa-file-pen" aria-hidden="true"></i></div>
+                <div class="feature-body">
+                    <h3>Client memo generation</h3>
+                    <p>Draft a client-ready summary of a new tax rule, grounded in the specific regulation text. Reviewed and signed off by you — but written in minutes, not hours.</p>
+                </div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fa-solid fa-calendar-check" aria-hidden="true"></i></div>
+                <div class="feature-body">
+                    <h3>Deadline tracking</h3>
+                    <p>Filing deadlines across every client, surfaced in one view. Mente flags what's due in the next 30 days and which clients haven't sent the documents you need yet.</p>
+                </div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fa-solid fa-table-columns" aria-hidden="true"></i></div>
+                <div class="feature-body">
+                    <h3>Multi-client dashboard</h3>
+                    <p>Every client, every open matter, every pending document — one view. Stop context-switching between folders, inboxes, and spreadsheets to know where each engagement stands.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Demo -->
+    <section aria-labelledby="demo-heading">
+        <h2 id="demo-heading">Meet Roberto</h2>
+        <p class="sub">Roberto Fuentes is a fictional contador. His story illustrates how ExpertAsiste works for an accounting practice.</p>
+        <div class="demo-block">
+            <div class="demo-persona">
+                <div class="demo-avatar" aria-hidden="true">RF</div>
+                <div class="demo-persona-info">
+                    <h3>Roberto Fuentes</h3>
+                    <p>Contador Auditor &middot; SME tax &amp; financial planning &middot; Santiago de Chile &middot; 18 years</p>
+                </div>
+            </div>
+            <p class="demo-narrative">
+                Roberto manages a 120-client practice with two junior associates. Last quarter, three clients called within the same week asking about the tax treatment of capital gains on real estate transfers — a topic Roberto had written a detailed memo on two years ago. Before ExpertAsiste, each call required him to find the memo, refresh his memory, and then re-explain the same analysis from scratch. Now, the memo is in his knowledge base. The next time a client calls with a similar question, Mente surfaces the prior analysis in seconds. Roberto spends the call asking the specific follow-up questions only he can ask — not re-reading his own work.
+            </p>
+            <p class="demo-label">Illustrative use-case tags from Roberto's workspace:</p>
+            <div class="demo-tags">
+                <span class="demo-tag">Capital gains tax</span>
+                <span class="demo-tag">Real estate transfers</span>
+                <span class="demo-tag">SII regulation lookup</span>
+                <span class="demo-tag">Client memo drafts</span>
+                <span class="demo-tag">Filing deadline tracking</span>
+                <span class="demo-tag">SME financial planning</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Security -->
+    <section aria-labelledby="security-heading">
+        <div class="security-section">
+            <h2 id="security-heading">Built for client confidentiality</h2>
+            <p class="sub">Your client financial data is not a training dataset. It stays yours.</p>
+            <div class="security-grid">
+                <div class="security-item">
+                    <div class="security-icon"><i class="fa-solid fa-lock" aria-hidden="true"></i></div>
+                    <div>
+                        <h3>Client data isolation</h3>
+                        <p>Each client's documents live in their own isolated workspace. A search in Client A's context cannot surface Client B's files.</p>
+                    </div>
+                </div>
+                <div class="security-item">
+                    <div class="security-icon"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i></div>
+                    <div>
+                        <h3>End-to-end encryption</h3>
+                        <p>Financial records encrypted at rest and in transit. Role-based access limits which associates see which client engagements.</p>
+                    </div>
+                </div>
+                <div class="security-item">
+                    <div class="security-icon"><i class="fa-solid fa-user-shield" aria-hidden="true"></i></div>
+                    <div>
+                        <h3>No model training on your data</h3>
+                        <p>Your uploaded documents — tax returns, financial statements, client correspondence — are never used to train shared AI models.</p>
+                    </div>
+                </div>
+                <div class="security-item">
+                    <div class="security-icon"><i class="fa-solid fa-file-signature" aria-hidden="true"></i></div>
+                    <div>
+                        <h3>Data processing addendum</h3>
+                        <p>Full DPA available on request. Meets regulatory expectations for accounting professionals who handle confidential financial information.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section aria-labelledby="faq-heading">
+        <h2 id="faq-heading">Common questions</h2>
+        <p class="sub">From contadores who pushed back hard before they signed up.</p>
+        <div class="faq-list">
+            <details>
+                <summary>Does ExpertAsiste replace my tax software?</summary>
+                <div class="faq-answer">No. ExpertAsiste is a knowledge management and communication tool — it doesn't calculate taxes, file returns, or replace your compliance stack. It handles the research, memo-writing, and client communication layer that surrounds your core compliance work.</div>
+            </details>
+            <details>
+                <summary>What regulations can it look up?</summary>
+                <div class="faq-answer">The regulations it searches are the ones you upload. If you've curated the SII circulares relevant to your practice, it searches those. We don't inject external regulatory content we haven't verified with you — that's an accuracy risk for your professional advice.</div>
+            </details>
+            <details>
+                <summary>How does it handle regulation changes mid-year?</summary>
+                <div class="faq-answer">You upload the updated circular or bulletin. Mente indexes it and flags any conflicts with prior interpretations in your knowledge base. You decide how to reconcile the change — and ExpertAsiste helps you draft the client memo explaining what changed.</div>
+            </details>
+            <details>
+                <summary>Can my junior associates use it?</summary>
+                <div class="faq-answer">Yes. Role-based access lets you control which clients each associate can see. Goal: team-level workspaces with shared knowledge bases and separate per-associate activity logs in Q4 2026.</div>
+            </details>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section id="request-access" aria-labelledby="cta-acct-heading">
+        <div class="cta-band">
+            <h2 id="cta-acct-heading">18 years of knowledge shouldn't live in one person's memory.</h2>
+            <p>ExpertAsiste is accepting early-access requests from accounting professionals. Goal: first accounting cohort live in Q4 2026.</p>
+            <div class="cta-buttons">
+                <a href="#" class="btn btn-teal btn-lg">Request Early Access</a>
+                <a href="index.html" class="btn btn-outline btn-lg">← All verticals</a>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <p>&copy; 2026 AI Value Prospector &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a> &middot; <a href="https://avaluei.com">avaluei.com</a></p>
+    <p style="margin-top:0.5rem; font-size:0.8rem;">ExpertAsiste is a product in development. Roberto Fuentes is a fictional persona. All use cases are illustrative.</p>
+</footer>
+</body>
+</html>
