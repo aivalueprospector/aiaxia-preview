@@ -8,7 +8,7 @@
         :root {
             --eduasiste: #0077B6;
             --proasiste: #CFB382;
-            --onboarding: #2ea3f2;
+            --expertasiste: #0D9488;
             --bg: #f8fafc;
             --card-bg: #ffffff;
             --text: #1f2937;
@@ -75,12 +75,12 @@
             border-radius: 8px;
             margin-bottom: 8px;
         }
-        .card-edu .swatch  { background: var(--eduasiste); }
-        .card-pro .swatch  { background: var(--proasiste); }
-        .card-ob  .swatch  { background: var(--onboarding); }
         .card-edu:hover    { border-color: var(--eduasiste); }
         .card-pro:hover    { border-color: var(--proasiste); }
-        .card-ob:hover     { border-color: var(--onboarding); }
+        .card-exp:hover    { border-color: var(--expertasiste); }
+        .card-edu .swatch  { background: var(--eduasiste); }
+        .card-pro .swatch  { background: var(--proasiste); }
+        .card-exp .swatch  { background: var(--expertasiste); }
         .card h2 {
             margin: 0;
             font-size: 18px;
@@ -112,7 +112,7 @@
 <body>
     <header>
         <h1>AiAxia preview</h1>
-        <p>Static previews of the marketing sites and onboarding flow. Not connected to backend; CTAs link to live ctwin.ai.</p>
+        <p>Static previews of the marketing sites. Not connected to backend; CTAs link to live ctwin.ai.</p>
     </header>
     <main>
         <div class="card-grid">
@@ -128,11 +128,11 @@
                 <div class="desc">Business marketing site for ctwin.ai. Manufacturing, supply-chain, consulting, team feature pages.</div>
                 <div class="url">/aiaxia-preview/proasiste/</div>
             </a>
-            <a class="card card-ob" href="onboarding-preview/">
+            <a class="card card-exp" href="expertasiste/">
                 <div class="swatch"></div>
-                <h2>Onboarding preview</h2>
-                <div class="desc">Step-by-step signup flow preview — eduasiste + proasiste variants.</div>
-                <div class="url">/aiaxia-preview/onboarding-preview/</div>
+                <h2>ExpertAsiste</h2>
+                <div class="desc">Peer consultancy platform — legal (Consuela) and accounting (Roberto) verticals. Issue #25 mockup.</div>
+                <div class="url">/aiaxia-preview/expertasiste/</div>
             </a>
         </div>
     </main>
