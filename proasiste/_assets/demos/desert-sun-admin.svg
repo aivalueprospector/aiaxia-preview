@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" role="img" aria-label="Desert Sun admin placeholder">
+  <rect width="1200" height="750" fill="#f1f5f9"/>
+  <rect x="40" y="40" width="1120" height="670" fill="#fff" stroke="#cbd5e1" stroke-width="2" stroke-dasharray="8,8" rx="16"/>
+  <g font-family="Inter, system-ui, sans-serif" text-anchor="middle">
+    <text x="600" y="300" font-size="48" font-weight="700" fill="#334155">HVAC Admin View</text>
+    <text x="600" y="360" font-size="22" fill="#64748b">Desert Sun Comfort — Mente business assistant, document search, report generation</text>
+    <text x="600" y="500" font-size="16" fill="#94a3b8">Screenshot placeholder — see issue #7 (L7)</text>
+    <text x="600" y="528" font-size="13" fill="#94a3b8">Real screenshot pending capture from live demo backend</text>
+  </g>
+</svg>

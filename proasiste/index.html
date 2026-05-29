@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ProAsiste - Your documents, searchable. Your reports, written.</title>
-    <meta name="description" content="ProAsiste reads every document your small business runs on - invoices, spreadsheets, contracts, scans - and turns them into searchable answers and ready-to-share PDFs. Built for owner-operators.">
+    <title>ProAsiste — Stop losing hours to paperwork</title>
+    <meta name="description" content="Mente reads every document your business runs on — invoices, contracts, spreadsheets, scans — and gives you instant, cited answers. Built for owner-operators.">
     <link rel="canonical" href="https://ctwin.ai/">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://ctwin.ai/">
-    <meta property="og:title" content="ProAsiste - Your documents, searchable. Your reports, written.">
-    <meta property="og:description" content="An AI assistant trained on your documents. Ask questions, generate reports, produce PDFs - all grounded in what your business actually has on file.">
+    <meta property="og:title" content="ProAsiste — Stop losing hours to paperwork">
+    <meta property="og:description" content="Mente reads every document your business runs on and gives you instant, cited answers. No more digging through folders.">
     <meta name="twitter:card" content="summary_large_image">
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%23336699'/%3E%3Ctext x='32' y='43' font-family='Inter,sans-serif' font-size='34' font-weight='800' fill='white' text-anchor='middle'%3EM%3C/text%3E%3C/svg%3E">
+    <link rel="icon" type="image/jpeg" href="_assets/mente_avatar.jpg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -44,14 +44,14 @@
     </script>
     <style>
         :root {
-            --bg: #f8fafc;
-            --text: #1e293b;
-            --muted: #64748b;
-            --accent: #336699;
-            --accent-dark: #1d4ed8;
-            --accent-light: #e0ecf5;
-            --border: #e2e8f0;
-            --card: #ffffff;
+            --bg: #FFF8E7;
+            --text: #000000;
+            --muted: #6B5C3E;
+            --accent: #CFB382;
+            --accent-dark: #8B6914;
+            --accent-light: #F5EDD6;
+            --border: #E8D9B8;
+            --card: #FFFDF5;
             --success: #059669;
             --shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
             --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1);
@@ -64,40 +64,60 @@
         .skip-link:focus { top: 0; text-decoration: none; }
         .btn { display: inline-flex; align-items: center; padding: 0.75rem 1.5rem; border-radius: 8px; font-weight: 600; font-size: 0.95rem; text-decoration: none; transition: all 0.2s; border: none; cursor: pointer; font-family: inherit; }
         .btn:hover { text-decoration: none; }
-        .btn-gold { background: var(--accent); color: #fff; }
-        .btn-gold:hover { background: var(--accent-dark); color: #fff; }
-        .btn-outline { background: transparent; border: 2px solid var(--accent); color: var(--accent); }
+        .btn-gold { background: var(--accent); color: #000000; }
+        .btn-gold:hover { background: var(--accent-dark); color: #ffffff; }
+        .btn-outline { background: transparent; border: 2px solid var(--accent-dark); color: var(--accent-dark); }
         .btn-outline:hover { background: var(--accent-light); }
         .btn-lg { padding: 1rem 2rem; font-size: 1.05rem; }
+
+        /* nav */
         nav { display: flex; justify-content: space-between; align-items: center; padding: 1.25rem 5%; max-width: 1200px; margin: 0 auto; }
         .logo-link { display: flex; align-items: center; gap: 10px; text-decoration: none; }
-        .logo-mark { width: 40px; height: 40px; border-radius: 10px; background: var(--accent); display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 800; font-size: 1.15rem; }
-        .logo-text { font-size: 1.3rem; font-weight: 700; color: var(--accent); line-height: 1; }
-        .logo-text small { font-weight: 500; color: var(--muted); font-size: 0.65em; display: block; margin-top: 3px; }
-        .hero { text-align: center; padding: 4.5rem 5% 3rem; max-width: 860px; margin: 0 auto; }
-        .hero-eyebrow { display: inline-block; font-size: 0.8rem; font-weight: 600; color: var(--accent); background: var(--accent-light); padding: 0.35rem 0.85rem; border-radius: 999px; margin-bottom: 1.25rem; letter-spacing: 0.02em; }
+        .logo-avatar { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; }
+        .logo-text { font-size: 1.3rem; font-weight: 700; color: var(--accent-dark); line-height: 1; }
+
+        /* hero - two column, text left, avatar right */
+        .hero { display: flex; flex-direction: row-reverse; align-items: center; gap: 3rem; padding: 4rem 5% 3rem; max-width: 1100px; margin: 0 auto; }
+        .hero-body { flex: 1; }
+        .hero-visual { flex-shrink: 0; }
+        .hero-img { width: 200px; height: 200px; border-radius: 50%; object-fit: cover; box-shadow: 0 14px 28px rgba(51,102,153,0.25); border: 4px solid var(--card); }
+        .hero-eyebrow { display: inline-block; font-size: 0.8rem; font-weight: 600; color: var(--accent-dark); background: var(--accent-light); padding: 0.35rem 0.85rem; border-radius: 999px; margin-bottom: 1.25rem; letter-spacing: 0.02em; }
         .hero h1 { font-size: 2.85rem; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 1.25rem; line-height: 1.15; }
         .hero h1 em { font-style: normal; color: var(--accent-dark); }
-        .hero-lead { font-size: 1.15rem; color: var(--muted); max-width: 680px; margin: 0 auto 1.25rem; line-height: 1.6; }
-        .hero-differentiator { font-size: 0.95rem; color: var(--text); max-width: 620px; margin: 0 auto 2rem; font-weight: 500; }
-        .hero-differentiator strong { color: var(--accent-dark); }
-        .hero-cta { display: flex; justify-content: center; gap: 0.85rem; flex-wrap: wrap; margin-bottom: 0.5rem; }
-        .hero-note { color: var(--muted); font-size: 0.85rem; margin-top: 0.5rem; }
+        .hero-lead { font-size: 1.15rem; color: var(--muted); margin-bottom: 2rem; line-height: 1.6; max-width: 560px; }
+        .hero-cta { display: flex; gap: 0.85rem; flex-wrap: wrap; }
+
+        /* proof strip */
         .proof-strip { max-width: 1100px; margin: 0 auto; padding: 1.5rem 5% 3rem; }
         .proof-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
         .proof-item { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1.25rem 1rem; text-align: center; }
         .proof-number { font-size: 1.6rem; font-weight: 800; color: var(--accent-dark); line-height: 1.15; margin-bottom: 0.3rem; }
         .proof-label { font-size: 0.82rem; color: var(--muted); line-height: 1.45; }
+
+        /* section defaults */
         section { max-width: 1100px; margin: 0 auto; padding: 3rem 5%; }
         section > h2 { text-align: center; font-size: 1.85rem; font-weight: 800; margin-bottom: 0.5rem; letter-spacing: -0.01em; }
         section > .sub { text-align: center; color: var(--muted); margin-bottom: 2.5rem; font-size: 1rem; max-width: 640px; margin-left: auto; margin-right: auto; }
+
+        /* audience router */
+        .router-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+        .router-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1.75rem 1.5rem; text-decoration: none; color: var(--text); transition: all 0.2s; display: flex; flex-direction: column; gap: 0.4rem; }
+        .router-card:hover { border-color: var(--accent); box-shadow: var(--shadow-lg); transform: translateY(-2px); text-decoration: none; }
+        .router-card-icon { font-size: 1.5rem; color: var(--accent); margin-bottom: 0.25rem; }
+        .router-card h3 { font-size: 1.05rem; font-weight: 700; color: var(--text); }
+        .router-card p { font-size: 0.88rem; color: var(--muted); line-height: 1.5; }
+        .router-card .router-arrow { font-size: 0.85rem; font-weight: 600; color: var(--accent-dark); margin-top: 0.5rem; }
+
+        /* capabilities */
         .cap-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
         .cap-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1.75rem 1.5rem; transition: all 0.2s; }
         .cap-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-2px); border-color: var(--accent); }
-        .cap-icon { font-size: 1.65rem; margin-bottom: 0.75rem; color: var(--accent-dark); }
+        .cap-problem { font-size: 0.8rem; font-weight: 700; color: #dc2626; background: #fef2f2; display: inline-block; padding: 0.2rem 0.6rem; border-radius: 999px; margin-bottom: 0.75rem; }
         .cap-card h3 { font-size: 1.05rem; margin-bottom: 0.5rem; font-weight: 700; }
         .cap-card p { font-size: 0.9rem; color: var(--muted); line-height: 1.55; }
         .cap-card .example { margin-top: 0.75rem; font-size: 0.85rem; color: var(--text); border-left: 2px solid var(--accent-light); padding-left: 0.65rem; font-style: italic; }
+
+        /* differentiation */
         .differentiation { background: var(--card); border-radius: 16px; border: 1px solid var(--border); padding: 2.5rem; max-width: 880px; margin: 0 auto; }
         .diff-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; margin-top: 1.5rem; }
         .diff-col { padding: 1.25rem; border-radius: 10px; }
@@ -108,6 +128,8 @@
         .diff-col li::before { display: inline-block; width: 1.2em; font-weight: 800; }
         .diff-col.them li::before { content: "\2717"; color: #dc2626; }
         .diff-col.us li::before { content: "\2713"; color: var(--success); }
+
+        /* demo */
         .demo-feature { background: var(--card); border: 2px solid var(--border); border-radius: 16px; padding: 2.25rem; max-width: 700px; margin: 0 auto; text-align: center; transition: all 0.2s; }
         .demo-feature:hover { border-color: var(--accent); box-shadow: var(--shadow-lg); }
         .demo-avatar { width: 56px; height: 56px; border-radius: 50%; background: var(--accent); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.3rem; margin: 0 auto 0.75rem; }
@@ -115,13 +137,9 @@
         .demo-feature .demo-role { font-size: 0.85rem; color: var(--muted); margin-bottom: 1rem; }
         .demo-feature p { font-size: 0.95rem; color: var(--muted); margin-bottom: 1.25rem; line-height: 1.55; }
         .demo-tags { display: flex; justify-content: center; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.25rem; }
-        .demo-tag { font-size: 0.75rem; background: var(--accent-light); color: var(--accent); padding: 4px 12px; border-radius: 12px; font-weight: 500; }
-        .security-card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 2.25rem; max-width: 860px; margin: 0 auto; }
-        .security-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem 1.5rem; }
-        .security-item { font-size: 0.9rem; padding: 0.5rem 0; color: var(--muted); }
-        .security-item i { color: var(--accent); margin-right: 0.55rem; }
-        .security-item strong { color: var(--text); font-weight: 600; }
-        .security-note { text-align: center; margin-top: 1.25rem; font-size: 0.9rem; color: var(--muted); }
+        .demo-tag { font-size: 0.75rem; background: var(--accent-light); color: var(--accent-dark); padding: 4px 12px; border-radius: 12px; font-weight: 500; }
+
+        /* pricing */
         .price-card { background: var(--card); border: 2px solid var(--accent); border-radius: 16px; padding: 2.5rem; max-width: 480px; margin: 0 auto; }
         .price-card h3 { font-size: 1.15rem; font-weight: 700; margin-bottom: 0.25rem; }
         .price-tagline { color: var(--muted); font-size: 0.9rem; margin-bottom: 1.25rem; }
@@ -130,7 +148,18 @@
         .price-card ul { list-style: none; padding: 0; margin: 1.25rem 0 1.5rem; font-size: 0.9rem; line-height: 2; }
         .price-card ul li { padding-left: 4px; }
         .price-card ul li::before { content: "\f00c  "; font-family: "Font Awesome 6 Free"; font-weight: 900; color: var(--accent-dark); font-size: 0.8em; }
-        .price-card .btn { width: 100%; justify-content: center; }
+        .price-note { text-align: center; color: var(--muted); font-size: 0.88rem; margin-top: 1.25rem; }
+        .price-note a { font-weight: 600; }
+
+        /* security */
+        .security-card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 2.25rem; max-width: 860px; margin: 0 auto; }
+        .security-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem 1.5rem; }
+        .security-item { font-size: 0.9rem; padding: 0.5rem 0; color: var(--muted); }
+        .security-item i { color: var(--accent); margin-right: 0.55rem; }
+        .security-item strong { color: var(--text); font-weight: 600; }
+        .security-note { text-align: center; margin-top: 1.25rem; font-size: 0.9rem; color: var(--muted); }
+
+        /* learn more form */
         .form-card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 2.25rem; max-width: 560px; margin: 0 auto; }
         .form-grid { display: grid; gap: 0.85rem; }
         .form-grid label { font-size: 0.85rem; color: var(--muted); font-weight: 500; display: block; margin-bottom: 0.25rem; }
@@ -143,16 +172,26 @@
         .form-msg.error { background: #fef2f2; color: #dc2626; display: block; }
         .submit-btn .icon { margin-right: 8px; }
         .submit-btn[data-busy="true"] .icon { display: none; }
+
         footer { text-align: center; padding: 2rem 5%; color: var(--muted); font-size: 0.85rem; border-top: 1px solid var(--border); margin-top: 2rem; }
         footer a { color: var(--accent-dark); }
         footer .brand-line { margin-bottom: 0.5rem; }
+
+        @media (max-width: 900px) {
+            .router-grid { grid-template-columns: 1fr; }
+            .cap-grid { grid-template-columns: repeat(2, 1fr); }
+        }
         @media (max-width: 768px) {
-            .hero { padding: 3rem 5% 2rem; }
+            .hero { flex-direction: column; text-align: center; gap: 2rem; }
+            .hero-img { width: 150px; height: 150px; }
+            .hero-lead { max-width: 100%; }
+            .hero-cta { justify-content: center; }
+            .proof-grid, .diff-grid, .security-grid { grid-template-columns: 1fr; }
+            .form-row { grid-template-columns: 1fr; }
+            .cap-grid { grid-template-columns: 1fr; }
+            section { padding: 2rem 5%; }
             .hero h1 { font-size: 1.85rem; }
             .hero-lead { font-size: 1rem; }
-            .cap-grid, .proof-grid, .diff-grid, .security-grid { grid-template-columns: 1fr; }
-            .form-row { grid-template-columns: 1fr; }
-            section { padding: 2rem 5%; }
         }
     </style>
 </head>
@@ -161,64 +200,92 @@
 <a href="#main" class="skip-link">Skip to main content</a>
 
 <nav aria-label="Primary">
-    <a href="index.html" class="logo-link" aria-label="ProAsiste home">
-        <span class="logo-mark" aria-hidden="true">M</span>
-        <span class="logo-text">ProAsiste<small>an AI Value Prospector product</small></span>
+    <a href="/" class="logo-link" aria-label="ProAsiste home">
+        <img src="_assets/mente_avatar.jpg" alt="" aria-hidden="true" class="logo-avatar" width="40" height="40">
+        <span class="logo-text">ProAsiste</span>
     </a>
-    <a href="#request-access" class="btn btn-gold"><i class="fa-solid fa-arrow-right" style="margin-right:6px;" aria-hidden="true"></i> Request access</a>
+    <a href="https://ctwin.ai/login" class="btn btn-outline">Log in</a>
 </nav>
 
 <main id="main">
 
-<section class="hero">
-    <div class="hero-eyebrow">Meet Mente - an AI assistant for your business</div>
-    <h1>Your documents, <em>searchable</em>.<br>Your reports, <em>written</em>.</h1>
-    <p class="hero-lead">Mente reads every document your small business runs on - invoices, spreadsheets, contracts, scans - and turns them into searchable answers and ready-to-share PDFs.</p>
-    <p class="hero-differentiator">Not a general-purpose chatbot. <strong>Mente is trained on your own files</strong> and remembers every conversation, so answers are grounded in what your business actually has on record.</p>
-    <div class="hero-cta">
-        <a href="#demo" class="btn btn-gold btn-lg"><i class="fa-solid fa-play" style="margin-right:8px;" aria-hidden="true"></i> Try the live demo</a>
-        <a href="#request-access" class="btn btn-outline btn-lg"><i class="fa-solid fa-envelope" style="margin-right:8px;" aria-hidden="true"></i> Request access</a>
+<section class="hero" aria-labelledby="hero-heading">
+    <div class="hero-visual">
+        <img src="_assets/mente_avatar.jpg" alt="Mente, ProAsiste's AI assistant" class="hero-img" width="200" height="200">
     </div>
-    <p class="hero-note">No signup to try the demo. No credit card to request access.</p>
+    <div class="hero-body">
+        <div class="hero-eyebrow">Meet Mente — AI built for your business documents</div>
+        <h1 id="hero-heading">The answer is in your files.<br>Mente finds it in <em>seconds</em>.</h1>
+        <p class="hero-lead">Every invoice, contract, and spreadsheet your business has ever touched — Mente reads them all and gives you cited answers on demand. No more digging through folders. No more asking someone who might know.</p>
+        <div class="hero-cta">
+            <a href="#demo" class="btn btn-gold btn-lg"><i class="fa-solid fa-play" style="margin-right:8px;" aria-hidden="true"></i> Try the live demo</a>
+            <a href="#learn-more" class="btn btn-outline btn-lg"><i class="fa-solid fa-envelope" style="margin-right:8px;" aria-hidden="true"></i> I want to learn more!</a>
+        </div>
+    </div>
 </section>
 
 <section class="proof-strip" aria-label="At a glance">
     <div class="proof-grid">
         <div class="proof-item">
             <div class="proof-number">1 to 5</div>
-            <div class="proof-label">seats per business - built for owner-operators and the small teams around them</div>
+            <div class="proof-label">seats per business — built for owner-operators and the small teams around them</div>
         </div>
         <div class="proof-item">
             <div class="proof-number">Every file</div>
-            <div class="proof-label">PDF, XLSX, CSV, DOCX, and scanned images - ingested and indexed</div>
+            <div class="proof-label">PDF, XLSX, CSV, DOCX, and scanned images — ingested and indexed</div>
         </div>
         <div class="proof-item">
             <div class="proof-number">Built by AVP</div>
-            <div class="proof-label">ProAsiste is a product of AI Value Prospector - see <a href="https://avaluei.com" rel="noopener noreferrer">avaluei.com</a></div>
+            <div class="proof-label">ProAsiste is a product of AI Value Prospector — see <a href="https://avaluei.com" rel="noopener noreferrer">avaluei.com</a></div>
         </div>
     </div>
 </section>
 
+<section aria-labelledby="verticals-heading">
+    <h2 id="verticals-heading">Which business are you?</h2>
+    <p class="sub">Mente adapts to your industry's documents and workflows. Choose your vertical for a closer look.</p>
+    <div class="router-grid">
+        <a href="/legal" class="router-card">
+            <div class="router-card-icon"><i class="fa-solid fa-scale-balanced" aria-hidden="true"></i></div>
+            <h3>Lawyers &amp; law firms</h3>
+            <p>Contracts, case files, billing records, precedents — all searchable, all cited.</p>
+            <span class="router-arrow">Learn more &rarr;</span>
+        </a>
+        <a href="/services" class="router-card">
+            <div class="router-card-icon"><i class="fa-solid fa-wrench" aria-hidden="true"></i></div>
+            <h3>Service businesses</h3>
+            <p>Work orders, maintenance records, customer history — nothing falls through the cracks.</p>
+            <span class="router-arrow">Learn more &rarr;</span>
+        </a>
+        <a href="/supply-chain" class="router-card">
+            <div class="router-card-icon"><i class="fa-solid fa-boxes-stacked" aria-hidden="true"></i></div>
+            <h3>Supply chain &amp; distribution</h3>
+            <p>POs, invoices, manifests, supplier contracts — mismatches caught before they cost you.</p>
+            <span class="router-arrow">Learn more &rarr;</span>
+        </a>
+    </div>
+</section>
+
 <section class="capabilities" aria-labelledby="capabilities-heading">
-    <h2 id="capabilities-heading">What Mente does for your business</h2>
-    <p class="sub">Three jobs, over and over, on whatever files you drop in.</p>
+    <h2 id="capabilities-heading">Problems Mente solves</h2>
+    <p class="sub">Three problems every document-heavy business faces. Three ways Mente fixes them.</p>
     <div class="cap-grid">
         <div class="cap-card">
-            <div class="cap-icon"><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i></div>
-            <h3>Answers, grounded in your files</h3>
-            <p>Ask anything about what you have on record. Mente cites the exact document and line.</p>
+            <div class="cap-problem">You can't find it when you need it</div>
+            <h3>Instant answers from every file</h3>
+            <p>Mente turns every uploaded document into a searchable knowledge base. Ask in plain English — get the answer with the exact source cited, in seconds.</p>
             <p class="example">"Which suppliers raised prices more than 10% this quarter?"</p>
         </div>
         <div class="cap-card">
-            <div class="cap-icon"><i class="fa-solid fa-file-pdf" aria-hidden="true"></i></div>
-            <h3>Reports and PDFs, written for you</h3>
-            <p>Describe the report you need. Mente drafts it as PDF, XLSX, or DOCX, formatted to share.</p>
+            <div class="cap-problem">Reports take all day to compile</div>
+            <h3>Reports drafted in minutes, not hours</h3>
+            <p>Describe what you need. Mente pulls from your files, drafts the report, and formats it as PDF, XLSX, or DOCX — ready to share, not ready to edit for two more hours.</p>
             <p class="example">"Monthly A/R aging report for every customer over 60 days past due."</p>
         </div>
         <div class="cap-card">
-            <div class="cap-icon"><i class="fa-solid fa-diagram-project" aria-hidden="true"></i></div>
-            <h3>Memory that connects the dots</h3>
-            <p>Every conversation, file, and extracted fact becomes part of your knowledge graph - queryable across time.</p>
+            <div class="cap-problem">Knowledge leaves with every employee</div>
+            <h3>Institutional memory that doesn't quit</h3>
+            <p>Every conversation, extracted fact, and filed document feeds a persistent knowledge graph. New hires get years of context on day one, without having to ask anyone.</p>
             <p class="example">"Show every promise this customer has made to pay, going back 12 months."</p>
         </div>
     </div>
@@ -227,14 +294,14 @@
 <section class="differentiation-wrap" aria-labelledby="diff-heading">
     <div class="differentiation">
         <h2 id="diff-heading" style="text-align:center;margin-bottom:0.5rem;">Why Mente, not ChatGPT?</h2>
-        <p class="sub" style="margin-bottom:0;">Both use modern LLMs. The difference is what they know about you.</p>
+        <p class="sub" style="margin-bottom:0;">Both use modern LLMs. The difference is what they know about <em>you</em>.</p>
         <div class="diff-grid">
             <div class="diff-col them">
                 <h4>General-purpose chatbots</h4>
                 <ul>
                     <li>Know the public internet, not your business</li>
                     <li>Forget every conversation when you close the tab</li>
-                    <li>Paste-and-pray - you hand over snippets each time</li>
+                    <li>Paste-and-pray — you hand over snippets each time</li>
                     <li>Guess when they don't know, no source of truth</li>
                 </ul>
             </div>
@@ -243,7 +310,7 @@
                 <ul>
                     <li>Trained on your uploaded documents, invoices, and data</li>
                     <li>Remembers every conversation across months</li>
-                    <li>Reads every file once - answers forever after</li>
+                    <li>Reads every file once — answers forever after</li>
                     <li>Cites the exact document for every claim</li>
                 </ul>
             </div>
@@ -253,12 +320,12 @@
 
 <section class="demo" id="demo" aria-labelledby="demo-heading">
     <h2 id="demo-heading">See it in action</h2>
-    <p class="sub">A live demo loaded with real business data. No signup. No credit card.</p>
+    <p class="sub">A live demo loaded with real business data. No signup required.</p>
     <div class="demo-feature">
         <div class="demo-avatar" aria-hidden="true">C</div>
-        <h3>Small &amp; Medium Business - HVAC Owner</h3>
-        <div class="demo-role">Carlos Mendoza - Desert Sun Comfort - Phoenix, AZ</div>
-        <p>Meet Carlos, 2nd-generation owner of a 4-person HVAC shop. His twin tracks maintenance-plan renewals, customer health, A/R aging, and technician scheduling - so nothing falls through the cracks while he's under a crawlspace.</p>
+        <h3>Small &amp; Medium Business — HVAC Owner</h3>
+        <div class="demo-role">Carlos Mendoza · Desert Sun Comfort · Phoenix, AZ</div>
+        <p>Carlos, 2nd-generation owner of a 4-person HVAC shop, used to spend every Sunday morning hunting for customer records and chasing late invoices. His ProAsiste twin now tracks maintenance-plan renewals, customer health, A/R aging, and technician scheduling — so nothing falls through the cracks while he's under a crawlspace.</p>
         <div class="demo-tags">
             <span class="demo-tag"><i class="fa-solid fa-fan" aria-hidden="true"></i> Maintenance Plans</span>
             <span class="demo-tag"><i class="fa-solid fa-users" aria-hidden="true"></i> Customer CRM</span>
@@ -267,8 +334,28 @@
             <span class="demo-tag"><i class="fa-solid fa-file-arrow-up" aria-hidden="true"></i> Document Ingestion</span>
             <span class="demo-tag"><i class="fa-solid fa-chart-line" aria-hidden="true"></i> KPI Reports</span>
         </div>
-        <a href="https://ctwin.ai/chat/v3/demo-business-admin/f5b3c248ff688408d551d45ff0a1a88e" class="btn btn-gold btn-lg" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-arrow-right" style="margin-right:8px;" aria-hidden="true"></i> Open the Desert Sun demo</a>
+        <a href="https://ctwin.ai/chat/v3/demo-business-admin/f5b3c248ff688408d551d45ff0a1a88e" class="btn btn-gold btn-lg" target="_blank" rel="noopener noreferrer" data-demo-fallback="desert-sun-admin"><i class="fa-solid fa-arrow-right" style="margin-right:8px;" aria-hidden="true"></i> Open the Desert Sun demo</a>
     </div>
+</section>
+
+<section class="pricing-wrap" aria-labelledby="pricing-heading">
+    <h2 id="pricing-heading">Straightforward pricing</h2>
+    <p class="sub">One plan, one price. Everything included.</p>
+    <div class="price-card">
+        <h3>Owner-Operator</h3>
+        <div class="price-tagline">For small businesses running on documents</div>
+        <div class="price-amount">$79 <span>/ seat / month</span></div>
+        <ul>
+            <li>Up to 5 seats per business</li>
+            <li>All file types: PDF, XLSX, CSV, DOCX, scanned images</li>
+            <li>Unlimited document ingestion</li>
+            <li>Full conversation history, persistent knowledge graph</li>
+            <li>Report export: PDF, XLSX, DOCX</li>
+            <li>Role-based access control</li>
+            <li>US, EU, LATAM, and APAC hosting options</li>
+        </ul>
+    </div>
+    <p class="price-note">Questions about fit or volume? <a href="#learn-more">We'd love to talk.</a></p>
 </section>
 
 <section class="security" id="security" aria-labelledby="security-heading">
@@ -282,35 +369,15 @@
             <div class="security-item"><i class="fa-solid fa-server" aria-hidden="true"></i><strong>Regional hosting available.</strong> US, EU, LATAM, and APAC VPS options on request.</div>
         </div>
         <p class="security-note">
-            Security whitepaper and data-processing addendum available on request -
-            <a href="#request-access">ask for a copy</a>.
+            Security whitepaper and data-processing addendum available on request —
+            <a href="#learn-more">ask for a copy</a>.
         </p>
     </div>
 </section>
 
-<section class="pricing" id="pricing" aria-labelledby="pricing-heading">
-    <h2 id="pricing-heading">One plan. Everything included.</h2>
-    <p class="sub">Billed monthly. Cancel any time.</p>
-    <div class="price-card">
-        <h3>ProAsiste Professional</h3>
-        <p class="price-tagline">For owner-operator teams of 1 - 5 seats.</p>
-        <div class="price-amount">$79 <span>/seat/month</span></div>
-        <ul>
-            <li>Document ingestion - PDF, XLSX, CSV, DOCX, scans</li>
-            <li>Ask-anything search across every file you've uploaded</li>
-            <li>Report generation - PDF, XLSX, DOCX drafts</li>
-            <li>Custom report templates your team can re-run</li>
-            <li>Conversational memory across sessions</li>
-            <li>Role-based access (administrator / employee)</li>
-            <li>Up to 5 seats</li>
-        </ul>
-        <a href="#request-access" class="btn btn-gold"><i class="fa-solid fa-arrow-right" style="margin-right:6px;" aria-hidden="true"></i> Request access</a>
-    </div>
-</section>
-
-<section class="request-access" id="request-access" aria-labelledby="access-heading">
-    <h2 id="access-heading">Request access</h2>
-    <p class="sub">Tell us about your business. We review requests within one business day.</p>
+<section class="learn-more" id="learn-more" aria-labelledby="learn-more-heading">
+    <h2 id="learn-more-heading">I want to learn more!</h2>
+    <p class="sub">Tell us about your business. We'll be in touch within one business day.</p>
     <div class="form-card">
         <form id="access-form" class="form-grid" novalidate>
             <div>
@@ -332,12 +399,12 @@
                 </div>
             </div>
             <div>
-                <label for="use_case">What would you use Mente for?</label>
-                <textarea id="use_case" name="use_case" placeholder="e.g. monthly financial reports, invoice matching, customer health, supplier audits..."></textarea>
+                <label for="use_case">What problem are you trying to solve?</label>
+                <textarea id="use_case" name="use_case" placeholder="e.g. finding contracts quickly, compiling monthly reports, matching invoices to POs..."></textarea>
             </div>
             <button type="submit" class="btn btn-gold btn-lg submit-btn" style="width:100%;justify-content:center;">
                 <i class="fa-solid fa-paper-plane icon" aria-hidden="true"></i>
-                <span class="submit-label">Request access</span>
+                <span class="submit-label">I want to learn more!</span>
             </button>
             <div id="form-msg" class="form-msg" role="status" aria-live="polite"></div>
         </form>
@@ -353,7 +420,7 @@
     </p>
     <p>
         &copy; <span id="footer-year">2026</span> AI Value Prospector &middot;
-        <a href="#request-access">Contact</a> &middot;
+        <a href="#learn-more">Contact</a> &middot;
         <span>Privacy</span> &middot;
         <span>Terms</span>
     </p>
@@ -404,7 +471,7 @@
                 var body = await res.json();
                 if (res.ok && body.success) {
                     msg.className = 'form-msg success';
-                    msg.textContent = body.message || "Thanks - we'll be in touch.";
+                    msg.textContent = body.message || "Thanks — we'll be in touch.";
                     form.reset();
                 } else {
                     msg.className = 'form-msg error';
@@ -416,10 +483,75 @@
             } finally {
                 if (submitBtn) submitBtn.disabled = false;
                 if (submitBtn) submitBtn.removeAttribute('data-busy');
-                if (submitLabel) submitLabel.textContent = 'Request access';
+                if (submitLabel) submitLabel.textContent = 'I want to learn more!';
             }
         });
     })();
+</script>
+
+<script>
+(function () {
+  var FALLBACKS = {
+    'desert-sun-admin': { img: '/_assets/demos/desert-sun-admin.svg', alt: 'Desert Sun admin view', caption: "Live demo temporarily unavailable — here's the HVAC admin view." }
+  };
+  var links = document.querySelectorAll('a[data-demo-fallback]');
+  if (!links.length) return;
+  var forceFail = new URLSearchParams(window.location.search).get('demo-probe') === 'force-fail';
+  var origins = {};
+  links.forEach(function (a) { try { origins[new URL(a.href).origin] = true; } catch (e) {} });
+
+  function probe(origin) {
+    var cacheKey = 'demoProbe:' + origin;
+    if (forceFail) { sessionStorage.setItem(cacheKey, 'down'); return Promise.resolve(false); }
+    var cached = sessionStorage.getItem(cacheKey);
+    if (cached !== null) return Promise.resolve(cached === 'up');
+    var ctrl = new AbortController();
+    var timer = setTimeout(function () { ctrl.abort(); }, 3000);
+    var sameOrigin = origin === window.location.origin;
+    return fetch(origin + '/chat/', {
+      method: 'HEAD', mode: sameOrigin ? 'cors' : 'no-cors',
+      cache: 'no-store', signal: ctrl.signal, credentials: 'omit'
+    }).then(function (res) {
+      clearTimeout(timer);
+      var up = sameOrigin ? (res.status < 500) : true;
+      sessionStorage.setItem(cacheKey, up ? 'up' : 'down');
+      return up;
+    }).catch(function () {
+      clearTimeout(timer);
+      sessionStorage.setItem(cacheKey, 'down');
+      return false;
+    });
+  }
+
+  function swap(a) {
+    var key = a.getAttribute('data-demo-fallback');
+    var fb = FALLBACKS[key];
+    if (!fb) return;
+    var fig = document.createElement('figure');
+    fig.className = 'demo-fallback';
+    fig.style.cssText = 'margin:0;padding:12px;border:1px dashed #cbd5e1;border-radius:12px;text-align:center;background:#f8fafc;';
+    var img = document.createElement('img');
+    img.src = fb.img;
+    img.alt = fb.alt;
+    img.loading = 'lazy';
+    img.style.cssText = 'max-width:100%;height:auto;border-radius:8px;';
+    var cap = document.createElement('figcaption');
+    cap.style.cssText = 'font-size:13px;color:#64748b;margin-top:8px;';
+    cap.textContent = fb.caption;
+    fig.appendChild(img);
+    fig.appendChild(cap);
+    a.replaceWith(fig);
+  }
+
+  Object.keys(origins).forEach(function (origin) {
+    probe(origin).then(function (up) {
+      if (up) return;
+      document.querySelectorAll('a[data-demo-fallback]').forEach(function (a) {
+        try { if (new URL(a.href).origin === origin) swap(a); } catch (e) {}
+      });
+    });
+  });
+})();
 </script>
 
 </body>
