@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AiAxia — Transactional Email Previews</title>
+    <meta name="description" content="Brand-themed transactional email mockups for ProAsiste, EduAsiste, and AiVP — welcome, password reset, invites, invoices, and subscription notices.">
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23336699'/%3E%3Ctext x='32' y='44' font-family='Georgia,serif' font-size='34' font-weight='700' fill='white' text-anchor='middle'%3E@%3C/text%3E%3C/svg%3E">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --page-bg: #f1f5f9;
+            --page-text: #1e293b;
+            --page-muted: #64748b;
+            --page-border: #e2e8f0;
+            --page-card: #ffffff;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: var(--page-bg); color: var(--page-text); line-height: 1.6;
+        }
+
+        /* ---- page chrome ---- */
+        header.bar { max-width: 1240px; margin: 0 auto; padding: 1.5rem 5% 0.5rem; }
+        .kicker { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--page-muted); }
+        header.bar h1 { font-size: 2rem; font-weight: 800; letter-spacing: -0.02em; margin: 0.35rem 0 0.4rem; }
+        header.bar p { color: var(--page-muted); max-width: 60ch; font-size: 1rem; }
+
+        .controls {
+            position: sticky; top: 0; z-index: 50;
+            background: rgba(241,245,249,0.92); backdrop-filter: blur(8px);
+            border-bottom: 1px solid var(--page-border);
+            padding: 0.9rem 5%; margin-top: 1.25rem;
+        }
+        .controls-inner { max-width: 1240px; margin: 0 auto; display: flex; flex-wrap: wrap; align-items: center; gap: 0.9rem; }
+        .controls-label { font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--page-muted); }
+        .brand-pills { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+        .brand-pill {
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            padding: 0.5rem 1rem; border-radius: 999px; cursor: pointer;
+            font-family: inherit; font-weight: 600; font-size: 0.9rem;
+            border: 1px solid var(--page-border); background: #fff; color: var(--page-text);
+            transition: all 0.15s;
+        }
+        .brand-pill .dot { width: 11px; height: 11px; border-radius: 999px; flex: none; }
+        .brand-pill:hover { border-color: #cbd5e1; }
+        .brand-pill[aria-pressed="true"] { color: #fff; border-color: transparent; }
+        .brand-pill[data-brand="proasiste"][aria-pressed="true"] { background: #8a6d3b; }
+        .brand-pill[data-brand="eduasiste"][aria-pressed="true"] { background: #0369a1; }
+        .brand-pill[data-brand="aivp"][aria-pressed="true"] { background: #92700f; }
+
+        /* ---- email grid ---- */
+        .grid {
+            max-width: 1240px; margin: 1.75rem auto 4rem; padding: 0 5%;
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(560px, 1fr));
+            gap: 2rem 2rem; align-items: start;
+        }
+        @media (max-width: 640px) { .grid { grid-template-columns: 1fr; } }
+        .email-card { display: flex; flex-direction: column; }
+        .email-meta { margin-bottom: 0.7rem; }
+        .email-meta .name { font-size: 1.05rem; font-weight: 700; }
+        .email-meta .desc { font-size: 0.85rem; color: var(--page-muted); }
+        .email-meta .subject {
+            display: inline-block; margin-top: 0.4rem; font-size: 0.78rem; color: var(--page-muted);
+            background: #fff; border: 1px solid var(--page-border); border-radius: 7px; padding: 0.22rem 0.6rem;
+        }
+        .email-meta .subject b { color: var(--page-text); font-weight: 600; }
+
+        /* ---- THE EMAIL (themed by data-brand on .gallery) ---- */
+        .email-frame {
+            border-radius: 14px; overflow: hidden;
+            box-shadow: 0 10px 30px -12px rgba(0,0,0,0.35);
+            border: 1px solid var(--page-border);
+        }
+        .gallery[data-brand="proasiste"] {
+            --bg:#1A1610; --bg-elev:#231E16; --border:#3D3328; --text:#F5EDD6;
+            --text-soft:#D4C8A8; --text-muted:#A89068; --brand:#CFB382; --brand-fg:#000000;
+            --brand-tint:#2A1F12; --link:#DBC494; --persona:'Mente'; --brandname:'ProAsiste';
+        }
+        .gallery[data-brand="eduasiste"] {
+            --bg:#0F172A; --bg-elev:#1E293B; --border:#334155; --text:#E2E8F0;
+            --text-soft:#CBD5E1; --text-muted:#94A3B8; --brand:#2EA3F2; --brand-fg:#FFFFFF;
+            --brand-tint:#0D2538; --link:#4CB3F4; --persona:'Eduardo'; --brandname:'EduAsiste';
+        }
+        .gallery[data-brand="aivp"] {
+            --bg:#0F1115; --bg-elev:#161A22; --border:#262A33; --text:#E8EAED;
+            --text-soft:#C2C6CC; --text-muted:#9AA0A6; --brand:#E8B547; --brand-fg:#0F1115;
+            --brand-tint:#2A1F08; --link:#E8B547; --persona:'The AiVP Team'; --brandname:'AiVP';
+        }
+
+        .em-body { background: var(--bg); padding: 30px 24px; }
+        .em-shell { max-width: 600px; margin: 0 auto; }
+        .em-serif { font-family: Georgia, 'Times New Roman', Times, serif; }
+        .em-wordmark { padding: 0 0 18px 4px; }
+        .em-wordmark span { font-family: Georgia, serif; font-size: 20px; font-weight: 700; letter-spacing: 1.5px; color: var(--text); }
+        .em-wordmark span::after { content: var(--brandname); }
+        .em-card { background: var(--bg-elev); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; }
+        .em-rule { height: 4px; background: var(--brand); }
+        .em-inner { padding: 34px 36px 30px; }
+        .em-h1 { font-family: Georgia, serif; font-size: 24px; line-height: 1.2; font-weight: 700; color: var(--text); margin: 0 0 16px; }
+        .em-greet { font-size: 15px; line-height: 1.6; color: var(--text-soft); margin: 0 0 14px; }
+        .em-p { font-size: 15px; line-height: 1.65; color: var(--text-muted); margin: 0 0 24px; }
+        .em-p strong { color: var(--text-soft); }
+        .em-small { font-size: 13px; line-height: 1.65; color: var(--text-muted); margin: 0; }
+        .em-fine { font-size: 12px; line-height: 1.6; color: var(--text-muted); margin: 0 0 14px; }
+        .em-fine a, .em-link { color: var(--link); text-decoration: none; word-break: break-all; }
+        .em-label { font-size: 12px; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); margin: 0 0 7px; }
+        .em-subhead { font-size: 12px; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); margin: 0 0 10px; }
+
+        .em-btn {
+            display: inline-block; padding: 14px 28px; border-radius: 10px;
+            background: var(--brand); color: var(--brand-fg);
+            font-size: 15px; font-weight: 700; letter-spacing: 0.2px; text-decoration: none; margin: 0 0 24px;
+        }
+        .em-btn.ghost { background: transparent; color: var(--text); border: 1px solid var(--border); }
+        .em-btn-row { display: flex; gap: 12px; margin-bottom: 24px; flex-wrap: wrap; }
+        .em-btn-row .em-btn { margin: 0; }
+
+        .em-code {
+            background: var(--brand-tint); border: 1px solid var(--border); border-radius: 12px;
+            padding: 22px 16px; text-align: center; margin: 0 0 24px;
+        }
+        .em-code span { font-family: 'SFMono-Regular', Consolas, Menlo, monospace; font-size: 30px; font-weight: 700; letter-spacing: 10px; color: var(--text); }
+
+        .em-panel {
+            background: var(--brand-tint); border: 1px solid var(--border); border-radius: 10px;
+            padding: 14px 18px; margin: 0 0 18px;
+            font-family: 'SFMono-Regular', Consolas, Menlo, monospace; font-size: 15px; font-weight: 700; color: var(--text); word-break: break-all;
+        }
+        .em-msg {
+            background: var(--brand-tint); border: 1px solid var(--border); border-radius: 12px;
+            padding: 16px 18px; font-size: 14px; line-height: 1.6; color: var(--text-soft);
+        }
+
+        table.em-details { width: 100%; border-collapse: collapse; background: var(--brand-tint); border: 1px solid var(--border); border-radius: 12px; margin: 0 0 24px; overflow: hidden; }
+        table.em-details td { padding: 13px 18px; border-bottom: 1px solid var(--border); }
+        table.em-details tr:last-child td { border-bottom: none; }
+        table.em-details td.k { font-size: 13px; color: var(--text-muted); white-space: nowrap; vertical-align: top; }
+        table.em-details td.v { font-size: 14px; font-weight: 600; color: var(--text); text-align: right; word-break: break-word; }
+
+        ul.em-list { list-style: none; margin: 0 0 24px; }
+        ul.em-list li { font-size: 14px; line-height: 1.6; color: var(--text-soft); padding-left: 18px; position: relative; margin-bottom: 4px; }
+        ul.em-list li::before { content: "•"; color: var(--brand); position: absolute; left: 0; }
+
+        .em-foot { padding: 22px 4px 0; }
+        .em-foot .thanks { font-size: 13px; line-height: 1.5; color: var(--text-soft); margin: 0 0 4px; }
+        .em-foot .thanks b { color: var(--text); }
+        .em-foot .thanks b::after { content: var(--persona); }
+        .em-foot .auto { font-size: 11px; line-height: 1.6; color: var(--text-muted); margin: 12px 0 0; }
+        .em-foot .auto::before { content: var(--brandname) " · "; }
+
+        footer.page { text-align: center; padding: 2.5rem 5%; color: var(--page-muted); font-size: 0.85rem; border-top: 1px solid var(--page-border); }
+    </style>
+</head>
+<body>
+    <header class="bar">
+        <div class="kicker">AiAxia · Transactional Emails</div>
+        <h1>Email Previews</h1>
+        <p>Brand-themed transactional emails rendered live. Pick a brand to recolor every template — palettes mirror the TwinCloud chat UI. Issue #46.</p>
+    </header>
+
+    <div class="controls">
+        <div class="controls-inner">
+            <span class="controls-label">Brand</span>
+            <div class="brand-pills" role="group" aria-label="Choose brand theme">
+                <button class="brand-pill" data-brand="proasiste" aria-pressed="false"><span class="dot" style="background:#CFB382"></span> ProAsiste</button>
+                <button class="brand-pill" data-brand="eduasiste" aria-pressed="true"><span class="dot" style="background:#2EA3F2"></span> EduAsiste</button>
+                <button class="brand-pill" data-brand="aivp" aria-pressed="false"><span class="dot" style="background:#E8B547"></span> AiVP</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="gallery" data-brand="eduasiste">
+        <div class="grid" id="grid"></div>
+    </div>
+
+    <footer class="page">
+        ProAsiste · EduAsiste · AiVP — transactional email mockups · Powered by Mente &amp; Eduardo
+    </footer>
+
+    <script>
+        // ---- tiny render helpers (mirror emails/layouts/brand.blade.php) ----
+        const shell = (inner) => `
+            <div class="em-body"><div class="em-shell">
+                <div class="em-wordmark"><span></span></div>
+                <div class="em-card">
+                    <div class="em-rule"></div>
+                    <div class="em-inner">${inner}</div>
+                </div>
+                <div class="em-foot">
+                    <p class="thanks">Thanks,<br><b></b></p>
+                    <p class="auto">This is an automated message.</p>
+                </div>
+            </div></div>`;
+
+        const h1   = (t) => `<h1 class="em-h1">${t}</h1>`;
+        const greet= (n) => `<p class="em-greet">Hi ${n},</p>`;
+        const p    = (t) => `<p class="em-p">${t}</p>`;
+        const small= (t) => `<p class="em-small">${t}</p>`;
+        const fine = (t) => `<p class="em-fine">${t}</p>`;
+        const subhead=(t) => `<p class="em-subhead">${t}</p>`;
+        const btn  = (t) => `<a class="em-btn" href="#">${t}</a>`;
+        const btnRow=(...b) => `<div class="em-btn-row">${b.join('')}</div>`;
+        const ghost= (t) => `<a class="em-btn ghost" href="#">${t}</a>`;
+        const code = (c) => `<div class="em-code"><span>${c}</span></div>`;
+        const label= (t) => `<p class="em-label">${t}</p>`;
+        const panel= (v) => `<div class="em-panel">${v}</div>`;
+        const link = (u) => `<a class="em-link" href="#">${u}</a>`;
+        const list = (items) => `<ul class="em-list">${items.map(i=>`<li>${i}</li>`).join('')}</ul>`;
+        const details = (rows) => `<table class="em-details">${rows.map(r=>`<tr><td class="k">${r[0]}</td><td class="v">${r[1]}</td></tr>`).join('')}</table>`;
+
+        // ---- the 10 emails ----
+        const EMAILS = [
+            {
+                name: 'Welcome — Your twin is ready',
+                desc: 'Sent when a twin is provisioned.',
+                subject: 'Your twin is ready — {Brand}',
+                html: () => shell(
+                    h1('Your twin is ready') +
+                    greet('Todd Chapin') +
+                    p('Your twin has been created and is ready to use. Open your personalized workspace with the button below.') +
+                    btn('Access your twin') +
+                    fine(`If the button doesn't work, copy and paste this link into your browser:<br>${link('https://twin.example.com/u/abc123')}`)
+                )
+            },
+            {
+                name: 'Password reset (OTP)',
+                desc: 'Self-service password reset. Reset button + code + expiry.',
+                subject: 'Reset your password — {Brand}',
+                html: () => shell(
+                    h1('Reset your password') +
+                    greet('Todd Chapin') +
+                    p("Here's the password reset link you requested:") +
+                    btn('Reset your password') +
+                    `<p class="em-fine">You can also go back to your browser and enter this code:</p>` +
+                    code('418293') +
+                    small("This one-time code is valid until 3:42 PM UTC. If you didn't request this, please ignore this email. Your account remains secure.")
+                )
+            },
+            {
+                name: 'Team OTP',
+                desc: 'Team-member password reset code.',
+                subject: 'Reset your password — {Brand}',
+                html: () => shell(
+                    h1('Reset your password') +
+                    greet('Maria') +
+                    p('We received a request to reset your team account password. Enter this code in your browser to continue:') +
+                    code('602194') +
+                    small("This one-time code is valid until 3:42 PM UTC. If you didn't request this, please ignore this email. Your account remains secure.")
+                )
+            },
+            {
+                name: 'Team reset link',
+                desc: 'Admin-triggered reset link for a team member.',
+                subject: 'Reset your team account password',
+                html: () => shell(
+                    h1('Reset your password') +
+                    greet('Maria') +
+                    p('A password reset was requested for your team account. Use the button below to set a new password.') +
+                    btn('Reset password') +
+                    fine(`If the button doesn't work, copy and paste this link into your browser:<br>${link('https://app.example.com/reset/maria@firm.com')}`) +
+                    small("If you didn't expect this, you can safely ignore this email. Your account remains secure.")
+                )
+            },
+            {
+                name: 'Authorized-user invite',
+                desc: 'New team member credentials + access link.',
+                subject: 'Your {Brand} dashboard access',
+                html: () => shell(
+                    h1("You've been granted access") +
+                    greet('Maria') +
+                    p("You've been granted access to the dashboard. Use the secure details below to log in.") +
+                    label('Username') + panel('maria.lopez') +
+                    label('Password') + panel('Xk9$mP2wQ') +
+                    btn('Access dashboard') +
+                    fine(`Or copy and save your personal access link:<br>${link('https://app.example.com/invite/abc123xyz')}`) +
+                    small("Save this link somewhere safe — it's unique to your account. Don't share it with anyone.")
+                )
+            },
+            {
+                name: 'Invoice paid (customer)',
+                desc: 'Receipt after a successful payment.',
+                subject: 'Your {Brand} invoice is ready',
+                html: () => shell(
+                    h1('Your invoice is ready') +
+                    greet('Todd Chapin') +
+                    p('Your payment was processed successfully. Your invoice for the <strong>PRO</strong> plan is now available.') +
+                    details([
+                        ['Invoice ID', 'in_1QxYzAbc'],
+                        ['Plan', 'PRO'],
+                        ['Billing cycle', 'Monthly'],
+                        ['Next billing date', '03 Jul 2026'],
+                    ]) +
+                    btn('Download invoice (PDF)')
+                )
+            },
+            {
+                name: 'Invoice paid (admin)',
+                desc: 'Internal notice; themed to the customer LOB.',
+                subject: 'Invoice paid — {Brand}',
+                html: () => shell(
+                    h1('Invoice payment received') +
+                    p('A subscription invoice has been successfully paid.') +
+                    details([
+                        ['Customer', 'Todd Chapin (todd@acme.com)'],
+                        ['Plan', 'PRO'],
+                        ['Invoice ID', 'in_1QxYzAbc'],
+                        ['Subscription ID', 'sub_1QxYz'],
+                        ['Billing cycle', 'Monthly'],
+                        ['Period ends', '03 Jul 2026'],
+                    ]) +
+                    btnRow(btn('View invoice'), ghost('Download receipt'))
+                )
+            },
+            {
+                name: 'Subscription active (customer)',
+                desc: 'Confirmation after checkout.',
+                subject: 'Your {Brand} subscription is active',
+                html: () => shell(
+                    h1('Your subscription is active') +
+                    greet('Todd Chapin') +
+                    p('Thank you for subscribing. Your subscription has been successfully activated.') +
+                    subhead('Subscription details') +
+                    details([
+                        ['Plan', 'Pro'],
+                        ['Billing type', 'Monthly'],
+                        ['Status', 'Active'],
+                        ['Next billing date', '03 Jul 2026'],
+                    ]) +
+                    subhead('Payment reference') +
+                    details([
+                        ['Subscription ID', 'sub_1QxYz'],
+                        ['Customer ID', 'cus_ABC123'],
+                    ]) +
+                    subhead("What's next") +
+                    list(['Access your AI-powered dashboard', 'Build and customize your C-Twin', 'Invite team members (if included)']) +
+                    btn('Go to dashboard')
+                )
+            },
+            {
+                name: 'Subscription activated (admin)',
+                desc: 'Internal checkout notice; themed to customer LOB.',
+                subject: 'New subscription activated — {Brand}',
+                html: () => shell(
+                    h1('New subscription activated') +
+                    p('A user has completed a subscription checkout.') +
+                    subhead('Customer') +
+                    details([['Name', 'Todd Chapin'], ['Email', 'todd@acme.com'], ['User ID', '4821']]) +
+                    subhead('Subscription') +
+                    details([['Plan', 'Pro'], ['Billing interval', 'Monthly'], ['Status', 'Active'], ['Current period end', '03 Jul 2026']]) +
+                    subhead('Stripe references') +
+                    details([['Customer ID', 'cus_ABC123'], ['Subscription ID', 'sub_1QxYz'], ['Price ID', 'price_1Pro']]) +
+                    small('Review billing and invoices in the Stripe dashboard if required.')
+                )
+            },
+            {
+                name: 'Contact / lead submission',
+                desc: 'Lead alert; themed to the LOB site it came from.',
+                subject: 'New lead submission',
+                html: () => shell(
+                    h1('New lead submission') +
+                    p('A new lead came in from the website. Review the details and route it to the right Business Partner.') +
+                    details([
+                        ['Name', 'Jordan Avery'],
+                        ['Phone', '+1 (555) 014-7788'],
+                        ['Email', 'jordan@brightfork.co'],
+                        ['Nature of business', 'Creative agency'],
+                    ]) +
+                    label('Message') +
+                    `<div class="em-msg">We're a 9-person shop looking to put a twin in front of our account leads. Can we get a walkthrough next week?</div>`
+                )
+            },
+        ];
+
+        // ---- render ----
+        const grid = document.getElementById('grid');
+        grid.innerHTML = EMAILS.map(e => `
+            <div class="email-card">
+                <div class="email-meta">
+                    <div class="name">${e.name}</div>
+                    <div class="desc">${e.desc}</div>
+                    <span class="subject">Subject: <b data-subject="${e.subject.replace(/"/g,'&quot;')}">${e.subject}</b></span>
+                </div>
+                <div class="email-frame">${e.html()}</div>
+            </div>
+        `).join('');
+
+        // ---- brand toggle ----
+        const gallery = document.querySelector('.gallery');
+        const pills = document.querySelectorAll('.brand-pill');
+        const BRAND_NAMES = { proasiste: 'ProAsiste', eduasiste: 'EduAsiste', aivp: 'AiVP' };
+        function setBrand(slug) {
+            gallery.dataset.brand = slug;
+            pills.forEach(p => p.setAttribute('aria-pressed', String(p.dataset.brand === slug)));
+            document.querySelectorAll('[data-subject]').forEach(el => {
+                el.textContent = el.dataset.subject.replace('{Brand}', BRAND_NAMES[slug]);
+            });
+            history.replaceState(null, '', '?brand=' + slug);
+        }
+        pills.forEach(p => p.addEventListener('click', () => setBrand(p.dataset.brand)));
+        const initial = new URLSearchParams(location.search).get('brand');
+        setBrand(['proasiste','eduasiste','aivp'].includes(initial) ? initial : 'eduasiste');
+    </script>
+</body>
+</html>

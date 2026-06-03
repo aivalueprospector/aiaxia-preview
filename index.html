@@ -75,12 +75,14 @@
             border-radius: 8px;
             margin-bottom: 8px;
         }
-        .card-edu:hover    { border-color: var(--eduasiste); }
-        .card-pro:hover    { border-color: var(--proasiste); }
-        .card-exp:hover    { border-color: var(--expertasiste); }
         .card-edu .swatch  { background: var(--eduasiste); }
         .card-pro .swatch  { background: var(--proasiste); }
         .card-exp .swatch  { background: var(--expertasiste); }
+        .card-mail .swatch { background: linear-gradient(135deg, #CFB382, #2EA3F2 55%, #E8B547); }
+        .card-edu:hover    { border-color: var(--eduasiste); }
+        .card-pro:hover    { border-color: var(--proasiste); }
+        .card-exp:hover    { border-color: var(--expertasiste); }
+        .card-mail:hover   { border-color: #2EA3F2; }
         .card h2 {
             margin: 0;
             font-size: 18px;
@@ -133,6 +135,12 @@
                 <h2>ExpertAsiste</h2>
                 <div class="desc">Peer consultancy platform — legal (Consuela) and accounting (Roberto) verticals. Issue #25 mockup.</div>
                 <div class="url">/aiaxia-preview/expertasiste/</div>
+            </a>
+            <a class="card card-mail" href="emails/">
+                <div class="swatch"></div>
+                <h2>Email previews</h2>
+                <div class="desc">Brand-themed transactional emails — welcome, password reset, invites, invoices, subscriptions. Toggle ProAsiste / EduAsiste / AiVP.</div>
+                <div class="url">/aiaxia-preview/emails/</div>
             </a>
         </div>
     </main>
