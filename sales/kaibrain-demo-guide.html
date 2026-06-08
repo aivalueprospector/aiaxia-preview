@@ -1,0 +1,565 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex, nofollow" />
+<title>KaiBrain Sales Demo Guide — AI Value Prospectors</title>
+<style>
+  :root {
+    --aivp: #E8B547;
+    --aivp-dark: #92700f;
+    --ink: #1a2230;
+    --ink-soft: #45526a;
+    --muted: #6b7a8a;
+    --line: #e2e6ec;
+    --bg: #ffffff;
+    --tint: #fbf8ef;
+  }
+  @page { size: Letter; margin: 0.6in; }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0;
+    background: #f4f5f7;
+    color: var(--ink);
+    font-family: 'Inter', -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+    line-height: 1.55;
+    font-size: 16px;
+  }
+  .topbar {
+    background: #0F1115;
+    border-bottom: 2px solid var(--aivp);
+    padding: 12px 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .topbar .mark {
+    width: 30px; height: 30px; border-radius: 7px;
+    background: var(--aivp); color: #0F1115;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 800; font-size: 14px;
+  }
+  .topbar .name {
+    font-size: 13px; font-weight: 700; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--aivp);
+  }
+  .topbar a.back {
+    margin-left: auto; color: #C2C6CC; text-decoration: none;
+    font-size: 13px; font-weight: 600;
+  }
+  .topbar a.back:hover { color: var(--aivp); }
+  .sheet {
+    max-width: 800px;
+    margin: 28px auto;
+    background: var(--bg);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 44px 52px;
+    box-shadow: 0 6px 26px rgba(15,17,21,0.08);
+  }
+  .eyebrow {
+    font-size: 12px; font-weight: 700; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--aivp-dark);
+    margin: 0 0 6px;
+  }
+  h1 {
+    font-size: 30px; font-weight: 800; letter-spacing: -0.02em;
+    color: #0f1d2c; margin: 0 0 18px; line-height: 1.15;
+    border-bottom: 3px solid var(--aivp); padding-bottom: 14px;
+  }
+  h1 + p { color: var(--ink-soft); }
+  h2 {
+    font-size: 21px; font-weight: 700; color: #0f1d2c;
+    margin: 34px 0 10px; padding-bottom: 6px;
+    border-bottom: 1px solid var(--line);
+  }
+  h3 {
+    font-size: 16.5px; font-weight: 700; color: var(--ink);
+    margin: 22px 0 6px;
+  }
+  p { margin: 10px 0; }
+  a { color: var(--aivp-dark); }
+  hr { border: 0; border-top: 1px solid var(--line); margin: 28px 0; }
+  ul, ol { padding-left: 22px; }
+  li { margin: 4px 0; }
+  code {
+    background: var(--tint); border: 1px solid var(--line);
+    border-radius: 4px; padding: 1px 5px;
+    font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: 0.88em;
+  }
+  pre {
+    background: #0F1115; color: #e8e8e8; border-radius: 8px;
+    padding: 16px 18px; overflow-x: auto; font-size: 13px;
+  }
+  pre code { background: none; border: 0; padding: 0; color: inherit; }
+  /* Blockquotes = "say this" script callouts */
+  blockquote {
+    margin: 14px 0; padding: 12px 18px;
+    background: linear-gradient(135deg, #fbf8ef 0%, #f3ead2 100%);
+    border-left: 4px solid var(--aivp);
+    border-radius: 2px; color: #3a2f10; font-style: italic;
+  }
+  blockquote p { margin: 4px 0; }
+  table {
+    border-collapse: collapse; width: 100%; margin: 14px 0; font-size: 14.5px;
+  }
+  th, td {
+    border: 1px solid var(--line); padding: 8px 12px; text-align: left;
+    vertical-align: top;
+  }
+  thead th {
+    background: #0f1d2c; color: #fff; font-weight: 600;
+    border-color: #0f1d2c;
+  }
+  tbody tr:nth-child(even) { background: var(--tint); }
+  footer.sheet-foot {
+    max-width: 800px; margin: 0 auto 40px; padding: 4px 8px;
+    color: var(--muted); font-size: 13px;
+    display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px;
+  }
+  footer.sheet-foot a { color: var(--aivp-dark); text-decoration: none; }
+  @media print {
+    body { background: #fff; }
+    .topbar { background: #fff; border-bottom-color: var(--aivp); }
+    .topbar .name { color: var(--aivp-dark); }
+    .topbar a.back { display: none; }
+    .sheet { box-shadow: none; border: 0; margin: 0; max-width: none; padding: 0; }
+    footer.sheet-foot { display: none; }
+  }
+</style>
+</head>
+<body>
+<div class="topbar">
+  <span class="mark">Ai</span>
+  <span class="name">AI Value Prospectors</span>
+  <a class="back" href="index.html">&larr; All sales materials</a>
+</div>
+<article class="sheet">
+<p class="eyebrow">Demo script · ProAsiste / KaiBrain</p>
+<h1 id="kaibrain-sales-demo-guide">KaiBrain Sales Demo Guide</h1>
+<p>A comprehensive guide for sales teams to demonstrate, explain, and sell the KaiBrain platform (C-twin for business, L-twin for education).</p>
+<hr />
+<h2 id="quick-reference">Quick Reference</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Component</th>
+<th>Purpose</th>
+<th>Key Selling Point</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Chat Window</strong> (left)</td>
+<td>AI conversation interface</td>
+<td>"Talk to your business knowledge"</td>
+</tr>
+<tr class="even">
+<td><strong>Import Tab</strong> (default)</td>
+<td>Document upload + extraction</td>
+<td>"Drop a document, watch it become knowledge"</td>
+</tr>
+<tr class="odd">
+<td><strong>View Tab</strong></td>
+<td>KaiBrain dashboard + Activity Map</td>
+<td>"See how everything connects and moves"</td>
+</tr>
+<tr class="even">
+<td><strong>Task Tab</strong></td>
+<td>Automated workflows</td>
+<td>"Your AI apprentice handles routine work"</td>
+</tr>
+<tr class="odd">
+<td><strong>Verify Tab</strong></td>
+<td>Approval queue</td>
+<td>"You stay in control of what enters your knowledge base"</td>
+</tr>
+<tr class="even">
+<td><strong>Obsidian</strong> button</td>
+<td>Markdown vault access</td>
+<td>"Your knowledge is portable — never locked in"</td>
+</tr>
+<tr class="odd">
+<td><strong>Neo4j</strong> button</td>
+<td>Graph database browser</td>
+<td>"Power users can query the graph directly"</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="tab-order-import--view--task--verify">Tab Order: Import | View | Task | Verify</h2>
+<p>Import is the default tab on load — the first thing a user sees is the document upload zone.</p>
+<hr />
+<h2 id="import-tab-document-intelligence">Import Tab (Document Intelligence)</h2>
+<h3 id="what-it-is">What It Is</h3>
+<p>Drag-and-drop document processor that extracts entities, relationships, and events from uploaded files, connecting them to your KaiBrain knowledge graph.</p>
+<h3 id="supported-formats">Supported Formats</h3>
+<ul>
+<li>PDF, DOCX, DOC, TXT, MD (up to 25MB)</li>
+<li>Google Docs and Google Sheets via URL import</li>
+<li>CSV, XLSX spreadsheets</li>
+</ul>
+<h3 id="how-to-demo">How to Demo</h3>
+<ol type="1">
+<li>Show the Import tab (it's the default on load)</li>
+<li>Drag a sample invoice or contract onto the upload zone</li>
+<li>Show the extraction progress — entities being identified</li>
+<li>Switch to View tab to see the new KaiNotes appear in the Activity Map</li>
+<li>Ask a question about the document in chat: <em>"What are the key terms in that contract?"</em></li>
+</ol>
+<h3 id="how-to-explain">How to Explain</h3>
+<blockquote>
+<p>"Drop any document here, and KaiBrain reads it, understands it, and connects it to everything else it knows about your business. That supplier contract you just uploaded? It now links to your previous orders, your risk assessments, and your compliance requirements."</p>
+</blockquote>
+<h3 id="how-to-sell">How to Sell</h3>
+<ul>
+<li><strong>Pain Point</strong>: "How many important documents are sitting in folders, never to be found again?"</li>
+<li><strong>Solution</strong>: "Every document becomes searchable, connected, and actionable. KaiBrain doesn't just store files — it understands them."</li>
+<li><strong>ROI Hook</strong>: "When you need to find that one clause in a contract from 18 months ago, do you want to spend an hour searching or 10 seconds asking?"</li>
+</ul>
+<hr />
+<h2 id="view-tab-kaibrain-dashboard">View Tab (KaiBrain Dashboard)</h2>
+<h3 id="what-it-is-1">What It Is</h3>
+<p>The knowledge intelligence dashboard with six sub-views. The default landing is the <strong>Activity Map</strong>.</p>
+<h3 id="sub-views">Sub-Views</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Button</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Activity Map</strong></td>
+<td>Default — recent events, hot entities, attention items, manual creation</td>
+</tr>
+<tr class="even">
+<td><strong>Source Files</strong></td>
+<td>Browse uploaded documents with detail modals</td>
+</tr>
+<tr class="odd">
+<td><strong>KaiNotes</strong></td>
+<td>Browse entity nodes with search, type filter, click-to-edit</td>
+</tr>
+<tr class="even">
+<td><strong>KaiLinks</strong></td>
+<td>Browse relationships between entities</td>
+</tr>
+<tr class="odd">
+<td><strong>KaiEvents</strong></td>
+<td>Browse timestamped micro-events (actor-verb-object)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="activity-map-default-landing">Activity Map (Default Landing)</h3>
+<p>The Activity Map is the first thing users see when they click View. It shows:</p>
+<ul>
+<li><strong>+ KaiNote / + KaiLink / + KaiEvent</strong> — manual creation buttons with modal forms</li>
+<li><strong>Recent Activity</strong> — last 10 KaiEvents showing who did what to whom</li>
+<li><strong>Hot Entities</strong> — top 8 most-connected KaiNotes (clickable chips)</li>
+<li><strong>Needs Attention</strong> — orphan entities (no connections) and stale entities (14+ days without updates)</li>
+</ul>
+<h3 id="how-to-demo-1">How to Demo</h3>
+<ol type="1">
+<li>Click View tab — Activity Map loads by default</li>
+<li>Point out Recent Activity: <em>"These are the latest events extracted from your documents"</em></li>
+<li>Click a Hot Entity chip to open its detail card</li>
+<li>Show the Needs Attention section: <em>"KaiBrain tells you what needs work"</em></li>
+<li>Click <strong>+ KaiNote</strong> to manually create an entity</li>
+<li>Click <strong>+ KaiLink</strong> to connect two entities</li>
+<li>Switch to KaiNotes to browse the full entity list</li>
+<li>Show KaiEvents filtered by verb</li>
+<li>Resize the sidebar by dragging the left edge</li>
+</ol>
+<h3 id="how-to-explain-1">How to Explain</h3>
+<blockquote>
+<p>"The Activity Map is your knowledge command center. At a glance, you see what's happening, what's important, and what needs attention. It's like a living dashboard of your institutional knowledge."</p>
+</blockquote>
+<h3 id="how-to-sell-1">How to Sell</h3>
+<ul>
+<li><strong>Pain Point</strong>: "Do you know which parts of your business knowledge are getting stale or disconnected?"</li>
+<li><strong>Solution</strong>: "KaiBrain actively monitors your knowledge graph and surfaces orphans, gaps, and stale data."</li>
+<li><strong>ROI Hook</strong>: "What if you could prevent knowledge decay before it costs you a deal or a compliance issue?"</li>
+</ul>
+<hr />
+<h2 id="task-tab-ai-apprentice">Task Tab (AI Apprentice)</h2>
+<h3 id="what-it-is-2">What It Is</h3>
+<p>An AI-powered task automation system. Users define templates for recurring workflows, and KaiBrain executes them.</p>
+<h3 id="how-to-demo-2">How to Demo</h3>
+<ol type="1">
+<li>Show the list of available task templates</li>
+<li>Click on a task to see its details and parameters</li>
+<li>Approve a task for execution</li>
+<li>Show the completed output — reports, spreadsheets, analysis</li>
+<li>Point out the report download button for generated XLSX/DOCX files</li>
+</ol>
+<h3 id="how-to-explain-2">How to Explain</h3>
+<blockquote>
+<p>"Think of it as training an apprentice. You define the process once — 'Every Monday, pull supplier data, compare to last week, flag anomalies, and write a summary.' Then KaiBrain does it automatically, exactly how you taught it."</p>
+</blockquote>
+<h3 id="how-to-sell-2">How to Sell</h3>
+<ul>
+<li><strong>Pain Point</strong>: "How many hours does your team spend on repetitive reports and data compilation?"</li>
+<li><strong>Solution</strong>: "Define the task once. Your AI apprentice handles it from then on."</li>
+<li><strong>ROI Hook</strong>: "If a weekly report takes 3 hours to compile, that's 150+ hours per year. KaiBrain does it in minutes."</li>
+</ul>
+<hr />
+<h2 id="verify-tab-quality-control">Verify Tab (Quality Control)</h2>
+<h3 id="what-it-is-3">What It Is</h3>
+<p>A two-way approval queue that keeps humans in the loop.</p>
+<h3 id="two-directions">Two Directions</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Direction</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Incoming</strong></td>
+<td>Review AI-extracted KaiNotes before they're committed to the graph</td>
+</tr>
+<tr class="even">
+<td><strong>Outgoing</strong></td>
+<td>Review AI-recommended cut candidates (stale, orphan, low-quality)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="how-to-demo-3">How to Demo</h3>
+<ol type="1">
+<li>Show the incoming queue with pending KaiNotes</li>
+<li>Click to review an entity — show the detail card</li>
+<li>Approve or reject with one click</li>
+<li>Switch to Outgoing to show cut candidates</li>
+<li>Explain the Cut/Retain actions</li>
+</ol>
+<h3 id="how-to-explain-3">How to Explain</h3>
+<blockquote>
+<p>"KaiBrain is powerful, but you're always in control. Every piece of knowledge passes through your approval before it enters the graph. And when data gets stale, KaiBrain recommends pruning — but you decide what stays and what goes."</p>
+</blockquote>
+<h3 id="how-to-sell-3">How to Sell</h3>
+<ul>
+<li><strong>Pain Point</strong>: "How do you ensure AI-generated insights are accurate?"</li>
+<li><strong>Solution</strong>: "Built-in human oversight. Nothing enters your knowledge base without your approval."</li>
+<li><strong>ROI Hook</strong>: "Compliance teams love this — full audit trail of what was approved, rejected, and by whom."</li>
+</ul>
+<hr />
+<h2 id="demo-flow-checklist-20-minutes">Demo Flow Checklist (20 minutes)</h2>
+<h3 id="opening-2-minutes">Opening (2 minutes)</h3>
+<ul class="task-list">
+<li><label><input type="checkbox" />Introduce KaiBrain: "Your AI-powered knowledge brain"</label></li>
+<li><label><input type="checkbox" />Show the clean interface — chat left, tabs right</label></li>
+<li><label><input type="checkbox" />Note: Import tab is default — designed for action</label></li>
+</ul>
+<h3 id="import-demo-3-minutes">Import Demo (3 minutes)</h3>
+<ul class="task-list">
+<li><label><input type="checkbox" />Drag a sample document onto the upload zone</label></li>
+<li><label><input type="checkbox" />Show extraction progress</label></li>
+<li><label><input type="checkbox" />Point out entity count growing</label></li>
+</ul>
+<h3 id="chat-demo-3-minutes">Chat Demo (3 minutes)</h3>
+<ul class="task-list">
+<li><label><input type="checkbox" />Ask a business question about the uploaded document</label></li>
+<li><label><input type="checkbox" />Show source citations in the response</label></li>
+<li><label><input type="checkbox" />Demonstrate follow-up context awareness</label></li>
+</ul>
+<h3 id="view-tab-demo-5-minutes">View Tab Demo (5 minutes)</h3>
+<ul class="task-list">
+<li><label><input type="checkbox" />Show Activity Map (default landing)</label></li>
+<li><label><input type="checkbox" />Point out Recent Activity, Hot Entities, Needs Attention</label></li>
+<li><label><input type="checkbox" />Click + KaiNote to manually create an entity</label></li>
+<li><label><input type="checkbox" />Browse KaiNotes list — click to see detail card</label></li>
+<li><label><input type="checkbox" />Show KaiEvents — filter by verb</label></li>
+<li><label><input type="checkbox" />Resize sidebar by dragging the handle</label></li>
+</ul>
+<h3 id="task-tab-demo-3-minutes">Task Tab Demo (3 minutes)</h3>
+<ul class="task-list">
+<li><label><input type="checkbox" />Show available task templates</label></li>
+<li><label><input type="checkbox" />Explain the apprentice concept</label></li>
+<li><label><input type="checkbox" />Show a completed task output / report download</label></li>
+</ul>
+<h3 id="verify-tab-demo-2-minutes">Verify Tab Demo (2 minutes)</h3>
+<ul class="task-list">
+<li><label><input type="checkbox" />Show incoming approval queue</label></li>
+<li><label><input type="checkbox" />Approve one KaiNote</label></li>
+<li><label><input type="checkbox" />Mention outgoing cut candidates</label></li>
+</ul>
+<h3 id="closing-2-minutes">Closing (2 minutes)</h3>
+<ul class="task-list">
+<li><label><input type="checkbox" />Summarize: knowledge capture, automation, intelligence, control</label></li>
+<li><label><input type="checkbox" />Address security/privacy: "Your data stays yours — PRO twins push to your own GDrive"</label></li>
+<li><label><input type="checkbox" />Discuss tier options and pricing</label></li>
+</ul>
+<hr />
+<h2 id="objection-handling">Objection Handling</h2>
+<h3 id="we-already-have-a-knowledge-management-system">"We already have a knowledge management system"</h3>
+<blockquote>
+<p>"Great! KaiBrain goes beyond storage. It reads your documents, extracts entities, discovers relationships, and builds a living knowledge graph. Your current system stores files — KaiBrain understands them."</p>
+</blockquote>
+<h3 id="our-data-is-sensitive">"Our data is sensitive"</h3>
+<blockquote>
+<p>"Your KaiBrain runs in a dedicated environment. PRO twins push data to your own Google Drive — you own it completely. ORG twins obfuscate PII on shared drives. Your data never trains public AI models."</p>
+</blockquote>
+<h3 id="we-dont-have-time-to-set-this-up">"We don't have time to set this up"</h3>
+<blockquote>
+<p>"The initial setup takes about 30 minutes. After that, every document you upload, every conversation you have — it all builds automatically. The system learns from normal use."</p>
+</blockquote>
+<h3 id="how-is-this-different-from-chatgpt">"How is this different from ChatGPT?"</h3>
+<blockquote>
+<p>"ChatGPT knows the internet. KaiBrain knows YOUR business. It's trained on your documents, your processes, your data. When you ask about 'our supplier terms,' it gives you YOUR supplier terms, not generic advice."</p>
+</blockquote>
+<h3 id="why-not-just-use-obsidiannotionconfluence">"Why not just use Obsidian/Notion/Confluence?"</h3>
+<blockquote>
+<p>"KaiBrain actually includes Obsidian — your KaiNotes sync to an Obsidian vault you can edit offline. But KaiBrain adds the AI layer: automatic extraction, relationship discovery, event tracking, and an AI apprentice that acts on your knowledge. It's Obsidian + Neo4j + AI, working together."</p>
+</blockquote>
+<h3 id="what-about-roi">"What about ROI?"</h3>
+<blockquote>
+<p>"Let's calculate it right now. How many hours per week does your team spend searching for information? Compiling reports? Answering the same questions? Most clients see 5-10 hours per employee per week in productivity gains."</p>
+</blockquote>
+<hr />
+<h2 id="tier-overview-for-sales">Tier Overview for Sales</h2>
+<p>All features are visible at every tier. Tiers differ by scale limits only.</p>
+<table>
+<thead>
+<tr class="header">
+<th>Tier</th>
+<th>Monthly</th>
+<th>Annual</th>
+<th>Users</th>
+<th>Doc Extractions</th>
+<th>Task Executions</th>
+<th>Trial</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Individual</strong></td>
+<td>$29/mo</td>
+<td><span class="math inline">289/<em>y</em><em>r</em>(</span>24/mo)</td>
+<td>1</td>
+<td>3/day</td>
+<td>5/day</td>
+<td>30 days</td>
+</tr>
+<tr class="even">
+<td><strong>Team</strong></td>
+<td>$49/mo</td>
+<td><span class="math inline">489/<em>y</em><em>r</em>(</span>41/mo)</td>
+<td>Up to 5</td>
+<td>10/day</td>
+<td>15/day</td>
+<td>14 days</td>
+</tr>
+<tr class="odd">
+<td><strong>Discipline</strong></td>
+<td>$79/mo</td>
+<td><span class="math inline">787/<em>y</em><em>r</em>(</span>66/mo)</td>
+<td>Up to 15</td>
+<td>30/day</td>
+<td>50/day</td>
+<td>7 days</td>
+</tr>
+<tr class="even">
+<td><strong>Institution</strong></td>
+<td>$99/mo</td>
+<td><span class="math inline">987/<em>y</em><em>r</em>(</span>82/mo)</td>
+<td>Up to 50</td>
+<td>Unlimited</td>
+<td>Unlimited</td>
+<td>3 days</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Additional seats</strong>: <span class="math inline">19/<em>m</em><em>o</em>(</span>190/yr) per seat. Mentor seat is always free.</p>
+<p><strong>Trial cascade</strong>: 54-day total experience (Individual 30d → Team 14d → Discipline 7d → Institution 3d). After trial, returns to Individual.</p>
+<hr />
+<h2 id="terminology-cheat-sheet">Terminology Cheat Sheet</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Say This</th>
+<th>Not This</th>
+<th>Why</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>KaiBrain</td>
+<td>Kaigraph, K-Graph</td>
+<td>Current product name</td>
+</tr>
+<tr class="even">
+<td>KaiNotes</td>
+<td>K-Notes, entities, nodes</td>
+<td>Customer-facing term for entity files</td>
+</tr>
+<tr class="odd">
+<td>KaiLinks</td>
+<td>K-Links, relationships, rels</td>
+<td>Customer-facing term for connections</td>
+</tr>
+<tr class="even">
+<td>KaiEvents</td>
+<td>Events, micro-events</td>
+<td>Customer-facing term for timestamped interactions</td>
+</tr>
+<tr class="odd">
+<td>Individual / Team / Discipline / Institution</td>
+<td>SILVER / GOLD / PLATINUM / DIAMOND</td>
+<td>Display names vs internal codes</td>
+</tr>
+<tr class="even">
+<td>Import / View / Task / Verify</td>
+<td>Load / Build / Update / Archive</td>
+<td>Current tab names</td>
+</tr>
+<tr class="odd">
+<td>Activity Map</td>
+<td>Chord diagram, dashboard</td>
+<td>Default View landing</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="quick-pitch-30-seconds">Quick Pitch (30 seconds)</h2>
+<blockquote>
+<p>"KaiBrain captures everything your business knows — every document, every conversation, every process — and makes it instantly accessible through AI. Drop a document, watch it become connected knowledge. Ask a question, get an answer with sources. Define a task, let your AI apprentice handle it. It's like giving every employee access to your company's complete institutional knowledge, plus an AI assistant who's read all of it."</p>
+</blockquote>
+<hr />
+<h2 id="domains--resources">Domains &amp; Resources</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Resource</th>
+<th>C-twin (Business)</th>
+<th>L-twin (Education)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Web UI</td>
+<td>ctwin.ai</td>
+<td>ltwin.ai</td>
+</tr>
+<tr class="even">
+<td>Demo</td>
+<td>ctwin.ai/chat/ctwin/</td>
+<td>ltwin.ai/chat/ltwin/</td>
+</tr>
+<tr class="odd">
+<td>Company</td>
+<td>AIVP (avaluei.com)</td>
+<td>AIAXIA (aiaxia.org)</td>
+</tr>
+</tbody>
+</table>
+</article>
+<footer class="sheet-foot">
+  <span>AI Value Prospectors · internal sales enablement · Issue #13 · product-research</span>
+  <span><a href="index.html">Back to materials</a></span>
+</footer>
+</body>
+</html>

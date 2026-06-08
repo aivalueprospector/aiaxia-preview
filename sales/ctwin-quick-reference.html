@@ -1,0 +1,390 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex, nofollow" />
+<title>C-Twin Sales Quick Reference Card — AI Value Prospectors</title>
+<style>
+  :root {
+    --aivp: #E8B547;
+    --aivp-dark: #92700f;
+    --ink: #1a2230;
+    --ink-soft: #45526a;
+    --muted: #6b7a8a;
+    --line: #e2e6ec;
+    --bg: #ffffff;
+    --tint: #fbf8ef;
+  }
+  @page { size: Letter; margin: 0.6in; }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0;
+    background: #f4f5f7;
+    color: var(--ink);
+    font-family: 'Inter', -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+    line-height: 1.55;
+    font-size: 16px;
+  }
+  .topbar {
+    background: #0F1115;
+    border-bottom: 2px solid var(--aivp);
+    padding: 12px 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .topbar .mark {
+    width: 30px; height: 30px; border-radius: 7px;
+    background: var(--aivp); color: #0F1115;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 800; font-size: 14px;
+  }
+  .topbar .name {
+    font-size: 13px; font-weight: 700; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--aivp);
+  }
+  .topbar a.back {
+    margin-left: auto; color: #C2C6CC; text-decoration: none;
+    font-size: 13px; font-weight: 600;
+  }
+  .topbar a.back:hover { color: var(--aivp); }
+  .sheet {
+    max-width: 800px;
+    margin: 28px auto;
+    background: var(--bg);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 44px 52px;
+    box-shadow: 0 6px 26px rgba(15,17,21,0.08);
+  }
+  .eyebrow {
+    font-size: 12px; font-weight: 700; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--aivp-dark);
+    margin: 0 0 6px;
+  }
+  h1 {
+    font-size: 30px; font-weight: 800; letter-spacing: -0.02em;
+    color: #0f1d2c; margin: 0 0 18px; line-height: 1.15;
+    border-bottom: 3px solid var(--aivp); padding-bottom: 14px;
+  }
+  h1 + p { color: var(--ink-soft); }
+  h2 {
+    font-size: 21px; font-weight: 700; color: #0f1d2c;
+    margin: 34px 0 10px; padding-bottom: 6px;
+    border-bottom: 1px solid var(--line);
+  }
+  h3 {
+    font-size: 16.5px; font-weight: 700; color: var(--ink);
+    margin: 22px 0 6px;
+  }
+  p { margin: 10px 0; }
+  a { color: var(--aivp-dark); }
+  hr { border: 0; border-top: 1px solid var(--line); margin: 28px 0; }
+  ul, ol { padding-left: 22px; }
+  li { margin: 4px 0; }
+  code {
+    background: var(--tint); border: 1px solid var(--line);
+    border-radius: 4px; padding: 1px 5px;
+    font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: 0.88em;
+  }
+  pre {
+    background: #0F1115; color: #e8e8e8; border-radius: 8px;
+    padding: 16px 18px; overflow-x: auto; font-size: 13px;
+  }
+  pre code { background: none; border: 0; padding: 0; color: inherit; }
+  /* Blockquotes = "say this" script callouts */
+  blockquote {
+    margin: 14px 0; padding: 12px 18px;
+    background: linear-gradient(135deg, #fbf8ef 0%, #f3ead2 100%);
+    border-left: 4px solid var(--aivp);
+    border-radius: 2px; color: #3a2f10; font-style: italic;
+  }
+  blockquote p { margin: 4px 0; }
+  table {
+    border-collapse: collapse; width: 100%; margin: 14px 0; font-size: 14.5px;
+  }
+  th, td {
+    border: 1px solid var(--line); padding: 8px 12px; text-align: left;
+    vertical-align: top;
+  }
+  thead th {
+    background: #0f1d2c; color: #fff; font-weight: 600;
+    border-color: #0f1d2c;
+  }
+  tbody tr:nth-child(even) { background: var(--tint); }
+  footer.sheet-foot {
+    max-width: 800px; margin: 0 auto 40px; padding: 4px 8px;
+    color: var(--muted); font-size: 13px;
+    display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px;
+  }
+  footer.sheet-foot a { color: var(--aivp-dark); text-decoration: none; }
+  @media print {
+    body { background: #fff; }
+    .topbar { background: #fff; border-bottom-color: var(--aivp); }
+    .topbar .name { color: var(--aivp-dark); }
+    .topbar a.back { display: none; }
+    .sheet { box-shadow: none; border: 0; margin: 0; max-width: none; padding: 0; }
+    footer.sheet-foot { display: none; }
+  }
+</style>
+</head>
+<body>
+<div class="topbar">
+  <span class="mark">Ai</span>
+  <span class="name">AI Value Prospectors</span>
+  <a class="back" href="index.html">&larr; All sales materials</a>
+</div>
+<article class="sheet">
+<p class="eyebrow">Quick reference · ProAsiste (C-Twin)</p>
+<h1 id="c-twin-sales-quick-reference-card">C-Twin Sales Quick Reference Card</h1>
+<p>Print this single page for quick reference during demos and calls.</p>
+<hr />
+<h2 id="30-second-elevator-pitch">30-Second Elevator Pitch</h2>
+<blockquote>
+<p>"C-Twin captures your company's knowledge - every document, conversation, and process - and makes it instantly accessible through AI. Ask a question, get an answer with sources. Define a task, your AI apprentice handles it. It's like giving every employee access to your entire institutional knowledge, plus an AI assistant who's read all of it."</p>
+</blockquote>
+<hr />
+<h2 id="the-four-tabs-right-panel">The Four Tabs (Right Panel)</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Tab</th>
+<th>Icon</th>
+<th>One-Liner</th>
+<th>Key Demo Action</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>DATA</strong></td>
+<td>Graph</td>
+<td>"See how everything connects"</td>
+<td>Hover over chord diagram</td>
+</tr>
+<tr class="even">
+<td><strong>TASKS</strong></td>
+<td>Checklist</td>
+<td>"Your AI apprentice"</td>
+<td>Show a task template</td>
+</tr>
+<tr class="odd">
+<td><strong>DOCS</strong></td>
+<td>Upload</td>
+<td>"Documents become knowledge"</td>
+<td>Drag-drop a PDF</td>
+</tr>
+<tr class="even">
+<td><strong>EVENTS</strong></td>
+<td>Timeline</td>
+<td>"Find hidden patterns"</td>
+<td>Show flow diagram</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="button-quick-reference">Button Quick Reference</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Button</th>
+<th>Location</th>
+<th>What It Does</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Neo4j ↗</strong></td>
+<td>DATA tab</td>
+<td>Opens full graph database browser</td>
+</tr>
+<tr class="even">
+<td><strong>Obsidian ↗</strong></td>
+<td>DATA tab</td>
+<td>Opens knowledge base for editing</td>
+</tr>
+<tr class="odd">
+<td><strong>📁 Processed</strong></td>
+<td>All tabs</td>
+<td>Opens processed files in Google Drive</td>
+</tr>
+<tr class="even">
+<td><strong>Claude ↗</strong></td>
+<td>TASKS tab</td>
+<td>Opens Claude Code terminal</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="pain-points--solutions">Pain Points → Solutions</h2>
+<table>
+<thead>
+<tr class="header">
+<th>They Say</th>
+<th>You Say</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>"We waste time searching for info"</td>
+<td>"Just ask. Answer in seconds, with sources."</td>
+</tr>
+<tr class="even">
+<td>"Knowledge leaves when people leave"</td>
+<td>"C-Twin captures it permanently in a knowledge graph."</td>
+</tr>
+<tr class="odd">
+<td>"Reports take forever to compile"</td>
+<td>"Define once, your apprentice does it automatically."</td>
+</tr>
+<tr class="even">
+<td>"Documents sit in folders, never found"</td>
+<td>"Every document becomes searchable and connected."</td>
+</tr>
+<tr class="odd">
+<td>"We don't know where our bottlenecks are"</td>
+<td>"Process mining surfaces patterns humans miss."</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="tier-cheat-sheet">Tier Cheat Sheet</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Tier</th>
+<th>Price Point</th>
+<th>Unlock</th>
+<th>Best For</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>SILVER</strong></td>
+<td>$</td>
+<td>Chat + DATA</td>
+<td>Individual professionals</td>
+</tr>
+<tr class="even">
+<td><strong>GOLD</strong></td>
+<td>$$</td>
+<td>+ TASKS</td>
+<td>Teams wanting automation</td>
+</tr>
+<tr class="odd">
+<td><strong>PLATINUM</strong></td>
+<td>$$$</td>
+<td>+ DOCS</td>
+<td>Document-heavy industries</td>
+</tr>
+<tr class="even">
+<td><strong>DIAMOND</strong></td>
+<td><span class="math display"></span></td>
+<td>+ EVENTS</td>
+<td>Enterprise operations</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="quick-roi-math">Quick ROI Math</h2>
+<p><strong>Time Saved Searching:</strong></p>
+<ul>
+<li>30 min/day × 5 days × 50 weeks = 125 hours/year/person</li>
+<li>At <span class="math inline">50/<em>h</em><em>o</em><em>u</em><em>r</em> =  * *</span>6,250 saved per employee per year**</li>
+</ul>
+<p><strong>Report Automation:</strong></p>
+<ul>
+<li>3-hour weekly report × 50 weeks = 150 hours/year</li>
+<li>Automated = <strong>$7,500 saved per report type</strong></li>
+</ul>
+<p><strong>Knowledge Retention:</strong></p>
+<ul>
+<li>Cost to replace senior employee knowledge: <strong><span class="math inline">50, 000−</span>200,000</strong></li>
+<li>C-Twin captures it continuously</li>
+</ul>
+<hr />
+<h2 id="objection-killers">Objection Killers</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Objection</th>
+<th>One-Line Response</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>"We have SharePoint/Confluence"</td>
+<td>"Those store files. C-Twin understands them."</td>
+</tr>
+<tr class="even">
+<td>"Data security concerns"</td>
+<td>"Dedicated environment. Your data never trains public models."</td>
+</tr>
+<tr class="odd">
+<td>"No time to set up"</td>
+<td>"30 minutes. Then it learns from normal use."</td>
+</tr>
+<tr class="even">
+<td>"How is this different from ChatGPT?"</td>
+<td>"ChatGPT knows the internet. C-Twin knows YOUR business."</td>
+</tr>
+<tr class="odd">
+<td>"Prove the ROI"</td>
+<td>"Let's calculate it right now with your numbers."</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="demo-flow-15-minutes">Demo Flow (15 minutes)</h2>
+<ol type="1">
+<li><strong>Chat</strong> (3 min) - Ask a business question, show sources</li>
+<li><strong>DATA</strong> (3 min) - Show knowledge graph connections</li>
+<li><strong>TASKS</strong> (3 min) - Demonstrate automation template</li>
+<li><strong>DOCS</strong> (3 min) - Upload and process a document</li>
+<li><strong>Close</strong> (3 min) - Summarize value, discuss tier fit</li>
+</ol>
+<hr />
+<h2 id="key-urls">Key URLs</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Resource</th>
+<th>URL</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Demo Environment</td>
+<td>ctwin.ai/chat/ctwin/</td>
+</tr>
+<tr class="even">
+<td>Documentation</td>
+<td>docs.ctwin.ai</td>
+</tr>
+<tr class="odd">
+<td>Support</td>
+<td><a href="mailto:support@ctwin.ai">support@ctwin.ai</a></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="emergency-backup-lines">Emergency Backup Lines</h2>
+<p>If the demo breaks:</p>
+<blockquote>
+<p>"This is a live system with real data, so occasionally things need a moment. While that loads, let me explain what you would see..."</p>
+</blockquote>
+<p>If asked something you don't know:</p>
+<blockquote>
+<p>"Great question. I want to give you an accurate answer, so let me get back to you on that specific point. What I can tell you is..."</p>
+</blockquote>
+<p>If prospect seems disengaged:</p>
+<blockquote>
+<p>"What's your biggest operational headache right now? Let me show you exactly how C-Twin addresses that."</p>
+</blockquote>
+</article>
+<footer class="sheet-foot">
+  <span>AI Value Prospectors · internal sales enablement · Issue #15 · product-research</span>
+  <span><a href="index.html">Back to materials</a></span>
+</footer>
+</body>
+</html>
