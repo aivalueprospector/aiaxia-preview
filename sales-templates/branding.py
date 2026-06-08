@@ -200,6 +200,12 @@ def build_pptx(brand_key, b):
             except Exception:
                 pass
 
+    # Pandoc only repopulates an EXISTING <p:sldIdLst>; a 0-slide reference has none,
+    # which leaves converted decks with no registered slides (they open empty). Seed one
+    # blank slide so presentation.xml carries a sldIdLst. Pandoc rebuilds the list from the
+    # converted content, so this placeholder is not carried into the output deck.
+    prs.slides.add_slide(prs.slide_layouts[6])  # 6 = Blank
+
     REFDIR.mkdir(exist_ok=True)
     out = REFDIR / f"{brand_key}.pptx"
     prs.save(str(out))
