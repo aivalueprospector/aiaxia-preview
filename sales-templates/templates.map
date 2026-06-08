@@ -1,0 +1,26 @@
+# slug|fmt|brand|src_md (relative to sales-templates/)|title
+# fmt: D=.docx (Google Docs)  P=.pptx (Google Slides)   sheets built by sheets/*.py
+
+# ===== AIVP / cross-brand umbrella =====
+aivp-one-pager|D|aivp|src/en/aivp-one-pager.md|How Two Twins Work Together — One-Pager
+aivp-email-templates|D|aivp|src/en/aivp-email-templates.md|AI Value Prospectors — Cross-Twin Email Templates
+knowledge-demo-guide|D|aivp|src/en/knowledge-demo-guide.md|Knowledge Sales Demo Guide
+aivp-pitch-deck|P|aivp|src/en/aivp-pitch-deck.md|AI Value Prospectors — Two Twins Pitch
+
+# ===== ProAsiste (business) =====
+proasiste-one-pager|D|proasiste|src/en/proasiste-one-pager.md|ProAsiste One-Pager
+proasiste-email-templates|D|proasiste|src/en/proasiste-email-templates.md|ProAsiste Sales Email Templates
+proasiste-quick-reference|D|proasiste|src/en/proasiste-quick-reference.md|ProAsiste Quick Reference Card
+proasiste-competitive|D|proasiste|src/en/proasiste-competitive.md|ProAsiste Competitive Positioning
+proasiste-security-faq|D|proasiste|src/en/proasiste-security-faq.md|ProAsiste Security FAQ
+proasiste-personas|D|proasiste|src/en/proasiste-personas.md|ProAsiste Customer Personas
+proasiste-pitch-deck|P|proasiste|src/en/proasiste-pitch-deck.md|ProAsiste — Pitch Deck
+
+# ===== EduAsiste (education) =====
+eduasiste-one-pager|D|eduasiste|src/en/eduasiste-one-pager.md|EduAsiste One-Pager
+eduasiste-email-templates|D|eduasiste|src/en/eduasiste-email-templates.md|EduAsiste Sales Email Templates
+eduasiste-quick-reference|D|eduasiste|src/en/eduasiste-quick-reference.md|EduAsiste Quick Reference Card
+eduasiste-competitive|D|eduasiste|src/en/eduasiste-competitive.md|EduAsiste Competitive Positioning
+eduasiste-security-faq|D|eduasiste|src/en/eduasiste-security-faq.md|EduAsiste Security FAQ
+eduasiste-personas|D|eduasiste|src/en/eduasiste-personas.md|EduAsiste Customer Personas
+eduasiste-pitch-deck|P|eduasiste|src/en/eduasiste-pitch-deck.md|EduAsiste — Pitch Deck

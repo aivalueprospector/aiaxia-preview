@@ -1,0 +1,32 @@
+{
+  "aivp": {
+    "display": "AI Value Prospectors",
+    "brand_line": "AI Value Prospectors",
+    "domain": "aivalueprospector.com",
+    "accent": "E8B547",
+    "accent_dark": "92700F",
+    "soft": "FBF8EF",
+    "ink": "0F1D2C",
+    "logo": "proasiste/_assets/avp_logo.png"
+  },
+  "proasiste": {
+    "display": "ProAsiste",
+    "brand_line": "ProAsiste · Business",
+    "domain": "proasiste.com",
+    "accent": "CFB382",
+    "accent_dark": "92700F",
+    "soft": "FBF8EF",
+    "ink": "0F1D2C",
+    "logo": "proasiste/_assets/mente_avatar.jpg"
+  },
+  "eduasiste": {
+    "display": "EduAsiste",
+    "brand_line": "EduAsiste · Education",
+    "domain": "eduasiste.org",
+    "accent": "2EA3F2",
+    "accent_dark": "1D6FB0",
+    "soft": "F0F9FF",
+    "ink": "0F1D2C",
+    "logo": "eduasiste/_assets/eduardo_owl.png"
+  }
+}
