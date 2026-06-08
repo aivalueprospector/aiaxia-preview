@@ -45,6 +45,8 @@ BRANDS = {
              None, "proasiste-personas.docx"),
             ("How Two Twins Work Together — Deck", "~8-slide business deck with speaker notes. Read the outline in the browser or download the editable deck.",
              "deck.html", "proasiste-pitch-deck.pptx"),
+            ("Twin Tech Across ProAsiste, ExpertAsiste & HelpAsiste", "How one twin engine does three jobs — inward at your team (ProAsiste), sideways at your industry (ExpertAsiste), outward at your customers (HelpAsiste). Side-by-side comparison.",
+             "twin-tech-explainer.html", "proasiste-twin-tech-explainer.docx"),
         ],
     },
     "eduasiste": {
