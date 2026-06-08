@@ -119,11 +119,13 @@
         }
         .toc-col > a.toc-head:hover { color: var(--aivp); }
         .toc-col.edu > a.toc-head:hover { color: var(--edu); }
+        .toc-col.pro > a.toc-head:hover { color: var(--pro); }
         .toc-head .pip {
             width: 9px; height: 9px; border-radius: 50%;
             background: var(--aivp);
         }
         .toc-col.edu .toc-head .pip { background: var(--edu); }
+        .toc-col.pro .toc-head .pip { background: var(--pro); }
         .toc-col ul { list-style: none; margin: 0; padding: 0 0 0 17px; }
         .toc-col li { margin: 5px 0; }
         .toc-col li a {
@@ -134,6 +136,7 @@
         }
         .toc-col li a:hover { color: var(--aivp); border-bottom-color: var(--aivp); }
         .toc-col.edu li a:hover { color: var(--edu); border-bottom-color: var(--edu); }
+        .toc-col.pro li a:hover { color: var(--pro); border-bottom-color: var(--pro); }
         .section-label {
             font-size: 13px;
             font-weight: 700;
@@ -151,6 +154,7 @@
             background: var(--aivp);
         }
         .section-label.edu .pip { background: var(--edu); }
+        .section-label.pro .pip { background: var(--pro); }
         .section-label .hint { font-weight: 500; text-transform: none; letter-spacing: 0; color: var(--muted); font-size: 13px; }
         .card-grid {
             display: grid;
@@ -176,6 +180,7 @@
             border-color: var(--aivp);
         }
         .card.edu:hover { border-color: var(--edu); }
+        .card.pro:hover { border-color: var(--pro); }
         .card .swatch {
             width: 44px;
             height: 40px;
@@ -191,6 +196,7 @@
             letter-spacing: 0.02em;
         }
         .card.edu .swatch { background: var(--edu); color: #06243b; }
+        .card.pro .swatch { background: var(--pro); color: #2a2103; }
         .card h2 {
             margin: 0;
             font-size: 18px;
@@ -220,6 +226,11 @@
             background: rgba(46,163,242,0.10);
             color: var(--edu);
             border-color: rgba(46,163,242,0.30);
+        }
+        .card.pro .tag {
+            background: rgba(207,179,130,0.12);
+            color: var(--pro);
+            border-color: rgba(207,179,130,0.40);
         }
         .card .url {
             margin-top: auto;
@@ -263,7 +274,7 @@
                         <li><a href="#cross-twin-email-blurbs">Email-Ready Blurbs — Cross-Twin</a></li>
                     </ul>
                 </div>
-                <div class="toc-col">
+                <div class="toc-col pro">
                     <a class="toc-head" href="#sec-pro"><span class="pip"></span>ProAsiste · business</a>
                     <ul>
                         <li><a href="#proasiste-quick-reference">Quick Reference Card</a></li>
@@ -283,6 +294,14 @@
                 </div>
             </div>
         </nav>
+
+        <a class="templates-banner" href="templates.html">
+            <div class="tb-icon">＋</div>
+            <div class="tb-text">
+                <strong>Copy-and-customize Google templates →</strong>
+                <span>Branded Docs, Sheets &amp; Slides (one-pagers, decks, ROI calculator, pipeline tracker, personas) — make a copy, fill the highlighted fields, export to PDF.</span>
+            </div>
+        </a>
 
         <p class="section-label" id="sec-cross"><span class="pip"></span>Cross-Twin &amp; platform <span class="hint">— both brands</span></p>
         <div class="card-grid">
@@ -324,9 +343,9 @@
             </a>
         </div>
 
-        <p class="section-label" id="sec-pro"><span class="pip"></span>ProAsiste <span class="hint">— business (proasiste.com)</span></p>
+        <p class="section-label pro" id="sec-pro"><span class="pip"></span>ProAsiste <span class="hint">— business (proasiste.com)</span></p>
         <div class="card-grid">
-            <a class="card" id="proasiste-quick-reference" href="proasiste-quick-reference.html">
+            <a class="card pro" id="proasiste-quick-reference" href="proasiste-quick-reference.html">
                 <div class="swatch">Pro</div>
                 <h2>ProAsiste Quick Reference Card</h2>
                 <div class="desc">Single-page cheat sheet for demos and calls. 30-second pitch, the four tabs, button reference, pain-point → response table, and tier cheat sheet (SILVER → DIAMOND). Print-friendly.</div>
@@ -335,7 +354,7 @@
                     <span class="tag">Business</span>
                 </div>
             </a>
-            <a class="card" id="proasiste-email-templates" href="proasiste-email-templates.html">
+            <a class="card pro" id="proasiste-email-templates" href="proasiste-email-templates.html">
                 <div class="swatch">Pro</div>
                 <h2>ProAsiste Sales Email Templates</h2>
                 <div class="desc">Copy-customize-send outreach by angle: time-saver hook, competitor angle, knowledge-loss problem, and more. For the ProAsiste business audience (operations leaders, owner-operators).</div>
@@ -344,7 +363,7 @@
                     <span class="tag">Business</span>
                 </div>
             </a>
-            <a class="card" id="proasiste-competitive" href="proasiste-competitive.html">
+            <a class="card pro" id="proasiste-competitive" href="proasiste-competitive.html">
                 <div class="swatch">Pro</div>
                 <h2>ProAsiste Competitive Positioning</h2>
                 <div class="desc">Battle cards for the objections business prospects raise: vs. ChatGPT / generic AI and vs. Microsoft Copilot. Their argument, your response, and a side-by-side differentiator table each.</div>
@@ -353,7 +372,7 @@
                     <span class="tag">Business</span>
                 </div>
             </a>
-            <a class="card" id="proasiste-security-faq" href="proasiste-security-faq.html">
+            <a class="card pro" id="proasiste-security-faq" href="proasiste-security-faq.html">
                 <div class="swatch">Pro</div>
                 <h2>ProAsiste Security FAQ</h2>
                 <div class="desc">Answers to business prospect security questions. Tier × infrastructure security table, what's included per tier (Workspace vs. Cloud), and the KloudStax path for GDPR / HIPAA / SOC 2 compliance.</div>
