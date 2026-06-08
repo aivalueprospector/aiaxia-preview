@@ -4,470 +4,142 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <meta name="robots" content="noindex, nofollow">
-    <title>AI Value Prospectors | Sales materials</title>
+    <title>AI Value Prospectors — Sales materials</title>
     <style>
-        :root {
-            --aivp: #E8B547;
-            --aivp-dark: #92700f;
-            --edu: #2EA3F2;
-            --edu-dark: #1d6fb0;
-            --pro: #CFB382;
-            --pro-dark: #92700f;
-            --bg: #0F1115;
-            --card-bg: #181B22;
-            --text: #F3F4F6;
-            --text-soft: #C2C6CC;
-            --muted: #9AA0A6;
-            --border: #2A2E37;
-        }
-        * { box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
-        :target { scroll-margin-top: 18px; }
-        body {
-            margin: 0;
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: var(--bg);
-            color: var(--text);
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
-        header {
-            padding: 40px 24px 16px;
-            text-align: center;
-            border-bottom: 1px solid var(--border);
-        }
-        .wordmark {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 12px;
-        }
-        .wordmark .mark {
-            width: 38px;
-            height: 38px;
-            border-radius: 9px;
-            background: var(--aivp);
-            color: #0F1115;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 800;
-            font-size: 18px;
-            letter-spacing: -0.03em;
-        }
-        .wordmark .name { font-size: 15px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--aivp); }
-        header h1 {
-            margin: 0;
-            font-size: 30px;
-            font-weight: 800;
-            letter-spacing: -0.02em;
-        }
-        header p {
-            margin: 10px auto 0;
-            color: var(--muted);
-            font-size: 15px;
-            max-width: 560px;
-        }
-        .internal {
-            display: inline-block;
-            margin-top: 16px;
-            font-size: 12px;
-            font-weight: 600;
-            letter-spacing: 0.04em;
-            text-transform: uppercase;
-            color: var(--aivp);
-            background: rgba(232,181,71,0.10);
-            border: 1px solid rgba(232,181,71,0.35);
-            padding: 5px 12px;
-            border-radius: 999px;
-        }
-        main {
-            flex: 1;
-            max-width: 1040px;
-            margin: 0 auto;
-            padding: 32px 24px;
-            width: 100%;
-        }
-        .toc {
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            border-radius: 14px;
-            padding: 22px 24px;
-            margin-top: 8px;
-        }
-        .toc h2 {
-            margin: 0 0 14px;
-            font-size: 12px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            color: var(--muted);
-        }
-        .toc-cols {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 18px 28px;
-        }
-        .toc-col > a.toc-head {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 14px;
-            font-weight: 700;
-            color: var(--text);
-            text-decoration: none;
-            margin-bottom: 8px;
-        }
-        .toc-col > a.toc-head:hover { color: var(--aivp); }
-        .toc-col.edu > a.toc-head:hover { color: var(--edu); }
-        .toc-col.pro > a.toc-head:hover { color: var(--pro); }
-        .toc-head .pip {
-            width: 9px; height: 9px; border-radius: 50%;
-            background: var(--aivp);
-        }
-        .toc-col.edu .toc-head .pip { background: var(--edu); }
-        .toc-col.pro .toc-head .pip { background: var(--pro); }
-        .toc-col ul { list-style: none; margin: 0; padding: 0 0 0 17px; }
-        .toc-col li { margin: 5px 0; }
-        .toc-col li a {
-            color: var(--text-soft);
-            text-decoration: none;
-            font-size: 13.5px;
-            border-bottom: 1px solid transparent;
-        }
-        .toc-col li a:hover { color: var(--aivp); border-bottom-color: var(--aivp); }
-        .toc-col.edu li a:hover { color: var(--edu); border-bottom-color: var(--edu); }
-        .toc-col.pro li a:hover { color: var(--pro); border-bottom-color: var(--pro); }
-        .section-label {
-            font-size: 13px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.06em;
-            color: var(--text-soft);
-            margin: 34px 0 0;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        .section-label:first-child { margin-top: 8px; }
-        .section-label .pip {
-            width: 10px; height: 10px; border-radius: 50%;
-            background: var(--aivp);
-        }
-        .section-label.edu .pip { background: var(--edu); }
-        .section-label.pro .pip { background: var(--pro); }
-        .section-label .hint { font-weight: 500; text-transform: none; letter-spacing: 0; color: var(--muted); font-size: 13px; }
-        .card-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-            margin-top: 18px;
-        }
-
-        .templates-banner {
-            display: flex; align-items: center; gap: 16px;
-            margin-top: 20px; padding: 18px 22px;
-            background: linear-gradient(135deg, rgba(232,181,71,0.14), rgba(46,163,242,0.10));
-            border: 1px solid var(--border); border-radius: 14px;
-            text-decoration: none; color: inherit;
-            transition: transform 120ms ease, border-color 120ms ease;
-        }
-        .templates-banner:hover { transform: translateY(-2px); border-color: var(--aivp); }
-        .templates-banner .tb-icon {
-            flex: none; width: 40px; height: 40px; border-radius: 10px;
-            background: var(--aivp); color: #0F1115;
-            display: flex; align-items: center; justify-content: center;
-            font-size: 24px; font-weight: 800;
-        }
-        .templates-banner .tb-text { display: flex; flex-direction: column; gap: 3px; }
-        .templates-banner .tb-text strong { font-size: 15px; }
-        .templates-banner .tb-text span { font-size: 13.5px; color: var(--text-soft); line-height: 1.5; }
-
-        .card {
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            border-radius: 14px;
-            padding: 24px;
-            text-decoration: none;
-            color: inherit;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-            transition: transform 120ms ease, box-shadow 120ms ease, border-color 120ms ease;
-        }
-        .card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 28px rgba(0,0,0,0.35);
-            border-color: var(--aivp);
-        }
-        .card.edu:hover { border-color: var(--edu); }
-        .card.pro:hover { border-color: var(--pro); }
-        .card .swatch {
-            width: 44px;
-            height: 40px;
-            border-radius: 10px;
-            margin-bottom: 8px;
-            background: var(--aivp);
-            color: #0F1115;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 13px;
-            font-weight: 800;
-            letter-spacing: 0.02em;
-        }
-        .card.edu .swatch { background: var(--edu); color: #06243b; }
-        .card.pro .swatch { background: var(--pro); color: #2a2103; }
-        .card h2 {
-            margin: 0;
-            font-size: 18px;
-            font-weight: 700;
-        }
-        .card .desc {
-            color: var(--text-soft);
-            font-size: 14px;
-            line-height: 1.55;
-        }
-        .card .tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
-            margin-top: 4px;
-        }
-        .card .tag {
-            font-size: 11px;
-            font-weight: 600;
-            padding: 3px 9px;
-            border-radius: 999px;
-            background: rgba(232,181,71,0.10);
-            color: var(--aivp);
-            border: 1px solid rgba(232,181,71,0.30);
-        }
-        .card.edu .tag {
-            background: rgba(46,163,242,0.10);
-            color: var(--edu);
-            border-color: rgba(46,163,242,0.30);
-        }
-        .card.pro .tag {
-            background: rgba(207,179,130,0.12);
-            color: var(--pro);
-            border-color: rgba(207,179,130,0.40);
-        }
-        .card .url {
-            margin-top: auto;
-            font-family: ui-monospace, "SF Mono", Menlo, monospace;
-            font-size: 12px;
-            color: var(--muted);
-            padding-top: 14px;
-        }
-        footer {
-            text-align: center;
-            color: var(--muted);
-            font-size: 13px;
-            padding: 28px 24px;
-            border-top: 1px solid var(--border);
-        }
-        footer a { color: var(--aivp); text-decoration: none; }
-        footer a:hover { text-decoration: underline; }
+    :root{--aivp:#E8B547;--aivp-dark:#92700f;--pro:#CFB382;--pro-dark:#92700f;--edu:#2EA3F2;--edu-dark:#1d6fb0;
+    --bg:#0F1115;--card-bg:#181B22;--text:#F3F4F6;--text-soft:#C2C6CC;--muted:#9AA0A6;--border:#2A2E37;}
+    *{box-sizing:border-box;}
+    body{margin:0;font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;background:var(--bg);color:var(--text);min-height:100vh;display:flex;flex-direction:column;}
+    header{padding:40px 24px 18px;text-align:center;border-bottom:1px solid var(--border);}
+    .wordmark{display:inline-flex;align-items:center;gap:10px;margin-bottom:12px;}
+    .wordmark .mark{width:38px;height:38px;border-radius:9px;background:var(--aivp);color:#0F1115;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:16px;}
+    .wordmark .name{font-size:14px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--aivp);}
+    header h1{margin:0;font-size:30px;font-weight:800;letter-spacing:-.02em;}
+    header p{margin:10px auto 0;color:var(--muted);font-size:15px;max-width:600px;}
+    header a.back{display:inline-block;margin-top:14px;color:var(--text-soft);text-decoration:none;font-size:13px;font-weight:600;}
+    header a.back:hover{color:var(--aivp);}
+    main{flex:1;max-width:1040px;margin:0 auto;padding:28px 24px;width:100%;}
+    .section-label{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--text-soft);margin:34px 0 0;display:flex;align-items:center;gap:10px;}
+    .section-label:first-of-type{margin-top:6px;}
+    .section-label .pip{width:10px;height:10px;border-radius:50%;background:var(--aivp);}
+    .section-label .hint{font-weight:500;text-transform:none;letter-spacing:0;color:var(--muted);font-size:13px;}
+    .card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px;margin-top:16px;}
+    .card{background:var(--card-bg);border:1px solid var(--border);border-radius:14px;padding:22px;text-decoration:none;color:inherit;display:flex;flex-direction:column;gap:8px;transition:transform 120ms,box-shadow 120ms,border-color 120ms;}
+    .card:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(0,0,0,.35);border-color:var(--aivp);}
+    .card .swatch{align-self:flex-start;min-width:40px;height:34px;padding:0 10px;border-radius:9px;background:var(--aivp);color:#0F1115;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;}
+    .card h2{margin:0;font-size:17px;font-weight:700;}
+    .card .desc{color:var(--text-soft);font-size:13.5px;line-height:1.55;}
+    .card .meta{margin-top:auto;padding-top:12px;font-size:12px;color:var(--muted);}
+    .card .meta code{font-family:ui-monospace,Menlo,monospace;color:var(--text-soft);}
+    .brand-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;margin-top:8px;}
+    .brand-entry{display:flex;flex-direction:column;gap:6px;padding:26px;border-radius:16px;text-decoration:none;color:inherit;border:1px solid var(--border);background:var(--card-bg);transition:transform 120ms,border-color 120ms,box-shadow 120ms;}
+    .brand-entry:hover{transform:translateY(-3px);box-shadow:0 14px 34px rgba(0,0,0,.4);}
+    .brand-entry.pro:hover{border-color:var(--pro);}
+    .brand-entry.edu:hover{border-color:var(--edu);}
+    .brand-entry .be-top{display:flex;align-items:center;gap:12px;}
+    .brand-entry .be-chip{width:46px;height:46px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:15px;color:#0F1115;}
+    .brand-entry.pro .be-chip{background:var(--pro);}
+    .brand-entry.edu .be-chip{background:var(--edu);color:#06243b;}
+    .brand-entry h2{margin:0;font-size:21px;font-weight:800;}
+    .brand-entry .be-sub{font-size:13px;color:var(--muted);}
+    .brand-entry .be-desc{font-size:14px;color:var(--text-soft);line-height:1.55;margin-top:4px;}
+    .brand-entry .be-go{margin-top:8px;font-size:13px;font-weight:700;}
+    .brand-entry.pro .be-go{color:var(--pro);}
+    .brand-entry.edu .be-go{color:var(--edu);}
+    .howto{background:var(--card-bg);border:1px solid var(--border);border-left:3px solid var(--aivp);border-radius:12px;padding:16px 20px;margin:18px 0 0;font-size:13.5px;color:var(--text-soft);line-height:1.6;}
+    .howto b{color:var(--text);}
+    footer{text-align:center;color:var(--muted);font-size:13px;padding:28px 24px;border-top:1px solid var(--border);}
+    footer a{color:var(--aivp);text-decoration:none;}
     </style>
 </head>
 <body>
     <header>
-        <span class="wordmark">
-            <span class="mark">Ai</span>
-            <span class="name">AI Value Prospectors</span>
-        </span>
+        <span class="wordmark"><span class="mark">Ai</span><span class="name">AI Value Prospectors</span></span>
         <h1>Sales materials</h1>
-        <p>Shared reference for the team: one-pagers, decks, and enablement assets. Internal working copies; not customer-facing unless noted.</p>
-        <span class="internal">Internal · Unlinked</span>
+        <p>Shared, cross-twin assets plus everything for each brand. Internal working copies; not customer-facing unless noted.</p>
     </header>
     <main>
+        <p class="section-label"><span class="pip"></span>Choose your brand</p>
+        <div class="brand-grid">
+            <a class="brand-entry pro" href="proasiste/">
+                <div class="be-top"><div class="be-chip">Pro</div>
+                    <div><h2>ProAsiste</h2><div class="be-sub">Business · proasiste.com</div></div></div>
+                <div class="be-desc">Sales materials for the business product — owner-operators and the small teams around them.</div>
+                <div class="be-go">Open ProAsiste materials →</div>
+            </a>
+            <a class="brand-entry edu" href="eduasiste/">
+                <div class="be-top"><div class="be-chip">Edu</div>
+                    <div><h2>EduAsiste</h2><div class="be-sub">Education · eduasiste.org</div></div></div>
+                <div class="be-desc">Sales materials for the education product — families, tutors, homeschoolers and small schools.</div>
+                <div class="be-go">Open EduAsiste materials →</div>
+            </a>
+        </div>
 
-        <nav class="toc" aria-label="Contents">
-            <h2>On this page · 12 materials</h2>
-            <div class="toc-cols">
-                <div class="toc-col">
-                    <a class="toc-head" href="#sec-cross"><span class="pip"></span>Cross-Twin &amp; platform</a>
-                    <ul>
-                        <li><a href="#cross-twin-one-pager">Cross-Twin One-Pager</a></li>
-                        <li><a href="#knowledge-demo-guide">Knowledge Sales Demo Guide</a></li>
-                        <li><a href="#cross-twin-slides">How Two Twins Work Together — Slides</a></li>
-                        <li><a href="#cross-twin-email-blurbs">Email-Ready Blurbs — Cross-Twin</a></li>
-                    </ul>
-                </div>
-                <div class="toc-col pro">
-                    <a class="toc-head" href="#sec-pro"><span class="pip"></span>ProAsiste · business</a>
-                    <ul>
-                        <li><a href="#proasiste-one-pager">One-Pager</a></li>
-                        <li><a href="#proasiste-quick-reference">Quick Reference Card</a></li>
-                        <li><a href="#proasiste-email-templates">Sales Email Templates</a></li>
-                        <li><a href="#proasiste-competitive">Competitive Positioning</a></li>
-                        <li><a href="#proasiste-security-faq">Security FAQ</a></li>
-                    </ul>
-                </div>
-                <div class="toc-col edu">
-                    <a class="toc-head" href="#sec-edu"><span class="pip"></span>EduAsiste · education</a>
-                    <ul>
-                        <li><a href="#eduasiste-one-pager">One-Pager</a></li>
-                        <li><a href="#eduasiste-quick-reference">Quick Reference Card</a></li>
-                        <li><a href="#eduasiste-email-templates">Sales Email Templates</a></li>
-                        <li><a href="#eduasiste-competitive">Competitive Positioning</a></li>
-                        <li><a href="#eduasiste-security-faq">Security FAQ</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-
-        <a class="templates-banner" href="templates.html">
-            <div class="tb-icon">＋</div>
-            <div class="tb-text">
-                <strong>Copy-and-customize Google templates →</strong>
-                <span>Branded Docs, Sheets &amp; Slides (one-pagers, decks, ROI calculator, pipeline tracker, personas) — make a copy, fill the highlighted fields, export to PDF.</span>
-            </div>
-        </a>
-
-        <p class="section-label" id="sec-cross"><span class="pip"></span>Cross-Twin &amp; platform <span class="hint">— both brands</span></p>
+        <p class="section-label"><span class="pip"></span>Cross-twin &amp; platform <span class="hint">— common to both brands</span></p>
         <div class="card-grid">
-            <a class="card" id="cross-twin-one-pager" href="cross-twin-one-pager.html">
+            <a class="card" href="cross-twin-one-pager.html">
                 <div class="swatch">↔</div>
                 <h2>Cross-Twin One-Pager</h2>
-                <div class="desc">How two twins work together across both products. EduAsiste (parents/tutors/schools) and ProAsiste (owner + team) sections, each with five day-one pillars plus an opener and close for reps. Print-ready (Letter).</div>
-                <div class="tags">
-                    <span class="tag">One-pager</span>
-                    <span class="tag">Both brands</span>
-                </div>
+                <div class="desc">Both-brands leave-behind: EduAsiste and ProAsiste day-one pillars side by side, with an opener and close for reps. Print-ready (Letter).</div>
             </a>
-            <a class="card" id="knowledge-demo-guide" href="knowledge-demo-guide.html">
+            <a class="card" href="knowledge-demo-guide.html">
                 <div class="swatch">↔</div>
                 <h2>Knowledge Sales Demo Guide</h2>
-                <div class="desc">Tab-by-tab walkthrough of the Knowledge platform (Import · View · Task · Verify), the same UI behind both brands. What-it-is, how-to-demo, how-to-explain, how-to-sell per tab. Business examples shown; education equivalents noted inline.</div>
-                <div class="tags">
-                    <span class="tag">Demo script</span>
-                    <span class="tag">Both brands</span>
-                </div>
+                <div class="desc">Tab-by-tab walkthrough of the Knowledge platform (Import · View · Task · Verify) — the same UI behind both brands.</div>
             </a>
-            <a class="card" id="cross-twin-slides" href="cross-twin-slides.html">
+            <a class="card" href="cross-twin-slides.html">
                 <div class="swatch">↔</div>
                 <h2>How Two Twins Work Together — Slides</h2>
-                <div class="desc">8-slide deck outline (~7 min) for parents, tutors, and small-school owners. Slide-by-slide copy plus speaker notes, built to get to the demo, then to the ask.</div>
-                <div class="tags">
-                    <span class="tag">Deck outline</span>
-                    <span class="tag">Cross-Twin</span>
-                </div>
+                <div class="desc">8-slide deck outline (~7 min) with speaker notes. Built to get to the demo, then to the ask.</div>
             </a>
-            <a class="card" id="cross-twin-email-blurbs" href="cross-twin-email-blurbs.html">
+            <a class="card" href="cross-twin-email-blurbs.html">
                 <div class="swatch">↔</div>
-                <h2>Email-Ready Blurbs — Cross-Twin Pitch</h2>
-                <div class="desc">Three ready-to-send blurbs at three lengths: cold outreach, warm intro, and school/tutor prospect. EduAsiste angle, fill-in-the-blank tokens.</div>
-                <div class="tags">
-                    <span class="tag">Outreach</span>
-                    <span class="tag">Cross-Twin</span>
-                </div>
+                <h2>Email-Ready Blurbs — Cross-Twin</h2>
+                <div class="desc">Three ready-to-send blurbs at three lengths: cold outreach, warm intro, school/tutor prospect.</div>
             </a>
         </div>
 
-        <p class="section-label pro" id="sec-pro"><span class="pip"></span>ProAsiste <span class="hint">— business (proasiste.com)</span></p>
+        <p class="section-label"><span class="pip"></span>Common downloadable templates <span class="hint">— make a copy, fill fields, export PDF</span></p>
+        <div class="howto"><b>How to use:</b> download a file, drag it into Google Drive (it converts to a native Doc / Sheet / Slides), then <b>File → Make a copy</b>. Replace every <b>highlighted {{field}}</b> and <b>Download → PDF</b>. See the <a href="templates.html" style="color:var(--aivp)">full template library →</a> for every brand.</div>
         <div class="card-grid">
-            <a class="card pro" id="proasiste-one-pager" href="proasiste-one-pager.html">
-                <div class="swatch">Pro</div>
-                <h2>ProAsiste One-Pager</h2>
-                <div class="desc">Business-only leave-behind: your owner twin + your team's twins — the five things you can do day one, with an opener and close for reps. Print-ready (Letter).</div>
-                <div class="tags">
-                    <span class="tag">One-pager</span>
-                    <span class="tag">Business</span>
-                </div>
+            <a class="card" href="templates/aivp-one-pager.docx" download>
+                <div class="swatch">Doc</div>
+                <h2>One-Pager (both brands)</h2>
+                <div class="desc">EduAsiste + ProAsiste pillars with a rep contact line.</div>
+                <div class="meta">Downloads <code>aivp-one-pager.docx</code> → opens in Google Docs</div>
             </a>
-            <a class="card pro" id="proasiste-quick-reference" href="proasiste-quick-reference.html">
-                <div class="swatch">Pro</div>
-                <h2>ProAsiste Quick Reference Card</h2>
-                <div class="desc">Single-page cheat sheet for demos and calls. 30-second pitch, the four tabs, button reference, pain-point → response table, and tier cheat sheet (SILVER → DIAMOND). Print-friendly.</div>
-                <div class="tags">
-                    <span class="tag">Quick reference</span>
-                    <span class="tag">Business</span>
-                </div>
+            <a class="card" href="templates/aivp-email-templates.docx" download>
+                <div class="swatch">Doc</div>
+                <h2>Cross-Twin Email Templates</h2>
+                <div class="desc">Five outreach emails (education + business) plus tips.</div>
+                <div class="meta">Downloads <code>aivp-email-templates.docx</code> → opens in Google Docs</div>
             </a>
-            <a class="card pro" id="proasiste-email-templates" href="proasiste-email-templates.html">
-                <div class="swatch">Pro</div>
-                <h2>ProAsiste Sales Email Templates</h2>
-                <div class="desc">Copy-customize-send outreach by angle: time-saver hook, competitor angle, knowledge-loss problem, and more. For the ProAsiste business audience (operations leaders, owner-operators).</div>
-                <div class="tags">
-                    <span class="tag">Outreach</span>
-                    <span class="tag">Business</span>
-                </div>
+            <a class="card" href="templates/knowledge-demo-guide.docx" download>
+                <div class="swatch">Doc</div>
+                <h2>Knowledge Demo Guide</h2>
+                <div class="desc">Platform demo script for either brand.</div>
+                <div class="meta">Downloads <code>knowledge-demo-guide.docx</code> → opens in Google Docs</div>
             </a>
-            <a class="card pro" id="proasiste-competitive" href="proasiste-competitive.html">
-                <div class="swatch">Pro</div>
-                <h2>ProAsiste Competitive Positioning</h2>
-                <div class="desc">Battle cards for the objections business prospects raise: vs. ChatGPT / generic AI and vs. Microsoft Copilot. Their argument, your response, and a side-by-side differentiator table each.</div>
-                <div class="tags">
-                    <span class="tag">Competitive</span>
-                    <span class="tag">Business</span>
-                </div>
+            <a class="card" href="templates/aivp-pitch-deck.pptx" download>
+                <div class="swatch">Slides</div>
+                <h2>Two-Twins Pitch Deck</h2>
+                <div class="desc">~8-slide cross-brand deck with speaker notes.</div>
+                <div class="meta">Downloads <code>aivp-pitch-deck.pptx</code> → opens in Google Slides</div>
             </a>
-            <a class="card pro" id="proasiste-security-faq" href="proasiste-security-faq.html">
-                <div class="swatch">Pro</div>
-                <h2>ProAsiste Security FAQ</h2>
-                <div class="desc">Answers to business prospect security questions. Tier × infrastructure security table, what's included per tier (Workspace vs. Cloud), and the KloudStax path for GDPR / HIPAA / SOC 2 compliance.</div>
-                <div class="tags">
-                    <span class="tag">Security</span>
-                    <span class="tag">Business</span>
-                </div>
+            <a class="card" href="templates/aivp-pricing-roi-calculator.xlsx" download>
+                <div class="swatch">Sheet</div>
+                <h2>Pricing & ROI Calculator</h2>
+                <div class="desc">Tier + seats → Year-1 and ongoing cost, certification-waiver math.</div>
+                <div class="meta">Downloads <code>aivp-pricing-roi-calculator.xlsx</code> → opens in Google Sheets</div>
+            </a>
+            <a class="card" href="templates/aivp-pipeline-tracker.xlsx" download>
+                <div class="swatch">Sheet</div>
+                <h2>Sales Pipeline Tracker</h2>
+                <div class="desc">Prospect → Pro → Member stages, auto est. value, summary.</div>
+                <div class="meta">Downloads <code>aivp-pipeline-tracker.xlsx</code> → opens in Google Sheets</div>
             </a>
         </div>
-
-        <p class="section-label edu" id="sec-edu"><span class="pip"></span>EduAsiste <span class="hint">— education (eduasiste.org)</span></p>
-        <div class="card-grid">
-            <a class="card edu" id="eduasiste-one-pager" href="eduasiste-one-pager.html">
-                <div class="swatch">Edu</div>
-                <h2>EduAsiste One-Pager</h2>
-                <div class="desc">Education-only leave-behind: your parent twin + your child's learning twin — the five things you can do day one, with an opener and close for reps. Print-ready (Letter).</div>
-                <div class="tags">
-                    <span class="tag">One-pager</span>
-                    <span class="tag">Education</span>
-                </div>
-            </a>
-            <a class="card edu" id="eduasiste-quick-reference" href="eduasiste-quick-reference.html">
-                <div class="swatch">Edu</div>
-                <h2>EduAsiste Quick Reference Card</h2>
-                <div class="desc">Single-page cheat sheet for parent/school calls and demos. Two-twins elevator pitch, the platform tabs reframed for learning, "they say → you say" for education pains, and the SILVER → DIAMOND tiers with family/tutor/school "best for" notes. Print-friendly.</div>
-                <div class="tags">
-                    <span class="tag">Quick reference</span>
-                    <span class="tag">Education</span>
-                </div>
-            </a>
-            <a class="card edu" id="eduasiste-email-templates" href="eduasiste-email-templates.html">
-                <div class="swatch">Edu</div>
-                <h2>EduAsiste Sales Email Templates</h2>
-                <div class="desc">Copy-customize-send outreach for parents, tutors, homeschoolers, and small schools. Reframed around being "one conversation behind," report cards weeks late, and scores-not-understanding. Fill-in tokens throughout.</div>
-                <div class="tags">
-                    <span class="tag">Outreach</span>
-                    <span class="tag">Education</span>
-                </div>
-            </a>
-            <a class="card edu" id="eduasiste-competitive" href="eduasiste-competitive.html">
-                <div class="swatch">Edu</div>
-                <h2>EduAsiste Competitive Positioning</h2>
-                <div class="desc">Battle cards vs. the ed-tech a parent already uses: generic AI homework helpers, grade-tracker portals, content libraries (Khan/IXL-style), and human tutoring. Socratic teaching, parent twin + transparency, and minor-data privacy as the wedge.</div>
-                <div class="tags">
-                    <span class="tag">Competitive</span>
-                    <span class="tag">Education</span>
-                </div>
-            </a>
-            <a class="card edu" id="eduasiste-security-faq" href="eduasiste-security-faq.html">
-                <div class="swatch">Edu</div>
-                <h2>EduAsiste Security FAQ</h2>
-                <div class="desc">Answers to parent and school data questions. FERPA / COPPA led, GDPR &amp; data residency (incl. Chile Ley 21.719), "is my child's data used to train AI?", per-learner isolation, and the transparency pillar (child sees every view). KloudStax for formal frameworks.</div>
-                <div class="tags">
-                    <span class="tag">Security</span>
-                    <span class="tag">Education</span>
-                </div>
-            </a>
-        </div>
-
     </main>
-    <footer>
-        AI Value Prospectors · internal sales enablement · Source: <a href="https://github.com/aivalueprospector/product-research">product-research</a>
-    </footer>
+    <footer>AI Value Prospectors · internal sales enablement · Source: <a href="https://github.com/aivalueprospector/product-research">product-research</a></footer>
 </body>
 </html>
