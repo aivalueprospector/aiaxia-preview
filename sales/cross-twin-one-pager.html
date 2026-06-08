@@ -21,14 +21,20 @@
     margin: 0 auto;
     padding: 0.3in 0;
   }
-  header {
-    border-bottom: 3px solid #2ea3f2;
+  /* Per-section brand accents. EduAsiste = ocean blue (Eduardo),
+     ProAsiste = gold (Mente). Scoped vars recolor rules, hero borders,
+     pillar numbers, and framer headers within each section. */
+  .edu-section { --accent: #2EA3F2; --accent-dark: #1d6fb0; --accent-tint-a: #f0f9ff; --accent-tint-b: #e0f2fe; }
+  .pro-section { --accent: #CFB382; --accent-dark: #92700f; --accent-tint-a: #fbf8ef; --accent-tint-b: #f3ead2; }
+
+  header.doc-head {
+    border-bottom: 3px solid #0f1d2c;
     padding-bottom: 8px;
-    margin-bottom: 14px;
+    margin-bottom: 6px;
   }
   .brand {
     font-size: 9pt;
-    color: #2ea3f2;
+    color: #4a5a6a;
     font-weight: 700;
     letter-spacing: 1.5px;
     text-transform: uppercase;
@@ -45,23 +51,44 @@
     font-style: italic;
     margin: 0;
   }
+  .product {
+    margin-top: 18px;
+    page-break-inside: avoid;
+  }
+  .product-head {
+    border-bottom: 3px solid var(--accent);
+    padding-bottom: 6px;
+    margin-bottom: 10px;
+  }
+  .product-eyebrow {
+    font-size: 9pt;
+    color: var(--accent-dark);
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+  }
+  .product-title {
+    font-size: 15pt;
+    margin: 2px 0 0;
+    color: #0f1d2c;
+  }
   .hero {
-    background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
-    border-left: 4px solid #2ea3f2;
+    background: linear-gradient(135deg, var(--accent-tint-a) 0%, var(--accent-tint-b) 100%);
+    border-left: 4px solid var(--accent);
     padding: 10px 14px;
-    margin: 14px 0;
+    margin: 10px 0;
     border-radius: 2px;
   }
   .hero p {
     margin: 0;
-    font-size: 11pt;
+    font-size: 10.5pt;
     color: #0f1d2c;
     font-weight: 500;
   }
   h2 {
     font-size: 11.5pt;
     color: #0f1d2c;
-    margin: 14px 0 6px;
+    margin: 12px 0 6px;
     border-bottom: 1px solid #d0d7de;
     padding-bottom: 3px;
   }
@@ -84,7 +111,7 @@
     display: inline-block;
     width: 18px;
     height: 18px;
-    background: #2ea3f2;
+    background: var(--accent);
     color: white;
     border-radius: 50%;
     text-align: center;
@@ -108,7 +135,7 @@
     background: #fef3c7;
     border-left: 4px solid #f59e0b;
     padding: 10px 14px;
-    margin: 14px 0 10px;
+    margin: 12px 0 6px;
     border-radius: 2px;
   }
   .framer .q {
@@ -123,7 +150,7 @@
     font-size: 10pt;
   }
   footer {
-    margin-top: 14px;
+    margin-top: 16px;
     padding-top: 8px;
     border-top: 1px solid #d0d7de;
     font-size: 8.5pt;
@@ -142,66 +169,138 @@
 <body>
 <div class="page">
 
-  <header>
-    <div class="brand">TwinCloud &middot; For Parents, Tutors &amp; Small Schools</div>
+  <header class="doc-head">
+    <div class="brand">TwinCloud &middot; For families, schools &amp; small businesses</div>
     <h1>How Two Twins Work Together</h1>
-    <p class="tagline">Real-time visibility. Low-friction assignments. Peace of mind.</p>
+    <p class="tagline">Real-time visibility. Low-friction delegation. Peace of mind.</p>
   </header>
 
-  <div class="hero">
-    <p>Every learner has their own AI twin. Parents and teachers have twins too.
-    The twins talk to each other &mdash; so you always know how your child is
-    growing, and you can guide them without nagging.</p>
-  </div>
+  <!-- ============ EDUASISTE ============ -->
+  <section class="product edu-section">
 
-  <h2>Five things you can do the day you sign up</h2>
-
-  <div class="pillars">
-
-    <div class="pillar">
-      <div class="pillar-title"><span class="pillar-num">1</span>See what your child learned today</div>
-      <p>Ask your twin <em>&ldquo;How's Emma doing in reading this week?&rdquo;</em> &mdash; and get a live answer pulled straight from her learning twin. No report cards. No waiting.</p>
-      <p class="sells">For parents who feel disconnected from school progress.</p>
+    <div class="product-head">
+      <div class="product-eyebrow">EduAsiste &middot; Education &middot; ltwin.ai</div>
+      <h2 class="product-title">For parents, tutors &amp; small schools</h2>
     </div>
 
-    <div class="pillar">
-      <div class="pillar-title"><span class="pillar-num">2</span>Assign homework in 30 seconds</div>
-      <p>Type <em>&ldquo;practice times tables, 10 questions, due Friday&rdquo;</em> &mdash; and the system builds the worksheet for your child and a private answer key for you.</p>
-      <p class="sells">For tutors, homeschoolers, supplemental-learning families.</p>
+    <div class="hero">
+      <p>Every learner has their own AI twin. Parents and teachers have twins too.
+      The twins talk to each other &mdash; so you always know how your child is
+      growing, and you can guide them without nagging.</p>
     </div>
 
-    <div class="pillar">
-      <div class="pillar-title"><span class="pillar-num">3</span>Socratic study sessions, auto-summarized</div>
-      <p>Your child's twin guides them through a topic by asking questions, not giving answers. When they're done, you get a summary of what clicked and what didn't &mdash; in your own chat.</p>
-      <p class="sells">For parents who want quality learning time without being the tutor.</p>
+    <h2>Five things you can do the day you sign up</h2>
+
+    <div class="pillars">
+
+      <div class="pillar">
+        <div class="pillar-title"><span class="pillar-num">1</span>See what your child learned today</div>
+        <p>Ask your twin <em>&ldquo;How's Emma doing in reading this week?&rdquo;</em> &mdash; and get a live answer pulled straight from her learning twin. No report cards. No waiting.</p>
+        <p class="sells">For parents who feel disconnected from school progress.</p>
+      </div>
+
+      <div class="pillar">
+        <div class="pillar-title"><span class="pillar-num">2</span>Assign homework in 30 seconds</div>
+        <p>Type <em>&ldquo;practice times tables, 10 questions, due Friday&rdquo;</em> &mdash; and the system builds the worksheet for your child and a private answer key for you.</p>
+        <p class="sells">For tutors, homeschoolers, supplemental-learning families.</p>
+      </div>
+
+      <div class="pillar">
+        <div class="pillar-title"><span class="pillar-num">3</span>Socratic study sessions, auto-summarized</div>
+        <p>Your child's twin guides them through a topic by asking questions, not giving answers. When they're done, you get a summary of what clicked and what didn't &mdash; in your own chat.</p>
+        <p class="sells">For parents who want quality learning time without being the tutor.</p>
+      </div>
+
+      <div class="pillar">
+        <div class="pillar-title"><span class="pillar-num">4</span>Goals that actually move</div>
+        <p>Set a goal like <em>&ldquo;read 20 books this semester&rdquo;</em> &mdash; and every time your child's twin records progress, the bar fills in automatically. No manual check-ins.</p>
+        <p class="sells">For achievement-oriented families and tutors running structured programs.</p>
+      </div>
+
+      <div class="pillar">
+        <div class="pillar-title"><span class="pillar-num">5</span>Full transparency, built in</div>
+        <p>Every time you look at your child's data, they can see it happened. No secret surveillance. Trust is the product.</p>
+        <p class="sells">For privacy-conscious parents, teen parents, and ethics-forward schools.</p>
+      </div>
+
+      <div class="pillar">
+        <div class="pillar-title">Coming soon</div>
+        <p class="coming"><strong>Quizzes &amp; tests</strong> with auto-grading &middot; <strong>Classroom view</strong> for teachers managing cohorts &middot; <strong>Co-parent collaboration</strong> on shared assignments.</p>
+      </div>
+
     </div>
 
-    <div class="pillar">
-      <div class="pillar-title"><span class="pillar-num">4</span>Goals that actually move</div>
-      <p>Set a goal like <em>&ldquo;read 20 books this semester&rdquo;</em> &mdash; and every time your child's twin records progress, the bar fills in automatically. No manual check-ins.</p>
-      <p class="sells">For achievement-oriented families and tutors running structured programs.</p>
+    <div class="framer">
+      <p class="q">Open with: <em>&ldquo;When's the last time you knew &mdash; in real time &mdash; exactly what your child was learning and where they were struggling?&rdquo;</em></p>
+      <p class="a">Then close: <em>EduAsiste gives your child their own AI tutor &mdash; and gives you a parent twin that stays in the loop automatically. It's like having a teacher who reports to you after every lesson.</em></p>
     </div>
 
-    <div class="pillar">
-      <div class="pillar-title"><span class="pillar-num">5</span>Full transparency, built in</div>
-      <p>Every time you look at your child's data, they can see it happened. No secret surveillance. Trust is the product.</p>
-      <p class="sells">For privacy-conscious parents, teen parents, and ethics-forward schools.</p>
+  </section>
+
+  <!-- ============ PROASISTE ============ -->
+  <section class="product pro-section">
+
+    <div class="product-head">
+      <div class="product-eyebrow">ProAsiste &middot; Business &middot; ctwin.ai</div>
+      <h2 class="product-title">For owner-operators &amp; the small teams around them</h2>
     </div>
 
-    <div class="pillar">
-      <div class="pillar-title">Coming soon</div>
-      <p class="coming"><strong>Quizzes &amp; tests</strong> with auto-grading &middot; <strong>Classroom view</strong> for teachers managing cohorts &middot; <strong>Co-parent collaboration</strong> on shared assignments.</p>
+    <div class="hero">
+      <p>Every person on your team has their own AI twin. You have an owner twin
+      too. The twins talk to each other &mdash; so you always know what's getting
+      handled, and you can steer the business without sitting in every meeting.</p>
     </div>
 
-  </div>
+    <h2>Five things you can do the day you sign up</h2>
 
-  <div class="framer">
-    <p class="q">Open with: <em>&ldquo;When's the last time you knew &mdash; in real time &mdash; exactly what your child was learning and where they were struggling?&rdquo;</em></p>
-    <p class="a">Then close: <em>TwinCloud gives your child their own AI tutor &mdash; and gives you a parent twin that stays in the loop automatically. It's like having a teacher who reports to you after every lesson.</em></p>
-  </div>
+    <div class="pillars">
+
+      <div class="pillar">
+        <div class="pillar-title"><span class="pillar-num">1</span>See what your team handled today</div>
+        <p>Ask your twin <em>&ldquo;Where do the Q3 installs stand?&rdquo;</em> &mdash; and get a live answer pulled straight from your team's twins. No status meeting. No chasing updates.</p>
+        <p class="sells">For owners who feel one step behind their own operation.</p>
+      </div>
+
+      <div class="pillar">
+        <div class="pillar-title"><span class="pillar-num">2</span>Delegate in one sentence</div>
+        <p>Type <em>&ldquo;have Maria follow up on the Henderson quote by Friday&rdquo;</em> &mdash; and the task lands in her twin's chat, tracked right back to yours.</p>
+        <p class="sells">For owners who hold too much in their head and on sticky notes.</p>
+      </div>
+
+      <div class="pillar">
+        <div class="pillar-title"><span class="pillar-num">3</span>Day-one context for new hires</div>
+        <p>Every conversation, extracted fact, and filed document feeds a shared knowledge graph. New hires get years of context on day one &mdash; without having to ask anyone.</p>
+        <p class="sells">For teams that lose institutional memory every time someone leaves.</p>
+      </div>
+
+      <div class="pillar">
+        <div class="pillar-title"><span class="pillar-num">4</span>Goals the whole team moves</div>
+        <p>Set a target like <em>&ldquo;$75K recurring revenue by Q4&rdquo;</em> &mdash; and every team member's progress rolls up into the bar automatically. No spreadsheet wrangling.</p>
+        <p class="sells">For owners running structured quarters and accountable teams.</p>
+      </div>
+
+      <div class="pillar">
+        <div class="pillar-title"><span class="pillar-num">5</span>Oversight with transparency</div>
+        <p>Administrator, employee, and mentor roles per seat &mdash; everyone sees who can see what. You get the full picture without black-box surveillance. Mentor seats are free.</p>
+        <p class="sells">For owners who want visibility their team actually trusts.</p>
+      </div>
+
+      <div class="pillar">
+        <div class="pillar-title">Coming soon</div>
+        <p class="coming"><strong>Team dashboard</strong> across every seat &middot; <strong>Advisor &amp; accountant guest seats</strong> &middot; <strong>Approval workflows</strong> for quotes and spend.</p>
+      </div>
+
+    </div>
+
+    <div class="framer">
+      <p class="q">Open with: <em>&ldquo;When's the last time you knew &mdash; without calling a meeting &mdash; exactly what every person on your team was working on?&rdquo;</em></p>
+      <p class="a">Then close: <em>ProAsiste gives every team member their own AI twin &mdash; and gives you an owner twin that stays in the loop automatically. It's like a daily standup that writes itself.</em></p>
+    </div>
+
+  </section>
 
   <footer>
-    <span>TwinCloud &middot; ctwin.ai &middot; ltwin.ai</span>
+    <span>ProAsiste &middot; ctwin.ai &nbsp;&middot;&nbsp; EduAsiste &middot; ltwin.ai</span>
     <span>Two twins. One continuous conversation.</span>
   </footer>
 
