@@ -22,12 +22,6 @@ EXT_LABEL = {"docx": "Doc", "xlsx": "Sheet", "pptx": "Slides"}
 
 # A material: (swatch, title, desc, view_href_or_None, download_filename_or_None)
 COMMON = [
-    ("↔", "Cross-Twin One-Pager", "Both-brands leave-behind: EduAsiste + ProAsiste day-one pillars, opener and close for reps. Print-ready.",
-     "cross-twin-one-pager.html", "aivp-one-pager.docx"),
-    ("↔", "Cross-Twin Email Templates", "Ready-to-send outreach (education + business leaning) plus tips. Fill the highlighted fields and send.",
-     "cross-twin-email-blurbs.html", "aivp-email-templates.docx"),
-    ("↔", "How Two Twins Work Together — Deck", "8-slide pitch with speaker notes. Read the outline in the browser or download the editable deck.",
-     "cross-twin-slides.html", "aivp-pitch-deck.pptx"),
     ("↔", "Knowledge Demo Guide", "Tab-by-tab platform demo script (Import · View · Task · Verify) — works for both brands.",
      "knowledge-demo-guide.html", "knowledge-demo-guide.docx"),
 ]
@@ -42,6 +36,8 @@ BRANDS = {
              "one-pager.html", "proasiste-one-pager.docx"),
             ("Sales Email Templates", "Business outreach by angle — time-saver, competitor, knowledge-loss. Copy, customize, send.",
              "email-templates.html", "proasiste-email-templates.docx"),
+            ("Two-Twins Pitch Blurbs", "Short ready-to-send emails leading with the two-twins idea (owner twin + team twins). Pick a version, fill the fields, send.",
+             "pitch-blurbs.html", "proasiste-pitch-blurbs.docx"),
             ("Quick Reference Card", "One-page cheat sheet: pitch, tabs, pain→response, tiers. Print-friendly.",
              "quick-reference.html", "proasiste-quick-reference.docx"),
             ("Competitive Positioning", "Battle cards vs. ChatGPT / Copilot — their argument, your response, differentiator tables.",
@@ -50,8 +46,8 @@ BRANDS = {
              "security-faq.html", "proasiste-security-faq.docx"),
             ("Customer Personas", "Business buyer profiles with pains, demo focus, and closing language.",
              None, "proasiste-personas.docx"),
-            ("Pitch Deck", "~8-slide business deck with speaker notes. Editable skeleton.",
-             None, "proasiste-pitch-deck.pptx"),
+            ("How Two Twins Work Together — Deck", "~8-slide business deck with speaker notes. Read the outline in the browser or download the editable deck.",
+             "deck.html", "proasiste-pitch-deck.pptx"),
         ],
     },
     "eduasiste": {
@@ -63,6 +59,8 @@ BRANDS = {
              "one-pager.html", "eduasiste-one-pager.docx"),
             ("Sales Email Templates", "Parent / tutor / school outreach. Copy, customize, send.",
              "email-templates.html", "eduasiste-email-templates.docx"),
+            ("Two-Twins Pitch Blurbs", "Short ready-to-send emails leading with the two-twins idea (parent twin + child's twin). Pick a version, fill the fields, send.",
+             "pitch-blurbs.html", "eduasiste-pitch-blurbs.docx"),
             ("Quick Reference Card", "One-page cheat sheet for parent/school calls. Print-friendly.",
              "quick-reference.html", "eduasiste-quick-reference.docx"),
             ("Competitive Positioning", "Battle cards vs. generic AI, grade portals, content libraries, tutoring.",
@@ -71,8 +69,8 @@ BRANDS = {
              "security-faq.html", "eduasiste-security-faq.docx"),
             ("Customer Personas", "Five education buyer profiles with demo focus + closing language.",
              None, "eduasiste-personas.docx"),
-            ("Pitch Deck", "~8-slide education deck with speaker notes. Editable skeleton.",
-             None, "eduasiste-pitch-deck.pptx"),
+            ("How Two Twins Work Together — Deck", "~8-slide education deck with speaker notes. Read the outline in the browser or download the editable deck.",
+             "deck.html", "eduasiste-pitch-deck.pptx"),
         ],
     },
 }
