@@ -30,10 +30,6 @@ COMMON = [
      "cross-twin-slides.html", "aivp-pitch-deck.pptx"),
     ("↔", "Knowledge Demo Guide", "Tab-by-tab platform demo script (Import · View · Task · Verify) — works for both brands.",
      "knowledge-demo-guide.html", "knowledge-demo-guide.docx"),
-    ("↔", "Pricing & ROI Calculator", "Live Sheet: pick tier + seats + billing, see Year-1 and ongoing cost with certification-waiver math.",
-     None, "aivp-pricing-roi-calculator.xlsx"),
-    ("↔", "Sales Pipeline Tracker", "Shared Sheet: Prospect → Pro → Member stages, auto est. value per row, pipeline summary.",
-     None, "aivp-pipeline-tracker.xlsx"),
 ]
 
 BRANDS = {
@@ -56,8 +52,6 @@ BRANDS = {
              None, "proasiste-personas.docx"),
             ("Pitch Deck", "~8-slide business deck with speaker notes. Editable skeleton.",
              None, "proasiste-pitch-deck.pptx"),
-            ("Pricing & ROI Calculator", "Live Sheet: tier + seats → Year-1 + ongoing cost, certification-waiver math.",
-             None, "proasiste-pricing-roi-calculator.xlsx"),
         ],
     },
     "eduasiste": {
@@ -79,8 +73,6 @@ BRANDS = {
              None, "eduasiste-personas.docx"),
             ("Pitch Deck", "~8-slide education deck with speaker notes. Editable skeleton.",
              None, "eduasiste-pitch-deck.pptx"),
-            ("Pricing & ROI Calculator", "Live Sheet: tier + seats → Year-1 + ongoing cost, certification-waiver math.",
-             None, "eduasiste-pricing-roi-calculator.xlsx"),
         ],
     },
 }
