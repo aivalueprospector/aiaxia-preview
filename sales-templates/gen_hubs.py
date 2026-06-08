@@ -121,6 +121,13 @@ CSS = """
     .brand-entry.edu .be-go{color:var(--edu);}
     .howto{background:var(--card-bg);border:1px solid var(--border);border-left:3px solid var(--ACCENT);border-radius:12px;padding:16px 20px;margin:18px 0 0;font-size:13.5px;color:var(--text-soft);line-height:1.6;}
     .howto b{color:var(--text);}
+    .demos-cta{display:flex;align-items:center;gap:16px;margin-top:16px;padding:18px 22px;border-radius:14px;text-decoration:none;color:inherit;border:1px solid var(--border);background:linear-gradient(135deg,rgba(232,181,71,.10),rgba(46,163,242,.10));transition:transform 120ms,border-color 120ms,box-shadow 120ms;}
+    .demos-cta:hover{transform:translateY(-2px);border-color:var(--ACCENT);box-shadow:0 10px 28px rgba(0,0,0,.32);}
+    .demos-cta .dc-icon{flex:none;width:44px;height:44px;border-radius:12px;background:var(--ACCENT);color:#0F1115;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:800;}
+    .demos-cta .dc-text{display:flex;flex-direction:column;gap:2px;}
+    .demos-cta .dc-text strong{font-size:16px;}
+    .demos-cta .dc-text span{font-size:13px;color:var(--text-soft);}
+    .demos-cta .dc-go{margin-left:auto;font-size:13px;font-weight:700;color:var(--ACCENT);}
     footer{text-align:center;color:var(--muted);font-size:13px;padding:28px 24px;border-top:1px solid var(--border);}
     footer a{color:var(--ACCENT);text-decoration:none;}
 """
@@ -170,6 +177,13 @@ HOWTO = ('<div class="howto"><b>Downloads:</b> drag a downloaded file into Googl
          'replace every <b>highlighted {{field}}</b>, and <b>Download → PDF</b> to send.</div>')
 
 
+def demos_cta(href, subtitle):
+    return (f'<a class="demos-cta" href="{href}">'
+            f'<div class="dc-icon">&#9654;</div>'
+            f'<div class="dc-text"><strong>Twin Demos</strong><span>{subtitle}</span></div>'
+            f'<div class="dc-go">Open &rarr;</div></a>')
+
+
 def build_common():
     header = '''    <header>
         <span class="wordmark"><span class="mark">Ai</span><span class="name">AI Value Prospectors</span></span>
@@ -185,10 +199,15 @@ def build_common():
                 <div class="be-go">Open {b['display']} materials →</div>
             </a>''')
     cards = "\n".join(material_card(*m, view_prefix="", dl_prefix="templates/") for m in COMMON)
+    demos = demos_cta("../demos/index.html",
+                      "Explore the live, interactive demo twins for both brands — demo data only.")
     main = f'''        <p class="section-label"><span class="pip"></span>Choose your brand</p>
         <div class="brand-grid">
 {chr(10).join(entries)}
         </div>
+
+        <p class="section-label"><span class="pip"></span>Live demos</p>
+        {demos}
 
         <p class="section-label"><span class="pip"></span>Cross-twin &amp; platform <span class="hint">— shared by both brands</span></p>
         {HOWTO}
@@ -208,7 +227,13 @@ def build_brand(key, b):
     </header>'''
     cards = "\n".join(material_card(b["swatch"], *m, view_prefix="", dl_prefix="../templates/")
                       for m in b["materials"])
-    main = f'''        <p class="section-label"><span class="pip"></span>{b['display']} materials</p>
+    anchor = {"proasiste": "#proasiste", "eduasiste": "#edu-institution"}[key]
+    demos = demos_cta(f"../../demos/index.html{anchor}",
+                      f"Jump to the live {b['display']} demo twins — demo data only.")
+    main = f'''        <p class="section-label"><span class="pip"></span>Live demos</p>
+        {demos}
+
+        <p class="section-label"><span class="pip"></span>{b['display']} materials</p>
         {HOWTO}
         <div class="card-grid">
 {cards}
