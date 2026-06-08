@@ -14,12 +14,12 @@ Answers to common security questions from prospects.
 | **PLATINUM** | Google Cloud | Enhanced cloud security |
 | **DIAMOND** | Google Cloud | Enhanced cloud security |
 
-| Compliance Need | Solution | Provider |
-|-----------------|----------|----------|
-| GDPR compliance | KloudStax partnership | KloudStax (separate contract) |
-| HIPAA compliance | KloudStax partnership | KloudStax (separate contract) |
-| SOC 2 compliance | KloudStax partnership | KloudStax (separate contract) |
-| Role-based access (IAM) | KloudStax partnership | KloudStax (separate contract) |
+| Compliance Need | How ProAsiste Handles It | Status |
+|-----------------|--------------------------|--------|
+| GDPR compliance | Encryption, no model training, export/deletion on request; EU data residency on request | In progress (in-house) |
+| HIPAA compliance | Control framework, audit controls, BAA path | In progress (in-house) |
+| SOC 2 compliance | Control framework and audit evidence | In progress (in-house) |
+| Role-based access (IAM) | Twin-level access today; granular IAM scoping | In progress (in-house) |
 
 ---
 
@@ -76,13 +76,13 @@ Answers to common security questions from prospects.
 
 ---
 
-## Enterprise Security (KloudStax Partnership)
+## Enterprise & Formal Compliance
 
 ### "We need GDPR/HIPAA/SOC 2 compliance"
 
-> "We understand that enterprises and regulated industries have specific compliance requirements. For GDPR, HIPAA, SOC 2, and similar compliance needs, we've partnered with KloudStax. They specialize in enterprise security and compliance. That's their core expertise, not ours. They can provide the documentation, controls, and auditing your compliance team needs."
+> "We understand that enterprises and regulated industries have specific compliance requirements. ProAsiste's platform gives you the technical controls today: encryption, data isolation, no model training, export and deletion. The formal documentation, signed agreements, and audits are being built in-house and are currently in progress. Tell us your specific requirement and we'll share where it stands and the timeline."
 
-**What KloudStax Provides:**
+**Formal compliance, in progress (in-house):**
 - **GDPR compliance**: Data processing agreements, EU data residency, right to erasure
 - **HIPAA compliance**: BAA agreements, PHI handling, audit controls
 - **SOC 2 Type II**: Formal auditing, compliance reports, control frameworks
@@ -90,25 +90,13 @@ Answers to common security questions from prospects.
 - **Advanced audit logging**: Detailed access logs, compliance reporting
 - **Dedicated environments**: Isolated infrastructure for regulated data
 
-**How It Works:**
-1. Tell us your security/compliance requirements
-2. We work with KloudStax to create a quick-turn proposal
-3. You receive an addendum to your ProAsiste contract covering the additional services
-4. KloudStax provisions and manages your compliant environment
-5. ProAsiste runs on that KloudStax-managed infrastructure
+### "When will formal compliance be ready?"
 
-**Pricing:**
-- KloudStax services are added as a contract addendum
-- Pricing based on your specific requirements
-- Quick turnaround, no lengthy separate procurement process
+> "It's actively in progress. The technical controls behind these frameworks (encryption, data isolation, no model training, export and deletion) are in place today. The formal certifications, signed agreements, and audit documentation are being finalized in-house. Tell us which framework you need and we'll give you the current status and the expected timeline for your organization."
 
 ### "Why don't you handle compliance directly?"
 
-> "We believe in doing what we do best: building the best possible twin for your business. Enterprise compliance requires specialized expertise, dedicated resources, and ongoing certification maintenance. Rather than do that poorly ourselves, we've partnered with KloudStax, who does it excellently. You get strong AI capabilities and strong security."
-
-### "Can we talk to KloudStax?"
-
-> "Absolutely. We've set up a quick-turn proposal process with KloudStax. We can get you an addendum to your ProAsiste contract that meets any additional security or infrastructure needs your company may have, without a lengthy separate procurement process."
+> "We do, in-house. We focus on building the best possible twin for your business, and formal compliance is part of that work, not something we hand off. The technical controls are in place today; the specialized expertise, dedicated resources, and ongoing certification maintenance behind the formal documentation are being built in-house and are in progress. You get strong AI capabilities and a defined path to audit-ready security."
 
 ---
 
@@ -124,31 +112,19 @@ Answers to common security questions from prospects.
 > - Only the current conversation context is sent, not your entire knowledge base
 > - Anthropic does not train on API data (per their data usage policy)
 > - We use enterprise API tiers with additional data protections
-> - For maximum security needs, KloudStax can configure dedicated/private AI endpoints"
+> - For maximum security needs, we can configure dedicated/private AI endpoints"
 
 ### "What if there's a data breach?"
 
-**Standard (Google Workspace):**
-> "Google has industry-leading breach detection and response. In the unlikely event of a breach affecting your data, you would be notified according to Google's policies and any applicable laws."
-
-**Enterprise (KloudStax):**
-> "KloudStax provides formal incident response procedures, breach notification SLAs, and compliance with specific regulatory requirements for breach reporting (GDPR 72-hour notification, HIPAA breach rules, etc.)"
+> "Google has industry-leading breach detection and response. In the unlikely event of a breach affecting your data, you would be notified according to Google's policies and any applicable laws. Formal incident-response procedures, breach-notification SLAs, and compliance with specific regulatory breach-reporting requirements (GDPR's 72-hour notification, HIPAA breach rules, etc.) are part of the in-house compliance program currently in progress."
 
 ### "Can employees access only what they should?"
 
-**Standard:**
-> "Our standard offering provides twin-level access control. Either someone has access to the twin or they don't. For Org-twins, we support mentor oversight of user workspaces."
-
-**Enterprise (KloudStax):**
-> "For granular role-based access control (where different users see different data within the same system), KloudStax can implement Google IAM integration with custom permission structures."
+> "Our standard offering provides twin-level access control. Either someone has access to the twin or they don't. For Org-twins, we support mentor oversight of user workspaces. Granular role-based access control (where different users see different data within the same system, via Google IAM integration with custom permission structures) is part of the in-house roadmap and is in progress."
 
 ### "Do you have a security certification?"
 
-**Standard:**
-> "We inherit Google Workspace's certifications, which include SOC 1/2/3, ISO 27001, and more. See Google's compliance page for the full list."
-
-**Enterprise:**
-> "KloudStax maintains their own SOC 2 Type II certification and can provide compliance documentation for GDPR, HIPAA, and other frameworks as needed for your audits."
+> "We inherit Google Workspace's certifications, which include SOC 1/2/3, ISO 27001, and more. See Google's compliance page for the full list. Our own formal certifications (SOC 2 Type II) and compliance documentation for GDPR, HIPAA, and other frameworks are being built in-house and are in progress; we can share current status for your audit."
 
 ---
 
@@ -160,9 +136,9 @@ Ask: "What are your main security concerns or requirements?"
 
 Listen for:
 - General data protection concerns → Standard offering
-- Specific compliance mentions (GDPR, HIPAA, SOC 2) → KloudStax
-- Role-based access needs → KloudStax
-- Audit/documentation requirements → KloudStax
+- Specific compliance mentions (GDPR, HIPAA, SOC 2) → Standard controls today + formal docs in progress (in-house)
+- Role-based access needs → In-house roadmap, in progress
+- Audit/documentation requirements → In-house roadmap, in progress; share current status and timeline
 
 ### Step 2: Position Appropriately
 
@@ -170,16 +146,16 @@ Listen for:
 > "Our standard platform runs on Google Workspace's security infrastructure, which provides enterprise-grade protection out of the box. This includes encryption, access controls, and Google's world-class security operations."
 
 **For Enterprise Needs:**
-> "For your compliance requirements, we work with our partner KloudStax. They specialize in exactly this: GDPR, HIPAA, SOC 2, role-based access. Let me explain how that partnership works..."
+> "For GDPR, HIPAA, SOC 2, or role-based access requirements that need signed agreements and audit evidence, those formal frameworks are being built in-house and are in progress. Tell me the specific requirement and I'll get you the current status and timeline..."
 
-### Step 3: Handle the Handoff (if needed)
+### Step 3: Handle Formal Requirements (if needed)
 
-If KloudStax is needed:
+If a formal framework is required:
 1. Acknowledge their requirements are valid and important
-2. Explain the partnership model
-3. Offer to make an introduction
-4. Clarify that KloudStax pricing is separate
-5. Emphasize this gives them best-in-class for both AI and security
+2. Be clear about what's available today (technical controls) vs in progress (formal docs/certifications)
+3. Capture the specific framework and deadline they need
+4. Get them a current status and expected timeline from the team
+5. Emphasize this gives them best-in-class AI now, with audit-ready security on a defined path
 
 ---
 
@@ -193,40 +169,30 @@ If KloudStax is needed:
 
 > "I understand IT teams are cautious, and they should be. Here's what usually helps:
 > 1. We can provide Google Workspace's security documentation
-> 2. For specific compliance needs, KloudStax can provide formal documentation
+> 2. For specific compliance needs, we can share where our formal documentation stands and the timeline
 > 3. We're happy to do a technical call with your IT team
 > 4. We can start with a non-sensitive pilot to build confidence"
 
 ### "We need everything on-premise."
 
-> "True on-premise deployment isn't something we offer directly. Our platform is cloud-native. However, KloudStax can discuss private cloud options that may meet your requirements while still allowing you to use ProAsiste. Would it be helpful to explore that with them?"
+> "True on-premise deployment isn't something we offer directly. Our platform is cloud-native. However, regional data residency and private-cloud options can be configured to meet many such requirements while you still use ProAsiste. Would it be helpful to explore that?"
 
-### "KloudStax adds too much cost/complexity."
+### "We need formal compliance now, not 'in progress.'"
 
-> "For most customers, the standard Google Workspace security is more than sufficient. KloudStax is really for organizations with specific regulatory requirements: healthcare, finance, government contractors, EU data residency, etc. If you don't have those specific mandates, you likely don't need KloudStax."
+> "Fair, and we won't pretend otherwise. The technical controls (encryption, data isolation, no model training, export and deletion) are in place today. The formal certifications and signed agreements are being finalized in-house. If you have a hard deadline, tell us the framework and the date, and we'll give you an honest status and timeline so you can decide. For most customers, the standard Google Workspace security is already more than sufficient; formal frameworks are really for organizations with specific regulatory mandates: healthcare, finance, government contractors, EU data residency, etc."
 
 ---
 
 ## Security Summary Table
 
-| Question | Standard Answer | Enterprise Answer |
-|----------|-----------------|-------------------|
-| Where is data stored? | Google Workspace infrastructure | KloudStax-managed environment |
-| Is data encrypted? | Yes (TLS + AES-256) | Yes + additional controls |
-| GDPR compliant? | Partial (Google's compliance) | Full (KloudStax) |
-| HIPAA compliant? | No | Yes (KloudStax) |
-| SOC 2 certified? | Inherited from Google | KloudStax certified |
-| Role-based access? | Twin-level only | Full IAM (KloudStax) |
-| Audit logging? | Basic | Comprehensive (KloudStax) |
-| Cost | Included | Separate KloudStax contract |
-
----
-
-## KloudStax Contact
-
-For enterprise security inquiries:
-- **Partner**: KloudStax
-- **Services**: GDPR, HIPAA, SOC 2, IAM, dedicated environments
-- **Engagement**: Direct contract with KloudStax
-- **Introduction**: Contact your ProAsiste sales rep for warm introduction
+| Question | Answer |
+|----------|--------|
+| Where is data stored? | Google Workspace, or Google Cloud for larger deployments |
+| Is data encrypted? | Yes (TLS 1.3 in transit + AES-256 at rest) |
+| GDPR compliant? | Aligned controls today; DPAs and EU residency in progress (in-house) |
+| HIPAA compliant? | Technical controls today; BAA and audit docs in progress (in-house) |
+| SOC 2 certified? | Inherited from Google today; own SOC 2 Type II in progress (in-house) |
+| Role-based access? | Twin-level today; full IAM in progress (in-house) |
+| Audit logging? | Basic today; comprehensive logging in progress (in-house) |
+| Cost | Standard security included |
 
