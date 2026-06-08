@@ -6,6 +6,7 @@ from pathlib import Path
 HERE = Path(__file__).resolve().parent
 REPO = HERE.parent
 OUT = REPO / "sales" / "templates.html"
+PUBLISH = REPO / "sales" / "templates"  # files served directly under /sales/templates/
 
 FMT = {"docx": ("Doc", "Google Docs"), "xlsx": ("Sheet", "Google Sheets"),
        "pptx": ("Slides", "Google Slides")}
@@ -65,7 +66,7 @@ def card(slug, edu):
     badge, native = FMT[ext]
     title, desc = META[slug]
     cls = "card edu" if edu else "card"
-    return f'''            <a class="{cls}" href="../sales-templates/en/{f}" download>
+    return f'''            <a class="{cls}" href="templates/{f}" download>
                 <div class="swatch">{badge}</div>
                 <h2>{title}</h2>
                 <div class="desc">{desc}</div>
@@ -87,7 +88,15 @@ def main():
     body = "\n\n".join(sections)
     html = TEMPLATE.replace("{{SECTIONS}}", body)
     OUT.write_text(html)
-    print(f"wrote {OUT} ({len(META)} templates)")
+    # publish the built files into /sales/templates/ for direct download
+    import shutil
+    PUBLISH.mkdir(exist_ok=True)
+    copied = 0
+    for f in sorted((HERE / "en").glob("*")):
+        if f.suffix in (".docx", ".xlsx", ".pptx"):
+            shutil.copy2(f, PUBLISH / f.name)
+            copied += 1
+    print(f"wrote {OUT} ({len(META)} templates); published {copied} files to {PUBLISH}")
 
 
 TEMPLATE = '''<!DOCTYPE html>
