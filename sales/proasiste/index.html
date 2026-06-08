@@ -12,7 +12,7 @@
     body{margin:0;font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;background:var(--bg);color:var(--text);min-height:100vh;display:flex;flex-direction:column;}
     header{padding:40px 24px 18px;text-align:center;border-bottom:1px solid var(--border);}
     .wordmark{display:inline-flex;align-items:center;gap:10px;margin-bottom:12px;}
-    .wordmark .mark{width:38px;height:38px;border-radius:9px;background:var(--pro);color:#0F1115;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:16px;}
+    .wordmark .mark{min-width:38px;height:38px;padding:0 10px;border-radius:9px;background:var(--pro);color:#0F1115;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:15px;}
     .wordmark .name{font-size:14px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--pro);}
     header h1{margin:0;font-size:30px;font-weight:800;letter-spacing:-.02em;}
     header p{margin:10px auto 0;color:var(--muted);font-size:15px;max-width:600px;}
@@ -23,21 +23,24 @@
     .section-label:first-of-type{margin-top:6px;}
     .section-label .pip{width:10px;height:10px;border-radius:50%;background:var(--pro);}
     .section-label .hint{font-weight:500;text-transform:none;letter-spacing:0;color:var(--muted);font-size:13px;}
-    .card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px;margin-top:16px;}
-    .card{background:var(--card-bg);border:1px solid var(--border);border-radius:14px;padding:22px;text-decoration:none;color:inherit;display:flex;flex-direction:column;gap:8px;transition:transform 120ms,box-shadow 120ms,border-color 120ms;}
-    .card:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(0,0,0,.35);border-color:var(--pro);}
-    .card .swatch{align-self:flex-start;min-width:40px;height:34px;padding:0 10px;border-radius:9px;background:var(--pro);color:#0F1115;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;}
+    .card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:18px;margin-top:16px;}
+    .card{background:var(--card-bg);border:1px solid var(--border);border-radius:14px;padding:22px;display:flex;flex-direction:column;gap:8px;}
+    .card .swatch{align-self:flex-start;min-width:38px;height:32px;padding:0 10px;border-radius:9px;background:var(--pro);color:#0F1115;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;}
     .card h2{margin:0;font-size:17px;font-weight:700;}
     .card .desc{color:var(--text-soft);font-size:13.5px;line-height:1.55;}
-    .card .meta{margin-top:auto;padding-top:12px;font-size:12px;color:var(--muted);}
-    .card .meta code{font-family:ui-monospace,Menlo,monospace;color:var(--text-soft);}
+    .actions{display:flex;gap:8px;margin-top:auto;padding-top:14px;flex-wrap:wrap;}
+    .actions a{font-size:12.5px;font-weight:700;text-decoration:none;padding:6px 13px;border-radius:999px;border:1px solid var(--border);transition:border-color 120ms,background 120ms,color 120ms;}
+    .actions a.view{color:var(--pro);}
+    .actions a.view:hover{border-color:var(--pro);background:rgba(255,255,255,.03);}
+    .actions a.dl{color:var(--text-soft);}
+    .actions a.dl:hover{border-color:var(--text-soft);color:var(--text);}
     .brand-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;margin-top:8px;}
     .brand-entry{display:flex;flex-direction:column;gap:6px;padding:26px;border-radius:16px;text-decoration:none;color:inherit;border:1px solid var(--border);background:var(--card-bg);transition:transform 120ms,border-color 120ms,box-shadow 120ms;}
     .brand-entry:hover{transform:translateY(-3px);box-shadow:0 14px 34px rgba(0,0,0,.4);}
     .brand-entry.pro:hover{border-color:var(--pro);}
     .brand-entry.edu:hover{border-color:var(--edu);}
     .brand-entry .be-top{display:flex;align-items:center;gap:12px;}
-    .brand-entry .be-chip{width:46px;height:46px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:15px;color:#0F1115;}
+    .brand-entry .be-chip{min-width:46px;height:46px;padding:0 12px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:15px;color:#0F1115;}
     .brand-entry.pro .be-chip{background:var(--pro);}
     .brand-entry.edu .be-chip{background:var(--edu);color:#06243b;}
     .brand-entry h2{margin:0;font-size:21px;font-weight:800;}
@@ -56,90 +59,82 @@
     <header>
         <span class="wordmark"><span class="mark">Pro</span><span class="name">ProAsiste</span></span>
         <h1>ProAsiste — Sales materials</h1>
-        <p>Sales materials for the business product — owner-operators and the small teams around them.</p>
+        <p>Everything for the business product — owner-operators and the small teams around them.</p>
         <a class="back" href="../index.html">&larr; All sales materials</a>
     </header>
     <main>
-        <p class="section-label"><span class="pip"></span>Reference pages <span class="hint">— read in the browser</span></p>
+        <p class="section-label"><span class="pip"></span>ProAsiste materials</p>
+        <div class="howto"><b>Downloads:</b> drag a downloaded file into Google Drive (it converts to a native Doc / Sheet / Slides), then <b>File → Make a copy</b>, replace every <b>highlighted {{field}}</b>, and <b>Download → PDF</b> to send.</div>
         <div class="card-grid">
-            <a class="card" href="one-pager.html">
+            <div class="card">
                 <div class="swatch">Pro</div>
-                <h2>ProAsiste One-Pager</h2>
+                <h2>One-Pager</h2>
                 <div class="desc">Business leave-behind: owner twin + team twins, five day-one things, opener + close. Print-ready.</div>
-            </a>
-            <a class="card" href="email-templates.html">
+                <div class="actions">
+                <a class="view" href="one-pager.html">View →</a>
+                <a class="dl" href="../templates/proasiste-one-pager.docx" download>Download Doc</a>
+                </div>
+            </div>
+            <div class="card">
                 <div class="swatch">Pro</div>
                 <h2>Sales Email Templates</h2>
                 <div class="desc">Business outreach by angle — time-saver, competitor, knowledge-loss. Copy, customize, send.</div>
-            </a>
-            <a class="card" href="quick-reference.html">
+                <div class="actions">
+                <a class="view" href="email-templates.html">View →</a>
+                <a class="dl" href="../templates/proasiste-email-templates.docx" download>Download Doc</a>
+                </div>
+            </div>
+            <div class="card">
                 <div class="swatch">Pro</div>
                 <h2>Quick Reference Card</h2>
                 <div class="desc">One-page cheat sheet: pitch, tabs, pain→response, tiers. Print-friendly.</div>
-            </a>
-            <a class="card" href="competitive.html">
+                <div class="actions">
+                <a class="view" href="quick-reference.html">View →</a>
+                <a class="dl" href="../templates/proasiste-quick-reference.docx" download>Download Doc</a>
+                </div>
+            </div>
+            <div class="card">
                 <div class="swatch">Pro</div>
                 <h2>Competitive Positioning</h2>
                 <div class="desc">Battle cards vs. ChatGPT / Copilot — their argument, your response, differentiator tables.</div>
-            </a>
-            <a class="card" href="security-faq.html">
+                <div class="actions">
+                <a class="view" href="competitive.html">View →</a>
+                <a class="dl" href="../templates/proasiste-competitive.docx" download>Download Doc</a>
+                </div>
+            </div>
+            <div class="card">
                 <div class="swatch">Pro</div>
                 <h2>Security FAQ</h2>
                 <div class="desc">Tier × infrastructure security, what's included, KloudStax compliance path.</div>
-            </a>
-        </div>
-
-        <p class="section-label"><span class="pip"></span>Downloadable templates <span class="hint">— make a copy, fill fields, export PDF</span></p>
-        <div class="howto"><b>How to use:</b> download a file, drag it into Google Drive (it converts to a native Doc / Sheet / Slides), then <b>File → Make a copy</b>. Replace every <b>highlighted {{field}}</b> and <b>Download → PDF</b>.</div>
-        <div class="card-grid">
-            <a class="card" href="../templates/proasiste-one-pager.docx" download>
-                <div class="swatch">Doc</div>
-                <h2>One-Pager</h2>
-                <div class="desc">Business leave-behind. Make a copy, fill fields, export PDF.</div>
-                <div class="meta">Downloads <code>proasiste-one-pager.docx</code> → opens in Google Docs</div>
-            </a>
-            <a class="card" href="../templates/proasiste-email-templates.docx" download>
-                <div class="swatch">Doc</div>
-                <h2>Email Templates</h2>
-                <div class="desc">Business outreach with highlighted fill-in fields.</div>
-                <div class="meta">Downloads <code>proasiste-email-templates.docx</code> → opens in Google Docs</div>
-            </a>
-            <a class="card" href="../templates/proasiste-quick-reference.docx" download>
-                <div class="swatch">Doc</div>
-                <h2>Quick Reference Card</h2>
-                <div class="desc">Print-friendly cheat sheet.</div>
-                <div class="meta">Downloads <code>proasiste-quick-reference.docx</code> → opens in Google Docs</div>
-            </a>
-            <a class="card" href="../templates/proasiste-competitive.docx" download>
-                <div class="swatch">Doc</div>
-                <h2>Competitive Positioning</h2>
-                <div class="desc">Battle cards vs. ChatGPT / Copilot.</div>
-                <div class="meta">Downloads <code>proasiste-competitive.docx</code> → opens in Google Docs</div>
-            </a>
-            <a class="card" href="../templates/proasiste-security-faq.docx" download>
-                <div class="swatch">Doc</div>
-                <h2>Security FAQ</h2>
-                <div class="desc">Tiered security + KloudStax compliance.</div>
-                <div class="meta">Downloads <code>proasiste-security-faq.docx</code> → opens in Google Docs</div>
-            </a>
-            <a class="card" href="../templates/proasiste-personas.docx" download>
-                <div class="swatch">Doc</div>
+                <div class="actions">
+                <a class="view" href="security-faq.html">View →</a>
+                <a class="dl" href="../templates/proasiste-security-faq.docx" download>Download Doc</a>
+                </div>
+            </div>
+            <div class="card">
+                <div class="swatch">Pro</div>
                 <h2>Customer Personas</h2>
-                <div class="desc">Business buyer profiles with demo focus + closing language.</div>
-                <div class="meta">Downloads <code>proasiste-personas.docx</code> → opens in Google Docs</div>
-            </a>
-            <a class="card" href="../templates/proasiste-pitch-deck.pptx" download>
-                <div class="swatch">Slides</div>
+                <div class="desc">Business buyer profiles with pains, demo focus, and closing language.</div>
+                <div class="actions">
+                <a class="dl" href="../templates/proasiste-personas.docx" download>Download Doc</a>
+                </div>
+            </div>
+            <div class="card">
+                <div class="swatch">Pro</div>
                 <h2>Pitch Deck</h2>
-                <div class="desc">~8-slide business deck with speaker notes.</div>
-                <div class="meta">Downloads <code>proasiste-pitch-deck.pptx</code> → opens in Google Slides</div>
-            </a>
-            <a class="card" href="../templates/proasiste-pricing-roi-calculator.xlsx" download>
-                <div class="swatch">Sheet</div>
+                <div class="desc">~8-slide business deck with speaker notes. Editable skeleton.</div>
+                <div class="actions">
+                <a class="dl" href="../templates/proasiste-pitch-deck.pptx" download>Download Slides</a>
+                </div>
+            </div>
+            <div class="card">
+                <div class="swatch">Pro</div>
                 <h2>Pricing & ROI Calculator</h2>
-                <div class="desc">Tier + seats → cost with certification-waiver math.</div>
-                <div class="meta">Downloads <code>proasiste-pricing-roi-calculator.xlsx</code> → opens in Google Sheets</div>
-            </a>
+                <div class="desc">Live Sheet: tier + seats → Year-1 + ongoing cost, certification-waiver math.</div>
+                <div class="actions">
+                <a class="dl" href="../templates/proasiste-pricing-roi-calculator.xlsx" download>Download Sheet</a>
+                </div>
+            </div>
         </div>
     </main>
     <footer>ProAsiste · proasiste.com · internal sales enablement · <a href="../index.html">All materials</a></footer>

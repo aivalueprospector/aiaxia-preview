@@ -5,7 +5,8 @@ delivered as Office files that import into Google Workspace (`.docx`→Docs, `.x
 `.pptx`→Slides). A rep opens one, **File → Make a copy**, replaces the highlighted `{{fields}}`,
 and **Download → PDF**.
 
-Outputs live in [`en/`](en) and are indexed at [`/sales/templates.html`](../sales/templates.html).
+Outputs live in [`en/`](en). `gen_hubs.py` publishes them into `sales/templates/` and lists every
+material on its brand page (`sales/index.html`, `sales/proasiste/`, `sales/eduasiste/`).
 
 ## Build
 
@@ -17,7 +18,7 @@ python3 -m venv --system-site-packages ../.venv-templates
 ../.venv-templates/bin/python build.py               # Docs + Slides from templates.map
 ../.venv-templates/bin/python sheets/roi_calculator.py
 ../.venv-templates/bin/python sheets/pipeline_tracker.py
-../.venv-templates/bin/python gen_index.py           # ../sales/templates.html
+../.venv-templates/bin/python gen_hubs.py            # publishes sales/templates/ + brand hub pages
 ```
 
 ## Layout
@@ -32,7 +33,7 @@ python3 -m venv --system-site-packages ../.venv-templates
 | `sheets/*.py` | openpyxl ROI calculator + pipeline tracker (live formulas, dropdowns) |
 | `src/en/` | source markdown (English) |
 | `en/` | generated `.docx` / `.xlsx` / `.pptx` |
-| `gen_index.py` | regenerates the `/sales/templates.html` download index |
+| `gen_hubs.py` | publishes `en/` → `sales/templates/` and regenerates the brand hub pages (common + ProAsiste + EduAsiste), each listing all that brand's materials with View / Download actions |
 
 ## Conventions
 
