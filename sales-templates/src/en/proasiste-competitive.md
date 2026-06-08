@@ -14,7 +14,7 @@ Public AI assistants trained on internet data.
 "Why pay for ProAsiste when ChatGPT is free/cheaper?"
 
 ### Your Response
-> "ChatGPT knows the internet. ProAsiste knows YOUR business. When you ask ChatGPT about your supplier terms, it gives generic advice. When you ask ProAsiste, it gives you YOUR actual terms from YOUR contracts. Plus, with ChatGPT, your data could be used to train their models. With ProAsiste, your data stays yours - always."
+> "ChatGPT knows the internet. ProAsiste knows your business. When you ask ChatGPT about your supplier terms, it gives generic advice. When you ask ProAsiste, it gives you your actual terms from your actual contracts. And with ChatGPT, your data could be used to train their models. With ProAsiste, your data stays yours."
 
 ### Key Differentiators
 | Feature | ChatGPT | ProAsiste |
@@ -37,7 +37,7 @@ AI assistant integrated into Microsoft 365.
 "We already have Copilot with our M365 license."
 
 ### Your Response
-> "Copilot is great for working inside Microsoft apps - writing emails, making PowerPoint slides. ProAsiste is different. It's a dedicated knowledge system that connects ALL your information - not just what's in Microsoft. It builds a knowledge graph, automates processes, and does process mining. They're complementary, not competitive."
+> "Copilot is great for working inside Microsoft apps: writing emails, making PowerPoint slides. ProAsiste works differently. It's a dedicated knowledge system that connects information across all your tools, not just what's in Microsoft. It builds a knowledge graph, automates processes, and does process mining. The two complement each other."
 
 ### Key Differentiators
 | Feature | Copilot | ProAsiste |
@@ -64,7 +64,7 @@ AI features added to existing knowledge management tools.
 "We already have Notion/Confluence with AI."
 
 ### Your Response
-> "Notion AI and Confluence AI help you write and search within those tools. But ProAsiste does something fundamentally different - it CONNECTS knowledge across everything, builds relationships between concepts, and learns from your conversations. It's not just search with AI sprinkles - it's a true knowledge intelligence system."
+> "Notion AI and Confluence AI help you write and search within those tools, and they do that well. ProAsiste works at a different level: it connects knowledge across all your systems, builds relationships between concepts, and learns from your conversations. That's a step past a better search box. It's a system that understands what your business knows."
 
 ### Key Differentiators
 | Feature | Notion/Confluence AI | ProAsiste |
@@ -87,7 +87,7 @@ In-house AI development using OpenAI API, LangChain, etc.
 "We can build this ourselves with the OpenAI API."
 
 ### Your Response
-> "Absolutely you can - and some companies do. But here's what they discover: building it is the easy part. Maintaining it, scaling it, keeping up with model changes, handling edge cases, building the knowledge graph, creating the UI - that becomes a full-time job for a team. ProAsiste gives you all of that, ready to go, with ongoing improvements. Your team can focus on your actual business."
+> "Absolutely you can, and some companies do. But here's what they discover: building it is the easy part. Maintaining it, scaling it, keeping up with model changes, handling edge cases, building the knowledge graph, creating the UI. That becomes a full-time job for a team. ProAsiste gives you all of that, ready to go, with ongoing improvements. Your team can focus on your actual business."
 
 ### Build vs. Buy Comparison
 | Factor | Build Custom | ProAsiste |
@@ -113,7 +113,7 @@ Search engines that index company content.
 "We have enterprise search already."
 
 ### Your Response
-> "Enterprise search finds documents. ProAsiste understands them. Search gives you a list of files that contain 'supplier contract.' ProAsiste tells you what the key terms are across all your supplier contracts, how they compare, and alerts you when something's unusual. It's the difference between finding a needle in a haystack and having the needle come to you."
+> "Enterprise search finds documents. ProAsiste understands them. Search gives you a list of files that contain 'supplier contract.' ProAsiste tells you what the key terms are across all your supplier contracts, how they compare, and flags when something looks off. Finding the file is just the first step. Actually knowing what's in it is the useful part."
 
 ### Key Differentiators
 | Feature | Enterprise Search | ProAsiste |
@@ -133,12 +133,12 @@ Search engines that index company content.
 "AI is hype. We've done fine without it."
 
 ### Your Response
-> "That's fair - a lot of AI is hype. But here's what's not hype: your competitors are adopting tools that let them move faster. Not because AI is magic, but because finding information in seconds instead of hours is a real advantage. We're not asking you to transform your business. We're offering to save your team 5-10 hours per week. Would that be valuable?"
+> "That's fair. A lot of AI is hype. But your competitors are adopting tools that let them move faster. Not because AI is magic, but because finding information in seconds instead of hours is a real advantage. We're not asking you to change how you work. We're offering to save your team 5-10 hours a week. Would that be worth a look?"
 
 ### Reframe the Conversation
-- Don't sell "AI" - sell time savings
-- Don't sell technology - sell competitive advantage
-- Don't sell features - sell outcomes
+- Lead with time savings, not the word "AI."
+- Talk about the competitive advantage of moving faster.
+- Point to the outcome they care about: 5 to 10 hours back per week.
 
 ---
 
@@ -148,7 +148,7 @@ Search engines that index company content.
 "AI is moving so fast, we should wait."
 
 ### Your Response
-> "I understand the instinct. But here's the thing: ProAsiste isn't betting on future technology - it's using today's proven capabilities. While you wait, your competitors are building up months of institutional knowledge in their systems. Knowledge compounds. Starting six months earlier means six months more of captured knowledge, refined processes, and trained AI. The best time to start was yesterday. The second best time is today."
+> "I understand the instinct. ProAsiste is built on proven capabilities available today, not a bet on future technology. While you wait, your competitors are building months of institutional knowledge into their systems. Knowledge compounds. Starting six months earlier means six months more of captured decisions, refined processes, and a system that actually knows your business. The window isn't closing tomorrow, but it's not standing still either."
 
 ### Counter-Arguments
 1. **First-mover advantage**: Knowledge compounds over time

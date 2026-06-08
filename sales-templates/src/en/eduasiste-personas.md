@@ -1,21 +1,21 @@
 # EduAsiste Customer Personas
 
-Understanding who you're talking to helps you tailor your pitch and your demo. EduAsiste sells to families and educators, so the voice is warm, parent-to-parent and educator-to-educator — never pushy. Each persona below maps a buyer's world to the words and the demo moments that land for them. These are internal reference notes: read the one that matches your prospect before the call.
+Understanding who you're talking to helps you tailor your pitch and your demo. EduAsiste sells to families and educators, so the voice is warm, parent to parent and educator to educator, never pushy. Each persona below maps a buyer's world to the words and the demo moments that land for them. These are internal reference notes: read the one that matches your prospect before the call.
 
-Across every persona, the core mental-model shift is the same. EduAsiste is two twins in one continuous conversation: the learner gets an AI tutor twin that teaches Socratically (asking questions, not handing over answers), and the adult gets a twin that stays in the loop automatically. The twins talk to each other, so the adult always knows what the child learned today — not just the grade they eventually got. Lead with that, then tailor to the persona.
+Across every persona, the core mental-model shift is the same. EduAsiste is two twins in one continuous conversation. The learner gets an AI tutor twin that teaches Socratically (asking questions instead of handing over answers), and the adult gets a twin that stays in the loop automatically. The twins talk to each other, so the adult always knows what the child learned today, not just the grade they eventually got. Lead with that, then tailor to the persona.
 
 ---
 
 ## The Involved Parent
 
 ### Profile
-- **Role**: Parent of a K–8 child (often a working parent juggling a full schedule)
+- **Role**: Parent of a K to 8 child (often a working parent juggling a full schedule)
 - **Context**: Child is in a traditional school; the family already has a school portal and maybe a content app
-- **Age**: 32–45
+- **Age**: 32 to 45
 
 ### Their World
 - Wants to be close to their child's learning but feels one conversation behind
-- Finds out about a hard week when the report card lands — and even then it's a score, not an explanation
+- Finds out about a hard week when the report card lands, and even then it's a score, not an explanation
 - Asks "what did you learn today?" at dinner and gets "I don't know"
 - Trusts the school but feels like a spectator, not a partner
 - Comfortable with technology and a little wary of how much screen time and AI their child already reaches for
@@ -33,13 +33,13 @@ Across every persona, the core mental-model shift is the same. EduAsiste is two 
 - **Privacy for a minor as a feature, not a footnote**: "Your child's twin is private to them; their data never trains anyone's model."
 
 ### Demo Focus
-1. **Pillar 1 — See what your child learned today**: ask the parent twin "How's Emma doing in reading this week?" and show the live answer pulled from her learning twin.
-2. **Pillar 3 — Socratic study sessions, auto-summarized**: show a session where the child's twin guides by asking, then the summary of what clicked and what didn't lands in the parent's chat.
-3. **Pillar 5 — Full transparency**: show that every time the parent looks at the child's data, the child can see it happened.
+1. **Pillar 1, see what your child learned today**: ask the parent twin "How's Emma doing in reading this week?" and show the live answer pulled from her learning twin.
+2. **Pillar 3, Socratic study sessions, auto-summarized**: show a session where the child's twin guides by asking, then the summary of what clicked and what didn't lands in the parent's chat.
+3. **Pillar 5, full transparency**: show that every time the parent looks at the child's data, the child can see it happened.
 4. Contrast briefly with the school portal: "The portal answers what grade. This answers what they actually learned, and what you can do about it tonight."
 
 ### Closing Language
-> "You don't have to wait for the report card to find out your child had a hard week. EduAsiste gives your child their own AI tutor, and gives you a parent twin that stays in the loop automatically — like having a teacher who reports to you after every lesson. You'll know what your child learned today, and you can act on it tonight."
+> "You don't have to wait for the report card to find out your child had a hard week. EduAsiste gives your child their own AI tutor, and gives you a parent twin that stays in the loop automatically, like having a teacher who reports to you after every lesson. You'll know what your child learned today, and you can act on it tonight."
 
 ---
 
@@ -48,7 +48,7 @@ Across every persona, the core mental-model shift is the same. EduAsiste is two 
 ### Profile
 - **Role**: Parent who teaches one or more of their own children at home
 - **Context**: Owns the whole curriculum; needs structure, materials, and a way to teach subjects outside their own strengths
-- **Age**: 30–50
+- **Age**: 30 to 50
 
 ### Their World
 - Is the teacher, the planner, and the parent all at once
@@ -65,18 +65,18 @@ Across every persona, the core mental-model shift is the same. EduAsiste is two 
 
 ### What They Want to Hear
 - **Structure and materials on demand**: "Assign a worksheet in one sentence and get a private answer key for yourself."
-- **Real Socratic tutoring**: "Your child's twin walks them toward the answer by asking questions — it never just does the thinking for them."
+- **Real Socratic tutoring**: "Your child's twin walks them toward the answer by asking questions. It never just does the thinking for them."
 - **A tutor for the subjects you'd rather not teach**: "Hand off the topic you dread; your child still gets guided, patient teaching."
-- **You own it**: "Your child's data is yours — portable, exportable, deletable anytime."
+- **You own it**: "Your child's data is yours, portable, exportable, deletable anytime."
 
 ### Demo Focus
-1. **Pillar 2 — Assign homework in 30 seconds**: type "practice times tables, 10 questions, due Friday" and show the worksheet for the child plus the private answer key for the parent.
-2. **Pillar 3 — Socratic study sessions**: show a guided session in a subject the parent finds hard to teach, then the auto-summary.
-3. **Pillar 4 — Goals that move**: set "finish the multiplication unit this month" and show the bar filling as the child's twin records progress.
+1. **Pillar 2, assign homework in 30 seconds**: type "practice times tables, 10 questions, due Friday" and show the worksheet for the child plus the private answer key for the parent.
+2. **Pillar 3, Socratic study sessions**: show a guided session in a subject the parent finds hard to teach, then the auto-summary.
+3. **Pillar 4, goals that move**: set "finish the multiplication unit this month" and show the bar filling as the child's twin records progress.
 4. Touch on import: point the child's twin at a unit you already use and let it teach through it Socratically.
 
 ### Closing Language
-> "You're already the teacher, the planner, and the parent. EduAsiste takes the worksheet-building and the subjects you dread off your plate, and gives your child a tutor that teaches by asking, not telling. You stay in charge of the whole education — you just stop doing it all by hand."
+> "You're already the teacher, the planner, and the parent. EduAsiste takes the worksheet-building and the subjects you dread off your plate, and gives your child a tutor that teaches by asking instead of telling. You stay in charge of the whole education. You just stop doing it all by hand."
 
 ---
 
@@ -85,7 +85,7 @@ Across every persona, the core mental-model shift is the same. EduAsiste is two 
 ### Profile
 - **Role**: Independent tutor or owner of a small tutoring business
 - **Context**: Juggles many students across subjects and grade levels; meets each one weekly and is responsible for showing parents their money is working
-- **Age**: 28–55
+- **Age**: 28 to 55
 
 ### Their World
 - Carries a full roster, often re-reading notes before every session to remember where each student left off
@@ -98,22 +98,22 @@ Across every persona, the core mental-model shift is the same. EduAsiste is two 
 1. "I spend the first fifteen minutes of every session just figuring out what happened during the week."
 2. "Between sessions, the practice either happens or it doesn't, and nobody really knows which."
 3. "Parents want to know their money is working, and 'trust me, she's improving' isn't enough."
-4. "I'm juggling a dozen students and building every worksheet myself — I can't take on more without something breaking."
+4. "I'm juggling a dozen students and building every worksheet myself. I can't take on more without something breaking."
 
 ### What They Want to Hear
 - **Assign and track across your whole roster**: "Every student gets a learning twin you can assign to and check on, without re-reading your notes."
 - **Coverage between sessions**: "The six days you don't see your students finally count."
 - **Walk in warm**: "Start each session already knowing what stuck and what didn't."
-- **Show parents the value**: "Give parents their own twin so they see progress for themselves — your best retention tool."
+- **Show parents the value**: "Give parents their own twin so they see progress for themselves, your best retention tool."
 
 ### Demo Focus
-1. **Pillar 2 — Assign homework in 30 seconds**: assign a worksheet to a student and show the private answer key for the tutor.
-2. **Pillar 1 — Live progress**: ask "where is this student stuck this week?" before a session and get an answer pulled from their twin.
-3. **Pillar 4 — Goals that move**: show a structured program's goals filling in automatically as students practice.
-4. **Pillar 5 — Transparency** plus the parent twin: show how a parent can see real progress, framed as a retention and referral lever for the business.
+1. **Pillar 2, assign homework in 30 seconds**: assign a worksheet to a student and show the private answer key for the tutor.
+2. **Pillar 1, live progress**: ask "where is this student stuck this week?" before a session and get an answer pulled from their twin.
+3. **Pillar 4, goals that move**: show a structured program's goals filling in automatically as students practice.
+4. **Pillar 5, transparency** plus the parent twin: show how a parent can see real progress, framed as a retention and referral lever for the business.
 
 ### Closing Language
-> "Your hour with each student stays exactly as it is — EduAsiste just makes sure the other six days of the week count too. You walk into every session already knowing what stuck, you assign practice in one sentence instead of building it by hand, and parents see their child's progress for themselves. That's how you take on more students without lowering quality."
+> "Your hour with each student stays exactly as it is. EduAsiste just makes sure the other six days of the week count too. You walk into every session already knowing what stuck, you assign practice in one sentence instead of building it by hand, and parents see their child's progress for themselves. That's how you take on more students without lowering quality."
 
 ---
 
@@ -122,7 +122,7 @@ Across every persona, the core mental-model shift is the same. EduAsiste is two 
 ### Profile
 - **Role**: Administrator or director of a small private school, microschool, or homeschool co-op
 - **Context**: Oversees a cohort of learners across several teachers; answers to parents and is responsible for data privacy
-- **Age**: 35–60
+- **Age**: 35 to 60
 
 ### Their World
 - Needs visibility across a whole cohort, not just one child at a time
@@ -140,17 +140,17 @@ Across every persona, the core mental-model shift is the same. EduAsiste is two 
 ### What They Want to Hear
 - **Cohort visibility**: "See how the whole group is doing, not just one student at a time."
 - **Context survives the handoff**: "Every Socratic session is summarized into the learner's twin, so progress carries forward when teachers or grades change."
-- **Sits alongside what you have**: "It coexists with your school systems via API where they expose one — it's not one more silo to maintain."
-- **Privacy you can defend**: "Designed around children's-data protections — GDPR-aligned controls, and FERPA/COPPA where applicable for US families and schools — with data residency, audit logging, and export-on-request documentation available under NDA." (For Chilean and LATAM schools, lead with Ley 21.719 / LPDP rather than the US frameworks.)
+- **Sits alongside what you have**: "It coexists with your school systems via API where they expose one. It isn't one more silo to maintain."
+- **Privacy you can defend**: "Designed around children's-data protections (GDPR-aligned controls, and FERPA/COPPA where applicable for US families and schools) with data residency, audit logging, and export-on-request documentation available under NDA." (For Chilean and LATAM schools, lead with Ley 21.719 / LPDP rather than the US frameworks.)
 
 ### Demo Focus
-1. **Pillar 1 — Cohort view**: show how an administrator can check progress across multiple learners. (Flag classroom/cohort view as the area still maturing — see Coming Soon.)
+1. **Pillar 1, cohort view**: show how an administrator can check progress across multiple learners. (Flag classroom/cohort view as the area still maturing. See Coming Soon.)
 2. **Knowledge handoff**: show how a learner's auto-summarized history carries forward when a teacher changes, so the next teacher starts warm instead of from zero.
-3. **Pillar 5 — Transparency**: show that every adult view of a child's data is visible to the child — the trust story parents will ask about.
+3. **Pillar 5, transparency**: show that every adult view of a child's data is visible to the child, the trust story parents will ask about.
 4. **Privacy walkthrough**: residency, audit logging, encryption, no model training on customer data, and export/delete on request; offer the data-protection documentation under NDA.
 
 ### Closing Language
-> "Your teachers stay, your systems stay, and your parents get the transparency they're asking for. EduAsiste gives you a single window into how the whole cohort is growing, keeps each child's context from disappearing at the next handoff, and gives you a privacy story you can defend to every parent who asks. It fills the gaps your tools leave — it doesn't replace what's already working."
+> "Your teachers stay, your systems stay, and your parents get the transparency they're asking for. EduAsiste gives you a single window into how the whole cohort is growing, keeps each child's context from disappearing at the next handoff, and gives you a privacy story you can defend to every parent who asks. It fills the gaps your tools leave. It doesn't replace what's already working."
 
 ---
 
@@ -159,7 +159,7 @@ Across every persona, the core mental-model shift is the same. EduAsiste is two 
 ### Profile
 - **Role**: Goal-oriented parent running a structured plan for an ambitious child
 - **Context**: Child may be prepping for a milestone, a competitive program, or simply held to high standards at home
-- **Age**: 35–50
+- **Age**: 35 to 50
 
 ### Their World
 - Thinks in goals and measurable progress, not vibes
@@ -176,15 +176,15 @@ Across every persona, the core mental-model shift is the same. EduAsiste is two 
 
 ### What They Want to Hear
 - **Goals that actually move**: "Set a target like 'read 20 books this semester' and watch the bar fill automatically every time your child's twin records progress."
-- **Measurable, explained progress**: "Not just a streak — what your child mastered and what's still shaky."
+- **Measurable, explained progress**: "Not just a streak. You see what your child mastered and what's still shaky."
 - **Effort that compounds**: "The longer the learning twin runs, the more it knows your child, and the more targeted every session gets."
 - **Push without the fight**: "Let the twin do the structured coaching so your time with your child can stay warm."
 
 ### Demo Focus
-1. **Pillar 4 — Goals that move**: set a concrete goal and show it auto-filling as the child's twin records progress — no manual check-ins.
-2. **Pillar 1 — Live, explained progress**: ask the parent twin where the child stands and show an answer that names what's mastered and what's still shaky.
-3. **Pillar 3 — Socratic sessions**: show structured, guided practice toward the goal, auto-summarized to the parent.
+1. **Pillar 4, goals that move**: set a concrete goal and show it auto-filling as the child's twin records progress, no manual check-ins.
+2. **Pillar 1, live, explained progress**: ask the parent twin where the child stands and show an answer that names what's mastered and what's still shaky.
+3. **Pillar 3, Socratic sessions**: show structured, guided practice toward the goal, auto-summarized to the parent.
 4. Reinforce compounding: the more sessions stack up, the sharper and more personalized the twin's coaching becomes.
 
 ### Closing Language
-> "You set the target; EduAsiste makes the progress toward it visible and real — not a streak, but what your child has actually mastered and what's still shaky. The goals fill in on their own, every session is summarized for you, and the twin does the structured pushing so your time with your child stays warm. The families who start a term ahead are never the ones playing catch-up at report-card time."
+> "You set the target; EduAsiste makes the progress toward it visible and real. Not a streak, but what your child has actually mastered and what's still shaky. The goals fill in on their own, every session is summarized for you, and the twin does the structured pushing so your time with your child stays warm. The families who start a term ahead are never the ones playing catch-up at report-card time."

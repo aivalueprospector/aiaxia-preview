@@ -7,7 +7,7 @@ Print this single page for quick reference during demos and calls.
 
 ## 30-Second Elevator Pitch
 
-> "ProAsiste captures your company's knowledge - every document, conversation, and process - and makes it instantly accessible through AI. Ask a question, get an answer with sources. Define a task, your AI apprentice handles it. It's like giving every employee access to your entire institutional knowledge, plus an AI assistant who's read all of it."
+> "ProAsiste captures your company's knowledge (every document, conversation, and process) and makes it instantly accessible through AI. Ask a question, get an answer with sources. Define a task, your AI apprentice handles it. It's like giving every employee access to your entire institutional knowledge, plus an AI assistant who's read all of it."
 
 ---
 
@@ -41,13 +41,13 @@ Print this single page for quick reference during demos and calls.
 | "Knowledge leaves when people leave" | "ProAsiste captures it permanently in a knowledge graph." |
 | "Reports take forever to compile" | "Define once, your apprentice does it automatically." |
 | "Documents sit in folders, never found" | "Every document becomes searchable and connected." |
-| "We don't know where our bottlenecks are" | "Process mining surfaces patterns humans miss." |
+| "We don't know where our bottlenecks are" | "Process mining shows you the patterns that are hard to spot by hand." |
 
 ---
 
 ## Tier Cheat Sheet
 
-| Tier | Price Point | Unlock | Best For |
+| Tier | Price Point | What Opens Up | Best For |
 |------|-------------|--------|----------|
 | **SILVER** | $ | Chat + DATA | Individual professionals |
 | **GOLD** | $$ | + TASKS | Teams wanting automation |
@@ -79,18 +79,18 @@ Print this single page for quick reference during demos and calls.
 | "We have SharePoint/Confluence" | "Those store files. ProAsiste understands them." |
 | "Data security concerns" | "Dedicated environment. Your data never trains public models." |
 | "No time to set up" | "30 minutes. Then it learns from normal use." |
-| "How is this different from ChatGPT?" | "ChatGPT knows the internet. ProAsiste knows YOUR business." |
+| "How is this different from ChatGPT?" | "ChatGPT knows the internet. ProAsiste knows your business." |
 | "Prove the ROI" | "Let's calculate it right now with your numbers." |
 
 ---
 
 ## Demo Flow (15 minutes)
 
-1. **Chat** (3 min) - Ask a business question, show sources
-2. **DATA** (3 min) - Show knowledge graph connections
-3. **TASKS** (3 min) - Demonstrate automation template
-4. **DOCS** (3 min) - Upload and process a document
-5. **Close** (3 min) - Summarize value, discuss tier fit
+1. **Chat** (3 min): Ask a business question, show sources
+2. **DATA** (3 min): Show knowledge graph connections
+3. **TASKS** (3 min): Demonstrate automation template
+4. **DOCS** (3 min): Upload and process a document
+5. **Close** (3 min): Summarize value, discuss tier fit
 
 ---
 

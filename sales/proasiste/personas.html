@@ -1,0 +1,448 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex, nofollow" />
+<title>ProAsiste: Customer Personas · AI Value Prospectors</title>
+<style>
+  :root {
+    --aivp: #E8B547;
+    --aivp-dark: #92700f;
+    --ink: #1a2230;
+    --ink-soft: #45526a;
+    --muted: #6b7a8a;
+    --line: #e2e6ec;
+    --bg: #ffffff;
+    --tint: #fbf8ef;
+    --accent: #CFB382;
+    --accent-dark: #92700f;
+  }
+  @page { size: Letter; margin: 0.6in; }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0;
+    background: #f4f5f7;
+    color: var(--ink);
+    font-family: 'Inter', -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+    line-height: 1.55;
+    font-size: 16px;
+  }
+  .topbar {
+    background: #0F1115;
+    border-bottom: 2px solid var(--accent);
+    padding: 12px 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .topbar .mark {
+    width: 30px; height: 30px; border-radius: 7px;
+    background: var(--aivp); color: #0F1115;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 800; font-size: 14px;
+  }
+  .topbar .name {
+    font-size: 13px; font-weight: 700; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--aivp);
+  }
+  .topbar a.back {
+    margin-left: auto; color: #C2C6CC; text-decoration: none;
+    font-size: 13px; font-weight: 600;
+  }
+  .topbar a.back:hover { color: var(--aivp); }
+  .sheet {
+    max-width: 800px;
+    margin: 28px auto;
+    background: var(--bg);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 44px 52px;
+    box-shadow: 0 6px 26px rgba(15,17,21,0.08);
+  }
+  .eyebrow {
+    font-size: 12px; font-weight: 700; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--accent-dark);
+    margin: 0 0 6px;
+  }
+  h1 {
+    font-size: 30px; font-weight: 800; letter-spacing: -0.02em;
+    color: #0f1d2c; margin: 0 0 18px; line-height: 1.15;
+    border-bottom: 3px solid var(--accent); padding-bottom: 14px;
+  }
+  h1 + p { color: var(--ink-soft); }
+  h2 {
+    font-size: 21px; font-weight: 700; color: #0f1d2c;
+    margin: 34px 0 10px; padding-bottom: 6px;
+    border-bottom: 1px solid var(--line);
+  }
+  h3 {
+    font-size: 16.5px; font-weight: 700; color: var(--ink);
+    margin: 22px 0 6px;
+  }
+  p { margin: 10px 0; }
+  a { color: var(--accent-dark); }
+  hr { border: 0; border-top: 1px solid var(--line); margin: 28px 0; }
+  ul, ol { padding-left: 22px; }
+  li { margin: 4px 0; }
+  code {
+    background: var(--tint); border: 1px solid var(--line);
+    border-radius: 4px; padding: 1px 5px;
+    font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: 0.88em;
+  }
+  pre {
+    background: #0F1115; color: #e8e8e8; border-radius: 8px;
+    padding: 16px 18px; overflow-x: auto; font-size: 13px;
+  }
+  pre code { background: none; border: 0; padding: 0; color: inherit; }
+  blockquote {
+    margin: 14px 0; padding: 12px 18px;
+    background: linear-gradient(135deg, #fbf8ef 0%, #f3ead2 100%);
+    border-left: 4px solid var(--accent);
+    border-radius: 2px; color: #3a2f10; font-style: italic;
+  }
+  blockquote p { margin: 4px 0; }
+  table {
+    border-collapse: collapse; width: 100%; margin: 14px 0; font-size: 14.5px;
+  }
+  th, td {
+    border: 1px solid var(--line); padding: 8px 12px; text-align: left;
+    vertical-align: top;
+  }
+  thead th {
+    background: #0f1d2c; color: #fff; font-weight: 600;
+    border-color: #0f1d2c;
+  }
+  tbody tr:nth-child(even) { background: var(--tint); }
+  footer.sheet-foot {
+    max-width: 800px; margin: 0 auto 40px; padding: 4px 8px;
+    color: var(--muted); font-size: 13px;
+    display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px;
+  }
+  footer.sheet-foot a { color: var(--accent-dark); text-decoration: none; }
+  @media print {
+    body { background: #fff; }
+    .topbar { background: #fff; border-bottom-color: var(--accent); }
+    .topbar .name { color: var(--aivp-dark); }
+    .topbar a.back { display: none; }
+    .sheet { box-shadow: none; border: 0; margin: 0; max-width: none; padding: 0; }
+    footer.sheet-foot { display: none; }
+  }
+</style>
+</head>
+<body>
+<div class="topbar">
+  <span class="mark">Ai</span>
+  <span class="name">AI Value Prospectors</span>
+  <a class="back" href="index.html">&larr; ProAsiste materials</a>
+</div>
+<article class="sheet">
+<p class="eyebrow">Personas · ProAsiste (business)</p>
+<h1 id="proasiste-customer-personas">ProAsiste Customer Personas</h1>
+<p>Understanding who you're selling to helps you tailor your pitch and demo. Each persona below maps a buyer's world to the words and the demo moments that land for them. These are internal reference notes. Read the one that matches your prospect before the call.</p>
+<hr />
+
+<h2 id="the-operations-manager">The Operations Manager</h2>
+<h3>Profile</h3>
+<table>
+<thead>
+<tr><th>Field</th><th>Detail</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>Title</strong></td><td>Operations Manager, COO, VP Operations</td></tr>
+<tr><td><strong>Company Size</strong></td><td>50 to 500 employees</td></tr>
+<tr><td><strong>Industry</strong></td><td>Manufacturing, Logistics, Supply Chain</td></tr>
+<tr><td><strong>Age</strong></td><td>35 to 50</td></tr>
+</tbody>
+</table>
+<h3>Their World</h3>
+<ul>
+<li>Manages complex processes across multiple teams</li>
+<li>Drowning in spreadsheets and status reports</li>
+<li>Spends hours compiling weekly and monthly reports</li>
+<li>Constantly firefighting instead of improving processes</li>
+<li>Knowledge trapped in senior employees' heads</li>
+</ul>
+<h3>Pain Points</h3>
+<ol>
+<li>"I spend 20% of my time just finding information."</li>
+<li>"When Maria retires, we lose 30 years of knowledge."</li>
+<li>"I can't see the bottlenecks until they become crises."</li>
+<li>"Every report is manually compiled from 5 different systems."</li>
+</ol>
+<h3>What They Want to Hear</h3>
+<table>
+<thead>
+<tr><th>Theme</th><th>Line</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>Process visibility</strong></td><td>"See exactly where work slows down."</td></tr>
+<tr><td><strong>Automation</strong></td><td>"Reports compile themselves."</td></tr>
+<tr><td><strong>Knowledge capture</strong></td><td>"Institutional knowledge stays forever."</td></tr>
+<tr><td><strong>Time savings</strong></td><td>"Get hours back every week."</td></tr>
+</tbody>
+</table>
+<h3>Demo Focus</h3>
+<ol>
+<li><strong>View tab</strong>: show the Activity Map, hot entities, and how process events surface as they happen.</li>
+<li><strong>Task tab</strong>: demonstrate an automated weekly report that compiles itself.</li>
+<li><strong>Import tab</strong>: drop an operations document and watch it become connected Knowledge.</li>
+<li><strong>Chat</strong>: ask operational questions and get instant, grounded answers.</li>
+</ol>
+<h3>Closing Language</h3>
+<blockquote>
+<p>"Imagine starting Monday with all your reports already done, a dashboard showing exactly where the bottlenecks are, and instant answers to any operations question. That's what ProAsiste delivers."</p>
+</blockquote>
+<hr />
+
+<h2 id="the-knowledge-worker">The Knowledge Worker</h2>
+<h3>Profile</h3>
+<table>
+<thead>
+<tr><th>Field</th><th>Detail</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>Title</strong></td><td>Consultant, Analyst, Researcher, Project Manager</td></tr>
+<tr><td><strong>Company Size</strong></td><td>Any</td></tr>
+<tr><td><strong>Industry</strong></td><td>Professional Services, Consulting, Research</td></tr>
+<tr><td><strong>Age</strong></td><td>28 to 45</td></tr>
+</tbody>
+</table>
+<h3>Their World</h3>
+<ul>
+<li>Works on multiple projects simultaneously</li>
+<li>Needs to quickly find relevant past work</li>
+<li>Writes reports, proposals, and analyses</li>
+<li>Collaborates across teams and clients</li>
+<li>Information scattered across email, docs, and chat</li>
+</ul>
+<h3>Pain Points</h3>
+<ol>
+<li>"I know we did something similar last year, but I can't find it."</li>
+<li>"I rewrite the same sections for every proposal."</li>
+<li>"Onboarding new team members takes months."</li>
+<li>"A client asks a question, and I have to dig through 50 emails."</li>
+</ol>
+<h3>What They Want to Hear</h3>
+<table>
+<thead>
+<tr><th>Theme</th><th>Line</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>Instant recall</strong></td><td>"Find anything you've ever worked on."</td></tr>
+<tr><td><strong>Reusability</strong></td><td>"Build on past work instead of starting from scratch."</td></tr>
+<tr><td><strong>Client intelligence</strong></td><td>"Every interaction in context."</td></tr>
+<tr><td><strong>Collaboration</strong></td><td>"Team knowledge, not siloed knowledge."</td></tr>
+</tbody>
+</table>
+<h3>Demo Focus</h3>
+<ol>
+<li><strong>Chat</strong>: ask questions that span multiple projects.</li>
+<li><strong>Import tab</strong>: upload a document and show entity extraction.</li>
+<li><strong>View tab</strong>: show the connections between projects, clients, and concepts in the Knowledge graph.</li>
+<li><strong>Task tab</strong>: set up a template for a recurring deliverable.</li>
+</ol>
+<h3>Closing Language</h3>
+<blockquote>
+<p>"You've built up years of expertise. ProAsiste makes all of it instantly accessible, not just to you but to your whole team. No more reinventing wheels or losing knowledge when projects end."</p>
+</blockquote>
+<hr />
+
+<h2 id="the-executive">The Executive</h2>
+<h3>Profile</h3>
+<table>
+<thead>
+<tr><th>Field</th><th>Detail</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>Title</strong></td><td>CEO, CFO, Division President</td></tr>
+<tr><td><strong>Company Size</strong></td><td>100+</td></tr>
+<tr><td><strong>Industry</strong></td><td>Any</td></tr>
+<tr><td><strong>Age</strong></td><td>45 to 60</td></tr>
+</tbody>
+</table>
+<h3>Their World</h3>
+<ul>
+<li>Makes decisions based on incomplete information</li>
+<li>Needs quick answers, not lengthy reports</li>
+<li>Worried about competitive advantage</li>
+<li>Focused on efficiency and margins</li>
+<li>Concerned about AI disruption</li>
+</ul>
+<h3>Pain Points</h3>
+<ol>
+<li>"I ask a simple question, and it takes a week to get an answer."</li>
+<li>"We're bleeding money on inefficiency but can't see where."</li>
+<li>"Our competitors are adopting AI. Are we falling behind?"</li>
+<li>"Every system has different numbers."</li>
+</ol>
+<h3>What They Want to Hear</h3>
+<table>
+<thead>
+<tr><th>Theme</th><th>Line</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>Competitive advantage</strong></td><td>"AI that knows YOUR business."</td></tr>
+<tr><td><strong>Decision speed</strong></td><td>"Instant answers to any question."</td></tr>
+<tr><td><strong>Cost reduction</strong></td><td>"Find and fix inefficiencies automatically."</td></tr>
+<tr><td><strong>Strategic asset</strong></td><td>"Knowledge compounds over time."</td></tr>
+</tbody>
+</table>
+<h3>Demo Focus</h3>
+<ol>
+<li><strong>Chat</strong>: ask executive-level questions and get synthesized answers.</li>
+<li><strong>View tab</strong>: show the high-level process insights and the 30,000-foot view of organizational Knowledge.</li>
+<li><strong>Task tab</strong>: show how routine analysis runs on its own.</li>
+<li><strong>ROI conversation</strong>: calculate specific savings against their numbers.</li>
+</ol>
+<h3>Closing Language</h3>
+<blockquote>
+<p>"Your competitors are either already using AI or scrambling to figure it out. ProAsiste isn't generic AI. It's YOUR company's intelligence, multiplied. Questions get answered instantly, inefficiencies become visible, and your knowledge stays captured for good."</p>
+</blockquote>
+<hr />
+
+<h2 id="the-it-leader">The IT Leader</h2>
+<h3>Profile</h3>
+<table>
+<thead>
+<tr><th>Field</th><th>Detail</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>Title</strong></td><td>CIO, CTO, IT Director, Head of Digital</td></tr>
+<tr><td><strong>Company Size</strong></td><td>200+</td></tr>
+<tr><td><strong>Industry</strong></td><td>Any</td></tr>
+<tr><td><strong>Age</strong></td><td>35 to 55</td></tr>
+</tbody>
+</table>
+<h3>Their World</h3>
+<ul>
+<li>Balancing innovation with security</li>
+<li>Managing multiple systems that don't talk to each other</li>
+<li>Pressure to deliver AI capabilities</li>
+<li>Concerned about data governance</li>
+<li>Limited resources, infinite demands</li>
+</ul>
+<h3>Pain Points</h3>
+<ol>
+<li>"Everyone wants AI, but we can't risk our data."</li>
+<li>"We have 15 systems that don't integrate."</li>
+<li>"Shadow IT is out of control, with people using random AI tools."</li>
+<li>"We don't have resources to build custom AI solutions."</li>
+</ol>
+<h3>What They Want to Hear</h3>
+<table>
+<thead>
+<tr><th>Theme</th><th>Line</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>Security first</strong></td><td>"Your data stays yours, period."</td></tr>
+<tr><td><strong>Integration</strong></td><td>"Works with what you have."</td></tr>
+<tr><td><strong>Governance</strong></td><td>"Full control and audit trail."</td></tr>
+<tr><td><strong>Managed solution</strong></td><td>"We handle the AI complexity."</td></tr>
+</tbody>
+</table>
+<h3>Demo Focus</h3>
+<ol>
+<li><strong>Architecture discussion</strong>: dedicated environment, data isolation.</li>
+<li><strong>Security features</strong>: encryption, access control, audit logs.</li>
+<li><strong>Integration points</strong>: API, Google Drive sync, export options.</li>
+<li><strong>Verify tab</strong>: show how every piece of knowledge passes through approval before it enters the graph.</li>
+</ol>
+<h3>Closing Language</h3>
+<blockquote>
+<p>"Your people are already using public AI on their phones, with company data in it. ProAsiste gives them something better and keeps your data secure. Dedicated environment, full audit trail, no external training. It's the AI solution that IT can actually approve."</p>
+</blockquote>
+<hr />
+
+<h2 id="the-small-business-owner">The Small Business Owner</h2>
+<h3>Profile</h3>
+<table>
+<thead>
+<tr><th>Field</th><th>Detail</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>Title</strong></td><td>Owner, Founder, Managing Director</td></tr>
+<tr><td><strong>Company Size</strong></td><td>5 to 50 employees</td></tr>
+<tr><td><strong>Industry</strong></td><td>Any</td></tr>
+<tr><td><strong>Age</strong></td><td>30 to 60</td></tr>
+</tbody>
+</table>
+<h3>Their World</h3>
+<ul>
+<li>Wears many hats</li>
+<li>Every hour matters</li>
+<li>Can't afford dedicated specialists</li>
+<li>Knowledge is entirely in their head</li>
+<li>Worried about scaling without losing quality</li>
+</ul>
+<h3>Pain Points</h3>
+<ol>
+<li>"I'm the only one who knows how things really work."</li>
+<li>"Training new employees takes forever."</li>
+<li>"I can't afford a full-time analyst."</li>
+<li>"If I got hit by a bus, the business would collapse."</li>
+</ol>
+<h3>What They Want to Hear</h3>
+<table>
+<thead>
+<tr><th>Theme</th><th>Line</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>Clone yourself</strong></td><td>"Your expertise, available 24/7."</td></tr>
+<tr><td><strong>Affordable</strong></td><td>"Enterprise AI at small-business prices."</td></tr>
+<tr><td><strong>Simple</strong></td><td>"Works in 30 minutes, not 30 days."</td></tr>
+<tr><td><strong>Scale enabler</strong></td><td>"Grow without losing quality."</td></tr>
+</tbody>
+</table>
+<h3>Demo Focus</h3>
+<ol>
+<li><strong>Chat</strong>: show how it can answer as if it were them.</li>
+<li><strong>Import tab</strong>: upload key documents to capture knowledge.</li>
+<li><strong>Task tab</strong>: automate their repetitive work.</li>
+<li><strong>View tab</strong>: show how everything connects in the Knowledge graph.</li>
+</ol>
+<h3>Closing Language</h3>
+<blockquote>
+<p>"You've spent years building this expertise. ProAsiste captures it so you can focus on growth instead of repetition. It's like hiring an assistant who instantly knows everything about your business, for a fraction of the cost."</p>
+</blockquote>
+<hr />
+
+<h2 id="qualifying-questions-by-persona">Qualifying Questions by Persona</h2>
+<h3>For All Personas</h3>
+<ol>
+<li>"How do your people currently find information when they need it?"</li>
+<li>"What happens to knowledge when employees leave?"</li>
+<li>"How many hours a week does your team spend on repetitive reports?"</li>
+</ol>
+<h3>Operations Manager Specific</h3>
+<ul>
+<li>"Can you see where work slows down in your processes?"</li>
+<li>"How long does it take to compile your weekly ops report?"</li>
+</ul>
+<h3>Knowledge Worker Specific</h3>
+<ul>
+<li>"How often do you recreate work that was done before?"</li>
+<li>"How do you onboard new team members to past projects?"</li>
+</ul>
+<h3>Executive Specific</h3>
+<ul>
+<li>"When you ask a question, how quickly do you get an accurate answer?"</li>
+<li>"Where do you think you're losing money to inefficiency?"</li>
+</ul>
+<h3>IT Leader Specific</h3>
+<ul>
+<li>"What's your current policy on employees using AI tools?"</li>
+<li>"How do you balance innovation with data security?"</li>
+</ul>
+<h3>Small Business Owner Specific</h3>
+<ul>
+<li>"What would happen to the business if you couldn't work for a month?"</li>
+<li>"How long does it take to get a new employee fully productive?"</li>
+</ul>
+</article>
+<footer class="sheet-foot">
+  <span>AI Value Prospectors · internal sales enablement · Issue #15 · product-research</span>
+  <span><a href="index.html">Back to materials</a></span>
+</footer>
+</body>
+</html>

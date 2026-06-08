@@ -1,6 +1,6 @@
 # ProAsiste Customer Personas
 
-Understanding who you're selling to helps you tailor your pitch and demo. Each persona below maps a buyer's world to the words and the demo moments that land for them. These are internal reference notes — read the one that matches your prospect before the call.
+Understanding who you're selling to helps you tailor your pitch and demo. Each persona below maps a buyer's world to the words and the demo moments that land for them. These are internal reference notes. Read the one that matches your prospect before the call.
 
 ---
 
@@ -8,9 +8,9 @@ Understanding who you're selling to helps you tailor your pitch and demo. Each p
 
 ### Profile
 - **Title**: Operations Manager, COO, VP Operations
-- **Company Size**: 50–500 employees
+- **Company Size**: 50 to 500 employees
 - **Industry**: Manufacturing, Logistics, Supply Chain
-- **Age**: 35–50
+- **Age**: 35 to 50
 
 ### Their World
 - Manages complex processes across multiple teams
@@ -32,10 +32,10 @@ Understanding who you're selling to helps you tailor your pitch and demo. Each p
 - **Time savings**: "Get hours back every week."
 
 ### Demo Focus
-1. **View tab** — show the Activity Map, hot entities, and how process events surface as they happen.
-2. **Task tab** — demonstrate an automated weekly report that compiles itself.
-3. **Import tab** — drop an operations document and watch it become connected Knowledge.
-4. **Chat** — ask operational questions and get instant, grounded answers.
+1. **View tab**: show the Activity Map, hot entities, and how process events surface as they happen.
+2. **Task tab**: demonstrate an automated weekly report that compiles itself.
+3. **Import tab**: drop an operations document and watch it become connected Knowledge.
+4. **Chat**: ask operational questions and get instant, grounded answers.
 
 ### Closing Language
 > "Imagine starting Monday with all your reports already done, a dashboard showing exactly where the bottlenecks are, and instant answers to any operations question. That's what ProAsiste delivers."
@@ -48,7 +48,7 @@ Understanding who you're selling to helps you tailor your pitch and demo. Each p
 - **Title**: Consultant, Analyst, Researcher, Project Manager
 - **Company Size**: Any
 - **Industry**: Professional Services, Consulting, Research
-- **Age**: 28–45
+- **Age**: 28 to 45
 
 ### Their World
 - Works on multiple projects simultaneously
@@ -65,18 +65,18 @@ Understanding who you're selling to helps you tailor your pitch and demo. Each p
 
 ### What They Want to Hear
 - **Instant recall**: "Find anything you've ever worked on."
-- **Reusability**: "Build on past work, not from scratch."
+- **Reusability**: "Build on past work instead of starting from scratch."
 - **Client intelligence**: "Every interaction in context."
 - **Collaboration**: "Team knowledge, not siloed knowledge."
 
 ### Demo Focus
-1. **Chat** — ask questions that span multiple projects.
-2. **Import tab** — upload a document and show entity extraction.
-3. **View tab** — show the connections between projects, clients, and concepts in the Knowledge graph.
-4. **Task tab** — set up a template for a recurring deliverable.
+1. **Chat**: ask questions that span multiple projects.
+2. **Import tab**: upload a document and show entity extraction.
+3. **View tab**: show the connections between projects, clients, and concepts in the Knowledge graph.
+4. **Task tab**: set up a template for a recurring deliverable.
 
 ### Closing Language
-> "You've built up years of expertise. ProAsiste makes all of it instantly accessible — not just to you, but to your whole team. No more reinventing wheels or losing knowledge when projects end."
+> "You've built up years of expertise. ProAsiste makes all of it instantly accessible, not just to you but to your whole team. No more reinventing wheels or losing knowledge when projects end."
 
 ---
 
@@ -86,7 +86,7 @@ Understanding who you're selling to helps you tailor your pitch and demo. Each p
 - **Title**: CEO, CFO, Division President
 - **Company Size**: 100+
 - **Industry**: Any
-- **Age**: 45–60
+- **Age**: 45 to 60
 
 ### Their World
 - Makes decisions based on incomplete information
@@ -98,7 +98,7 @@ Understanding who you're selling to helps you tailor your pitch and demo. Each p
 ### Pain Points
 1. "I ask a simple question, and it takes a week to get an answer."
 2. "We're bleeding money on inefficiency but can't see where."
-3. "Our competitors are adopting AI — are we falling behind?"
+3. "Our competitors are adopting AI. Are we falling behind?"
 4. "Every system has different numbers."
 
 ### What They Want to Hear
@@ -108,13 +108,13 @@ Understanding who you're selling to helps you tailor your pitch and demo. Each p
 - **Strategic asset**: "Knowledge compounds over time."
 
 ### Demo Focus
-1. **Chat** — ask executive-level questions and get synthesized answers.
-2. **View tab** — show the high-level process insights and the 30,000-foot view of organizational Knowledge.
-3. **Task tab** — show how routine analysis runs on its own.
-4. **ROI conversation** — calculate specific savings against their numbers.
+1. **Chat**: ask executive-level questions and get synthesized answers.
+2. **View tab**: show the high-level process insights and the 30,000-foot view of organizational Knowledge.
+3. **Task tab**: show how routine analysis runs on its own.
+4. **ROI conversation**: calculate specific savings against their numbers.
 
 ### Closing Language
-> "Your competitors are either already using AI or scrambling to figure it out. ProAsiste isn't generic AI — it's YOUR company's intelligence, multiplied. Every question answered instantly. Every inefficiency visible. Every piece of knowledge captured forever."
+> "Your competitors are either already using AI or scrambling to figure it out. ProAsiste isn't generic AI. It's YOUR company's intelligence, multiplied. Questions get answered instantly, inefficiencies become visible, and your knowledge stays captured for good."
 
 ---
 
@@ -124,7 +124,7 @@ Understanding who you're selling to helps you tailor your pitch and demo. Each p
 - **Title**: CIO, CTO, IT Director, Head of Digital
 - **Company Size**: 200+
 - **Industry**: Any
-- **Age**: 35–55
+- **Age**: 35 to 55
 
 ### Their World
 - Balancing innovation with security
@@ -136,7 +136,7 @@ Understanding who you're selling to helps you tailor your pitch and demo. Each p
 ### Pain Points
 1. "Everyone wants AI, but we can't risk our data."
 2. "We have 15 systems that don't integrate."
-3. "Shadow IT is out of control — people using random AI tools."
+3. "Shadow IT is out of control, with people using random AI tools."
 4. "We don't have resources to build custom AI solutions."
 
 ### What They Want to Hear
@@ -146,13 +146,13 @@ Understanding who you're selling to helps you tailor your pitch and demo. Each p
 - **Managed solution**: "We handle the AI complexity."
 
 ### Demo Focus
-1. **Architecture discussion** — dedicated environment, data isolation.
-2. **Security features** — encryption, access control, audit logs.
-3. **Integration points** — API, Google Drive sync, export options.
-4. **Verify tab** — show how every piece of knowledge passes through approval before it enters the graph.
+1. **Architecture discussion**: dedicated environment, data isolation.
+2. **Security features**: encryption, access control, audit logs.
+3. **Integration points**: API, Google Drive sync, export options.
+4. **Verify tab**: show how every piece of knowledge passes through approval before it enters the graph.
 
 ### Closing Language
-> "Your people are already using public AI on their phones — with company data. ProAsiste gives them something better AND keeps your data secure. Dedicated environment, full audit trail, no external training. It's the AI solution that IT can actually approve."
+> "Your people are already using public AI on their phones, with company data in it. ProAsiste gives them something better and keeps your data secure. Dedicated environment, full audit trail, no external training. It's the AI solution that IT can actually approve."
 
 ---
 
@@ -160,9 +160,9 @@ Understanding who you're selling to helps you tailor your pitch and demo. Each p
 
 ### Profile
 - **Title**: Owner, Founder, Managing Director
-- **Company Size**: 5–50 employees
+- **Company Size**: 5 to 50 employees
 - **Industry**: Any
-- **Age**: 30–60
+- **Age**: 30 to 60
 
 ### Their World
 - Wears many hats
@@ -184,13 +184,13 @@ Understanding who you're selling to helps you tailor your pitch and demo. Each p
 - **Scale enabler**: "Grow without losing quality."
 
 ### Demo Focus
-1. **Chat** — show how it can answer as if it were them.
-2. **Import tab** — upload key documents to capture knowledge.
-3. **Task tab** — automate their repetitive work.
-4. **View tab** — show how everything connects in the Knowledge graph.
+1. **Chat**: show how it can answer as if it were them.
+2. **Import tab**: upload key documents to capture knowledge.
+3. **Task tab**: automate their repetitive work.
+4. **View tab**: show how everything connects in the Knowledge graph.
 
 ### Closing Language
-> "You've spent years building this expertise. ProAsiste captures it so you can focus on growth instead of repetition. It's like hiring an assistant who instantly knows everything about your business — for a fraction of the cost."
+> "You've spent years building this expertise. ProAsiste captures it so you can focus on growth instead of repetition. It's like hiring an assistant who instantly knows everything about your business, for a fraction of the cost."
 
 ---
 
