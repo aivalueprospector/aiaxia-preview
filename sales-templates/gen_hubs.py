@@ -23,7 +23,7 @@ EXT_LABEL = {"docx": "Doc", "xlsx": "Sheet", "pptx": "Slides"}
 # A material: (swatch, title, desc, view_href_or_None, download_filename_or_None)
 COMMON = [
     ("↔", "Knowledge Demo Guide", "Tab-by-tab platform demo script (Import · View · Task · Verify) — works for both brands.",
-     "knowledge-demo-guide.html", "knowledge-demo-guide.docx"),
+     None, "knowledge-demo-guide.docx"),
 ]
 
 BRANDS = {
