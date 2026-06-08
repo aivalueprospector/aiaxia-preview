@@ -2,7 +2,6 @@
 # fmt: D=.docx (Google Docs)  P=.pptx (Google Slides)   sheets built by sheets/*.py
 
 # ===== AIVP / cross-brand umbrella =====
-knowledge-demo-guide|D|aivp|src/en/knowledge-demo-guide.md|Knowledge Sales Demo Guide
 
 # ===== ProAsiste (business) =====
 proasiste-one-pager|D|proasiste|src/en/proasiste-one-pager.md|ProAsiste One-Pager

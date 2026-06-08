@@ -21,10 +21,7 @@ SALES = HERE.parent / "sales"
 EXT_LABEL = {"docx": "Doc", "xlsx": "Sheet", "pptx": "Slides"}
 
 # A material: (swatch, title, desc, view_href_or_None, download_filename_or_None)
-COMMON = [
-    ("↔", "Knowledge Demo Guide", "Tab-by-tab platform demo script (Import · View · Task · Verify) — works for both brands.",
-     None, "knowledge-demo-guide.docx"),
-]
+COMMON = []  # no shared cross-twin collateral; everything lives on a brand page
 
 BRANDS = {
     "proasiste": {
@@ -201,19 +198,22 @@ def build_common():
     cards = "\n".join(material_card(*m, view_prefix="", dl_prefix="templates/") for m in COMMON)
     demos = demos_cta("../demos/index.html",
                       "Explore the live, interactive demo twins for both brands — demo data only.")
-    main = f'''        <p class="section-label"><span class="pip"></span>Choose your brand</p>
-        <div class="brand-grid">
-{chr(10).join(entries)}
-        </div>
-
-        <p class="section-label"><span class="pip"></span>Live demos</p>
-        {demos}
+    common_section = ""
+    if COMMON:
+        common_section = f'''
 
         <p class="section-label"><span class="pip"></span>Cross-twin &amp; platform <span class="hint">— shared by both brands</span></p>
         {HOWTO}
         <div class="card-grid">
 {cards}
         </div>'''
+    main = f'''        <p class="section-label"><span class="pip"></span>Choose your brand</p>
+        <div class="brand-grid">
+{chr(10).join(entries)}
+        </div>
+
+        <p class="section-label"><span class="pip"></span>Live demos</p>
+        {demos}{common_section}'''
     foot = 'AI Value Prospectors · internal sales enablement · Source: <a href="https://github.com/aivalueprospector/product-research">product-research</a>'
     (SALES / "index.html").write_text(shell("aivp", "AI Value Prospectors — Sales materials", header, main, foot))
 
