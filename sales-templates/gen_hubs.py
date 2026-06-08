@@ -39,7 +39,7 @@ BRANDS = {
              "quick-reference.html", "proasiste-quick-reference.docx"),
             ("Competitive Positioning", "Battle cards vs. ChatGPT and Copilot: their argument, your response, and tables that show the difference.",
              "competitive.html", "proasiste-competitive.docx"),
-            ("Security FAQ", "Security by tier and by infrastructure, what's included, and the KloudStax compliance path.",
+            ("Security FAQ", "Security by tier and by infrastructure, what's included, and the in-house compliance path.",
              "security-faq.html", "proasiste-security-faq.docx"),
             ("Customer Personas", "Business buyer profiles with pains, demo focus, and closing language.",
              "personas.html", "proasiste-personas.docx"),
