@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>ProAsiste — How Your Twin & Your Team Work Together</title>
+<style>
+  @page { size: Letter; margin: 0.55in 0.6in; }
+  * { box-sizing: border-box; }
+  html, body {
+    font-family: -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+    color: #1a1a1a;
+    margin: 0;
+    padding: 0;
+    font-size: 10.5pt;
+    line-height: 1.35;
+  }
+  .page {
+    max-width: 7.3in;
+    margin: 0 auto;
+    padding: 0.3in 0;
+  }
+  /* Per-section brand accents. EduAsiste = ocean blue (Eduardo),
+     ProAsiste = gold (Mente). Scoped vars recolor rules, hero borders,
+     pillar numbers, and framer headers within each section. */
+  .edu-section { --accent: #2EA3F2; --accent-dark: #1d6fb0; --accent-tint-a: #f0f9ff; --accent-tint-b: #e0f2fe; }
+  .pro-section { --accent: #CFB382; --accent-dark: #92700f; --accent-tint-a: #fbf8ef; --accent-tint-b: #f3ead2; }
+
+  header.doc-head {
+    border-bottom: 3px solid #0f1d2c;
+    padding-bottom: 8px;
+    margin-bottom: 6px;
+  }
+  .brand {
+    font-size: 9pt;
+    color: #4a5a6a;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+  }
+  h1 {
+    font-size: 20pt;
+    margin: 2px 0 4px;
+    color: #0f1d2c;
+    line-height: 1.15;
+  }
+  .tagline {
+    font-size: 11pt;
+    color: #4a5a6a;
+    font-style: italic;
+    margin: 0;
+  }
+  .product {
+    margin-top: 18px;
+    page-break-inside: avoid;
+  }
+  .product-head {
+    border-bottom: 3px solid var(--accent);
+    padding-bottom: 6px;
+    margin-bottom: 10px;
+  }
+  .product-eyebrow {
+    font-size: 9pt;
+    color: var(--accent-dark);
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+  }
+  .product-title {
+    font-size: 15pt;
+    margin: 2px 0 0;
+    color: #0f1d2c;
+  }
+  .hero {
+    background: linear-gradient(135deg, var(--accent-tint-a) 0%, var(--accent-tint-b) 100%);
+    border-left: 4px solid var(--accent);
+    padding: 10px 14px;
+    margin: 10px 0;
+    border-radius: 2px;
+  }
+  .hero p {
+    margin: 0;
+    font-size: 10.5pt;
+    color: #0f1d2c;
+    font-weight: 500;
+  }
+  h2 {
+    font-size: 11.5pt;
+    color: #0f1d2c;
+    margin: 12px 0 6px;
+    border-bottom: 1px solid #d0d7de;
+    padding-bottom: 3px;
+  }
+  .pillars {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px 16px;
+    margin-top: 8px;
+  }
+  .pillar {
+    page-break-inside: avoid;
+  }
+  .pillar-title {
+    font-weight: 700;
+    color: #0f1d2c;
+    font-size: 10.5pt;
+    margin-bottom: 2px;
+  }
+  .pillar-num {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    background: var(--accent);
+    color: white;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 18px;
+    font-size: 9pt;
+    font-weight: 700;
+    margin-right: 6px;
+  }
+  .pillar p {
+    margin: 3px 0 0 24px;
+    font-size: 9.5pt;
+    color: #3a4a5a;
+  }
+  .pillar .sells {
+    margin-top: 3px;
+    font-size: 8.5pt;
+    color: #6b7a8a;
+    font-style: italic;
+  }
+  .framer {
+    background: #fef3c7;
+    border-left: 4px solid #f59e0b;
+    padding: 10px 14px;
+    margin: 12px 0 6px;
+    border-radius: 2px;
+  }
+  .framer .q {
+    font-style: italic;
+    color: #78350f;
+    margin: 0 0 6px;
+    font-size: 10pt;
+  }
+  .framer .a {
+    margin: 0;
+    color: #0f1d2c;
+    font-size: 10pt;
+  }
+  footer {
+    margin-top: 16px;
+    padding-top: 8px;
+    border-top: 1px solid #d0d7de;
+    font-size: 8.5pt;
+    color: #6b7a8a;
+    display: flex;
+    justify-content: space-between;
+  }
+  .coming {
+    font-size: 9pt;
+    color: #4a5a6a;
+    margin: 4px 0;
+  }
+  .coming strong { color: #0f1d2c; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header class="doc-head">
+    <div class="brand">ProAsiste &middot; For owner-operators &amp; small businesses</div>
+    <h1>How Two Twins Work Together</h1>
+    <p class="tagline">See what's happening. Act on it without friction.</p>
+  </header>
+
+  <!-- ============ PROASISTE ============ -->
+  <section class="product pro-section">
+
+    <div class="product-head">
+      <div class="product-eyebrow">ProAsiste &middot; Business &middot; proasiste.com</div>
+      <h2 class="product-title">For owner-operators &amp; the small teams around them</h2>
+    </div>
+
+    <div class="hero">
+      <p>Every person on your team has their own AI twin. You have an owner twin
+      too. The twins talk to each other, so you always know what's getting
+      handled, and you can steer the business without sitting in every meeting.</p>
+    </div>
+
+    <h2>Five things you can do the day you sign up</h2>
+
+    <div class="pillars">
+
+      <div class="pillar">
+        <div class="pillar-title"><span class="pillar-num">1</span>See what your team handled today</div>
+        <p>Ask your twin <em>&ldquo;Where do the Q3 installs stand?&rdquo;</em> and get a live answer pulled straight from your team's twins. No status meeting. No chasing updates.</p>
+        <p class="sells">For owners who feel one step behind their own operation.</p>
+      </div>
+
+      <div class="pillar">
+        <div class="pillar-title"><span class="pillar-num">2</span>Delegate in one sentence</div>
+        <p>Type <em>&ldquo;have Maria follow up on the Henderson quote by Friday&rdquo;</em> and the task lands in her twin's chat, tracked right back to yours.</p>
+        <p class="sells">For owners who hold too much in their head and on sticky notes.</p>
+      </div>
+
+      <div class="pillar">
+        <div class="pillar-title"><span class="pillar-num">3</span>Day-one context for new hires</div>
+        <p>Every conversation, extracted fact, and filed document feeds a shared knowledge graph. New hires get years of context on day one without having to ask anyone.</p>
+        <p class="sells">For teams that lose institutional memory every time someone leaves.</p>
+      </div>
+
+      <div class="pillar">
+        <div class="pillar-title"><span class="pillar-num">4</span>Goals the whole team moves</div>
+        <p>Set a target like <em>&ldquo;$75K recurring revenue by Q4&rdquo;</em> and every team member's progress rolls up into the bar automatically. No spreadsheet wrangling.</p>
+        <p class="sells">For owners running structured quarters and accountable teams.</p>
+      </div>
+
+      <div class="pillar">
+        <div class="pillar-title"><span class="pillar-num">5</span>Oversight with transparency</div>
+        <p>Administrator, employee, and mentor roles per seat. Everyone sees who can see what, and your team knows it. Mentor seats are free.</p>
+        <p class="sells">For owners who want visibility their team actually trusts.</p>
+      </div>
+
+      <div class="pillar">
+        <div class="pillar-title">Coming soon</div>
+        <p class="coming"><strong>Team dashboard</strong> across every seat &middot; <strong>Advisor &amp; accountant guest seats</strong> &middot; <strong>Approval workflows</strong> for quotes and spend.</p>
+      </div>
+
+    </div>
+
+    <div class="framer">
+      <p class="q">Open with: <em>&ldquo;When's the last time you knew, without calling a meeting, exactly what every person on your team was working on?&rdquo;</em></p>
+      <p class="a">Then close: <em>ProAsiste gives every team member their own AI twin and gives you an owner twin that stays in the loop automatically. It's like a daily standup that writes itself.</em></p>
+    </div>
+
+  </section>
+
+  <footer>
+    <span>ProAsiste &middot; proasiste.com</span>
+    <span>Two twins. One continuous conversation.</span>
+  </footer>
+
+</div>
+</body>
+</html>
