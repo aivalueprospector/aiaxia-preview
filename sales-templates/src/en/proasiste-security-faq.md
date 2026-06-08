@@ -27,7 +27,7 @@ Answers to common security questions from prospects.
 
 ### SILVER & GOLD Tiers: Google Workspace Security
 
-> "SILVER and GOLD tiers leverage Google Workspace for data storage and security. Your data benefits from the same enterprise-grade security that protects millions of Google Workspace users worldwide - the same infrastructure behind Gmail, Google Drive, and Google Docs."
+> "SILVER and GOLD tiers use Google Workspace for data storage and security. Your data sits on the same enterprise-grade infrastructure that protects millions of Google Workspace users worldwide. It's the same infrastructure behind Gmail, Google Drive, and Google Docs."
 
 **What's Included:**
 - **Encryption in transit**: TLS 1.3 for all data transmission
@@ -47,7 +47,7 @@ Answers to common security questions from prospects.
 
 ### PLATINUM & DIAMOND Tiers: Google Cloud Security
 
-> "PLATINUM and DIAMOND tiers leverage Google Cloud Platform for enhanced security capabilities. This provides additional controls, better scalability, and more sophisticated infrastructure options."
+> "PLATINUM and DIAMOND tiers run on Google Cloud Platform for enhanced security capabilities. This provides additional controls, better scalability, and more sophisticated infrastructure options."
 
 **What's Included (in addition to standard):**
 - **Google Cloud Platform infrastructure**: Enterprise-grade cloud
@@ -80,7 +80,7 @@ Answers to common security questions from prospects.
 
 ### "We need GDPR/HIPAA/SOC 2 compliance"
 
-> "We understand that enterprises and regulated industries have specific compliance requirements. For GDPR, HIPAA, SOC 2, and similar compliance needs, we've partnered with KloudStax. They specialize in enterprise security and compliance - it's their core expertise, not ours. They can provide the documentation, controls, and auditing your compliance team needs."
+> "We understand that enterprises and regulated industries have specific compliance requirements. For GDPR, HIPAA, SOC 2, and similar compliance needs, we've partnered with KloudStax. They specialize in enterprise security and compliance. That's their core expertise, not ours. They can provide the documentation, controls, and auditing your compliance team needs."
 
 **What KloudStax Provides:**
 - **GDPR compliance**: Data processing agreements, EU data residency, right to erasure
@@ -100,15 +100,15 @@ Answers to common security questions from prospects.
 **Pricing:**
 - KloudStax services are added as a contract addendum
 - Pricing based on your specific requirements
-- Quick turnaround - no lengthy separate procurement process
+- Quick turnaround, no lengthy separate procurement process
 
 ### "Why don't you handle compliance directly?"
 
-> "We believe in doing what we do best. Our expertise is AI-powered knowledge management - building the best possible twin for your business. Enterprise compliance requires specialized expertise, dedicated resources, and ongoing certification maintenance. Rather than do that poorly ourselves, we've partnered with KloudStax, who does it excellently. This way, you get best-in-class AI AND best-in-class security."
+> "We believe in doing what we do best: building the best possible twin for your business. Enterprise compliance requires specialized expertise, dedicated resources, and ongoing certification maintenance. Rather than do that poorly ourselves, we've partnered with KloudStax, who does it excellently. You get strong AI capabilities and strong security."
 
 ### "Can we talk to KloudStax?"
 
-> "Absolutely. We've partnered with KloudStax to create a quick-turn proposal process. We can get you an addendum to your ProAsiste contract that meets any additional security or infrastructure needs your company may have. It's streamlined - no lengthy separate procurement process."
+> "Absolutely. We've set up a quick-turn proposal process with KloudStax. We can get you an addendum to your ProAsiste contract that meets any additional security or infrastructure needs your company may have, without a lengthy separate procurement process."
 
 ---
 
@@ -116,7 +116,7 @@ Answers to common security questions from prospects.
 
 ### "Do you train AI models on our data?"
 
-> "No. Your data is never used to train public AI models. Your ProAsiste learns from YOUR data to serve YOU - that knowledge stays within your twin and is never shared externally."
+> "No. Your data is never used to train public AI models. Your ProAsiste learns from YOUR data to serve YOU. That knowledge stays within your twin and is never shared externally."
 
 ### "What about the AI provider (Claude/OpenAI)?"
 
@@ -140,7 +140,7 @@ Answers to common security questions from prospects.
 > "Our standard offering provides twin-level access control. Either someone has access to the twin or they don't. For Org-twins, we support mentor oversight of user workspaces."
 
 **Enterprise (KloudStax):**
-> "For granular role-based access control - where different users see different data within the same system - KloudStax can implement Google IAM integration with custom permission structures."
+> "For granular role-based access control (where different users see different data within the same system), KloudStax can implement Google IAM integration with custom permission structures."
 
 ### "Do you have a security certification?"
 
@@ -167,10 +167,10 @@ Listen for:
 ### Step 2: Position Appropriately
 
 **For Standard Needs:**
-> "Great news - our standard platform leverages Google Workspace's security infrastructure, which provides enterprise-grade protection out of the box. This includes encryption, access controls, and Google's world-class security operations."
+> "Our standard platform runs on Google Workspace's security infrastructure, which provides enterprise-grade protection out of the box. This includes encryption, access controls, and Google's world-class security operations."
 
 **For Enterprise Needs:**
-> "For your compliance requirements, we work with our partner KloudStax. They specialize in exactly this - GDPR, HIPAA, SOC 2, role-based access. Let me explain how that partnership works..."
+> "For your compliance requirements, we work with our partner KloudStax. They specialize in exactly this: GDPR, HIPAA, SOC 2, role-based access. Let me explain how that partnership works..."
 
 ### Step 3: Handle the Handoff (if needed)
 
@@ -187,11 +187,11 @@ If KloudStax is needed:
 
 ### "Why should we trust a startup with our data?"
 
-> "You're not trusting us with your data infrastructure - you're trusting Google. We built ProAsiste on Google Workspace specifically because we knew security would be a concern. Your data sits on the same infrastructure that Fortune 500 companies trust with their most sensitive information."
+> "You're not trusting us with your data infrastructure. You're trusting Google. We built ProAsiste on Google Workspace specifically because we knew security would be a concern. Your data sits on the same infrastructure that Fortune 500 companies trust with their most sensitive information."
 
 ### "Our IT team will never approve this."
 
-> "I understand IT teams are cautious - they should be. Here's what usually helps:
+> "I understand IT teams are cautious, and they should be. Here's what usually helps:
 > 1. We can provide Google Workspace's security documentation
 > 2. For specific compliance needs, KloudStax can provide formal documentation
 > 3. We're happy to do a technical call with your IT team
@@ -199,11 +199,11 @@ If KloudStax is needed:
 
 ### "We need everything on-premise."
 
-> "True on-premise deployment isn't something we offer directly - our platform is cloud-native. However, KloudStax can discuss private cloud options that may meet your requirements while still allowing you to use ProAsiste. Would it be helpful to explore that with them?"
+> "True on-premise deployment isn't something we offer directly. Our platform is cloud-native. However, KloudStax can discuss private cloud options that may meet your requirements while still allowing you to use ProAsiste. Would it be helpful to explore that with them?"
 
 ### "KloudStax adds too much cost/complexity."
 
-> "For most customers, the standard Google Workspace security is more than sufficient. KloudStax is really for organizations with specific regulatory requirements - healthcare, finance, government contractors, EU data residency, etc. If you don't have those specific mandates, you likely don't need KloudStax."
+> "For most customers, the standard Google Workspace security is more than sufficient. KloudStax is really for organizations with specific regulatory requirements: healthcare, finance, government contractors, EU data residency, etc. If you don't have those specific mandates, you likely don't need KloudStax."
 
 ---
 

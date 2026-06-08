@@ -15,7 +15,7 @@ Hi [First Name],
 
 Quick question: How many hours does your team spend each week searching for information across different systems?
 
-Most operations teams I talk to estimate 5-10 hours per person per week. That's over 250 hours per year - just looking for things.
+Most operations teams I talk to estimate 5-10 hours per person per week. That's over 250 hours per year, just looking for things.
 
 ProAsiste is an AI-powered knowledge system that captures everything your company knows and makes it instantly searchable. Ask a question, get an answer with sources in seconds.
 
@@ -32,9 +32,9 @@ Best,
 
 Hi [First Name],
 
-I've been working with companies in [Industry] who are concerned about falling behind on AI adoption. Their competitors are using AI to move faster - not because of hype, but because finding information in seconds instead of hours is a real advantage.
+I've been working with companies in [Industry] who are concerned about falling behind on AI adoption. Their competitors are using AI to move faster, not because of hype, but because finding information in seconds instead of hours is a real advantage.
 
-ProAsiste is how companies like [Reference Customer] are capturing institutional knowledge and making it instantly accessible to their teams. It's not about replacing people - it's about multiplying what they can do.
+ProAsiste is how companies like [Reference Customer] capture institutional knowledge and make it instantly accessible to their teams. It doesn't replace people. It multiplies what they can do.
 
 I'd love to show you what this looks like in practice. Do you have 15 minutes this week?
 
@@ -51,7 +51,7 @@ Hi [First Name],
 
 Here's a question I ask every operations leader: What happens when your most experienced people leave?
 
-Most companies lose decades of institutional knowledge overnight. The informal knowledge - the "ask Maria, she knows" knowledge - just disappears.
+Most companies lose decades of institutional knowledge overnight. The informal knowledge (the "ask Maria, she knows" kind) just disappears.
 
 ProAsiste captures that knowledge continuously, turning conversations, documents, and processes into a permanent, searchable knowledge graph. When people leave, their knowledge stays.
 
@@ -80,17 +80,17 @@ Thanks for taking the time to see ProAsiste today. Here's a quick recap of what 
 - Process mining to find hidden bottlenecks
 
 **What You Seemed Most Interested In:**
-[Customize based on demo - e.g., "The ability to automate weekly reports" or "Capturing knowledge before key employees retire"]
+[Customize based on demo, e.g., "The ability to automate weekly reports" or "Capturing knowledge before key employees retire"]
 
 **Potential ROI We Discussed:**
-[Customize - e.g., "If each team member saves 5 hours/week, that's 250 hours/year at $50/hour = $12,500 per person"]
+[Customize, e.g., "If each team member saves 5 hours/week, that's 250 hours/year at $50/hour = $12,500 per person"]
 
 **Next Steps:**
-1. [Action item - e.g., "I'll send over the security documentation you requested"]
-2. [Action item - e.g., "Let's schedule a follow-up with your IT team"]
-3. [Action item - e.g., "Trial period starting next Monday"]
+1. [Action item, e.g., "I'll send over the security documentation you requested"]
+2. [Action item, e.g., "Let's schedule a follow-up with your IT team"]
+3. [Action item, e.g., "Trial period starting next Monday"]
 
-Let me know if you have any questions. Looking forward to getting started!
+If anything's unclear, just reply and ask.
 
 Best,
 [Your Name]
@@ -105,7 +105,7 @@ Hi [First Name],
 
 Just following up on our demo last week. I know things get busy.
 
-Is ProAsiste still something you're considering? If timing isn't right, totally understand - just let me know either way so I can update my notes.
+Is ProAsiste still something you're considering? If timing isn't right, totally understand. Just let me know either way so I can update my notes.
 
 If you have questions or concerns, happy to address those too.
 
@@ -152,7 +152,7 @@ Best,
 
 Hi [First Name],
 
-Security is critical - here's exactly how ProAsiste protects your data:
+Security matters. Here's exactly how ProAsiste protects your data:
 
 **Data Isolation:**
 - Your ProAsiste runs in a dedicated environment
@@ -228,9 +228,9 @@ Quick heads up: Our Q[X] pricing ends [Date]. After that, [Tier] pricing increas
 
 If you're still considering ProAsiste, locking in now saves $[Amount]/year.
 
-No pressure - just wanted to make sure you had the information.
+No pressure. Just wanted to make sure you had the information.
 
-Let me know if you'd like to move forward or have any final questions.
+Let me know if you'd like to move forward, or if you have any final questions.
 
 Best,
 [Your Name]
@@ -276,9 +276,9 @@ AI adoption is accelerating faster than expected. Companies that started 6 month
 - Dozens of automated workflows
 - Months of conversation history the AI has learned from
 
-The companies that wait are falling further behind - not because the technology changes, but because knowledge compounds over time.
+The companies that wait are falling further behind, because knowledge compounds over time and an early start is hard to close.
 
-If the timing is better now, I'd love to reconnect. If not, no worries - just wanted to share what I'm seeing in the market.
+If the timing is better now, I'd love to reconnect. If not, no worries. Just wanted to share what I'm seeing in the market.
 
 Best,
 [Your Name]
@@ -293,7 +293,7 @@ Hi [First Name],
 
 Remember when we spoke and you asked about [Feature they wanted]?
 
-Good news - we just launched it.
+Good news: we just launched it.
 
 [Brief description of feature]
 

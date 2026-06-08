@@ -27,48 +27,48 @@ BRANDS = {
     "proasiste": {
         "display": "ProAsiste", "tag": "Business", "domain": "proasiste.com",
         "cls": "pro", "swatch": "Pro",
-        "blurb": "Everything for the business product — owner-operators and the small teams around them.",
+        "blurb": "Everything for the business product. Owner-operators and the small teams around them.",
         "materials": [
-            ("One-Pager", "Business leave-behind: owner twin + team twins, five day-one things, opener + close. Print-ready.",
+            ("One-Pager", "Business leave-behind: owner twin plus team twins, five things to do on day one, opener and close. Print-ready.",
              "one-pager.html", "proasiste-one-pager.docx"),
-            ("Sales Email Templates", "Business outreach by angle — time-saver, competitor, knowledge-loss. Copy, customize, send.",
+            ("Sales Email Templates", "Business outreach by angle: time-saver, competitor, knowledge-loss. Copy, customize, send.",
              "email-templates.html", "proasiste-email-templates.docx"),
-            ("Two-Twins Pitch Blurbs", "Short ready-to-send emails leading with the two-twins idea (owner twin + team twins). Pick a version, fill the fields, send.",
+            ("Two-Twins Pitch Blurbs", "Short ready-to-send emails leading with the two-twins idea (owner twin plus team twins). Pick a version, fill the fields, send.",
              "pitch-blurbs.html", "proasiste-pitch-blurbs.docx"),
-            ("Quick Reference Card", "One-page cheat sheet: pitch, tabs, pain→response, tiers. Print-friendly.",
+            ("Quick Reference Card", "One-page cheat sheet: the pitch, the tabs, common pains and how to respond, the tiers. Print-friendly.",
              "quick-reference.html", "proasiste-quick-reference.docx"),
-            ("Competitive Positioning", "Battle cards vs. ChatGPT / Copilot — their argument, your response, differentiator tables.",
+            ("Competitive Positioning", "Battle cards vs. ChatGPT and Copilot: their argument, your response, and tables that show the difference.",
              "competitive.html", "proasiste-competitive.docx"),
-            ("Security FAQ", "Tier × infrastructure security, what's included, KloudStax compliance path.",
+            ("Security FAQ", "Security by tier and by infrastructure, what's included, and the KloudStax compliance path.",
              "security-faq.html", "proasiste-security-faq.docx"),
             ("Customer Personas", "Business buyer profiles with pains, demo focus, and closing language.",
-             None, "proasiste-personas.docx"),
-            ("How Two Twins Work Together — Deck", "~8-slide business deck with speaker notes. Read the outline in the browser or download the editable deck.",
+             "personas.html", "proasiste-personas.docx"),
+            ("How Two Twins Work Together (Deck)", "About 8 slides with speaker notes. Read the outline in the browser or download the editable deck.",
              "deck.html", "proasiste-pitch-deck.pptx"),
-            ("Twin Tech Across ProAsiste, ExpertAsiste & HelpAsiste", "How one twin engine does three jobs — inward at your team (ProAsiste), sideways at your industry (ExpertAsiste), outward at your customers (HelpAsiste). Side-by-side comparison.",
+            ("Twin Tech Across ProAsiste, ExpertAsiste & HelpAsiste", "How one twin engine does three jobs: inward at your team (ProAsiste), sideways at your industry (ExpertAsiste), outward at your customers (HelpAsiste). Side by side.",
              "twin-tech-explainer.html", "proasiste-twin-tech-explainer.docx"),
         ],
     },
     "eduasiste": {
         "display": "EduAsiste", "tag": "Education", "domain": "eduasiste.org",
         "cls": "edu", "swatch": "Edu",
-        "blurb": "Everything for the education product — families, tutors, homeschoolers and small schools.",
+        "blurb": "Everything for the education product. Families, tutors, homeschoolers, and small schools.",
         "materials": [
-            ("One-Pager", "Education leave-behind: parent twin + child's learning twin, five day-one things, opener + close. Print-ready.",
+            ("One-Pager", "Education leave-behind: parent twin plus child's learning twin, five things to do on day one, opener and close. Print-ready.",
              "one-pager.html", "eduasiste-one-pager.docx"),
-            ("Sales Email Templates", "Parent / tutor / school outreach. Copy, customize, send.",
+            ("Sales Email Templates", "Parent, tutor, and school outreach. Copy, customize, send.",
              "email-templates.html", "eduasiste-email-templates.docx"),
-            ("Two-Twins Pitch Blurbs", "Short ready-to-send emails leading with the two-twins idea (parent twin + child's twin). Pick a version, fill the fields, send.",
+            ("Two-Twins Pitch Blurbs", "Short ready-to-send emails leading with the two-twins idea (parent twin plus child's twin). Pick a version, fill the fields, send.",
              "pitch-blurbs.html", "eduasiste-pitch-blurbs.docx"),
-            ("Quick Reference Card", "One-page cheat sheet for parent/school calls. Print-friendly.",
+            ("Quick Reference Card", "One-page cheat sheet for parent and school calls. Print-friendly.",
              "quick-reference.html", "eduasiste-quick-reference.docx"),
-            ("Competitive Positioning", "Battle cards vs. generic AI, grade portals, content libraries, tutoring.",
+            ("Competitive Positioning", "Battle cards vs. generic AI, grade portals, content libraries, and tutoring.",
              "competitive.html", "eduasiste-competitive.docx"),
-            ("Security FAQ", "FERPA / COPPA / GDPR, minors' data, the transparency pillar.",
+            ("Security FAQ", "FERPA, COPPA, and GDPR, how we handle minors' data, and what we keep transparent.",
              "security-faq.html", "eduasiste-security-faq.docx"),
-            ("Customer Personas", "Five education buyer profiles with demo focus + closing language.",
-             None, "eduasiste-personas.docx"),
-            ("How Two Twins Work Together — Deck", "~8-slide education deck with speaker notes. Read the outline in the browser or download the editable deck.",
+            ("Customer Personas", "Five education buyer profiles with demo focus and closing language.",
+             "personas.html", "eduasiste-personas.docx"),
+            ("How Two Twins Work Together (Deck)", "About 8 slides with speaker notes. Read the outline in the browser or download the editable deck.",
              "deck.html", "eduasiste-pitch-deck.pptx"),
         ],
     },
@@ -199,12 +199,12 @@ def build_common():
             </a>''')
     cards = "\n".join(material_card(*m, view_prefix="", dl_prefix="templates/") for m in COMMON)
     demos = demos_cta("../demos/index.html",
-                      "Explore the live, interactive demo twins for both brands — demo data only.")
+                      "Explore the live, interactive demo twins for both brands. Demo data only.")
     common_section = ""
     if COMMON:
         common_section = f'''
 
-        <p class="section-label"><span class="pip"></span>Cross-twin &amp; platform <span class="hint">— shared by both brands</span></p>
+        <p class="section-label"><span class="pip"></span>Cross-twin &amp; platform <span class="hint">shared by both brands</span></p>
         {HOWTO}
         <div class="card-grid">
 {cards}
@@ -217,13 +217,13 @@ def build_common():
         <p class="section-label"><span class="pip"></span>Live demos</p>
         {demos}{common_section}'''
     foot = 'AI Value Prospectors · internal sales enablement · Source: <a href="https://github.com/aivalueprospector/product-research">product-research</a>'
-    (SALES / "index.html").write_text(shell("aivp", "AI Value Prospectors — Sales materials", header, main, foot))
+    (SALES / "index.html").write_text(shell("aivp", "AI Value Prospectors: Sales materials", header, main, foot))
 
 
 def build_brand(key, b):
     header = f'''    <header>
         <span class="wordmark"><span class="mark">{b['swatch']}</span><span class="name">{b['display']}</span></span>
-        <h1>{b['display']} — Sales materials</h1>
+        <h1>{b['display']}: Sales materials</h1>
         <p>{b['blurb']}</p>
         <a class="back" href="../index.html">&larr; All sales materials</a>
     </header>'''
@@ -231,7 +231,7 @@ def build_brand(key, b):
                       for m in b["materials"])
     anchor = {"proasiste": "#proasiste", "eduasiste": "#edu-institution"}[key]
     demos = demos_cta(f"../../demos/index.html{anchor}",
-                      f"Jump to the live {b['display']} demo twins — demo data only.")
+                      f"Jump to the live {b['display']} demo twins. Demo data only.")
     main = f'''        <p class="section-label"><span class="pip"></span>Live demos</p>
         {demos}
 
@@ -243,7 +243,7 @@ def build_brand(key, b):
     foot = f'{b["display"]} · {b["domain"]} · internal sales enablement · <a href="../index.html">All materials</a>'
     out = SALES / key / "index.html"
     out.parent.mkdir(exist_ok=True)
-    out.write_text(shell(b["cls"], f"{b['display']} — Sales materials", header, main, foot))
+    out.write_text(shell(b["cls"], f"{b['display']}: Sales materials", header, main, foot))
 
 
 def publish_files():

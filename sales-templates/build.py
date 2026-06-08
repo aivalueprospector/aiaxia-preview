@@ -40,7 +40,7 @@ ALIASES = {
 }
 
 HOWTO_EN = (
-    "**HOW TO USE THIS TEMPLATE** — 1. *File → Make a copy.* "
+    "**HOW TO USE THIS TEMPLATE.** 1. *File → Make a copy.* "
     "2. Rename it for your prospect. 3. Replace every highlighted "
     "**{{field}}**. 4. Delete this box. 5. *File → Download → PDF* to send."
 )
@@ -86,7 +86,7 @@ def howto_block(slug):
         lines.append("> **Fields in this template:** " + toks)
     else:
         lines.append(">")
-        lines.append("> *This is a reference / cheat-sheet — no fields to replace. Customize freely.*")
+        lines.append("> *This is a reference cheat sheet. No fields to replace, so customize freely.*")
     return "\n".join(lines) + "\n\n"
 
 
