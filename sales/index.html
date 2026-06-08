@@ -9,6 +9,8 @@
         :root {
             --aivp: #E8B547;
             --aivp-dark: #92700f;
+            --edu: #2EA3F2;
+            --edu-dark: #1d6fb0;
             --bg: #0F1115;
             --card-bg: #181B22;
             --text: #F3F4F6;
@@ -78,24 +80,34 @@
         }
         main {
             flex: 1;
-            max-width: 960px;
+            max-width: 1040px;
             margin: 0 auto;
             padding: 32px 24px;
             width: 100%;
         }
         .section-label {
-            font-size: 12px;
+            font-size: 13px;
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.06em;
-            color: var(--muted);
-            margin: 8px 0 0;
+            color: var(--text-soft);
+            margin: 34px 0 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
+        .section-label:first-child { margin-top: 8px; }
+        .section-label .pip {
+            width: 10px; height: 10px; border-radius: 50%;
+            background: var(--aivp);
+        }
+        .section-label.edu .pip { background: var(--edu); }
+        .section-label .hint { font-weight: 500; text-transform: none; letter-spacing: 0; color: var(--muted); font-size: 13px; }
         .card-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 20px;
-            margin-top: 20px;
+            margin-top: 18px;
         }
         .card {
             background: var(--card-bg);
@@ -114,8 +126,9 @@
             box-shadow: 0 10px 28px rgba(0,0,0,0.35);
             border-color: var(--aivp);
         }
+        .card.edu:hover { border-color: var(--edu); }
         .card .swatch {
-            width: 40px;
+            width: 44px;
             height: 40px;
             border-radius: 10px;
             margin-bottom: 8px;
@@ -124,9 +137,11 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 18px;
+            font-size: 13px;
             font-weight: 800;
+            letter-spacing: 0.02em;
         }
+        .card.edu .swatch { background: var(--edu); color: #06243b; }
         .card h2 {
             margin: 0;
             font-size: 18px;
@@ -151,6 +166,11 @@
             background: rgba(232,181,71,0.10);
             color: var(--aivp);
             border: 1px solid rgba(232,181,71,0.30);
+        }
+        .card.edu .tag {
+            background: rgba(46,163,242,0.10);
+            color: var(--edu);
+            border-color: rgba(46,163,242,0.30);
         }
         .card .url {
             margin-top: auto;
@@ -181,23 +201,33 @@
         <span class="internal">Internal · Unlinked</span>
     </header>
     <main>
-        <p class="section-label">Materials</p>
+
+        <p class="section-label"><span class="pip"></span>Cross-Twin &amp; platform <span class="hint">— both brands</span></p>
         <div class="card-grid">
             <a class="card" href="cross-twin-one-pager.html">
-                <div class="swatch">1</div>
+                <div class="swatch">↔</div>
                 <h2>Cross-Twin One-Pager</h2>
                 <div class="desc">How two twins work together — across both products. EduAsiste (parents/tutors/schools) and ProAsiste (owner + team) sections, each with five day-one pillars plus an opener and close for reps. Print-ready (Letter).</div>
                 <div class="tags">
                     <span class="tag">One-pager</span>
-                    <span class="tag">EduAsiste</span>
-                    <span class="tag">ProAsiste</span>
+                    <span class="tag">Both brands</span>
                     <span class="tag">Issue #20</span>
                 </div>
                 <div class="url">/aiaxia-preview/sales/cross-twin-one-pager.html</div>
             </a>
-
+            <a class="card" href="knowledge-demo-guide.html">
+                <div class="swatch">↔</div>
+                <h2>Knowledge Sales Demo Guide</h2>
+                <div class="desc">Tab-by-tab walkthrough of the Knowledge platform (Import · View · Task · Verify) — same UI behind both brands. What-it-is, how-to-demo, how-to-explain, how-to-sell per tab. Business examples shown; education equivalents noted inline.</div>
+                <div class="tags">
+                    <span class="tag">Demo script</span>
+                    <span class="tag">Both brands</span>
+                    <span class="tag">Issue #13</span>
+                </div>
+                <div class="url">/aiaxia-preview/sales/knowledge-demo-guide.html</div>
+            </a>
             <a class="card" href="cross-twin-slides.html">
-                <div class="swatch">2</div>
+                <div class="swatch">↔</div>
                 <h2>How Two Twins Work Together — Slides</h2>
                 <div class="desc">8-slide deck outline (~7 min) for parents, tutors, and small-school owners. Slide-by-slide copy plus speaker notes — built to get to the demo, then to the ask.</div>
                 <div class="tags">
@@ -207,9 +237,8 @@
                 </div>
                 <div class="url">/aiaxia-preview/sales/cross-twin-slides.html</div>
             </a>
-
             <a class="card" href="cross-twin-email-blurbs.html">
-                <div class="swatch">3</div>
+                <div class="swatch">↔</div>
                 <h2>Email-Ready Blurbs — Cross-Twin Pitch</h2>
                 <div class="desc">Three ready-to-send blurbs at three lengths: cold outreach, warm intro, and school/tutor prospect. EduAsiste angle, fill-in-the-blank tokens.</div>
                 <div class="tags">
@@ -219,67 +248,104 @@
                 </div>
                 <div class="url">/aiaxia-preview/sales/cross-twin-email-blurbs.html</div>
             </a>
+        </div>
 
-            <a class="card" href="kaibrain-demo-guide.html">
-                <div class="swatch">4</div>
-                <h2>KaiBrain Sales Demo Guide</h2>
-                <div class="desc">Full demo script for the ProAsiste / KaiBrain platform. Tab-by-tab walkthrough (Import · View · Task · Verify) with what-it-is, how-to-demo, how-to-explain, and how-to-sell for each.</div>
-                <div class="tags">
-                    <span class="tag">Demo script</span>
-                    <span class="tag">ProAsiste</span>
-                    <span class="tag">Issue #13</span>
-                </div>
-                <div class="url">/aiaxia-preview/sales/kaibrain-demo-guide.html</div>
-            </a>
-
-            <a class="card" href="ctwin-quick-reference.html">
-                <div class="swatch">5</div>
-                <h2>C-Twin Sales Quick Reference Card</h2>
-                <div class="desc">Single-page cheat sheet for demos and calls. 30-second pitch, the four tabs, button reference, pain-point → response table, and tier cheat sheet. Print-friendly.</div>
+        <p class="section-label"><span class="pip"></span>ProAsiste <span class="hint">— business (proasiste.com)</span></p>
+        <div class="card-grid">
+            <a class="card" href="proasiste-quick-reference.html">
+                <div class="swatch">Pro</div>
+                <h2>ProAsiste Quick Reference Card</h2>
+                <div class="desc">Single-page cheat sheet for demos and calls. 30-second pitch, the four tabs, button reference, pain-point → response table, and tier cheat sheet (SILVER → DIAMOND). Print-friendly.</div>
                 <div class="tags">
                     <span class="tag">Quick reference</span>
-                    <span class="tag">ProAsiste</span>
+                    <span class="tag">Business</span>
                     <span class="tag">Issue #15</span>
                 </div>
-                <div class="url">/aiaxia-preview/sales/ctwin-quick-reference.html</div>
+                <div class="url">/aiaxia-preview/sales/proasiste-quick-reference.html</div>
             </a>
-
-            <a class="card" href="ctwin-email-templates.html">
-                <div class="swatch">6</div>
-                <h2>C-Twin Sales Email Templates</h2>
-                <div class="desc">Copy-customize-send outreach templates by angle: time-saver hook, competitor angle, knowledge-loss problem, and more. For the ProAsiste (C-Twin) business audience.</div>
+            <a class="card" href="proasiste-email-templates.html">
+                <div class="swatch">Pro</div>
+                <h2>ProAsiste Sales Email Templates</h2>
+                <div class="desc">Copy-customize-send outreach by angle: time-saver hook, competitor angle, knowledge-loss problem, and more. For the ProAsiste business audience (operations leaders, owner-operators).</div>
                 <div class="tags">
                     <span class="tag">Outreach</span>
-                    <span class="tag">ProAsiste</span>
+                    <span class="tag">Business</span>
                     <span class="tag">Issue #14</span>
                 </div>
-                <div class="url">/aiaxia-preview/sales/ctwin-email-templates.html</div>
+                <div class="url">/aiaxia-preview/sales/proasiste-email-templates.html</div>
             </a>
-
-            <a class="card" href="ctwin-competitive.html">
-                <div class="swatch">7</div>
-                <h2>C-Twin Competitive Positioning</h2>
-                <div class="desc">Battle cards for the objections prospects raise — vs. ChatGPT / generic AI and vs. Microsoft Copilot. Their argument, your response, and a side-by-side differentiator table each.</div>
+            <a class="card" href="proasiste-competitive.html">
+                <div class="swatch">Pro</div>
+                <h2>ProAsiste Competitive Positioning</h2>
+                <div class="desc">Battle cards for the objections business prospects raise — vs. ChatGPT / generic AI and vs. Microsoft Copilot. Their argument, your response, and a side-by-side differentiator table each.</div>
                 <div class="tags">
                     <span class="tag">Competitive</span>
-                    <span class="tag">ProAsiste</span>
+                    <span class="tag">Business</span>
                     <span class="tag">Issue #17</span>
                 </div>
-                <div class="url">/aiaxia-preview/sales/ctwin-competitive.html</div>
+                <div class="url">/aiaxia-preview/sales/proasiste-competitive.html</div>
             </a>
-
-            <a class="card" href="ctwin-security-faq.html">
-                <div class="swatch">8</div>
-                <h2>C-Twin Security FAQ</h2>
-                <div class="desc">Answers to prospect security questions. Tier × infrastructure security table, what's included per tier (Workspace vs. Cloud), and the KloudStax path for GDPR / HIPAA / SOC 2 compliance.</div>
+            <a class="card" href="proasiste-security-faq.html">
+                <div class="swatch">Pro</div>
+                <h2>ProAsiste Security FAQ</h2>
+                <div class="desc">Answers to business prospect security questions. Tier × infrastructure security table, what's included per tier (Workspace vs. Cloud), and the KloudStax path for GDPR / HIPAA / SOC 2 compliance.</div>
                 <div class="tags">
                     <span class="tag">Security</span>
-                    <span class="tag">ProAsiste</span>
+                    <span class="tag">Business</span>
                     <span class="tag">Issue #16</span>
                 </div>
-                <div class="url">/aiaxia-preview/sales/ctwin-security-faq.html</div>
+                <div class="url">/aiaxia-preview/sales/proasiste-security-faq.html</div>
             </a>
         </div>
+
+        <p class="section-label edu"><span class="pip"></span>EduAsiste <span class="hint">— education (eduasiste.org)</span></p>
+        <div class="card-grid">
+            <a class="card edu" href="eduasiste-quick-reference.html">
+                <div class="swatch">Edu</div>
+                <h2>EduAsiste Quick Reference Card</h2>
+                <div class="desc">Single-page cheat sheet for parent/school calls and demos. Two-twins elevator pitch, the platform tabs reframed for learning, "they say → you say" for education pains, and the SILVER → DIAMOND tiers with family/tutor/school "best for" notes. Print-friendly.</div>
+                <div class="tags">
+                    <span class="tag">Quick reference</span>
+                    <span class="tag">Education</span>
+                    <span class="tag">Issue #33</span>
+                </div>
+                <div class="url">/aiaxia-preview/sales/eduasiste-quick-reference.html</div>
+            </a>
+            <a class="card edu" href="eduasiste-email-templates.html">
+                <div class="swatch">Edu</div>
+                <h2>EduAsiste Sales Email Templates</h2>
+                <div class="desc">Copy-customize-send outreach for parents, tutors, homeschoolers, and small schools. Reframed around being "one conversation behind," report cards weeks late, and scores-not-understanding. Fill-in tokens throughout.</div>
+                <div class="tags">
+                    <span class="tag">Outreach</span>
+                    <span class="tag">Education</span>
+                    <span class="tag">Issue #32</span>
+                </div>
+                <div class="url">/aiaxia-preview/sales/eduasiste-email-templates.html</div>
+            </a>
+            <a class="card edu" href="eduasiste-competitive.html">
+                <div class="swatch">Edu</div>
+                <h2>EduAsiste Competitive Positioning</h2>
+                <div class="desc">Battle cards vs. the ed-tech a parent already uses — generic AI homework helpers, grade-tracker portals, content libraries (Khan/IXL-style), and human tutoring. Socratic teaching, parent twin + transparency, and minor-data privacy as the wedge.</div>
+                <div class="tags">
+                    <span class="tag">Competitive</span>
+                    <span class="tag">Education</span>
+                    <span class="tag">Issue #35</span>
+                </div>
+                <div class="url">/aiaxia-preview/sales/eduasiste-competitive.html</div>
+            </a>
+            <a class="card edu" href="eduasiste-security-faq.html">
+                <div class="swatch">Edu</div>
+                <h2>EduAsiste Security FAQ</h2>
+                <div class="desc">Answers to parent and school data questions. FERPA / COPPA led, GDPR &amp; data residency (incl. Chile Ley 21.719), "is my child's data used to train AI?", per-learner isolation, and the transparency pillar — child sees every view. KloudStax for formal frameworks.</div>
+                <div class="tags">
+                    <span class="tag">Security</span>
+                    <span class="tag">Education</span>
+                    <span class="tag">Issue #34</span>
+                </div>
+                <div class="url">/aiaxia-preview/sales/eduasiste-security-faq.html</div>
+            </a>
+        </div>
+
     </main>
     <footer>
         AI Value Prospectors · internal sales enablement · Source: <a href="https://github.com/aivalueprospector/product-research">product-research</a>

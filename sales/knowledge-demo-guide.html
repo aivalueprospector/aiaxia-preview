@@ -4,7 +4,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="robots" content="noindex, nofollow" />
-<title>KaiBrain Sales Demo Guide — AI Value Prospectors</title>
+<title>Knowledge Sales Demo Guide — AI Value Prospectors</title>
 <style>
   :root {
     --aivp: #E8B547;
@@ -15,6 +15,8 @@
     --line: #e2e6ec;
     --bg: #ffffff;
     --tint: #fbf8ef;
+    --accent: #E8B547;
+    --accent-dark: #92700f;
   }
   @page { size: Letter; margin: 0.6in; }
   * { box-sizing: border-box; }
@@ -28,7 +30,7 @@
   }
   .topbar {
     background: #0F1115;
-    border-bottom: 2px solid var(--aivp);
+    border-bottom: 2px solid var(--accent);
     padding: 12px 24px;
     display: flex;
     align-items: center;
@@ -60,13 +62,13 @@
   }
   .eyebrow {
     font-size: 12px; font-weight: 700; letter-spacing: 0.08em;
-    text-transform: uppercase; color: var(--aivp-dark);
+    text-transform: uppercase; color: var(--accent-dark);
     margin: 0 0 6px;
   }
   h1 {
     font-size: 30px; font-weight: 800; letter-spacing: -0.02em;
     color: #0f1d2c; margin: 0 0 18px; line-height: 1.15;
-    border-bottom: 3px solid var(--aivp); padding-bottom: 14px;
+    border-bottom: 3px solid var(--accent); padding-bottom: 14px;
   }
   h1 + p { color: var(--ink-soft); }
   h2 {
@@ -79,7 +81,7 @@
     margin: 22px 0 6px;
   }
   p { margin: 10px 0; }
-  a { color: var(--aivp-dark); }
+  a { color: var(--accent-dark); }
   hr { border: 0; border-top: 1px solid var(--line); margin: 28px 0; }
   ul, ol { padding-left: 22px; }
   li { margin: 4px 0; }
@@ -93,11 +95,10 @@
     padding: 16px 18px; overflow-x: auto; font-size: 13px;
   }
   pre code { background: none; border: 0; padding: 0; color: inherit; }
-  /* Blockquotes = "say this" script callouts */
   blockquote {
     margin: 14px 0; padding: 12px 18px;
     background: linear-gradient(135deg, #fbf8ef 0%, #f3ead2 100%);
-    border-left: 4px solid var(--aivp);
+    border-left: 4px solid var(--accent);
     border-radius: 2px; color: #3a2f10; font-style: italic;
   }
   blockquote p { margin: 4px 0; }
@@ -118,10 +119,10 @@
     color: var(--muted); font-size: 13px;
     display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px;
   }
-  footer.sheet-foot a { color: var(--aivp-dark); text-decoration: none; }
+  footer.sheet-foot a { color: var(--accent-dark); text-decoration: none; }
   @media print {
     body { background: #fff; }
-    .topbar { background: #fff; border-bottom-color: var(--aivp); }
+    .topbar { background: #fff; border-bottom-color: var(--accent); }
     .topbar .name { color: var(--aivp-dark); }
     .topbar a.back { display: none; }
     .sheet { box-shadow: none; border: 0; margin: 0; max-width: none; padding: 0; }
@@ -136,9 +137,12 @@
   <a class="back" href="index.html">&larr; All sales materials</a>
 </div>
 <article class="sheet">
-<p class="eyebrow">Demo script · ProAsiste / KaiBrain</p>
-<h1 id="kaibrain-sales-demo-guide">KaiBrain Sales Demo Guide</h1>
-<p>A comprehensive guide for sales teams to demonstrate, explain, and sell the KaiBrain platform (C-twin for business, L-twin for education).</p>
+<p class="eyebrow">Demo script · Knowledge platform · both brands</p>
+<h1 id="knowledge-sales-demo-guide">Knowledge Sales Demo Guide</h1>
+<p>A comprehensive guide for sales teams to demonstrate, explain, and sell the Knowledge platform (ProAsiste for business, EduAsiste for education).</p>
+<blockquote>
+<p><strong>Applies to both brands.</strong> The tabs and flow are identical across ProAsiste and EduAsiste — it's the same Knowledge platform. The examples below use <strong>ProAsiste</strong> (business) scenarios; for <strong>EduAsiste</strong> (education), swap the equivalents: invoices/contracts → worksheets/assignments, supplier/customer → student/parent, operations reports → progress summaries. Brand-specific email, competitive, security, and quick-reference assets live as separate EduAsiste pages on the index.</p>
+</blockquote>
 <hr />
 <h2 id="quick-reference">Quick Reference</h2>
 <table>
@@ -162,7 +166,7 @@
 </tr>
 <tr class="odd">
 <td><strong>View Tab</strong></td>
-<td>KaiBrain dashboard + Activity Map</td>
+<td>Knowledge dashboard + Activity Map</td>
 <td>"See how everything connects and moves"</td>
 </tr>
 <tr class="even">
@@ -193,7 +197,7 @@
 <hr />
 <h2 id="import-tab-document-intelligence">Import Tab (Document Intelligence)</h2>
 <h3 id="what-it-is">What It Is</h3>
-<p>Drag-and-drop document processor that extracts entities, relationships, and events from uploaded files, connecting them to your KaiBrain knowledge graph.</p>
+<p>Drag-and-drop document processor that extracts entities, relationships, and events from uploaded files, connecting them to your Knowledge graph.</p>
 <h3 id="supported-formats">Supported Formats</h3>
 <ul>
 <li>PDF, DOCX, DOC, TXT, MD (up to 25MB)</li>
@@ -205,21 +209,21 @@
 <li>Show the Import tab (it's the default on load)</li>
 <li>Drag a sample invoice or contract onto the upload zone</li>
 <li>Show the extraction progress — entities being identified</li>
-<li>Switch to View tab to see the new KaiNotes appear in the Activity Map</li>
+<li>Switch to View tab to see the new Knowledge Notes appear in the Activity Map</li>
 <li>Ask a question about the document in chat: <em>"What are the key terms in that contract?"</em></li>
 </ol>
 <h3 id="how-to-explain">How to Explain</h3>
 <blockquote>
-<p>"Drop any document here, and KaiBrain reads it, understands it, and connects it to everything else it knows about your business. That supplier contract you just uploaded? It now links to your previous orders, your risk assessments, and your compliance requirements."</p>
+<p>"Drop any document here, and Knowledge reads it, understands it, and connects it to everything else it knows about your business. That supplier contract you just uploaded? It now links to your previous orders, your risk assessments, and your compliance requirements."</p>
 </blockquote>
 <h3 id="how-to-sell">How to Sell</h3>
 <ul>
 <li><strong>Pain Point</strong>: "How many important documents are sitting in folders, never to be found again?"</li>
-<li><strong>Solution</strong>: "Every document becomes searchable, connected, and actionable. KaiBrain doesn't just store files — it understands them."</li>
+<li><strong>Solution</strong>: "Every document becomes searchable, connected, and actionable. Knowledge doesn't just store files — it understands them."</li>
 <li><strong>ROI Hook</strong>: "When you need to find that one clause in a contract from 18 months ago, do you want to spend an hour searching or 10 seconds asking?"</li>
 </ul>
 <hr />
-<h2 id="view-tab-kaibrain-dashboard">View Tab (KaiBrain Dashboard)</h2>
+<h2 id="view-tab-knowledge-dashboard">View Tab (Knowledge Dashboard)</h2>
 <h3 id="what-it-is-1">What It Is</h3>
 <p>The knowledge intelligence dashboard with six sub-views. The default landing is the <strong>Activity Map</strong>.</p>
 <h3 id="sub-views">Sub-Views</h3>
@@ -240,7 +244,7 @@
 <td>Browse uploaded documents with detail modals</td>
 </tr>
 <tr class="odd">
-<td><strong>KaiNotes</strong></td>
+<td><strong>Knowledge Notes</strong></td>
 <td>Browse entity nodes with search, type filter, click-to-edit</td>
 </tr>
 <tr class="even">
@@ -258,7 +262,7 @@
 <ul>
 <li><strong>+ KaiNote / + KaiLink / + KaiEvent</strong> — manual creation buttons with modal forms</li>
 <li><strong>Recent Activity</strong> — last 10 KaiEvents showing who did what to whom</li>
-<li><strong>Hot Entities</strong> — top 8 most-connected KaiNotes (clickable chips)</li>
+<li><strong>Hot Entities</strong> — top 8 most-connected Knowledge Notes (clickable chips)</li>
 <li><strong>Needs Attention</strong> — orphan entities (no connections) and stale entities (14+ days without updates)</li>
 </ul>
 <h3 id="how-to-demo-1">How to Demo</h3>
@@ -266,10 +270,10 @@
 <li>Click View tab — Activity Map loads by default</li>
 <li>Point out Recent Activity: <em>"These are the latest events extracted from your documents"</em></li>
 <li>Click a Hot Entity chip to open its detail card</li>
-<li>Show the Needs Attention section: <em>"KaiBrain tells you what needs work"</em></li>
+<li>Show the Needs Attention section: <em>"Knowledge tells you what needs work"</em></li>
 <li>Click <strong>+ KaiNote</strong> to manually create an entity</li>
 <li>Click <strong>+ KaiLink</strong> to connect two entities</li>
-<li>Switch to KaiNotes to browse the full entity list</li>
+<li>Switch to Knowledge Notes to browse the full entity list</li>
 <li>Show KaiEvents filtered by verb</li>
 <li>Resize the sidebar by dragging the left edge</li>
 </ol>
@@ -280,13 +284,13 @@
 <h3 id="how-to-sell-1">How to Sell</h3>
 <ul>
 <li><strong>Pain Point</strong>: "Do you know which parts of your business knowledge are getting stale or disconnected?"</li>
-<li><strong>Solution</strong>: "KaiBrain actively monitors your knowledge graph and surfaces orphans, gaps, and stale data."</li>
+<li><strong>Solution</strong>: "Knowledge actively monitors your knowledge graph and surfaces orphans, gaps, and stale data."</li>
 <li><strong>ROI Hook</strong>: "What if you could prevent knowledge decay before it costs you a deal or a compliance issue?"</li>
 </ul>
 <hr />
 <h2 id="task-tab-ai-apprentice">Task Tab (AI Apprentice)</h2>
 <h3 id="what-it-is-2">What It Is</h3>
-<p>An AI-powered task automation system. Users define templates for recurring workflows, and KaiBrain executes them.</p>
+<p>An AI-powered task automation system. Users define templates for recurring workflows, and Knowledge executes them.</p>
 <h3 id="how-to-demo-2">How to Demo</h3>
 <ol type="1">
 <li>Show the list of available task templates</li>
@@ -297,13 +301,13 @@
 </ol>
 <h3 id="how-to-explain-2">How to Explain</h3>
 <blockquote>
-<p>"Think of it as training an apprentice. You define the process once — 'Every Monday, pull supplier data, compare to last week, flag anomalies, and write a summary.' Then KaiBrain does it automatically, exactly how you taught it."</p>
+<p>"Think of it as training an apprentice. You define the process once — 'Every Monday, pull supplier data, compare to last week, flag anomalies, and write a summary.' Then Knowledge does it automatically, exactly how you taught it."</p>
 </blockquote>
 <h3 id="how-to-sell-2">How to Sell</h3>
 <ul>
 <li><strong>Pain Point</strong>: "How many hours does your team spend on repetitive reports and data compilation?"</li>
 <li><strong>Solution</strong>: "Define the task once. Your AI apprentice handles it from then on."</li>
-<li><strong>ROI Hook</strong>: "If a weekly report takes 3 hours to compile, that's 150+ hours per year. KaiBrain does it in minutes."</li>
+<li><strong>ROI Hook</strong>: "If a weekly report takes 3 hours to compile, that's 150+ hours per year. Knowledge does it in minutes."</li>
 </ul>
 <hr />
 <h2 id="verify-tab-quality-control">Verify Tab (Quality Control)</h2>
@@ -320,7 +324,7 @@
 <tbody>
 <tr class="odd">
 <td><strong>Incoming</strong></td>
-<td>Review AI-extracted KaiNotes before they're committed to the graph</td>
+<td>Review AI-extracted Knowledge Notes before they're committed to the graph</td>
 </tr>
 <tr class="even">
 <td><strong>Outgoing</strong></td>
@@ -330,7 +334,7 @@
 </table>
 <h3 id="how-to-demo-3">How to Demo</h3>
 <ol type="1">
-<li>Show the incoming queue with pending KaiNotes</li>
+<li>Show the incoming queue with pending Knowledge Notes</li>
 <li>Click to review an entity — show the detail card</li>
 <li>Approve or reject with one click</li>
 <li>Switch to Outgoing to show cut candidates</li>
@@ -338,7 +342,7 @@
 </ol>
 <h3 id="how-to-explain-3">How to Explain</h3>
 <blockquote>
-<p>"KaiBrain is powerful, but you're always in control. Every piece of knowledge passes through your approval before it enters the graph. And when data gets stale, KaiBrain recommends pruning — but you decide what stays and what goes."</p>
+<p>"Knowledge is powerful, but you're always in control. Every piece of knowledge passes through your approval before it enters the graph. And when data gets stale, Knowledge recommends pruning — but you decide what stays and what goes."</p>
 </blockquote>
 <h3 id="how-to-sell-3">How to Sell</h3>
 <ul>
@@ -350,7 +354,7 @@
 <h2 id="demo-flow-checklist-20-minutes">Demo Flow Checklist (20 minutes)</h2>
 <h3 id="opening-2-minutes">Opening (2 minutes)</h3>
 <ul class="task-list">
-<li><label><input type="checkbox" />Introduce KaiBrain: "Your AI-powered knowledge brain"</label></li>
+<li><label><input type="checkbox" />Introduce Knowledge: "Your AI-powered knowledge brain"</label></li>
 <li><label><input type="checkbox" />Show the clean interface — chat left, tabs right</label></li>
 <li><label><input type="checkbox" />Note: Import tab is default — designed for action</label></li>
 </ul>
@@ -371,7 +375,7 @@
 <li><label><input type="checkbox" />Show Activity Map (default landing)</label></li>
 <li><label><input type="checkbox" />Point out Recent Activity, Hot Entities, Needs Attention</label></li>
 <li><label><input type="checkbox" />Click + KaiNote to manually create an entity</label></li>
-<li><label><input type="checkbox" />Browse KaiNotes list — click to see detail card</label></li>
+<li><label><input type="checkbox" />Browse Knowledge Notes list — click to see detail card</label></li>
 <li><label><input type="checkbox" />Show KaiEvents — filter by verb</label></li>
 <li><label><input type="checkbox" />Resize sidebar by dragging the handle</label></li>
 </ul>
@@ -397,11 +401,11 @@
 <h2 id="objection-handling">Objection Handling</h2>
 <h3 id="we-already-have-a-knowledge-management-system">"We already have a knowledge management system"</h3>
 <blockquote>
-<p>"Great! KaiBrain goes beyond storage. It reads your documents, extracts entities, discovers relationships, and builds a living knowledge graph. Your current system stores files — KaiBrain understands them."</p>
+<p>"Great! Knowledge goes beyond storage. It reads your documents, extracts entities, discovers relationships, and builds a living knowledge graph. Your current system stores files — Knowledge understands them."</p>
 </blockquote>
 <h3 id="our-data-is-sensitive">"Our data is sensitive"</h3>
 <blockquote>
-<p>"Your KaiBrain runs in a dedicated environment. PRO twins push data to your own Google Drive — you own it completely. ORG twins obfuscate PII on shared drives. Your data never trains public AI models."</p>
+<p>"Your Knowledge runs in a dedicated environment. PRO twins push data to your own Google Drive — you own it completely. ORG twins obfuscate PII on shared drives. Your data never trains public AI models."</p>
 </blockquote>
 <h3 id="we-dont-have-time-to-set-this-up">"We don't have time to set this up"</h3>
 <blockquote>
@@ -409,11 +413,11 @@
 </blockquote>
 <h3 id="how-is-this-different-from-chatgpt">"How is this different from ChatGPT?"</h3>
 <blockquote>
-<p>"ChatGPT knows the internet. KaiBrain knows YOUR business. It's trained on your documents, your processes, your data. When you ask about 'our supplier terms,' it gives you YOUR supplier terms, not generic advice."</p>
+<p>"ChatGPT knows the internet. Knowledge knows YOUR business. It's trained on your documents, your processes, your data. When you ask about 'our supplier terms,' it gives you YOUR supplier terms, not generic advice."</p>
 </blockquote>
 <h3 id="why-not-just-use-obsidiannotionconfluence">"Why not just use Obsidian/Notion/Confluence?"</h3>
 <blockquote>
-<p>"KaiBrain actually includes Obsidian — your KaiNotes sync to an Obsidian vault you can edit offline. But KaiBrain adds the AI layer: automatic extraction, relationship discovery, event tracking, and an AI apprentice that acts on your knowledge. It's Obsidian + Neo4j + AI, working together."</p>
+<p>"Knowledge actually includes Obsidian — your Knowledge Notes sync to an Obsidian vault you can edit offline. But Knowledge adds the AI layer: automatic extraction, relationship discovery, event tracking, and an AI apprentice that acts on your knowledge. It's Obsidian + Neo4j + AI, working together."</p>
 </blockquote>
 <h3 id="what-about-roi">"What about ROI?"</h3>
 <blockquote>
@@ -487,12 +491,12 @@
 </thead>
 <tbody>
 <tr class="odd">
-<td>KaiBrain</td>
+<td>Knowledge</td>
 <td>Kaigraph, K-Graph</td>
 <td>Current product name</td>
 </tr>
 <tr class="even">
-<td>KaiNotes</td>
+<td>Knowledge Notes</td>
 <td>K-Notes, entities, nodes</td>
 <td>Customer-facing term for entity files</td>
 </tr>
@@ -526,7 +530,7 @@
 <hr />
 <h2 id="quick-pitch-30-seconds">Quick Pitch (30 seconds)</h2>
 <blockquote>
-<p>"KaiBrain captures everything your business knows — every document, every conversation, every process — and makes it instantly accessible through AI. Drop a document, watch it become connected knowledge. Ask a question, get an answer with sources. Define a task, let your AI apprentice handle it. It's like giving every employee access to your company's complete institutional knowledge, plus an AI assistant who's read all of it."</p>
+<p>"Knowledge captures everything your business knows — every document, every conversation, every process — and makes it instantly accessible through AI. Drop a document, watch it become connected knowledge. Ask a question, get an answer with sources. Define a task, let your AI apprentice handle it. It's like giving every employee access to your company's complete institutional knowledge, plus an AI assistant who's read all of it."</p>
 </blockquote>
 <hr />
 <h2 id="domains--resources">Domains &amp; Resources</h2>
@@ -534,20 +538,20 @@
 <thead>
 <tr class="header">
 <th>Resource</th>
-<th>C-twin (Business)</th>
-<th>L-twin (Education)</th>
+<th>ProAsiste (Business)</th>
+<th>EduAsiste (Education)</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td>Web UI</td>
-<td>ctwin.ai</td>
-<td>ltwin.ai</td>
+<td>proasiste.com</td>
+<td>eduasiste.org</td>
 </tr>
 <tr class="even">
 <td>Demo</td>
-<td>ctwin.ai/chat/ctwin/</td>
-<td>ltwin.ai/chat/ltwin/</td>
+<td>proasiste.com/chat/ctwin/</td>
+<td>eduasiste.org/chat/ltwin/</td>
 </tr>
 <tr class="odd">
 <td>Company</td>

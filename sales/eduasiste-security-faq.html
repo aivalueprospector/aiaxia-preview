@@ -1,0 +1,532 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex, nofollow" />
+<title>EduAsiste Security FAQ — AI Value Prospectors</title>
+<style>
+  :root {
+    --aivp: #E8B547;
+    --aivp-dark: #92700f;
+    --ink: #1a2230;
+    --ink-soft: #45526a;
+    --muted: #6b7a8a;
+    --line: #e2e6ec;
+    --bg: #ffffff;
+    --tint: #fbf8ef;
+    --accent: #2EA3F2;
+    --accent-dark: #1d6fb0;
+  }
+  @page { size: Letter; margin: 0.6in; }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0;
+    background: #f4f5f7;
+    color: var(--ink);
+    font-family: 'Inter', -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+    line-height: 1.55;
+    font-size: 16px;
+  }
+  .topbar {
+    background: #0F1115;
+    border-bottom: 2px solid var(--accent);
+    padding: 12px 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .topbar .mark {
+    width: 30px; height: 30px; border-radius: 7px;
+    background: var(--aivp); color: #0F1115;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 800; font-size: 14px;
+  }
+  .topbar .name {
+    font-size: 13px; font-weight: 700; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--aivp);
+  }
+  .topbar a.back {
+    margin-left: auto; color: #C2C6CC; text-decoration: none;
+    font-size: 13px; font-weight: 600;
+  }
+  .topbar a.back:hover { color: var(--aivp); }
+  .sheet {
+    max-width: 800px;
+    margin: 28px auto;
+    background: var(--bg);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 44px 52px;
+    box-shadow: 0 6px 26px rgba(15,17,21,0.08);
+  }
+  .eyebrow {
+    font-size: 12px; font-weight: 700; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--accent-dark);
+    margin: 0 0 6px;
+  }
+  h1 {
+    font-size: 30px; font-weight: 800; letter-spacing: -0.02em;
+    color: #0f1d2c; margin: 0 0 18px; line-height: 1.15;
+    border-bottom: 3px solid var(--accent); padding-bottom: 14px;
+  }
+  h1 + p { color: var(--ink-soft); }
+  h2 {
+    font-size: 21px; font-weight: 700; color: #0f1d2c;
+    margin: 34px 0 10px; padding-bottom: 6px;
+    border-bottom: 1px solid var(--line);
+  }
+  h3 {
+    font-size: 16.5px; font-weight: 700; color: var(--ink);
+    margin: 22px 0 6px;
+  }
+  p { margin: 10px 0; }
+  a { color: var(--accent-dark); }
+  hr { border: 0; border-top: 1px solid var(--line); margin: 28px 0; }
+  ul, ol { padding-left: 22px; }
+  li { margin: 4px 0; }
+  code {
+    background: var(--tint); border: 1px solid var(--line);
+    border-radius: 4px; padding: 1px 5px;
+    font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: 0.88em;
+  }
+  pre {
+    background: #0F1115; color: #e8e8e8; border-radius: 8px;
+    padding: 16px 18px; overflow-x: auto; font-size: 13px;
+  }
+  pre code { background: none; border: 0; padding: 0; color: inherit; }
+  blockquote {
+    margin: 14px 0; padding: 12px 18px;
+    background: linear-gradient(135deg, #fbf8ef 0%, #f3ead2 100%);
+    border-left: 4px solid var(--accent);
+    border-radius: 2px; color: #3a2f10; font-style: italic;
+  }
+  blockquote p { margin: 4px 0; }
+  table {
+    border-collapse: collapse; width: 100%; margin: 14px 0; font-size: 14.5px;
+  }
+  th, td {
+    border: 1px solid var(--line); padding: 8px 12px; text-align: left;
+    vertical-align: top;
+  }
+  thead th {
+    background: #0f1d2c; color: #fff; font-weight: 600;
+    border-color: #0f1d2c;
+  }
+  tbody tr:nth-child(even) { background: var(--tint); }
+  footer.sheet-foot {
+    max-width: 800px; margin: 0 auto 40px; padding: 4px 8px;
+    color: var(--muted); font-size: 13px;
+    display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px;
+  }
+  footer.sheet-foot a { color: var(--accent-dark); text-decoration: none; }
+  @media print {
+    body { background: #fff; }
+    .topbar { background: #fff; border-bottom-color: var(--accent); }
+    .topbar .name { color: var(--aivp-dark); }
+    .topbar a.back { display: none; }
+    .sheet { box-shadow: none; border: 0; margin: 0; max-width: none; padding: 0; }
+    footer.sheet-foot { display: none; }
+  }
+</style>
+</head>
+<body>
+<div class="topbar">
+  <span class="mark">Ai</span>
+  <span class="name">AI Value Prospectors</span>
+  <a class="back" href="index.html">&larr; All sales materials</a>
+</div>
+<article class="sheet">
+<p class="eyebrow">Security · EduAsiste (education)</p>
+<h1 id="eduasiste-security-faq">EduAsiste Security FAQ</h1>
+<blockquote>
+<p><em>EduAsiste education-market variant of the ProAsiste security FAQ (product-research #16). Authored 2026-06-08.</em></p>
+</blockquote>
+<p>Answers to the security and privacy questions that parents, schools, and tutors ask before trusting EduAsiste with student data. EduAsiste runs on the same <strong>Knowledge</strong> platform as ProAsiste — the difference here is the audience: your child's data, and the rules that protect children's records.</p>
+<hr />
+<h2 id="quick-reference">Quick Reference</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Tier</th>
+<th>Infrastructure</th>
+<th>Security Level</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>SILVER</strong></td>
+<td>Google Workspace</td>
+<td>Standard education security</td>
+</tr>
+<tr class="even">
+<td><strong>GOLD</strong></td>
+<td>Google Workspace</td>
+<td>Standard education security</td>
+</tr>
+<tr class="odd">
+<td><strong>PLATINUM</strong></td>
+<td>Google Cloud</td>
+<td>Enhanced cloud security</td>
+</tr>
+<tr class="even">
+<td><strong>DIAMOND</strong></td>
+<td>Google Cloud</td>
+<td>Enhanced cloud security</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th>Privacy / Compliance Need</th>
+<th>Solution</th>
+<th>Provider</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>FERPA (US student education records)</td>
+<td>How-we-help framework + data isolation/encryption</td>
+<td>EduAsiste standard; formal documentation via KloudStax</td>
+</tr>
+<tr class="even">
+<td>COPPA (US children under 13)</td>
+<td>Parental-consent posture + no model training on student data</td>
+<td>EduAsiste standard; formal documentation via KloudStax</td>
+</tr>
+<tr class="odd">
+<td>GDPR / data residency (EU &amp; LATAM schools)</td>
+<td>KloudStax partnership</td>
+<td>KloudStax (separate contract)</td>
+</tr>
+<tr class="even">
+<td>HIPAA / SOC 2 (orgs that also need them)</td>
+<td>KloudStax partnership</td>
+<td>KloudStax (separate contract)</td>
+</tr>
+<tr class="odd">
+<td>Role-based access (school/district IAM)</td>
+<td>KloudStax partnership</td>
+<td>KloudStax (separate contract)</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Plain-language note for parents:</strong> "Standard security" already encrypts everything, keeps your child's data separate from every other learner's, and never feeds it to AI training. The KloudStax column is for schools and districts that need a signed contract and formal audit paperwork to satisfy their lawyers — not something a single family normally needs.</p>
+</blockquote>
+<hr />
+<h2 id="standard-security-included-by-tier">Standard Security (Included by Tier)</h2>
+<h3 id="silver--gold-tiers-google-workspace-security">SILVER &amp; GOLD Tiers: Google Workspace Security</h3>
+<blockquote>
+<p>"SILVER and GOLD tiers store learning data on Google Workspace — the same enterprise-grade infrastructure that protects millions of students and teachers worldwide through Google for Education, Gmail, Google Drive, and Google Docs."</p>
+</blockquote>
+<p><strong>What's Included:</strong></p>
+<ul>
+<li><strong>Encryption in transit</strong>: TLS 1.3 for all data moving between your child and the platform</li>
+<li><strong>Encryption at rest</strong>: AES-256 encryption for stored learning data</li>
+<li><strong>Google Workspace infrastructure</strong>: the proven platform schools already trust</li>
+<li><strong>Data isolation per learner</strong>: each child's twin is separate from every other learner's twin</li>
+<li><strong>Access control</strong>: token-based authentication</li>
+<li><strong>Automatic backups</strong>: Google's redundant storage systems</li>
+</ul>
+<p><strong>Best For:</strong></p>
+<ul>
+<li>Individual families and homeschoolers</li>
+<li>Tutors working with a handful of students</li>
+<li>Small schools without a formal data-protection officer</li>
+<li>Families and schools already using Google for Education</li>
+</ul>
+<hr />
+<h3 id="platinum--diamond-tiers-google-cloud-security">PLATINUM &amp; DIAMOND Tiers: Google Cloud Security</h3>
+<blockquote>
+<p>"PLATINUM and DIAMOND tiers run on Google Cloud Platform for enhanced security and scale — the right fit for a department, a whole school, or a multi-school sostenedor handling many students' records."</p>
+</blockquote>
+<p><strong>What's Included (in addition to standard):</strong></p>
+<ul>
+<li><strong>Google Cloud Platform infrastructure</strong>: enterprise-grade cloud</li>
+<li><strong>Enhanced monitoring</strong>: cloud-native security monitoring</li>
+<li><strong>Scalability</strong>: handles whole-school and multi-school cohorts</li>
+<li><strong>Advanced networking</strong>: VPC, private connectivity options</li>
+<li><strong>Dedicated resources</strong>: isolated compute and storage</li>
+</ul>
+<p><strong>Best For:</strong></p>
+<ul>
+<li>Departments and whole schools</li>
+<li>Tutoring centers and learning networks with many students</li>
+<li>Institutions with heavier reporting and data-processing needs</li>
+<li>Schools planning to scale across grades or campuses</li>
+</ul>
+<h3 id="where-is-our-childs-data-stored">"Where is our child's data stored?"</h3>
+<blockquote>
+<p>"Learning data is stored on Google's infrastructure through Google Workspace (or Google Cloud on higher tiers). Google operates data centers worldwide with industry-leading physical and digital security, and your child's data never leaves that secure environment. For schools that must keep data in a specific country or region (EU, or LATAM under laws like Chile's Ley 21.719), KloudStax can configure regional data residency."</p>
+</blockquote>
+<h3 id="can-eduasiste-staff-read-my-childs-work">"Can EduAsiste staff read my child's work?"</h3>
+<blockquote>
+<p>"We access learning data only when a parent, school, or tutor asks us for technical support. We do not routinely read, review, or analyze your child's work. It is never used to train AI models and never shared with other families, students, or schools."</p>
+</blockquote>
+<h3 id="what-happens-if-we-cancel">"What happens if we cancel?"</h3>
+<blockquote>
+<p>"You own your data. You can export everything at any time in standard formats (JSON, Markdown, CSV). When you cancel, we delete the data from our systems within 30 days, and you keep any exports you've made. For PRO (family-owned) learner twins, the data belongs to the family and is portable — it goes with you."</p>
+</blockquote>
+<hr />
+<h2 id="education-privacy--compliance">Education Privacy &amp; Compliance</h2>
+<h3 id="is-my-childs-data-used-to-train-ai-models">"Is my child's data used to train AI models?"</h3>
+<blockquote>
+<p>"No. Your child's learning data is never used to train public AI models. Their EduAsiste twin learns from THEIR work to help THEM — that knowledge stays inside their own twin, isolated from every other learner, and is never shared externally. Data isolation per learner is the foundation of how the platform is built."</p>
+</blockquote>
+<h3 id="can-other-students-see-my-childs-work">"Can other students see my child's work?"</h3>
+<blockquote>
+<p>"No. Each learner has their own twin, and twins are isolated from one another. In a school (Org) setup, the people who can see a learner's workspace are exactly the assigned teacher/mentor and the learner — never other students. One child cannot browse, read, or stumble into another child's work."</p>
+</blockquote>
+<h3 id="what-about-coppa--children-under-13">"What about COPPA / children under 13?"</h3>
+<blockquote>
+<p>"COPPA governs the online collection of personal information from US children under 13, and it requires verifiable parental (or, in the school context, school) consent. EduAsiste's posture:</p>
+<ul>
+<li>A child under 13 is onboarded by a parent or by the school acting on the parent's behalf — never self-signup.</li>
+<li>We collect only what the learning experience needs; there is no advertising and no behavioral profiling of children.</li>
+<li>A child's data is never sold, never used for ad targeting, and never used to train AI models.</li>
+<li>The transparency model (below) means a child and their parent can always see what data exists and who has looked at it. For schools that need formal COPPA documentation and a signed agreement, KloudStax provides it."</li>
+</ul>
+</blockquote>
+<h3 id="are-you-ferpa-compliant">"Are you FERPA compliant?"</h3>
+<blockquote>
+<p>"FERPA governs US student education records and gives parents (and eligible students) rights over those records. EduAsiste is built to help a school meet its FERPA obligations rather than to replace them:</p>
+<ul>
+<li><strong>Data isolation</strong> keeps each student's records separate.</li>
+<li><strong>Encryption</strong> (TLS 1.3 in transit, AES-256 at rest) protects records in motion and at rest.</li>
+<li><strong>Export and deletion on request</strong> support a parent's right to access and a school's right to control records.</li>
+<li>In a school (Org) deployment, the school is the data controller and EduAsiste acts as a service provider under the school's direction. For a signed agreement and formal FERPA audit documentation, we work with KloudStax. We do not overstate certifications we don't hold — we give you the controls and the paperwork path to satisfy your obligations."</li>
+</ul>
+</blockquote>
+<h3 id="what-about-gdpr-or-data-residency-eu--latam-schools">"What about GDPR or data residency (EU / LATAM schools)?"</h3>
+<blockquote>
+<p>"For schools governed by GDPR (EU) or GDPR-aligned laws — for example Chile's Ley 21.719 (LPDP), which takes effect 1 December 2026 and adds special protections for minors' data — we partner with KloudStax. They provide Data Processing Agreements, regional data residency (EU or LATAM), right-to-erasure handling, and the audit trail your data-protection officer needs. EduAsiste's standard controls (encryption, no model training on student data, export-on-request, deletion within a billing cycle) already align with the spirit of these laws; KloudStax provides the formal, signed framework."</p>
+</blockquote>
+<h3 id="who-can-see-what-my-child-does-transparency">"Who can see what my child does? (Transparency)"</h3>
+<blockquote>
+<p>"This is the heart of EduAsiste, and it's a real differentiator: <strong>full transparency, built in.</strong> Every time a parent or teacher looks at a child's data, the child can see that it happened. There is no secret surveillance — trust is the product. Your child always knows who has viewed their learning, and you always know what data exists. We don't believe in watching kids from behind a one-way mirror."</p>
+</blockquote>
+<h3 id="does-the-school-own-the-data-or-does-the-parent">"Does the school own the data, or does the parent?"</h3>
+<blockquote>
+<p>"It depends on how the twin is set up, and we keep this explicit so there's no confusion:</p>
+<ul>
+<li><strong>Family (PRO) learner twin</strong> — the data belongs to the family. It's portable: when you leave, you take it with you.</li>
+<li><strong>School (Org) learner twin</strong> — the institution is the data controller, and the data stays with the school the way student records normally do. The parent still has access and transparency rights, and the child can still see who views their work. Whichever model applies, the access rules are visible to everyone involved — no hidden permissions."</li>
+</ul>
+</blockquote>
+<hr />
+<h2 id="enterprise--formal-compliance-kloudstax-partnership">Enterprise &amp; Formal Compliance (KloudStax Partnership)</h2>
+<h3 id="we-need-a-signed-ferpacoppa-agreement-or-gdprhipaasoc-2-documentation">"We need a signed FERPA/COPPA agreement, or GDPR/HIPAA/SOC 2 documentation"</h3>
+<blockquote>
+<p>"We understand that districts, multi-school sostenedores, and institutions handling sensitive student data need formal, signed compliance frameworks. EduAsiste's standard platform gives you the technical controls — encryption, per-learner isolation, no model training, export and deletion. For the formal documentation, signed agreements, and audits, we've partnered with KloudStax. Compliance is their core expertise, not ours. They provide the controls and paperwork your school's lawyers and data-protection officer need."</p>
+</blockquote>
+<p><strong>What KloudStax Provides:</strong></p>
+<ul>
+<li><strong>FERPA / COPPA documentation</strong>: signed agreements, student-data-privacy controls, audit evidence</li>
+<li><strong>GDPR compliance</strong>: Data Processing Agreements, EU/LATAM data residency, right to erasure, minors-data controls (incl. Ley 21.719 alignment)</li>
+<li><strong>HIPAA compliance</strong>: BAA agreements, audit controls (for orgs that also handle health data, e.g. school health programs)</li>
+<li><strong>SOC 2 Type II</strong>: formal auditing, compliance reports, control frameworks</li>
+<li><strong>Role-based access control</strong>: Google IAM integration, district/school permission structures</li>
+<li><strong>Advanced audit logging</strong>: detailed access logs, compliance reporting</li>
+<li><strong>Dedicated environments</strong>: isolated infrastructure for regulated student records</li>
+</ul>
+<p><strong>How It Works:</strong></p>
+<ol type="1">
+<li>Tell us your privacy / compliance requirements (FERPA, COPPA, GDPR, residency, etc.)</li>
+<li>We work with KloudStax to create a quick-turn proposal</li>
+<li>You receive an addendum to your EduAsiste contract covering the additional services</li>
+<li>KloudStax provisions and manages your compliant environment</li>
+<li>EduAsiste runs on that KloudStax-managed infrastructure</li>
+</ol>
+<p><strong>Pricing:</strong></p>
+<ul>
+<li>KloudStax services are added as a contract addendum</li>
+<li>Pricing based on your specific requirements</li>
+<li>Quick turnaround — no lengthy separate procurement process</li>
+</ul>
+<h3 id="why-dont-you-handle-formal-compliance-directly">"Why don't you handle formal compliance directly?"</h3>
+<blockquote>
+<p>"We believe in doing what we do best — building the best possible learning twin for each child. Formal education-privacy compliance requires specialized expertise, dedicated resources, and ongoing certification maintenance. Rather than do that poorly ourselves, we've partnered with KloudStax, who does it excellently. You get best-in-class learning AND best-in-class, audit-ready data protection."</p>
+</blockquote>
+<h3 id="can-we-talk-to-kloudstax">"Can we talk to KloudStax?"</h3>
+<blockquote>
+<p>"Absolutely. We've set up a quick-turn proposal process with KloudStax. We can get you an addendum to your EduAsiste contract that meets any additional privacy, residency, or infrastructure needs your school or district has — no lengthy separate procurement process."</p>
+</blockquote>
+<hr />
+<h2 id="common-security-questions">Common Security Questions</h2>
+<h3 id="what-about-the-ai-provider-behind-the-twin">"What about the AI provider behind the twin?"</h3>
+<blockquote>
+<p>"When your child's EduAsiste twin works through a problem, it sends the relevant conversation context to the AI provider (Anthropic's Claude). However:</p>
+<ul>
+<li>Only the current conversation context is sent — not your child's entire learning history.</li>
+<li>Anthropic does not train on API data (per their data usage policy).</li>
+<li>We use enterprise API tiers with additional data protections.</li>
+<li>For schools with maximum-security or residency needs, KloudStax can configure dedicated/private AI endpoints."</li>
+</ul>
+</blockquote>
+<h3 id="what-if-theres-a-data-breach">"What if there's a data breach?"</h3>
+<p><strong>Standard (Google Workspace / Google Cloud):</strong></p>
+<blockquote>
+<p>"Google has industry-leading breach detection and response. In the unlikely event of a breach affecting your child's data, you would be notified according to Google's policies and any applicable laws."</p>
+</blockquote>
+<p><strong>Enterprise (KloudStax):</strong></p>
+<blockquote>
+<p>"KloudStax provides formal incident-response procedures, breach-notification SLAs, and compliance with specific regulatory breach-reporting rules (GDPR's 72-hour notification, FERPA/state student-privacy breach rules, etc.)."</p>
+</blockquote>
+<h3 id="can-a-teacher-see-only-their-own-students">"Can a teacher see only their own students?"</h3>
+<p><strong>Standard:</strong></p>
+<blockquote>
+<p>"Our standard offering provides twin-level access. A teacher/mentor sees the workspaces of the learners assigned to them and the shared space — never other students' private workspaces, and never other classes."</p>
+</blockquote>
+<p><strong>Enterprise (KloudStax):</strong></p>
+<blockquote>
+<p>"For granular, district-wide role-based access — where different staff see different scopes within the same system — KloudStax can implement Google IAM integration with custom permission structures."</p>
+</blockquote>
+<h3 id="do-you-have-a-security-certification">"Do you have a security certification?"</h3>
+<p><strong>Standard:</strong></p>
+<blockquote>
+<p>"We inherit Google Workspace's certifications, which include SOC 1/2/3, ISO 27001, and more. See Google's compliance page for the full list. For education specifically, our standard posture gives you the technical controls behind FERPA and COPPA, not a standalone certificate."</p>
+</blockquote>
+<p><strong>Enterprise:</strong></p>
+<blockquote>
+<p>"KloudStax maintains their own SOC 2 Type II certification and can provide compliance documentation for FERPA, COPPA, GDPR, HIPAA, and other frameworks as needed for your school's audits."</p>
+</blockquote>
+<hr />
+<h2 id="security-conversation-flow">Security Conversation Flow</h2>
+<h3 id="step-1-understand-their-needs">Step 1: Understand Their Needs</h3>
+<p>Ask: "What are your main concerns about your child's — or your students' — data?"</p>
+<p>Listen for:</p>
+<ul>
+<li>General "is my kid's data safe?" worry → Standard offering + transparency story</li>
+<li>"Other kids can't see my child's work, right?" → Per-learner isolation</li>
+<li>"Is it used to train AI?" → No, data isolation, never trains models</li>
+<li>Specific framework mentions (FERPA, COPPA, GDPR, Ley 21.719) → Standard controls + KloudStax for formal docs</li>
+<li>District / multi-school role-based access or audit needs → KloudStax</li>
+</ul>
+<h3 id="step-2-position-appropriately">Step 2: Position Appropriately</h3>
+<p><strong>For Parents / Tutors / Small Schools:</strong></p>
+<blockquote>
+<p>"Good news — the standard platform encrypts everything, keeps your child's data isolated from every other learner, never trains AI on it, and shows your child every time someone looks at their work. That covers what almost every family and small school needs."</p>
+</blockquote>
+<p><strong>For Schools / Districts with Formal Requirements:</strong></p>
+<blockquote>
+<p>"For FERPA, COPPA, GDPR, or data-residency requirements that need signed agreements and audit evidence, we work with our partner KloudStax. Let me explain how that partnership works..."</p>
+</blockquote>
+<h3 id="step-3-handle-the-handoff-if-needed">Step 3: Handle the Handoff (if needed)</h3>
+<p>If KloudStax is needed:</p>
+<ol type="1">
+<li>Acknowledge their requirements are valid and important — student data deserves it</li>
+<li>Explain the partnership model</li>
+<li>Offer to make an introduction</li>
+<li>Clarify that KloudStax pricing is separate</li>
+<li>Emphasize this gives them best-in-class for both learning AND data protection</li>
+</ol>
+<hr />
+<h2 id="objection-handling">Objection Handling</h2>
+<h3 id="why-should-we-trust-a-startup-with-our-childrens-data">"Why should we trust a startup with our children's data?"</h3>
+<blockquote>
+<p>"You're not trusting us with the data infrastructure — you're trusting Google. We built EduAsiste on Google Workspace specifically because we knew parents and schools would (rightly) worry about children's data. Your child's data sits on the same infrastructure that schools and Fortune 500 companies trust with their most sensitive records. On top of that, our transparency model means nothing happens to your child's data in the dark — they see every view."</p>
+</blockquote>
+<h3 id="our-schools-it--data-protection-officer-will-never-approve-this">"Our school's IT / data-protection officer will never approve this."</h3>
+<blockquote>
+<p>"Good — they should be careful with student data. Here's what usually helps:</p>
+<ol type="1">
+<li>We can provide Google Workspace's security documentation</li>
+<li>For FERPA, COPPA, GDPR, or residency needs, KloudStax can provide formal, signed documentation</li>
+<li>We're happy to do a technical call with your IT or DPO</li>
+<li>We can start with a small, non-sensitive pilot to build confidence"</li>
+</ol>
+</blockquote>
+<h3 id="we-need-everything-to-stay-in-our-country--on-our-own-servers">"We need everything to stay in our country / on our own servers."</h3>
+<blockquote>
+<p>"True on-premise isn't something we offer directly — the platform is cloud-native. But KloudStax can configure regional data residency (EU or LATAM) and private-cloud options that may meet your requirement while you still use EduAsiste. For schools under laws like Chile's Ley 21.719, that's exactly the path. Would it help to explore that with them?"</p>
+</blockquote>
+<h3 id="kloudstax-adds-too-much-cost--complexity-for-us">"KloudStax adds too much cost / complexity for us."</h3>
+<blockquote>
+<p>"For most families and small schools, the standard Google Workspace security plus our transparency model is more than enough. KloudStax is really for institutions with specific regulatory mandates — districts, multi-school sostenedores, EU/LATAM data residency, formal audit requirements. If you don't have those mandates, you likely don't need KloudStax."</p>
+</blockquote>
+<hr />
+<h2 id="security-summary-table">Security Summary Table</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Question</th>
+<th>Standard Answer</th>
+<th>Enterprise Answer</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Where is the data stored?</td>
+<td>Google Workspace / Google Cloud</td>
+<td>KloudStax-managed environment</td>
+</tr>
+<tr class="even">
+<td>Is the data encrypted?</td>
+<td>Yes (TLS 1.3 + AES-256)</td>
+<td>Yes + additional controls</td>
+</tr>
+<tr class="odd">
+<td>Used to train AI?</td>
+<td>Never</td>
+<td>Never</td>
+</tr>
+<tr class="even">
+<td>Can other students see it?</td>
+<td>No — isolated per learner</td>
+<td>No — isolated per learner</td>
+</tr>
+<tr class="odd">
+<td>FERPA?</td>
+<td>Technical controls to help you comply</td>
+<td>Full signed docs (KloudStax)</td>
+</tr>
+<tr class="even">
+<td>COPPA (under 13)?</td>
+<td>Parent/school consent, no profiling</td>
+<td>Full signed docs (KloudStax)</td>
+</tr>
+<tr class="odd">
+<td>GDPR / residency?</td>
+<td>Aligned controls</td>
+<td>Full + EU/LATAM residency (KloudStax)</td>
+</tr>
+<tr class="even">
+<td>Who can view my child's work?</td>
+<td>Assigned teacher + parent — child sees every view</td>
+<td>Same + district IAM scoping (KloudStax)</td>
+</tr>
+<tr class="odd">
+<td>Role-based access?</td>
+<td>Twin-level (teacher sees own learners)</td>
+<td>Full IAM (KloudStax)</td>
+</tr>
+<tr class="even">
+<td>Audit logging?</td>
+<td>Basic</td>
+<td>Comprehensive (KloudStax)</td>
+</tr>
+<tr class="odd">
+<td>Cost</td>
+<td>Included</td>
+<td>Separate KloudStax contract</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="kloudstax-contact">KloudStax Contact</h2>
+<p>For formal education-privacy and compliance inquiries:</p>
+<ul>
+<li><strong>Partner</strong>: KloudStax</li>
+<li><strong>Services</strong>: FERPA / COPPA documentation, GDPR, data residency (EU/LATAM), HIPAA, SOC 2, IAM, dedicated environments</li>
+<li><strong>Engagement</strong>: Direct contract with KloudStax (addendum to your EduAsiste contract)</li>
+<li><strong>Introduction</strong>: Contact your EduAsiste sales rep for a warm introduction</li>
+</ul>
+</article>
+<footer class="sheet-foot">
+  <span>AI Value Prospectors · internal sales enablement · EduAsiste variant of product-research #16</span>
+  <span><a href="index.html">Back to materials</a></span>
+</footer>
+</body>
+</html>
