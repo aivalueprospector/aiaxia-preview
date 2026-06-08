@@ -12,10 +12,10 @@
       "@type": "FAQPage",
       "mainEntity": [
         {"@type": "Question", "name": "Does this replace our SIS, LMS, or assessment platform?", "acceptedAnswer": {"@type": "Answer", "text": "No. EduAsiste coexists with your SIS. We don't replace attendance, gradebook, or finance modules. Where the SIS exposes an API or webhook (PowerSchool, Infinite Campus, Clever, ClassLink, Skyward), we ingest evaluation results, attendance, and roster updates so the standards-coverage view stays in sync. Where it doesn't, we ingest exports."}},
-        {"@type": "Question", "name": "How is student and teacher data handled under FERPA and COPPA?", "acceptedAnswer": {"@type": "Answer", "text": "EduAsiste is FERPA-aligned and COPPA-aligned. Student PII stays in a private vault on your dedicated environment; only obfuscated knowledge projections (entity types and relationships, no names) are exposed to graph queries. Data is never used to train models. Full DPA available."}},
+        {"@type": "Question", "name": "How is student and teacher data handled under FERPA and COPPA?", "acceptedAnswer": {"@type": "Answer", "text": "EduAsiste is FERPA-aligned and COPPA-aligned. Student PII stays in a private vault on your dedicated environment; only obfuscated knowledge projections (entity types and relationships, no names) are exposed to graph queries. Data is never used to train models. A formal DPA is in progress."}},
         {"@type": "Question", "name": "Do you train models on our data?", "acceptedAnswer": {"@type": "Answer", "text": "No. Your district's data is never used to train any model — ours or a third party's. Each district runs in an isolated environment with its own vault, knowledge graph, and audit log."}},
         {"@type": "Question", "name": "Can teachers opt out?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Teacher participation is opt-in at every level. Districts can scope rollout school-by-school, grade-by-grade, or teacher-by-teacher. Pulling a teacher out at any time exports and removes their workspace within one billing cycle."}},
-        {"@type": "Question", "name": "What's the lift on our IT team?", "acceptedAnswer": {"@type": "Answer", "text": "A single-school pilot is typically live in a week. SSO via SAML or OIDC, optional SIS roster sync (Clever, ClassLink, or CSV), and a network allowlist. No on-prem install. Your CTO gets a full security questionnaire and SOC 2 Type II report on request."}},
+        {"@type": "Question", "name": "What's the lift on our IT team?", "acceptedAnswer": {"@type": "Answer", "text": "A single-school pilot is typically live in a week. SSO via SAML or OIDC, optional SIS roster sync (Clever, ClassLink, or CSV), and a network allowlist. No on-prem install. Your CTO gets a full security questionnaire on request; our SOC 2 Type II audit is in progress."}},
         {"@type": "Question", "name": "What if we already have ChatGPT for Edu or Gemini for Education?", "acceptedAnswer": {"@type": "Answer", "text": "Those are general-purpose chat. EduAsiste is a curriculum-aware workspace per administrator, teacher, and student — it remembers your curriculum, tracks every student's progress against your standards, and produces auditable reports. It is the layer that makes a general assistant defensible in a district."}},
         {"@type": "Question", "name": "Where is EduAsiste on the ESSA evidence ladder?", "acceptedAnswer": {"@type": "Answer", "text": "Tier 4 (logic model) today, with Tier 3 (correlational) studies in progress with pilot districts. We will not claim higher than the evidence supports. The pilot pathway is designed to produce Tier 3 data within one academic year."}},
         {"@type": "Question", "name": "How do parents fit in?", "acceptedAnswer": {"@type": "Answer", "text": "Parents can be granted optional Family-tier access at the district's discretion. Family access is read-only on their child's progress and never includes other students. Many districts run EduAsiste internally for the first term and add Family access in the second."}},
@@ -396,7 +396,7 @@
             <h3>Built for school IT, not against it</h3>
             <div class="qa">
                 <p class="q">What does my security review need?</p>
-                <p class="a">SOC 2 Type II report, FERPA and COPPA-aligned DPA, data residency options, full audit log, SAML/OIDC SSO, and the answer to "do you train on our data?" is no.</p>
+                <p class="a">SOC 2 Type II audit in progress, FERPA/COPPA-aligned DPA in progress, data residency options, full audit log, SAML/OIDC SSO, and the answer to "do you train on our data?" is no.</p>
             </div>
             <div class="qa">
                 <p class="q">How do I integrate with our SIS?</p>
@@ -457,9 +457,9 @@
             <span>FERPA-aligned</span>
             <span>COPPA-aligned</span>
             <span>SAML / OIDC SSO</span>
-            <span>SDPC Standard DPA</span>
+            <span>SDPC Standard DPA (in progress)</span>
             <span>Data residency: US, EU, LATAM</span>
-            <span>SOC 2 Type II report under NDA</span>
+            <span>SOC 2 Type II (in progress)</span>
         </div>
         <p><strong>Your data is yours.</strong> Each district runs in an isolated environment with a private vault for student PII, a separate knowledge graph, and a full audit log. Obfuscated knowledge projections (entity types and relationships, no names) are what graph queries see — full PII never leaves the vault.</p>
         <p><strong>Your data never trains our models — ours or any third party's.</strong> No fine-tuning on customer data, no shared prompts, no anonymized training corpus.</p>
@@ -468,7 +468,7 @@
             <li>Full audit log of every access, query, and report</li>
             <li>One-click data export at any time, in standard formats (Obsidian markdown, CSV, JSON)</li>
             <li>Account deletion within one billing cycle, no questions</li>
-            <li>Penetration test report and SOC 2 Type II available under NDA</li>
+            <li>Penetration test and SOC 2 Type II audit in progress</li>
         </ul>
     </div>
 </section>
@@ -566,7 +566,7 @@
         </details>
         <details class="faq-item">
             <summary>How is student and teacher data handled under FERPA and COPPA?</summary>
-            <div class="faq-body">EduAsiste is FERPA-aligned and COPPA-aligned. Student PII stays in a private vault on your dedicated environment; only obfuscated knowledge projections (entity types and relationships, no names) are exposed to graph queries. Data is never used to train models. Full DPA available.</div>
+            <div class="faq-body">EduAsiste is FERPA-aligned and COPPA-aligned. Student PII stays in a private vault on your dedicated environment; only obfuscated knowledge projections (entity types and relationships, no names) are exposed to graph queries. Data is never used to train models. A formal DPA is in progress.</div>
         </details>
         <details class="faq-item">
             <summary>Do you train models on our data?</summary>
@@ -578,7 +578,7 @@
         </details>
         <details class="faq-item">
             <summary>What's the lift on our IT team?</summary>
-            <div class="faq-body">A single-school pilot is typically live in a week. SSO via SAML or OIDC, optional SIS roster sync (Clever, ClassLink, or CSV), and a network allowlist. No on-prem install. Your CTO gets a full security questionnaire and SOC 2 Type II report on request.</div>
+            <div class="faq-body">A single-school pilot is typically live in a week. SSO via SAML or OIDC, optional SIS roster sync (Clever, ClassLink, or CSV), and a network allowlist. No on-prem install. Your CTO gets a full security questionnaire on request; our SOC 2 Type II audit is in progress.</div>
         </details>
         <details class="faq-item">
             <summary>What if we already have ChatGPT for Edu or Gemini for Education?</summary>
