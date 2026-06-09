@@ -1,0 +1,1216 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex, nofollow" />
+<meta name="card-title" content="Sales Playbook">
+<meta name="card-desc" content="The full rep playbook in one place: buyer personas, the quick-reference cheat sheet, competitive battle cards, and the security FAQ.">
+<meta name="card-order" content="60">
+<title>EduAsiste Sales Playbook · AI Value Prospectors</title>
+<style>
+  :root {
+    --aivp: #E8B547;
+    --aivp-dark: #92700f;
+    --ink: #1a2230;
+    --ink-soft: #45526a;
+    --muted: #6b7a8a;
+    --line: #e2e6ec;
+    --bg: #ffffff;
+    --tint: #fbf8ef;
+    --accent: #2EA3F2;
+    --accent-dark: #1d6fb0;
+  }
+  @page { size: Letter; margin: 0.6in; }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0;
+    background: #f4f5f7;
+    color: var(--ink);
+    font-family: 'Inter', -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+    line-height: 1.55;
+    font-size: 16px;
+  }
+  .topbar {
+    background: #0F1115;
+    border-bottom: 2px solid var(--accent);
+    padding: 12px 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .topbar .mark {
+    width: 30px; height: 30px; border-radius: 7px;
+    background: var(--aivp); color: #0F1115;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 800; font-size: 14px;
+  }
+  .topbar .name {
+    font-size: 13px; font-weight: 700; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--aivp);
+  }
+  .topbar a.back {
+    margin-left: auto; color: #C2C6CC; text-decoration: none;
+    font-size: 13px; font-weight: 600;
+  }
+  .topbar a.back:hover { color: var(--aivp); }
+  .sheet {
+    max-width: 800px;
+    margin: 28px auto;
+    background: var(--bg);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 44px 52px;
+    box-shadow: 0 6px 26px rgba(15,17,21,0.08);
+  }
+  .eyebrow {
+    font-size: 12px; font-weight: 700; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--accent-dark);
+    margin: 0 0 6px;
+  }
+  h1 {
+    font-size: 30px; font-weight: 800; letter-spacing: -0.02em;
+    color: #0f1d2c; margin: 0 0 18px; line-height: 1.15;
+    border-bottom: 3px solid var(--accent); padding-bottom: 14px;
+  }
+  h1 + p { color: var(--ink-soft); }
+  h2 {
+    font-size: 21px; font-weight: 700; color: #0f1d2c;
+    margin: 34px 0 10px; padding-bottom: 6px;
+    border-bottom: 1px solid var(--line);
+  }
+  h3 {
+    font-size: 16.5px; font-weight: 700; color: var(--ink);
+    margin: 22px 0 6px;
+  }
+  p { margin: 10px 0; }
+  a { color: var(--accent-dark); }
+  hr { border: 0; border-top: 1px solid var(--line); margin: 28px 0; }
+  ul, ol { padding-left: 22px; }
+  li { margin: 4px 0; }
+  code {
+    background: var(--tint); border: 1px solid var(--line);
+    border-radius: 4px; padding: 1px 5px;
+    font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: 0.88em;
+  }
+  pre {
+    background: #0F1115; color: #e8e8e8; border-radius: 8px;
+    padding: 16px 18px; overflow-x: auto; font-size: 13px;
+  }
+  pre code { background: none; border: 0; padding: 0; color: inherit; }
+  blockquote {
+    margin: 14px 0; padding: 12px 18px;
+    background: linear-gradient(135deg, #eef6fd 0%, #d7ecfb 100%);
+    border-left: 4px solid var(--accent);
+    border-radius: 2px; color: #103048; font-style: italic;
+  }
+  blockquote p { margin: 4px 0; }
+  table {
+    border-collapse: collapse; width: 100%; margin: 14px 0; font-size: 14.5px;
+  }
+  th, td {
+    border: 1px solid var(--line); padding: 8px 12px; text-align: left;
+    vertical-align: top;
+  }
+  thead th {
+    background: #0f1d2c; color: #fff; font-weight: 600;
+    border-color: #0f1d2c;
+  }
+  tbody tr:nth-child(even) { background: var(--tint); }
+  footer.sheet-foot {
+    max-width: 800px; margin: 0 auto 40px; padding: 4px 8px;
+    color: var(--muted); font-size: 13px;
+    display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px;
+  }
+  footer.sheet-foot a { color: var(--accent-dark); text-decoration: none; }
+  @media print {
+    body { background: #fff; }
+    .topbar { background: #fff; border-bottom-color: var(--accent); }
+    .topbar .name { color: var(--aivp-dark); }
+    .topbar a.back { display: none; }
+    .sheet { box-shadow: none; border: 0; margin: 0; max-width: none; padding: 0; }
+    footer.sheet-foot { display: none; }
+  }
+  h4 { font-size: 14.5px; font-weight: 700; color: var(--ink-soft); margin: 16px 0 4px; }
+  .toc { background: var(--tint); border: 1px solid var(--line); border-radius: 10px; padding: 16px 20px; margin: 18px 0; }
+  .toc ol { margin: 0; padding-left: 20px; } .toc li { margin: 5px 0; font-weight: 600; }
+  /* a11y + nav helpers */
+  .skip-link{position:absolute;left:8px;top:-48px;z-index:1000;background:#2EA3F2;color:#0F1115;padding:9px 15px;border-radius:8px;font-weight:700;font-size:13px;text-decoration:none;transition:top .15s;}
+  .skip-link:focus{top:8px;}
+  .to-top{position:fixed;bottom:18px;right:18px;z-index:900;background:#2EA3F2;color:#0F1115;font-weight:700;font-size:12.5px;padding:8px 13px;border-radius:999px;text-decoration:none;box-shadow:0 2px 10px rgba(0,0,0,.25);}
+  .to-top:hover{opacity:.9;text-decoration:none;}
+  :focus-visible{outline:2px solid #1d6fb0;outline-offset:2px;}
+  @media print{.skip-link,.to-top{display:none !important;}}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="topbar" id="top">
+  <span class="mark">Ai</span>
+  <span class="name">AI Value Prospectors</span>
+  <a class="back" href="index.html">&larr; EduAsiste materials</a>
+</div>
+<article class="sheet" id="main" tabindex="-1">
+<p class="eyebrow">Sales playbook · EduAsiste (education)</p>
+<h1 id="eduasiste-sales-playbook">EduAsiste Sales Playbook</h1>
+<p>The full rep kit in one place — who you're talking to, what to say, how to win the comparison, and how to answer on a child's privacy. Use the contents to jump to what you need on a call. The voice throughout is warm, parent to parent and educator to educator, never pushy.</p>
+<nav class="toc"><strong>In this playbook</strong>
+<ol>
+  <li><a href="#part-personas">Buyer Personas</a></li>
+  <li><a href="#part-quick-reference">Quick Reference</a></li>
+  <li><a href="#part-competitive">Competitive Positioning</a></li>
+  <li><a href="#part-security">Security FAQ</a></li>
+</ol></nav>
+<hr />
+<h2 id="part-personas">Part 1 — Buyer Personas</h2>
+<p>Understanding who you're talking to helps you tailor your pitch and your demo. EduAsiste sells to families and educators, so the voice is warm, parent to parent and educator to educator, never pushy. Each persona below maps a buyer's world to the words and the demo moments that land for them. These are internal reference notes: read the one that matches your prospect before the call.</p>
+<p>Across every persona, the core mental-model shift is the same. EduAsiste is two twins in one continuous conversation. The learner gets an AI tutor twin that teaches Socratically (asking questions instead of handing over answers), and the adult gets a twin that stays in the loop automatically. The twins talk to each other, so the adult always knows what the child learned today, not just the grade they eventually got. Lead with that, then tailor to the persona.</p>
+<hr />
+
+<h3 id="the-involved-parent">The Involved Parent</h3>
+<h4>Profile</h4>
+<table>
+<thead>
+<tr><th>Field</th><th>Detail</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>Role</strong></td><td>Parent of a K to 8 child (often a working parent juggling a full schedule)</td></tr>
+<tr><td><strong>Context</strong></td><td>Child is in a traditional school; the family already has a school portal and maybe a content app</td></tr>
+<tr><td><strong>Age</strong></td><td>32 to 45</td></tr>
+</tbody>
+</table>
+<h4>Their World</h4>
+<ul>
+<li>Wants to be close to their child's learning but feels one conversation behind</li>
+<li>Finds out about a hard week when the report card lands, and even then it's a score, not an explanation</li>
+<li>Asks "what did you learn today?" at dinner and gets "I don't know"</li>
+<li>Trusts the school but feels like a spectator, not a partner</li>
+<li>Comfortable with technology and a little wary of how much screen time and AI their child already reaches for</li>
+</ul>
+<h4>Pain Points</h4>
+<ol>
+<li>"By the time a 68% on the fractions quiz shows up, the moment to help has already passed."</li>
+<li>"The portal tells me the grade. It never tells me what my kid actually understood."</li>
+<li>"My daughter already uses ChatGPT for homework, and I have no idea what she typed in or what it told her."</li>
+<li>"I want to help, but I don't want to nag, and honestly I'm not sure I remember long division myself."</li>
+</ol>
+<h4>What They Want to Hear</h4>
+<table>
+<thead>
+<tr><th>Theme</th><th>Line</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>Real-time understanding, not delayed grades</strong></td><td>"Know what your child learned today, while you can still do something about it."</td></tr>
+<tr><td><strong>A safe version of the AI they already reach for</strong></td><td>"Same comfort with AI, but it teaches instead of tells, and you can see what's going on."</td></tr>
+<tr><td><strong>Help without nagging</strong></td><td>"Guide your child without being the homework police."</td></tr>
+<tr><td><strong>Privacy for a minor as a feature, not a footnote</strong></td><td>"Your child's twin is private to them; their data never trains anyone's model."</td></tr>
+</tbody>
+</table>
+<h4>Demo Focus</h4>
+<ol>
+<li><strong>Pillar 1, see what your child learned today</strong>: ask the parent twin "How's Emma doing in reading this week?" and show the live answer pulled from her learning twin.</li>
+<li><strong>Pillar 3, Socratic study sessions, auto-summarized</strong>: show a session where the child's twin guides by asking, then the summary of what clicked and what didn't lands in the parent's chat.</li>
+<li><strong>Pillar 5, full transparency</strong>: show that every time the parent looks at the child's data, the child can see it happened.</li>
+<li>Contrast briefly with the school portal: "The portal answers what grade. This answers what they actually learned, and what you can do about it tonight."</li>
+</ol>
+<h4>Closing Language</h4>
+<blockquote>
+<p>"You don't have to wait for the report card to find out your child had a hard week. EduAsiste gives your child their own AI tutor, and gives you a parent twin that stays in the loop automatically, like having a teacher who reports to you after every lesson. You'll know what your child learned today, and you can act on it tonight."</p>
+</blockquote>
+<hr />
+
+<h3 id="the-homeschool-parent">The Homeschool Parent</h3>
+<h4>Profile</h4>
+<table>
+<thead>
+<tr><th>Field</th><th>Detail</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>Role</strong></td><td>Parent who teaches one or more of their own children at home</td></tr>
+<tr><td><strong>Context</strong></td><td>Owns the whole curriculum; needs structure, materials, and a way to teach subjects outside their own strengths</td></tr>
+<tr><td><strong>Age</strong></td><td>30 to 50</td></tr>
+</tbody>
+</table>
+<h4>Their World</h4>
+<ul>
+<li>Is the teacher, the planner, and the parent all at once</li>
+<li>Spends evenings building worksheets and answer keys by hand</li>
+<li>Wants real Socratic teaching for their child, not just drills and screen time</li>
+<li>Confident in some subjects, stretched thin in others</li>
+<li>Values independence and owning their family's data and choices</li>
+</ul>
+<h4>Pain Points</h4>
+<ol>
+<li>"I'm building every worksheet and every answer key from scratch, and it never ends."</li>
+<li>"I want my child to actually think through a problem, not just have an app hand them the answer."</li>
+<li>"I can teach reading in my sleep, but I dread teaching math, and my kid can tell."</li>
+<li>"I need structure I can trust, not another content library that has no idea who my child is."</li>
+</ol>
+<h4>What They Want to Hear</h4>
+<table>
+<thead>
+<tr><th>Theme</th><th>Line</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>Structure and materials on demand</strong></td><td>"Assign a worksheet in one sentence and get a private answer key for yourself."</td></tr>
+<tr><td><strong>Real Socratic tutoring</strong></td><td>"Your child's twin walks them toward the answer by asking questions. It never just does the thinking for them."</td></tr>
+<tr><td><strong>A tutor for the subjects you'd rather not teach</strong></td><td>"Hand off the topic you dread; your child still gets guided, patient teaching."</td></tr>
+<tr><td><strong>You own it</strong></td><td>"Your child's data is yours, portable, exportable, deletable anytime."</td></tr>
+</tbody>
+</table>
+<h4>Demo Focus</h4>
+<ol>
+<li><strong>Pillar 2, assign homework in 30 seconds</strong>: type "practice times tables, 10 questions, due Friday" and show the worksheet for the child plus the private answer key for the parent.</li>
+<li><strong>Pillar 3, Socratic study sessions</strong>: show a guided session in a subject the parent finds hard to teach, then the auto-summary.</li>
+<li><strong>Pillar 4, goals that move</strong>: set "finish the multiplication unit this month" and show the bar filling as the child's twin records progress.</li>
+<li>Touch on import: point the child's twin at a unit you already use and let it teach through it Socratically.</li>
+</ol>
+<h4>Closing Language</h4>
+<blockquote>
+<p>"You're already the teacher, the planner, and the parent. EduAsiste takes the worksheet-building and the subjects you dread off your plate, and gives your child a tutor that teaches by asking instead of telling. You stay in charge of the whole education. You just stop doing it all by hand."</p>
+</blockquote>
+<hr />
+
+<h3 id="the-private-tutor">The Private Tutor / Tutoring-Business Owner</h3>
+<h4>Profile</h4>
+<table>
+<thead>
+<tr><th>Field</th><th>Detail</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>Role</strong></td><td>Independent tutor or owner of a small tutoring business</td></tr>
+<tr><td><strong>Context</strong></td><td>Juggles many students across subjects and grade levels; meets each one weekly and is responsible for showing parents their money is working</td></tr>
+<tr><td><strong>Age</strong></td><td>28 to 55</td></tr>
+</tbody>
+</table>
+<h4>Their World</h4>
+<ul>
+<li>Carries a full roster, often re-reading notes before every session to remember where each student left off</li>
+<li>Sees each student for an hour, then loses visibility for the six days between sessions</li>
+<li>Needs to demonstrate value to paying parents to keep and grow the business</li>
+<li>Builds practice materials by hand and tracks progress in scattered notes or spreadsheets</li>
+<li>Wants to take on more students without lowering quality</li>
+</ul>
+<h4>Pain Points</h4>
+<ol>
+<li>"I spend the first fifteen minutes of every session just figuring out what happened during the week."</li>
+<li>"Between sessions, the practice either happens or it doesn't, and nobody really knows which."</li>
+<li>"Parents want to know their money is working, and 'trust me, she's improving' isn't enough."</li>
+<li>"I'm juggling a dozen students and building every worksheet myself. I can't take on more without something breaking."</li>
+</ol>
+<h4>What They Want to Hear</h4>
+<table>
+<thead>
+<tr><th>Theme</th><th>Line</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>Assign and track across your whole roster</strong></td><td>"Every student gets a learning twin you can assign to and check on, without re-reading your notes."</td></tr>
+<tr><td><strong>Coverage between sessions</strong></td><td>"The six days you don't see your students finally count."</td></tr>
+<tr><td><strong>Walk in warm</strong></td><td>"Start each session already knowing what stuck and what didn't."</td></tr>
+<tr><td><strong>Show parents the value</strong></td><td>"Give parents their own twin so they see progress for themselves, your best retention tool."</td></tr>
+</tbody>
+</table>
+<h4>Demo Focus</h4>
+<ol>
+<li><strong>Pillar 2, assign homework in 30 seconds</strong>: assign a worksheet to a student and show the private answer key for the tutor.</li>
+<li><strong>Pillar 1, live progress</strong>: ask "where is this student stuck this week?" before a session and get an answer pulled from their twin.</li>
+<li><strong>Pillar 4, goals that move</strong>: show a structured program's goals filling in automatically as students practice.</li>
+<li><strong>Pillar 5, transparency</strong> plus the parent twin: show how a parent can see real progress, framed as a retention and referral lever for the business.</li>
+</ol>
+<h4>Closing Language</h4>
+<blockquote>
+<p>"Your hour with each student stays exactly as it is. EduAsiste just makes sure the other six days of the week count too. You walk into every session already knowing what stuck, you assign practice in one sentence instead of building it by hand, and parents see their child's progress for themselves. That's how you take on more students without lowering quality."</p>
+</blockquote>
+<hr />
+
+<h3 id="the-small-school-administrator">The Small-School / Co-op Administrator</h3>
+<h4>Profile</h4>
+<table>
+<thead>
+<tr><th>Field</th><th>Detail</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>Role</strong></td><td>Administrator or director of a small private school, microschool, or homeschool co-op</td></tr>
+<tr><td><strong>Context</strong></td><td>Oversees a cohort of learners across several teachers; answers to parents and is responsible for data privacy</td></tr>
+<tr><td><strong>Age</strong></td><td>35 to 60</td></tr>
+</tbody>
+</table>
+<h4>Their World</h4>
+<ul>
+<li>Needs visibility across a whole cohort, not just one child at a time</li>
+<li>Watches context evaporate every time a student changes teachers or moves up a grade</li>
+<li>Is accountable to parents who want to know their children are progressing and their data is safe</li>
+<li>Runs lean, with teachers who already feel stretched and no appetite for "one more tool to maintain"</li>
+<li>Has to be able to answer hard privacy questions before adopting anything</li>
+</ul>
+<h4>Pain Points</h4>
+<ol>
+<li>"Every time a student changes teachers, everything that teacher knew about them disappears at the handoff."</li>
+<li>"I can't see how the whole cohort is doing without chasing every teacher for an update."</li>
+<li>"Parents ask me how their child is really doing, and I'm relaying scores, not understanding."</li>
+<li>"Before I adopt anything that touches kids' data, I need to know exactly where that data lives and who can see it."</li>
+</ol>
+<h4>What They Want to Hear</h4>
+<table>
+<thead>
+<tr><th>Theme</th><th>Line</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>Cohort visibility</strong></td><td>"See how the whole group is doing, not just one student at a time."</td></tr>
+<tr><td><strong>Context survives the handoff</strong></td><td>"Every Socratic session is summarized into the learner's twin, so progress carries forward when teachers or grades change."</td></tr>
+<tr><td><strong>Sits alongside what you have</strong></td><td>"It coexists with your school systems via API where they expose one. It isn't one more silo to maintain."</td></tr>
+<tr><td><strong>Privacy you can defend</strong></td><td>"Designed around children's-data protections (GDPR-aligned controls, and FERPA/COPPA where applicable for US families and schools) with data residency, audit logging, and export-on-request documentation available under NDA." (For Chilean and LATAM schools, lead with Ley 21.719 / LPDP rather than the US frameworks.)</td></tr>
+</tbody>
+</table>
+<h4>Demo Focus</h4>
+<ol>
+<li><strong>Pillar 1, cohort view</strong>: show how an administrator can check progress across multiple learners. (Flag classroom/cohort view as the area still maturing. See Coming Soon.)</li>
+<li><strong>Knowledge handoff</strong>: show how a learner's auto-summarized history carries forward when a teacher changes, so the next teacher starts warm instead of from zero.</li>
+<li><strong>Pillar 5, transparency</strong>: show that every adult view of a child's data is visible to the child, the trust story parents will ask about.</li>
+<li><strong>Privacy walkthrough</strong>: residency, audit logging, encryption, no model training on customer data, and export/delete on request; offer the data-protection documentation under NDA.</li>
+</ol>
+<h4>Closing Language</h4>
+<blockquote>
+<p>"Your teachers stay, your systems stay, and your parents get the transparency they're asking for. EduAsiste gives you a single window into how the whole cohort is growing, keeps each child's context from disappearing at the next handoff, and gives you a privacy story you can defend to every parent who asks. It fills the gaps your tools leave. It doesn't replace what's already working."</p>
+</blockquote>
+<hr />
+
+<h3 id="the-achievement-focused-parent">The Achievement-Focused Parent</h3>
+<h4>Profile</h4>
+<table>
+<thead>
+<tr><th>Field</th><th>Detail</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>Role</strong></td><td>Goal-oriented parent running a structured plan for an ambitious child</td></tr>
+<tr><td><strong>Context</strong></td><td>Child may be prepping for a milestone, a competitive program, or simply held to high standards at home</td></tr>
+<tr><td><strong>Age</strong></td><td>35 to 50</td></tr>
+</tbody>
+</table>
+<h4>Their World</h4>
+<ul>
+<li>Thinks in goals and measurable progress, not vibes</li>
+<li>Wants proof that effort is translating into real gains</li>
+<li>Is willing to invest time and money when it's clearly working</li>
+<li>Frustrated by tools that show a progress bar but never explain whether anything is actually sticking</li>
+<li>Wants to push their child without turning every evening into a fight</li>
+</ul>
+<h4>Pain Points</h4>
+<ol>
+<li>"I set goals, but tracking them turns into a spreadsheet I have to update myself."</li>
+<li>"The app shows a streak, but I have no idea if any of it is actually sticking."</li>
+<li>"I want measurable progress toward a real target, not just 'she did her practice today.'"</li>
+<li>"I push hard, and I don't want the pushing to cost me the relationship."</li>
+</ol>
+<h4>What They Want to Hear</h4>
+<table>
+<thead>
+<tr><th>Theme</th><th>Line</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>Goals that actually move</strong></td><td>"Set a target like 'read 20 books this semester' and watch the bar fill automatically every time your child's twin records progress."</td></tr>
+<tr><td><strong>Measurable, explained progress</strong></td><td>"Not just a streak. You see what your child mastered and what's still shaky."</td></tr>
+<tr><td><strong>Effort that compounds</strong></td><td>"The longer the learning twin runs, the more it knows your child, and the more targeted every session gets."</td></tr>
+<tr><td><strong>Push without the fight</strong></td><td>"Let the twin do the structured coaching so your time with your child can stay warm."</td></tr>
+</tbody>
+</table>
+<h4>Demo Focus</h4>
+<ol>
+<li><strong>Pillar 4, goals that move</strong>: set a concrete goal and show it auto-filling as the child's twin records progress, no manual check-ins.</li>
+<li><strong>Pillar 1, live, explained progress</strong>: ask the parent twin where the child stands and show an answer that names what's mastered and what's still shaky.</li>
+<li><strong>Pillar 3, Socratic sessions</strong>: show structured, guided practice toward the goal, auto-summarized to the parent.</li>
+<li>Reinforce compounding: the more sessions stack up, the sharper and more personalized the twin's coaching becomes.</li>
+</ol>
+<h4>Closing Language</h4>
+<blockquote>
+<p>"You set the target; EduAsiste makes the progress toward it visible and real. Not a streak, but what your child has actually mastered and what's still shaky. The goals fill in on their own, every session is summarized for you, and the twin does the structured pushing so your time with your child stays warm. The families who start a term ahead are never the ones playing catch-up at report-card time."</p>
+</blockquote>
+<hr />
+<h2 id="part-quick-reference">Part 2 — Quick Reference</h2>
+<p>Print this part for quick reference during demos and calls.</p>
+<hr />
+<h3 id="30-second-elevator-pitch">30-Second Elevator Pitch</h3>
+<blockquote>
+<p>"EduAsiste gives every learner Eduardo, a patient AI study buddy that guides with questions instead of just handing over answers. Parents, tutors, and teachers get a dashboard that stays in sync, so you always know how your child is growing, and you can guide them without nagging. Ask Eduardo a question, get a real answer pulled straight from their work. Assign practice in one sentence. It's like having a teacher who reports to you after every lesson, plus a tutor who never loses patience."</p>
+</blockquote>
+<hr />
+<h3 id="the-tabs-right-panel">The Tabs (Right Panel)</h3>
+<p>Three tabs, framed for learning. You talk to Eduardo in the chat panel on the left, where most of the work happens; the sidebar on the right holds these tabs.</p>
+<table>
+<thead>
+<tr class="header">
+<th>Tab</th>
+<th>One-Liner</th>
+<th>Key Demo Action</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Notes</strong></td>
+<td>"See what your child has learned and where they're stuck"</td>
+<td>Open Notes to show the concepts captured from recent study sessions</td>
+</tr>
+<tr class="even">
+<td><strong>Uploads</strong></td>
+<td>"Drop a worksheet or reading, it becomes practice"</td>
+<td>Drag-drop a PDF reading and watch it turn into study material</td>
+</tr>
+<tr class="odd">
+<td><strong>Assignments</strong></td>
+<td>"Assign in one sentence"</td>
+<td>Show an assignment: one line in, practice + answer key out</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="pain-points--solutions">Pain Points → Solutions</h3>
+<table>
+<thead>
+<tr class="header">
+<th>They Say</th>
+<th>You Say</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>"I never know what my child actually learned today"</td>
+<td>"Just ask Eduardo. Live answer, pulled straight from their work. No waiting for report cards."</td>
+</tr>
+<tr class="even">
+<td>"Building practice and worksheets takes all evening"</td>
+<td>"Type one sentence. You get the worksheet for them and a private answer key for you."</td>
+</tr>
+<tr class="odd">
+<td>"My kid just wants the answer, not to learn it"</td>
+<td>"Eduardo guides Socratically. It asks questions instead of handing over answers, so real understanding sticks."</td>
+</tr>
+<tr class="even">
+<td>"I want quality learning time but I'm not the tutor"</td>
+<td>"Eduardo runs the session and summarizes what clicked and what didn't, right in your dashboard."</td>
+</tr>
+<tr class="odd">
+<td>"Goals get set and then forgotten"</td>
+<td>"Set a goal like 'read 20 books this semester' and the bar fills in automatically as they progress."</td>
+</tr>
+<tr class="even">
+<td>"I worry about privacy and surveillance"</td>
+<td>"Full visibility for you, privacy for your child. You're the account owner and you read everything; their work never trains public AI models."</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="quick-roi-math">Quick ROI Math</h3>
+<p>Don't quote canned numbers — build the value live with the family's or school's own situation. Three levers:</p>
+<ul>
+<li><strong>Time saved building practice</strong> — the evenings of worksheet-and-answer-key building handed back, multiplied across the school year.</li>
+<li><strong>Tutoring coverage</strong> — Eduardo guides between sessions, every day, extending the reach of an expensive weekly tutor instead of replacing them.</li>
+<li><strong>Learning retention</strong> — Socratic guidance builds understanding that survives the test, and the concept map captures it continuously so nothing has to be re-taught from scratch.</li>
+</ul>
+<p>Ask about their routine — nights spent building practice, what tutoring costs them, where their child keeps slipping — and do the math together on the call.</p>
+<hr />
+<h3 id="objection-killers">Objection Killers</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Objection</th>
+<th>One-Line Response</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>"We already use a homework app / learning site"</td>
+<td>"Those deliver content. EduAsiste understands YOUR child and reports back to you."</td>
+</tr>
+<tr class="even">
+<td>"Is my child's data safe?"</td>
+<td>"Dedicated environment. Their data never trains public models, and you control who sees what."</td>
+</tr>
+<tr class="odd">
+<td>"Won't they just let the AI do the work?"</td>
+<td>"It asks questions instead of giving answers. It's built to make them think, not copy."</td>
+</tr>
+<tr class="even">
+<td>"How is this different from ChatGPT?"</td>
+<td>"ChatGPT knows the internet. EduAsiste knows YOUR learner, and keeps you in the loop."</td>
+</tr>
+<tr class="odd">
+<td>"No time to set it up"</td>
+<td>"30 minutes. Then it learns from normal study sessions on its own."</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="demo-flow-15-minutes">Demo Flow (15 minutes)</h3>
+<ol type="1">
+<li><strong>Chat</strong> (3 min): Ask "How's Emma doing in reading this week?" and show the live answer</li>
+<li><strong>Notes</strong> (3 min): Show what the learner has learned and where they're stuck</li>
+<li><strong>Assignments</strong> (3 min): Assign practice in one sentence, then reveal the private answer key</li>
+<li><strong>Uploads</strong> (3 min): Drop a reading and watch it become study material</li>
+<li><strong>Close</strong> (3 min): Recap the value and the fit for the family or school</li>
+</ol>
+<hr />
+<h3 id="key-urls">Key URLs</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Resource</th>
+<th>URL</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Demo Environment</td>
+<td>eduasiste.org/chat/</td>
+</tr>
+<tr class="even">
+<td>Documentation</td>
+<td>docs.eduasiste.org</td>
+</tr>
+<tr class="odd">
+<td>Support</td>
+<td><a href="mailto:support@eduasiste.org">support@eduasiste.org</a></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="emergency-backup-lines">Emergency Backup Lines</h3>
+<p>If the demo breaks:</p>
+<blockquote>
+<p>"This is a live system with real learning data, so occasionally it needs a moment. While that loads, let me walk you through what you'd see..."</p>
+</blockquote>
+<p>If asked something you don't know:</p>
+<blockquote>
+<p>"I want to give you an accurate answer for your family, so let me get back to you on that specific point. What I can tell you is..."</p>
+</blockquote>
+<p>If the prospect seems disengaged:</p>
+<blockquote>
+<p>"When's the last time you knew, in real time, exactly what your child was learning and where they were struggling? Let me show you that."</p>
+</blockquote>
+<hr />
+<h2 id="part-competitive">Part 3 — Competitive Positioning</h2>
+<p>How to position EduAsiste against the alternatives education prospects mention: parents, tutors, homeschoolers, and small schools.</p>
+<p>Most ed-tech falls into two buckets: <strong>grade trackers</strong> (portals that show you a score weeks after the fact) or <strong>content libraries</strong> (one-size-fits-all drills with no memory of your individual child). EduAsiste is neither.</p>
+<p>EduAsiste is <strong>Eduardo, one AI study buddy, plus a parent dashboard</strong> in one continuous loop: your child learns with Eduardo, who teaches Socratically (asking questions, not handing over answers), and <em>you</em> stay in the loop automatically. Eduardo reports back after every session, so you always know what your child learned today, not just what grade they eventually got.</p>
+<p>When you position, lead with that mental-model shift. You're not selling a better worksheet app or a cheaper drill subscription. You're selling the thing none of the alternatives have: a persistent personal tutor for the learner <strong>and</strong> a transparent window for the parent, built on per-learner memory and privacy designed for a minor.</p>
+<p>A note on tone: never disparage. Most prospects already use one or more of these tools and like them. Where it's honest, say "complementary." EduAsiste imports and assigns content, extends a human tutor's reach, and sits alongside the school portal. It rarely <em>replaces</em> anything the family already trusts.</p>
+<hr />
+<h3 id="vs-generic-ai-chatgpt--claudeai-as-a-homework-helper">vs. Generic AI (ChatGPT / Claude.ai) as a Homework Helper</h3>
+<h4 id="what-it-is">What It Is</h4>
+<p>Public, general-purpose AI assistants trained on internet data. Free or low-cost tiers. Increasingly, kids open one and paste in their homework.</p>
+<h4 id="their-argument">Their Argument</h4>
+<p>"My kid just uses ChatGPT for free. Why would I pay for EduAsiste?"</p>
+<h4 id="your-response">Your Response</h4>
+<blockquote>
+<p>"Here's the difference, and it matters more for a kid than for an adult. ChatGPT gives <em>answers</em>. Ask it a math problem and it solves the problem, which means it just did your child's thinking for them. EduAsiste teaches the way a good tutor does: it asks your child questions, walks them toward the answer, and stops when something clicks. It also <em>remembers</em>. It knows your child struggled with fractions last week, so it connects today's lesson to that. And here's the part a free chatbot can't do: it keeps you in the loop. Every study session comes back to you as a summary of what your child got and what they didn't. With a public AI, you have no idea what your kid typed in, what it told them, or whether your child's data is being used to train someone's model. With EduAsiste, your child's Eduardo is private to them, you can see what's happening, and the data stays between the two of you."</p>
+</blockquote>
+<h4 id="key-differentiators">Key Differentiators</h4>
+<table>
+<thead>
+<tr class="header">
+<th>Feature</th>
+<th>Generic AI (ChatGPT / Claude.ai)</th>
+<th>EduAsiste</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Teaches Socratically (asks, doesn't answer)</td>
+<td>No (gives the answer)</td>
+<td>Yes, guides with questions</td>
+</tr>
+<tr class="even">
+<td>Does the child's thinking</td>
+<td>Often</td>
+<td>Never (the child does the work)</td>
+</tr>
+<tr class="odd">
+<td>Remembers the individual learner</td>
+<td>No (stateless)</td>
+<td>Yes, persistent per-learner memory</td>
+</tr>
+<tr class="even">
+<td>Parent visibility</td>
+<td>None</td>
+<td>Parent dashboard + auto-summaries</td>
+</tr>
+<tr class="odd">
+<td>Data privacy for a minor</td>
+<td>Shared / may train models</td>
+<td>Isolated, private, no training on your data</td>
+</tr>
+<tr class="odd">
+<td>You own your data</td>
+<td>No</td>
+<td>Yes, portable, yours to take</td>
+</tr>
+</tbody>
+</table>
+<h4 id="when-to-acknowledge-generic-ai">When to Acknowledge Generic AI</h4>
+<ul>
+<li>A curious kid reaching for AI is a <em>good</em> sign. Name it: "It's great that they're comfortable with these tools."</li>
+<li>Frame EduAsiste as the safe, supervised version of the instinct they already have: "Same comfort with AI, but it teaches instead of tells, and you can see what's going on."</li>
+<li>For privacy-skeptical parents, lead with the minor-data point. It's the cleanest, least debatable differentiator.</li>
+</ul>
+<hr />
+<h3 id="vs-grade-tracker--parent-portal-apps">vs. Grade-Tracker / Parent-Portal Apps</h3>
+<h4 id="what-they-are">What They Are</h4>
+<p>School-issued parent portals and communication apps: LMS parent logins, ClassDojo, PowerSchool-style gradebooks. They surface attendance, posted grades, and teacher announcements.</p>
+<h4 id="their-argument-1">Their Argument</h4>
+<p>"The school already gives me a portal. I can see my kid's grades there."</p>
+<h4 id="your-response-1">Your Response</h4>
+<blockquote>
+<p>"Those portals are useful, and you should keep using yours. EduAsiste doesn't replace it. But think about what it actually shows you: a <em>score</em>, posted days or weeks after the work was done, on an assignment that's already over. By the time a 68% on the fractions quiz shows up, the moment to help has passed. EduAsiste shows you something the portal can't: what your child actually <em>learned today</em>, including where they got stuck, while you can still do something about it. You ask Eduardo 'how's Emma doing in reading this week?' and get a live answer pulled straight from her work. Then you can act on it: assign ten minutes of practice on exactly the thing she's missing, tonight, before it becomes next week's bad score."</p>
+</blockquote>
+<h4 id="key-differentiators-1">Key Differentiators</h4>
+<table>
+<thead>
+<tr class="header">
+<th>Feature</th>
+<th>Grade-Tracker / Parent Portal</th>
+<th>EduAsiste</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Shows posted grades</td>
+<td>Yes</td>
+<td>Not the point (shows understanding)</td>
+</tr>
+<tr class="even">
+<td>Timing</td>
+<td>Days to weeks late</td>
+<td>Real-time, today</td>
+</tr>
+<tr class="odd">
+<td>Surfaces <em>what was learned</em></td>
+<td>No, only scores</td>
+<td>Yes</td>
+</tr>
+<tr class="even">
+<td>Pinpoints where the child is stuck</td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+<tr class="odd">
+<td>Lets you act on it immediately</td>
+<td>No</td>
+<td>Yes, assign practice in 30 seconds</td>
+</tr>
+<tr class="even">
+<td>Two-way (you can guide, not just watch)</td>
+<td>One-way</td>
+<td>Eduardo + parent dashboard, continuous</td>
+</tr>
+</tbody>
+</table>
+<h4 id="when-to-acknowledge-portals">When to Acknowledge Portals</h4>
+<ul>
+<li>Always position as complementary. The school portal is mandatory infrastructure; don't ask anyone to abandon it.</li>
+<li>"The portal answers <em>what grade</em>. EduAsiste answers <em>what did they actually learn, and what do I do about it tonight</em>."</li>
+<li>Lean into the lag: every parent has felt the helplessness of a bad grade arriving too late to help. That pain sells the difference.</li>
+</ul>
+<hr />
+<h3 id="vs-content-libraries--adaptive-practice-apps">vs. Content Libraries / Adaptive-Practice Apps</h3>
+<h4 id="what-they-are-1">What They Are</h4>
+<p>Self-serve learning libraries and adaptive-drill apps: Khan Academy, IXL, Duolingo-style platforms. Big content catalogs, auto-leveling exercises, streaks and badges.</p>
+<h4 id="their-argument-2">Their Argument</h4>
+<p>"We already use Khan Academy. My kid practices on there."</p>
+<h4 id="your-response-2">Your Response</h4>
+<blockquote>
+<p>"Khan Academy is genuinely good, and you should keep it. EduAsiste works <em>with</em> it. Here's the gap, though. A content library is a shelf of one-size-fits-all material. It serves the same drills to every kid, it has no memory of <em>your</em> child as a person, and it gives you, the parent, almost no visibility. You might see a progress bar, but not what clicked or why your child quit halfway through. EduAsiste works differently: Eduardo is a persistent personal tutor that remembers your individual learner across every session, and keeps you, the parent, informed. And you can import or assign content directly into it. Point it at the Khan unit you want, and Eduardo works through it Socratically, asks questions, and reports back to you what they understood. The library is the <em>content</em>. EduAsiste is the <em>tutor and the parent in the room</em>."</p>
+</blockquote>
+<h4 id="key-differentiators-2">Key Differentiators</h4>
+<table>
+<thead>
+<tr class="header">
+<th>Feature</th>
+<th>Content Library / Adaptive Practice</th>
+<th>EduAsiste</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Large content catalog</td>
+<td>Yes</td>
+<td>Imports / assigns content in</td>
+</tr>
+<tr class="even">
+<td>Memory of the individual learner</td>
+<td>No (generic leveling)</td>
+<td>Yes, persistent per-learner memory</td>
+</tr>
+<tr class="odd">
+<td>Socratic guidance</td>
+<td>No (drills only)</td>
+<td>Yes, asks rather than just delivers</td>
+</tr>
+<tr class="even">
+<td>Parent visibility</td>
+<td>Minimal (a progress bar)</td>
+<td>Yes, auto-summaries to the parent</td>
+</tr>
+<tr class="odd">
+<td>Relationship across sessions</td>
+<td>Stateless content</td>
+<td>Continuous, remembers history</td>
+</tr>
+<tr class="even">
+<td>Posture</td>
+<td>Standalone library</td>
+<td>Complementary (use both)</td>
+</tr>
+</tbody>
+</table>
+<h4 id="when-to-acknowledge-content-libraries">When to Acknowledge Content Libraries</h4>
+<ul>
+<li>Never frame it as Khan-vs-EduAsiste. The honest story is <em>Khan inside EduAsiste</em>.</li>
+<li>"Keep the library you love. EduAsiste is the tutor who assigns from it, sits with your child through it, and tells you how it went."</li>
+<li>Good fit signal: a parent who likes their content app but says "I just don't know if any of it is sticking." That's exactly the gap EduAsiste fills.</li>
+</ul>
+<hr />
+<h3 id="vs-human-tutoring">vs. Human Tutoring</h3>
+<h4 id="what-it-is-1">What It Is</h4>
+<p>A private tutor, in-person or online, meeting the child for scheduled sessions, usually weekly.</p>
+<h4 id="their-argument-3">Their Argument</h4>
+<p>"We already have a tutor."</p>
+<h4 id="your-response-3">Your Response</h4>
+<blockquote>
+<p>"That's great. A good human tutor is one of the best things you can give a kid, and EduAsiste isn't here to replace yours. Think about what happens <em>between</em> sessions, though. Your tutor sees your child for an hour on Tuesday, and then there's a six-day gap where the practice either happens or it doesn't, and nobody really knows which. EduAsiste fills that gap. The tutor gets their own dashboard to assign practice and track what your child does during the week, so they walk into the next session already knowing what stuck and what didn't, instead of spending the first fifteen minutes finding out. And you, the parent, stay informed the whole time. It makes the hour you're already paying for go further."</p>
+</blockquote>
+<h4 id="key-differentiators-3">Key Differentiators</h4>
+<table>
+<thead>
+<tr class="header">
+<th>Feature</th>
+<th>Human Tutoring Alone</th>
+<th>Human Tutoring + EduAsiste</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Expert human relationship</td>
+<td>Yes</td>
+<td>Yes, unchanged</td>
+</tr>
+<tr class="even">
+<td>Coverage between sessions</td>
+<td>None</td>
+<td>Continuous practice + Socratic support</td>
+</tr>
+<tr class="odd">
+<td>Tutor visibility into the week</td>
+<td>Self-reported, patchy</td>
+<td>Tutor dashboard assigns and tracks</td>
+</tr>
+<tr class="even">
+<td>Parent stays informed</td>
+<td>Depends on tutor</td>
+<td>Yes, parent dashboard, automatically</td>
+</tr>
+<tr class="odd">
+<td>Next session starts warm</td>
+<td>Re-discovers progress</td>
+<td>Tutor already knows what stuck</td>
+</tr>
+<tr class="even">
+<td>Posture</td>
+<td>Tutoring on its own</td>
+<td>Complementary (amplifies the tutor)</td>
+</tr>
+</tbody>
+</table>
+<h4 id="when-to-acknowledge-human-tutoring">When to Acknowledge Human Tutoring</h4>
+<ul>
+<li>This is the most clearly complementary case in the lineup. Never position as a substitute for a human a family already trusts.</li>
+<li>Sell it <em>to</em> the tutor as much as to the parent: a tutor dashboard makes the tutor look more prepared and more effective, which protects the relationship the parent values.</li>
+<li>"Your tutor stays. EduAsiste just makes sure the other six days of the week count too."</li>
+</ul>
+<hr />
+<h3 id="competitive-landmines-to-avoid">Competitive Landmines to Avoid</h3>
+<h4 id="dont-trash-the-competition">Don't Trash the Competition</h4>
+<ul>
+<li>❌ "Khan Academy is just mindless drills."</li>
+<li>✓ "Khan is great content. EduAsiste is the tutor that assigns it and tells you how it went."</li>
+</ul>
+<h4 id="dont-position-as-a-replacement-where-it-isnt">Don't Position as a Replacement Where It Isn't</h4>
+<ul>
+<li>❌ "You can cancel your tutor / drop the school portal."</li>
+<li>✓ "Keep what's working. EduAsiste fills the gaps those tools leave."</li>
+</ul>
+<h4 id="dont-dismiss-privacy-concerns">Don't Dismiss Privacy Concerns</h4>
+<ul>
+<li>❌ "Kids' data privacy isn't really a big deal."</li>
+<li>✓ "Privacy for a minor is a feature, not a footnote. Here's exactly how your child's Eduardo stays private to them."</li>
+</ul>
+<h4 id="dont-sell-features-over-outcomes">Don't Sell Features Over Outcomes</h4>
+<ul>
+<li>❌ "We have per-learner memory and a knowledge graph."</li>
+<li>✓ "You'll know what your child learned today, and you can act on it tonight."</li>
+</ul>
+<hr />
+<h3 id="quick-comparison-table-for-all-alternatives">Quick Comparison Table for All Alternatives</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Capability</th>
+<th>Generic AI</th>
+<th>Parent Portal</th>
+<th>Content Library</th>
+<th>Human Tutor</th>
+<th>EduAsiste</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Teaches Socratically (asks, doesn't answer)</td>
+<td>❌</td>
+<td>N/A</td>
+<td>❌</td>
+<td>✓</td>
+<td>✓</td>
+</tr>
+<tr class="even">
+<td>Per-learner persistent memory</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>✓ (human)</td>
+<td>✓</td>
+</tr>
+<tr class="odd">
+<td>Parent dashboard + visibility</td>
+<td>❌</td>
+<td>Partial (scores)</td>
+<td>❌</td>
+<td>Partial</td>
+<td>✓</td>
+</tr>
+<tr class="even">
+<td>Real-time "what did they learn today"</td>
+<td>❌</td>
+<td>❌ (weeks late)</td>
+<td>❌</td>
+<td>❌ (weekly)</td>
+<td>✓</td>
+</tr>
+<tr class="odd">
+<td>Private answer keys for the parent</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>N/A</td>
+<td>✓</td>
+</tr>
+<tr class="even">
+<td>Data privacy / isolation for a minor</td>
+<td>❌</td>
+<td>Varies</td>
+<td>Varies</td>
+<td>N/A</td>
+<td>✓</td>
+</tr>
+<tr class="even">
+<td>You own your data (portable)</td>
+<td>❌</td>
+<td>❌ (school owns)</td>
+<td>❌</td>
+<td>N/A</td>
+<td>✓</td>
+</tr>
+<tr class="odd">
+<td>Coverage between sessions</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>Self-serve only</td>
+<td>❌</td>
+<td>✓</td>
+</tr>
+<tr class="even">
+<td>Posture</td>
+<td>Replace-with-care</td>
+<td>Complementary</td>
+<td>Complementary</td>
+<td>Complementary</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="part-security">Part 4 — Security FAQ</h2>
+<p>Answers to the security and privacy questions that parents, schools, and tutors ask before trusting EduAsiste with student data. The focus here is your child's data, and the rules that protect children's records.</p>
+<hr />
+<h3 id="security-quick-reference">Quick Reference</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Privacy / Compliance Need</th>
+<th>How EduAsiste Handles It</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>FERPA (US student education records)</td>
+<td>Per-learner data isolation, encryption, export/deletion on request</td>
+<td>Technical controls today; formal documentation in progress (in-house)</td>
+</tr>
+<tr class="even">
+<td>COPPA (US children under 13)</td>
+<td>Parental/school consent posture, no profiling, no model training on student data</td>
+<td>Technical controls today; formal documentation in progress (in-house)</td>
+</tr>
+<tr class="odd">
+<td>GDPR / data residency (EU &amp; LATAM schools)</td>
+<td>Encryption, no model training, export-on-request; regional residency on request</td>
+<td>In progress (in-house)</td>
+</tr>
+<tr class="even">
+<td>HIPAA / SOC 2 (orgs that also need them)</td>
+<td>Control framework and audit evidence</td>
+<td>In progress (in-house)</td>
+</tr>
+<tr class="odd">
+<td>Role-based access (school/district IAM)</td>
+<td>Per-workspace access today; district IAM scoping</td>
+<td>In progress (in-house)</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Plain-language note for parents:</strong> "Standard security" already encrypts everything, keeps your child's data separate from every other learner's, and never feeds it to AI training. The formal audit paperwork and signed agreements that a district's lawyers ask for are being built in-house and are in progress. That's not something a single family normally needs.</p>
+</blockquote>
+<hr />
+<h3 id="standard-security-included">Standard Security (Included)</h3>
+<blockquote>
+<p>"Learning data is stored on Google's enterprise-grade infrastructure, the same platform that protects millions of students and teachers worldwide through Google for Education, Gmail, Google Drive, and Google Docs. Larger school and multi-school deployments run on Google Cloud for added scale and monitoring."</p>
+</blockquote>
+<p><strong>What's Included:</strong></p>
+<ul>
+<li><strong>Encryption in transit</strong>: TLS 1.3 for all data moving between your child and the platform</li>
+<li><strong>Encryption at rest</strong>: AES-256 encryption for stored learning data</li>
+<li><strong>Google infrastructure</strong>: the proven platform schools already trust</li>
+<li><strong>Data isolation per learner</strong>: each child's workspace is separate from every other learner's</li>
+<li><strong>Access control</strong>: token-based authentication</li>
+<li><strong>Automatic backups</strong>: Google's redundant storage systems</li>
+</ul>
+<p>For larger deployments (departments, whole schools, multi-school networks), EduAsiste runs on Google Cloud Platform, adding cloud-native monitoring, VPC and private-connectivity options, and dedicated, isolated compute and storage.</p>
+<h4 id="where-is-our-childs-data-stored">"Where is our child's data stored?"</h4>
+<blockquote>
+<p>"Learning data is stored on Google's infrastructure through Google Workspace, or Google Cloud for larger deployments. Google operates data centers worldwide with industry-leading physical and digital security, and your child's data never leaves that secure environment. For schools that must keep data in a specific country or region (EU, or LATAM under laws like Chile's Ley 21.719), regional data residency is available on request."</p>
+</blockquote>
+<h4 id="can-eduasiste-staff-read-my-childs-work">"Can EduAsiste staff read my child's work?"</h4>
+<blockquote>
+<p>"We access learning data only when a parent, school, or tutor asks us for technical support. We do not routinely read, review, or analyze your child's work. It is never used to train AI models and never shared with other families, students, or schools."</p>
+</blockquote>
+<h4 id="what-happens-if-we-cancel">"What happens if we cancel?"</h4>
+<blockquote>
+<p>"You own your data. You can export everything at any time in standard formats (JSON, Markdown, CSV). When you cancel, we delete the data from our systems within 30 days, and you keep any exports you've made. For family-owned accounts, the data belongs to the family and is portable: it goes with you."</p>
+</blockquote>
+<hr />
+<h3 id="education-privacy--compliance">Education Privacy &amp; Compliance</h3>
+<h4 id="is-my-childs-data-used-to-train-ai-models">"Is my child's data used to train AI models?"</h4>
+<blockquote>
+<p>"No. Your child's learning data is never used to train public AI models. Eduardo learns from THEIR work to help THEM. That knowledge stays inside their own private workspace, isolated from every other learner, and is never shared externally. Data isolation per learner is the foundation of how the platform is built."</p>
+</blockquote>
+<h4 id="can-other-students-see-my-childs-work">"Can other students see my child's work?"</h4>
+<blockquote>
+<p>"No. Each learner has their own private workspace, isolated from one another. In a school (Org) setup, the people who can see a learner's workspace are exactly the assigned teacher/mentor and the learner. No other students. One child cannot browse, read, or stumble into another child's work."</p>
+</blockquote>
+<h4 id="what-about-coppa--children-under-13">"What about COPPA / children under 13?"</h4>
+<blockquote>
+<p>"COPPA governs the online collection of personal information from US children under 13, and it requires verifiable parental (or, in the school context, school) consent. EduAsiste's posture:</p>
+<ul>
+<li>A child under 13 is onboarded by a parent or by the school acting on the parent's behalf, not by self-signup.</li>
+<li>We collect only what the learning experience needs; there is no advertising and no behavioral profiling of children.</li>
+<li>A child's data is never sold, never used for ad targeting, and never used to train AI models.</li>
+<li>The parent is the account owner and can always see what data exists and what their child is doing. Formal COPPA documentation and signed agreements are being built in-house and are in progress."</li>
+</ul>
+</blockquote>
+<h4 id="are-you-ferpa-compliant">"Are you FERPA compliant?"</h4>
+<blockquote>
+<p>"FERPA governs US student education records and gives parents (and eligible students) rights over those records. EduAsiste is built to help a school meet its FERPA obligations rather than to replace them:</p>
+<ul>
+<li><strong>Data isolation</strong> keeps each student's records separate.</li>
+<li><strong>Encryption</strong> (TLS 1.3 in transit, AES-256 at rest) protects records in motion and at rest.</li>
+<li><strong>Export and deletion on request</strong> support a parent's right to access and a school's right to control records.</li>
+<li>In a school (Org) deployment, the school is the data controller and EduAsiste acts as a service provider under the school's direction. Formal FERPA audit documentation and a signed agreement are being built in-house and are in progress. We do not overstate certifications we don't hold. We give you the controls today and the paperwork path as it's finalized."</li>
+</ul>
+</blockquote>
+<h4 id="what-about-gdpr-or-data-residency-eu--latam-schools">"What about GDPR or data residency (EU / LATAM schools)?"</h4>
+<blockquote>
+<p>"For schools governed by GDPR (EU) or GDPR-aligned laws (for example, Chile's Ley 21.719 (LPDP), which takes effect 1 December 2026 and adds special protections for minors' data), the formal frameworks (Data Processing Agreements, regional data residency in the EU or LATAM, right-to-erasure handling, and the audit trail your data-protection officer needs) are being built in-house and are in progress. EduAsiste's standard controls (encryption, no model training on student data, export-on-request, deletion within a billing cycle) already align with the spirit of these laws."</p>
+</blockquote>
+<h4 id="who-can-see-what-my-child-does-transparency">"Who can see what my child does?"</h4>
+<blockquote>
+<p>"You do. As the account owner, a parent (or the assigned teacher in a school) can read every conversation and see every attempt your child makes. A learner's workspace is private to them and to the people explicitly linked to it, the assigned teacher/mentor and the parent. No other students, and nothing about your child's activity is hidden from you."</p>
+</blockquote>
+<h4 id="does-the-school-own-the-data-or-does-the-parent">"Does the school own the data, or does the parent?"</h4>
+<blockquote>
+<p>"It depends on how the account is set up, and we keep this explicit so there's no confusion:</p>
+<ul>
+<li><strong>Family account</strong>: the data belongs to the family. It's portable, so when you leave, you take it with you.</li>
+<li><strong>School (Org) account</strong>: the institution is the data controller, and the data stays with the school the way student records normally do. The parent still has access and transparency rights. Whichever model applies, the access rules are explicit, with no hidden permissions."</li>
+</ul>
+</blockquote>
+<hr />
+<h3 id="enterprise--formal-compliance">Enterprise &amp; Formal Compliance</h3>
+<h4 id="we-need-a-signed-ferpacoppa-agreement-or-gdprhipaasoc-2-documentation">"We need a signed FERPA/COPPA agreement, or GDPR/HIPAA/SOC 2 documentation"</h4>
+<blockquote>
+<p>"We understand that districts, multi-school networks, and institutions handling sensitive student data need formal, signed compliance frameworks. EduAsiste's platform gives you the technical controls today: encryption, per-learner isolation, no model training, export and deletion. The formal documentation, signed agreements, and audits are being built in-house and are currently in progress. Tell us your specific requirement and we'll share where it stands and the timeline for your school or district."</p>
+</blockquote>
+<p><strong>Formal compliance, in progress (in-house):</strong></p>
+<ul>
+<li><strong>FERPA / COPPA documentation</strong>: signed agreements, student-data-privacy controls, audit evidence</li>
+<li><strong>GDPR</strong>: Data Processing Agreements, EU/LATAM data residency, right to erasure, minors-data controls (incl. Ley 21.719 alignment)</li>
+<li><strong>HIPAA</strong>: BAA agreements and audit controls (for orgs that also handle health data, e.g. school health programs)</li>
+<li><strong>SOC 2 Type II</strong>: formal auditing, compliance reports, control frameworks</li>
+<li><strong>Role-based access control</strong>: district/school permission structures</li>
+<li><strong>Advanced audit logging</strong>: detailed access logs, compliance reporting</li>
+<li><strong>Dedicated environments</strong>: isolated infrastructure for regulated student records</li>
+</ul>
+<h4 id="when-will-formal-compliance-be-ready">"When will formal compliance be ready?"</h4>
+<blockquote>
+<p>"It's actively in progress. The technical controls behind these frameworks (encryption, per-learner isolation, no model training, export and deletion) are in place today. The formal certifications, signed agreements, and audit documentation are being finalized in-house. Tell us which framework you need and we'll give you the current status and the expected timeline for your school or district."</p>
+</blockquote>
+<hr />
+<h3 id="common-security-questions">Common Security Questions</h3>
+<h4 id="what-about-the-ai-provider-behind-eduardo">"What about the AI provider behind Eduardo?"</h4>
+<blockquote>
+<p>"When your child's Eduardo works through a problem, it sends the relevant conversation context to the AI provider (Anthropic's Claude). However:</p>
+<ul>
+<li>Only the current conversation context is sent, not your child's entire learning history.</li>
+<li>Anthropic does not train on API data (per their data usage policy).</li>
+<li>We use enterprise API tiers with additional data protections.</li>
+<li>For schools with maximum-security or residency needs, we can configure dedicated/private AI endpoints."</li>
+</ul>
+</blockquote>
+<h4 id="what-if-theres-a-data-breach">"What if there's a data breach?"</h4>
+<blockquote>
+<p>"Google has industry-leading breach detection and response. In the unlikely event of a breach affecting your child's data, you would be notified according to Google's policies and any applicable laws. Formal incident-response procedures, breach-notification SLAs, and regulatory breach-reporting (GDPR's 72-hour notification, FERPA and state student-privacy breach rules) are part of the in-house compliance program currently in progress."</p>
+</blockquote>
+<h4 id="can-a-teacher-see-only-their-own-students">"Can a teacher see only their own students?"</h4>
+<blockquote>
+<p>"Yes. A teacher/mentor sees the workspaces of the learners assigned to them and the shared space. They cannot see other students' private workspaces or other classes. Granular, district-wide role-based access (where different staff see different scopes within the same system) is part of the in-house roadmap and is in progress."</p>
+</blockquote>
+<h4 id="do-you-have-a-security-certification">"Do you have a security certification?"</h4>
+<blockquote>
+<p>"We inherit Google Workspace's certifications, which include SOC 1/2/3, ISO 27001, and more. See Google's compliance page for the full list. For education specifically, our standard posture gives you the technical controls behind FERPA and COPPA today. Our own formal certifications (SOC 2 Type II) and the signed FERPA/COPPA/GDPR/HIPAA documentation are being built in-house and are in progress; we can share current status for your audit."</p>
+</blockquote>
+<hr />
+<h3 id="security-conversation-flow">Security Conversation Flow</h3>
+<h4 id="step-1-understand-their-needs">Step 1: Understand Their Needs</h4>
+<p>Ask: "What are your main concerns about your child's data, or your students' data?"</p>
+<p>Listen for:</p>
+<ul>
+<li>General "is my kid's data safe?" worry → Standard offering + full visibility for the parent</li>
+<li>"Other kids can't see my child's work, right?" → Per-learner isolation</li>
+<li>"Is it used to train AI?" → No, data isolation, never trains models</li>
+<li>Specific framework mentions (FERPA, COPPA, GDPR, Ley 21.719) → Standard controls today + formal docs in progress (in-house)</li>
+<li>District / multi-school role-based access or audit needs → In-house roadmap, in progress; share current status and timeline</li>
+</ul>
+<h4 id="step-2-position-appropriately">Step 2: Position Appropriately</h4>
+<p><strong>For Parents / Tutors / Small Schools:</strong></p>
+<blockquote>
+<p>"The standard platform encrypts everything, keeps your child's data isolated from every other learner, never trains AI on it, and gives you, the account owner, full visibility into everything your child does. That covers what almost every family and small school needs."</p>
+</blockquote>
+<p><strong>For Schools / Districts with Formal Requirements:</strong></p>
+<blockquote>
+<p>"For FERPA, COPPA, GDPR, or data-residency requirements that need signed agreements and audit evidence, those frameworks are being built in-house and are in progress. Tell me the specific requirement and I'll get you the current status and timeline..."</p>
+</blockquote>
+<h4 id="step-3-handle-formal-requirements">Step 3: Handle Formal Requirements (if needed)</h4>
+<p>If a formal framework is required:</p>
+<ol type="1">
+<li>Acknowledge their requirements are valid and important (student data deserves it)</li>
+<li>Be clear about what's available today (technical controls) vs in progress (formal docs/certifications)</li>
+<li>Capture the specific framework and deadline they need</li>
+<li>Get them a current status and expected timeline from the team</li>
+<li>Emphasize this gives them best-in-class learning now, with audit-ready data protection on a defined path</li>
+</ol>
+<hr />
+<h3 id="objection-handling">Objection Handling</h3>
+<h4 id="why-should-we-trust-a-startup-with-our-childrens-data">"Why should we trust a startup with our children's data?"</h4>
+<blockquote>
+<p>"You're not trusting us with the data infrastructure. You're trusting Google. We built EduAsiste on Google Workspace specifically because we knew parents and schools would (rightly) worry about children's data. Your child's data sits on the same infrastructure that schools and Fortune 500 companies trust with their most sensitive records. On top of that, you're the account owner, with full visibility into everything your child does, so nothing happens in the dark."</p>
+</blockquote>
+<h4 id="our-schools-it--data-protection-officer-will-never-approve-this">"Our school's IT / data-protection officer will never approve this."</h4>
+<blockquote>
+<p>"Good. They should be careful with student data. Here's what usually helps:</p>
+<ol type="1">
+<li>We can provide Google Workspace's security documentation</li>
+<li>For FERPA, COPPA, GDPR, or residency needs, we can share where our formal documentation stands and the timeline</li>
+<li>We're happy to do a technical call with your IT or DPO</li>
+<li>We can start with a small, non-sensitive pilot to build confidence"</li>
+</ol>
+</blockquote>
+<h4 id="we-need-everything-to-stay-in-our-country--on-our-own-servers">"We need everything to stay in our country / on our own servers."</h4>
+<blockquote>
+<p>"True on-premise isn't something we offer directly. The platform is cloud-native. But regional data residency (EU or LATAM) and private-cloud options can be configured to meet many such requirements while you still use EduAsiste. For schools under laws like Chile's Ley 21.719, that's exactly the path. Would it help to explore that?"</p>
+</blockquote>
+<h4 id="we-need-formal-compliance-now-not-in-progress">"We need formal compliance now, not 'in progress.'"</h4>
+<blockquote>
+<p>"Fair, and we won't pretend otherwise. The technical controls (encryption, per-learner isolation, no model training, export and deletion) are in place today. The formal certifications and signed agreements are being finalized in-house. If you have a hard deadline, tell us the framework and the date, and we'll give you an honest status and timeline so you can decide. For most families and small schools, the standard Google Workspace security plus full parent visibility is already more than enough."</p>
+</blockquote>
+<hr />
+<h3 id="security-summary-table">Security Summary Table</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Question</th>
+<th>Answer</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Where is the data stored?</td>
+<td>Google Workspace, or Google Cloud for larger deployments</td>
+</tr>
+<tr class="even">
+<td>Is the data encrypted?</td>
+<td>Yes (TLS 1.3 in transit + AES-256 at rest)</td>
+</tr>
+<tr class="odd">
+<td>Used to train AI?</td>
+<td>Never</td>
+</tr>
+<tr class="even">
+<td>Can other students see it?</td>
+<td>No, isolated per learner</td>
+</tr>
+<tr class="odd">
+<td>FERPA?</td>
+<td>Technical controls today; formal documentation in progress (in-house)</td>
+</tr>
+<tr class="even">
+<td>COPPA (under 13)?</td>
+<td>Parent/school consent, no profiling; formal documentation in progress (in-house)</td>
+</tr>
+<tr class="odd">
+<td>GDPR / residency?</td>
+<td>Aligned controls today; DPAs and EU/LATAM residency in progress (in-house)</td>
+</tr>
+<tr class="even">
+<td>Who can view my child's work?</td>
+<td>The account owner (parent) and the assigned teacher; private to the learner otherwise</td>
+</tr>
+<tr class="odd">
+<td>Role-based access?</td>
+<td>Workspace-level today (teacher sees own learners); district IAM in progress</td>
+</tr>
+<tr class="even">
+<td>Audit logging?</td>
+<td>Basic today; comprehensive logging in progress (in-house)</td>
+</tr>
+<tr class="odd">
+<td>Cost</td>
+<td>Standard security included</td>
+</tr>
+</tbody>
+</table>
+</article>
+<footer class="sheet-foot">
+  <span>AI Value Prospectors · internal sales enablement · EduAsiste sales playbook</span>
+  <span><a href="index.html">Back to materials</a></span>
+</footer>
+<a href="#top" class="to-top" aria-label="Back to top">&uarr; Top</a>
+</body>
+</html>

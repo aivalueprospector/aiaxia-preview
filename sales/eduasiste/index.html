@@ -60,16 +60,20 @@
     .demos-cta .dc-go{margin-left:auto;font-size:13px;font-weight:700;color:var(--edu);}
     footer{text-align:center;color:var(--muted);font-size:13px;padding:28px 24px;border-top:1px solid var(--border);}
     footer a{color:var(--edu);text-decoration:none;}
+    .skip-link{position:absolute;left:8px;top:-48px;z-index:1000;background:var(--edu);color:#0F1115;padding:9px 15px;border-radius:8px;font-weight:700;font-size:13px;text-decoration:none;transition:top .15s;}
+    .skip-link:focus{top:8px;}
+    :focus-visible{outline:2px solid var(--edu);outline-offset:2px;}
     </style>
 </head>
 <body>
+    <a class="skip-link" href="#main">Skip to content</a>
     <header>
         <span class="wordmark"><span class="mark">Edu</span><span class="name">EduAsiste</span></span>
         <h1>EduAsiste: Sales materials</h1>
         <p>Everything for the education product. Families, tutors, homeschoolers, and small schools.</p>
         <a class="back" href="../index.html">&larr; All sales materials</a>
     </header>
-    <main>
+    <main id="main" tabindex="-1">
         <p class="section-label"><span class="pip"></span>Live demos</p>
         <a class="demos-cta" href="../../demos/index.html#edu-institution"><div class="dc-icon">&#9654;</div><div class="dc-text"><strong>Twin Demos</strong><span>Jump to the live EduAsiste demo twins. Demo data only.</span></div><div class="dc-go">Open &rarr;</div></a>
 
@@ -78,32 +82,17 @@
         <div class="card-grid">
             <div class="card">
                 <div class="swatch">Edu</div>
-                <h2>Twin Feature Guide</h2>
-                <div class="desc">What the education twin does, in brief: parent twin plus child&#x27;s Socratic twin, progress tracking, with simple visuals. Start here.</div>
+                <h2>Twin Guide</h2>
+                <div class="desc">What the education twin does and how to use it: a parent/child Family pair and a mentor/mentee Mentor pair, both speaking as Eduardo — the Socratic learner twin, the adult&#x27;s monitoring twin, progress tracking, reports, and capturing materials. Start here.</div>
                 <div class="actions">
                 <a class="view" href="twin-guide.html">View →</a>
-                </div>
-            </div>
-            <div class="card">
-                <div class="swatch">Edu</div>
-                <h2>Family Plan User Guide</h2>
-                <div class="desc">How parents use the Family Plan: setting up the child profile, the Parent/Child toggle, what the child experiences, and tracking progress.</div>
-                <div class="actions">
-                <a class="view" href="family-user-guide.html">View →</a>
-                </div>
-            </div>
-            <div class="card">
-                <div class="swatch">Edu</div>
-                <h2>Mentor Plan User Guide</h2>
-                <div class="desc">How tutors use the Mentor Plan: documenting curriculum, tracking the mentee, the read-only cross-twin view, reports, and parent recaps.</div>
-                <div class="actions">
-                <a class="view" href="mentor-user-guide.html">View →</a>
+                <a class="dl" href="../templates/eduasiste-twin-guide.docx" download>Download Doc</a>
                 </div>
             </div>
             <div class="card">
                 <div class="swatch">Edu</div>
                 <h2>One-Pager</h2>
-                <div class="desc">Education leave-behind: parent twin plus child&#x27;s learning twin, five things to do on day one, opener and close. Print-ready.</div>
+                <div class="desc">Education leave-behind: the problem, parent twin plus child&#x27;s learning twin, five things to do on day one, a start-this-week close, and an opener/close for the rep. Print-ready.</div>
                 <div class="actions">
                 <a class="view" href="one-pager.html">View →</a>
                 <a class="dl" href="../templates/eduasiste-one-pager.docx" download>Download Doc</a>
@@ -112,7 +101,7 @@
             <div class="card">
                 <div class="swatch">Edu</div>
                 <h2>Sales Email Templates</h2>
-                <div class="desc">Parent, tutor, and school outreach. Copy, customize, send.</div>
+                <div class="desc">The full outreach funnel in one place: two-twins openers, post-demo follow-ups, objection responses, closers, and re-engagement. Copy, replace the tokens, send.</div>
                 <div class="actions">
                 <a class="view" href="email-templates.html">View →</a>
                 <a class="dl" href="../templates/eduasiste-email-templates.docx" download>Download Doc</a>
@@ -120,56 +109,11 @@
             </div>
             <div class="card">
                 <div class="swatch">Edu</div>
-                <h2>Two-Twins Pitch Blurbs</h2>
-                <div class="desc">Short ready-to-send emails leading with the two-twins idea (parent twin plus child&#x27;s twin). Pick a version, fill the fields, send.</div>
+                <h2>Sales Playbook</h2>
+                <div class="desc">The full rep playbook in one place: buyer personas, the quick-reference cheat sheet, competitive battle cards, and the security FAQ.</div>
                 <div class="actions">
-                <a class="view" href="pitch-blurbs.html">View →</a>
-                <a class="dl" href="../templates/eduasiste-pitch-blurbs.docx" download>Download Doc</a>
-                </div>
-            </div>
-            <div class="card">
-                <div class="swatch">Edu</div>
-                <h2>Quick Reference Card</h2>
-                <div class="desc">One-page cheat sheet for parent and school calls. Print-friendly.</div>
-                <div class="actions">
-                <a class="view" href="quick-reference.html">View →</a>
-                <a class="dl" href="../templates/eduasiste-quick-reference.docx" download>Download Doc</a>
-                </div>
-            </div>
-            <div class="card">
-                <div class="swatch">Edu</div>
-                <h2>Competitive Positioning</h2>
-                <div class="desc">Battle cards vs. generic AI, grade portals, content libraries, and tutoring.</div>
-                <div class="actions">
-                <a class="view" href="competitive.html">View →</a>
-                <a class="dl" href="../templates/eduasiste-competitive.docx" download>Download Doc</a>
-                </div>
-            </div>
-            <div class="card">
-                <div class="swatch">Edu</div>
-                <h2>Security FAQ</h2>
-                <div class="desc">FERPA, COPPA, and GDPR, how we handle minors&#x27; data, and what we keep transparent.</div>
-                <div class="actions">
-                <a class="view" href="security-faq.html">View →</a>
-                <a class="dl" href="../templates/eduasiste-security-faq.docx" download>Download Doc</a>
-                </div>
-            </div>
-            <div class="card">
-                <div class="swatch">Edu</div>
-                <h2>Customer Personas</h2>
-                <div class="desc">Five education buyer profiles with demo focus and closing language.</div>
-                <div class="actions">
-                <a class="view" href="personas.html">View →</a>
-                <a class="dl" href="../templates/eduasiste-personas.docx" download>Download Doc</a>
-                </div>
-            </div>
-            <div class="card">
-                <div class="swatch">Edu</div>
-                <h2>How Two Twins Work Together (Deck)</h2>
-                <div class="desc">About 8 slides with speaker notes. Read the outline in the browser.</div>
-                <div class="actions">
-                <a class="view" href="deck.html">View →</a>
-                <a class="dl" href="../templates/eduasiste-pitch-deck.pptx" download>Download Slides</a>
+                <a class="view" href="playbook.html">View →</a>
+                <a class="dl" href="../templates/eduasiste-playbook.docx" download>Download Doc</a>
                 </div>
             </div>
         </div>

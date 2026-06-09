@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="robots" content="noindex, nofollow" />
 <meta name="card-title" content="Sales Email Templates">
-<meta name="card-desc" content="Parent, tutor, and school outreach. Copy, customize, send.">
-<meta name="card-order" content="50">
+<meta name="card-desc" content="The full outreach funnel in one place: two-twins openers, post-demo follow-ups, objection responses, closers, and re-engagement. Copy, replace the tokens, send.">
+<meta name="card-order" content="40">
 <title>EduAsiste Sales Email Templates · AI Value Prospectors</title>
 <style>
   :root {
@@ -100,9 +100,9 @@
   pre code { background: none; border: 0; padding: 0; color: inherit; }
   blockquote {
     margin: 14px 0; padding: 12px 18px;
-    background: linear-gradient(135deg, #fbf8ef 0%, #f3ead2 100%);
+    background: linear-gradient(135deg, #eef6fd 0%, #d7ecfb 100%);
     border-left: 4px solid var(--accent);
-    border-radius: 2px; color: #3a2f10; font-style: italic;
+    border-radius: 2px; color: #103048; font-style: italic;
   }
   blockquote p { margin: 4px 0; }
   table {
@@ -131,85 +131,137 @@
     .sheet { box-shadow: none; border: 0; margin: 0; max-width: none; padding: 0; }
     footer.sheet-foot { display: none; }
   }
+  /* a11y + nav helpers */
+  .skip-link{position:absolute;left:8px;top:-48px;z-index:1000;background:#2EA3F2;color:#0F1115;padding:9px 15px;border-radius:8px;font-weight:700;font-size:13px;text-decoration:none;transition:top .15s;}
+  .skip-link:focus{top:8px;}
+  .to-top{position:fixed;bottom:18px;right:18px;z-index:900;background:#2EA3F2;color:#0F1115;font-weight:700;font-size:12.5px;padding:8px 13px;border-radius:999px;text-decoration:none;box-shadow:0 2px 10px rgba(0,0,0,.25);}
+  .to-top:hover{opacity:.9;text-decoration:none;}
+  nav.page-toc{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 6px;align-items:center;}
+  nav.page-toc .toc-label{width:100%;font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:#6b7280;font-weight:700;margin-bottom:2px;}
+  nav.page-toc a{font-size:12.5px;font-weight:600;color:#1d6fb0;border:1px solid rgba(29,111,176,.4);border-radius:999px;padding:6px 13px;text-decoration:none;}
+  nav.page-toc a:hover{background:rgba(46,163,242,.18);text-decoration:none;}
+  :focus-visible{outline:2px solid #1d6fb0;outline-offset:2px;}
+  @media print{.skip-link,.to-top,nav.page-toc{display:none !important;}}
 </style>
 </head>
 <body>
-<div class="topbar">
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="topbar" id="top">
   <span class="mark">Ai</span>
   <span class="name">AI Value Prospectors</span>
   <a class="back" href="index.html">&larr; EduAsiste materials</a>
 </div>
-<article class="sheet">
+<article class="sheet" id="main" tabindex="-1">
 <p class="eyebrow">Outreach · EduAsiste (education)</p>
-<blockquote>
-<p><em>EduAsiste education-market variant of the ProAsiste sales email templates (product-research #14). Authored 2026-06-08.</em></p>
-</blockquote>
 <h1 id="eduasiste-sales-email-templates">EduAsiste Sales Email Templates</h1>
-<p>Copy, customize, and send.</p>
+<p>Openers, post-demo follow-ups, objection responses, closers, and re-engagement — the full funnel in one place. The openers lead with the two-twins idea: every learner gets their own AI study buddy, and the parent or teacher gets a twin too. Pick a template, replace every <code>{{token}}</code>, and send. The voice throughout is warm, parent to parent and educator to educator.</p>
 <hr />
+<nav class="page-toc" aria-label="On this page">
+  <span class="toc-label">On this page</span>
+  <a href="#initial-outreach">Initial Outreach</a>
+  <a href="#follow-up-after-demo">Follow-Up After Demo</a>
+  <a href="#objection-response">Objection Response</a>
+  <a href="#closing-urgency">Closing / Urgency</a>
+  <a href="#re-engagement">Re-Engagement</a>
+  <a href="#best-practices">Best Practices</a>
+</nav>
 <h2 id="initial-outreach">Initial Outreach</h2>
-<h3 id="template-1-the-time-saver-hook">Template 1: The Time-Saver Hook</h3>
-<p><strong>Subject</strong>: Quick question about [First Name]'s reading this week</p>
-<p>Hi [First Name],</p>
+<p>Six openers. A–C lead with the two-twins story; D–F lead with a single angle. Match the opener to the recipient: <strong>A</strong> for cold parents, <strong>B</strong> for warm parent / homeschool intros, <strong>C</strong> for schools and tutors, <strong>D</strong> for a time-saver hook, <strong>E</strong> when a competitor is the lever, and <strong>F</strong> when the worry is losing context across a handoff.</p>
+<h3 id="opener-a-cold-parent">Opener A: Cold, parent (two-twins)</h3>
+<p><strong>Subject:</strong> A question about your child's learning</p>
+<p>Hi {{Prospect Name}},</p>
+<p>Quick question: when's the last time you knew, in real time, what your child actually learned today? Not their grade. What they understood.</p>
+<p>We've built something for parents who are tired of being one conversation behind. Every child gets their own AI tutor. Every parent gets a twin that stays in the loop automatically. You can ask "how's {{Child Name}} doing in reading?" and get a live answer. You can assign a worksheet in 30 seconds. And when your child does a study session, you get a summary, like a teacher who reports to you after every lesson.</p>
+<p>Free for 30 days. Takes 5 minutes to set up.</p>
+<p>{{Demo Link}}</p>
+<p>{{Rep Name}} {{Rep Email}}</p>
+<hr />
+<h3 id="opener-b-warm-intro">Opener B: Warm intro (parent / homeschool)</h3>
+<p><strong>Subject:</strong> I think this might actually be for you</p>
+<p>Hi {{Prospect Name}},</p>
+<p>{{Referrer}} mentioned you're juggling {{Pain Point}} and thought I should reach out.</p>
+<p>We're rolling out something I think solves a real piece of your problem. Here's the short version: every learner gets their own AI twin, a patient tutor that teaches Socratically, builds worksheets on demand, and remembers everything they've worked on. But the interesting part is that you get a twin too. The two twins talk to each other, and your child always sees when you've looked.</p>
+<p>So when you want to know how your child is doing, you ask your own twin. When you want to assign practice, you type one sentence and the worksheet lands in your child's chat with an answer key that stays with you. When your child does a study session, you get an auto-summary of what clicked and what needs reinforcing.</p>
+<p>It's {{Price}}/month after a 30-day free trial. Happy to walk you through it live if you'd rather see it than read about it.</p>
+<p>{{Demo Link}}</p>
+<p>{{Rep Name}} {{Rep Email}}</p>
+<hr />
+<h3 id="opener-c-school-tutor">Opener C: School / tutor (two-twins)</h3>
+<p><strong>Subject:</strong> For {{Company}}: a different kind of ed-tech</p>
+<p>Hi {{Prospect Name}},</p>
+<p>Most ed-tech you've evaluated probably falls into one of two buckets: grade trackers, or content libraries. Ours is neither. I wanted to reach out because I think it solves a problem those tools create.</p>
+<p>Here's what we do differently:</p>
+<p><strong>Every learner gets their own AI twin.</strong> It's a private, persistent tutor that knows their history, adapts to their pace, and teaches Socratically instead of lecturing. It runs in their own space. They own their data.</p>
+<p><strong>Every teacher or parent gets a twin too.</strong> The two twins talk to each other. You can ask yours "how did {{Child Name}} do on fractions this week?" and get a live answer. You can assign a worksheet in one sentence, and the system generates it with a private answer key that stays with you. When a student finishes a study session, you get an auto-summary of what clicked and where they struggled, delivered right back into your own chat.</p>
+<p><strong>Trust is built in.</strong> Every time you look at a student's data, they can see it happened. No black-box surveillance. This is the feature that makes families say yes.</p>
+<p>For tutors: this replaces the worksheet-building + progress-reporting + parent-communication triangle that eats your evenings.</p>
+<p>For small schools: each teacher can run differentiated, one-on-one instruction at cohort scale without adding LMS complexity.</p>
+<p>Pricing starts at {{Price}}/month for the {{Tier}} tier ({{Seats}} seats). Mentor seats are always free. We're onboarding a handful of pilot customers this quarter. I'd love to show you a live demo if you have 20 minutes.</p>
+<p>{{Demo Link}}</p>
+<p>{{Rep Name}} {{Rep Email}}</p>
+<hr />
+<h3 id="opener-d-time-saver">Opener D: The time-saver hook</h3>
+<p><strong>Subject:</strong> Quick question about {{Child Name}}'s reading this week</p>
+<p>Hi {{Prospect Name}},</p>
 <p>Quick question: when's the last time you knew, in real time, exactly what your child was learning and where they were struggling?</p>
 <p>Most parents I talk to are one conversation behind. You find out about a hard week when the report card lands, and even then it's a score, not an explanation.</p>
-<p>EduAsiste gives your child Eduardo, their own AI study buddy, and gives you a parent dashboard that stays in the loop automatically. Ask Eduardo "How's Emma doing in reading this week?" and get a live answer pulled straight from her work, without waiting for a report card.</p>
+<p>EduAsiste gives your child Eduardo, their own AI study buddy, and gives you a parent dashboard that stays in the loop automatically. Ask Eduardo "How's {{Child Name}} doing in reading this week?" and get a live answer pulled straight from their work, without waiting for a report card.</p>
 <p>Would you be open to a 15-minute call to see if this would help your family? It's month-to-month, cancel anytime.</p>
-<p>Best, [Your Name]</p>
+<p>Best, {{Rep Name}}</p>
 <hr />
-<h3 id="template-2-the-competitor-angle">Template 2: The Competitor Angle</h3>
-<p><strong>Subject</strong>: How other families are staying in the loop</p>
-<p>Hi [First Name],</p>
+<h3 id="opener-e-competitor-angle">Opener E: The competitor angle</h3>
+<p><strong>Subject:</strong> How other families are staying in the loop</p>
+<p>Hi {{Prospect Name}},</p>
 <p>I've been working with parents and tutors who were tired of finding out about a struggling week long after it was over. The families who get ahead aren't doing more homework. They just see what's happening while it's happening.</p>
-<p>EduAsiste keeps you in the loop after every lesson, the way families like [Reference Family / tutoring business] already do. It doesn't replace the teacher or the tutor. It makes sure no one is a conversation behind your child.</p>
+<p>EduAsiste keeps you in the loop after every lesson, the way families like {{Reference}} already do. It doesn't replace the teacher or the tutor. It makes sure no one is a conversation behind your child.</p>
 <p>I'd love to show you what this looks like in practice. Do you have 15 minutes this week?</p>
-<p>Best, [Your Name]</p>
+<p>Best, {{Rep Name}}</p>
 <hr />
-<h3 id="template-3-the-knowledge-loss-problem">Template 3: The Knowledge-Loss Problem</h3>
-<p><strong>Subject</strong>: What happens when [Name] changes teachers?</p>
-<p>Hi [First Name],</p>
+<h3 id="opener-f-knowledge-loss">Opener F: The knowledge-loss problem</h3>
+<p><strong>Subject:</strong> What happens when {{Child Name}} changes teachers?</p>
+<p>Hi {{Prospect Name}},</p>
 <p>Here's a question I ask every parent and tutor: what happens when your child changes teachers, switches tutors, or moves up a grade?</p>
 <p>Most of the time, everything one teacher knew about your child (what clicks, what frustrates them, the gap they were finally closing) disappears at the handoff. The new teacher starts from zero, and so does your child.</p>
 <p>EduAsiste keeps that understanding in one place. Every Socratic study session Eduardo runs is auto-summarized, so progress and context carry forward instead of getting lost between handoffs.</p>
-<p>Would it be valuable to talk about how this could work for [School / tutoring business]?</p>
-<p>Best, [Your Name]</p>
+<p>Would it be valuable to talk about how this could work for {{Company}}?</p>
+<p>Best, {{Rep Name}}</p>
 <hr />
 <h2 id="follow-up-after-demo">Follow-Up After Demo</h2>
-<h3 id="template-4-post-demo-summary">Template 4: Post-Demo Summary</h3>
-<p><strong>Subject</strong>: EduAsiste demo recap + next steps</p>
-<p>Hi [First Name],</p>
+<h3 id="post-demo-summary">Post-demo summary</h3>
+<p><strong>Subject:</strong> EduAsiste demo recap + next steps</p>
+<p>Hi {{Prospect Name}},</p>
 <p>Thanks for taking the time to see EduAsiste today. Here's a quick recap of what we covered:</p>
 <p><strong>Key Capabilities:</strong></p>
 <ul>
 <li>Every learner gets Eduardo, their own AI study buddy, and you (parent or teacher) get a dashboard that stays in sync</li>
-<li>Ask Eduardo for live progress: "How's {{name}} doing in reading this week?" answered straight from their work</li>
+<li>Ask Eduardo for live progress: "How's {{Child Name}} doing in reading this week?" answered straight from their work</li>
 <li>Assign a worksheet in one sentence, with a private answer key for you</li>
 <li>Socratic study sessions that guide by asking instead of telling, auto-summarized for you</li>
 <li>Goals that auto-fill as Eduardo records progress</li>
 </ul>
-<p><strong>What You Seemed Most Interested In:</strong> [Customize based on demo, e.g., "Seeing reading progress without waiting for report cards" or "Assigning practice without becoming the tutor yourself"]</p>
-<p><strong>What This Could Mean For You:</strong> [Customize, e.g., "Knowing where each of your tutoring students stands before every session, without re-reading your notes" or "Quality learning time at home without you having to be the teacher"]</p>
+<p><strong>What You Seemed Most Interested In:</strong> {{What they cared about most}}</p>
+<p><strong>What This Could Mean For You:</strong> {{The outcome that matters to them}}</p>
 <p><strong>Next Steps:</strong></p>
 <ol type="1">
-<li>[Action item, e.g., "I'll send over the privacy and data documentation you asked about"]</li>
-<li>[Action item, e.g., "Let's get your first student set up with Eduardo"]</li>
-<li>[Action item, e.g., "Eduardo up and running for [Name] next Monday"]</li>
+<li>{{Action item, e.g. send the privacy and data documentation they asked about}}</li>
+<li>{{Action item, e.g. get their first student set up with Eduardo}}</li>
+<li>{{Action item, e.g. Eduardo up and running for the learner next Monday}}</li>
 </ol>
 <p>If anything's unclear, just reply and ask. Otherwise I'll get your first student set up with Eduardo.</p>
-<p>Best, [Your Name]</p>
+<p>Best, {{Rep Name}}</p>
 <hr />
-<h3 id="template-5-no-response-follow-up">Template 5: No Response Follow-Up</h3>
-<p><strong>Subject</strong>: Re: EduAsiste demo recap + next steps</p>
-<p>Hi [First Name],</p>
+<h3 id="no-response-follow-up">No-response follow-up</h3>
+<p><strong>Subject:</strong> Re: EduAsiste demo recap + next steps</p>
+<p>Hi {{Prospect Name}},</p>
 <p>Just following up on our demo last week. I know family schedules and a full tutoring roster get busy.</p>
 <p>Is EduAsiste still something you're considering? If the timing isn't right, totally understand. Just let me know either way so I can update my notes.</p>
 <p>If you have questions or concerns, especially around privacy or how Eduardo keeps you in the loop, I'm happy to address those.</p>
-<p>Best, [Your Name]</p>
+<p>Best, {{Rep Name}}</p>
 <hr />
-<h2 id="objection-response-emails">Objection Response Emails</h2>
-<h3 id="template-6-budget-concerns">Template 6: Budget Concerns</h3>
-<p><strong>Subject</strong>: Re: EduAsiste pricing question</p>
-<p>Hi [First Name],</p>
+<h2 id="objection-response">Objection Response</h2>
+<h3 id="budget-concerns">Budget concerns</h3>
+<p><strong>Subject:</strong> Re: EduAsiste pricing question</p>
+<p>Hi {{Prospect Name}},</p>
 <p>Thanks for your honesty about budget. Let me reframe what you're actually weighing:</p>
 <p><strong>The Investment:</strong> a fraction of what a private tutor costs for the same week.</p>
 <p><strong>What It Replaces:</strong></p>
@@ -226,11 +278,11 @@
 </ul>
 <p>Most families and tutors start with a single learner and decide once they've seen real progress in their own child or roster. Month-to-month, cancel anytime.</p>
 <p>Would it help to begin with a single learner before adding more?</p>
-<p>Best, [Your Name]</p>
+<p>Best, {{Rep Name}}</p>
 <hr />
-<h3 id="template-7-privacy--data-concerns">Template 7: Privacy &amp; Data Concerns</h3>
-<p><strong>Subject</strong>: Re: Privacy and data questions</p>
-<p>Hi [First Name],</p>
+<h3 id="privacy-data-concerns">Privacy &amp; data concerns</h3>
+<p><strong>Subject:</strong> Re: Privacy and data questions</p>
+<p>Hi {{Prospect Name}},</p>
 <p>Protecting a child's data matters. Here's exactly how EduAsiste handles it:</p>
 <p><strong>Full Visibility for You:</strong></p>
 <ul>
@@ -252,11 +304,11 @@
 </ul>
 <p>For schools, I can share our data-protection documentation under NDA and walk your team through residency, audit logging, and export-on-request.</p>
 <p>Would that be helpful?</p>
-<p>Best, [Your Name]</p>
+<p>Best, {{Rep Name}}</p>
 <hr />
-<h3 id="template-8-we-can-just-do-this-ourselves">Template 8: "We Can Just Do This Ourselves"</h3>
-<p><strong>Subject</strong>: Re: Do we even need a tool for this?</p>
-<p>Hi [First Name],</p>
+<h3 id="build-it-ourselves">"We can just do this ourselves"</h3>
+<p><strong>Subject:</strong> Re: Do we even need a tool for this?</p>
+<p>Hi {{Prospect Name}},</p>
 <p>Totally fair. Plenty of families and tutors track progress on their own. Here's the honest comparison:</p>
 <p><strong>Doing It By Hand:</strong></p>
 <ul>
@@ -276,21 +328,21 @@
 </ul>
 <p><strong>The Real Question:</strong> Do you want to spend your evenings being the tracker and the tutor, or spend that time actually with your child?</p>
 <p>Happy to walk through the tradeoffs in more detail if helpful.</p>
-<p>Best, [Your Name]</p>
+<p>Best, {{Rep Name}}</p>
 <hr />
-<h2 id="closing--urgency-emails">Closing / Urgency Emails</h2>
-<h3 id="template-9-start-of-term-push">Template 9: Start-of-Term Push</h3>
-<p><strong>Subject</strong>: Get set up before the term starts [Date]</p>
-<p>Hi [First Name],</p>
+<h2 id="closing-urgency">Closing / Urgency</h2>
+<h3 id="start-of-term-push">Start-of-term push</h3>
+<p><strong>Subject:</strong> Get set up before the term starts {{Date}}</p>
+<p>Hi {{Prospect Name}},</p>
 <p>Quick heads up: the easiest time to start is before the new term, so Eduardo builds context from day one instead of mid-stream.</p>
 <p>If you're still considering EduAsiste, getting set up now means Eduardo is fully up to speed, and you're seeing progress, by the time the term begins.</p>
 <p>No pressure, just wanted to make sure you had the timing in mind.</p>
 <p>Let me know if you'd like to get set up, or if you have any final questions.</p>
-<p>Best, [Your Name]</p>
+<p>Best, {{Rep Name}}</p>
 <hr />
-<h3 id="template-10-low-risk-start">Template 10: Low-Risk Start</h3>
-<p><strong>Subject</strong>: Low-risk way to start with EduAsiste</p>
-<p>Hi [First Name],</p>
+<h3 id="low-risk-start">Low-risk start</h3>
+<p><strong>Subject:</strong> Low-risk way to start with EduAsiste</p>
+<p>Hi {{Prospect Name}},</p>
 <p>I know trying something new with your child (or across your students) can feel like a leap. Here's a low-risk way to start with EduAsiste:</p>
 <p><strong>A Low-Risk Way to Start:</strong></p>
 <ul>
@@ -302,36 +354,47 @@
 </ul>
 <p>This way you see real progress with your own child or roster before adding anyone else.</p>
 <p>Interested in giving it a try?</p>
-<p>Best, [Your Name]</p>
+<p>Best, {{Rep Name}}</p>
 <hr />
-<h2 id="re-engagement-emails">Re-Engagement Emails</h2>
-<h3 id="template-11-new-school-year-re-engagement">Template 11: New School-Year Re-Engagement</h3>
-<p><strong>Subject</strong>: A fresh term, still one conversation behind?</p>
-<p>Hi [First Name],</p>
+<h2 id="re-engagement">Re-Engagement</h2>
+<h3 id="new-school-year">New school-year re-engagement</h3>
+<p><strong>Subject:</strong> A fresh term, still one conversation behind?</p>
+<p>Hi {{Prospect Name}},</p>
 <p>We spoke a while back about EduAsiste. With a new term underway, I wanted to reconnect.</p>
 <p>The families and tutors who started earlier now have something that compounds: months of Eduardo remembering what clicked and what didn't, Socratic summaries stacking up, and goals that have been quietly filling in the whole time.</p>
 <p>The longer Eduardo runs, the more it knows your child. The families who start a term ahead are never the ones playing catch-up at report-card time.</p>
 <p>If the timing is better now, I'd love to reconnect. If not, no worries. Just wanted to check in at the start of the term.</p>
-<p>Best, [Your Name]</p>
+<p>Best, {{Rep Name}}</p>
 <hr />
-<h3 id="template-12-new-feature-announcement">Template 12: New Feature Announcement</h3>
-<p><strong>Subject</strong>: New EduAsiste feature you asked about</p>
-<p>Hi [First Name],</p>
-<p>Remember when we spoke and you asked about [Feature they wanted, e.g., "quizzes with auto-grading" or "a classroom view for your cohort"]?</p>
+<h3 id="new-feature">New feature announcement</h3>
+<p><strong>Subject:</strong> New EduAsiste feature you asked about</p>
+<p>Hi {{Prospect Name}},</p>
+<p>Remember when we spoke and you asked about {{Feature they wanted}}?</p>
 <p>Good news: we just launched it.</p>
-<p>[Brief description of feature]</p>
+<p>{{Brief description of the feature}}</p>
 <p>Would you be open to a quick 15-minute call to see how this fits what you were looking for? Happy to set up a quick look whenever works.</p>
-<p>Best, [Your Name]</p>
+<p>Best, {{Rep Name}}</p>
 <hr />
-<h2 id="email-best-practices">Email Best Practices</h2>
-<h3 id="subject-line-rules">Subject Line Rules</h3>
+<h2 id="best-practices">Best Practices</h2>
+<h3 id="tokens">Tokens</h3>
+<p>Everything in <code>{{double braces}}</code> is a fill-in. Replace every one before sending, and double-check that no <code>{{...}}</code> slips through to the inbox. The common tokens:</p>
+<ul>
+<li><code>{{Prospect Name}}</code> — the recipient (the parent, tutor, or administrator)</li>
+<li><code>{{Child Name}}</code> — the learner; swap the example subject/child for a real one</li>
+<li><code>{{Company}}</code> — the school or tutoring business</li>
+<li><code>{{Referrer}}</code> · <code>{{Pain Point}}</code> — for warm intros; name a real referrer and a real, specific pain point in their own words, or the email reads like a mail merge</li>
+<li><code>{{Reference}}</code> — a comparable family, tutor, or school you can name</li>
+<li><code>{{Price}}</code> · <code>{{Tier}}</code> · <code>{{Seats}}</code> — current plan figures; fill from the live price sheet rather than quoting from memory</li>
+<li><code>{{Date}}</code> · <code>{{Demo Link}}</code> · <code>{{Rep Name}}</code> · <code>{{Rep Email}}</code></li>
+</ul>
+<h3 id="subject-line-rules">Subject lines</h3>
 <ul>
 <li>Keep under 50 characters</li>
 <li>Make it specific to their child, students, or school</li>
 <li>Avoid spam triggers (FREE, LIMITED TIME, ACT NOW)</li>
 <li>Questions often outperform statements</li>
 </ul>
-<h3 id="body-rules">Body Rules</h3>
+<h3 id="body-rules">Body</h3>
 <ul>
 <li>Keep first email under 150 words</li>
 <li>One clear call to action</li>
@@ -341,22 +404,23 @@
 </ul>
 <h3 id="timing">Timing</h3>
 <ul>
-<li>Tuesday-Thursday typically best</li>
+<li>Tuesday–Thursday typically best</li>
 <li>Early evening often works for parents (after pickup, before bedtime)</li>
 <li>Avoid Mondays (inbox overload) and Fridays (weekend mode)</li>
 </ul>
-<h3 id="follow-up-cadence">Follow-Up Cadence</h3>
+<h3 id="follow-up-cadence">Follow-up cadence</h3>
 <ul>
 <li>Day 1: Initial email</li>
 <li>Day 3: Follow-up if no response</li>
-<li>Day 7: Different angle/value prop</li>
+<li>Day 7: Different angle / value prop</li>
 <li>Day 14: Final attempt</li>
 <li>Then: Move to nurture sequence</li>
 </ul>
 </article>
 <footer class="sheet-foot">
-  <span>AI Value Prospectors · internal sales enablement · EduAsiste variant of product-research #14</span>
+  <span>AI Value Prospectors · internal sales enablement · EduAsiste sales email templates</span>
   <span><a href="index.html">Back to materials</a></span>
 </footer>
+<a href="#top" class="to-top" aria-label="Back to top">&uarr; Top</a>
 </body>
 </html>
