@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="robots" content="noindex, nofollow">
+    <title>EduAsiste: Twin Feature Guide</title>
+    <style>
+    :root{--aivp:#E8B547;--edu:#2EA3F2;--edu-2:#7cc4f7;--edu-dark:#1d6fb0;--edu-deep:#06243b;
+    --bg:#0F1115;--card-bg:#181B22;--panel:#11151c;--text:#F3F4F6;--text-soft:#C2C6CC;--muted:#9AA0A6;--border:#2A2E37;
+    --bubble-you:#23282f;--bubble-twin:#0e2536;}
+    *{box-sizing:border-box;}
+    body{margin:0;font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;background:var(--bg);color:var(--text);line-height:1.55;min-height:100vh;display:flex;flex-direction:column;}
+    a{color:var(--edu-2);text-decoration:none;}
+    a:hover{text-decoration:underline;}
+    header{padding:36px 24px 22px;text-align:center;border-bottom:1px solid var(--border);}
+    .wordmark{display:inline-flex;align-items:center;gap:10px;margin-bottom:12px;}
+    .wordmark .mark{min-width:38px;height:38px;padding:0 10px;border-radius:9px;background:var(--edu);color:var(--edu-deep);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:15px;}
+    .wordmark .name{font-size:13px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--edu);}
+    .badge{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:var(--edu);color:var(--edu-deep);padding:4px 11px;border-radius:999px;margin-bottom:10px;}
+    header h1{margin:0;font-size:29px;font-weight:800;letter-spacing:-.02em;}
+    header p.sub{margin:9px auto 0;color:var(--muted);font-size:15px;max-width:660px;}
+    header a.back{display:inline-block;margin-top:14px;color:var(--text-soft);font-size:13px;font-weight:600;}
+    header a.back:hover{color:var(--edu);}
+    main{flex:1;max-width:1000px;margin:0 auto;padding:30px 24px;width:100%;}
+    .section-label{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--text-soft);margin:34px 0 0;display:flex;align-items:center;gap:10px;}
+    .section-label:first-of-type{margin-top:4px;}
+    .section-label .pip{width:10px;height:10px;border-radius:50%;background:var(--edu);}
+    .lead{color:var(--text-soft);font-size:15px;max-width:720px;margin:14px 0 0;}
+    .lead strong{color:var(--text);}
+
+    /* Mockup figure — parent dashboard + child chat */
+    figure.mock{margin:22px 0 0;background:var(--panel);border:1px solid var(--border);border-radius:16px;padding:0;overflow:hidden;}
+    .mock-bar{display:flex;align-items:center;gap:8px;padding:11px 16px;border-bottom:1px solid var(--border);background:#0d1117;}
+    .mock-bar .dot{width:11px;height:11px;border-radius:50%;}
+    .mock-bar .dot.r{background:#ff5f56;}.mock-bar .dot.y{background:#ffbd2e;}.mock-bar .dot.g{background:#27c93f;}
+    .mock-bar .title{margin-left:8px;font-size:12px;color:var(--muted);font-weight:600;}
+    .toggle{margin-left:auto;display:flex;border:1px solid var(--border);border-radius:999px;overflow:hidden;font-size:11px;font-weight:700;}
+    .toggle span{padding:4px 12px;color:var(--muted);}
+    .toggle span.on{background:var(--edu);color:var(--edu-deep);}
+    .mock-body{display:grid;grid-template-columns:1fr 1fr;min-height:300px;}
+    .pane{padding:16px 18px;}
+    .pane.parent{border-right:1px solid var(--border);background:#0e1218;}
+    .pane h4{margin:0 0 12px;font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);}
+    .chip-row{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:14px;}
+    .chip{background:var(--card-bg);border:1px solid var(--border);border-radius:11px;padding:9px 13px;min-width:88px;}
+    .chip .v{font-size:19px;font-weight:800;color:var(--edu-2);}
+    .chip .k{font-size:10.5px;color:var(--muted);}
+    .evt{font-size:12.5px;color:var(--text-soft);padding:7px 0;border-top:1px solid var(--border);display:flex;gap:8px;}
+    .evt .d{color:var(--muted);flex:none;}
+    .chat{display:flex;flex-direction:column;gap:11px;padding:16px 18px;}
+    .who{font-size:10.5px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin-bottom:4px;}
+    .bubble{max-width:90%;font-size:13px;padding:10px 13px;border-radius:13px;line-height:1.5;}
+    .bubble.you{align-self:flex-end;background:var(--bubble-you);border-bottom-right-radius:4px;color:var(--text);}
+    .bubble.twin{align-self:flex-start;background:var(--bubble-twin);border:1px solid var(--edu-dark);border-bottom-left-radius:4px;color:#cfe7f7;}
+    figcaption{font-size:12.5px;color:var(--muted);padding:11px 16px;border-top:1px solid var(--border);background:#0d1117;}
+
+    .feat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:16px;margin-top:18px;}
+    .feat{background:var(--card-bg);border:1px solid var(--border);border-radius:14px;padding:20px;display:flex;flex-direction:column;gap:8px;}
+    .feat .ic{width:42px;height:42px;border-radius:11px;background:rgba(46,163,242,.12);display:flex;align-items:center;justify-content:center;}
+    .feat h3{margin:0;font-size:15.5px;font-weight:700;color:#fff;}
+    .feat p{margin:0;font-size:13.5px;color:var(--text-soft);line-height:1.55;}
+    .feat p em{color:var(--edu-2);font-style:normal;font-weight:600;}
+
+    .cta{display:flex;align-items:center;gap:16px;margin-top:18px;padding:18px 22px;border-radius:14px;text-decoration:none;color:inherit;border:1px solid var(--border);background:linear-gradient(135deg,rgba(46,163,242,.12),rgba(24,27,34,.4));transition:transform 120ms,border-color 120ms;}
+    .cta:hover{transform:translateY(-2px);border-color:var(--edu);text-decoration:none;}
+    .cta .dc-icon{flex:none;width:44px;height:44px;border-radius:12px;background:var(--edu);color:var(--edu-deep);display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:800;}
+    .cta .dc-text strong{font-size:16px;display:block;}
+    .cta .dc-text span{font-size:13px;color:var(--text-soft);}
+    .cta .dc-go{margin-left:auto;font-size:13px;font-weight:700;color:var(--edu-2);}
+    footer{text-align:center;color:var(--muted);font-size:13px;padding:26px 24px;border-top:1px solid var(--border);}
+    footer a{color:var(--edu);}
+    @media (max-width:760px){.mock-body{grid-template-columns:1fr;}.pane.parent{border-right:none;border-bottom:1px solid var(--border);}}
+    </style>
+</head>
+<body>
+    <header>
+        <span class="wordmark"><span class="mark">Edu</span><span class="name">EduAsiste</span></span>
+        <div><span class="badge">Twin Feature Guide</span></div>
+        <h1>What the EduAsiste twin does</h1>
+        <p class="sub">A quick tour of the education twin: a linked parent twin and child twin, both speaking as <strong>Eduardo</strong>. The child works through every problem; the parent sees every exchange.</p>
+        <a class="back" href="index.html">&larr; EduAsiste materials</a>
+    </header>
+
+    <main>
+        <p class="section-label"><span class="pip"></span>The shape of it</p>
+        <p class="lead"><strong>One linked pair: a parent twin to set up and monitor, and a child twin the kid talks to directly.</strong> Eduardo is a strict Socratic guide — he never hands over the answer. A Parent/Child toggle in the header flips between the two views. Below: roughly what each side sees.</p>
+
+        <figure class="mock">
+            <div class="mock-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="title">EduAsiste · Eduardo</span>
+                <span class="toggle"><span class="on">Parent</span><span>Child</span></span>
+            </div>
+            <div class="mock-body">
+                <div class="pane parent">
+                    <h4>Parent view — Emma's progress</h4>
+                    <div class="chip-row">
+                        <div class="chip"><div class="v">12</div><div class="k">day streak</div></div>
+                        <div class="chip"><div class="v">3 / 4</div><div class="k">weekly goals</div></div>
+                        <div class="chip"><div class="v">+18%</div><div class="k">spelling trend</div></div>
+                    </div>
+                    <div class="evt"><span class="d">Tue</span><span>Worked through 8 spelling words — 2 needed a second attempt.</span></div>
+                    <div class="evt"><span class="d">Mon</span><span>Asked for the answer on long division; Eduardo redirected.</span></div>
+                    <div class="evt"><span class="d">Sun</span><span>Weekly briefing ready — read in 2 min.</span></div>
+                </div>
+                <div class="chat">
+                    <div>
+                        <div class="who">Emma · age 8</div>
+                        <div class="bubble you">Is the answer 42?</div>
+                    </div>
+                    <div>
+                        <div class="who">Eduardo · child twin</div>
+                        <div class="bubble twin">Close thinking! Let's check it together — what's 6 times 7? Walk me through how you'd work it out.</div>
+                    </div>
+                    <div>
+                        <div class="who">Emma</div>
+                        <div class="bubble you">Oh… 6 sevens. 6, 12, 18…</div>
+                    </div>
+                    <div>
+                        <div class="who">Eduardo</div>
+                        <div class="bubble twin">Keep going — you've got the rhythm. 👏</div>
+                    </div>
+                </div>
+            </div>
+            <figcaption>Illustrative mockup — the parent sees streaks, goals, and every exchange; the child gets one Socratic question at a time, never the answer.</figcaption>
+        </figure>
+
+        <p class="section-label"><span class="pip"></span>Features</p>
+        <div class="feat-grid">
+            <div class="feat">
+                <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2EA3F2" stroke-width="2"><circle cx="9" cy="7" r="3"/><circle cx="17" cy="9" r="2.4"/><path d="M3 21v-1a5 5 0 0 1 5-5h2a5 5 0 0 1 5 5v1"/><path d="M21 21v-1a3.5 3.5 0 0 0-3-3.46"/></svg></div>
+                <h3>Parent + child, one pair</h3>
+                <p>The parent sets up the child's profile and monitors progress; the child talks to Eduardo directly. Both speak as <em>Eduardo</em> — one voice, two views.</p>
+            </div>
+            <div class="feat">
+                <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2EA3F2" stroke-width="2"><path d="M12 3a9 9 0 1 0 9 9"/><path d="M12 7v5l3 2"/><path d="M16 3h5v5"/></svg></div>
+                <h3>Socratic guide</h3>
+                <p>Eduardo never hands over the answer. He reframes wrong answers, deepens correct ones, and asks <em>one question at a time</em> — the child does the work.</p>
+            </div>
+            <div class="feat">
+                <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2EA3F2" stroke-width="2"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg></div>
+                <h3>Full parent visibility</h3>
+                <p>Read every conversation, ask Eduardo yourself, or flip to the child's view with the header toggle. Child-level diagnostics never surface to the child.</p>
+            </div>
+            <div class="feat">
+                <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2EA3F2" stroke-width="2"><path d="M3 3v18h18"/><path d="M7 14l4-4 3 3 5-6"/></svg></div>
+                <h3>Progress tracking</h3>
+                <p>Streaks, goals, and recent learning events surface to the parent, with a weekly briefing — so you see momentum and stumbles without babysitting.</p>
+            </div>
+            <div class="feat">
+                <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2EA3F2" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M9 13l2 2 4-4"/></svg></div>
+                <h3>Knowledge capture + graph</h3>
+                <p>Upload documents and Eduardo extracts them into entity notes and a knowledge graph (Neo4j + Postgres), aligned to your state's curriculum.</p>
+            </div>
+            <div class="feat">
+                <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2EA3F2" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg></div>
+                <h3>Bilingual</h3>
+                <p>Works in English and Spanish — the same twin, ready for bilingual families and students switching between the two.</p>
+            </div>
+        </div>
+
+        <p class="section-label"><span class="pip"></span>See it live</p>
+        <a class="cta" href="../../demos/index.html#edu-institution"><div class="dc-icon">&#9654;</div><div class="dc-text"><strong>Open the EduAsiste demos</strong><span>Live education twins — school admin + teacher, and a mentor/student pair. Demo data only.</span></div><div class="dc-go">Open &rarr;</div></a>
+    </main>
+
+    <footer>EduAsiste · eduasiste.org · internal sales enablement · <a href="index.html">All EduAsiste materials</a></footer>
+</body>
+</html>
