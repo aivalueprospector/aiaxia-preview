@@ -1,76 +1,43 @@
 #!/usr/bin/env python3
 """
-Generate the brand-oriented sales hub pages AND publish the downloadable files.
+Generate the brand sales hub pages from the content HTML — HTML is the source of truth.
 
-  sales/index.html            — common / cross-twin materials + entry links to each brand
-  sales/proasiste/index.html  — ALL ProAsiste materials (view + download in one list)
-  sales/eduasiste/index.html  — ALL EduAsiste materials
+  sales/index.html            — brand chooser (+ any cross-twin materials)
+  sales/proasiste/index.html  — every ProAsiste material, discovered from sales/proasiste/*.html
+  sales/eduasiste/index.html  — every EduAsiste material, discovered from sales/eduasiste/*.html
 
-Each material is one card showing the actions available for it: "View" (browser HTML)
-and/or "Download" (Office file that imports into Google Docs/Sheets/Slides). There is
-no separate templates page — every brand's full kit lives on its brand page.
+Each content page under sales/<brand>/ (except index.html) declares its card in <head>:
 
-Also copies the built Office files from en/ into sales/templates/ for direct download.
-Run after build.py + sheets/*.py.
+    <meta name="card-title" content="Twin Feature Guide">
+    <meta name="card-desc"  content="What the business twin does ...">
+    <meta name="card-order" content="10">
+
+A page with a card-title becomes a card (sorted by card-order). Every card gets a
+"View" link. It also gets a "Download" link IFF a matching Office file already exists in
+sales/templates/ (named "<brand>-<page-stem>.<ext>"). Downloads are produced on demand by
+make_download.py — this script never builds them, it just reflects what's present.
+
+Add a content page with card meta -> it appears on the hub. No second list to maintain.
 """
-import shutil
+import re
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
 SALES = HERE.parent / "sales"
+TEMPLATES = SALES / "templates"
 EXT_LABEL = {"docx": "Doc", "xlsx": "Sheet", "pptx": "Slides"}
 
-# A material: (swatch, title, desc, view_href_or_None, download_filename_or_None)
-COMMON = []  # no shared cross-twin collateral; everything lives on a brand page
-
+# Brand-level presentation only (not a material list — materials are discovered from HTML).
 BRANDS = {
     "proasiste": {
         "display": "ProAsiste", "tag": "Business", "domain": "proasiste.com",
-        "cls": "pro", "swatch": "Pro",
+        "cls": "pro", "swatch": "Pro", "anchor": "#proasiste",
         "blurb": "Everything for the business product. Owner-operators and the small teams around them.",
-        "materials": [
-            ("One-Pager", "Business leave-behind: owner twin plus team twins, five things to do on day one, opener and close. Print-ready.",
-             "one-pager.html", "proasiste-one-pager.docx"),
-            ("Sales Email Templates", "Business outreach by angle: time-saver, competitor, knowledge-loss. Copy, customize, send.",
-             "email-templates.html", "proasiste-email-templates.docx"),
-            ("Two-Twins Pitch Blurbs", "Short ready-to-send emails leading with the two-twins idea (owner twin plus team twins). Pick a version, fill the fields, send.",
-             "pitch-blurbs.html", "proasiste-pitch-blurbs.docx"),
-            ("Quick Reference Card", "One-page cheat sheet: the pitch, the tabs, common pains and how to respond, the tiers. Print-friendly.",
-             "quick-reference.html", "proasiste-quick-reference.docx"),
-            ("Competitive Positioning", "Battle cards vs. ChatGPT and Copilot: their argument, your response, and tables that show the difference.",
-             "competitive.html", "proasiste-competitive.docx"),
-            ("Security FAQ", "Security by tier and by infrastructure, what's included, and the in-house compliance path.",
-             "security-faq.html", "proasiste-security-faq.docx"),
-            ("Customer Personas", "Business buyer profiles with pains, demo focus, and closing language.",
-             "personas.html", "proasiste-personas.docx"),
-            ("How Two Twins Work Together (Deck)", "About 8 slides with speaker notes. Read the outline in the browser or download the editable deck.",
-             "deck.html", "proasiste-pitch-deck.pptx"),
-            ("Twin Tech Across ProAsiste, ExpertAsiste & HelpAsiste", "How one twin engine does three jobs: inward at your team (ProAsiste), sideways at your industry (ExpertAsiste), outward at your customers (HelpAsiste). Side by side.",
-             "twin-tech-explainer.html", "proasiste-twin-tech-explainer.docx"),
-        ],
     },
     "eduasiste": {
         "display": "EduAsiste", "tag": "Education", "domain": "eduasiste.org",
-        "cls": "edu", "swatch": "Edu",
+        "cls": "edu", "swatch": "Edu", "anchor": "#edu-institution",
         "blurb": "Everything for the education product. Families, tutors, homeschoolers, and small schools.",
-        "materials": [
-            ("One-Pager", "Education leave-behind: parent twin plus child's learning twin, five things to do on day one, opener and close. Print-ready.",
-             "one-pager.html", "eduasiste-one-pager.docx"),
-            ("Sales Email Templates", "Parent, tutor, and school outreach. Copy, customize, send.",
-             "email-templates.html", "eduasiste-email-templates.docx"),
-            ("Two-Twins Pitch Blurbs", "Short ready-to-send emails leading with the two-twins idea (parent twin plus child's twin). Pick a version, fill the fields, send.",
-             "pitch-blurbs.html", "eduasiste-pitch-blurbs.docx"),
-            ("Quick Reference Card", "One-page cheat sheet for parent and school calls. Print-friendly.",
-             "quick-reference.html", "eduasiste-quick-reference.docx"),
-            ("Competitive Positioning", "Battle cards vs. generic AI, grade portals, content libraries, and tutoring.",
-             "competitive.html", "eduasiste-competitive.docx"),
-            ("Security FAQ", "FERPA, COPPA, and GDPR, how we handle minors' data, and what we keep transparent.",
-             "security-faq.html", "eduasiste-security-faq.docx"),
-            ("Customer Personas", "Five education buyer profiles with demo focus and closing language.",
-             "personas.html", "eduasiste-personas.docx"),
-            ("How Two Twins Work Together (Deck)", "About 8 slides with speaker notes. Read the outline in the browser or download the editable deck.",
-             "deck.html", "eduasiste-pitch-deck.pptx"),
-        ],
     },
 }
 
@@ -131,19 +98,59 @@ CSS = """
     footer a{color:var(--ACCENT);text-decoration:none;}
 """
 
+HOWTO = ('<div class="howto"><b>Downloads:</b> drag a downloaded file into Google Drive '
+         '(it converts to a native Doc / Sheet / Slides), then <b>File → Make a copy</b>, '
+         'replace every <b>highlighted {{field}}</b>, and <b>Download → PDF</b> to send.</div>')
 
-def material_card(swatch, title, desc, view, download, view_prefix, dl_prefix):
-    acts = []
-    if view:
-        acts.append(f'<a class="view" href="{view_prefix}{view}">View →</a>')
-    if download:
-        ext = download.rsplit(".", 1)[1]
-        acts.append(f'<a class="dl" href="{dl_prefix}{download}" download>Download {EXT_LABEL[ext]}</a>')
+_META = lambda name, txt: (re.search(rf'<meta\s+name="{name}"\s+content="([^"]*)"', txt) or [None, None])[1]
+
+
+def scan_cards(brand):
+    """Discover material cards from sales/<brand>/*.html via their card-* meta tags."""
+    cards = []
+    for page in sorted((SALES / brand).glob("*.html")):
+        if page.name == "index.html":
+            continue
+        head = page.read_text()[:4000]
+        title = _META("card-title", head)
+        if not title:
+            print(f"  skip {brand}/{page.name}: no card-title meta")
+            continue
+        desc = _META("card-desc", head) or ""
+        order = _META("card-order", head)
+        order = int(order) if order and order.isdigit() else 9999
+        # explicit card-download meta wins (handles stem != filename, e.g. deck -> pitch-deck);
+        # otherwise auto-detect <brand>-<stem>.<ext> in sales/templates/
+        explicit = _META("card-download", head)
+        if explicit and (TEMPLATES / explicit).exists():
+            download = explicit
+        else:
+            download = find_download(brand, page.stem)
+        cards.append({"title": title, "desc": desc, "order": order,
+                      "view": page.name, "download": download})
+    cards.sort(key=lambda c: (c["order"], c["title"]))
+    return cards
+
+
+def find_download(brand, stem):
+    """Return the templates/ filename for this page if a built Office file exists, else None."""
+    for ext in ("docx", "pptx", "xlsx"):
+        f = TEMPLATES / f"{brand}-{stem}.{ext}"
+        if f.exists():
+            return f.name
+    return None
+
+
+def material_card(swatch, card, view_prefix="", dl_prefix="../templates/"):
+    acts = [f'<a class="view" href="{view_prefix}{card["view"]}">View →</a>']
+    if card["download"]:
+        ext = card["download"].rsplit(".", 1)[1]
+        acts.append(f'<a class="dl" href="{dl_prefix}{card["download"]}" download>Download {EXT_LABEL[ext]}</a>')
     actions = "\n                ".join(acts)
     return f'''            <div class="card">
                 <div class="swatch">{swatch}</div>
-                <h2>{title}</h2>
-                <div class="desc">{desc}</div>
+                <h2>{card["title"]}</h2>
+                <div class="desc">{card["desc"]}</div>
                 <div class="actions">
                 {actions}
                 </div>
@@ -171,53 +178,12 @@ def shell(accent_var, title, header_html, main_html, foot):
 </html>
 '''
 
-HOWTO = ('<div class="howto"><b>Downloads:</b> drag a downloaded file into Google Drive '
-         '(it converts to a native Doc / Sheet / Slides), then <b>File → Make a copy</b>, '
-         'replace every <b>highlighted {{field}}</b>, and <b>Download → PDF</b> to send.</div>')
-
 
 def demos_cta(href, subtitle):
     return (f'<a class="demos-cta" href="{href}">'
             f'<div class="dc-icon">&#9654;</div>'
             f'<div class="dc-text"><strong>Twin Demos</strong><span>{subtitle}</span></div>'
             f'<div class="dc-go">Open &rarr;</div></a>')
-
-
-def build_common():
-    header = '''    <header>
-        <span class="wordmark"><span class="mark">Ai</span><span class="name">AI Value Prospectors</span></span>
-        <h1>Sales materials</h1>
-        <p>Pick your brand for its full kit, or grab a shared cross-twin asset below.</p>
-    </header>'''
-    entries = []
-    for key, b in BRANDS.items():
-        entries.append(f'''            <a class="brand-entry {b['cls']}" href="{key}/">
-                <div class="be-top"><div class="be-chip">{b['swatch']}</div>
-                    <div><h2>{b['display']}</h2><div class="be-sub">{b['tag']} · {b['domain']}</div></div></div>
-                <div class="be-desc">{b['blurb']}</div>
-                <div class="be-go">Open {b['display']} materials →</div>
-            </a>''')
-    cards = "\n".join(material_card(*m, view_prefix="", dl_prefix="templates/") for m in COMMON)
-    demos = demos_cta("../demos/index.html",
-                      "Explore the live, interactive demo twins for both brands. Demo data only.")
-    common_section = ""
-    if COMMON:
-        common_section = f'''
-
-        <p class="section-label"><span class="pip"></span>Cross-twin &amp; platform <span class="hint">shared by both brands</span></p>
-        {HOWTO}
-        <div class="card-grid">
-{cards}
-        </div>'''
-    main = f'''        <p class="section-label"><span class="pip"></span>Choose your brand</p>
-        <div class="brand-grid">
-{chr(10).join(entries)}
-        </div>
-
-        <p class="section-label"><span class="pip"></span>Live demos</p>
-        {demos}{common_section}'''
-    foot = 'AI Value Prospectors · internal sales enablement · Source: <a href="https://github.com/aivalueprospector/product-research">product-research</a>'
-    (SALES / "index.html").write_text(shell("aivp", "AI Value Prospectors: Sales materials", header, main, foot))
 
 
 def build_brand(key, b):
@@ -227,42 +193,59 @@ def build_brand(key, b):
         <p>{b['blurb']}</p>
         <a class="back" href="../index.html">&larr; All sales materials</a>
     </header>'''
-    cards = "\n".join(material_card(b["swatch"], *m, view_prefix="", dl_prefix="../templates/")
-                      for m in b["materials"])
-    anchor = {"proasiste": "#proasiste", "eduasiste": "#edu-institution"}[key]
-    demos = demos_cta(f"../../demos/index.html{anchor}",
+    cards = scan_cards(key)
+    cards_html = "\n".join(material_card(b["swatch"], c) for c in cards)
+    howto = HOWTO if any(c["download"] for c in cards) else ""
+    demos = demos_cta(f"../../demos/index.html{b['anchor']}",
                       f"Jump to the live {b['display']} demo twins. Demo data only.")
     main = f'''        <p class="section-label"><span class="pip"></span>Live demos</p>
         {demos}
 
         <p class="section-label"><span class="pip"></span>{b['display']} materials</p>
-        {HOWTO}
+        {howto}
         <div class="card-grid">
-{cards}
+{cards_html}
         </div>'''
     foot = f'{b["display"]} · {b["domain"]} · internal sales enablement · <a href="../index.html">All materials</a>'
     out = SALES / key / "index.html"
     out.parent.mkdir(exist_ok=True)
     out.write_text(shell(b["cls"], f"{b['display']}: Sales materials", header, main, foot))
+    n_dl = sum(1 for c in cards if c["download"])
+    print(f"  {key}: {len(cards)} cards ({n_dl} with downloads)")
 
 
-def publish_files():
-    pub = SALES / "templates"
-    pub.mkdir(exist_ok=True)
-    n = 0
-    for f in sorted((HERE / "en").glob("*")):
-        if f.suffix in (".docx", ".xlsx", ".pptx"):
-            shutil.copy2(f, pub / f.name)
-            n += 1
-    return n
+def build_common():
+    header = '''    <header>
+        <span class="wordmark"><span class="mark">Ai</span><span class="name">AI Value Prospectors</span></span>
+        <h1>Sales materials</h1>
+        <p>Pick your brand for its full kit.</p>
+    </header>'''
+    entries = []
+    for key, b in BRANDS.items():
+        entries.append(f'''            <a class="brand-entry {b['cls']}" href="{key}/">
+                <div class="be-top"><div class="be-chip">{b['swatch']}</div>
+                    <div><h2>{b['display']}</h2><div class="be-sub">{b['tag']} · {b['domain']}</div></div></div>
+                <div class="be-desc">{b['blurb']}</div>
+                <div class="be-go">Open {b['display']} materials →</div>
+            </a>''')
+    demos = demos_cta("../demos/index.html",
+                      "Explore the live, interactive demo twins for both brands. Demo data only.")
+    main = f'''        <p class="section-label"><span class="pip"></span>Choose your brand</p>
+        <div class="brand-grid">
+{chr(10).join(entries)}
+        </div>
+
+        <p class="section-label"><span class="pip"></span>Live demos</p>
+        {demos}'''
+    foot = 'AI Value Prospectors · internal sales enablement · Source: <a href="https://github.com/aivalueprospector/aiaxia-preview">aiaxia-preview</a>'
+    (SALES / "index.html").write_text(shell("aivp", "AI Value Prospectors: Sales materials", header, main, foot))
 
 
 def main():
-    n = publish_files()
     build_common()
     for key, b in BRANDS.items():
         build_brand(key, b)
-    print(f"published {n} files to sales/templates/; wrote index.html + 2 brand hubs")
+    print("wrote index.html + 2 brand hubs (cards discovered from sales/<brand>/*.html)")
 
 
 if __name__ == "__main__":

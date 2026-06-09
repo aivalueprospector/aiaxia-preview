@@ -1,50 +1,67 @@
-# Sales templates (issue #31)
+# Sales templates
 
-Branded, copy-and-customize sales templates for **AI Value Prospectors / ProAsiste / EduAsiste**,
-delivered as Office files that import into Google Workspace (`.docx`→Docs, `.xlsx`→Sheets,
-`.pptx`→Slides). A rep opens one, **File → Make a copy**, replaces the highlighted `{{fields}}`,
-and **Download → PDF**.
+Sales materials for **ProAsiste** and **EduAsiste**. **The content HTML pages are the
+source of truth.** They live in `sales/<brand>/` and are served as web pages. Office
+downloads (`.docx`) are generated **on demand** from those pages.
 
-Outputs live in [`en/`](en). `gen_hubs.py` publishes them into `sales/templates/` and lists every
-material on its brand page (`sales/index.html`, `sales/proasiste/`, `sales/eduasiste/`).
+## Source of truth
 
-## Build
+```
+sales/<brand>/*.html          content pages (web-first, print-ready)  ← edit these
+   │
+   ├─ <head> declares the hub card:
+   │     <meta name="card-title" content="Twin Feature Guide">
+   │     <meta name="card-desc"  content="...">
+   │     <meta name="card-order" content="10">
+   │
+   ├─ gen_hubs.py       scans the pages → writes sales/index.html + brand hubs
+   └─ make_download.py  pandoc HTML→docx (on demand) → sales/templates/
+```
+
+Add a content page with `card-*` meta → it appears on the brand hub automatically. There is
+no second list of materials to keep in sync.
+
+## Common tasks
 
 ```bash
-# from repo root; needs pandoc + python-docx + openpyxl + python-pptx
-python3 -m venv --system-site-packages ../.venv-templates
-../.venv-templates/bin/pip install python-pptx
-../.venv-templates/bin/python branding.py            # reference-docs/{brand}.docx|.pptx
-../.venv-templates/bin/python build.py               # Docs + Slides from templates.map
-../.venv-templates/bin/python sheets/roi_calculator.py
-../.venv-templates/bin/python sheets/pipeline_tracker.py
-../.venv-templates/bin/python gen_hubs.py            # publishes sales/templates/ + brand hub pages
+# Regenerate the hub index pages (run after adding/editing a content page)
+python3 gen_hubs.py
+
+# Build a download for one or more pages, on demand (page-stem = filename without .html)
+python3 make_download.py proasiste one-pager
+python3 make_download.py eduasiste competitive security-faq
 ```
+
+`gen_hubs.py` gives every card a **View** link, and a **Download** link only if a matching
+`sales/templates/<brand>-<stem>.docx` exists. `make_download.py` builds that file and re-runs
+`gen_hubs.py`, so the Download button appears once the download exists.
 
 ## Layout
 
 | Path | What |
 |---|---|
-| `brands.json` | per-brand colors, logo, domain |
-| `branding.py` | builds branded pandoc reference docs (colors, fonts, logo header, `Placeholder` highlight style) |
-| `tokens.json` | per-artifact `{{field}}` lists (drives the auto "HOW TO USE" box) |
-| `templates.map` | driver rows: `slug\|fmt\|brand\|src_md\|title` |
-| `build.py` | normalizes tokens → highlighted spans, prepends HOW-TO box, runs pandoc |
-| `sheets/*.py` | openpyxl ROI calculator + pipeline tracker (live formulas, dropdowns) |
-| `src/en/` | source markdown (English) |
-| `en/` | generated `.docx` / `.xlsx` / `.pptx` |
-| `gen_hubs.py` | publishes `en/` → `sales/templates/` and regenerates the brand hub pages (common + ProAsiste + EduAsiste), each listing all that brand's materials with View / Download actions |
+| `sales/<brand>/*.html` | **source of truth** — content pages + their card meta |
+| `sales/<brand>/index.html` | generated hub (do not hand-edit; rerun `gen_hubs.py`) |
+| `sales/templates/` | on-demand `.docx` downloads (only what `make_download.py` has built) |
+| `gen_hubs.py` | discover cards from HTML → write hub pages |
+| `make_download.py` | HTML → branded `.docx` on demand |
+| `branding.py`, `brands.json` | build the brand reference docs used for HTML→docx styling |
+| `reference-docs/` | brand-styled pandoc reference docs (`<brand>.docx`) |
+| `sheets/*.py` | openpyxl ROI calculator + pipeline tracker (`.xlsx`, separate) |
 
 ## Conventions
 
-- Placeholders: `{{Field Name}}` → rendered as a highlighted run reps replace. Never wrapped inside code spans.
-- Each Doc/Slides opens with an auto-generated **HOW TO USE** callout listing that file's fields.
-- Sheets expose inputs as yellow cells with dropdown validation; rate card / waiver logic from
-  `twincloud/docs/PRICING-SPEC.md`.
+- **Edit content in the HTML pages.** Hub `index.html` files are generated output.
+- A content page joins its brand hub by declaring `card-title` / `card-desc` / `card-order`
+  meta. No meta → not listed.
+- Placeholders for reps stay as literal `{{Field}}` text in the HTML; they carry through to
+  the generated `.docx`.
+- Decks (`.pptx`) and sheets (`.xlsx`) are not produced by `make_download.py` (pandoc
+  HTML→pptx is lossy). Build those separately; `gen_hubs.py` still links any that exist in
+  `sales/templates/`.
 
-## Deferred (out of scope for #31)
+## History
 
-- **Drive delivery** — uploading to a shared Drive folder, "Anyone with link – Viewer", and the
-  one-click `…/copy` share links. The index page is built to hold those links when a folder exists.
-- **Spanish (`es/`)** — pipeline is language-agnostic; translate `src/en/*.md` → `src/es/*.md` and
-  rebuild. Hold until the English set is approved.
+The previous markdown → Office pipeline (`build.py`, `templates.map`, `src/en/*.md`,
+`tokens.json`, `en/`) was retired in favor of this HTML-first flow. It is documented in
+issue #19 and recoverable from git history if needed.

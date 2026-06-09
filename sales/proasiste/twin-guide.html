@@ -4,11 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <meta name="robots" content="noindex, nofollow">
-    <title>ProAsiste: Twin Feature Guide</title>
+<meta name="card-title" content="Twin Guide">
+<meta name="card-desc" content="What the business twin does and how to use it: owner twin plus team twins, the knowledge graph, roles, capturing knowledge, asking Mente, and generating reports. Legal twins included. Start here.">
+<meta name="card-order" content="10">
+    <title>ProAsiste: Twin Guide</title>
     <style>
     :root{--aivp:#E8B547;--pro:#CFB382;--pro-dark:#92700f;--pro-deep:#1c1608;
     --bg:#0F1115;--card-bg:#181B22;--panel:#11151c;--text:#F3F4F6;--text-soft:#C2C6CC;--muted:#9AA0A6;--border:#2A2E37;
-    --bubble-you:#23282f;--bubble-twin:#2c2410;}
+    --bubble-you:#23282f;--bubble-twin:#2c2410;--warn-bg:#241f0e;--warn-bd:#5d4f1d;--warn-tx:#e7cf8c;}
     *{box-sizing:border-box;}
     body{margin:0;font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;background:var(--bg);color:var(--text);line-height:1.55;min-height:100vh;display:flex;flex-direction:column;}
     a{color:var(--pro);text-decoration:none;}
@@ -19,15 +22,34 @@
     .wordmark .name{font-size:13px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--pro);}
     .badge{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:var(--pro);color:#0F1115;padding:4px 11px;border-radius:999px;margin-bottom:10px;}
     header h1{margin:0;font-size:29px;font-weight:800;letter-spacing:-.02em;}
-    header p.sub{margin:9px auto 0;color:var(--muted);font-size:15px;max-width:660px;}
+    header p.sub{margin:9px auto 0;color:var(--muted);font-size:15px;max-width:680px;}
     header a.back{display:inline-block;margin-top:14px;color:var(--text-soft);font-size:13px;font-weight:600;}
     header a.back:hover{color:var(--pro);}
-    main{flex:1;max-width:1000px;margin:0 auto;padding:30px 24px;width:100%;}
-    .section-label{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--text-soft);margin:34px 0 0;display:flex;align-items:center;gap:10px;}
-    .section-label:first-of-type{margin-top:4px;}
+    main{flex:1;max-width:1000px;margin:0 auto;padding:8px 24px 24px;width:100%;}
+
+    /* table of contents */
+    .toc{display:flex;flex-wrap:wrap;gap:8px;margin:24px 0 0;}
+    .toc a{font-size:12.5px;font-weight:600;color:var(--text-soft);border:1px solid var(--border);border-radius:999px;padding:6px 13px;}
+    .toc a:hover{border-color:var(--pro);color:var(--pro);text-decoration:none;}
+
+    .section-label{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--text-soft);margin:40px 0 0;display:flex;align-items:center;gap:10px;scroll-margin-top:20px;}
     .section-label .pip{width:10px;height:10px;border-radius:50%;background:var(--pro);}
-    .lead{color:var(--text-soft);font-size:15px;max-width:720px;margin:14px 0 0;}
+    .lead{color:var(--text-soft);font-size:15px;max-width:760px;margin:14px 0 0;}
     .lead strong{color:var(--text);}
+    h3.sub{font-size:16px;color:#fff;margin:22px 0 6px;}
+
+    /* persona panel */
+    .persona{display:flex;gap:16px;align-items:flex-start;background:var(--card-bg);border:1px solid var(--border);border-radius:14px;padding:18px 20px;margin-top:16px;}
+    .persona .pic{flex:none;width:52px;height:52px;border-radius:13px;background:rgba(207,179,130,.14);display:flex;align-items:center;justify-content:center;}
+    .persona h3{margin:0 0 4px;font-size:16px;color:var(--pro);}
+    .persona p{margin:0;font-size:13.5px;color:var(--text-soft);}
+
+    /* reference table */
+    table.ref{width:100%;border-collapse:collapse;background:var(--card-bg);border:1px solid var(--border);border-radius:12px;overflow:hidden;font-size:13px;margin-top:14px;}
+    table.ref th,table.ref td{text-align:left;padding:10px 13px;border-bottom:1px solid var(--border);vertical-align:top;color:var(--text-soft);}
+    table.ref th{background:#1b160a;color:var(--pro);font-weight:700;font-size:11.5px;text-transform:uppercase;letter-spacing:.03em;}
+    table.ref tr:last-child td{border-bottom:none;}
+    table.ref td strong{color:#fff;}
 
     /* Mockup figure */
     figure.mock{margin:22px 0 0;background:var(--panel);border:1px solid var(--border);border-radius:16px;padding:0;overflow:hidden;}
@@ -35,7 +57,7 @@
     .mock-bar .dot{width:11px;height:11px;border-radius:50%;}
     .mock-bar .dot.r{background:#ff5f56;}.mock-bar .dot.y{background:#ffbd2e;}.mock-bar .dot.g{background:#27c93f;}
     .mock-bar .title{margin-left:8px;font-size:12px;color:var(--muted);font-weight:600;}
-    .mock-body{display:grid;grid-template-columns:1fr 232px;min-height:300px;}
+    .mock-body{display:grid;grid-template-columns:1fr 250px;min-height:300px;}
     .chat{padding:18px;display:flex;flex-direction:column;gap:12px;border-right:1px solid var(--border);}
     .chat .cinput{margin-top:auto;display:flex;align-items:center;justify-content:space-between;gap:8px;border:1px solid var(--border);border-radius:10px;padding:9px 12px;color:var(--muted);font-size:12.5px;background:#0d1117;}
     .who{font-size:10.5px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin-bottom:4px;}
@@ -47,6 +69,11 @@
     .side .tabs{display:flex;border-bottom:1px solid var(--border);}
     .side .tabs .t{flex:1;text-align:center;padding:10px 4px;font-size:11px;font-weight:700;color:var(--muted);border-bottom:2px solid transparent;}
     .side .tabs .t.on{color:var(--pro);border-bottom-color:var(--pro);background:rgba(207,179,130,.08);}
+    .side .scontent{padding:14px;}
+    .side .sc-h{font-size:10.5px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin-bottom:6px;}
+    .side .item{display:flex;align-items:center;gap:8px;font-size:12.5px;color:var(--text-soft);padding:8px 0;border-bottom:1px solid var(--border);}
+    .side .item:last-child{border-bottom:none;}
+    .side .item svg{flex:none;}
     .graph{padding:14px 12px;}
     .graph .gh{font-size:10.5px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin-bottom:6px;}
     figcaption{font-size:12.5px;color:var(--muted);padding:11px 16px;border-top:1px solid var(--border);background:#0d1117;}
@@ -59,10 +86,21 @@
     .feat p{margin:0;font-size:13.5px;color:var(--text-soft);line-height:1.55;}
     .feat p em{color:var(--pro);font-style:normal;font-weight:600;}
 
+    /* how-to steps */
+    .steps{margin-top:14px;display:flex;flex-direction:column;gap:10px;}
+    .step{display:flex;gap:14px;background:var(--card-bg);border:1px solid var(--border);border-radius:12px;padding:15px 17px;}
+    .step .n{flex:none;width:28px;height:28px;border-radius:50%;background:var(--pro);color:#0F1115;font-weight:800;font-size:14px;display:flex;align-items:center;justify-content:center;}
+    .step .b h4{margin:0 0 3px;font-size:14.5px;color:#fff;}
+    .step .b p{margin:0;font-size:13.5px;color:var(--text-soft);}
+    .step .b code{background:#222631;padding:1px 6px;border-radius:5px;font-size:.85em;color:#dbe2ea;}
+
+    .note{background:var(--warn-bg);border:1px solid var(--warn-bd);color:var(--warn-tx);border-radius:10px;padding:12px 16px;font-size:13px;margin-top:14px;}
+    .note strong{color:#fff;}
+
     .cta{display:flex;align-items:center;gap:16px;margin-top:18px;padding:18px 22px;border-radius:14px;text-decoration:none;color:inherit;border:1px solid var(--border);background:linear-gradient(135deg,rgba(207,179,130,.12),rgba(24,27,34,.4));transition:transform 120ms,border-color 120ms;}
     .cta:hover{transform:translateY(-2px);border-color:var(--pro);text-decoration:none;}
     .cta .dc-icon{flex:none;width:44px;height:44px;border-radius:12px;background:var(--pro);color:#0F1115;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:800;}
-    .cta .dc-text strong{font-size:16px;display:block;}
+    .cta .dc-text strong{font-size:16px;display:block;color:var(--text);}
     .cta .dc-text span{font-size:13px;color:var(--text-soft);}
     .cta .dc-go{margin-left:auto;font-size:13px;font-weight:700;color:var(--pro);}
     footer{text-align:center;color:var(--muted);font-size:13px;padding:26px 24px;border-top:1px solid var(--border);}
@@ -73,14 +111,28 @@
 <body>
     <header>
         <span class="wordmark"><span class="mark">Pro</span><span class="name">ProAsiste</span></span>
-        <div><span class="badge">Twin Feature Guide</span></div>
-        <h1>What the ProAsiste twin does</h1>
-        <p class="sub">A quick tour of the business twin: every person on your team gets their own AI twin, you get an owner twin, and the twins talk to each other so you can run the business without sitting in every meeting.</p>
+        <div><span class="badge">Twin Guide</span></div>
+        <h1>The ProAsiste twin</h1>
+        <p class="sub">What the business twin does, then how to use it. Every person on your team gets their own AI twin, you get an owner twin, and the twins talk to each other so you can run the business without sitting in every meeting. Your twin speaks as <strong>Mente</strong>.</p>
         <a class="back" href="index.html">&larr; ProAsiste materials</a>
     </header>
 
     <main>
-        <p class="section-label"><span class="pip"></span>The shape of it</p>
+        <nav class="toc">
+            <a href="#what">What it does</a>
+            <a href="#mente">Meet Mente</a>
+            <a href="#types">Which twin you have</a>
+            <a href="#interface">The interface</a>
+            <a href="#capture">Capture knowledge</a>
+            <a href="#graph">Knowledge graph</a>
+            <a href="#ask">Ask your twin</a>
+            <a href="#reports">Generate reports</a>
+            <a href="#legal">Legal twins</a>
+            <a href="#languages">Languages</a>
+            <a href="#demos">Try it live</a>
+        </nav>
+
+        <p class="section-label" id="what"><span class="pip"></span>What the twin does</p>
         <p class="lead"><strong>One owner twin + a twin per team member, all on the same knowledge brain.</strong> Documents, conversations, and spreadsheets become linked, searchable knowledge — and the engine learns while you work, with no separate training step. Below: roughly what the owner sees.</p>
 
         <figure class="mock">
@@ -122,7 +174,6 @@
             <figcaption>Illustrative mockup — chat on the left; the sidebar on the right holds your tabs (Notes shown, with the knowledge graph behind the answer). The owner twin answers from the team's own work, citing the team twin and graph entities.</figcaption>
         </figure>
 
-        <p class="section-label"><span class="pip"></span>Features</p>
         <div class="feat-grid">
             <div class="feat">
                 <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#CFB382" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h6"/><path d="M16 3h5v5"/><path d="M21 3l-7 7"/></svg></div>
@@ -156,8 +207,108 @@
             </div>
         </div>
 
-        <p class="section-label"><span class="pip"></span>See it live</p>
-        <a class="cta" href="../../demos/index.html#proasiste"><div class="dc-icon">&#9654;</div><div class="dc-text"><strong>Open the ProAsiste demos</strong><span>Five live business twins — law firm, auto shop, woodworks, freight, agency. Demo data only.</span></div><div class="dc-go">Open &rarr;</div></a>
+        <p class="section-label" id="mente"><span class="pip"></span>Meet Mente</p>
+        <div class="persona">
+            <div class="pic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#CFB382" stroke-width="2"><path d="M12 2a5 5 0 0 1 5 5v1a5 5 0 0 1-10 0V7a5 5 0 0 1 5-5z"/><path d="M4 21v-1a6 6 0 0 1 6-6h4a6 6 0 0 1 6 6v1"/></svg></div>
+            <div>
+                <h3>Mente — your professional assistant</h3>
+                <p>Every ProAsiste twin speaks as Mente: professional, efficient, first-person. Mente leads with the answer and then the detail, asks one question at a time (never a compound question), and never uses emojis or em-dashes — output is built to drop straight into board decks, client emails, and legal filings.</p>
+            </div>
+        </div>
+
+        <p class="section-label" id="types"><span class="pip"></span>Which twin you have</p>
+        <p class="lead">ProAsiste comes in three types. Which one you were set up with decides who can use it and what extra abilities you get.</p>
+        <table class="ref">
+            <tr><th>Twin type</th><th>Who it's for</th><th>Who uses it</th></tr>
+            <tr><td><strong>Individual Professional</strong></td><td>A solo business owner or single practitioner — no team.</td><td>One administrator. Mente acts as your personal professional assistant.</td></tr>
+            <tr><td><strong>Legal Advisor</strong></td><td>A lawyer, partner, or legal counsel.</td><td>One administrator, on a legal-specialized version of Mente (see <a href="#legal">Legal twins</a>).</td></tr>
+            <tr><td><strong>Professional Organization</strong></td><td>A multi-person firm or department.</td><td>Administrators (org-wide view, cross-team patterns) and employees (their own + team-shared scope).</td></tr>
+        </table>
+        <div class="note"><strong>Industry tuning.</strong> Business twins can be tuned to a vertical (consulting, healthcare, finance, real estate, tech, manufacturing, logistics, and more). When a vertical match exists, Mente uses language and structure suited to that field; otherwise it uses the general business assistant.</div>
+
+        <p class="section-label" id="interface"><span class="pip"></span>The interface</p>
+        <p class="lead">You talk to Mente in the <strong>chat panel on the left</strong>. A <strong>sidebar on the right</strong> holds your tabs — and which tabs you see depends on your twin type and role. Here is the shape of it.</p>
+        <figure class="mock">
+            <div class="mock-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="title">ProAsiste · Mente · Individual Professional</span></div>
+            <div class="mock-body">
+                <div class="chat">
+                    <div><div class="who">You · administrator</div><div class="bubble you">Draft the Q3 operations summary for the board.</div></div>
+                    <div><div class="who">Mente</div><div class="bubble twin">I found your "Quarterly Ops Summary" template in your sources. Here is the plan before I generate:<br>• Structure: KPIs, incidents, supplier status, next-quarter risks<br>• Source: events + supplier entities, Jul–Sep<br>• Output: PDF to your Reports tab<br>Approve and I'll build it.</div></div>
+                    <div class="cinput"><span>Ask Mente…</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#CFB382" stroke-width="2"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4 20-7z"/></svg></div>
+                </div>
+                <aside class="side">
+                    <div class="tabs"><span class="t">Notes</span><span class="t">Uploads</span><span class="t on">Reports</span></div>
+                    <div class="scontent">
+                        <div class="sc-h">Reports</div>
+                        <div class="item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#CFB382" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>Q3 Ops Summary.pdf</div>
+                        <div class="item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#9AA0A6" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>Supplier review.xlsx</div>
+                        <div class="item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#9AA0A6" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>Board deck.docx</div>
+                    </div>
+                </aside>
+            </div>
+            <figcaption>Illustrative mockup. The <strong>chat panel is on the left</strong>; the <strong>sidebar on the right</strong> holds your tabs. Which tabs appear depends on your twin type and role — see the table below.</figcaption>
+        </figure>
+
+        <h3 class="sub">Your sidebar tabs</h3>
+        <p class="lead"><strong>Notes</strong> is your knowledge — entity notes, events, and goals as linked notes. <strong>Uploads</strong> is where you add documents. <strong>Reports</strong> holds generated output. The set you see is decided by your twin type and role:</p>
+        <table class="ref">
+            <tr><th>Twin &amp; role</th><th>Sidebar tabs</th></tr>
+            <tr><td><strong>Individual Professional</strong> · administrator</td><td>Notes · Uploads · Reports</td></tr>
+            <tr><td><strong>Professional Organization</strong> · administrator or employee</td><td>Notes · Uploads · Reports</td></tr>
+            <tr><td><strong>Legal Advisor</strong> · administrator</td><td>Notes · Uploads <em>(Reports hidden — see below)</em></td></tr>
+        </table>
+
+        <p class="section-label" id="capture"><span class="pip"></span>Capture knowledge</p>
+        <p class="lead">The twin learns from your documents and conversations — there is no separate training step. Feeding it is the main thing you do on day one.</p>
+        <div class="steps">
+            <div class="step"><div class="n">1</div><div class="b"><h4>Open the Uploads tab</h4><p>In the right sidebar, upload PDFs, Word documents, spreadsheets, or images. The twin extracts the text and structure automatically.</p></div></div>
+            <div class="step"><div class="n">2</div><div class="b"><h4>Let it build entity notes</h4><p>From each document the twin creates <strong>entity notes</strong> — one per supplier, customer, employee, product, or process it finds — and links them together.</p></div></div>
+            <div class="step"><div class="n">3</div><div class="b"><h4>Your private vault stays private</h4><p>The full picture, with real names, lives in a private markdown vault. A separate, obfuscated projection drives the shared graph view, so structure can be shown safely.</p></div></div>
+        </div>
+
+        <p class="section-label" id="graph"><span class="pip"></span>Explore your knowledge graph</p>
+        <p class="lead">Everything the twin knows is connected. The <strong>Notes</strong> tab is how you browse it — entities, their links, events, and goals all live there as linked notes.</p>
+        <table class="ref">
+            <tr><th>What</th><th>Where</th><th>What you see</th></tr>
+            <tr><td><strong>Entities</strong></td><td>Notes tab</td><td>Cards and notes for people, suppliers, customers, products, processes — mirrored from the graph.</td></tr>
+            <tr><td><strong>Relationships</strong></td><td>Notes tab</td><td>The links between entities (which supplier serves which customer, who owns which process).</td></tr>
+            <tr><td><strong>Events &amp; causes</strong></td><td>Notes tab</td><td>Timestamped activity — transactions, deadlines, incidents — and the causal links between them.</td></tr>
+            <tr><td><strong>Goals</strong></td><td>Notes tab</td><td>Measurable objectives with progress tracking.</td></tr>
+        </table>
+
+        <p class="section-label" id="ask"><span class="pip"></span>Ask your twin</p>
+        <p class="lead">The Chat tab is where most of the value is. Ask in plain language; Mente answers from your own knowledge and remembers across sessions.</p>
+        <div class="steps">
+            <div class="step"><div class="n">✓</div><div class="b"><h4>Ask anything about your business</h4><p><em>"Which suppliers are behind this month?"</em> · <em>"Summarize the Riverside account."</em> Mente answers from your entities and events, not the open internet.</p></div></div>
+            <div class="step"><div class="n">✓</div><div class="b"><h4>It remembers</h4><p>Tell Mente a fact, preference, or correction once and it recalls it later. You can ask it what it remembers, and add or remove memories.</p></div></div>
+            <div class="step"><div class="n">✓</div><div class="b"><h4>Firms: one question reaches the whole team</h4><p>In a Professional Organization twin, an administrator's question can draw on the team's twins — ask <em>"Where do the Q3 installs stand?"</em> and the answer comes back without chasing anyone.</p></div></div>
+        </div>
+
+        <p class="section-label" id="reports"><span class="pip"></span>Generate reports</p>
+        <p class="lead">Reports are <strong>template-driven and two-phase</strong>, so output matches the format you already use and nothing is generated until you approve it.</p>
+        <div class="steps">
+            <div class="step"><div class="n">1</div><div class="b"><h4>Template lookup</h4><p>Mente searches your sources for a matching template. If it can't find one, it asks you to upload an example rather than inventing a format.</p></div></div>
+            <div class="step"><div class="n">2</div><div class="b"><h4>Plan — you approve</h4><p>Mente shows a <code>Report Plan</code>: the template it will follow, the data source, the scope, the output format, and an ETA. Nothing happens until you say go.</p></div></div>
+            <div class="step"><div class="n">3</div><div class="b"><h4>Generate</h4><p>It produces a PDF, Excel, or Word file matching the template and saves it to the <strong>Reports</strong> tab. Frequent reports can be saved as Tasks and re-run later.</p></div></div>
+        </div>
+        <div class="note"><strong>Administrators</strong> also get business-intelligence views: cross-team pattern discovery, operational event tracking, client/supplier relationship intelligence, and leadership-facing summaries individual employees don't see.</div>
+
+        <p class="section-label" id="legal"><span class="pip"></span>If you have a Legal Advisor twin</p>
+        <p class="lead">Legal twins run a <strong>legal-specialized Mente</strong> — built for legal knowledge work, with citations and reasoning audits.</p>
+        <table class="ref">
+            <tr><th>Capability</th><th>What it does</th></tr>
+            <tr><td><strong>Case-event tracking</strong></td><td>Filings, hearings, rulings, and deadlines on a timeline, with procedural-risk surfacing.</td></tr>
+            <tr><td><strong>Judge &amp; court profiling</strong></td><td>How a chamber treats a doctrine; how a judge rules on a motion type.</td></tr>
+            <tr><td><strong>Reasoning-chain audit</strong></td><td>Traces rulings to judges, doctrine to norms, opinions to their source rulings.</td></tr>
+            <tr><td><strong>Drafting with citations</strong></td><td>Briefs, opinion drafts, case summaries, judge/court profiles — each citing article/section, court/chamber, and date.</td></tr>
+        </table>
+        <div class="note"><strong>Note for legal twins:</strong> the generic <strong>Reports</strong> tab is hidden. Legal output — briefs, opinions, case summaries — still generates through chat; the standard reports surface is simply suppressed.</div>
+
+        <p class="section-label" id="languages"><span class="pip"></span>Languages</p>
+        <p class="lead">ProAsiste serves Spanish (LATAM) and English, with support for Portuguese, French, and German. Your default follows your region; the brand names <strong>Mente</strong> and <strong>ProAsiste</strong> stay the same in every language — only the explanatory text is localized.</p>
+
+        <p class="section-label" id="demos"><span class="pip"></span>Try it live</p>
+        <a class="cta" href="../../demos/index.html#proasiste"><div class="dc-icon">&#9654;</div><div class="dc-text"><strong>Open the ProAsiste demos</strong><span>Walk the interface in live business and legal twins — law firm, auto shop, woodworks, freight, agency. Demo data only.</span></div><div class="dc-go">Open &rarr;</div></a>
     </main>
 
     <footer>ProAsiste · proasiste.com · internal sales enablement · <a href="index.html">All ProAsiste materials</a> · <a href="twin-tech-explainer.html">Twin tech across Pro / Expert / Help &rarr;</a></footer>
