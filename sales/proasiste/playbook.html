@@ -134,15 +134,23 @@
   h4 { font-size: 14.5px; font-weight: 700; color: var(--ink-soft); margin: 16px 0 4px; }
   .toc { background: var(--tint); border: 1px solid var(--line); border-radius: 10px; padding: 16px 20px; margin: 18px 0; }
   .toc ol { margin: 0; padding-left: 20px; } .toc li { margin: 5px 0; font-weight: 600; }
+  /* a11y + nav helpers */
+  .skip-link{position:absolute;left:8px;top:-48px;z-index:1000;background:#CFB382;color:#14110a;padding:9px 15px;border-radius:8px;font-weight:700;font-size:13px;text-decoration:none;transition:top .15s;}
+  .skip-link:focus{top:8px;}
+  .to-top{position:fixed;bottom:18px;right:18px;z-index:900;background:#CFB382;color:#14110a;font-weight:700;font-size:12.5px;padding:8px 13px;border-radius:999px;text-decoration:none;box-shadow:0 2px 10px rgba(0,0,0,.25);}
+  .to-top:hover{opacity:.9;text-decoration:none;}
+  :focus-visible{outline:2px solid #92700f;outline-offset:2px;}
+  @media print{.skip-link,.to-top{display:none !important;}}
 </style>
 </head>
 <body>
-<div class="topbar">
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="topbar" id="top">
   <span class="mark">Ai</span>
   <span class="name">AI Value Prospectors</span>
   <a class="back" href="index.html">&larr; ProAsiste materials</a>
 </div>
-<article class="sheet">
+<article class="sheet" id="main" tabindex="-1">
 <p class="eyebrow">Sales playbook · ProAsiste (business)</p>
 <h1 id="proasiste-sales-playbook">ProAsiste Sales Playbook</h1>
 <p>The full rep kit in one place — who you're selling to, what to say, how to win the comparison, and how to answer on security. Use the contents to jump to what you need on a call.</p>
@@ -200,10 +208,9 @@
 </table>
 <h4>Demo Focus</h4>
 <ol>
-<li><strong>View tab</strong>: show the Activity Map, hot entities, and how process events surface as they happen.</li>
-<li><strong>Task tab</strong>: demonstrate an automated weekly report that compiles itself.</li>
-<li><strong>Uploads tab</strong>: drop an operations document and watch it become connected Knowledge.</li>
-<li><strong>Chat</strong>: ask operational questions and get instant, grounded answers.</li>
+<li><strong>Uploads tab</strong>: drop an operations document and watch it become connected knowledge.</li>
+<li><strong>Chat</strong>: ask operational questions and get instant, grounded answers — Mente surfaces hot entities and process events from the knowledge graph behind each answer.</li>
+<li><strong>Reports tab</strong>: generate a weekly operations summary, then save it as a recurring Task so it compiles itself on schedule.</li>
 </ol>
 <h4>Closing Language</h4>
 <blockquote>
@@ -253,10 +260,9 @@
 </table>
 <h4>Demo Focus</h4>
 <ol>
-<li><strong>Chat</strong>: ask questions that span multiple projects.</li>
+<li><strong>Chat</strong>: ask questions that span multiple projects, and watch Mente trace the connections between projects, clients, and concepts from the knowledge graph behind the answer.</li>
 <li><strong>Uploads tab</strong>: upload a document and show entity extraction.</li>
-<li><strong>View tab</strong>: show the connections between projects, clients, and concepts in the Knowledge graph.</li>
-<li><strong>Task tab</strong>: set up a template for a recurring deliverable.</li>
+<li><strong>Reports tab</strong>: set up a template for a recurring deliverable and save it as a Task.</li>
 </ol>
 <h4>Closing Language</h4>
 <blockquote>
@@ -306,9 +312,8 @@
 </table>
 <h4>Demo Focus</h4>
 <ol>
-<li><strong>Chat</strong>: ask executive-level questions and get synthesized answers.</li>
-<li><strong>View tab</strong>: show the high-level process insights and the 30,000-foot view of organizational Knowledge.</li>
-<li><strong>Task tab</strong>: show how routine analysis runs on its own.</li>
+<li><strong>Chat</strong>: ask executive-level questions and get synthesized answers — a 30,000-foot view of organizational knowledge and the process insights drawn from the graph behind it.</li>
+<li><strong>Reports tab</strong>: show how routine analysis runs on its own as a saved Task.</li>
 <li><strong>ROI conversation</strong>: calculate specific savings against their numbers.</li>
 </ol>
 <h4>Closing Language</h4>
@@ -412,10 +417,9 @@
 </table>
 <h4>Demo Focus</h4>
 <ol>
-<li><strong>Chat</strong>: show how it can answer as if it were them.</li>
+<li><strong>Chat</strong>: show how it can answer as if it were them, and how Mente connects everything from the knowledge graph behind the answer.</li>
 <li><strong>Uploads tab</strong>: upload key documents to capture knowledge.</li>
-<li><strong>Task tab</strong>: automate their repetitive work.</li>
-<li><strong>View tab</strong>: show how everything connects in the Knowledge graph.</li>
+<li><strong>Reports tab</strong>: automate their repetitive work as a saved Task.</li>
 </ol>
 <h4>Closing Language</h4>
 <blockquote>
@@ -464,43 +468,35 @@
 <p>"ProAsiste captures your company's knowledge (every document, conversation, and process) and makes it instantly accessible through AI. Ask a question, get an answer with sources. Define a task, your AI apprentice handles it. It's like giving every employee access to your entire institutional knowledge, plus an AI assistant who's read all of it."</p>
 </blockquote>
 <hr />
-<h3 id="the-four-tabs-right-panel">The Four Tabs (Right Panel)</h3>
+<h3 id="the-four-tabs-right-panel">The Interface: Chat + Sidebar Tabs</h3>
+<p>You talk to Mente in the <strong>chat panel on the left</strong> — that is where most of the work happens. A <strong>sidebar on the right</strong> holds your tabs. For a ProAsiste business twin the tabs are:</p>
 <table>
 <thead>
 <tr class="header">
 <th>Tab</th>
-<th>Icon</th>
 <th>One-Liner</th>
 <th>Key Demo Action</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td><strong>DATA</strong></td>
-<td>Graph</td>
-<td>"See how everything connects"</td>
-<td>Hover over chord diagram</td>
+<td><strong>Notes</strong></td>
+<td>"Save the answers worth keeping"</td>
+<td>Save a chat message to the Notes tab</td>
 </tr>
 <tr class="even">
-<td><strong>TASKS</strong></td>
-<td>Checklist</td>
-<td>"Your AI apprentice"</td>
-<td>Show a task template</td>
+<td><strong>Uploads</strong></td>
+<td>"Documents become knowledge"</td>
+<td>Drag-drop a PDF and show extraction</td>
 </tr>
 <tr class="odd">
-<td><strong>DOCS</strong></td>
-<td>Upload</td>
-<td>"Documents become knowledge"</td>
-<td>Drag-drop a PDF</td>
-</tr>
-<tr class="even">
-<td><strong>EVENTS</strong></td>
-<td>Timeline</td>
-<td>"Find hidden patterns"</td>
-<td>Show flow diagram</td>
+<td><strong>Reports</strong></td>
+<td>"Output that matches your format"</td>
+<td>Generate a report, then save it as a recurring Task</td>
 </tr>
 </tbody>
 </table>
+<p>The knowledge graph — entities, relationships, events, and goals — works behind the answers. There is no graph screen to browse; you reach it by asking Mente in chat.</p>
 <hr />
 <h3 id="button-quick-reference">Button Quick Reference</h3>
 <table>
@@ -513,24 +509,24 @@
 </thead>
 <tbody>
 <tr class="odd">
-<td><strong>Neo4j ↗</strong></td>
-<td>DATA tab</td>
-<td>Opens full graph database browser</td>
+<td><strong>Save to notes</strong></td>
+<td>On a chat message</td>
+<td>Saves that message to the Notes tab for later reference</td>
 </tr>
 <tr class="even">
-<td><strong>Obsidian ↗</strong></td>
-<td>DATA tab</td>
-<td>Opens knowledge base for editing</td>
+<td><strong>Approve</strong></td>
+<td>Chat (Report Plan)</td>
+<td>Approves Mente's plan so it generates the report</td>
 </tr>
 <tr class="odd">
-<td><strong>📁 Processed</strong></td>
-<td>All tabs</td>
-<td>Opens processed files in Google Drive</td>
+<td><strong>Generate Report</strong></td>
+<td>Chat / Reports tab</td>
+<td>Starts a template-driven report from your sources</td>
 </tr>
 <tr class="even">
-<td><strong>Claude ↗</strong></td>
-<td>TASKS tab</td>
-<td>Opens Claude Code terminal</td>
+<td><strong>Save as Task</strong></td>
+<td>Reports tab</td>
+<td>Saves a recurring report to rerun on schedule</td>
 </tr>
 </tbody>
 </table>
@@ -644,9 +640,9 @@
 <h3 id="demo-flow-15-minutes">Demo Flow (15 minutes)</h3>
 <ol type="1">
 <li><strong>Chat</strong> (3 min): Ask a business question, show sources</li>
-<li><strong>DATA</strong> (3 min): Show knowledge graph connections</li>
-<li><strong>TASKS</strong> (3 min): Demonstrate automation template</li>
-<li><strong>DOCS</strong> (3 min): Upload and process a document</li>
+<li><strong>Chat</strong> (3 min): Ask a cross-project question; show how Mente connects entities and events from the knowledge graph behind the answer</li>
+<li><strong>Reports</strong> (3 min): Generate a report and save it as a recurring Task</li>
+<li><strong>Uploads</strong> (3 min): Upload and process a document</li>
 <li><strong>Close</strong> (3 min): Summarize value, discuss tier fit</li>
 </ol>
 <hr />
@@ -1364,5 +1360,6 @@
   <span>AI Value Prospectors · internal sales enablement · product-research</span>
   <span><a href="index.html">Back to materials</a></span>
 </footer>
+<a href="#top" class="to-top" aria-label="Back to top">&uarr; Top</a>
 </body>
 </html>

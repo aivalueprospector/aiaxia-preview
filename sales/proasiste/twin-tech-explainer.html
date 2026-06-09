@@ -161,12 +161,24 @@
     display: flex;
     justify-content: space-between;
   }
+  /* a11y + nav helpers */
+  .skip-link{position:absolute;left:8px;top:-48px;z-index:1000;background:#CFB382;color:#14110a;padding:9px 15px;border-radius:8px;font-weight:700;font-size:13px;text-decoration:none;transition:top .15s;}
+  .skip-link:focus{top:8px;}
+  .to-top{position:fixed;bottom:18px;right:18px;z-index:900;background:#CFB382;color:#14110a;font-weight:700;font-size:12.5px;padding:8px 13px;border-radius:999px;text-decoration:none;box-shadow:0 2px 10px rgba(0,0,0,.25);}
+  .to-top:hover{opacity:.9;text-decoration:none;}
+  nav.page-toc{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 6px;align-items:center;}
+  nav.page-toc .toc-label{width:100%;font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:#6b7280;font-weight:700;margin-bottom:2px;}
+  nav.page-toc a{font-size:12.5px;font-weight:600;color:#92700f;border:1px solid rgba(146,112,15,.4);border-radius:999px;padding:6px 13px;text-decoration:none;}
+  nav.page-toc a:hover{background:rgba(207,179,130,.18);text-decoration:none;}
+  :focus-visible{outline:2px solid #92700f;outline-offset:2px;}
+  @media print{.skip-link,.to-top,nav.page-toc{display:none !important;}}
 </style>
 </head>
 <body>
-<div class="page pro-section">
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="page pro-section" id="main" role="main" tabindex="-1">
 
-  <header class="doc-head">
+  <header class="doc-head" id="top">
     <div class="brand">ProAsiste &middot; Business &middot; proasiste.com</div>
     <h1>One Twin Engine, Three Jobs</h1>
     <p class="tagline">Pointed inward at your team, sideways at your industry, and outward at your customers.</p>
@@ -182,7 +194,17 @@
     </ul>
   </div>
 
-  <h2 class="sec">The shared engine</h2>
+  <nav class="page-toc" aria-label="On this page">
+    <span class="toc-label">On this page</span>
+    <a href="#shared-engine">The shared engine</a>
+    <a href="#proasiste">ProAsiste — inward</a>
+    <a href="#expertasiste">ExpertAsiste — sideways</a>
+    <a href="#helpasiste">HelpAsiste — outward</a>
+    <a href="#differences">How they differ</a>
+    <a href="#fit">How they fit together</a>
+  </nav>
+
+  <h2 class="sec" id="shared-engine">The shared engine</h2>
   <p class="lede">Every twin runs on the same foundation, so a customer who learns one already understands the others.</p>
   <ul class="product">
     <li><strong>One knowledge brain.</strong> Documents, conversations, and spreadsheets become linked, searchable knowledge instead of a pile of files.</li>
@@ -196,7 +218,7 @@
   <section class="product">
     <div class="product-head">
       <div class="product-eyebrow">ProAsiste &middot; Run your own business <span class="status avail">Available</span></div>
-      <h2 class="product-title">Inward, your team</h2>
+      <h2 class="product-title" id="proasiste">Inward, your team</h2>
     </div>
     <p class="lede">Every person on your team has their own AI twin; you have an owner twin too. The twins talk to each other, so you always know what's getting handled and can steer the business without sitting in every meeting.</p>
     <ul>
@@ -211,7 +233,7 @@
   <section class="product">
     <div class="product-head">
       <div class="product-eyebrow">ExpertAsiste &middot; Sell your expertise <span class="status soon">Emerging</span></div>
-      <h2 class="product-title">Sideways, your industry</h2>
+      <h2 class="product-title" id="expertasiste">Sideways, your industry</h2>
     </div>
     <p class="lede">The same engine turned toward your professional peers and clients. A subject-matter expert, say a lawyer, an accountant, or an engineer, loads years of know-how into a twin, and others in the industry consult it. Think of Consuela, a Santiago lawyer with a 12-year practice, or Roberto, an accountant: each loads expertise once, and their twin answers the questions people would otherwise pay an hour just to ask.</p>
     <ul>
@@ -226,7 +248,7 @@
   <section class="product">
     <div class="product-head">
       <div class="product-eyebrow">HelpAsiste &middot; Answer your customers <span class="status soon">Forthcoming</span></div>
-      <h2 class="product-title">Outward, your customers</h2>
+      <h2 class="product-title" id="helpasiste">Outward, your customers</h2>
     </div>
     <p class="lede">The same engine pointed at the general public on your website. A visitor, maybe someone deciding whether to buy or someone stuck using what they bought, asks a question and gets an answer from your product knowledge. It is a distinct twin type, a public-facing variant of a ProAsiste business twin, built to be deliberately <em>unlike</em> ProAsiste where it matters.</p>
     <ul>
@@ -239,7 +261,7 @@
     <p class="dir"><strong>Direction: outward.</strong> Anonymous strangers, a knowledge base with no secrets, and a twin that intentionally remembers nothing. <em>Architected and assessed, not yet built.</em></p>
   </section>
 
-  <h2 class="sec">How the technology differs, at a glance</h2>
+  <h2 class="sec" id="differences">How the technology differs, at a glance</h2>
   <table class="cmp">
     <thead>
       <tr><th>Dimension</th><th>ProAsiste</th><th>ExpertAsiste</th><th>HelpAsiste</th></tr>
@@ -257,7 +279,7 @@
     </tbody>
   </table>
 
-  <h2 class="sec">How they fit together</h2>
+  <h2 class="sec" id="fit">How they fit together</h2>
   <div class="together">
     <p><strong>ProAsiste is the hub.</strong> It's the twin the business owner lives in day to day.</p>
     <p><strong>HelpAsiste is a linked sibling.</strong> It hangs off the owner's ProAsiste twin but keeps its own clean, public knowledge base. It is connected for billing and management, walled off for privacy.</p>
@@ -271,5 +293,6 @@
   </footer>
 
 </div>
+<a href="#top" class="to-top" aria-label="Back to top">&uarr; Top</a>
 </body>
 </html>
