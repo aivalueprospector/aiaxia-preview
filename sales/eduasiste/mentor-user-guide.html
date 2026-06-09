@@ -46,19 +46,25 @@
     .toggle{margin-left:auto;display:flex;border:1px solid var(--border);border-radius:999px;overflow:hidden;font-size:11px;font-weight:700;}
     .toggle span{padding:4px 12px;color:var(--muted);}
     .toggle span.on{background:var(--edu);color:var(--edu-deep);}
-    .mock-body{display:grid;grid-template-columns:1fr 1fr;min-height:286px;}
-    .pane{padding:16px 18px;}
-    .pane.parent{border-right:1px solid var(--border);background:#0e1218;}
-    .pane h4{margin:0 0 12px;font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);}
-    .row{font-size:12.5px;color:var(--text-soft);padding:7px 0;border-top:1px solid var(--border);display:flex;justify-content:space-between;gap:8px;}
-    .row:first-of-type{border-top:none;}
-    .row .v{color:var(--edu-2);font-weight:700;}
-    .xlink{margin-top:12px;font-size:11.5px;color:var(--muted);display:flex;align-items:center;gap:6px;}
-    .chat{display:flex;flex-direction:column;gap:11px;padding:16px 18px;}
+    .mock-body{display:grid;grid-template-columns:1fr 250px;min-height:300px;}
+    .chat{display:flex;flex-direction:column;gap:11px;padding:16px 18px;border-right:1px solid var(--border);}
+    .chat .cinput{margin-top:auto;display:flex;align-items:center;justify-content:space-between;gap:8px;border:1px solid var(--border);border-radius:10px;padding:9px 12px;color:var(--muted);font-size:12.5px;background:#0d1117;}
     .who{font-size:10.5px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin-bottom:4px;}
     .bubble{max-width:92%;font-size:13px;padding:10px 13px;border-radius:13px;line-height:1.5;}
     .bubble.you{align-self:flex-end;background:var(--bubble-you);border-bottom-right-radius:4px;color:var(--text);}
     .bubble.twin{align-self:flex-start;background:var(--bubble-twin);border:1px solid var(--edu-dark);border-bottom-left-radius:4px;color:#cfe7f7;}
+    .side{background:#0e1218;display:flex;flex-direction:column;}
+    .side .tabs{display:flex;border-bottom:1px solid var(--border);}
+    .side .tabs .t{flex:1;text-align:center;padding:10px 4px;font-size:11px;font-weight:700;color:var(--muted);border-bottom:2px solid transparent;}
+    .side .tabs .t.on{color:var(--edu-2);border-bottom-color:var(--edu);background:rgba(46,163,242,.08);}
+    .side .scontent{padding:14px;}
+    .side .sc-h{font-size:10.5px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin:0 0 6px;display:flex;align-items:center;gap:7px;}
+    .side .sc-h.mt{margin-top:14px;}
+    .lcard{background:var(--card-bg);border:1px solid var(--border);border-radius:10px;padding:10px 11px;margin-bottom:4px;}
+    .row{font-size:12px;color:var(--text-soft);padding:5px 0;display:flex;justify-content:space-between;gap:8px;}
+    .row .v{color:var(--edu-2);font-weight:700;}
+    .item{display:flex;align-items:center;gap:7px;font-size:12px;color:var(--text-soft);padding:6px 0;border-top:1px solid var(--border);}
+    .badge-ro{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:var(--edu-2);border:1px solid var(--edu-dark);border-radius:999px;padding:1px 6px;}
     figcaption{font-size:12.5px;color:var(--muted);padding:11px 16px;border-top:1px solid var(--border);background:#0d1117;}
     .steps{margin-top:14px;display:flex;flex-direction:column;gap:10px;}
     .step{display:flex;gap:14px;background:var(--card-bg);border:1px solid var(--border);border-radius:12px;padding:15px 17px;}
@@ -76,7 +82,7 @@
     .cta .dc-go{margin-left:auto;font-size:13px;font-weight:700;color:var(--edu-2);}
     footer{text-align:center;color:var(--muted);font-size:13px;padding:26px 24px;border-top:1px solid var(--border);}
     footer a{color:var(--edu);}
-    @media (max-width:760px){.mock-body{grid-template-columns:1fr;}.pane.parent{border-right:none;border-bottom:1px solid var(--border);}}
+    @media (max-width:760px){.mock-body{grid-template-columns:1fr;}.chat{border-right:none;border-bottom:1px solid var(--border);}}
     </style>
 </head>
 <body>
@@ -129,26 +135,33 @@
         <p class="section-label" id="crosstwin"><span class="pip"></span>See your mentee's work</p>
         <p class="lead">The mentor twin has <strong>read-only access</strong> to the mentee's workspace — between-session practice, stuck flags, and small wins. Your mentee cannot see into your workspace; the access only runs one way.</p>
         <figure class="mock">
-            <div class="mock-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="title">EduAsiste · Eduardo</span>
+            <div class="mock-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="title">EduAsiste · Eduardo · Mentor</span>
                 <span class="toggle"><span class="on">Mentor</span><span>Mentee</span></span>
             </div>
             <div class="mock-body">
-                <div class="pane parent">
-                    <h4>Mentor view — Emma, Saturday math</h4>
-                    <div class="row"><span>Pre-algebra goal</span><span class="v">62%</span></div>
-                    <div class="row"><span>Last session score</span><span class="v">8 / 10</span></div>
-                    <div class="row"><span>Practice this week</span><span class="v">4 sessions</span></div>
-                    <div class="row"><span>Stuck flag</span><span class="v">long division</span></div>
-                    <div class="xlink"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#9AA0A6" stroke-width="2"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg>Read-only view into the mentee twin</div>
-                </div>
                 <div class="chat">
-                    <div><div class="who">Emma · mentee</div><div class="bubble you">I keep getting long division wrong.</div></div>
-                    <div><div class="who">Eduardo · mentee twin</div><div class="bubble twin">Let's slow it down. What's the first step you take when you set up the problem?</div></div>
-                    <div><div class="who">Emma</div><div class="bubble you">Um… how many times it goes in?</div></div>
-                    <div><div class="who">Eduardo</div><div class="bubble twin">Good start — let's try one together, one step at a time.</div></div>
+                    <div><div class="who">You · mentor</div><div class="bubble you">How did Emma do between sessions?</div></div>
+                    <div><div class="who">Eduardo</div><div class="bubble twin">She practiced 4 times and is at 62% on the pre-algebra goal. She's still stuck on long division — worth ten minutes on Saturday.</div></div>
+                    <div class="cinput"><span>Ask Eduardo…</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2EA3F2" stroke-width="2"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4 20-7z"/></svg></div>
                 </div>
+                <aside class="side">
+                    <div class="tabs"><span class="t">Notes</span><span class="t">Uploads</span><span class="t on">Reports</span></div>
+                    <div class="scontent">
+                        <div class="sc-h">Linked twin <span class="badge-ro">read-only</span></div>
+                        <div class="lcard">
+                            <div class="row"><span><strong style="color:#fff">Emma</strong> · mentee</span></div>
+                            <div class="row"><span>Pre-algebra goal</span><span class="v">62%</span></div>
+                            <div class="row"><span>Last session</span><span class="v">8 / 10</span></div>
+                            <div class="row"><span>Stuck</span><span class="v">long division</span></div>
+                        </div>
+                        <div class="sc-h mt">Reports</div>
+                        <div class="item"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#7cc4f7" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>Progress Report</div>
+                        <div class="item"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#9AA0A6" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>Session Summary</div>
+                        <div class="item"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#9AA0A6" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>Attendance Log</div>
+                    </div>
+                </aside>
             </div>
-            <figcaption>Illustrative mockup. The mentor sees goals, scores, and stuck flags pulled read-only from the mentee's workspace; the mentee gets Socratic guidance between sessions.</figcaption>
+            <figcaption>Illustrative mockup. Chat on the left; your tabs on the right — a mentor sees <strong>Notes · Uploads · Reports</strong> (plus Reading when a reading program is on). The sidebar's read-only <strong>linked-twin</strong> panel surfaces your mentee's progress; your mentee's own twin shows only the <strong>Notes</strong> tab.</figcaption>
         </figure>
 
         <p class="section-label" id="reports"><span class="pip"></span>Reports &amp; recaps</p>
@@ -173,7 +186,7 @@
         <p class="section-label" id="capture"><span class="pip"></span>Curriculum &amp; memory</p>
         <p class="lead">Both twins run the education platform.</p>
         <div class="steps">
-            <div class="step"><div class="n">1</div><div class="b"><h4>Import materials</h4><p>Upload curriculum, assessments, and notes on the Import tab; Eduardo extracts and files them automatically.</p></div></div>
+            <div class="step"><div class="n">1</div><div class="b"><h4>Import materials</h4><p>Upload curriculum, assessments, and notes on the Uploads tab; Eduardo extracts and files them automatically.</p></div></div>
             <div class="step"><div class="n">2</div><div class="b"><h4>Knowledge graph</h4><p>Topics, sessions, assignments, and quiz results become linked notes, a timeline, and goals you can track.</p></div></div>
             <div class="step"><div class="n">3</div><div class="b"><h4>It remembers</h4><p>Eduardo recalls facts, preferences, and corrections across sessions.</p></div></div>
         </div>
