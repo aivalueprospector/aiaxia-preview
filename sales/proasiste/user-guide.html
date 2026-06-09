@@ -53,15 +53,22 @@
     .mock-bar .dot{width:11px;height:11px;border-radius:50%;}
     .mock-bar .dot.r{background:#ff5f56;}.mock-bar .dot.y{background:#ffbd2e;}.mock-bar .dot.g{background:#27c93f;}
     .mock-bar .title{margin-left:8px;font-size:12px;color:var(--muted);font-weight:600;}
-    .mock-body{display:grid;grid-template-columns:128px 1fr;min-height:286px;}
-    .rail{border-right:1px solid var(--border);padding:12px 0;background:#0e1218;}
-    .rail .tab{display:flex;align-items:center;gap:9px;padding:9px 16px;font-size:12.5px;color:var(--muted);font-weight:600;}
-    .rail .tab.on{color:var(--pro);background:rgba(207,179,130,.10);border-left:3px solid var(--pro);padding-left:13px;}
-    .chat{padding:18px;display:flex;flex-direction:column;gap:12px;}
+    .mock-body{display:grid;grid-template-columns:1fr 250px;min-height:300px;}
+    .chat{padding:16px 18px;display:flex;flex-direction:column;gap:12px;border-right:1px solid var(--border);}
+    .chat .cinput{margin-top:auto;display:flex;align-items:center;justify-content:space-between;gap:8px;border:1px solid var(--border);border-radius:10px;padding:9px 12px;color:var(--muted);font-size:12.5px;background:#0d1117;}
     .who{font-size:10.5px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin-bottom:4px;}
     .bubble{max-width:90%;font-size:13px;padding:10px 13px;border-radius:13px;line-height:1.5;}
     .bubble.you{align-self:flex-end;background:var(--bubble-you);border-bottom-right-radius:4px;color:var(--text);}
     .bubble.twin{align-self:flex-start;background:var(--bubble-twin);border:1px solid var(--pro-dark);border-bottom-left-radius:4px;color:#f0e6cd;}
+    .side{background:#0e1218;display:flex;flex-direction:column;}
+    .side .tabs{display:flex;border-bottom:1px solid var(--border);}
+    .side .tabs .t{flex:1;text-align:center;padding:10px 4px;font-size:11px;font-weight:700;color:var(--muted);border-bottom:2px solid transparent;}
+    .side .tabs .t.on{color:var(--pro);border-bottom-color:var(--pro);background:rgba(207,179,130,.08);}
+    .side .scontent{padding:14px;}
+    .side .sc-h{font-size:10.5px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin-bottom:6px;}
+    .side .item{display:flex;align-items:center;gap:8px;font-size:12.5px;color:var(--text-soft);padding:8px 0;border-bottom:1px solid var(--border);}
+    .side .item:last-child{border-bottom:none;}
+    .side .item svg{flex:none;}
     figcaption{font-size:12.5px;color:var(--muted);padding:11px 16px;border-top:1px solid var(--border);background:#0d1117;}
 
     /* how-to steps */
@@ -83,7 +90,7 @@
     .cta .dc-go{margin-left:auto;font-size:13px;font-weight:700;color:var(--pro);}
     footer{text-align:center;color:var(--muted);font-size:13px;padding:26px 24px;border-top:1px solid var(--border);}
     footer a{color:var(--pro);}
-    @media (max-width:760px){.mock-body{grid-template-columns:1fr;}.rail{display:flex;flex-wrap:wrap;border-right:none;border-bottom:1px solid var(--border);}.rail .tab.on{border-left:none;border-bottom:2px solid var(--pro);padding-left:16px;}}
+    @media (max-width:760px){.mock-body{grid-template-columns:1fr;}.chat{border-right:none;border-bottom:1px solid var(--border);}}
     </style>
 </head>
 <body>
@@ -129,42 +136,53 @@
         <div class="note"><strong>Industry tuning.</strong> Business twins can be tuned to a vertical (consulting, healthcare, finance, real estate, tech, manufacturing, logistics, and more). When a vertical match exists, Mente uses language and structure suited to that field; otherwise it uses the general business assistant.</div>
 
         <p class="section-label" id="interface"><span class="pip"></span>The interface</p>
-        <p class="lead">Your twin is organized as a set of tabs down the left, with a chat panel where you talk to Mente. Here is the shape of it.</p>
+        <p class="lead">You talk to Mente in the <strong>chat panel on the left</strong>. A <strong>sidebar on the right</strong> holds your tabs — and which tabs you see depends on your twin type and role. Here is the shape of it.</p>
         <figure class="mock">
-            <div class="mock-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="title">ProAsiste · Mente</span></div>
+            <div class="mock-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="title">ProAsiste · Mente · Individual Professional</span></div>
             <div class="mock-body">
-                <nav class="rail">
-                    <div class="tab"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#9AA0A6" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg>IMPORT</div>
-                    <div class="tab"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#9AA0A6" stroke-width="2"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5"/></svg>DATA</div>
-                    <div class="tab"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#9AA0A6" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>EVENTS</div>
-                    <div class="tab"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#9AA0A6" stroke-width="2"><path d="M9 11l3 3 8-8"/><path d="M20 12v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h9"/></svg>TASKS</div>
-                    <div class="tab"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#9AA0A6" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>REPORTS</div>
-                    <div class="tab on"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#CFB382" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>CHAT</div>
-                </nav>
                 <div class="chat">
                     <div><div class="who">You · administrator</div><div class="bubble you">Draft the Q3 operations summary for the board.</div></div>
                     <div><div class="who">Mente</div><div class="bubble twin">I found your "Quarterly Ops Summary" template in your sources. Here is the plan before I generate:<br>• Structure: KPIs, incidents, supplier status, next-quarter risks<br>• Source: events + supplier entities, Jul–Sep<br>• Output: PDF to your Reports tab<br>Approve and I'll build it.</div></div>
+                    <div class="cinput"><span>Ask Mente…</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#CFB382" stroke-width="2"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4 20-7z"/></svg></div>
                 </div>
+                <aside class="side">
+                    <div class="tabs"><span class="t">Notes</span><span class="t">Uploads</span><span class="t on">Reports</span></div>
+                    <div class="scontent">
+                        <div class="sc-h">Reports</div>
+                        <div class="item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#CFB382" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>Q3 Ops Summary.pdf</div>
+                        <div class="item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#9AA0A6" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>Supplier review.xlsx</div>
+                        <div class="item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#9AA0A6" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>Board deck.docx</div>
+                    </div>
+                </aside>
             </div>
-            <figcaption>Illustrative mockup. Tabs: <strong>Import</strong> (add documents), <strong>Data</strong> (your entities), <strong>Events</strong> (timeline), <strong>Tasks</strong> (saved jobs), <strong>Reports</strong> (generated output), <strong>Chat</strong> (talk to Mente).</figcaption>
+            <figcaption>Illustrative mockup. The <strong>chat panel is on the left</strong>; the <strong>sidebar on the right</strong> holds your tabs. Which tabs appear depends on your twin type and role — see the table below.</figcaption>
         </figure>
+
+        <h3 class="sub">Your sidebar tabs</h3>
+        <p class="lead"><strong>Notes</strong> is your knowledge — entity notes, events, and goals as linked notes. <strong>Uploads</strong> is where you add documents. <strong>Reports</strong> holds generated output. The set you see is decided by your twin type and role:</p>
+        <table class="ref">
+            <tr><th>Twin &amp; role</th><th>Sidebar tabs</th></tr>
+            <tr><td><strong>Individual Professional</strong> · administrator</td><td>Notes · Uploads · Reports</td></tr>
+            <tr><td><strong>Professional Organization</strong> · administrator or employee</td><td>Notes · Uploads · Reports</td></tr>
+            <tr><td><strong>Legal Advisor</strong> · administrator</td><td>Notes · Uploads <em>(Reports hidden — see below)</em></td></tr>
+        </table>
 
         <p class="section-label" id="capture"><span class="pip"></span>Capture knowledge</p>
         <p class="lead">The twin learns from your documents and conversations — there is no separate training step. Feeding it is the main thing you do on day one.</p>
         <div class="steps">
-            <div class="step"><div class="n">1</div><div class="b"><h4>Open the Import tab</h4><p>Upload PDFs, Word documents, spreadsheets, or images. The twin extracts the text and structure automatically.</p></div></div>
+            <div class="step"><div class="n">1</div><div class="b"><h4>Open the Uploads tab</h4><p>In the right sidebar, upload PDFs, Word documents, spreadsheets, or images. The twin extracts the text and structure automatically.</p></div></div>
             <div class="step"><div class="n">2</div><div class="b"><h4>Let it build entity notes</h4><p>From each document the twin creates <strong>entity notes</strong> — one per supplier, customer, employee, product, or process it finds — and links them together.</p></div></div>
             <div class="step"><div class="n">3</div><div class="b"><h4>Your private vault stays private</h4><p>The full picture, with real names, lives in a private markdown vault. A separate, obfuscated projection drives the shared graph view, so structure can be shown safely.</p></div></div>
         </div>
 
         <p class="section-label" id="graph"><span class="pip"></span>Explore your knowledge graph</p>
-        <p class="lead">Everything the twin knows is connected. The <strong>Data</strong> and <strong>Events</strong> tabs are how you browse it.</p>
+        <p class="lead">Everything the twin knows is connected. The <strong>Notes</strong> tab is how you browse it — entities, their links, events, and goals all live there as linked notes.</p>
         <table class="ref">
             <tr><th>What</th><th>Where</th><th>What you see</th></tr>
-            <tr><td><strong>Entities</strong></td><td>Data tab</td><td>Cards and notes for people, suppliers, customers, products, processes — mirrored from the graph.</td></tr>
-            <tr><td><strong>Relationships</strong></td><td>Data tab</td><td>The links between entities (which supplier serves which customer, who owns which process).</td></tr>
-            <tr><td><strong>Events &amp; causes</strong></td><td>Events tab</td><td>Timestamped activity — transactions, deadlines, incidents — and the causal links between them.</td></tr>
-            <tr><td><strong>Goals</strong></td><td>Data tab</td><td>Measurable objectives with progress tracking.</td></tr>
+            <tr><td><strong>Entities</strong></td><td>Notes tab</td><td>Cards and notes for people, suppliers, customers, products, processes — mirrored from the graph.</td></tr>
+            <tr><td><strong>Relationships</strong></td><td>Notes tab</td><td>The links between entities (which supplier serves which customer, who owns which process).</td></tr>
+            <tr><td><strong>Events &amp; causes</strong></td><td>Notes tab</td><td>Timestamped activity — transactions, deadlines, incidents — and the causal links between them.</td></tr>
+            <tr><td><strong>Goals</strong></td><td>Notes tab</td><td>Measurable objectives with progress tracking.</td></tr>
         </table>
 
         <p class="section-label" id="ask"><span class="pip"></span>Ask your twin</p>
