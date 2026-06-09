@@ -38,21 +38,24 @@
     .toggle{margin-left:auto;display:flex;border:1px solid var(--border);border-radius:999px;overflow:hidden;font-size:11px;font-weight:700;}
     .toggle span{padding:4px 12px;color:var(--muted);}
     .toggle span.on{background:var(--edu);color:var(--edu-deep);}
-    .mock-body{display:grid;grid-template-columns:1fr 1fr;min-height:300px;}
-    .pane{padding:16px 18px;}
-    .pane.parent{border-right:1px solid var(--border);background:#0e1218;}
-    .pane h4{margin:0 0 12px;font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);}
-    .chip-row{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:14px;}
-    .chip{background:var(--card-bg);border:1px solid var(--border);border-radius:11px;padding:9px 13px;min-width:88px;}
-    .chip .v{font-size:19px;font-weight:800;color:var(--edu-2);}
-    .chip .k{font-size:10.5px;color:var(--muted);}
-    .evt{font-size:12.5px;color:var(--text-soft);padding:7px 0;border-top:1px solid var(--border);display:flex;gap:8px;}
-    .evt .d{color:var(--muted);flex:none;}
-    .chat{display:flex;flex-direction:column;gap:11px;padding:16px 18px;}
+    .mock-body{display:grid;grid-template-columns:1fr 232px;min-height:300px;}
+    .chat{display:flex;flex-direction:column;gap:11px;padding:16px 18px;border-right:1px solid var(--border);}
+    .chat .cinput{margin-top:auto;display:flex;align-items:center;justify-content:space-between;gap:8px;border:1px solid var(--border);border-radius:10px;padding:9px 12px;color:var(--muted);font-size:12.5px;background:#0d1117;}
     .who{font-size:10.5px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin-bottom:4px;}
-    .bubble{max-width:90%;font-size:13px;padding:10px 13px;border-radius:13px;line-height:1.5;}
+    .bubble{max-width:92%;font-size:13px;padding:10px 13px;border-radius:13px;line-height:1.5;}
     .bubble.you{align-self:flex-end;background:var(--bubble-you);border-bottom-right-radius:4px;color:var(--text);}
     .bubble.twin{align-self:flex-start;background:var(--bubble-twin);border:1px solid var(--edu-dark);border-bottom-left-radius:4px;color:#cfe7f7;}
+    .side{background:#0e1218;display:flex;flex-direction:column;}
+    .side .tabs{display:flex;border-bottom:1px solid var(--border);}
+    .side .tabs .t{flex:1;text-align:center;padding:9px 3px;font-size:10.5px;font-weight:700;color:var(--muted);border-bottom:2px solid transparent;}
+    .side .tabs .t.on{color:var(--edu-2);border-bottom-color:var(--edu);background:rgba(46,163,242,.08);}
+    .side .scontent{padding:14px;}
+    .side .sc-h{font-size:10.5px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin-bottom:8px;}
+    .chip-row{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px;}
+    .chip{background:var(--card-bg);border:1px solid var(--border);border-radius:10px;padding:8px 9px;flex:1;min-width:56px;text-align:center;}
+    .chip .v{font-size:16px;font-weight:800;color:var(--edu-2);}
+    .chip .k{font-size:9.5px;color:var(--muted);}
+    .evt{font-size:12px;color:var(--text-soft);padding:6px 0;border-top:1px solid var(--border);}
     figcaption{font-size:12.5px;color:var(--muted);padding:11px 16px;border-top:1px solid var(--border);background:#0d1117;}
 
     .feat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:16px;margin-top:18px;}
@@ -70,7 +73,7 @@
     .cta .dc-go{margin-left:auto;font-size:13px;font-weight:700;color:var(--edu-2);}
     footer{text-align:center;color:var(--muted);font-size:13px;padding:26px 24px;border-top:1px solid var(--border);}
     footer a{color:var(--edu);}
-    @media (max-width:760px){.mock-body{grid-template-columns:1fr;}.pane.parent{border-right:none;border-bottom:1px solid var(--border);}}
+    @media (max-width:760px){.mock-body{grid-template-columns:1fr;}.chat{border-right:none;border-bottom:1px solid var(--border);}}
     </style>
 </head>
 <body>
@@ -84,44 +87,39 @@
 
     <main>
         <p class="section-label"><span class="pip"></span>The shape of it</p>
-        <p class="lead"><strong>One linked pair: a parent twin to set up and monitor, and a child twin the kid talks to directly.</strong> Eduardo is a strict Socratic guide — he never hands over the answer. A Parent/Child toggle in the header flips between the two views. Below: roughly what each side sees.</p>
+        <p class="lead"><strong>One linked pair: a parent twin to set up and monitor, and a child twin the kid talks to directly.</strong> Eduardo is a strict Socratic guide — he never hands over the answer. Each twin uses the same layout: chat on the left, tabs in the sidebar on the right, with a Parent/Child toggle in the header. Below: the parent's view.</p>
 
         <figure class="mock">
-            <div class="mock-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="title">EduAsiste · Eduardo</span>
+            <div class="mock-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="title">EduAsiste · Eduardo · Family</span>
                 <span class="toggle"><span class="on">Parent</span><span>Child</span></span>
             </div>
             <div class="mock-body">
-                <div class="pane parent">
-                    <h4>Parent view — Emma's progress</h4>
-                    <div class="chip-row">
-                        <div class="chip"><div class="v">12</div><div class="k">day streak</div></div>
-                        <div class="chip"><div class="v">3 / 4</div><div class="k">weekly goals</div></div>
-                        <div class="chip"><div class="v">+18%</div><div class="k">spelling trend</div></div>
-                    </div>
-                    <div class="evt"><span class="d">Tue</span><span>Worked through 8 spelling words — 2 needed a second attempt.</span></div>
-                    <div class="evt"><span class="d">Mon</span><span>Asked for the answer on long division; Eduardo redirected.</span></div>
-                    <div class="evt"><span class="d">Sun</span><span>Weekly briefing ready — read in 2 min.</span></div>
-                </div>
                 <div class="chat">
                     <div>
-                        <div class="who">Emma · age 8</div>
-                        <div class="bubble you">Is the answer 42?</div>
-                    </div>
-                    <div>
-                        <div class="who">Eduardo · child twin</div>
-                        <div class="bubble twin">Close thinking! Let's check it together — what's 6 times 7? Walk me through how you'd work it out.</div>
-                    </div>
-                    <div>
-                        <div class="who">Emma</div>
-                        <div class="bubble you">Oh… 6 sevens. 6, 12, 18…</div>
+                        <div class="who">You · parent</div>
+                        <div class="bubble you">How is Emma doing this week?</div>
                     </div>
                     <div>
                         <div class="who">Eduardo</div>
-                        <div class="bubble twin">Keep going — you've got the rhythm. 👏</div>
+                        <div class="bubble twin">A strong week. A 12-day streak, 3 of 4 goals met, and her spelling trend is up 18%. She asked for the answer on long division Monday; I redirected, and she worked it through.</div>
                     </div>
+                    <div class="cinput"><span>Ask Eduardo…</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2EA3F2" stroke-width="2"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4 20-7z"/></svg></div>
                 </div>
+                <aside class="side">
+                    <div class="tabs"><span class="t">Notes</span><span class="t">Uploads</span><span class="t on">Documents</span><span class="t">Reading</span></div>
+                    <div class="scontent">
+                        <div class="sc-h">This week</div>
+                        <div class="chip-row">
+                            <div class="chip"><div class="v">12</div><div class="k">streak</div></div>
+                            <div class="chip"><div class="v">3/4</div><div class="k">goals</div></div>
+                            <div class="chip"><div class="v">+18%</div><div class="k">spelling</div></div>
+                        </div>
+                        <div class="evt">Tue · 8 spelling words, 2 retries</div>
+                        <div class="evt">Sun · Weekly briefing ready</div>
+                    </div>
+                </aside>
             </div>
-            <figcaption>Illustrative mockup — the parent sees streaks, goals, and every exchange; the child gets one Socratic question at a time, never the answer.</figcaption>
+            <figcaption>Illustrative mockup — chat on the left, the parent's tabs on the right (Notes · Uploads · Documents · Reading). Flip the header toggle to the child's view, where the only tab is Notes and Eduardo gives one Socratic question at a time, never the answer.</figcaption>
         </figure>
 
         <p class="section-label"><span class="pip"></span>Features</p>
