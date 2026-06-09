@@ -1,0 +1,1381 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex, nofollow" />
+<meta name="card-title" content="Sales Playbook">
+<meta name="card-desc" content="The full rep playbook in one place: buyer personas, the quick-reference cheat sheet, competitive battle cards, and the security FAQ.">
+<meta name="card-order" content="60">
+<title>ProAsiste Sales Playbook · AI Value Prospectors</title>
+<style>
+  :root {
+    --aivp: #E8B547;
+    --aivp-dark: #92700f;
+    --ink: #1a2230;
+    --ink-soft: #45526a;
+    --muted: #6b7a8a;
+    --line: #e2e6ec;
+    --bg: #ffffff;
+    --tint: #fbf8ef;
+    --accent: #CFB382;
+    --accent-dark: #92700f;
+  }
+  @page { size: Letter; margin: 0.6in; }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0;
+    background: #f4f5f7;
+    color: var(--ink);
+    font-family: 'Inter', -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+    line-height: 1.55;
+    font-size: 16px;
+  }
+  .topbar {
+    background: #0F1115;
+    border-bottom: 2px solid var(--accent);
+    padding: 12px 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .topbar .mark {
+    width: 30px; height: 30px; border-radius: 7px;
+    background: var(--aivp); color: #0F1115;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 800; font-size: 14px;
+  }
+  .topbar .name {
+    font-size: 13px; font-weight: 700; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--aivp);
+  }
+  .topbar a.back {
+    margin-left: auto; color: #C2C6CC; text-decoration: none;
+    font-size: 13px; font-weight: 600;
+  }
+  .topbar a.back:hover { color: var(--aivp); }
+  .sheet {
+    max-width: 800px;
+    margin: 28px auto;
+    background: var(--bg);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 44px 52px;
+    box-shadow: 0 6px 26px rgba(15,17,21,0.08);
+  }
+  .eyebrow {
+    font-size: 12px; font-weight: 700; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--accent-dark);
+    margin: 0 0 6px;
+  }
+  h1 {
+    font-size: 30px; font-weight: 800; letter-spacing: -0.02em;
+    color: #0f1d2c; margin: 0 0 18px; line-height: 1.15;
+    border-bottom: 3px solid var(--accent); padding-bottom: 14px;
+  }
+  h1 + p { color: var(--ink-soft); }
+  h2 {
+    font-size: 21px; font-weight: 700; color: #0f1d2c;
+    margin: 34px 0 10px; padding-bottom: 6px;
+    border-bottom: 1px solid var(--line);
+  }
+  h3 {
+    font-size: 16.5px; font-weight: 700; color: var(--ink);
+    margin: 22px 0 6px;
+  }
+  p { margin: 10px 0; }
+  a { color: var(--accent-dark); }
+  hr { border: 0; border-top: 1px solid var(--line); margin: 28px 0; }
+  ul, ol { padding-left: 22px; }
+  li { margin: 4px 0; }
+  code {
+    background: var(--tint); border: 1px solid var(--line);
+    border-radius: 4px; padding: 1px 5px;
+    font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: 0.88em;
+  }
+  pre {
+    background: #0F1115; color: #e8e8e8; border-radius: 8px;
+    padding: 16px 18px; overflow-x: auto; font-size: 13px;
+  }
+  pre code { background: none; border: 0; padding: 0; color: inherit; }
+  blockquote {
+    margin: 14px 0; padding: 12px 18px;
+    background: linear-gradient(135deg, #fbf8ef 0%, #f3ead2 100%);
+    border-left: 4px solid var(--accent);
+    border-radius: 2px; color: #3a2f10; font-style: italic;
+  }
+  blockquote p { margin: 4px 0; }
+  table {
+    border-collapse: collapse; width: 100%; margin: 14px 0; font-size: 14.5px;
+  }
+  th, td {
+    border: 1px solid var(--line); padding: 8px 12px; text-align: left;
+    vertical-align: top;
+  }
+  thead th {
+    background: #0f1d2c; color: #fff; font-weight: 600;
+    border-color: #0f1d2c;
+  }
+  tbody tr:nth-child(even) { background: var(--tint); }
+  footer.sheet-foot {
+    max-width: 800px; margin: 0 auto 40px; padding: 4px 8px;
+    color: var(--muted); font-size: 13px;
+    display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px;
+  }
+  footer.sheet-foot a { color: var(--accent-dark); text-decoration: none; }
+  @media print {
+    body { background: #fff; }
+    .topbar { background: #fff; border-bottom-color: var(--accent); }
+    .topbar .name { color: var(--aivp-dark); }
+    .topbar a.back { display: none; }
+    .sheet { box-shadow: none; border: 0; margin: 0; max-width: none; padding: 0; }
+    footer.sheet-foot { display: none; }
+  }
+  h4 { font-size: 14.5px; font-weight: 700; color: var(--ink-soft); margin: 16px 0 4px; }
+  .toc { background: var(--tint); border: 1px solid var(--line); border-radius: 10px; padding: 16px 20px; margin: 18px 0; }
+  .toc ol { margin: 0; padding-left: 20px; } .toc li { margin: 5px 0; font-weight: 600; }
+</style>
+</head>
+<body>
+<div class="topbar">
+  <span class="mark">Ai</span>
+  <span class="name">AI Value Prospectors</span>
+  <a class="back" href="index.html">&larr; ProAsiste materials</a>
+</div>
+<article class="sheet">
+<p class="eyebrow">Sales playbook · ProAsiste (business)</p>
+<h1 id="proasiste-sales-playbook">ProAsiste Sales Playbook</h1>
+<p>The full rep kit in one place — who you're selling to, what to say, how to win the comparison, and how to answer on security. Use the contents to jump to what you need on a call.</p>
+<nav class="toc"><strong>In this playbook</strong>
+<ol>
+  <li><a href="#part-personas">Buyer Personas</a></li>
+  <li><a href="#part-quick-reference">Quick Reference</a></li>
+  <li><a href="#part-competitive">Competitive Positioning</a></li>
+  <li><a href="#part-security">Security FAQ</a></li>
+</ol></nav>
+<hr />
+<h2 id="part-personas">Part 1 — Buyer Personas</h2>
+<p>Understanding who you're selling to helps you tailor your pitch and demo. Each persona below maps a buyer's world to the words and the demo moments that land for them. These are internal reference notes. Read the one that matches your prospect before the call.</p>
+<hr />
+
+<h3 id="the-operations-manager">The Operations Manager</h3>
+<h4>Profile</h4>
+<table>
+<thead>
+<tr><th>Field</th><th>Detail</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>Title</strong></td><td>Operations Manager, COO, VP Operations</td></tr>
+<tr><td><strong>Company Size</strong></td><td>50 to 500 employees</td></tr>
+<tr><td><strong>Industry</strong></td><td>Manufacturing, Logistics, Supply Chain</td></tr>
+<tr><td><strong>Age</strong></td><td>35 to 50</td></tr>
+</tbody>
+</table>
+<h4>Their World</h4>
+<ul>
+<li>Manages complex processes across multiple teams</li>
+<li>Drowning in spreadsheets and status reports</li>
+<li>Spends hours compiling weekly and monthly reports</li>
+<li>Constantly firefighting instead of improving processes</li>
+<li>Knowledge trapped in senior employees' heads</li>
+</ul>
+<h4>Pain Points</h4>
+<ol>
+<li>"I spend 20% of my time just finding information."</li>
+<li>"When Maria retires, we lose 30 years of knowledge."</li>
+<li>"I can't see the bottlenecks until they become crises."</li>
+<li>"Every report is manually compiled from 5 different systems."</li>
+</ol>
+<h4>What They Want to Hear</h4>
+<table>
+<thead>
+<tr><th>Theme</th><th>Line</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>Process visibility</strong></td><td>"See exactly where work slows down."</td></tr>
+<tr><td><strong>Automation</strong></td><td>"Reports compile themselves."</td></tr>
+<tr><td><strong>Knowledge capture</strong></td><td>"Institutional knowledge stays forever."</td></tr>
+<tr><td><strong>Time savings</strong></td><td>"Get hours back every week."</td></tr>
+</tbody>
+</table>
+<h4>Demo Focus</h4>
+<ol>
+<li><strong>View tab</strong>: show the Activity Map, hot entities, and how process events surface as they happen.</li>
+<li><strong>Task tab</strong>: demonstrate an automated weekly report that compiles itself.</li>
+<li><strong>Uploads tab</strong>: drop an operations document and watch it become connected Knowledge.</li>
+<li><strong>Chat</strong>: ask operational questions and get instant, grounded answers.</li>
+</ol>
+<h4>Closing Language</h4>
+<blockquote>
+<p>"Imagine starting Monday with all your reports already done, a dashboard showing exactly where the bottlenecks are, and instant answers to any operations question. That's what ProAsiste delivers."</p>
+</blockquote>
+<hr />
+
+<h3 id="the-knowledge-worker">The Knowledge Worker</h3>
+<h4>Profile</h4>
+<table>
+<thead>
+<tr><th>Field</th><th>Detail</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>Title</strong></td><td>Consultant, Analyst, Researcher, Project Manager</td></tr>
+<tr><td><strong>Company Size</strong></td><td>Any</td></tr>
+<tr><td><strong>Industry</strong></td><td>Professional Services, Consulting, Research</td></tr>
+<tr><td><strong>Age</strong></td><td>28 to 45</td></tr>
+</tbody>
+</table>
+<h4>Their World</h4>
+<ul>
+<li>Works on multiple projects simultaneously</li>
+<li>Needs to quickly find relevant past work</li>
+<li>Writes reports, proposals, and analyses</li>
+<li>Collaborates across teams and clients</li>
+<li>Information scattered across email, docs, and chat</li>
+</ul>
+<h4>Pain Points</h4>
+<ol>
+<li>"I know we did something similar last year, but I can't find it."</li>
+<li>"I rewrite the same sections for every proposal."</li>
+<li>"Onboarding new team members takes months."</li>
+<li>"A client asks a question, and I have to dig through 50 emails."</li>
+</ol>
+<h4>What They Want to Hear</h4>
+<table>
+<thead>
+<tr><th>Theme</th><th>Line</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>Instant recall</strong></td><td>"Find anything you've ever worked on."</td></tr>
+<tr><td><strong>Reusability</strong></td><td>"Build on past work instead of starting from scratch."</td></tr>
+<tr><td><strong>Client intelligence</strong></td><td>"Every interaction in context."</td></tr>
+<tr><td><strong>Collaboration</strong></td><td>"Team knowledge, not siloed knowledge."</td></tr>
+</tbody>
+</table>
+<h4>Demo Focus</h4>
+<ol>
+<li><strong>Chat</strong>: ask questions that span multiple projects.</li>
+<li><strong>Uploads tab</strong>: upload a document and show entity extraction.</li>
+<li><strong>View tab</strong>: show the connections between projects, clients, and concepts in the Knowledge graph.</li>
+<li><strong>Task tab</strong>: set up a template for a recurring deliverable.</li>
+</ol>
+<h4>Closing Language</h4>
+<blockquote>
+<p>"You've built up years of expertise. ProAsiste makes all of it instantly accessible, not just to you but to your whole team. No more reinventing wheels or losing knowledge when projects end."</p>
+</blockquote>
+<hr />
+
+<h3 id="the-executive">The Executive</h3>
+<h4>Profile</h4>
+<table>
+<thead>
+<tr><th>Field</th><th>Detail</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>Title</strong></td><td>CEO, CFO, Division President</td></tr>
+<tr><td><strong>Company Size</strong></td><td>100+</td></tr>
+<tr><td><strong>Industry</strong></td><td>Any</td></tr>
+<tr><td><strong>Age</strong></td><td>45 to 60</td></tr>
+</tbody>
+</table>
+<h4>Their World</h4>
+<ul>
+<li>Makes decisions based on incomplete information</li>
+<li>Needs quick answers, not lengthy reports</li>
+<li>Worried about competitive advantage</li>
+<li>Focused on efficiency and margins</li>
+<li>Concerned about AI disruption</li>
+</ul>
+<h4>Pain Points</h4>
+<ol>
+<li>"I ask a simple question, and it takes a week to get an answer."</li>
+<li>"We're bleeding money on inefficiency but can't see where."</li>
+<li>"Our competitors are adopting AI. Are we falling behind?"</li>
+<li>"Every system has different numbers."</li>
+</ol>
+<h4>What They Want to Hear</h4>
+<table>
+<thead>
+<tr><th>Theme</th><th>Line</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>Competitive advantage</strong></td><td>"AI that knows YOUR business."</td></tr>
+<tr><td><strong>Decision speed</strong></td><td>"Instant answers to any question."</td></tr>
+<tr><td><strong>Cost reduction</strong></td><td>"Find and fix inefficiencies automatically."</td></tr>
+<tr><td><strong>Strategic asset</strong></td><td>"Knowledge compounds over time."</td></tr>
+</tbody>
+</table>
+<h4>Demo Focus</h4>
+<ol>
+<li><strong>Chat</strong>: ask executive-level questions and get synthesized answers.</li>
+<li><strong>View tab</strong>: show the high-level process insights and the 30,000-foot view of organizational Knowledge.</li>
+<li><strong>Task tab</strong>: show how routine analysis runs on its own.</li>
+<li><strong>ROI conversation</strong>: calculate specific savings against their numbers.</li>
+</ol>
+<h4>Closing Language</h4>
+<blockquote>
+<p>"Your competitors are either already using AI or scrambling to figure it out. ProAsiste isn't generic AI. It's YOUR company's intelligence, multiplied. Questions get answered instantly, inefficiencies become visible, and your knowledge stays captured for good."</p>
+</blockquote>
+<hr />
+
+<h3 id="the-it-leader">The IT Leader</h3>
+<h4>Profile</h4>
+<table>
+<thead>
+<tr><th>Field</th><th>Detail</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>Title</strong></td><td>CIO, CTO, IT Director, Head of Digital</td></tr>
+<tr><td><strong>Company Size</strong></td><td>200+</td></tr>
+<tr><td><strong>Industry</strong></td><td>Any</td></tr>
+<tr><td><strong>Age</strong></td><td>35 to 55</td></tr>
+</tbody>
+</table>
+<h4>Their World</h4>
+<ul>
+<li>Balancing innovation with security</li>
+<li>Managing multiple systems that don't talk to each other</li>
+<li>Pressure to deliver AI capabilities</li>
+<li>Concerned about data governance</li>
+<li>Limited resources, infinite demands</li>
+</ul>
+<h4>Pain Points</h4>
+<ol>
+<li>"Everyone wants AI, but we can't risk our data."</li>
+<li>"We have 15 systems that don't integrate."</li>
+<li>"Shadow IT is out of control, with people using random AI tools."</li>
+<li>"We don't have resources to build custom AI solutions."</li>
+</ol>
+<h4>What They Want to Hear</h4>
+<table>
+<thead>
+<tr><th>Theme</th><th>Line</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>Security first</strong></td><td>"Your data stays yours, period."</td></tr>
+<tr><td><strong>Integration</strong></td><td>"Works with what you have."</td></tr>
+<tr><td><strong>Governance</strong></td><td>"Full control and audit trail."</td></tr>
+<tr><td><strong>Managed solution</strong></td><td>"We handle the AI complexity."</td></tr>
+</tbody>
+</table>
+<h4>Demo Focus</h4>
+<ol>
+<li><strong>Architecture discussion</strong>: dedicated environment, data isolation.</li>
+<li><strong>Security features</strong>: encryption, access control, audit logs.</li>
+<li><strong>Integration points</strong>: API, Google Drive sync, export options.</li>
+<li><strong>Verify tab</strong>: show how every piece of knowledge passes through approval before it enters the graph.</li>
+</ol>
+<h4>Closing Language</h4>
+<blockquote>
+<p>"Your people are already using public AI on their phones, with company data in it. ProAsiste gives them something better and keeps your data secure. Dedicated environment, full audit trail, no external training. It's the AI solution that IT can actually approve."</p>
+</blockquote>
+<hr />
+
+<h3 id="the-small-business-owner">The Small Business Owner</h3>
+<h4>Profile</h4>
+<table>
+<thead>
+<tr><th>Field</th><th>Detail</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>Title</strong></td><td>Owner, Founder, Managing Director</td></tr>
+<tr><td><strong>Company Size</strong></td><td>5 to 50 employees</td></tr>
+<tr><td><strong>Industry</strong></td><td>Any</td></tr>
+<tr><td><strong>Age</strong></td><td>30 to 60</td></tr>
+</tbody>
+</table>
+<h4>Their World</h4>
+<ul>
+<li>Wears many hats</li>
+<li>Every hour matters</li>
+<li>Can't afford dedicated specialists</li>
+<li>Knowledge is entirely in their head</li>
+<li>Worried about scaling without losing quality</li>
+</ul>
+<h4>Pain Points</h4>
+<ol>
+<li>"I'm the only one who knows how things really work."</li>
+<li>"Training new employees takes forever."</li>
+<li>"I can't afford a full-time analyst."</li>
+<li>"If I got hit by a bus, the business would collapse."</li>
+</ol>
+<h4>What They Want to Hear</h4>
+<table>
+<thead>
+<tr><th>Theme</th><th>Line</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>Clone yourself</strong></td><td>"Your expertise, available 24/7."</td></tr>
+<tr><td><strong>Affordable</strong></td><td>"Enterprise AI at small-business prices."</td></tr>
+<tr><td><strong>Simple</strong></td><td>"Works in 30 minutes, not 30 days."</td></tr>
+<tr><td><strong>Scale enabler</strong></td><td>"Grow without losing quality."</td></tr>
+</tbody>
+</table>
+<h4>Demo Focus</h4>
+<ol>
+<li><strong>Chat</strong>: show how it can answer as if it were them.</li>
+<li><strong>Uploads tab</strong>: upload key documents to capture knowledge.</li>
+<li><strong>Task tab</strong>: automate their repetitive work.</li>
+<li><strong>View tab</strong>: show how everything connects in the Knowledge graph.</li>
+</ol>
+<h4>Closing Language</h4>
+<blockquote>
+<p>"You've spent years building this expertise. ProAsiste captures it so you can focus on growth instead of repetition. It's like hiring an assistant who instantly knows everything about your business, for a fraction of the cost."</p>
+</blockquote>
+<hr />
+
+<h3 id="qualifying-questions-by-persona">Qualifying Questions by Persona</h3>
+<h4>For All Personas</h4>
+<ol>
+<li>"How do your people currently find information when they need it?"</li>
+<li>"What happens to knowledge when employees leave?"</li>
+<li>"How many hours a week does your team spend on repetitive reports?"</li>
+</ol>
+<h4>Operations Manager Specific</h4>
+<ul>
+<li>"Can you see where work slows down in your processes?"</li>
+<li>"How long does it take to compile your weekly ops report?"</li>
+</ul>
+<h4>Knowledge Worker Specific</h4>
+<ul>
+<li>"How often do you recreate work that was done before?"</li>
+<li>"How do you onboard new team members to past projects?"</li>
+</ul>
+<h4>Executive Specific</h4>
+<ul>
+<li>"When you ask a question, how quickly do you get an accurate answer?"</li>
+<li>"Where do you think you're losing money to inefficiency?"</li>
+</ul>
+<h4>IT Leader Specific</h4>
+<ul>
+<li>"What's your current policy on employees using AI tools?"</li>
+<li>"How do you balance innovation with data security?"</li>
+</ul>
+<h4>Small Business Owner Specific</h4>
+<ul>
+<li>"What would happen to the business if you couldn't work for a month?"</li>
+<li>"How long does it take to get a new employee fully productive?"</li>
+</ul>
+<hr />
+<h2 id="part-quick-reference">Part 2 — Quick Reference</h2>
+<p>Print this single page for quick reference during demos and calls.</p>
+<hr />
+<h3 id="30-second-elevator-pitch">30-Second Elevator Pitch</h3>
+<blockquote>
+<p>"ProAsiste captures your company's knowledge (every document, conversation, and process) and makes it instantly accessible through AI. Ask a question, get an answer with sources. Define a task, your AI apprentice handles it. It's like giving every employee access to your entire institutional knowledge, plus an AI assistant who's read all of it."</p>
+</blockquote>
+<hr />
+<h3 id="the-four-tabs-right-panel">The Four Tabs (Right Panel)</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Tab</th>
+<th>Icon</th>
+<th>One-Liner</th>
+<th>Key Demo Action</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>DATA</strong></td>
+<td>Graph</td>
+<td>"See how everything connects"</td>
+<td>Hover over chord diagram</td>
+</tr>
+<tr class="even">
+<td><strong>TASKS</strong></td>
+<td>Checklist</td>
+<td>"Your AI apprentice"</td>
+<td>Show a task template</td>
+</tr>
+<tr class="odd">
+<td><strong>DOCS</strong></td>
+<td>Upload</td>
+<td>"Documents become knowledge"</td>
+<td>Drag-drop a PDF</td>
+</tr>
+<tr class="even">
+<td><strong>EVENTS</strong></td>
+<td>Timeline</td>
+<td>"Find hidden patterns"</td>
+<td>Show flow diagram</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="button-quick-reference">Button Quick Reference</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Button</th>
+<th>Location</th>
+<th>What It Does</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Neo4j ↗</strong></td>
+<td>DATA tab</td>
+<td>Opens full graph database browser</td>
+</tr>
+<tr class="even">
+<td><strong>Obsidian ↗</strong></td>
+<td>DATA tab</td>
+<td>Opens knowledge base for editing</td>
+</tr>
+<tr class="odd">
+<td><strong>📁 Processed</strong></td>
+<td>All tabs</td>
+<td>Opens processed files in Google Drive</td>
+</tr>
+<tr class="even">
+<td><strong>Claude ↗</strong></td>
+<td>TASKS tab</td>
+<td>Opens Claude Code terminal</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="pain-points--solutions">Pain Points → Solutions</h3>
+<table>
+<thead>
+<tr class="header">
+<th>They Say</th>
+<th>You Say</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>"We waste time searching for info"</td>
+<td>"Just ask. Answer in seconds, with sources."</td>
+</tr>
+<tr class="even">
+<td>"Knowledge leaves when people leave"</td>
+<td>"ProAsiste captures it permanently in a knowledge graph."</td>
+</tr>
+<tr class="odd">
+<td>"Reports take forever to compile"</td>
+<td>"Define once, your apprentice does it automatically."</td>
+</tr>
+<tr class="even">
+<td>"Documents sit in folders, never found"</td>
+<td>"Every document becomes searchable and connected."</td>
+</tr>
+<tr class="odd">
+<td>"We don't know where our bottlenecks are"</td>
+<td>"Process mining shows you the patterns that are hard to spot by hand."</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="tier-cheat-sheet">Tier Cheat Sheet</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Tier</th>
+<th>Price Point</th>
+<th>What Opens Up</th>
+<th>Best For</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>SILVER</strong></td>
+<td>$</td>
+<td>Chat + DATA</td>
+<td>Individual professionals</td>
+</tr>
+<tr class="even">
+<td><strong>GOLD</strong></td>
+<td>$$</td>
+<td>+ TASKS</td>
+<td>Teams wanting automation</td>
+</tr>
+<tr class="odd">
+<td><strong>PLATINUM</strong></td>
+<td>$$$</td>
+<td>+ DOCS</td>
+<td>Document-heavy industries</td>
+</tr>
+<tr class="even">
+<td><strong>DIAMOND</strong></td>
+<td>$$$$</td>
+<td>+ EVENTS</td>
+<td>Enterprise operations</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="quick-roi-math">Quick ROI Math</h3>
+<p><strong>Time Saved Searching:</strong></p>
+<ul>
+<li>30 min/day × 5 days × 50 weeks = 125 hours/year/person</li>
+<li>At $50/hour = <strong>$6,250 saved per employee per year</strong></li>
+</ul>
+<p><strong>Report Automation:</strong></p>
+<ul>
+<li>3-hour weekly report × 50 weeks = 150 hours/year</li>
+<li>Automated = <strong>$7,500 saved per report type</strong></li>
+</ul>
+<p><strong>Knowledge Retention:</strong></p>
+<ul>
+<li>Cost to replace senior employee knowledge: <strong>$50,000–$200,000</strong></li>
+<li>ProAsiste captures it continuously</li>
+</ul>
+<hr />
+<h3 id="objection-killers">Objection Killers</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Objection</th>
+<th>One-Line Response</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>"We have SharePoint/Confluence"</td>
+<td>"Those store files. ProAsiste understands them."</td>
+</tr>
+<tr class="even">
+<td>"Data security concerns"</td>
+<td>"Dedicated environment. Your data never trains public models."</td>
+</tr>
+<tr class="odd">
+<td>"No time to set up"</td>
+<td>"30 minutes. Then it learns from normal use."</td>
+</tr>
+<tr class="even">
+<td>"How is this different from ChatGPT?"</td>
+<td>"ChatGPT knows the internet. ProAsiste knows your business."</td>
+</tr>
+<tr class="odd">
+<td>"Prove the ROI"</td>
+<td>"Let's calculate it right now with your numbers."</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="demo-flow-15-minutes">Demo Flow (15 minutes)</h3>
+<ol type="1">
+<li><strong>Chat</strong> (3 min): Ask a business question, show sources</li>
+<li><strong>DATA</strong> (3 min): Show knowledge graph connections</li>
+<li><strong>TASKS</strong> (3 min): Demonstrate automation template</li>
+<li><strong>DOCS</strong> (3 min): Upload and process a document</li>
+<li><strong>Close</strong> (3 min): Summarize value, discuss tier fit</li>
+</ol>
+<hr />
+<h3 id="key-urls">Key URLs</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Resource</th>
+<th>URL</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Demo Environment</td>
+<td>proasiste.com/chat/ctwin/</td>
+</tr>
+<tr class="even">
+<td>Documentation</td>
+<td>docs.proasiste.com</td>
+</tr>
+<tr class="odd">
+<td>Support</td>
+<td><a href="mailto:support@proasiste.com">support@proasiste.com</a></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="emergency-backup-lines">Emergency Backup Lines</h3>
+<p>If the demo breaks:</p>
+<blockquote>
+<p>"This is a live system with real data, so occasionally things need a moment. While that loads, let me explain what you would see..."</p>
+</blockquote>
+<p>If asked something you don't know:</p>
+<blockquote>
+<p>"I want to give you an accurate answer, so let me get back to you on that specific point. What I can tell you is..."</p>
+</blockquote>
+<p>If prospect seems disengaged:</p>
+<blockquote>
+<p>"What's your biggest operational headache right now? Let me show you exactly how ProAsiste addresses that."</p>
+</blockquote>
+<hr />
+<h2 id="part-competitive">Part 3 — Competitive Positioning</h2>
+<p>How to position ProAsiste against alternatives prospects may mention.</p>
+<hr />
+<h3 id="vs-chatgpt--claudeai--generic-ai">vs. ChatGPT / Claude.ai / Generic AI</h3>
+<h4 id="what-they-are">What They Are</h4>
+<p>Public AI assistants trained on internet data.</p>
+<h4 id="their-argument">Their Argument</h4>
+<p>"Why pay for ProAsiste when ChatGPT is free/cheaper?"</p>
+<h4 id="your-response">Your Response</h4>
+<blockquote>
+<p>"ChatGPT knows the internet. ProAsiste knows your business. When you ask ChatGPT about your supplier terms, it gives generic advice. When you ask ProAsiste, it gives you your actual terms from your actual contracts. And with ChatGPT, your data could be used to train their models. With ProAsiste, your data stays yours."</p>
+</blockquote>
+<h4 id="key-differentiators">Key Differentiators</h4>
+<table>
+<thead>
+<tr class="header">
+<th>Feature</th>
+<th>ChatGPT</th>
+<th>ProAsiste</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Knows your data</td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+<tr class="even">
+<td>Data privacy</td>
+<td>Shared/trained</td>
+<td>Isolated/private</td>
+</tr>
+<tr class="odd">
+<td>Knowledge graph</td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+<tr class="even">
+<td>Process automation</td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+<tr class="odd">
+<td>Document intelligence</td>
+<td>Basic</td>
+<td>Advanced</td>
+</tr>
+<tr class="even">
+<td>Learns over time</td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="vs-microsoft-copilot">vs. Microsoft Copilot</h3>
+<h4 id="what-it-is">What It Is</h4>
+<p>AI assistant integrated into Microsoft 365.</p>
+<h4 id="their-argument-1">Their Argument</h4>
+<p>"We already have Copilot with our M365 license."</p>
+<h4 id="your-response-1">Your Response</h4>
+<blockquote>
+<p>"Copilot is great for working inside Microsoft apps: writing emails, making PowerPoint slides. ProAsiste works differently. It's a dedicated knowledge system that connects information across all your tools, not just what's in Microsoft. It builds a knowledge graph, automates processes, and does process mining. The two complement each other."</p>
+</blockquote>
+<h4 id="key-differentiators-1">Key Differentiators</h4>
+<table>
+<thead>
+<tr class="header">
+<th>Feature</th>
+<th>Copilot</th>
+<th>ProAsiste</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>M365 integration</td>
+<td>Native</td>
+<td>Import/Export</td>
+</tr>
+<tr class="even">
+<td>Cross-platform knowledge</td>
+<td>Limited</td>
+<td>Comprehensive</td>
+</tr>
+<tr class="odd">
+<td>Knowledge graph</td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+<tr class="even">
+<td>Process mining</td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+<tr class="odd">
+<td>Custom automation</td>
+<td>Limited</td>
+<td>Extensive</td>
+</tr>
+<tr class="even">
+<td>Standalone intelligence</td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+<h4 id="when-to-acknowledge-copilot">When to Acknowledge Copilot</h4>
+<ul>
+<li>If they're heavily invested in M365, position as complementary</li>
+<li>"Copilot helps you work in Office. ProAsiste helps you think about your business."</li>
+</ul>
+<hr />
+<h3 id="vs-notion-ai--confluence-ai">vs. Notion AI / Confluence AI</h3>
+<h4 id="what-they-are-1">What They Are</h4>
+<p>AI features added to existing knowledge management tools.</p>
+<h4 id="their-argument-2">Their Argument</h4>
+<p>"We already have Notion/Confluence with AI."</p>
+<h4 id="your-response-2">Your Response</h4>
+<blockquote>
+<p>"Notion AI and Confluence AI help you write and search within those tools, and they do that well. ProAsiste works at a different level: it connects knowledge across all your systems, builds relationships between concepts, and learns from your conversations. That's a step past a better search box. It's a system that understands what your business knows."</p>
+</blockquote>
+<h4 id="key-differentiators-2">Key Differentiators</h4>
+<table>
+<thead>
+<tr class="header">
+<th>Feature</th>
+<th>Notion/Confluence AI</th>
+<th>ProAsiste</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Writing assistance</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr class="even">
+<td>Search</td>
+<td>Enhanced</td>
+<td>Intelligent</td>
+</tr>
+<tr class="odd">
+<td>Knowledge graph</td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+<tr class="even">
+<td>Cross-doc connections</td>
+<td>Manual</td>
+<td>Automatic</td>
+</tr>
+<tr class="odd">
+<td>Process automation</td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+<tr class="even">
+<td>Conversational memory</td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="vs-custom-ai-solutions">vs. Custom AI Solutions</h3>
+<h4 id="what-they-are-2">What They Are</h4>
+<p>In-house AI development using OpenAI API, LangChain, etc.</p>
+<h4 id="their-argument-3">Their Argument</h4>
+<p>"We can build this ourselves with the OpenAI API."</p>
+<h4 id="your-response-3">Your Response</h4>
+<blockquote>
+<p>"Absolutely you can, and some companies do. But here's what they discover: building it is the easy part. Maintaining it, scaling it, keeping up with model changes, handling edge cases, building the knowledge graph, creating the UI. That becomes a full-time job for a team. ProAsiste gives you all of that, ready to go, with ongoing improvements. Your team can focus on your actual business."</p>
+</blockquote>
+<h4 id="build-vs-buy-comparison">Build vs. Buy Comparison</h4>
+<table>
+<thead>
+<tr class="header">
+<th>Factor</th>
+<th>Build Custom</th>
+<th>ProAsiste</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Time to deploy</td>
+<td>3-12 months</td>
+<td>1 day</td>
+</tr>
+<tr class="even">
+<td>Development cost</td>
+<td>$200K–$1M+</td>
+<td>Subscription</td>
+</tr>
+<tr class="odd">
+<td>Maintenance</td>
+<td>Ongoing team</td>
+<td>Included</td>
+</tr>
+<tr class="even">
+<td>Updates</td>
+<td>Your responsibility</td>
+<td>Automatic</td>
+</tr>
+<tr class="odd">
+<td>Knowledge graph</td>
+<td>Build from scratch</td>
+<td>Built-in</td>
+</tr>
+<tr class="even">
+<td>Support</td>
+<td>Self-support</td>
+<td>Included</td>
+</tr>
+</tbody>
+</table>
+<h4 id="key-question">Key Question</h4>
+<blockquote>
+<p>"Do you want your engineers building AI infrastructure, or building your actual product?"</p>
+</blockquote>
+<hr />
+<h3 id="vs-enterprise-search-elastic-algolia">vs. Enterprise Search (Elastic, Algolia)</h3>
+<h4 id="what-they-are-3">What They Are</h4>
+<p>Search engines that index company content.</p>
+<h4 id="their-argument-4">Their Argument</h4>
+<p>"We have enterprise search already."</p>
+<h4 id="your-response-4">Your Response</h4>
+<blockquote>
+<p>"Enterprise search finds documents. ProAsiste understands them. Search gives you a list of files that contain 'supplier contract.' ProAsiste tells you what the key terms are across all your supplier contracts, how they compare, and flags when something looks off. Finding the file is just the first step. Actually knowing what's in it is the useful part."</p>
+</blockquote>
+<h4 id="key-differentiators-3">Key Differentiators</h4>
+<table>
+<thead>
+<tr class="header">
+<th>Feature</th>
+<th>Enterprise Search</th>
+<th>ProAsiste</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Find documents</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr class="even">
+<td>Understand content</td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+<tr class="odd">
+<td>Answer questions</td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+<tr class="even">
+<td>Make connections</td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+<tr class="odd">
+<td>Automate tasks</td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+<tr class="even">
+<td>Process mining</td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="vs-we-dont-need-ai">vs. "We Don't Need AI"</h3>
+<h4 id="their-argument-5">Their Argument</h4>
+<p>"AI is hype. We've done fine without it."</p>
+<h4 id="your-response-5">Your Response</h4>
+<blockquote>
+<p>"That's fair. A lot of AI is hype. But your competitors are adopting tools that let them move faster. Not because AI is magic, but because finding information in seconds instead of hours is a real advantage. We're not asking you to change how you work. We're offering to save your team 5-10 hours a week. Would that be worth a look?"</p>
+</blockquote>
+<h4 id="reframe-the-conversation">Reframe the Conversation</h4>
+<ul>
+<li>Lead with time savings, not the word "AI."</li>
+<li>Talk about the competitive advantage of moving faster.</li>
+<li>Point to the outcome they care about: 5 to 10 hours back per week.</li>
+</ul>
+<hr />
+<h3 id="vs-well-wait-for-the-technology-to-mature">vs. "We'll Wait for the Technology to Mature"</h3>
+<h4 id="their-argument-6">Their Argument</h4>
+<p>"AI is moving so fast, we should wait."</p>
+<h4 id="your-response-6">Your Response</h4>
+<blockquote>
+<p>"I understand the instinct. ProAsiste is built on proven capabilities available today, not a bet on future technology. While you wait, your competitors are building months of institutional knowledge into their systems. Knowledge compounds. Starting six months earlier means six months more of captured decisions, refined processes, and a system that actually knows your business. The window isn't closing tomorrow, but it's not standing still either."</p>
+</blockquote>
+<h4 id="counter-arguments">Counter-Arguments</h4>
+<ol type="1">
+<li><strong>First-mover advantage</strong>: Knowledge compounds over time</li>
+<li><strong>Learning curve</strong>: Start learning now while stakes are low</li>
+<li><strong>No lock-in</strong>: You can always export your data</li>
+<li><strong>Continuous updates</strong>: We keep up with AI advances so you don't have to</li>
+</ol>
+<hr />
+<h3 id="competitive-landmines-to-avoid">Competitive Landmines to Avoid</h3>
+<h4 id="dont-trash-the-competition">Don't Trash the Competition</h4>
+<ul>
+<li>❌ "Copilot is terrible"</li>
+<li>✓ "Copilot is great for X. ProAsiste is designed for Y."</li>
+</ul>
+<h4 id="dont-overpromise">Don't Overpromise</h4>
+<ul>
+<li>❌ "ProAsiste can replace all your tools"</li>
+<li>✓ "ProAsiste complements your existing tools with AI intelligence"</li>
+</ul>
+<h4 id="dont-get-into-feature-wars">Don't Get Into Feature Wars</h4>
+<ul>
+<li>❌ "We have more features than..."</li>
+<li>✓ "What matters is solving your specific problem"</li>
+</ul>
+<h4 id="dont-dismiss-their-concerns">Don't Dismiss Their Concerns</h4>
+<ul>
+<li>❌ "Security isn't really an issue"</li>
+<li>✓ "Security is critical. Here's exactly how we address it..."</li>
+</ul>
+<hr />
+<h3 id="quick-comparison-table-for-all-competitors">Quick Comparison Table for All Competitors</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Capability</th>
+<th>ChatGPT</th>
+<th>Copilot</th>
+<th>Notion AI</th>
+<th>Custom</th>
+<th>ProAsiste</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Your data knowledge</td>
+<td>❌</td>
+<td>Partial</td>
+<td>Partial</td>
+<td>✓</td>
+<td>✓</td>
+</tr>
+<tr class="even">
+<td>Data privacy</td>
+<td>❌</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+</tr>
+<tr class="odd">
+<td>Knowledge graph</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>DIY</td>
+<td>✓</td>
+</tr>
+<tr class="even">
+<td>Process automation</td>
+<td>❌</td>
+<td>Limited</td>
+<td>❌</td>
+<td>DIY</td>
+<td>✓</td>
+</tr>
+<tr class="odd">
+<td>Process mining</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>DIY</td>
+<td>✓</td>
+</tr>
+<tr class="even">
+<td>Document intelligence</td>
+<td>Basic</td>
+<td>Basic</td>
+<td>Basic</td>
+<td>DIY</td>
+<td>✓</td>
+</tr>
+<tr class="odd">
+<td>Time to value</td>
+<td>Instant</td>
+<td>Days</td>
+<td>Days</td>
+<td>Months</td>
+<td>Hours</td>
+</tr>
+<tr class="even">
+<td>Ongoing maintenance</td>
+<td>N/A</td>
+<td>Microsoft</td>
+<td>Notion</td>
+<td>You</td>
+<td>Us</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="part-security">Part 4 — Security FAQ</h2>
+<p>Answers to common security questions from prospects.</p>
+<hr />
+<h3 id="quick-reference">Quick Reference</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Tier</th>
+<th>Infrastructure</th>
+<th>Security Level</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>SILVER</strong></td>
+<td>Google Workspace</td>
+<td>Standard business security</td>
+</tr>
+<tr class="even">
+<td><strong>GOLD</strong></td>
+<td>Google Workspace</td>
+<td>Standard business security</td>
+</tr>
+<tr class="odd">
+<td><strong>PLATINUM</strong></td>
+<td>Google Cloud</td>
+<td>Enhanced cloud security</td>
+</tr>
+<tr class="even">
+<td><strong>DIAMOND</strong></td>
+<td>Google Cloud</td>
+<td>Enhanced cloud security</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th>Compliance Need</th>
+<th>How ProAsiste Handles It</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>GDPR compliance</td>
+<td>Encryption, no model training, export/deletion on request; EU data residency on request</td>
+<td>In progress (in-house)</td>
+</tr>
+<tr class="even">
+<td>HIPAA compliance</td>
+<td>Control framework, audit controls, BAA path</td>
+<td>In progress (in-house)</td>
+</tr>
+<tr class="odd">
+<td>SOC 2 compliance</td>
+<td>Control framework and audit evidence</td>
+<td>In progress (in-house)</td>
+</tr>
+<tr class="even">
+<td>Role-based access (IAM)</td>
+<td>Twin-level access today; granular IAM scoping</td>
+<td>In progress (in-house)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="standard-security-included-by-tier">Standard Security (Included by Tier)</h3>
+<h4 id="silver--gold-tiers-google-workspace-security">SILVER &amp; GOLD Tiers: Google Workspace Security</h4>
+<blockquote>
+<p>"SILVER and GOLD tiers use Google Workspace for data storage and security. Your data sits on the same enterprise-grade infrastructure that protects millions of Google Workspace users worldwide. It's the same infrastructure behind Gmail, Google Drive, and Google Docs."</p>
+</blockquote>
+<p><strong>What's Included:</strong></p>
+<ul>
+<li><strong>Encryption in transit</strong>: TLS 1.3 for all data transmission</li>
+<li><strong>Encryption at rest</strong>: AES-256 encryption for stored data</li>
+<li><strong>Google Workspace infrastructure</strong>: Proven, trusted platform</li>
+<li><strong>Data isolation</strong>: Your twin's data is separate from other customers</li>
+<li><strong>Access control</strong>: Token-based authentication</li>
+<li><strong>Automatic backups</strong>: Google's redundant storage systems</li>
+</ul>
+<p><strong>Best For:</strong></p>
+<ul>
+<li>Individual professionals</li>
+<li>Small businesses</li>
+<li>Teams without specific compliance requirements</li>
+<li>Companies already using Google Workspace</li>
+</ul>
+<hr />
+<h4 id="platinum--diamond-tiers-google-cloud-security">PLATINUM &amp; DIAMOND Tiers: Google Cloud Security</h4>
+<blockquote>
+<p>"PLATINUM and DIAMOND tiers run on Google Cloud Platform for enhanced security capabilities. This provides additional controls, better scalability, and more sophisticated infrastructure options."</p>
+</blockquote>
+<p><strong>What's Included (in addition to standard):</strong></p>
+<ul>
+<li><strong>Google Cloud Platform infrastructure</strong>: Enterprise-grade cloud</li>
+<li><strong>Enhanced monitoring</strong>: Cloud-native security monitoring</li>
+<li><strong>Scalability</strong>: Enterprise-level performance</li>
+<li><strong>Advanced networking</strong>: VPC, private connectivity options</li>
+<li><strong>Dedicated resources</strong>: Isolated compute and storage</li>
+</ul>
+<p><strong>Best For:</strong></p>
+<ul>
+<li>Larger teams and departments</li>
+<li>Organizations with heavier data processing needs</li>
+<li>Companies requiring enhanced cloud capabilities</li>
+<li>Businesses planning significant scale</li>
+</ul>
+<h4 id="where-is-our-data-stored">"Where is our data stored?"</h4>
+<blockquote>
+<p>"Your data is stored on Google's infrastructure through Google Workspace. Google operates data centers worldwide with industry-leading physical and digital security. Your data never leaves Google's secure environment."</p>
+</blockquote>
+<h4 id="can-you-access-our-data">"Can you access our data?"</h4>
+<blockquote>
+<p>"We can access your data only for technical support purposes when you request assistance. We do not routinely access, review, or analyze customer data. Your data is never used to train AI models or shared with other customers."</p>
+</blockquote>
+<h4 id="what-happens-if-we-cancel">"What happens if we cancel?"</h4>
+<blockquote>
+<p>"You own your data. You can export everything at any time in standard formats (JSON, Markdown, CSV). When you cancel, we delete your data from our systems within 30 days. You retain any exports you've made."</p>
+</blockquote>
+<hr />
+<h3 id="enterprise-formal-compliance">Enterprise &amp; Formal Compliance</h3>
+<h4 id="we-need-gdprhipaasoc-2-compliance">"We need GDPR/HIPAA/SOC 2 compliance"</h4>
+<blockquote>
+<p>"We understand that enterprises and regulated industries have specific compliance requirements. ProAsiste's platform gives you the technical controls today: encryption, data isolation, no model training, export and deletion. The formal documentation, signed agreements, and audits are being built in-house and are currently in progress. Tell us your specific requirement and we'll share where it stands and the timeline."</p>
+</blockquote>
+<p><strong>Formal compliance, in progress (in-house):</strong></p>
+<ul>
+<li><strong>GDPR compliance</strong>: Data processing agreements, EU data residency, right to erasure</li>
+<li><strong>HIPAA compliance</strong>: BAA agreements, PHI handling, audit controls</li>
+<li><strong>SOC 2 Type II</strong>: Formal auditing, compliance reports, control frameworks</li>
+<li><strong>Role-based access control</strong>: Google IAM integration, granular permissions</li>
+<li><strong>Advanced audit logging</strong>: Detailed access logs, compliance reporting</li>
+<li><strong>Dedicated environments</strong>: Isolated infrastructure for regulated data</li>
+</ul>
+<h4 id="when-will-formal-compliance-be-ready">"When will formal compliance be ready?"</h4>
+<blockquote>
+<p>"It's actively in progress. The technical controls behind these frameworks (encryption, data isolation, no model training, export and deletion) are in place today. The formal certifications, signed agreements, and audit documentation are being finalized in-house. Tell us which framework you need and we'll give you the current status and the expected timeline for your organization."</p>
+</blockquote>
+<h4 id="why-dont-you-handle-compliance-directly">"Why don't you handle compliance directly?"</h4>
+<blockquote>
+<p>"We do, in-house. We focus on building the best possible twin for your business, and formal compliance is part of that work, not something we hand off. The technical controls are in place today; the specialized expertise, dedicated resources, and ongoing certification maintenance behind the formal documentation are being built in-house and are in progress. You get strong AI capabilities and a defined path to audit-ready security."</p>
+</blockquote>
+<hr />
+<h3 id="common-security-questions">Common Security Questions</h3>
+<h4 id="do-you-train-ai-models-on-our-data">"Do you train AI models on our data?"</h4>
+<blockquote>
+<p>"No. Your data is never used to train public AI models. Your ProAsiste learns from YOUR data to serve YOU. That knowledge stays within your twin and is never shared externally."</p>
+</blockquote>
+<h4 id="what-about-the-ai-provider-claudeopenai">"What about the AI provider (Claude/OpenAI)?"</h4>
+<blockquote>
+<p>"When your ProAsiste processes queries, it sends prompts to the AI provider (Anthropic's Claude). However:</p>
+<ul>
+<li>Only the current conversation context is sent, not your entire knowledge base</li>
+<li>Anthropic does not train on API data (per their data usage policy)</li>
+<li>We use enterprise API tiers with additional data protections</li>
+<li>For maximum security needs, we can configure dedicated/private AI endpoints"</li>
+</ul>
+</blockquote>
+<h4 id="what-if-theres-a-data-breach">"What if there's a data breach?"</h4>
+<blockquote>
+<p>"Google has industry-leading breach detection and response. In the unlikely event of a breach affecting your data, you would be notified according to Google's policies and any applicable laws. Formal incident-response procedures, breach-notification SLAs, and compliance with specific regulatory breach-reporting requirements (GDPR's 72-hour notification, HIPAA breach rules, etc.) are part of the in-house compliance program currently in progress."</p>
+</blockquote>
+<h4 id="can-employees-access-only-what-they-should">"Can employees access only what they should?"</h4>
+<blockquote>
+<p>"Our standard offering provides twin-level access control. Either someone has access to the twin or they don't. For Org-twins, we support mentor oversight of user workspaces. Granular role-based access control (where different users see different data within the same system, via Google IAM integration with custom permission structures) is part of the in-house roadmap and is in progress."</p>
+</blockquote>
+<h4 id="do-you-have-a-security-certification">"Do you have a security certification?"</h4>
+<blockquote>
+<p>"We inherit Google Workspace's certifications, which include SOC 1/2/3, ISO 27001, and more. See Google's compliance page for the full list. Our own formal certifications (SOC 2 Type II) and compliance documentation for GDPR, HIPAA, and other frameworks are being built in-house and are in progress; we can share current status for your audit."</p>
+</blockquote>
+<hr />
+<h3 id="security-conversation-flow">Security Conversation Flow</h3>
+<h4 id="step-1-understand-their-needs">Step 1: Understand Their Needs</h4>
+<p>Ask: "What are your main security concerns or requirements?"</p>
+<p>Listen for:</p>
+<ul>
+<li>General data protection concerns → Standard offering</li>
+<li>Specific compliance mentions (GDPR, HIPAA, SOC 2) → Standard controls today + formal docs in progress (in-house)</li>
+<li>Role-based access needs → In-house roadmap, in progress</li>
+<li>Audit/documentation requirements → In-house roadmap, in progress; share current status and timeline</li>
+</ul>
+<h4 id="step-2-position-appropriately">Step 2: Position Appropriately</h4>
+<p><strong>For Standard Needs:</strong></p>
+<blockquote>
+<p>"Our standard platform runs on Google Workspace's security infrastructure, which provides enterprise-grade protection out of the box. This includes encryption, access controls, and Google's world-class security operations."</p>
+</blockquote>
+<p><strong>For Enterprise Needs:</strong></p>
+<blockquote>
+<p>"For GDPR, HIPAA, SOC 2, or role-based access requirements that need signed agreements and audit evidence, those formal frameworks are being built in-house and are in progress. Tell me the specific requirement and I'll get you the current status and timeline..."</p>
+</blockquote>
+<h4 id="step-3-handle-formal-requirements-if-needed">Step 3: Handle Formal Requirements (if needed)</h4>
+<p>If a formal framework is required:</p>
+<ol type="1">
+<li>Acknowledge their requirements are valid and important</li>
+<li>Be clear about what's available today (technical controls) vs in progress (formal docs/certifications)</li>
+<li>Capture the specific framework and deadline they need</li>
+<li>Get them a current status and expected timeline from the team</li>
+<li>Emphasize this gives them best-in-class AI now, with audit-ready security on a defined path</li>
+</ol>
+<hr />
+<h3 id="objection-handling">Objection Handling</h3>
+<h4 id="why-should-we-trust-a-startup-with-our-data">"Why should we trust a startup with our data?"</h4>
+<blockquote>
+<p>"You're not trusting us with your data infrastructure. You're trusting Google. We built ProAsiste on Google Workspace specifically because we knew security would be a concern. Your data sits on the same infrastructure that Fortune 500 companies trust with their most sensitive information."</p>
+</blockquote>
+<h4 id="our-it-team-will-never-approve-this">"Our IT team will never approve this."</h4>
+<blockquote>
+<p>"I understand IT teams are cautious, and they should be. Here's what usually helps:</p>
+<ol type="1">
+<li>We can provide Google Workspace's security documentation</li>
+<li>For specific compliance needs, we can share where our formal documentation stands and the timeline</li>
+<li>We're happy to do a technical call with your IT team</li>
+<li>We can start with a non-sensitive pilot to build confidence"</li>
+</ol>
+</blockquote>
+<h4 id="we-need-everything-on-premise">"We need everything on-premise."</h4>
+<blockquote>
+<p>"True on-premise deployment isn't something we offer directly. Our platform is cloud-native. However, regional data residency and private-cloud options can be configured to meet many such requirements while you still use ProAsiste. Would it be helpful to explore that?"</p>
+</blockquote>
+<h4 id="we-need-formal-compliance-now-not-in-progress">"We need formal compliance now, not 'in progress.'"</h4>
+<blockquote>
+<p>"Fair, and we won't pretend otherwise. The technical controls (encryption, data isolation, no model training, export and deletion) are in place today. The formal certifications and signed agreements are being finalized in-house. If you have a hard deadline, tell us the framework and the date, and we'll give you an honest status and timeline so you can decide. For most customers, the standard Google Workspace security is already more than sufficient; formal frameworks are really for organizations with specific regulatory mandates: healthcare, finance, government contractors, EU data residency, etc."</p>
+</blockquote>
+<hr />
+<h3 id="security-summary-table">Security Summary Table</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Question</th>
+<th>Answer</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Where is data stored?</td>
+<td>Google Workspace, or Google Cloud for larger deployments</td>
+</tr>
+<tr class="even">
+<td>Is data encrypted?</td>
+<td>Yes (TLS 1.3 in transit + AES-256 at rest)</td>
+</tr>
+<tr class="odd">
+<td>GDPR compliant?</td>
+<td>Aligned controls today; DPAs and EU residency in progress (in-house)</td>
+</tr>
+<tr class="even">
+<td>HIPAA compliant?</td>
+<td>Technical controls today; BAA and audit docs in progress (in-house)</td>
+</tr>
+<tr class="odd">
+<td>SOC 2 certified?</td>
+<td>Inherited from Google today; own SOC 2 Type II in progress (in-house)</td>
+</tr>
+<tr class="even">
+<td>Role-based access?</td>
+<td>Twin-level today; full IAM in progress (in-house)</td>
+</tr>
+<tr class="odd">
+<td>Audit logging?</td>
+<td>Basic today; comprehensive logging in progress (in-house)</td>
+</tr>
+<tr class="even">
+<td>Cost</td>
+<td>Standard security included</td>
+</tr>
+</tbody>
+</table>
+</article>
+<footer class="sheet-foot">
+  <span>AI Value Prospectors · internal sales enablement · product-research</span>
+  <span><a href="index.html">Back to materials</a></span>
+</footer>
+</body>
+</html>
