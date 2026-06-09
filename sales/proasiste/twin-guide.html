@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="robots" content="noindex, nofollow">
+    <title>ProAsiste: Twin Feature Guide</title>
+    <style>
+    :root{--aivp:#E8B547;--pro:#CFB382;--pro-dark:#92700f;--pro-deep:#1c1608;
+    --bg:#0F1115;--card-bg:#181B22;--panel:#11151c;--text:#F3F4F6;--text-soft:#C2C6CC;--muted:#9AA0A6;--border:#2A2E37;
+    --bubble-you:#23282f;--bubble-twin:#2c2410;}
+    *{box-sizing:border-box;}
+    body{margin:0;font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;background:var(--bg);color:var(--text);line-height:1.55;min-height:100vh;display:flex;flex-direction:column;}
+    a{color:var(--pro);text-decoration:none;}
+    a:hover{text-decoration:underline;}
+    header{padding:36px 24px 22px;text-align:center;border-bottom:1px solid var(--border);}
+    .wordmark{display:inline-flex;align-items:center;gap:10px;margin-bottom:12px;}
+    .wordmark .mark{min-width:38px;height:38px;padding:0 10px;border-radius:9px;background:var(--pro);color:#0F1115;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:15px;}
+    .wordmark .name{font-size:13px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--pro);}
+    .badge{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:var(--pro);color:#0F1115;padding:4px 11px;border-radius:999px;margin-bottom:10px;}
+    header h1{margin:0;font-size:29px;font-weight:800;letter-spacing:-.02em;}
+    header p.sub{margin:9px auto 0;color:var(--muted);font-size:15px;max-width:660px;}
+    header a.back{display:inline-block;margin-top:14px;color:var(--text-soft);font-size:13px;font-weight:600;}
+    header a.back:hover{color:var(--pro);}
+    main{flex:1;max-width:1000px;margin:0 auto;padding:30px 24px;width:100%;}
+    .section-label{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--text-soft);margin:34px 0 0;display:flex;align-items:center;gap:10px;}
+    .section-label:first-of-type{margin-top:4px;}
+    .section-label .pip{width:10px;height:10px;border-radius:50%;background:var(--pro);}
+    .lead{color:var(--text-soft);font-size:15px;max-width:720px;margin:14px 0 0;}
+    .lead strong{color:var(--text);}
+
+    /* Mockup figure */
+    figure.mock{margin:22px 0 0;background:var(--panel);border:1px solid var(--border);border-radius:16px;padding:0;overflow:hidden;}
+    .mock-bar{display:flex;align-items:center;gap:8px;padding:11px 16px;border-bottom:1px solid var(--border);background:#0d1117;}
+    .mock-bar .dot{width:11px;height:11px;border-radius:50%;}
+    .mock-bar .dot.r{background:#ff5f56;}.mock-bar .dot.y{background:#ffbd2e;}.mock-bar .dot.g{background:#27c93f;}
+    .mock-bar .title{margin-left:8px;font-size:12px;color:var(--muted);font-weight:600;}
+    .mock-body{display:grid;grid-template-columns:118px 1fr 230px;min-height:300px;}
+    .rail{border-right:1px solid var(--border);padding:14px 0;background:#0e1218;}
+    .rail .tab{display:flex;align-items:center;gap:9px;padding:9px 16px;font-size:12.5px;color:var(--muted);font-weight:600;}
+    .rail .tab.on{color:var(--pro);background:rgba(207,179,130,.10);border-left:3px solid var(--pro);padding-left:13px;}
+    .rail .tab svg{flex:none;}
+    .chat{padding:18px;display:flex;flex-direction:column;gap:12px;}
+    .who{font-size:10.5px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin-bottom:4px;}
+    .bubble{max-width:88%;font-size:13px;padding:10px 13px;border-radius:13px;line-height:1.5;}
+    .bubble.you{align-self:flex-end;background:var(--bubble-you);border-bottom-right-radius:4px;color:var(--text);}
+    .bubble.twin{align-self:flex-start;background:var(--bubble-twin);border:1px solid var(--pro-dark);border-bottom-left-radius:4px;color:#f0e6cd;}
+    .bubble small{display:block;color:var(--muted);font-size:11px;margin-top:5px;}
+    .graph{border-left:1px solid var(--border);padding:14px 12px;background:#0e1218;}
+    .graph .gh{font-size:10.5px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin-bottom:6px;}
+    figcaption{font-size:12.5px;color:var(--muted);padding:11px 16px;border-top:1px solid var(--border);background:#0d1117;}
+
+    /* Feature cards */
+    .feat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:16px;margin-top:18px;}
+    .feat{background:var(--card-bg);border:1px solid var(--border);border-radius:14px;padding:20px;display:flex;flex-direction:column;gap:8px;}
+    .feat .ic{width:42px;height:42px;border-radius:11px;background:rgba(207,179,130,.12);display:flex;align-items:center;justify-content:center;}
+    .feat h3{margin:0;font-size:15.5px;font-weight:700;color:#fff;}
+    .feat p{margin:0;font-size:13.5px;color:var(--text-soft);line-height:1.55;}
+    .feat p em{color:var(--pro);font-style:normal;font-weight:600;}
+
+    .cta{display:flex;align-items:center;gap:16px;margin-top:18px;padding:18px 22px;border-radius:14px;text-decoration:none;color:inherit;border:1px solid var(--border);background:linear-gradient(135deg,rgba(207,179,130,.12),rgba(24,27,34,.4));transition:transform 120ms,border-color 120ms;}
+    .cta:hover{transform:translateY(-2px);border-color:var(--pro);text-decoration:none;}
+    .cta .dc-icon{flex:none;width:44px;height:44px;border-radius:12px;background:var(--pro);color:#0F1115;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:800;}
+    .cta .dc-text strong{font-size:16px;display:block;}
+    .cta .dc-text span{font-size:13px;color:var(--text-soft);}
+    .cta .dc-go{margin-left:auto;font-size:13px;font-weight:700;color:var(--pro);}
+    footer{text-align:center;color:var(--muted);font-size:13px;padding:26px 24px;border-top:1px solid var(--border);}
+    footer a{color:var(--pro);}
+    @media (max-width:760px){.mock-body{grid-template-columns:1fr;}.rail{display:flex;flex-wrap:wrap;border-right:none;border-bottom:1px solid var(--border);}.rail .tab.on{border-left:none;border-bottom:2px solid var(--pro);padding-left:16px;}.graph{border-left:none;border-top:1px solid var(--border);}}
+    </style>
+</head>
+<body>
+    <header>
+        <span class="wordmark"><span class="mark">Pro</span><span class="name">ProAsiste</span></span>
+        <div><span class="badge">Twin Feature Guide</span></div>
+        <h1>What the ProAsiste twin does</h1>
+        <p class="sub">A quick tour of the business twin: every person on your team gets their own AI twin, you get an owner twin, and the twins talk to each other so you can run the business without sitting in every meeting.</p>
+        <a class="back" href="index.html">&larr; ProAsiste materials</a>
+    </header>
+
+    <main>
+        <p class="section-label"><span class="pip"></span>The shape of it</p>
+        <p class="lead"><strong>One owner twin + a twin per team member, all on the same knowledge brain (KaiBrain).</strong> Documents, conversations, and spreadsheets become linked, searchable knowledge — and the engine learns while you work, with no separate training step. Below: roughly what the owner sees.</p>
+
+        <figure class="mock">
+            <div class="mock-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="title">ProAsiste · Owner twin — Mente</span></div>
+            <div class="mock-body">
+                <nav class="rail">
+                    <div class="tab"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#9AA0A6" stroke-width="2"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5"/></svg>DATA</div>
+                    <div class="tab"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#9AA0A6" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>EVENTS</div>
+                    <div class="tab"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#9AA0A6" stroke-width="2"><path d="M9 11l3 3 8-8"/><path d="M20 12v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h9"/></svg>TASKS</div>
+                    <div class="tab on"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#CFB382" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>CHAT</div>
+                </nav>
+                <div class="chat">
+                    <div>
+                        <div class="who">You · owner</div>
+                        <div class="bubble you">Where do the Q3 installs stand?</div>
+                    </div>
+                    <div>
+                        <div class="who">Mente · owner twin</div>
+                        <div class="bubble twin">Three of five are complete. The Riverside job is waiting on a parts delivery (ETA Thu); Tony's twin flagged it yesterday.<small>↳ pulled from Tony's team twin · linked to Supplier: Acme Parts</small></div>
+                    </div>
+                </div>
+                <aside class="graph">
+                    <div class="gh">Knowledge graph</div>
+                    <svg width="100%" height="230" viewBox="0 0 200 230">
+                        <line x1="100" y1="50" x2="45" y2="120" stroke="#3a3320" stroke-width="1.5"/>
+                        <line x1="100" y1="50" x2="155" y2="115" stroke="#3a3320" stroke-width="1.5"/>
+                        <line x1="100" y1="50" x2="100" y2="135" stroke="#3a3320" stroke-width="1.5"/>
+                        <line x1="45" y1="120" x2="100" y2="135" stroke="#3a3320" stroke-width="1.5"/>
+                        <line x1="155" y1="115" x2="100" y2="135" stroke="#3a3320" stroke-width="1.5"/>
+                        <line x1="100" y1="135" x2="60" y2="195" stroke="#3a3320" stroke-width="1.5"/>
+                        <line x1="100" y1="135" x2="150" y2="195" stroke="#3a3320" stroke-width="1.5"/>
+                        <circle cx="100" cy="50" r="17" fill="#2c2410" stroke="#CFB382" stroke-width="1.8"/><text x="100" y="54" text-anchor="middle" font-size="8" fill="#f0e6cd">Q3 Job</text>
+                        <circle cx="45" cy="120" r="14" fill="#181B22" stroke="#6b6048" stroke-width="1.5"/><text x="45" y="123" text-anchor="middle" font-size="7" fill="#C2C6CC">Tony</text>
+                        <circle cx="155" cy="115" r="14" fill="#181B22" stroke="#6b6048" stroke-width="1.5"/><text x="155" y="118" text-anchor="middle" font-size="7" fill="#C2C6CC">Acme</text>
+                        <circle cx="100" cy="135" r="15" fill="#181B22" stroke="#6b6048" stroke-width="1.5"/><text x="100" y="138" text-anchor="middle" font-size="7" fill="#C2C6CC">Install</text>
+                        <circle cx="60" cy="195" r="12" fill="#181B22" stroke="#3a3f49" stroke-width="1.5"/><text x="60" y="198" text-anchor="middle" font-size="6.5" fill="#9AA0A6">Part</text>
+                        <circle cx="150" cy="195" r="12" fill="#181B22" stroke="#3a3f49" stroke-width="1.5"/><text x="150" y="198" text-anchor="middle" font-size="6.5" fill="#9AA0A6">ETA</text>
+                    </svg>
+                </aside>
+            </div>
+            <figcaption>Illustrative mockup — the owner twin answers from the team's own work, citing the team twin and graph entities behind the answer.</figcaption>
+        </figure>
+
+        <p class="section-label"><span class="pip"></span>Features</p>
+        <div class="feat-grid">
+            <div class="feat">
+                <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#CFB382" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h6"/><path d="M16 3h5v5"/><path d="M21 3l-7 7"/></svg></div>
+                <h3>Two twins, one conversation</h3>
+                <p>Your owner twin queries your team's twins. Ask <em>"Where do the Q3 installs stand?"</em> and the answer comes straight back — no meeting required.</p>
+            </div>
+            <div class="feat">
+                <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#CFB382" stroke-width="2"><circle cx="12" cy="5" r="2"/><circle cx="5" cy="18" r="2"/><circle cx="19" cy="18" r="2"/><path d="M12 7v4M12 11l-5 5M12 11l5 5"/></svg></div>
+                <h3>KaiBrain knowledge graph</h3>
+                <p>Documents, chats, and spreadsheets become linked, searchable entities, events, and relationships — instead of a pile of files nobody can find.</p>
+            </div>
+            <div class="feat">
+                <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#CFB382" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+                <h3>Private vault, safe projection</h3>
+                <p>A two-layer model: a private vault holds the full picture with real names; an obfuscated projection drives the shared graph view. The owner sees the real thing; structure is shared safely.</p>
+            </div>
+            <div class="feat">
+                <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#CFB382" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+                <h3>Roles & oversight</h3>
+                <p>Administrator, employee, and mentor roles per seat — so everyone can see who can see what, and nothing leaks across the team by accident.</p>
+            </div>
+            <div class="feat">
+                <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#CFB382" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg></div>
+                <h3>Learns while you work</h3>
+                <p>The same upload-and-extract pipeline turns everyday documents into knowledge automatically. No separate training step — normal activity feeds the brain.</p>
+            </div>
+            <div class="feat">
+                <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#CFB382" stroke-width="2"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg></div>
+                <h3>Memory that sticks</h3>
+                <p>Long-term recall of facts, preferences, and corrections — so the twin keeps getting more useful instead of forgetting between sessions.</p>
+            </div>
+        </div>
+
+        <p class="section-label"><span class="pip"></span>See it live</p>
+        <a class="cta" href="../../demos/index.html#proasiste"><div class="dc-icon">&#9654;</div><div class="dc-text"><strong>Open the ProAsiste demos</strong><span>Five live business twins — law firm, auto shop, woodworks, freight, agency. Demo data only.</span></div><div class="dc-go">Open &rarr;</div></a>
+    </main>
+
+    <footer>ProAsiste · proasiste.com · internal sales enablement · <a href="index.html">All ProAsiste materials</a> · <a href="twin-tech-explainer.html">Twin tech across Pro / Expert / Help &rarr;</a></footer>
+</body>
+</html>
