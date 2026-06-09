@@ -60,16 +60,20 @@
     .demos-cta .dc-go{margin-left:auto;font-size:13px;font-weight:700;color:var(--pro);}
     footer{text-align:center;color:var(--muted);font-size:13px;padding:28px 24px;border-top:1px solid var(--border);}
     footer a{color:var(--pro);text-decoration:none;}
+    .skip-link{position:absolute;left:8px;top:-48px;z-index:1000;background:var(--pro);color:#0F1115;padding:9px 15px;border-radius:8px;font-weight:700;font-size:13px;text-decoration:none;transition:top .15s;}
+    .skip-link:focus{top:8px;}
+    :focus-visible{outline:2px solid var(--pro);outline-offset:2px;}
     </style>
 </head>
 <body>
+    <a class="skip-link" href="#main">Skip to content</a>
     <header>
         <span class="wordmark"><span class="mark">Pro</span><span class="name">ProAsiste</span></span>
         <h1>ProAsiste: Sales materials</h1>
         <p>Everything for the business product. Owner-operators and the small teams around them.</p>
         <a class="back" href="../index.html">&larr; All sales materials</a>
     </header>
-    <main>
+    <main id="main" tabindex="-1">
         <p class="section-label"><span class="pip"></span>Live demos</p>
         <a class="demos-cta" href="../../demos/index.html#proasiste"><div class="dc-icon">&#9654;</div><div class="dc-text"><strong>Twin Demos</strong><span>Jump to the live ProAsiste demo twins. Demo data only.</span></div><div class="dc-go">Open &rarr;</div></a>
 

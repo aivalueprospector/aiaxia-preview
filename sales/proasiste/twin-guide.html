@@ -106,10 +106,19 @@
     footer{text-align:center;color:var(--muted);font-size:13px;padding:26px 24px;border-top:1px solid var(--border);}
     footer a{color:var(--pro);}
     @media (max-width:760px){.mock-body{grid-template-columns:1fr;}.chat{border-right:none;border-bottom:1px solid var(--border);}}
+    /* a11y + nav helpers */
+    h2.section-label{margin:40px 0 0;}
+    .skip-link{position:absolute;left:8px;top:-48px;z-index:1000;background:var(--pro);color:#0F1115;padding:9px 15px;border-radius:8px;font-weight:700;font-size:13px;text-decoration:none;transition:top .15s;}
+    .skip-link:focus{top:8px;}
+    .to-top{position:fixed;bottom:18px;right:18px;z-index:900;background:var(--pro);color:#0F1115;font-weight:700;font-size:12.5px;padding:8px 13px;border-radius:999px;text-decoration:none;box-shadow:0 2px 12px rgba(0,0,0,.5);}
+    .to-top:hover{opacity:.9;text-decoration:none;}
+    :focus-visible{outline:2px solid var(--pro);outline-offset:2px;}
+    @media print{.skip-link,.to-top{display:none !important;}}
     </style>
 </head>
 <body>
-    <header>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header id="top">
         <span class="wordmark"><span class="mark">Pro</span><span class="name">ProAsiste</span></span>
         <div><span class="badge">Twin Guide</span></div>
         <h1>The ProAsiste twin</h1>
@@ -117,14 +126,14 @@
         <a class="back" href="index.html">&larr; ProAsiste materials</a>
     </header>
 
-    <main>
-        <nav class="toc">
+    <main id="main" tabindex="-1">
+        <nav class="toc" aria-label="On this page">
             <a href="#what">What it does</a>
             <a href="#mente">Meet Mente</a>
             <a href="#types">Which twin you have</a>
             <a href="#interface">The interface</a>
             <a href="#capture">Capture knowledge</a>
-            <a href="#graph">Knowledge graph</a>
+            <a href="#graph">How knowledge connects</a>
             <a href="#ask">Ask your twin</a>
             <a href="#reports">Generate reports</a>
             <a href="#legal">Legal twins</a>
@@ -132,8 +141,8 @@
             <a href="#demos">Try it live</a>
         </nav>
 
-        <p class="section-label" id="what"><span class="pip"></span>What the twin does</p>
-        <p class="lead"><strong>One owner twin + a twin per team member, all on the same knowledge brain.</strong> Documents, conversations, and spreadsheets become linked, searchable knowledge — and the engine learns while you work, with no separate training step. Below: roughly what the owner sees.</p>
+        <h2 class="section-label" id="what"><span class="pip"></span>What the twin does</h2>
+        <p class="lead"><strong>One owner twin + a twin per team member, all on the same knowledge brain.</strong> Documents, conversations, and spreadsheets become linked, searchable knowledge, and the engine learns while you work with no separate training step. Below: roughly what the owner sees.</p>
 
         <figure class="mock">
             <div class="mock-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="title">ProAsiste · Owner twin — Mente</span></div>
@@ -151,27 +160,15 @@
                 </div>
                 <aside class="side">
                     <div class="tabs"><span class="t on">Notes</span><span class="t">Uploads</span><span class="t">Reports</span></div>
-                    <div class="graph">
-                    <div class="gh">Knowledge graph</div>
-                    <svg width="100%" height="230" viewBox="0 0 200 230">
-                        <line x1="100" y1="50" x2="45" y2="120" stroke="#3a3320" stroke-width="1.5"/>
-                        <line x1="100" y1="50" x2="155" y2="115" stroke="#3a3320" stroke-width="1.5"/>
-                        <line x1="100" y1="50" x2="100" y2="135" stroke="#3a3320" stroke-width="1.5"/>
-                        <line x1="45" y1="120" x2="100" y2="135" stroke="#3a3320" stroke-width="1.5"/>
-                        <line x1="155" y1="115" x2="100" y2="135" stroke="#3a3320" stroke-width="1.5"/>
-                        <line x1="100" y1="135" x2="60" y2="195" stroke="#3a3320" stroke-width="1.5"/>
-                        <line x1="100" y1="135" x2="150" y2="195" stroke="#3a3320" stroke-width="1.5"/>
-                        <circle cx="100" cy="50" r="17" fill="#2c2410" stroke="#CFB382" stroke-width="1.8"/><text x="100" y="54" text-anchor="middle" font-size="8" fill="#f0e6cd">Q3 Job</text>
-                        <circle cx="45" cy="120" r="14" fill="#181B22" stroke="#6b6048" stroke-width="1.5"/><text x="45" y="123" text-anchor="middle" font-size="7" fill="#C2C6CC">Tony</text>
-                        <circle cx="155" cy="115" r="14" fill="#181B22" stroke="#6b6048" stroke-width="1.5"/><text x="155" y="118" text-anchor="middle" font-size="7" fill="#C2C6CC">Acme</text>
-                        <circle cx="100" cy="135" r="15" fill="#181B22" stroke="#6b6048" stroke-width="1.5"/><text x="100" y="138" text-anchor="middle" font-size="7" fill="#C2C6CC">Install</text>
-                        <circle cx="60" cy="195" r="12" fill="#181B22" stroke="#3a3f49" stroke-width="1.5"/><text x="60" y="198" text-anchor="middle" font-size="6.5" fill="#9AA0A6">Part</text>
-                        <circle cx="150" cy="195" r="12" fill="#181B22" stroke="#3a3f49" stroke-width="1.5"/><text x="150" y="198" text-anchor="middle" font-size="6.5" fill="#9AA0A6">ETA</text>
-                    </svg>
+                    <div class="scontent">
+                        <div class="sc-h">Saved notes</div>
+                        <div class="item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#CFB382" stroke-width="2" aria-hidden="true"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>Riverside job — waiting on Acme parts, ETA Thu</div>
+                        <div class="item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#9AA0A6" stroke-width="2" aria-hidden="true"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>Q3 installs: 3 of 5 complete</div>
+                        <div class="item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#9AA0A6" stroke-width="2" aria-hidden="true"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>Tony flagged the parts delay</div>
                     </div>
                 </aside>
             </div>
-            <figcaption>Illustrative mockup — chat on the left; the sidebar on the right holds your tabs (Notes shown, with the knowledge graph behind the answer). The owner twin answers from the team's own work, citing the team twin and graph entities.</figcaption>
+            <figcaption>Illustrative mockup. The chat panel is on the left; the sidebar on the right holds your tabs. The <strong>Notes</strong> tab keeps chat messages you have saved. The owner twin answers from the team's own work, drawing on the knowledge graph behind the scenes.</figcaption>
         </figure>
 
         <div class="feat-grid">
@@ -183,7 +180,7 @@
             <div class="feat">
                 <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#CFB382" stroke-width="2"><circle cx="12" cy="5" r="2"/><circle cx="5" cy="18" r="2"/><circle cx="19" cy="18" r="2"/><path d="M12 7v4M12 11l-5 5M12 11l5 5"/></svg></div>
                 <h3>Knowledge graph</h3>
-                <p>Documents, chats, and spreadsheets become linked, searchable entities, events, and relationships — instead of a pile of files nobody can find.</p>
+                <p>Documents, chats, and spreadsheets become linked, searchable entities, events, and relationships, instead of a pile of files nobody can find.</p>
             </div>
             <div class="feat">
                 <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#CFB382" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
@@ -193,21 +190,21 @@
             <div class="feat">
                 <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#CFB382" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
                 <h3>Roles & oversight</h3>
-                <p>Administrator, employee, and mentor roles per seat — so everyone can see who can see what, and nothing leaks across the team by accident.</p>
+                <p>Administrator, employee, and mentor roles per seat, so everyone can see who can see what, and nothing leaks across the team by accident.</p>
             </div>
             <div class="feat">
                 <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#CFB382" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M7 10l5 5 5-5"/><path d="M12 15V3"/></svg></div>
                 <h3>Learns while you work</h3>
-                <p>The same upload-and-extract pipeline turns everyday documents into knowledge automatically. No separate training step — normal activity feeds the brain.</p>
+                <p>The same upload-and-extract pipeline turns everyday documents into knowledge automatically. No separate training step. Normal activity feeds the brain.</p>
             </div>
             <div class="feat">
                 <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#CFB382" stroke-width="2"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg></div>
                 <h3>Memory that sticks</h3>
-                <p>Long-term recall of facts, preferences, and corrections — so the twin keeps getting more useful instead of forgetting between sessions.</p>
+                <p>Long-term recall of facts, preferences, and corrections, so the twin keeps getting more useful instead of forgetting between sessions.</p>
             </div>
         </div>
 
-        <p class="section-label" id="mente"><span class="pip"></span>Meet Mente</p>
+        <h2 class="section-label" id="mente"><span class="pip"></span>Meet Mente</h2>
         <div class="persona">
             <div class="pic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#CFB382" stroke-width="2"><path d="M12 2a5 5 0 0 1 5 5v1a5 5 0 0 1-10 0V7a5 5 0 0 1 5-5z"/><path d="M4 21v-1a6 6 0 0 1 6-6h4a6 6 0 0 1 6 6v1"/></svg></div>
             <div>
@@ -216,7 +213,7 @@
             </div>
         </div>
 
-        <p class="section-label" id="types"><span class="pip"></span>Which twin you have</p>
+        <h2 class="section-label" id="types"><span class="pip"></span>Which twin you have</h2>
         <p class="lead">ProAsiste comes in three types. Which one you were set up with decides who can use it and what extra abilities you get.</p>
         <table class="ref">
             <tr><th>Twin type</th><th>Who it's for</th><th>Who uses it</th></tr>
@@ -226,7 +223,7 @@
         </table>
         <div class="note"><strong>Industry tuning.</strong> Business twins can be tuned to a vertical (consulting, healthcare, finance, real estate, tech, manufacturing, logistics, and more). When a vertical match exists, Mente uses language and structure suited to that field; otherwise it uses the general business assistant.</div>
 
-        <p class="section-label" id="interface"><span class="pip"></span>The interface</p>
+        <h2 class="section-label" id="interface"><span class="pip"></span>The interface</h2>
         <p class="lead">You talk to Mente in the <strong>chat panel on the left</strong>. A <strong>sidebar on the right</strong> holds your tabs — and which tabs you see depends on your twin type and role. Here is the shape of it.</p>
         <figure class="mock">
             <div class="mock-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="title">ProAsiste · Mente · Individual Professional</span></div>
@@ -250,7 +247,7 @@
         </figure>
 
         <h3 class="sub">Your sidebar tabs</h3>
-        <p class="lead"><strong>Notes</strong> is your knowledge — entity notes, events, and goals as linked notes. <strong>Uploads</strong> is where you add documents. <strong>Reports</strong> holds generated output. The set you see is decided by your twin type and role:</p>
+        <p class="lead"><strong>Notes</strong> is where you save chat messages to keep for reference. <strong>Uploads</strong> is where you add documents. <strong>Reports</strong> holds generated output. The set you see is decided by your twin type and role:</p>
         <table class="ref">
             <tr><th>Twin &amp; role</th><th>Sidebar tabs</th></tr>
             <tr><td><strong>Individual Professional</strong> · administrator</td><td>Notes · Uploads · Reports</td></tr>
@@ -258,7 +255,7 @@
             <tr><td><strong>Legal Advisor</strong> · administrator</td><td>Notes · Uploads <em>(Reports hidden — see below)</em></td></tr>
         </table>
 
-        <p class="section-label" id="capture"><span class="pip"></span>Capture knowledge</p>
+        <h2 class="section-label" id="capture"><span class="pip"></span>Capture knowledge</h2>
         <p class="lead">The twin learns from your documents and conversations — there is no separate training step. Feeding it is the main thing you do on day one.</p>
         <div class="steps">
             <div class="step"><div class="n">1</div><div class="b"><h4>Open the Uploads tab</h4><p>In the right sidebar, upload PDFs, Word documents, spreadsheets, or images. The twin extracts the text and structure automatically.</p></div></div>
@@ -266,25 +263,45 @@
             <div class="step"><div class="n">3</div><div class="b"><h4>Your private vault stays private</h4><p>The full picture, with real names, lives in a private markdown vault. A separate, obfuscated projection drives the shared graph view, so structure can be shown safely.</p></div></div>
         </div>
 
-        <p class="section-label" id="graph"><span class="pip"></span>Explore your knowledge graph</p>
-        <p class="lead">Everything the twin knows is connected. The <strong>Notes</strong> tab is how you browse it — entities, their links, events, and goals all live there as linked notes.</p>
+        <h2 class="section-label" id="graph"><span class="pip"></span>How your knowledge connects</h2>
+        <p class="lead">Behind every answer is a <strong>knowledge graph</strong>. As you upload documents and talk to Mente, the twin pulls out the pieces and connects them automatically, with no separate training step and no graph screen to manage:</p>
         <table class="ref">
-            <tr><th>What</th><th>Where</th><th>What you see</th></tr>
-            <tr><td><strong>Entities</strong></td><td>Notes tab</td><td>Cards and notes for people, suppliers, customers, products, processes — mirrored from the graph.</td></tr>
-            <tr><td><strong>Relationships</strong></td><td>Notes tab</td><td>The links between entities (which supplier serves which customer, who owns which process).</td></tr>
-            <tr><td><strong>Events &amp; causes</strong></td><td>Notes tab</td><td>Timestamped activity — transactions, deadlines, incidents — and the causal links between them.</td></tr>
-            <tr><td><strong>Goals</strong></td><td>Notes tab</td><td>Measurable objectives with progress tracking.</td></tr>
+            <tr><th>What it connects</th><th>Examples</th></tr>
+            <tr><td><strong>Entities</strong></td><td>People, suppliers, customers, products, processes.</td></tr>
+            <tr><td><strong>Relationships</strong></td><td>The links between them — which supplier serves which customer, who owns which process.</td></tr>
+            <tr><td><strong>Events &amp; causes</strong></td><td>Timestamped activity — transactions, deadlines, incidents — and the causal links between them.</td></tr>
+            <tr><td><strong>Goals</strong></td><td>Measurable objectives with progress tracking.</td></tr>
         </table>
+        <p class="lead">You explore it by <strong>asking</strong>. Mente walks the graph for you and answers in plain language, naming the entities and events behind each answer. See <a href="#ask">Ask your twin</a>.</p>
+        <figure class="mock" style="padding:18px;">
+            <div class="gh" style="font-size:10.5px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin-bottom:6px;">What the twin connects, behind the scenes</div>
+            <svg width="100%" height="230" viewBox="0 0 200 230" role="img" aria-label="Diagram: a Q3 Job entity links to Tony, Acme, and an Install event, which in turn links to a Part and an ETA — showing how the twin connects entities, people, and events in its knowledge graph." style="max-width:280px;display:block;margin:0 auto;">
+                <line x1="100" y1="50" x2="45" y2="120" stroke="#3a3320" stroke-width="1.5"/>
+                <line x1="100" y1="50" x2="155" y2="115" stroke="#3a3320" stroke-width="1.5"/>
+                <line x1="100" y1="50" x2="100" y2="135" stroke="#3a3320" stroke-width="1.5"/>
+                <line x1="45" y1="120" x2="100" y2="135" stroke="#3a3320" stroke-width="1.5"/>
+                <line x1="155" y1="115" x2="100" y2="135" stroke="#3a3320" stroke-width="1.5"/>
+                <line x1="100" y1="135" x2="60" y2="195" stroke="#3a3320" stroke-width="1.5"/>
+                <line x1="100" y1="135" x2="150" y2="195" stroke="#3a3320" stroke-width="1.5"/>
+                <circle cx="100" cy="50" r="17" fill="#2c2410" stroke="#CFB382" stroke-width="1.8"/><text x="100" y="54" text-anchor="middle" font-size="8" fill="#f0e6cd">Q3 Job</text>
+                <circle cx="45" cy="120" r="14" fill="#181B22" stroke="#6b6048" stroke-width="1.5"/><text x="45" y="123" text-anchor="middle" font-size="7" fill="#C2C6CC">Tony</text>
+                <circle cx="155" cy="115" r="14" fill="#181B22" stroke="#6b6048" stroke-width="1.5"/><text x="155" y="118" text-anchor="middle" font-size="7" fill="#C2C6CC">Acme</text>
+                <circle cx="100" cy="135" r="15" fill="#181B22" stroke="#6b6048" stroke-width="1.5"/><text x="100" y="138" text-anchor="middle" font-size="7" fill="#C2C6CC">Install</text>
+                <circle cx="60" cy="195" r="12" fill="#181B22" stroke="#3a3f49" stroke-width="1.5"/><text x="60" y="198" text-anchor="middle" font-size="6.5" fill="#9AA0A6">Part</text>
+                <circle cx="150" cy="195" r="12" fill="#181B22" stroke="#3a3f49" stroke-width="1.5"/><text x="150" y="198" text-anchor="middle" font-size="6.5" fill="#9AA0A6">ETA</text>
+            </svg>
+            <figcaption>Conceptual view of the graph the twin reasons over. It is not a screen you browse; you reach it by asking Mente.</figcaption>
+        </figure>
 
-        <p class="section-label" id="ask"><span class="pip"></span>Ask your twin</p>
-        <p class="lead">The Chat tab is where most of the value is. Ask in plain language; Mente answers from your own knowledge and remembers across sessions.</p>
+        <h2 class="section-label" id="ask"><span class="pip"></span>Ask your twin</h2>
+        <p class="lead">The chat panel on the left is where most of the value is. Ask in plain language; Mente answers from your own knowledge and remembers across sessions.</p>
         <div class="steps">
             <div class="step"><div class="n">✓</div><div class="b"><h4>Ask anything about your business</h4><p><em>"Which suppliers are behind this month?"</em> · <em>"Summarize the Riverside account."</em> Mente answers from your entities and events, not the open internet.</p></div></div>
             <div class="step"><div class="n">✓</div><div class="b"><h4>It remembers</h4><p>Tell Mente a fact, preference, or correction once and it recalls it later. You can ask it what it remembers, and add or remove memories.</p></div></div>
             <div class="step"><div class="n">✓</div><div class="b"><h4>Firms: one question reaches the whole team</h4><p>In a Professional Organization twin, an administrator's question can draw on the team's twins — ask <em>"Where do the Q3 installs stand?"</em> and the answer comes back without chasing anyone.</p></div></div>
         </div>
 
-        <p class="section-label" id="reports"><span class="pip"></span>Generate reports</p>
+        <h2 class="section-label" id="reports"><span class="pip"></span>Generate reports</h2>
         <p class="lead">Reports are <strong>template-driven and two-phase</strong>, so output matches the format you already use and nothing is generated until you approve it.</p>
         <div class="steps">
             <div class="step"><div class="n">1</div><div class="b"><h4>Template lookup</h4><p>Mente searches your sources for a matching template. If it can't find one, it asks you to upload an example rather than inventing a format.</p></div></div>
@@ -293,7 +310,7 @@
         </div>
         <div class="note"><strong>Administrators</strong> also get business-intelligence views: cross-team pattern discovery, operational event tracking, client/supplier relationship intelligence, and leadership-facing summaries individual employees don't see.</div>
 
-        <p class="section-label" id="legal"><span class="pip"></span>If you have a Legal Advisor twin</p>
+        <h2 class="section-label" id="legal"><span class="pip"></span>If you have a Legal Advisor twin</h2>
         <p class="lead">Legal twins run a <strong>legal-specialized Mente</strong> — built for legal knowledge work, with citations and reasoning audits.</p>
         <table class="ref">
             <tr><th>Capability</th><th>What it does</th></tr>
@@ -304,13 +321,14 @@
         </table>
         <div class="note"><strong>Note for legal twins:</strong> the generic <strong>Reports</strong> tab is hidden. Legal output — briefs, opinions, case summaries — still generates through chat; the standard reports surface is simply suppressed.</div>
 
-        <p class="section-label" id="languages"><span class="pip"></span>Languages</p>
+        <h2 class="section-label" id="languages"><span class="pip"></span>Languages</h2>
         <p class="lead">ProAsiste serves Spanish (LATAM) and English, with support for Portuguese, French, and German. Your default follows your region; the brand names <strong>Mente</strong> and <strong>ProAsiste</strong> stay the same in every language — only the explanatory text is localized.</p>
 
-        <p class="section-label" id="demos"><span class="pip"></span>Try it live</p>
+        <h2 class="section-label" id="demos"><span class="pip"></span>Try it live</h2>
         <a class="cta" href="../../demos/index.html#proasiste"><div class="dc-icon">&#9654;</div><div class="dc-text"><strong>Open the ProAsiste demos</strong><span>Walk the interface in live business and legal twins — law firm, auto shop, woodworks, freight, agency. Demo data only.</span></div><div class="dc-go">Open &rarr;</div></a>
     </main>
 
     <footer>ProAsiste · proasiste.com · internal sales enablement · <a href="index.html">All ProAsiste materials</a> · <a href="twin-tech-explainer.html">Twin tech across Pro / Expert / Help &rarr;</a></footer>
+    <a href="#top" class="to-top" aria-label="Back to top">&uarr; Top</a>
 </body>
 </html>
