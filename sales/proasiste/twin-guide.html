@@ -35,18 +35,19 @@
     .mock-bar .dot{width:11px;height:11px;border-radius:50%;}
     .mock-bar .dot.r{background:#ff5f56;}.mock-bar .dot.y{background:#ffbd2e;}.mock-bar .dot.g{background:#27c93f;}
     .mock-bar .title{margin-left:8px;font-size:12px;color:var(--muted);font-weight:600;}
-    .mock-body{display:grid;grid-template-columns:118px 1fr 230px;min-height:300px;}
-    .rail{border-right:1px solid var(--border);padding:14px 0;background:#0e1218;}
-    .rail .tab{display:flex;align-items:center;gap:9px;padding:9px 16px;font-size:12.5px;color:var(--muted);font-weight:600;}
-    .rail .tab.on{color:var(--pro);background:rgba(207,179,130,.10);border-left:3px solid var(--pro);padding-left:13px;}
-    .rail .tab svg{flex:none;}
-    .chat{padding:18px;display:flex;flex-direction:column;gap:12px;}
+    .mock-body{display:grid;grid-template-columns:1fr 232px;min-height:300px;}
+    .chat{padding:18px;display:flex;flex-direction:column;gap:12px;border-right:1px solid var(--border);}
+    .chat .cinput{margin-top:auto;display:flex;align-items:center;justify-content:space-between;gap:8px;border:1px solid var(--border);border-radius:10px;padding:9px 12px;color:var(--muted);font-size:12.5px;background:#0d1117;}
     .who{font-size:10.5px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin-bottom:4px;}
-    .bubble{max-width:88%;font-size:13px;padding:10px 13px;border-radius:13px;line-height:1.5;}
+    .bubble{max-width:90%;font-size:13px;padding:10px 13px;border-radius:13px;line-height:1.5;}
     .bubble.you{align-self:flex-end;background:var(--bubble-you);border-bottom-right-radius:4px;color:var(--text);}
     .bubble.twin{align-self:flex-start;background:var(--bubble-twin);border:1px solid var(--pro-dark);border-bottom-left-radius:4px;color:#f0e6cd;}
     .bubble small{display:block;color:var(--muted);font-size:11px;margin-top:5px;}
-    .graph{border-left:1px solid var(--border);padding:14px 12px;background:#0e1218;}
+    .side{background:#0e1218;display:flex;flex-direction:column;}
+    .side .tabs{display:flex;border-bottom:1px solid var(--border);}
+    .side .tabs .t{flex:1;text-align:center;padding:10px 4px;font-size:11px;font-weight:700;color:var(--muted);border-bottom:2px solid transparent;}
+    .side .tabs .t.on{color:var(--pro);border-bottom-color:var(--pro);background:rgba(207,179,130,.08);}
+    .graph{padding:14px 12px;}
     .graph .gh{font-size:10.5px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin-bottom:6px;}
     figcaption{font-size:12.5px;color:var(--muted);padding:11px 16px;border-top:1px solid var(--border);background:#0d1117;}
 
@@ -66,7 +67,7 @@
     .cta .dc-go{margin-left:auto;font-size:13px;font-weight:700;color:var(--pro);}
     footer{text-align:center;color:var(--muted);font-size:13px;padding:26px 24px;border-top:1px solid var(--border);}
     footer a{color:var(--pro);}
-    @media (max-width:760px){.mock-body{grid-template-columns:1fr;}.rail{display:flex;flex-wrap:wrap;border-right:none;border-bottom:1px solid var(--border);}.rail .tab.on{border-left:none;border-bottom:2px solid var(--pro);padding-left:16px;}.graph{border-left:none;border-top:1px solid var(--border);}}
+    @media (max-width:760px){.mock-body{grid-template-columns:1fr;}.chat{border-right:none;border-bottom:1px solid var(--border);}}
     </style>
 </head>
 <body>
@@ -85,12 +86,6 @@
         <figure class="mock">
             <div class="mock-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="title">ProAsiste · Owner twin — Mente</span></div>
             <div class="mock-body">
-                <nav class="rail">
-                    <div class="tab"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#9AA0A6" stroke-width="2"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5"/></svg>DATA</div>
-                    <div class="tab"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#9AA0A6" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>EVENTS</div>
-                    <div class="tab"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#9AA0A6" stroke-width="2"><path d="M9 11l3 3 8-8"/><path d="M20 12v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h9"/></svg>TASKS</div>
-                    <div class="tab on"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#CFB382" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>CHAT</div>
-                </nav>
                 <div class="chat">
                     <div>
                         <div class="who">You · owner</div>
@@ -100,8 +95,11 @@
                         <div class="who">Mente · owner twin</div>
                         <div class="bubble twin">Three of five are complete. The Riverside job is waiting on a parts delivery (ETA Thu); Tony's twin flagged it yesterday.<small>↳ pulled from Tony's team twin · linked to Supplier: Acme Parts</small></div>
                     </div>
+                    <div class="cinput"><span>Ask Mente…</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#CFB382" stroke-width="2"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4 20-7z"/></svg></div>
                 </div>
-                <aside class="graph">
+                <aside class="side">
+                    <div class="tabs"><span class="t on">Notes</span><span class="t">Uploads</span><span class="t">Reports</span></div>
+                    <div class="graph">
                     <div class="gh">Knowledge graph</div>
                     <svg width="100%" height="230" viewBox="0 0 200 230">
                         <line x1="100" y1="50" x2="45" y2="120" stroke="#3a3320" stroke-width="1.5"/>
@@ -118,9 +116,10 @@
                         <circle cx="60" cy="195" r="12" fill="#181B22" stroke="#3a3f49" stroke-width="1.5"/><text x="60" y="198" text-anchor="middle" font-size="6.5" fill="#9AA0A6">Part</text>
                         <circle cx="150" cy="195" r="12" fill="#181B22" stroke="#3a3f49" stroke-width="1.5"/><text x="150" y="198" text-anchor="middle" font-size="6.5" fill="#9AA0A6">ETA</text>
                     </svg>
+                    </div>
                 </aside>
             </div>
-            <figcaption>Illustrative mockup — the owner twin answers from the team's own work, citing the team twin and graph entities behind the answer.</figcaption>
+            <figcaption>Illustrative mockup — chat on the left; the sidebar on the right holds your tabs (Notes shown, with the knowledge graph behind the answer). The owner twin answers from the team's own work, citing the team twin and graph entities.</figcaption>
         </figure>
 
         <p class="section-label"><span class="pip"></span>Features</p>
