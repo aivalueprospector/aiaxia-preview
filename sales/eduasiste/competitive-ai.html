@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex, nofollow" />
+<meta name="card-title" content="AI Tools Comparison" />
+<meta name="card-desc" content="Battle cards vs. ChatGPT / Claude Code / NotebookLM — their argument, your response, differentiator tables." />
+<meta name="card-order" content="70" />
+<title>EduAsiste vs ChatGPT / Claude Code / NotebookLM — AI Value Prospectors</title>
+<style>
+  :root {
+    --aivp: #E8B547;
+    --aivp-dark: #92700f;
+    --ink: #1a2230;
+    --ink-soft: #45526a;
+    --muted: #6b7a8a;
+    --line: #e2e6ec;
+    --bg: #ffffff;
+    --tint: #fbf8ef;
+    --accent: #2EA3F2;
+    --accent-dark: #1d6fb0;
+  }
+  @page { size: Letter; margin: 0.6in; }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0;
+    background: #f4f5f7;
+    color: var(--ink);
+    font-family: 'Inter', -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+    line-height: 1.55;
+    font-size: 16px;
+  }
+  .topbar {
+    background: #0F1115;
+    border-bottom: 2px solid var(--accent);
+    padding: 12px 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .topbar .mark {
+    width: 30px; height: 30px; border-radius: 7px;
+    background: var(--aivp); color: #0F1115;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 800; font-size: 14px;
+  }
+  .topbar .name {
+    font-size: 13px; font-weight: 700; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--aivp);
+  }
+  .topbar a.back {
+    margin-left: auto; color: #C2C6CC; text-decoration: none;
+    font-size: 13px; font-weight: 600;
+  }
+  .topbar a.back:hover { color: var(--aivp); }
+  .sheet {
+    max-width: 800px;
+    margin: 28px auto;
+    background: var(--bg);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 44px 52px;
+    box-shadow: 0 6px 26px rgba(15,17,21,0.08);
+  }
+  .eyebrow {
+    font-size: 12px; font-weight: 700; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--accent-dark);
+    margin: 0 0 6px;
+  }
+  h1 {
+    font-size: 30px; font-weight: 800; letter-spacing: -0.02em;
+    color: #0f1d2c; margin: 0 0 18px; line-height: 1.15;
+    border-bottom: 3px solid var(--accent); padding-bottom: 14px;
+  }
+  h1 + p { color: var(--ink-soft); }
+  h2 {
+    font-size: 21px; font-weight: 700; color: #0f1d2c;
+    margin: 34px 0 10px; padding-bottom: 6px;
+    border-bottom: 1px solid var(--line);
+  }
+  h3 {
+    font-size: 16.5px; font-weight: 700; color: var(--ink);
+    margin: 22px 0 6px;
+  }
+  p { margin: 10px 0; }
+  a { color: var(--accent-dark); }
+  hr { border: 0; border-top: 1px solid var(--line); margin: 28px 0; }
+  ul, ol { padding-left: 22px; }
+  li { margin: 4px 0; }
+  code {
+    background: var(--tint); border: 1px solid var(--line);
+    border-radius: 4px; padding: 1px 5px;
+    font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: 0.88em;
+  }
+  blockquote {
+    margin: 14px 0; padding: 12px 18px;
+    background: linear-gradient(135deg, #eef6fd 0%, #d6ecfb 100%);
+    border-left: 4px solid var(--accent);
+    border-radius: 2px; color: #0f2a40; font-style: italic;
+  }
+  blockquote p { margin: 4px 0; }
+  table {
+    border-collapse: collapse; width: 100%; margin: 14px 0; font-size: 14.5px;
+  }
+  th, td {
+    border: 1px solid var(--line); padding: 8px 12px; text-align: left;
+    vertical-align: top;
+  }
+  thead th {
+    background: #0f1d2c; color: #fff; font-weight: 600;
+    border-color: #0f1d2c;
+  }
+  tbody tr:nth-child(even) { background: #f1f7fd; }
+  footer.sheet-foot {
+    max-width: 800px; margin: 0 auto 40px; padding: 4px 8px;
+    color: var(--muted); font-size: 13px;
+    display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px;
+  }
+  footer.sheet-foot a { color: var(--accent-dark); text-decoration: none; }
+  @media print {
+    body { background: #fff; }
+    .topbar { background: #fff; border-bottom-color: var(--accent); }
+    .topbar .name { color: var(--aivp-dark); }
+    .topbar a.back { display: none; }
+    .sheet { box-shadow: none; border: 0; margin: 0; max-width: none; padding: 0; }
+    footer.sheet-foot { display: none; }
+  }
+</style>
+</head>
+<body>
+<div class="topbar">
+  <span class="mark">Ai</span>
+  <span class="name">AI Value Prospectors</span>
+  <a class="back" href="index.html">&larr; EduAsiste materials</a>
+</div>
+<article class="sheet">
+<p class="eyebrow">Competitive · EduAsiste (education) · AI-native tools</p>
+<h1 id="eduasiste-vs-ai-tools">EduAsiste vs. ChatGPT / Claude Code / NotebookLM</h1>
+<p>The three AI-native tools a parent or school will already have heard of. Each is good at something. None of them teaches a child Socratically, remembers that child across sessions, or keeps the parent in the loop — which is exactly what EduAsiste is built to do. Never disparage; lead with the mental-model shift and the gap each tool leaves.</p>
+
+<blockquote>
+<p><strong>The one-line frame:</strong> "Those tools give answers. EduAsiste teaches — it asks your child questions, remembers what they struggled with, and tells you, the parent, what they actually learned today."</p>
+</blockquote>
+<hr />
+
+<h2 id="vs-chatgpt">vs. ChatGPT</h2>
+<h3 id="chatgpt-what">What It Is</h3>
+<p>A general-purpose chat assistant trained on the public internet. Free tiers are everywhere. Increasingly, kids open it and paste in their homework.</p>
+<h3 id="chatgpt-argument">Their Argument</h3>
+<p>"My kid just uses ChatGPT for free. Why would I pay for EduAsiste?"</p>
+<h3 id="chatgpt-response">Your Response</h3>
+<blockquote>
+<p>"Here's the difference, and it matters more for a kid than for an adult. ChatGPT gives the answer — which means it just did your child's thinking for them. EduAsiste teaches the way a good tutor does: it asks your child questions, walks them toward the answer, and stops when something clicks. It also remembers — it knows your child struggled with fractions last week, so it connects today's lesson to that. And it keeps YOU in the loop: every session comes back to your parent twin as a summary of what your child got and what they didn't. With a free chatbot you have no idea what your kid typed, what it told them, or whether their data trains someone's model. With EduAsiste, your child's twin is private to them, and you can see what's going on."</p>
+</blockquote>
+<h3 id="chatgpt-diff">Key Differentiators</h3>
+<table>
+<thead><tr><th>Feature</th><th>ChatGPT</th><th>EduAsiste</th></tr></thead>
+<tbody>
+<tr><td>Teaches Socratically (asks, doesn't answer)</td><td>No — gives the answer</td><td>Yes — guides with questions</td></tr>
+<tr><td>Does the child's thinking</td><td>Often</td><td>Never — the child does the work</td></tr>
+<tr><td>Remembers the individual learner</td><td>No — stateless</td><td>Yes — persistent per-learner memory</td></tr>
+<tr><td>Parent visibility</td><td>None</td><td>Parent twin + auto-summaries</td></tr>
+<tr><td>Data privacy for a minor</td><td>Shared / may train models</td><td>Isolated, private, no training</td></tr>
+<tr><td>You own your data</td><td>No</td><td>Yes — portable, yours to take</td></tr>
+</tbody>
+</table>
+<hr />
+
+<h2 id="vs-claude-code">vs. Claude Code</h2>
+<h3 id="cc-what">What It Is</h3>
+<p>Anthropic's agentic AI for writing software — it works inside a codebase from the terminal, editing files and running commands. Excellent at its job. Built for <strong>professional developers</strong>, not learners.</p>
+<h3 id="cc-argument">Their Argument</h3>
+<p>"I've heard Claude Code is the most powerful AI out there — wouldn't that be better for my kid?"</p>
+<h3 id="cc-response">Your Response</h3>
+<blockquote>
+<p>"Claude Code is genuinely powerful — for engineers building software. It lives in a code editor and assumes the person driving it is a programmer who wants the work done for them. That's the opposite of what you want for a child: a tool whose whole point is to complete the task autonomously isn't going to teach your kid to think. EduAsiste is built for learning, not coding. It teaches Socratically, it remembers your individual child, and it gives you a parent twin so you always know how things are going. Claude Code is a tool for builders. EduAsiste is a tutor for your child."</p>
+</blockquote>
+<h3 id="cc-diff">Key Differentiators</h3>
+<table>
+<thead><tr><th>Feature</th><th>Claude Code</th><th>EduAsiste</th></tr></thead>
+<tbody>
+<tr><td>Built for</td><td>Professional developers</td><td>Learners + their parents</td></tr>
+<tr><td>Pedagogy (teaches, doesn't just do)</td><td>No — completes the task</td><td>Yes — Socratic guidance</td></tr>
+<tr><td>Per-learner persistent memory</td><td>No — per repo/session</td><td>Yes — remembers the child</td></tr>
+<tr><td>Parent twin + visibility</td><td>No</td><td>Yes — auto-summaries to parent</td></tr>
+<tr><td>Designed for a minor's data</td><td>No</td><td>Yes — private, isolated</td></tr>
+<tr><td>Who operates it</td><td>Terminal / technical users</td><td>The child, in a simple chat</td></tr>
+</tbody>
+</table>
+<hr />
+
+<h2 id="vs-notebooklm">vs. NotebookLM</h2>
+<h3 id="nlm-what">What It Is</h3>
+<p>Google's research assistant: upload sources into a "notebook" and ask grounded, cited questions, or generate study guides and summaries. Good for an older student doing research on a fixed set of documents.</p>
+<h3 id="nlm-argument">Their Argument</h3>
+<p>"NotebookLM makes study guides from our materials. Isn't that enough?"</p>
+<h3 id="nlm-response">Your Response</h3>
+<blockquote>
+<p>"NotebookLM is a nice research aid — drop in some sources and it summarizes them. But it's a single-user tool that lives inside one notebook. It doesn't teach your child Socratically, it has no memory of your individual learner from one week to the next, and there's no parent in the picture at all. EduAsiste isn't a summarizer — it's a tutor that sits with your child through the work, asks questions instead of handing over answers, remembers what stuck and what didn't, and reports back to you. NotebookLM answers 'what's in these documents?' EduAsiste answers 'is my child actually learning, and what do I do about it tonight?'"</p>
+</blockquote>
+<h3 id="nlm-diff">Key Differentiators</h3>
+<table>
+<thead><tr><th>Feature</th><th>NotebookLM</th><th>EduAsiste</th></tr></thead>
+<tbody>
+<tr><td>Summarizes / Q&amp;A over sources</td><td>Yes</td><td>Yes — but teaches, doesn't just summarize</td></tr>
+<tr><td>Teaches Socratically</td><td>No</td><td>Yes — asks, doesn't answer</td></tr>
+<tr><td>Memory of the individual learner</td><td>No — per notebook</td><td>Yes — persistent per-learner twin</td></tr>
+<tr><td>Parent twin + visibility</td><td>No — single user</td><td>Yes — auto-summaries to parent</td></tr>
+<tr><td>Continuity across sessions</td><td>Notebook-bound</td><td>Continuous, remembers history</td></tr>
+<tr><td>Designed for a minor's data</td><td>No</td><td>Yes — private, isolated</td></tr>
+</tbody>
+</table>
+<hr />
+
+<h2 id="quick-table">Quick Comparison Table</h2>
+<table>
+<thead><tr><th>Capability</th><th>ChatGPT</th><th>Claude Code</th><th>NotebookLM</th><th>EduAsiste</th></tr></thead>
+<tbody>
+<tr><td>Teaches Socratically (asks, doesn't answer)</td><td>❌</td><td>❌</td><td>❌</td><td>✓</td></tr>
+<tr><td>Does the child's thinking for them</td><td>Often ❌</td><td>By design ❌</td><td>Summaries</td><td>Never ✓</td></tr>
+<tr><td>Per-learner persistent memory</td><td>❌</td><td>❌</td><td>❌</td><td>✓</td></tr>
+<tr><td>Parent twin + full transparency</td><td>❌</td><td>❌</td><td>❌</td><td>✓</td></tr>
+<tr><td>"What did my child learn today?"</td><td>❌</td><td>❌</td><td>❌</td><td>✓</td></tr>
+<tr><td>Designed for a minor's data</td><td>❌</td><td>❌</td><td>❌</td><td>✓</td></tr>
+<tr><td>You own your data (portable)</td><td>❌</td><td>✓ (yours)</td><td>❌</td><td>✓</td></tr>
+<tr><td>Right user for a child</td><td>Unsupervised</td><td>Developers</td><td>Older researcher</td><td>The child ✓</td></tr>
+</tbody>
+</table>
+<hr />
+
+<h2 id="landmines">Competitive Landmines to Avoid</h2>
+<h3 id="lm-trash">Don't Trash the Tool</h3>
+<ul>
+<li>❌ "ChatGPT is bad for kids."</li>
+<li>✓ "A curious kid reaching for AI is a good sign. EduAsiste is the version that teaches instead of tells — and lets you see what's going on."</li>
+</ul>
+<h3 id="lm-claude">Don't Misframe Claude Code</h3>
+<ul>
+<li>❌ "Claude Code is worse than us."</li>
+<li>✓ "Claude Code is a powerful tool — for developers. EduAsiste is a tutor — for your child."</li>
+</ul>
+<h3 id="lm-privacy">Lead With Minor-Data Privacy</h3>
+<ul>
+<li>For any privacy-skeptical parent, the minor-data point is the cleanest, least-debatable differentiator against all three. Use it.</li>
+</ul>
+<h3 id="lm-outcomes">Sell Outcomes, Not Features</h3>
+<ul>
+<li>❌ "We have per-learner memory and a knowledge graph."</li>
+<li>✓ "You'll know what your child learned today, and you can act on it tonight."</li>
+</ul>
+</article>
+<footer class="sheet-foot">
+  <span>AI Value Prospectors · internal sales enablement · EduAsiste · AI-native tools</span>
+  <span><a href="index.html">Back to materials</a></span>
+</footer>
+</body>
+</html>
