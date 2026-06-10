@@ -167,7 +167,7 @@
                     <div class="cinput"><span>Ask Eduardo…</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2EA3F2" stroke-width="2"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4 20-7z"/></svg></div>
                 </div>
                 <aside class="side">
-                    <div class="tabs"><span class="t">Notes</span><span class="t">Uploads</span><span class="t on">Documents</span><span class="t">Reading</span></div>
+                    <div class="tabs"><span class="t">Notes</span><span class="t">Uploads</span><span class="t on">Reports</span><span class="t">Lectura</span></div>
                     <div class="scontent">
                         <div class="sc-h">This week</div>
                         <div class="chip-row">
@@ -180,7 +180,7 @@
                     </div>
                 </aside>
             </div>
-            <figcaption>Illustrative mockup — chat on the left, the adult's tabs on the right (Notes · Uploads · Documents · Reading). Flip the header toggle to the child's view, where the only tab is Notes and Eduardo gives one Socratic question at a time, never the answer.</figcaption>
+            <figcaption>Illustrative mockup — chat on the left, the adult's tabs on the right (Notes · Uploads · Reports · Lectura). Flip the header toggle to the child's view, where the only tab is Notes and Eduardo gives one Socratic question at a time, never the answer.</figcaption>
         </figure>
 
         <div class="feat-grid">
@@ -207,7 +207,7 @@
             <div class="feat">
                 <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2EA3F2" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M9 13l2 2 4-4"/></svg></div>
                 <h3>Knowledge capture + graph</h3>
-                <p>Upload documents and Eduardo extracts them into entity notes and a knowledge graph (Neo4j + Postgres), aligned to your state's curriculum.</p>
+                <p>Upload documents and Eduardo extracts them into entity notes and a knowledge graph (Neo4j + Postgres).</p>
             </div>
             <div class="feat">
                 <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2EA3F2" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg></div>
@@ -244,9 +244,9 @@
         <h3 class="sub">For Mentors — run your practice</h3>
         <p class="lead">The mentor twin is your workspace. Here is what you do in it day to day.</p>
         <div class="steps">
-            <div class="step"><div class="n">1</div><div class="b"><h4>Document curriculum &amp; sessions</h4><p>Load lesson plans, session plans, and assessments. Eduardo files them and aligns activities to curriculum standards.</p></div></div>
+            <div class="step"><div class="n">1</div><div class="b"><h4>Document curriculum &amp; sessions</h4><p>Load lesson plans, session plans, and assessments. Eduardo extracts and files them automatically.</p></div></div>
             <div class="step"><div class="n">2</div><div class="b"><h4>Track your mentee</h4><p>Progress shows up as events and goals — what they practiced, where they got stuck, what they've mastered.</p></div></div>
-            <div class="step"><div class="n">3</div><div class="b"><h4>Generate reports &amp; parent recaps</h4><p>Produce a Progress Report, Session Summary, or Attendance Log, and send a short recap to your mentee's parent after each session.</p></div></div>
+            <div class="step"><div class="n">3</div><div class="b"><h4>Generate reports &amp; parent recaps</h4><p>Produce a Progress Report, Session Summary, or Attendance Log, and prepare a short recap to share with your mentee's parent after each session.</p></div></div>
         </div>
 
         <h2 class="section-label" id="interface"><span class="pip"></span>The interface</h2>
@@ -264,7 +264,7 @@
                     <div class="cinput"><span>Ask Eduardo…</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2EA3F2" stroke-width="2"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4 20-7z"/></svg></div>
                 </div>
                 <aside class="side">
-                    <div class="tabs"><span class="t">Notes</span><span class="t">Uploads</span><span class="t on">Documents</span><span class="t">Reading</span></div>
+                    <div class="tabs"><span class="t">Notes</span><span class="t">Uploads</span><span class="t on">Reports</span><span class="t">Lectura</span></div>
                     <div class="scontent">
                         <div class="sc-h">This week</div>
                         <div class="chip-row">
@@ -277,10 +277,10 @@
                     </div>
                 </aside>
             </div>
-            <figcaption>Illustrative mockup. Chat on the left, your tabs on the right. A parent's tabs are <strong>Notes · Uploads · Documents · Reading</strong> (Reading appears when your child's reading program is on); flip the header toggle to the child's view, where the only tab is <strong>Notes</strong>.</figcaption>
+            <figcaption>Illustrative mockup. Chat on the left, your tabs on the right. A parent's tabs are <strong>Notes · Uploads · Reports · Lectura</strong> (Lectura appears when your child's reading program is on); flip the header toggle to the child's view, where the only tab is <strong>Notes</strong>.</figcaption>
         </figure>
         <h3 class="sub">For Mentors — the Mentor / Mentee toggle</h3>
-        <p class="lead">The mentor twin has <strong>read-only access</strong> to the mentee's workspace — between-session practice, stuck flags, and small wins. Your mentee cannot see into your workspace; the access only runs one way.</p>
+        <p class="lead">The mentor twin has <strong>read-only access</strong> to the mentee's workspace — between-session practice and progress. Your mentee cannot see into your workspace; the access only runs one way.</p>
         <figure class="mock">
             <div class="mock-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="title">EduAsiste · Eduardo · Mentor</span>
                 <span class="toggle"><span class="on">Mentor</span><span>Mentee</span></span>
@@ -308,7 +308,7 @@
                     </div>
                 </aside>
             </div>
-            <figcaption>Illustrative mockup. Chat on the left; your tabs on the right — a mentor sees <strong>Notes · Uploads · Reports</strong> (plus Reading when a reading program is on). The sidebar's read-only <strong>linked-twin</strong> panel surfaces your mentee's progress; your mentee's own twin shows only the <strong>Notes</strong> tab.</figcaption>
+            <figcaption>Illustrative mockup. Chat on the left; your tabs on the right — a mentor sees <strong>Notes · Uploads · Reports</strong> (plus Lectura when a reading program is on). The sidebar's read-only <strong>linked-twin</strong> panel surfaces your mentee's progress; your mentee's own twin shows only the <strong>Notes</strong> tab.</figcaption>
         </figure>
 
         <h2 class="section-label" id="learner"><span class="pip"></span>What the learner sees</h2>
@@ -317,7 +317,7 @@
             <div class="step"><div class="n">✓</div><div class="b"><h4>Never just the answer</h4><p>Ask "What is X?" and Eduardo replies <em>"What do you already know about X?"</em> — guiding rather than telling.</p></div></div>
             <div class="step"><div class="n">✓</div><div class="b"><h4>Wrong answers are reframed, not scolded</h4><p>Instead of "No," Eduardo says <em>"Interesting — what if…"</em> and celebrates-and-deepens the ones the learner gets right.</p></div></div>
             <div class="step"><div class="n">✓</div><div class="b"><h4>Age-appropriate, one question at a time</h4><p>Short sentences, simple language, specific praise — and never a compound question.</p></div></div>
-            <div class="step"><div class="n">✓</div><div class="b"><h4>Between-session practice, stuck flags &amp; a wins journal</h4><p>The learner keeps working when the adult isn't there. When they get stuck it's flagged for you; small wins are journaled so you can build on them next time.</p></div></div>
+            <div class="step"><div class="n">✓</div><div class="b"><h4>Between-session practice &amp; progress tracking</h4><p>The learner keeps working when the adult isn't there, and their progress is tracked so you can build on it next time.</p></div></div>
         </div>
         <div class="note"><strong>What stays on the adult's side.</strong> Adult-level framing — declining trends, concerns, diagnostics — is never shown to the learner. The child or mentee only ever sees encouragement and questions.</div>
 
@@ -338,9 +338,9 @@
             <tr><td><strong>Progress Report</strong></td><td>An individual mentee's events over a period.</td></tr>
             <tr><td><strong>Session / Class Summary</strong></td><td>Scores by assessment and their distribution.</td></tr>
             <tr><td><strong>Attendance Log</strong></td><td>A record of sessions attended.</td></tr>
-            <tr><td><strong>Parent recap</strong></td><td>A short progress summary sent to the mentee's parent after each session.</td></tr>
+            <tr><td><strong>Parent recap</strong></td><td>A short progress summary you can review and share with the mentee's parent after each session.</td></tr>
         </table>
-        <div class="note">Output is generated as PDF, Excel, or Word and saved to the <strong>Reports</strong> tab. Reports you run often can be saved as Tasks and re-run later.</div>
+        <div class="note">Output is generated as PDF reports and saved to the <strong>Reports</strong> tab. Reports you run often can be saved as Tasks and re-run later.</div>
 
         <h2 class="section-label" id="capture"><span class="pip"></span>Add your own materials</h2>
         <p class="lead">Both twins run the education platform, so you can bring in the learner's own materials — worksheets and reading lists for a family, curriculum and assessments for a mentor.</p>
