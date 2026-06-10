@@ -255,7 +255,7 @@
 <tr><td><strong>Structure and materials on demand</strong></td><td>"Assign a worksheet in one sentence and get a private answer key for yourself."</td></tr>
 <tr><td><strong>Real Socratic tutoring</strong></td><td>"Your child's twin walks them toward the answer by asking questions. It never just does the thinking for them."</td></tr>
 <tr><td><strong>A tutor for the subjects you'd rather not teach</strong></td><td>"Hand off the topic you dread; your child still gets guided, patient teaching."</td></tr>
-<tr><td><strong>You own it</strong></td><td>"Your child's data is yours, portable, exportable, deletable anytime."</td></tr>
+<tr><td><strong>You own it</strong></td><td>"Your child's data is yours, portable, exportable and deletable on request."</td></tr>
 </tbody>
 </table>
 <h4>Demo Focus</h4>
@@ -359,7 +359,7 @@
 <tr><td><strong>Cohort visibility</strong></td><td>"See how the whole group is doing, not just one student at a time."</td></tr>
 <tr><td><strong>Context survives the handoff</strong></td><td>"Every Socratic session is summarized into the learner's twin, so progress carries forward when teachers or grades change."</td></tr>
 <tr><td><strong>Sits alongside what you have</strong></td><td>"It coexists with your school systems via API where they expose one. It isn't one more silo to maintain."</td></tr>
-<tr><td><strong>Privacy you can defend</strong></td><td>"Designed around children's-data protections (GDPR-aligned controls, and FERPA/COPPA where applicable for US families and schools) with data residency, audit logging, and export-on-request documentation available under NDA." (For Chilean and LATAM schools, lead with Ley 21.719 / LPDP rather than the US frameworks.)</td></tr>
+<tr><td><strong>Privacy you can defend</strong></td><td>"Designed around children's-data protections (GDPR-aligned controls, and FERPA/COPPA where applicable for US families and schools) with data residency, audit logging, and export-on-request, and data-protection documentation available on request." (For Chilean and LATAM schools, lead with Ley 21.719 / LPDP rather than the US frameworks.)</td></tr>
 </tbody>
 </table>
 <h4>Demo Focus</h4>
@@ -367,7 +367,7 @@
 <li><strong>Pillar 1, cohort view</strong>: show how an administrator can check progress across multiple learners. (Flag classroom/cohort view as the area still maturing. See Coming Soon.)</li>
 <li><strong>Knowledge handoff</strong>: show how a learner's auto-summarized history carries forward when a teacher changes, so the next teacher starts warm instead of from zero.</li>
 <li><strong>Pillar 5, transparency</strong>: show that every adult view of a child's data is visible to the child, the trust story parents will ask about.</li>
-<li><strong>Privacy walkthrough</strong>: residency, audit logging, encryption, no model training on customer data, and export/delete on request; offer the data-protection documentation under NDA.</li>
+<li><strong>Privacy walkthrough</strong>: residency, audit logging, encryption, no model training on customer data, and export/delete on request; offer the data-protection documentation available on request.</li>
 </ol>
 <h4>Closing Language</h4>
 <blockquote>
@@ -982,21 +982,21 @@
 <hr />
 <h3 id="standard-security-included">Standard Security (Included)</h3>
 <blockquote>
-<p>"Learning data is stored on Google's enterprise-grade infrastructure, the same platform that protects millions of students and teachers worldwide through Google for Education, Gmail, Google Drive, and Google Docs. Larger school and multi-school deployments run on Google Cloud for added scale and monitoring."</p>
+<p>"Each learner's data lives in its own per-twin storage on our own infrastructure, with Google Drive sync. This is the same across all tiers, from a single family to a multi-school deployment."</p>
 </blockquote>
 <p><strong>What's Included:</strong></p>
 <ul>
-<li><strong>Encryption in transit</strong>: TLS 1.3 for all data moving between your child and the platform</li>
-<li><strong>Encryption at rest</strong>: AES-256 encryption for stored learning data</li>
-<li><strong>Google infrastructure</strong>: the proven platform schools already trust</li>
+<li><strong>Encryption in transit</strong>: TLS 1.2+ (TLS 1.3 where supported) for all data moving between your child and the platform</li>
+<li><strong>Encryption at rest</strong>: AES-256-GCM encryption of personal-identifier fields in stored learning data</li>
+<li><strong>Per-twin storage</strong>: each learner's data on our own infrastructure with Google Drive sync, the same across all tiers</li>
 <li><strong>Data isolation per learner</strong>: each child's workspace is separate from every other learner's</li>
 <li><strong>Access control</strong>: token-based authentication</li>
-<li><strong>Automatic backups</strong>: Google's redundant storage systems</li>
+<li><strong>Automatic backups</strong>: redundant storage with Google Drive sync</li>
 </ul>
-<p>For larger deployments (departments, whole schools, multi-school networks), EduAsiste runs on Google Cloud Platform, adding cloud-native monitoring, VPC and private-connectivity options, and dedicated, isolated compute and storage.</p>
+<p>The same per-twin storage model applies across every deployment size, from a single family to departments, whole schools, and multi-school networks, with each learner's data isolated and synced to Google Drive.</p>
 <h4 id="where-is-our-childs-data-stored">"Where is our child's data stored?"</h4>
 <blockquote>
-<p>"Learning data is stored on Google's infrastructure through Google Workspace, or Google Cloud for larger deployments. Google operates data centers worldwide with industry-leading physical and digital security, and your child's data never leaves that secure environment. For schools that must keep data in a specific country or region (EU, or LATAM under laws like Chile's Ley 21.719), regional data residency is available on request."</p>
+<p>"Learning data is stored in per-twin storage on our own infrastructure, with Google Drive sync, the same across all tiers. Each learner's data is isolated, and your child's data never leaves that secure environment. For schools that must keep data in a specific country or region (EU, or LATAM under laws like Chile's Ley 21.719), regional data residency is available on request."</p>
 </blockquote>
 <h4 id="can-eduasiste-staff-read-my-childs-work">"Can EduAsiste staff read my child's work?"</h4>
 <blockquote>
@@ -1004,7 +1004,7 @@
 </blockquote>
 <h4 id="what-happens-if-we-cancel">"What happens if we cancel?"</h4>
 <blockquote>
-<p>"You own your data. You can export everything at any time in standard formats (JSON, Markdown, CSV). When you cancel, we delete the data from our systems within 30 days, and you keep any exports you've made. For family-owned accounts, the data belongs to the family and is portable: it goes with you."</p>
+<p>"You own your data. You can export on request (JSON, Markdown, CSV). When you cancel, we delete the data from our systems on request, and you keep any exports you've made. For family-owned accounts, the data belongs to the family and is portable: it goes with you."</p>
 </blockquote>
 <hr />
 <h3 id="education-privacy--compliance">Education Privacy &amp; Compliance</h3>
@@ -1031,14 +1031,14 @@
 <p>"FERPA governs US student education records and gives parents (and eligible students) rights over those records. EduAsiste is built to help a school meet its FERPA obligations rather than to replace them:</p>
 <ul>
 <li><strong>Data isolation</strong> keeps each student's records separate.</li>
-<li><strong>Encryption</strong> (TLS 1.3 in transit, AES-256 at rest) protects records in motion and at rest.</li>
+<li><strong>Encryption</strong> (TLS 1.2+ in transit (TLS 1.3 where supported); AES-256-GCM encryption of personal-identifier fields) protects records in motion and at rest.</li>
 <li><strong>Export and deletion on request</strong> support a parent's right to access and a school's right to control records.</li>
 <li>In a school (Org) deployment, the school is the data controller and EduAsiste acts as a service provider under the school's direction. Formal FERPA audit documentation and a signed agreement are being built in-house and are in progress. We do not overstate certifications we don't hold. We give you the controls today and the paperwork path as it's finalized."</li>
 </ul>
 </blockquote>
 <h4 id="what-about-gdpr-or-data-residency-eu--latam-schools">"What about GDPR or data residency (EU / LATAM schools)?"</h4>
 <blockquote>
-<p>"For schools governed by GDPR (EU) or GDPR-aligned laws (for example, Chile's Ley 21.719 (LPDP), which takes effect 1 December 2026 and adds special protections for minors' data), the formal frameworks (Data Processing Agreements, regional data residency in the EU or LATAM, right-to-erasure handling, and the audit trail your data-protection officer needs) are being built in-house and are in progress. EduAsiste's standard controls (encryption, no model training on student data, export-on-request, deletion within a billing cycle) already align with the spirit of these laws."</p>
+<p>"For schools governed by GDPR (EU) or GDPR-aligned laws (for example, Chile's Ley 21.719 (LPDP), which takes effect 1 December 2026 and adds special protections for minors' data), the formal frameworks (Data Processing Agreements, regional data residency in the EU or LATAM, right-to-erasure handling, and the audit trail your data-protection officer needs) are being built in-house and are in progress. EduAsiste's standard controls (encryption, no model training on student data, export-on-request, deletion on request) already align with the spirit of these laws."</p>
 </blockquote>
 <h4 id="who-can-see-what-my-child-does-transparency">"Who can see what my child does?"</h4>
 <blockquote>
@@ -1094,7 +1094,7 @@
 </blockquote>
 <h4 id="do-you-have-a-security-certification">"Do you have a security certification?"</h4>
 <blockquote>
-<p>"We inherit Google Workspace's certifications, which include SOC 1/2/3, ISO 27001, and more. See Google's compliance page for the full list. For education specifically, our standard posture gives you the technical controls behind FERPA and COPPA today. Our own formal certifications (SOC 2 Type II) and the signed FERPA/COPPA/GDPR/HIPAA documentation are being built in-house and are in progress; we can share current status for your audit."</p>
+<p>"Our Google Drive sync layer benefits from Google's underlying certifications (SOC 1/2/3, ISO 27001, and more; see Google's compliance page for the full list), but we don't claim those as our own. For education specifically, our standard security controls (encryption, per-learner isolation, no model training) give you the technical controls behind FERPA and COPPA today. Our own formal certifications (SOC 2 Type II) and the signed FERPA/COPPA/GDPR/HIPAA documentation are being built in-house and are in progress; we can share current status for your audit."</p>
 </blockquote>
 <hr />
 <h3 id="security-conversation-flow">Security Conversation Flow</h3>
@@ -1130,13 +1130,13 @@
 <h3 id="objection-handling">Objection Handling</h3>
 <h4 id="why-should-we-trust-a-startup-with-our-childrens-data">"Why should we trust a startup with our children's data?"</h4>
 <blockquote>
-<p>"You're not trusting us with the data infrastructure. You're trusting Google. We built EduAsiste on Google Workspace specifically because we knew parents and schools would (rightly) worry about children's data. Your child's data sits on the same infrastructure that schools and Fortune 500 companies trust with their most sensitive records. On top of that, you're the account owner, with full visibility into everything your child does, so nothing happens in the dark."</p>
+<p>"Your child's data lives in its own per-twin storage on our own infrastructure, with each learner isolated and synced to Google Drive. We built EduAsiste this way specifically because we knew parents and schools would (rightly) worry about children's data: the platform's standard security controls (encryption, per-learner isolation, no model training) protect it, and the Google Drive sync layer rides on infrastructure that schools and Fortune 500 companies already trust. On top of that, you're the account owner, with full visibility into everything your child does, so nothing happens in the dark."</p>
 </blockquote>
 <h4 id="our-schools-it--data-protection-officer-will-never-approve-this">"Our school's IT / data-protection officer will never approve this."</h4>
 <blockquote>
 <p>"Good. They should be careful with student data. Here's what usually helps:</p>
 <ol type="1">
-<li>We can provide Google Workspace's security documentation</li>
+<li>We can provide our data-protection documentation on request, along with the Google Drive sync layer's security documentation</li>
 <li>For FERPA, COPPA, GDPR, or residency needs, we can share where our formal documentation stands and the timeline</li>
 <li>We're happy to do a technical call with your IT or DPO</li>
 <li>We can start with a small, non-sensitive pilot to build confidence"</li>
@@ -1148,7 +1148,7 @@
 </blockquote>
 <h4 id="we-need-formal-compliance-now-not-in-progress">"We need formal compliance now, not 'in progress.'"</h4>
 <blockquote>
-<p>"Fair, and we won't pretend otherwise. The technical controls (encryption, per-learner isolation, no model training, export and deletion) are in place today. The formal certifications and signed agreements are being finalized in-house. If you have a hard deadline, tell us the framework and the date, and we'll give you an honest status and timeline so you can decide. For most families and small schools, the standard Google Workspace security plus full parent visibility is already more than enough."</p>
+<p>"Fair, and we won't pretend otherwise. The technical controls (encryption, per-learner isolation, no model training, export and deletion) are in place today. The formal certifications and signed agreements are being finalized in-house. If you have a hard deadline, tell us the framework and the date, and we'll give you an honest status and timeline so you can decide. For most families and small schools, the platform's standard security controls (encryption, per-learner isolation, no model training) plus full parent visibility is already more than enough."</p>
 </blockquote>
 <hr />
 <h3 id="security-summary-table">Security Summary Table</h3>
@@ -1162,11 +1162,11 @@
 <tbody>
 <tr class="odd">
 <td>Where is the data stored?</td>
-<td>Google Workspace, or Google Cloud for larger deployments</td>
+<td>Per-twin storage on our own infrastructure with Google Drive sync (same across all tiers)</td>
 </tr>
 <tr class="even">
 <td>Is the data encrypted?</td>
-<td>Yes (TLS 1.3 in transit + AES-256 at rest)</td>
+<td>Yes (TLS 1.2+ in transit (TLS 1.3 where supported); AES-256-GCM encryption of personal-identifier fields)</td>
 </tr>
 <tr class="odd">
 <td>Used to train AI?</td>
