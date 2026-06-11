@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="eduasiste" data-lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>EduAsiste · Who looked at your work (access log)</title>
+    <script src="preview-theme.js"></script>
+    <link rel="stylesheet" href="../css/app.css">
+    <style>
+        body {
+            margin: 0;
+            background: var(--color-parchment);
+            color: var(--color-ink);
+            font-family: var(--font-sans);
+            -webkit-font-smoothing: antialiased;
+        }
+        .wrap { max-width: 1100px; margin: 0 auto; padding: 40px 24px 80px; }
+
+        /* ---- Page intro -------------------------------------------------- */
+        .intro { margin-bottom: 8px; }
+        .intro__eyebrow {
+            font-size: var(--size-label); font-weight: 600; letter-spacing: 0.04em;
+            text-transform: uppercase; color: var(--color-accent);
+        }
+        .intro h1 {
+            font-family: var(--font-serif); font-weight: 700;
+            font-size: 1.9rem; line-height: 1.15; margin: 6px 0 10px;
+            color: var(--color-accent-deep);
+        }
+        .intro p { margin: 0; max-width: 60ch; color: var(--color-ink-soft); font-size: var(--size-body); }
+        .intro__meta { margin-top: 12px; font-size: var(--size-tiny); color: var(--color-whisper); }
+        .intro__meta a { color: var(--color-accent-deep); }
+
+        /* ---- Toolbar (lang toggle) -------------------------------------- */
+        .toolbar { display: flex; justify-content: flex-end; gap: 8px; margin: -28px 0 28px; }
+        .lang-btn {
+            font: inherit; font-size: var(--size-label); font-weight: 600;
+            padding: 7px 14px; border: 1px solid var(--color-margin); border-radius: var(--radius-md);
+            background: var(--color-field-cream); color: var(--color-ink-soft); cursor: pointer;
+        }
+        .lang-btn[aria-pressed="true"] { background: var(--color-accent); color: #fff; border-color: var(--color-accent); }
+
+        /* ---- Frame grid -------------------------------------------------- */
+        .frames { display: grid; grid-template-columns: 1.4fr 1fr; gap: 28px; align-items: start; }
+        @media (max-width: 860px) { .frames { grid-template-columns: 1fr; } }
+        .frame { display: flex; flex-direction: column; gap: 10px; }
+        .frame__cap {
+            font-size: var(--size-label); font-weight: 600; color: var(--color-ink-soft);
+            display: flex; align-items: center; gap: 8px;
+        }
+        .frame__cap .n {
+            width: 20px; height: 20px; border-radius: 999px; background: var(--color-accent);
+            color: #fff; font-size: 12px; display: inline-flex; align-items: center; justify-content: center;
+        }
+        .frame__note { font-size: var(--size-tiny); color: var(--color-whisper); margin: 2px 0 0; }
+
+        /* ---- App window chrome ------------------------------------------ */
+        .win {
+            border: 1px solid var(--color-margin); border-radius: var(--radius-lg);
+            background: var(--color-field-cream); overflow: hidden;
+            box-shadow: var(--shadow-modal);
+        }
+        .win__bar {
+            display: flex; align-items: center; gap: 7px; padding: 10px 14px;
+            background: var(--color-margin-soft); border-bottom: 1px solid var(--color-margin);
+        }
+        .win__dot { width: 11px; height: 11px; border-radius: 999px; background: var(--color-margin); }
+        .win__title { margin-left: 8px; font-size: var(--size-tiny); color: var(--color-whisper); }
+
+        /* ---- Two-pane learner app: chat + sidebar ----------------------- */
+        .app { display: grid; grid-template-columns: 1fr 320px; min-height: 460px; }
+        @media (max-width: 560px) { .app { grid-template-columns: 1fr; } .app__chat { display: none; } }
+        .app__chat {
+            padding: 18px; border-right: 1px solid var(--color-margin);
+            background: var(--color-parchment); display: flex; flex-direction: column; gap: 14px;
+        }
+        .owl-row { display: flex; align-items: center; gap: 10px; }
+        .owl {
+            width: 40px; height: 40px; border-radius: 999px; background: var(--color-accent-soft);
+            display: inline-flex; align-items: center; justify-content: center; font-size: 22px;
+            border: 1px solid var(--color-margin);
+        }
+        .owl-name { font-weight: 700; color: var(--color-accent-deep); }
+        .owl-sub { font-size: var(--size-tiny); color: var(--color-whisper); }
+        .bubble {
+            background: var(--color-field-cream); border: 1px solid var(--color-margin);
+            border-radius: var(--radius-md); padding: 12px 14px; font-size: var(--size-label);
+            color: var(--color-ink-soft); max-width: 90%; line-height: 1.45;
+        }
+        .bubble--me { align-self: flex-end; background: var(--color-accent); color: #fff; border-color: var(--color-accent); }
+        .chat-input {
+            margin-top: auto; display: flex; gap: 8px; align-items: center;
+            border: 1px solid var(--color-margin); border-radius: 999px; padding: 8px 8px 8px 16px;
+            background: var(--color-field-cream); color: var(--color-whisper); font-size: var(--size-label);
+        }
+        .chat-input .send { margin-left: auto; width: 30px; height: 30px; border-radius: 999px; background: var(--color-accent); color:#fff; display:inline-flex; align-items:center; justify-content:center; }
+
+        /* ---- Sidebar with tabs ------------------------------------------ */
+        .side { display: flex; flex-direction: column; background: var(--color-field-cream); }
+        .side__tabs { display: flex; border-bottom: 1px solid var(--color-margin); }
+        .side__tab {
+            flex: 1; text-align: center; padding: 12px 8px; font-size: var(--size-label); font-weight: 600;
+            color: var(--color-whisper); background: none; border: 0; cursor: pointer; position: relative;
+        }
+        .side__tab--active { color: var(--color-ink); border-bottom: 2px solid var(--color-accent); }
+        .side__tab .dot {
+            position: absolute; top: 8px; margin-left: 6px; width: 7px; height: 7px; border-radius: 999px;
+            background: var(--color-danger);
+        }
+        .side__head { padding: 14px 16px 10px; border-bottom: 1px solid var(--color-margin-soft); }
+        .side__head h2 { margin: 0; font-size: var(--size-body); font-weight: 700; color: var(--color-ink); }
+        .side__head p { margin: 4px 0 0; font-size: var(--size-tiny); line-height: 1.45; color: var(--color-ink-soft); }
+
+        .log { list-style: none; margin: 0; padding: 0; }
+        .log li { padding: 12px 16px; border-bottom: 1px solid var(--color-margin-soft); display: flex; gap: 11px; align-items: flex-start; }
+        .log li.unread { background: var(--color-accent-soft); }
+        .who {
+            width: 30px; height: 30px; border-radius: 999px; flex: none; display: inline-flex;
+            align-items: center; justify-content: center; font-size: 14px; font-weight: 700; color: #fff;
+        }
+        .who--mom { background: oklch(55% 0.13 25); }
+        .who--dad { background: oklch(52% 0.11 250); }
+        .who--teacher { background: oklch(50% 0.10 160); }
+        .log__txt { font-size: var(--size-label); color: var(--color-ink); line-height: 1.35; }
+        .log__txt b { font-weight: 700; }
+        .log__time { font-size: var(--size-tiny); color: var(--color-whisper); margin-top: 2px; }
+        .log__empty { padding: 30px 18px; text-align: center; color: var(--color-whisper); font-size: var(--size-label); }
+        .log__empty .big { font-size: 30px; display: block; margin-bottom: 8px; }
+
+        /* ---- Right column small mocks ----------------------------------- */
+        .stack { display: flex; flex-direction: column; gap: 28px; }
+
+        /* in-app toast */
+        .toast {
+            border: 1px solid var(--color-margin); border-radius: var(--radius-md);
+            background: var(--color-field-cream); box-shadow: var(--shadow-modal);
+            padding: 12px 14px; display: flex; gap: 11px; align-items: flex-start;
+        }
+        .toast__icon { width: 30px; height: 30px; border-radius: var(--radius-sm); background: var(--color-accent-soft); display:inline-flex; align-items:center; justify-content:center; font-size:16px; flex:none; }
+        .toast__title { font-size: var(--size-label); font-weight: 700; color: var(--color-ink); }
+        .toast__body { font-size: var(--size-tiny); color: var(--color-ink-soft); margin-top: 2px; line-height: 1.4; }
+
+        /* phone push */
+        .phone {
+            width: 270px; margin: 0 auto; border: 9px solid oklch(28% 0.02 257); border-radius: 32px;
+            background: linear-gradient(160deg, oklch(45% 0.08 245), oklch(28% 0.10 270));
+            padding: 44px 12px 28px; position: relative; box-shadow: var(--shadow-modal);
+        }
+        .phone::before { content:""; position:absolute; top:14px; left:50%; transform:translateX(-50%); width:90px; height:7px; border-radius:999px; background: oklch(20% 0.02 257); }
+        .phone__time { text-align:center; color:#fff; font-size: 13px; font-weight:600; letter-spacing:0.02em; margin-bottom: 14px; opacity:.92; }
+        .push {
+            background: oklch(98% 0.01 247 / 0.92); backdrop-filter: blur(8px);
+            border-radius: 16px; padding: 11px 13px; display:flex; gap:10px; align-items:flex-start;
+        }
+        .push__app { width:32px;height:32px;border-radius:8px;background:var(--color-accent);display:inline-flex;align-items:center;justify-content:center;font-size:17px;flex:none;}
+        .push__head { display:flex; justify-content:space-between; align-items:baseline; }
+        .push__name { font-size:12px; font-weight:700; color: var(--color-ink); text-transform:uppercase; letter-spacing:.03em; }
+        .push__ago { font-size:11px; color: var(--color-whisper); }
+        .push__title { font-size: 13px; font-weight:600; color: var(--color-ink); margin-top:1px; }
+        .push__body { font-size: 13px; color: var(--color-ink-soft); line-height:1.35; }
+
+        .backlink { margin-top: 40px; font-size: var(--size-label); }
+        .backlink a { color: var(--color-accent-deep); border-bottom: 1px solid var(--color-margin); }
+        [data-lang="en"] .l-es, [data-lang="es"] .l-en { display: none; }
+    </style>
+</head>
+<body>
+<div class="wrap">
+
+    <div class="toolbar" role="group" aria-label="Language">
+        <button type="button" class="lang-btn" data-lang-set="en" aria-pressed="true">EN</button>
+        <button type="button" class="lang-btn" data-lang-set="es" aria-pressed="false">ES</button>
+    </div>
+
+    <div class="intro">
+        <div class="intro__eyebrow">EduAsiste · Learner privacy</div>
+        <h1><span class="l-en">Who looked at your work</span><span class="l-es">Quién miró tu trabajo</span></h1>
+        <p>
+            <span class="l-en">When a parent or teacher opens a learner's notes, activity, goals, or reports, the learner sees it. The visible half of the "no hidden monitoring" promise — mockups for the notify-on-view / access-log feature.</span>
+            <span class="l-es">Cuando un padre o profesor abre las notas, la actividad, los objetivos o los informes de un estudiante, el estudiante lo ve. La mitad visible de la promesa "sin monitoreo oculto": mockups de la función de aviso al ver / registro de accesos.</span>
+        </p>
+        <p class="intro__meta">Tracks <a href="https://github.com/aivalueprospector/product-research/issues/56">product-research#56</a> · static mock, sample data, not wired to backend.</p>
+    </div>
+
+    <div class="frames">
+
+        <!-- ============ FRAME 1: learner app, sidebar panel ============ -->
+        <div class="frame">
+            <div class="frame__cap"><span class="n">1</span><span class="l-en">Learner app — "Who looked" sidebar tab</span><span class="l-es">App del estudiante — pestaña "Quién miró"</span></div>
+            <div class="win">
+                <div class="win__bar">
+                    <span class="win__dot"></span><span class="win__dot"></span><span class="win__dot"></span>
+                    <span class="win__title">ltwin.ai/chat</span>
+                </div>
+                <div class="app">
+                    <div class="app__chat">
+                        <div class="owl-row">
+                            <span class="owl" aria-hidden="true">🦉</span>
+                            <span>
+                                <span class="owl-name">Eduardo</span><br>
+                                <span class="owl-sub l-en">Your learning twin · Sofía</span><span class="owl-sub l-es">Tu gemelo de aprendizaje · Sofía</span>
+                            </span>
+                        </div>
+                        <div class="bubble l-en">Hi Sofía! Ready to keep going on fractions, or want to look at something else?</div>
+                        <div class="bubble l-es">¡Hola Sofía! ¿Seguimos con las fracciones o quieres ver otra cosa?</div>
+                        <div class="bubble bubble--me l-en">Who can see my stuff?</div>
+                        <div class="bubble bubble--me l-es">¿Quién puede ver mis cosas?</div>
+                        <div class="bubble l-en">Good question — tap <b>"Who looked"</b> on the right. You'll see every time someone opened your work.</div>
+                        <div class="bubble l-es">Buena pregunta — toca <b>"Quién miró"</b> a la derecha. Verás cada vez que alguien abrió tu trabajo.</div>
+                        <div class="chat-input"><span class="l-en">Message Eduardo…</span><span class="l-es">Escribe a Eduardo…</span><span class="send" aria-hidden="true">↑</span></div>
+                    </div>
+
+                    <div class="side">
+                        <div class="side__tabs">
+                            <button class="side__tab"><span class="l-en">Notes</span><span class="l-es">Notas</span></button>
+                            <button class="side__tab side__tab--active">
+                                <span class="l-en">Who looked</span><span class="l-es">Quién miró</span>
+                                <span class="dot" aria-label="unread"></span>
+                            </button>
+                        </div>
+                        <div class="side__head">
+                            <h2><span class="l-en">Who looked at your work</span><span class="l-es">Quién miró tu trabajo</span></h2>
+                            <p>
+                                <span class="l-en">Every time a parent or teacher looks at your information, it shows up here. There's no hidden monitoring.</span>
+                                <span class="l-es">Cada vez que un padre o profesor mira tu información, aparece aquí. No hay monitoreo oculto.</span>
+                            </p>
+                        </div>
+                        <ul class="log">
+                            <li class="unread">
+                                <span class="who who--mom">M</span>
+                                <span>
+                                    <span class="log__txt"><b>Mom</b> <span class="l-en">looked at your notes</span><span class="l-es">miró tus notas</span></span>
+                                    <div class="log__time l-en">2 hours ago</div><div class="log__time l-es">hace 2 horas</div>
+                                </span>
+                            </li>
+                            <li>
+                                <span class="who who--teacher">R</span>
+                                <span>
+                                    <span class="log__txt"><b>Mr. Ramírez</b> <span class="l-en">looked at your activity</span><span class="l-es">miró tu actividad</span></span>
+                                    <div class="log__time l-en">Yesterday</div><div class="log__time l-es">Ayer</div>
+                                </span>
+                            </li>
+                            <li>
+                                <span class="who who--dad">D</span>
+                                <span>
+                                    <span class="log__txt"><b>Dad</b> <span class="l-en">looked at your reports</span><span class="l-es">miró tus informes</span></span>
+                                    <div class="log__time l-en">2 days ago</div><div class="log__time l-es">hace 2 días</div>
+                                </span>
+                            </li>
+                            <li>
+                                <span class="who who--mom">M</span>
+                                <span>
+                                    <span class="log__txt"><b>Mom</b> <span class="l-en">looked at your goals</span><span class="l-es">miró tus objetivos</span></span>
+                                    <div class="log__time l-en">Last week</div><div class="log__time l-es">La semana pasada</div>
+                                </span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <p class="frame__note l-en">Students normally see only the Notes tab; this feature adds a second learner-only tab. The red dot is the unread badge.</p>
+            <p class="frame__note l-es">Los estudiantes normalmente ven solo la pestaña Notas; esta función agrega una segunda pestaña solo para estudiantes. El punto rojo es la insignia de no leídos.</p>
+        </div>
+
+        <!-- ============ right column: toast + phone + empty ============ -->
+        <div class="stack">
+
+            <!-- FRAME 2: in-app toast -->
+            <div class="frame">
+                <div class="frame__cap"><span class="n">2</span><span class="l-en">In-app notification</span><span class="l-es">Notificación en la app</span></div>
+                <div class="toast">
+                    <span class="toast__icon" aria-hidden="true">👀</span>
+                    <span>
+                        <div class="toast__title l-en">Someone viewed your work</div><div class="toast__title l-es">Alguien vio tu trabajo</div>
+                        <div class="toast__body l-en">Mom looked at your information.</div><div class="toast__body l-es">Mamá miró tu información.</div>
+                    </span>
+                </div>
+                <p class="frame__note l-en">Coalesced: one notification per viewer per hour, even if they open 30 notes.</p>
+                <p class="frame__note l-es">Agrupado: una notificación por persona por hora, aunque abra 30 notas.</p>
+            </div>
+
+            <!-- FRAME 3: phone push -->
+            <div class="frame">
+                <div class="frame__cap"><span class="n">3</span><span class="l-en">Lock-screen push</span><span class="l-es">Aviso en pantalla bloqueada</span></div>
+                <div class="phone">
+                    <div class="phone__time">9:41</div>
+                    <div class="push">
+                        <span class="push__app" aria-hidden="true">🦉</span>
+                        <span style="flex:1;">
+                            <span class="push__head">
+                                <span class="push__name">EduAsiste</span>
+                                <span class="push__ago l-en">now</span><span class="push__ago l-es">ahora</span>
+                            </span>
+                            <div class="push__title l-en">Someone viewed your work</div><div class="push__title l-es">Alguien vio tu trabajo</div>
+                            <div class="push__body l-en">Mom looked at your information.</div><div class="push__body l-es">Mamá miró tu información.</div>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FRAME 4: empty state -->
+            <div class="frame">
+                <div class="frame__cap"><span class="n">4</span><span class="l-en">Empty state</span><span class="l-es">Estado vacío</span></div>
+                <div class="win">
+                    <div class="side" style="border:0;">
+                        <div class="side__head">
+                            <h2><span class="l-en">Who looked at your work</span><span class="l-es">Quién miró tu trabajo</span></h2>
+                            <p>
+                                <span class="l-en">Every time a parent or teacher looks at your information, it shows up here. There's no hidden monitoring.</span>
+                                <span class="l-es">Cada vez que un padre o profesor mira tu información, aparece aquí. No hay monitoreo oculto.</span>
+                            </p>
+                        </div>
+                        <div class="log__empty">
+                            <span class="big" aria-hidden="true">🔒</span>
+                            <span class="l-en">No one has looked at your work yet.</span>
+                            <span class="l-es">Todavía nadie ha mirado tu trabajo.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <p class="backlink"><a href="index.html">← <span class="l-en">Back to dashboard preview</span><span class="l-es">Volver a la vista previa</span></a></p>
+</div>
+
+<script>
+(function () {
+    var buttons = document.querySelectorAll('.lang-btn');
+    function setLang(lang) {
+        document.documentElement.setAttribute('data-lang', lang);
+        document.documentElement.setAttribute('lang', lang);
+        buttons.forEach(function (b) {
+            b.setAttribute('aria-pressed', String(b.dataset.langSet === lang));
+        });
+        try { localStorage.setItem('accessLogLang', lang); } catch (e) {}
+    }
+    buttons.forEach(function (b) {
+        b.addEventListener('click', function () { setLang(b.dataset.langSet); });
+    });
+    var saved;
+    try { saved = localStorage.getItem('accessLogLang'); } catch (e) {}
+    var url = new URLSearchParams(window.location.search).get('lang');
+    setLang(url || saved || 'en');
+})();
+</script>
+</body>
+</html>
